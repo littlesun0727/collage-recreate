@@ -1,0 +1,35 @@
+# Local Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Credentials and local deployment configuration
+.env
+.env.*
+!.env.example
+config.local.yaml
+config.local.yml
+config.local.json
+secrets/
+*.pem
+*.key
+
+# Private inputs, generated assets, and runtime logs belong outside the repo
+work/
+artifacts/
+outputs/
+private/
+*.log
+
+# Editor and operating-system files
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
