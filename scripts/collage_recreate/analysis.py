@@ -141,10 +141,17 @@ def _bounds(rect, size, location):
             "RECT_INVALID", f"{location}: use [x, y, width, height] inside {size}")
 
 
+def _independent_layers(draft):
+    """Attachment metadata owns placement, including for already expanded input."""
+    attached = {o.id for o in draft.overlays if o.attachment is not None}
+    return [layer for layer in draft.layer_order
+            if not (layer.type == "overlay" and layer.id in attached)]
+
+
 def expanded_layers(draft):
-    """Attached overlays move/stack with their photo; never create a relation graph."""
+    """Rebuild attached layers once, in overlays array order on each photo side."""
     result = []
-    for layer in draft.layer_order:
+    for layer in _independent_layers(draft):
         if layer.type == "slot":
             result.extend({"type": "overlay", "id": o.id} for o in draft.overlays
                           if o.attachment and o.attachment.slot_id == layer.id and o.attachment.position == "below")
@@ -179,14 +186,15 @@ def validate_draft(input_path, reference):
         ("overlay", o.id) for o in draft.overlays if o.attachment is None}
     if background_id is None:
         expected.add(("background", None))
-    actual = [(layer.type, layer.id) for layer in draft.layer_order]
+    actual = [(layer.type, layer.id) for layer in _independent_layers(draft)]
     require(len(actual) == len(set(actual)), "LAYER_ORDER_INVALID", "layer_order contains duplicates")
     require(set(actual) == expected, "LAYER_ORDER_INVALID",
             "layer_order mismatch; missing=" + str(sorted(expected-set(actual), key=str)) +
             "; unexpected=" + str(sorted(set(actual)-expected, key=str)) +
-            ". List each image/text and independent overlay once; attached overlays are expanded automatically.")
+            ". List every image slot, text and independent overlay exactly once.")
     bottom = ("slot", background_id) if background_id is not None else ("background", None)
     require(actual[0] == bottom, "BACKGROUND_INVALID", "Background must be the bottom layer")
+    draft.layer_order = [Layer.model_validate(layer) for layer in expanded_layers(draft)]
     return draft, source
 
 

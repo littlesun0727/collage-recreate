@@ -4,7 +4,9 @@
 
 ## 看图和决定制作范围
 
-先用图片工具看完整参考，用 inspect_reference.py 读尺寸。按需看局部，足够理解主要元素后就写草案；不要反复裁切所有笔触。框选、分类和外观判断均以原图为准。
+先用图片工具看完整参考，用 inspect_reference.py 读尺寸。**初稿前每张图只看一次整图，最多一批、4 个必要局部**，同一局部不反复扩大/缩小重看。达到该上限就写粗草案：读不清的文字为 null，边界给可靠粗范围，不确定归属写 questions，不为了消除疑点拖延初稿。
+
+**初稿前禁止另写像素扫描、颜色阈值、边缘检测或坐标搜索代码。** 精定位统一交给一次 refine；主控负责粗范围和制作语义。不要把检查工作提前到“观察”阶段规避预算，也不要重新计为一轮分析。缺少精确颜色、像素边界或细笔触，不阻止草案交付。框选与分类以原图为准。
 
 - **背景按类型处理**：风景、人物、生活照等摄影底图默认设为客户背景图片槽，不清除整张参考上的前景再补景。有客户素材才绑定具体文件，没有则记录待提供。格纹、报纸、纸张等设计底板走固定背景；有干净底板就复用，有覆盖内容才清版/重绘。纯色/简单渐变用确定性工具。客户明确保留原摄影背景时优先遵从，并记录该要求；混合背景分清摄影底图与前景装饰。
 - **图片 slots**：仅客户可替换图片。框选照片内容，不含另做的边框/标签；保留环境用 photo，柔边用 photo_feather，明确剪影才用 cutout，不确定用 unknown。
@@ -67,31 +69,52 @@ basic_shape 仅表达一个几何形状，不能包含 text_content；带固定�
 
 ### layer_order / questions
 
-layer_order 从底到顶，条目为 {"type":"background"} 或 {"type":"slot|text|overlay","id":"…"}，其中 type 写实际一种值。背景必须最底；每个图片槽、文字、独立装饰出现一次。附属装饰不重复列，工具自动展开为 below 装饰 → 照片 → above 装饰，同侧按 overlays 数组顺序。
+layer_order 从底到顶，条目为 {"type":"background"} 或 {"type":"slot|text|overlay","id":"…"}，其中 type 写实际一种值。背景必须最底：固定背景用 {"type":"background"}；客户图片背景用 {"type":"slot","id":"对应背景槽 ID"}，两者不同时写。每个图片槽、文字、独立装饰**必须出现且仅出现一次**。
 
 questions 为非空字符串数组，无疑点用 []。写清对象、未确定内容及影响。定位工具会补充失败项，未解决前不视为制作就绪。
 
-## 批量定位与复核
+## 一次定位、一次看图、结束
 
-先写粗草案，直接调用 refine（内部包含结构校验），无需先重复 check/preview：
-
-~~~powershell
-python scripts/refine_layout.py --reference reference.png --input analysis/draft.json --output analysis/refine-01
-~~~
-
-工具需要 requirements-localization.txt；输出 draft.refined.json、localization.json、comparison.png 和 index.html，附 review/index.html 可点击预览。草案每项仍只有 source_rect；粗框、候选、算法参数、待复核原因在诊断文件中。参考、原草案和已有输出不覆盖。
-
-- photo：搜索粗框附近有支持的照片边界，强边框不等于照片边界。
-- texts / overlays：有 locate_colors 时使用局部颜色与连通区域；否则尝试均匀背景上的局部对比度。保留多个分散笔触，不只取最大连通区。本版本不包含 OCR，不能纠正错字或辨认目标语义。
-- 搜索触边时有限扩展；无前景、背景复杂、边界不稳定或照片边缘冲突时 needs_review，**保留粗框**，候选只在诊断中展示。cutout/photo_feather/unknown 不假装已完成语义分割。
-- 背景槽保持满画布。仅 status=refined 的候选自动写入新草案；它表示算法已采用，visual_status 仍为 unreviewed。全流程不是生产抠图，被遮挡部分和透视也没有自动恢复。
-- 打开 comparison.png/index.html：红为粗框，绿为采用候选，黄为待复核候选。核对照片内区、文字尾笔、分散装饰、整体范围以及误收进来的邻居。需要看局部时再 crop；仅调整失败项，避免每次遍历重做全部元素。
-
-草案修改后可用 --reuse analysis/refine-01 复用旧定位缓存，输出改为新目录。输入图、相关元素、依赖/算法变化会失效。若手动修正并保留原框，使用 review_analysis.py 做普通复核即可，不必不断 refine。
+同一客户请求使用一个固定任务根目录，例如 analysis；多张参考按图片摘要分别累计预算。先写粗草案，直接 refine，内部已经完成结构校验、定位和预览，前后都不额外 check/preview：
 
 ~~~powershell
-python scripts/review_analysis.py check --reference reference.png --input analysis/draft.json
-python scripts/review_analysis.py preview --reference reference.png --input analysis/draft.json --output analysis/review-01
+python scripts/refine_layout.py --task analysis --reference reference.png --input analysis/draft.json --output analysis/refine-01
 ~~~
 
-编号顺序为图片、文字、装饰；HTML 可分类筛选并查看照片归属及展开层级。结构校验与算法状态不等于视觉通过；所有疑点、原始草案和旧预览保留。本步交付有效草案、对照预览和待确认项，再按 [工程格式](project.md) 准备素材。
+工具输出简短 JSON：draft、comparison、preview、needs_review 和 workflow。直接打开 comparison 图片看一次；不常规读取完整 localization.json、源码或探测内部函数。需要细看已发现的异常时，最多追加一批针对这些区域的 crop。
+
+### 可用即结束
+
+主要图片、可改文字、装饰已覆盖且归属明确，草案结构有效，没有已知阻止素材准备的问题，就结束。轻微边缘偏差、细线/光晕、难认的字、待提供素材和 needs_review 都可作为疑点交付，不自动触发修正。算法采用不等于视觉精确；不要声称已完成素材抠图或工程制作。
+
+实际看过预览后，记录一次最终决定：
+
+~~~powershell
+python scripts/review_analysis.py finish --task analysis --reference reference.png --decision usable_with_questions --note "主要对象与分类已核对；具体未确认对象及影响……"
+~~~
+
+decision 为 usable / usable_with_questions / not_ready。note 写真实观察；有程序待复核项或 questions 时，工具会保留 usable_with_questions，不会为了结束把疑点删掉。finish 不重新校验/定位，不要求追加看图；记录后立即返回草案、预览、状态和未解决项。工具的 visual_status 仍为 unreviewed，review_note 是主控观察声明，不是独立视觉验收。
+
+### 仅一次定向修正
+
+只有结构错误、主要对象漏掉/归错类、框明显选错对象、违背客户明确要求等问题，才能使用剩余的一次机会。结构排错和视觉修正共用预算。修改前明确对象、已有证据和预期改变，另存 corrected.json；不微调大量阈值追求精确：
+
+~~~powershell
+python scripts/refine_layout.py --task analysis --reference reference.png --input analysis/corrected.json --output analysis/refine-02 --issue wrong_object --reason "photo_a：粗框包含旁边文字，依据局部原图修正为照片内容区域"
+~~~
+
+issue 可为 structural / missing_element / wrong_assignment / wrong_object / customer_requirement。上次定位缓存自动复用，不要求再读缓存或显式传 --reuse。若只做了明确人工修正、不再需要算法定位，可用 review_analysis.py preview 替代第二次 refine，同样提供 --task / --issue / --reason，消耗同一预算。不要两者都跑。
+
+第二次检查后只看修改对象及受影响邻居并 finish，不能再检查第三次。格式/图层仍失败，或已知框明显漏掉主要照片内容、整行文字等重大问题时，返回 not_ready 和具体错误；不能因修正机会用完就把重大错误改称轻微偏差。已有有效草案但仅局部不确定则 usable_with_questions。工具输出 stop_rechecking=true 表示不再执行检查，若 next_action 为看一次预览再 finish，则只完成该结束动作。
+
+以下任一情况立即结束当前自动复核：相同输入已有结果；失败输入未变；修正后同一问题仍存在；预算已用完；没有新证据说明下一次能解决什么；继续需要读源码、试参数或修环境。不要更换文件名、任务根目录、参考副本或删除状态来重置预算。只有用户提出新的修改任务才能开始新任务。
+
+### 定位能力与文件
+
+需要 requirements-localization.txt。输出 draft.refined.json、localization.json、comparison.png、index.html 和可点击 review/index.html；粗框/候选/参数在诊断文件，每个草案元素仍仅一套 source_rect。原图、草案与已有输出不覆盖。
+
+- photo 使用局部边缘寻找照片内容边界，强外框不等于照片内区。
+- texts / overlays 使用近似色、局部对比度及多个连通区域，没有 OCR 或语义分割。cutout/photo_feather 不假装完成抠图。
+- 不确定候选保留粗框；背景槽保持满画布。红为粗框、绿为已采用候选、黄为待复核候选。候选可能误收邻居或漏笔触，needs_review 是提示，不是重试指令。
+- 缓存按图像、相关元素、算法与依赖失效；独立任务状态另按参考摘要记录检查次数、输入摘要、错误、最终决定。相同输入/仅诊断备注变化直接复用，不重复计算。
+- 编号顺序为图片、文字、装饰。有效草案供后续 [工程格式](project.md) 使用，不等于已经准备好客户素材或 project.json。

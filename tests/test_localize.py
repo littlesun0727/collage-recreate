@@ -141,7 +141,7 @@ def test_cli_reports_review_separately_from_technical_success(tmp_path):
     ref,path,_=make_case(tmp_path,Image.new("RGB",(90,80),"gray"),
                           overlays=[overlay([20,20,30,30],["red"])])
     proc=subprocess.run([sys.executable,str(Path(__file__).parents[1]/"scripts/refine_layout.py"),
-                         "--reference",str(ref),"--input",str(path),"--output",str(tmp_path/"cli")],
+                         "--task",str(tmp_path/"task"),"--reference",str(ref),"--input",str(path),"--output",str(tmp_path/"cli")],
                          capture_output=True,text=True,encoding="utf-8")
     assert proc.returncode==0,proc.stderr
     result=json.loads(proc.stdout)

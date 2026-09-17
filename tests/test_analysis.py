@@ -82,6 +82,67 @@ def test_below_and_above_attachments_keep_array_order(draft_case):
         None, "shadow_a", "shadow_b", "photo_a", "frame", "accent", "caption"]
 
 
+@pytest.mark.parametrize("placement", ["omitted", "before_background", "after_text", "repeated"])
+def test_attachment_references_are_normalized_without_changing_input(draft_case, placement):
+    reference, path, data = draft_case
+    attached = {"type": "overlay", "id": "frame"}
+    if placement in ("before_background", "repeated"):
+        data["layer_order"].insert(0, attached.copy())
+    if placement in ("after_text", "repeated"):
+        data["layer_order"].extend([attached.copy(), attached.copy()])
+    write_json(path, data)
+    original = path.read_bytes()
+    draft, _ = validate_draft(path, reference)
+    expected = [
+        {"type": "background"}, {"type": "slot", "id": "photo_a"},
+        {"type": "overlay", "id": "frame"}, {"type": "overlay", "id": "accent"},
+        {"type": "text", "id": "caption"},
+    ]
+    assert [layer.model_dump(exclude_none=True) for layer in draft.layer_order] == expected
+    assert check_draft(path, reference)["expanded_layer_order"] == expected
+    assert path.read_bytes() == original
+
+
+def test_attachment_order_survives_refine_and_revalidation(draft_case, tmp_path):
+    from collage_recreate.localize import refine_layout
+
+    reference, path, data = draft_case
+    photo_b = deepcopy(data["slots"][0])
+    photo_b.update(id="photo_b", source_rect=[135, 65, 70, 85])
+    data["slots"].append(photo_b)
+    for name, parent, side in [
+        ("above_b", "photo_b", "above"),
+        ("below_a", "photo_a", "below"),
+        ("above_a", "photo_a", "above"),
+        ("below_b", "photo_b", "below"),
+        ("below_a_second", "photo_a", "below"),
+    ]:
+        extra = deepcopy(data["overlays"][0])
+        extra.update(id=name, attachment={"slot_id": parent, "position": side})
+        data["overlays"].append(extra)
+    data["layer_order"].insert(3, {"type": "slot", "id": "photo_b"})
+    # Explicit attached entries have deliberately conflicting order and duplicates.
+    extras = [{"type": "overlay", "id": name}
+              for name in ("above_a", "below_b", "frame", "below_a_second", "above_b", "frame", "below_a")]
+    data["layer_order"] = extras + data["layer_order"] + extras
+    write_json(path, data)
+    original = path.read_bytes()
+    result = refine_layout(path, reference, tmp_path / "refined")
+    refined = json.loads(Path(result["draft"]).read_text(encoding="utf-8"))
+    expected_ids = [None, "below_a", "below_a_second", "photo_a", "frame", "above_a",
+                    "accent", "below_b", "photo_b", "above_b", "caption"]
+    assert [layer.get("id") for layer in refined["layer_order"]] == expected_ids
+    checked = check_draft(result["draft"], reference)
+    assert [layer.get("id") for layer in checked["expanded_layer_order"]] == expected_ids
+    reparsed, _ = validate_draft(result["draft"], reference)
+    assert reparsed.model_dump() == Draft.model_validate(refined).model_dump()
+    html = (Path(result["draft"]).parent / "review/index.html").read_text(encoding="utf-8")
+    embedded = json.loads(re.search(r'<script type="application/json" id="data">(.*?)</script>', html, re.S)[1])
+    assert embedded["draft"] == reparsed.model_dump()
+    assert embedded["expanded_layer_order"] == checked["expanded_layer_order"]
+    assert path.read_bytes() == original
+
+
 def background_slot(data):
     slot = deepcopy(data["slots"][0])
     slot.update(id="background_photo", source_rect=[0, 0, 240, 160])
@@ -122,15 +183,22 @@ def test_attachment_only_to_photo(draft_case, target):
     assert error.value.code == "ATTACHMENT_INVALID"
 
 
-@pytest.mark.parametrize("change", ["duplicate", "missing", "attached", "unknown", "wrong_type", "background_top"])
+@pytest.mark.parametrize("change", ["duplicate", "missing", "missing_photo", "duplicate_text", "duplicate_overlay", "unknown", "wrong_type", "wrong_attachment_type", "background_top"])
 def test_layer_order_must_cover_independent_items_once(draft_case, change):
     order = draft_case[2]["layer_order"]
+    order.append({"type": "overlay", "id": "frame"})
     if change == "duplicate":
         order.append(order[1].copy())
     elif change == "missing":
-        order.pop()
-    elif change == "attached":
-        order.append({"type": "overlay", "id": "frame"})
+        order.pop(3)
+    elif change == "missing_photo":
+        order.pop(1)
+    elif change == "duplicate_text":
+        order.append(order[3].copy())
+    elif change == "duplicate_overlay":
+        order.append(order[2].copy())
+    elif change == "wrong_attachment_type":
+        order.append({"type": "slot", "id": "frame"})
     elif change == "unknown":
         order.append({"type": "overlay", "id": "absent"})
     elif change == "wrong_type":
@@ -207,7 +275,9 @@ def test_preview_binds_json_reference_and_preserves_inputs(draft_case, tmp_path)
     result = preview_draft(path, reference, tmp_path / "review")
     html = Path(result["preview"]).read_text(encoding="utf-8")
     embedded = json.loads(re.search(r'<script type="application/json" id="data">(.*?)</script>', html, re.S)[1])
-    assert embedded["draft"] == Draft.model_validate(data).model_dump()
+    expected = Draft.model_validate(data).model_dump()
+    expected["layer_order"].insert(2, {"type": "overlay", "id": "frame"})
+    assert embedded["draft"] == expected
     assert unusual not in html
     manifest = json.loads(Path(result["validation"]).read_text(encoding="utf-8"))
     assert embedded["source"] == manifest["source"]
@@ -234,13 +304,13 @@ def test_invalid_draft_creates_no_preview(draft_case, tmp_path):
 def test_cli_structured_success_and_failure(draft_case, tmp_path):
     reference, path, data = draft_case
     argv = [sys.executable, str(ROOT / "scripts/review_analysis.py"), "preview",
-            "--reference", str(reference), "--input", str(path), "--output", str(tmp_path / "cli-preview")]
+            "--task", str(tmp_path / "task"), "--reference", str(reference), "--input", str(path), "--output", str(tmp_path / "cli-preview")]
     success = subprocess.run(argv, capture_output=True, text=True, encoding="utf-8", env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"})
     assert success.returncode == 0
     assert json.loads(success.stdout)["visual_status"] == "unreviewed"
     data["layer_order"].pop()
     write_json(path, data)
-    failure = subprocess.run(argv, capture_output=True, text=True, encoding="utf-8", env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"})
+    failure = subprocess.run(argv + ["--issue", "structural", "--reason", "caption: restore missing layer reference"], capture_output=True, text=True, encoding="utf-8", env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"})
     assert failure.returncode == 1
     assert json.loads(failure.stdout)["error"]["code"] == "LAYER_ORDER_INVALID"
 

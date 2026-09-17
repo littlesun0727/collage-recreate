@@ -42,31 +42,30 @@ python scripts/inspect_reference.py --input reference.png --crop LEFT TOP RIGHT 
 
 成功返回 JSON ok=true；失败返回 ok=false/error，退出码 1；命令行语法错误退出码 2。查看记录和原图区域由工具会话保留。首次没有清晰局部需求时，读取元数据并看完整图即可。
 
-## 制作草案与复核预览
+## 草案定位与结束
 
-scripts/review_analysis.py 处理第一步 draft.json，字段见 [草案规范](analysis.md)。使用同一 Python 环境和随附 DejaVu；不创建 project.json，不调用生成服务。
-
-~~~powershell
-python scripts/review_analysis.py check --reference reference.png --input analysis/draft.json
-python scripts/review_analysis.py preview --reference reference.png --input analysis/draft.json --output analysis/review-01
-~~~
-
-- 无分析 init；Agent 直接写六字段草案。check 校验字段、原图像素矩形、唯一 ID、背景类型与槽、文字、装饰归属和层级完整性，只读输入。
-- preview 包含相同校验，在新目录生成 index.html、numbered.png、validation.json。HTML 内含原图和草案，可点选、筛选、查看照片归属和展开层级；PNG 编号先 slots、texts，再 overlays。
-- validation.json 自动记录真实参考的摘要/尺寸、草案摘要、编号映射及 expanded_layer_order。模型不填写来源或视图证据列表；查看/裁切操作保留在工具会话中。
-- 工具检查的是显式 --reference 与当前草案，不会凭空证明模型看过这张图。visual_status 始终为 unreviewed，须实际看预览和原图。
-- 原图、草案和已有预览只读；修改草案后选择新的 preview 输出目录。成功为 ok=true，失败 ok=false/error 和退出码 1，参数语法错误退出码 2。
-
-## 批量细化粗定位
-
-scripts/refine_layout.py 使用 requirements-localization.txt；基础 requirements.txt 仍可用于只渲染/交付，不带定位依赖。无 pip 的已有虚拟环境可使用 uv pip install --python .venv/Scripts/python.exe -r requirements-localization.txt。
+使用六字段 draft.json，正常路径仅一次 refine、一次看图、一次 finish。每张参考在同一 --task 内最多两次检查，结构报错也计数；普通 needs_review 不重试。详细判断见 [草案规范](analysis.md)。
 
 ~~~powershell
-python scripts/refine_layout.py --reference reference.png --input analysis/draft.json --output analysis/refine-01
-python scripts/refine_layout.py --reference reference.png --input analysis/draft.json --output analysis/refine-02 --reuse analysis/refine-01
+python scripts/refine_layout.py --task analysis --reference reference.png --input analysis/draft.json --output analysis/refine-01
+python scripts/review_analysis.py finish --task analysis --reference reference.png --decision usable_with_questions --note "实际看图结论与具体待确认项"
 ~~~
 
-输出新目录中的 draft.refined.json、localization.json、comparison.png、index.html 与 review/；masks/ 为局部搜索区调试掩码，坐标映射见 search_rect，不能作为生产素材。成功返回 counts、needs_review ID、cache_hits、耗时及路径。ok=true 只表示完成定位流程；未解决项保留粗框并进入新草案 questions。算法采用的候选仍需视觉复核。输入与已有输出不覆盖；没有模型调用、OCR 或素材生成。详细能力与失败规则见 [草案规范](analysis.md)。
+refine 包含结构校验、定位和预览，不另跑 check/preview。结果含 draft、comparison、preview、needs_review、workflow；直接看一次 comparison 后 finish。完整诊断留在 localization.json，调试 mask 不是生产素材。HTML 可点选、按图片/文字/装饰筛选并查看归属；原图、输入和旧产物不覆盖。工具先移除输入 layer_order 中的附属装饰引用，再按 attachment 的 below → 照片 → above 重建，同侧按 overlays 数组顺序；有效草案、预览和 expanded_layer_order 使用同一完整顺序。附属项多列或重复不会报错，图片槽、文字、独立装饰仍必须齐全且仅出现一次。
+
+只有明确的结构错误、主要对象遗漏/归错类、框选错对象、违背客户要求，才能另存修正草案并用第二次机会：
+
+~~~powershell
+python scripts/refine_layout.py --task analysis --reference reference.png --input analysis/corrected.json --output analysis/refine-02 --issue structural --reason "具体错误对象与修正"
+~~~
+
+issue：structural / missing_element / wrong_assignment / wrong_object / customer_requirement。工具自动使用同一参考上次定位的缓存，--reuse 仅用于已有兼容缓存。人工修正无需再定位时，可用 review_analysis.py preview --task ... --reference ... --input ... --output ... --issue ... --reason ... 替代第二次 refine。独立 check 也共用该两次预算，不是额外机会。正常客户流程不调用它。
+
+finish 的 decision 为 usable / usable_with_questions / not_ready。它保存主控实际复核说明并关闭该参考任务，不重新定位；有待复核项不会被声明为全通过。相同输入直接复用旧结果，finish 后不同输入被拒绝。终态、尝试次数及输入摘要保存在 TASK/.state/analysis/<参考摘要>.json。同图副本、更换输入/输出路径不重置预算。不要删状态或改 task 绕过限制。
+
+宿主可设置 COLLAGE_ANALYSIS_TASK_ROOT 为固定任务绝对路径，CLI 会拒绝不同的 --task；隔离实测使用此机制。看图次数由 skill 约束并以工具会话核对，本地脚本只能计数它实际执行的检查/预览生成，不能拦截宿主直接调用 view_image。
+
+定位另装 requirements-localization.txt（当前 NumPy 版本要求 Python >=3.12），基础渲染/导出不依赖 OpenCV。环境缺依赖时返回错误并结束，不让生产主控现场安装或读源码调试。无 pip 的开发虚拟环境可使用 uv pip install --python .venv/Scripts/python.exe -r requirements-localization.txt。
 
 ## 离线可执行示例
 
@@ -89,6 +88,7 @@ python scripts/refine_layout.py --reference reference.png --input analysis/draft
 - export.py：筛选工程使用的资源并打包独立运行代码。
 - demo.py：可执行离线示例。
 - scripts/review_analysis.py、collage_recreate/analysis.py：六字段草案校验、附属层展开和编号/交互预览。
+- collage_recreate/analysis_session.py：共享检查预算、未变输入复用与结束状态。
 - scripts/refine_layout.py、collage_recreate/localize.py：批量局部定位、缓存与前后对照。
 - scripts/inspect_reference.py：分析前的尺寸/摘要读取和原图坐标局部裁切；无远端调用。
 
