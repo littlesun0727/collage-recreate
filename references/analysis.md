@@ -4,9 +4,9 @@
 
 ## 看图和决定制作范围
 
-先用图片工具看完整参考，用 inspect_reference.py 读尺寸。**初稿前每张图只看一次整图，最多一批、4 个必要局部**，同一局部不反复扩大/缩小重看。达到该上限就写粗草案：读不清的文字为 null，边界给可靠粗范围，不确定归属写 questions，不为了消除疑点拖延初稿。
+先用图片工具看完整参考，用 inspect_reference.py 读尺寸。**初稿前每张图只看一次整图，最多一批、4 个必要局部**，同一局部不反复扩大/缩小重看。达到该上限就写草案：框按完整对象的可见范围定位，读不清的文字为 null，不确定归属写 questions。
 
-**初稿前禁止另写像素扫描、颜色阈值、边缘检测或坐标搜索代码。** 精定位统一交给一次 refine；主控负责粗范围和制作语义。不要把检查工作提前到“观察”阶段规避预算，也不要重新计为一轮分析。颜色、边缘与细微笔触的精度不足，不阻止先交付草案；主要内容仍须识别并覆盖完整。框选与分类以原图为准。
+**模型负责识别对象及其完整位置范围；程序负责坐标转换和局部边缘微调。** refine 不会重新识别对象、找回漏项或纠正整体错位。初稿前不另写像素扫描、颜色阈值、边缘检测或坐标搜索代码；不增加观察轮次或重置预算。轻微边缘误差可记疑点，选错对象或裁缺主体不能交给 refine 兜底。
 
 目标：**保留必要的可编辑性，用尽量少的制作单元完成复刻。**
 
@@ -26,9 +26,11 @@
 
 顶层恰为 background、slots、texts、overlays、layer_order、questions。所有 ID 跨三类元素唯一，为小写字母开头，后接小写字母、数字、下划线或短横线，最长 64。
 
-每个元素只写一套 source_rect：朝向归一后的**原图整数像素 [x,y,width,height]**，正宽高、在画布内。粗框必须覆盖该项描述中全部纳入制作的内容，包括附属文字、分散点缀和完整可见线段；不能描述一个大组合却只框住主图案。程序负责局部边界细化，不能代替模型补齐未识别或未覆盖的远处内容。实际输出布局由 project.json 的 x/y/width/height 及画布映射表示。inspect_reference.py 的 --crop 仍用 LEFT TOP RIGHT BOTTOM，换算交给脚本或简单算术，不混用。
+模型初稿中，每个元素只写 source_bbox_1000：**完整参考图的 0–1000 归一化整数 [x_min,y_min,x_max,y_max]**。整图左上角为 [0,0]，右下角为 [1000,1000]；横纵轴各自归一化，右下角不是宽高。直接按对象四边占整图宽高的比例定位，不先估像素再除以图片尺寸；看图工具等比例缩图不改变此比例。框应贴合并覆盖描述中全部制作内容，包括附属字、点缀及完整线段，不能只框主图案。
 
-共同字段：id、label、source_rect；review_notes 可省略，默认为空。可选 locate_colors 为 1–8 个 "#RRGGBB" 或标准颜色名，仅给已观察到的主要笔触色，作为局部定位提示。复杂背景上的彩色笔触可提供近似色；不清楚时省略，不要求精确取样，也不把摄影图片的主要颜色当笔触提示。
+refine/check/preview 按朝向归正后的原图宽高换算四边（四舍五入），再得到像素 source_rect=[x,y,width,height]；原始输入不覆盖。工具输出与旧草案继续使用像素 source_rect，不会再次转换。同一元素不能同时写两种字段，也不根据数字大小猜坐标系。修正模型初稿仍用 source_bbox_1000；复用工具输出时保留其 source_rect。工程 project.json 的像素布局不变。inspect_reference.py 的 --crop 仍用原图像素 LEFT TOP RIGHT BOTTOM，不接受归一化坐标。
+
+模型初稿共同字段：id、label、source_bbox_1000；review_notes 可省略，默认为空（overlays 的必填项见下文）。可选 locate_colors 为 1–8 个 "#RRGGBB" 或标准颜色名，仅给已观察到的主要笔触色，作为局部定位提示。复杂背景上的彩色笔触可提供近似色；不清楚时省略，不要求精确取样，也不把摄影图片的主要颜色当笔触提示。
 
 ### background
 
@@ -36,7 +38,7 @@
 ~~~json
 {"mode":"slot","kind":"photo","slot_id":"background_photo","review_notes":"摄影背景，待提供客户素材"}
 ~~~
-必须有对应 photo 图片槽，source_rect=[0,0,原图宽,原图高]，作为唯一最底层；不再叠一层固定背景。槽位规划不表示已经选择/确认客户文件。
+必须有对应 photo 图片槽，初稿 source_bbox_1000=[0,0,1000,1000]，作为唯一最底层；不再叠一层固定背景。槽位规划不表示已经选择/确认客户文件。
 
 固定设计底板：
 ~~~json
@@ -47,14 +49,14 @@ kind 可为 photo / texture / solid / unknown。固定 photo 必须另有非空 
 ### slots：客户图片
 
 ~~~json
-{"id":"photo_a","label":"照片","source_rect":[30,80,160,210],"mode":"photo","upload_hint":"提供替换照片","review_notes":""}
+{"id":"photo_a","label":"照片","source_bbox_1000":[100,200,450,650],"mode":"photo","upload_hint":"提供替换照片","review_notes":""}
 ~~~
 mode 为 photo / photo_feather / cutout / unknown。upload_hint 可省略。没有 type、default_text。
 
 ### texts：可编辑文字
 
 ~~~json
-{"id":"caption","label":"文案","source_rect":[20,30,180,40],"default_text":"准确原文","style_brief":"白色细体，居中","review_notes":""}
+{"id":"caption","label":"文案","source_bbox_1000":[100,50,800,120],"default_text":"准确原文","style_brief":"白色细体，居中","review_notes":""}
 ~~~
 default_text 必填，可为 null；style_brief 可省略。不填图片 mode/upload_hint。字体绑定、字号和实际排版留到工程阶段。
 
@@ -80,7 +82,7 @@ questions 为非空字符串数组，无疑点用 []。写清对象、未确定�
 
 ## 一次定位、一次看图、结束
 
-同一客户请求使用一个固定任务根目录，例如 analysis；多张参考按图片摘要分别累计预算。先写粗草案，直接 refine，内部已经完成结构校验、定位和预览，前后都不额外 check/preview：
+同一客户请求使用一个固定任务根目录，例如 analysis；多张参考按图片摘要分别累计预算。写好对象与完整范围后直接 refine，内部完成结构校验、坐标转换、局部微调和预览，前后都不额外 check/preview：
 
 ~~~powershell
 python scripts/refine_layout.py --task analysis --reference reference.png --input analysis/draft.json --output analysis/refine-01

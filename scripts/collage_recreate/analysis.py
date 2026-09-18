@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import base64
 import json
+from copy import deepcopy
 from pathlib import Path
 from typing import Annotated, Literal
 
@@ -162,9 +163,41 @@ def expanded_layers(draft):
     return result
 
 
+def _normalize_input_coordinates(data, size):
+    """Explicit input-only normalized xyxy; stored Draft geometry remains pixel xywh."""
+    data = deepcopy(data)
+    if not isinstance(data, dict):
+        return data
+    for category in ("slots", "texts", "overlays"):
+        items = data.get(category)
+        if not isinstance(items, list):
+            continue  # Structural errors are reported by the Draft schema.
+        for index, item in enumerate(items):
+            if not isinstance(item, dict) or "source_bbox_1000" not in item:
+                continue
+            location = f"{category}.{index}.source_bbox_1000"
+            require("source_rect" not in item, "COORDINATES_AMBIGUOUS",
+                    f"{location}: use either normalized source_bbox_1000 or pixel source_rect, not both")
+            box = item["source_bbox_1000"]
+            require(isinstance(box, list) and len(box) == 4
+                    and all(type(value) is int for value in box), "BBOX_INVALID",
+                    f"{location}: use four integer normalized [x_min,y_min,x_max,y_max] values")
+            x1, y1, x2, y2 = box
+            require(0 <= x1 < x2 <= 1000 and 0 <= y1 < y2 <= 1000,
+                    "BBOX_INVALID", f"{location}: ordered corners must lie within 0..1000")
+            left, right = round(x1 * size[0] / 1000), round(x2 * size[0] / 1000)
+            top, bottom = round(y1 * size[1] / 1000), round(y2 * size[1] / 1000)
+            require(right > left and bottom > top, "BBOX_TOO_SMALL",
+                    f"{location}: box collapses below one pixel on this reference; do not silently enlarge it")
+            item["source_rect"] = [left, top, right - left, bottom - top]
+            del item["source_bbox_1000"]
+    return data
+
+
 def validate_draft(input_path, reference):
-    draft = parse(Draft, read_json(input_path))
+    raw = read_json(input_path)
     source = load_image(Path(reference))
+    draft = parse(Draft, _normalize_input_coordinates(raw, source.size))
     items = [*draft.slots, *draft.texts, *draft.overlays]
     ids = [item.id for item in items]
     require(len(ids) == len(set(ids)), "ID_DUPLICATE", "IDs must be unique across slots/texts/overlays")

@@ -2,15 +2,65 @@
 
 更新日期：2026-09-18（Asia/Shanghai）。
 
-## 2026-09-18：简化制作单元规则并重跑全部样图（已授权，执行中）
+## 2026-09-18：OpenClaw 图片上限2048隔离对照（完成，明显改善但未整体通过）
+
+用户批准只提高图片上限测试。目录D:/codes/collage-recreate-work/20260918-max-image2048；使用agent exec --config的独立配置，仅agents.defaults.imageMaxDimensionPx改为2048。配置中的字符串使用临时进程环境引用，不落地密钥，不修改全局配置。相较grounding-responsibility-max，全部运行文件摘要及任务提示（除目录）相同，仍OpenClaw + bailian-token-plan/qwen3.8-max，同一日落相框图，只有一次调用，不生图。
+
+已核验实际会话seq13图片为1320×1767、445767字节，SHA256与原JPEG完全一致（e7c2f75ad7481a4306d4ca515f3d3dbb71573431abb9017fa1d3125c4cfdc16e）；本次看图工具没有缩小或重编码。离线接口消息序列化后字节亦一致；不证明服务端内部预处理。与先前896×1200图片不同，配置确实生效，预览回看分辨率也随之提高。
+
+本轮121.511秒、9条实际Max响应、9工具/0错误，1次refine及正式预览，正常stop；主控usable_with_questions，既有cleanup使runner exit1，未重跑。定位明显改善：照片/英文/中文框回到对应区域，小照片与两行英文细化更合理；但多拆右下背景街景并虚构第四个框，回形针裁缺、部分边框偏移，独立仍needs_revision。13项中5细化/1背景不变/7待复核。单次对照支持图像处理链路是重要影响因素，不认定缩图是唯一原因。
+
+入口http://127.0.0.1:18770/，正式public/review/index.html；RESULTS.md、control-audit.json、behavior-audit.json留存证据。预览与采用稿一致、原稿内容保留、保护文件未变。没有生图、Yibu调用、全局默认修改或整批重跑。当前授权实测已完成，后续建议保留原图输入再分别处理语义误拆与复核失真，尚未继续实施。
+
+## 2026-09-18：仅收敛 analysis.md 定位职责的同条件对照
+
+用户批准先验证提示词，不拆主控/VLM、不换服务。仅修改references/analysis.md四段：初稿按完整可见范围定位；模型负责对象及范围，refine只做坐标转换和局部边缘微调；直接按整图比例输出归一化框，不先估像素再换算。分类/合并策略、schema、代码、工具与检查预算保持不变。遵循skill-creator最小纠偏原则，替换旧表述而非叠加样图特例。
+
+工作目录D:/codes/collage-recreate-work/20260918-grounding-responsibility-max，before/保留改前文本。与上一轮normalized-skill-max冻结快照相比仅references/analysis.md不同，任务文本除隔离目录外相同，首次图片字节一致。skill校验、diff检查通过；代码未变，未重跑158项代码测试。
+
+唯一一次OpenClaw + bailian-token-plan/qwen3.8-max实测已完成：91.105秒、9条实际Max响应、9次工具、0工具错误；一次refine成功、正常stop、正式预览生成，模型usable_with_questions。独立视觉仍needs_revision：三照片与背景归属较上次合理，但照片/回形针/闪光/中文框严重偏移，英文细化仅剩第一行部分。事件18仍先估像素再除原图尺寸，事件27误把重大错位视为轻微偏差，未使用第二次机会；不能声称四段提示词改动解决了定位或证明唯一根因。
+
+control-audit.json确认预览与采用稿一致，11项仅英文框被refine改变；原稿与会话write内容相同（归档仅CRLF差异）。无状态改写，原图/冻结skill/全局配置未变；既有cleanup异常仍使runner exit1，未重跑。入口public/index.html（本机18769端口）、正式public/review/index.html，报告RESULTS.md。无Yibu调用、生图、整批重跑或架构修改；本次授权已完成，后续待用户决定。
+
+## 2026-09-18：归一化坐标入口与 OpenClaw Max 单图复测
+
+追加只读定位：已查明seq16先估像素范围，seq25报错后按1320/1767除法改成归一化；公开8个估值中7个与第二稿完全算术一致，另1个仅差1单位，所以第二稿没有重新grounding，只把错误估值换单位。view_image实际896×1200但文本未说明缩后尺寸；不能认定统一缩放系数是全部根因。实际接口为百炼anthropic-messages，与Yibu chat/completions不同。离线消息序列化验证tool_result图像字节完全保留，未丢图或二次改图；不证明远端内部实现。完整skill上下文与服务端兼容链路的影响尚待同端点短请求隔离。详情本轮DIAGNOSIS.md；本次没有新调用、运行修改或预算重置。
+
+用户已批准实现并用 OpenClaw + Qwen3.8-Max 测一张完整 skill。新增输入字段 source_bbox_1000（整图 0–1000 整数 xyxy），check/preview/refine 共享入口按 EXIF 归正尺寸转换成现有 source_rect 像素 xywh；保存格式、工程格式、六字段结构不变。旧像素草案继续支持，不靠数值猜尺度；双字段、非法范围或不足一像素的框显式拒绝；原始输入不覆盖。SKILL、analysis/tools 说明同步，不新增拆分规则或样图特例。
+
+离线验证：158 passed in 18.45s（新增19项），skill quick_validate 和 git diff --check 通过。结果目录 D:/codes/collage-recreate-work/20260918-normalized-skill-max，独立冻结当前运行文件，仅日落相框图，OpenClaw 指定 bailian-token-plan/qwen3.8-max；未改生产默认 Flash 或全局配置。
+
+真实单图已完成：148.689秒、13条实际qwen3.8-max响应、正常模型stop；14次工具/4次错误，2次检查均失败，最终not_ready，没有正式预览。首次source_bbox_1000却含1195/1340等越界值；第二稿框在范围内但仍明显偏移，随后因4个generation_brief=null被拒绝。模型自行补字段未再成功检查；不算通过，也未自动追加请求。模型覆写过初稿，两次write已从会话另存保全；无直接状态修改。既有cleanup异常导致runner exit1。
+
+独立原框诊断确认照片/字/回形针偏移及多拆一张背景照片，非预览渲染或refine引入；public/index.html是诊断叠图，不冒充有效skill预览。OpenClaw收到896×1200图片，与上一轮同图字节完全一致。与上次Yibu直调比较同时存在端点、输入方式、短提示词/完整skill、自主识别/指定目标差异，不能归因单变量。完整事实见本轮RESULTS.md。原图、冻结skill及全局配置摘要未变；无Yibu新调用、生图或整批重跑。下一步建议同端点同图片同短提示词隔离链路，尚未授权/执行。
+
+## 2026-09-18：Yibu API + Max 单图纯定位（完成调用，视觉未通过）
+
+最新追加：用户已批准再做一次0–1000归一化坐标对照，现已完成。目录为该实验下normalized/；同图字节、同yibuapi、同qwen3.8-max、同7目标及参数，仅变坐标协议。唯一新增请求HTTP200、reported_model=qwen3.8-max、stop、56.003秒。程序映射后，三张照片、回形针和两段字基本对齐；涂鸦右侧细线仍部分出框。未人工修框或refine，没有追加第三次请求。
+
+坐标尺度混用获得强支持：上次回形针x=650..726与本次归一化x=648..723接近，而正确映射像素为855..954；大照片及右下文字也类似，纵坐标却有不少已为像素。结论限定于本图本次对照，不证明所有历史错误的唯一原因。建议模型入口用归一化xyxy，程序转换为现有像素xywh；生产skill/代码仍未修改。并排入口http://127.0.0.1:18767/normalized/，详细报告normalized/RESULTS.md。以下段落保留第一轮失败与当时建议。
+
+用户提供本地yibu凭证并授权直接调用Qwen3.8-Max，先排查grounding。隔离目录D:/codes/collage-recreate-work/20260918-yibu-max-grounding。查询模型目录确认qwen3.8-max后，只发送日落相框图一次：原始1320×1767 JPEG，指定7个定位目标、像素xyxy，不加载skill或OpenClaw，不refine、不生图、不自动重试。密钥未输出或写入代码/报告。
+
+HTTP200，实际响应model=qwen3.8-max，stop，60.646秒；7个合法bbox，但独立看图仍有严重偏移/裁缺。不能将Max异常单独归因OpenClaw。部分横坐标疑似0–1000而纵坐标混用尺度，尚未证明；没有擅自乘比例修框。建议下一次仅改变坐标协议为归一化xyxy、由程序还原，并尽量对齐用户以前成功的API请求；第二次尚未执行。本轮只新增隔离实验及开发记录，运行skill、程序、凭证和全局配置未改。结果见该目录RESULTS.md、index.html、grounding.json、result.json。
+
+## 2026-09-18：简化制作单元规则并重跑全部样图（实测完成，待用户验收）
 
 用户已批准将讨论收敛为三条通用规则：可替换内容按用途独立；局部装饰默认整体制作，仅因实际编辑或外部遮挡需要拆分；先识别主体与装饰，再判断实际背景。现已更新 references/analysis.md 与 SKILL.md，并让半透明衬底遵循同一拆分原则；六字段、工具代码与两次检查预算不变。不写入特定动物、人物数量、位置或固定图层上限。
 
 本次最新授权是重跑 D:/datas/图片排版样图 的全部现存图片（含新加入样图，用户已删除一张重复图），已冻结 16 张，按摘要匹配到 11 张旧样图和 5 张新增图。新批次 D:/codes/collage-recreate-work/20260918-production-units-batch；修改前两个运行文档已备份到 before/。仅 OpenClaw + qwen3.8-flash 制作第一步，不生成素材、不建立 project.json；旧批次保留。
 
-quick_validate 已用现有 Anaconda Python 通过（项目 venv 无 PyYAML，未安装或改环境），git diff --check 通过。批跑已启动，2026-09-18T03:08:09Z 开始第一张；独立 OpenClaw 顺序执行，实际 responseModel 已核实为 qwen3.8-flash。过程与最终结果以新目录 manifest.json、各 case/summary.json、audit.json 为准。当前前三张已返回：01 主体与贴纸分类改善但仍拆碎且有裁缺，02 跨照片边框过度合并，03 两次结构失败后 not_ready、无预览；详见 review-notes.json。尚未宣称整批完成或视觉通过。本机验收页 http://127.0.0.1:18765/，新旧对照 comparison.html。
+quick_validate 已用现有 Anaconda Python 通过（项目 venv 无 PyYAML，未安装或改环境），git diff --check 通过。Flash 16图已返回，墙钟3425.379秒（57分5秒）；10份有效采用草案/预览、6份not_ready，15个正常模型stop、13号OpenClaw超时。354条实际响应为qwen3.8-flash，另1条本地aborted无模型值；349工具/51错误，0生图。16份逐图独立观察已记录，未认定视觉通过。本机验收页 http://127.0.0.1:18765/，新旧对照 comparison.html；实际结果以 manifest.json、各case/summary.json、audit.json 为准。
+
+Flash初稿前裁切超过文字上限的编号12/13/15，01有像素探查；每图工具检查不超过2次。10号状态被模型直接改写，不采信伪成功。原图、冻结skill和全局配置摘要核验无变化；模型初次写入从会话归档，未用修复稿冒充首次输出。既有cleanup异常仍在，未重跑。
+
+Max同条件三图对照已完成：D:/codes/collage-recreate-work/20260918-max-control，仍为OpenClaw + qwen3.8-max，尚未拆VLM接口。30条实际responseModel均为qwen3.8-max；3/3有效预览、3/3正常stop，墙钟318.206秒，33工具/3错误、0生图；没有初稿前裁切/像素扫描或状态直接改写。图片、skill、提示词（除目录）一致性核验通过，没有修改运行规则或全局配置。两组同三图有效预览为Flash 2/3、Max 3/3；不能拿Flash全16与Max仅3直接推总体成功率。
+
+独立结论：Max本次流程更顺，但01仍拆猫/可颂/星形，02缺相框制作项，三图多处粗框错位/裁缺，03仍把平台水印列入制作。三图均needs_revision，不把条目变少或模型usable_with_questions当作视觉通过。Flash/Max对照页 http://127.0.0.1:18765/model-comparison.html；详细诊断见新Flash目录DIAGNOSIS.md。建议先修复明确程序缺陷，再考虑小规模独立VLM入口对照；目前只有建议，没有修复、架构改造、追加模型或生图。
 
 ### 本轮执行中发现的流程问题（只读诊断，尚未修复）
+
+后续用户指出此前Max直接API的grounding更好。本次已只读核查：三图编号PNG内存重绘逐像素一致、HTML数据与采用稿一致；01所有坐标未经refine改变，02/03只改1项/3项，主要错框已存在于原稿。OpenClaw实际整图将1290×2306缩为671×1200、1320×1767缩为896×1200、960×1280缩为900×1200，草案却要求原图像素；缩放映射是待验证风险，尚不能认定唯一原因。两模型首次整图字节相同，但Flash01/03另看局部，Max没有；Agent全流程实测不能等同纯grounding对照。提示词要求粗框并依赖局部refine、Max自评忽略明显错框，均是需分开处理的问题。没有重跑API、修改规则/代码/全局配置；新直接API小对照尚待授权。详细证据与归因限制已补入DIAGNOSIS.md。
 
 - 10《拼贴2》两次结构失败后，模型在会话事件 93/108/120 直接改写 .state 中的备注、输入摘要和第二次检查 result.ok；真正工具返回仍是失败。离线报告不采信被改写的成功标志。准备停止时会话已正常自行结束，未实际终止进程。
 - 13《拼贴5》初稿前大量重复裁切，最终运行 614.653 秒，OpenClaw timeout（exit 2），没有正常模型 stop 或预览。准备停止时它已超时退出，未实际终止进程，也未重发请求。
@@ -19,7 +69,7 @@ quick_validate 已用现有 Anaconda Python 通过（项目 venv 无 PyYAML，�
 
 ## 2026-09-18：批跑反馈——先识别替换主体，按制作组合合并（方案讨论）
 
-> 续接补充：用户在本轮执行中要求比较 Qwen3.8-Max，并只读比较 figcopy 的分析流程。已准备 D:/codes/collage-recreate-work/20260918-max-control，选择当前 01/02/03 三图；control-verification.json 已确认图片、冻结 skill 和任务提示词（除工作目录）一致。OpenClaw 配置已有 bailian-token-plan/qwen3.8-max，输入声明支持 image；尚未启动 Max 调用，约定 Flash 全批完成后执行。不得把准备完成冒充 Max 结果，也不擅自实现分析架构拆分。
+> 续接补充：用户在本轮执行中要求比较 Qwen3.8-Max，并只读比较 figcopy 的分析流程。已在Flash全批完成后运行01/02/03三图，结果与独立结论见本文顶部；control-verification.json确认输入一致，实际responseModel确认qwen3.8-max。未擅自实现分析架构拆分。以下讨论保留历史，不覆盖最新实测状态。
 >
 > figcopy 只读证据：template/analysis.py 调 provider.analyze，程序负责画布、元数据、校验和预览；providers/yibu/vision.py 会把 ANALYSIS_PROMPT、canvas、product_policy、_DRAFT_CONTRACT 一起发送，并非只有短提示词。代码默认模型为 kimi-k3，不等于已核实旧实测的实际模型。当前 collage-recreate 也具备尺寸、制作策略、JSON 契约，只是由主控读取文档并执行工具。可考虑独立 VLM 分析调用作为后续实验，不要以未验证假设直接改生产流程。
 

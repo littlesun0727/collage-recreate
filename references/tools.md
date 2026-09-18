@@ -46,6 +46,8 @@ python scripts/inspect_reference.py --input reference.png --crop LEFT TOP RIGHT 
 
 使用六字段 draft.json，正常路径仅一次 refine、一次看图、一次 finish。每张参考在同一 --task 内最多两次检查，结构报错也计数；普通 needs_review 不重试。详细判断见 [草案规范](analysis.md)。
 
+模型初稿用 source_bbox_1000（整图0–1000整数xyxy）；refine/check/preview 共用解析入口，按朝向归正后的原图宽高转换为像素 source_rect（xywh）。原始文件不覆盖；工具输出和旧像素草案仍可直接使用。同一元素同时含两字段、非法范围或换算后零面积会报错，不猜尺度或静默裁框。
+
 ~~~powershell
 python scripts/refine_layout.py --task analysis --reference reference.png --input analysis/draft.json --output analysis/refine-01
 python scripts/review_analysis.py finish --task analysis --reference reference.png --decision usable_with_questions --note "实际看图结论与具体待确认项"

@@ -57,6 +57,105 @@ def save_check(case):
     return check_draft(path, reference)
 
 
+def test_normalized_coordinates_all_categories_are_input_only(draft_case, tmp_path):
+    reference, path, data = draft_case
+    for category in ("slots", "texts", "overlays"):
+        for item in data[category]:
+            item.pop("source_rect")
+            item["source_bbox_1000"] = [100, 200, 900, 800]
+    write_json(path, data)
+    before = path.read_bytes()
+    draft, _ = validate_draft(path, reference)
+    for item in [*draft.slots, *draft.texts, *draft.overlays]:
+        assert item.source_rect == [24, 32, 192, 96]
+        assert "source_bbox_1000" not in item.model_dump()
+    assert path.read_bytes() == before
+    canonical = tmp_path / "canonical.json"
+    write_json(canonical, draft.model_dump())
+    assert validate_draft(canonical, reference)[0] == draft
+    preview = preview_draft(path, reference, tmp_path / "normalized-preview")
+    page = Path(preview["preview"]).read_text(encoding="utf-8")
+    embedded = json.loads(re.search(r'<script type="application/json" id="data">(.*?)</script>', page, re.S)[1])
+    assert embedded["draft"] == draft.model_dump()
+
+
+@pytest.mark.parametrize("box", [None, [], [1, 2, 3], [1, 2, 3, 4, 5],
+    [True, 0, 1000, 1000], [0.5, 0, 1000, 1000], ["0", 0, 1000, 1000],
+    [-1, 0, 1000, 1000], [0, 0, 1001, 1000], [900, 0, 100, 1000], [0, 1, 1000, 1]])
+def test_invalid_normalized_boxes_rejected(draft_case, box):
+    item = draft_case[2]["slots"][0]
+    item.pop("source_rect")
+    item["source_bbox_1000"] = box
+    with pytest.raises(ToolError) as error:
+        save_check(draft_case)
+    assert error.value.code == "BBOX_INVALID"
+
+
+def test_normalized_and_pixel_fields_cannot_coexist(draft_case):
+    draft_case[2]["slots"][0]["source_bbox_1000"] = [0, 0, 1000, 1000]
+    with pytest.raises(ToolError) as error:
+        save_check(draft_case)
+    assert error.value.code == "COORDINATES_AMBIGUOUS"
+
+
+def test_subpixel_normalized_box_is_not_silently_enlarged(draft_case):
+    item = draft_case[2]["slots"][0]
+    item.pop("source_rect")
+    item["source_bbox_1000"] = [0, 0, 1, 1]
+    with pytest.raises(ToolError) as error:
+        save_check(draft_case)
+    assert error.value.code == "BBOX_TOO_SMALL"
+
+
+def test_normalized_background_maps_to_full_non_square_canvas(draft_case):
+    reference, path, data = draft_case
+    data.update(background={"mode":"slot", "kind":"photo", "slot_id":"photo_a", "review_notes":""},
+                texts=[], overlays=[], layer_order=[{"type":"slot", "id":"photo_a"}])
+    data["slots"][0].pop("source_rect")
+    data["slots"][0]["source_bbox_1000"] = [0, 0, 1000, 1000]
+    save_check(draft_case)
+    assert validate_draft(path, reference)[0].slots[0].source_rect == [0, 0, 240, 160]
+
+
+def test_pixel_rectangles_below_1000_are_not_guessed_as_normalized(draft_case):
+    reference, path, data = draft_case
+    assert validate_draft(path, reference)[0].slots[0].source_rect == data["slots"][0]["source_rect"]
+
+
+def test_normalized_refine_persists_pixels_and_preserves_original(draft_case, tmp_path):
+    from collage_recreate.localize import refine_layout
+    reference, path, data = draft_case
+    item = data["slots"][0]
+    item.pop("source_rect")
+    item.update(source_bbox_1000=[100, 200, 900, 800], mode="photo_feather")
+    write_json(path, data)
+    before = path.read_bytes()
+    result = refine_layout(path, reference, tmp_path / "normalized-refine")
+    effective = json.loads(Path(result["draft"]).read_text(encoding="utf-8"))
+    assert effective["slots"][0]["source_rect"] == [24, 32, 192, 96]
+    assert "source_bbox_1000" not in effective["slots"][0]
+    assert validate_draft(result["draft"], reference)[0].slots[0].source_rect == [24, 32, 192, 96]
+    assert path.read_bytes() == before
+
+
+@pytest.mark.parametrize("oriented", [False, True])
+def test_normalized_mapping_uses_oriented_dimensions_and_rounds_edges(draft_case, oriented):
+    reference, path, data = draft_case
+    image = Image.new("RGB", (203, 107), "gray")
+    exif = Image.Exif()
+    if oriented:
+        exif[274] = 6
+    image.save(reference, exif=exif)
+    data.update(texts=[], overlays=[], layer_order=[{"type":"background"}, {"type":"slot", "id":"photo_a"}])
+    item = data["slots"][0]
+    item.pop("source_rect")
+    item["source_bbox_1000"] = [101, 203, 899, 801]
+    write_json(path, data)
+    draft, source = validate_draft(path, reference)
+    assert source.size == ((107, 203) if oriented else (203, 107))
+    assert draft.slots[0].source_rect == ([11, 41, 85, 122] if oriented else [21, 22, 161, 64])
+
+
 def test_check_program_records_source_and_expands_attachment(draft_case):
     reference, path, data = draft_case
     before = (reference.read_bytes(), path.read_bytes())
