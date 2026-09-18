@@ -15,11 +15,16 @@ def main(argv=None):
         command = commands.add_parser(name)
         command.add_argument("--task", required=True, help="The same analysis task root as refine")
         command.add_argument("--reference", required=True)
+        command.add_argument("--pipeline", choices=["legacy", "inventory_v1"])
         if name == "finish":
             command.add_argument("--decision", required=True, choices=DECISIONS)
             command.add_argument("--note", required=True, help="Actual visual review and remaining issues")
         else:
             command.add_argument("--input", required=True)
+            command.add_argument("--inventory")
+            command.add_argument("--mapping")
+            command.add_argument("--review-stage", choices=["draft", "geometry"])
+            command.add_argument("--object-id", action="append", default=[])
             command.add_argument("--issue", choices=ISSUES)
             command.add_argument("--reason")
             if name == "preview":
@@ -28,10 +33,12 @@ def main(argv=None):
     start = time.monotonic()
     try:
         if args.operation == "finish":
-            result = finish_draft(args.task, args.reference, args.decision, args.note)
+            result = finish_draft(args.task, args.reference, args.decision, args.note, pipeline=args.pipeline)
         else:
             result = run_draft_operation(args.task, args.input, args.reference, args.operation,
-                        output=getattr(args, "output", None), issue=args.issue, reason=args.reason)
+                        output=getattr(args, "output", None), issue=args.issue, reason=args.reason,
+                        pipeline=args.pipeline, inventory=args.inventory, mapping=args.mapping,
+                        review_stage=args.review_stage, object_ids=args.object_id)
     except ToolError as exc:
         result = {"ok":False, "error":{"code":exc.code, "message":str(exc)}}
     except OSError:

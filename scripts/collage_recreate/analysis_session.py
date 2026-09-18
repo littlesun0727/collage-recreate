@@ -24,7 +24,7 @@ def state_path(task, reference):
     return folder / (source_hash + ".json"), source_hash
 
 
-def fingerprint(path):
+def fingerprint(path, *, full=False):
     """Ignore JSON formatting, paths and review-only notes, not production decisions."""
     try:
         data = read_json(path)
@@ -36,17 +36,42 @@ def fingerprint(path):
         if isinstance(value, list):
             return [clean(v) for v in value]
         return value
-    return digest(clean(data))
+    return digest(data if full else clean(data))
+
+
+def _save(path, state):
+    payload = {k: v for k, v in state.items() if k != "payload_hash"}
+    state["payload_hash"] = digest(payload)
+    write_json(path, state)
 
 
 def _load(path, source_hash):
     if path.exists():
         state = read_json(path)
-        require(state.get("version") == 1 and state.get("source_sha256") == source_hash,
-                "STATE_INVALID", "Analysis state is incompatible; preserve it and stop")
+        require(state.get("version") == 2, "STATE_LEGACY",
+                "Preserve historical unsigned state; inspect it with its frozen runtime, never reset its budget")
+        payload = {k: v for k, v in state.items() if k != "payload_hash"}
+        require(state.get("payload_hash") == digest(payload), "STATE_TAMPERED",
+                "Analysis state changed outside its writer; preserve evidence and stop")
+        require(state.get("source_sha256") == source_hash, "STATE_INVALID", "Reference differs from state")
         return state
-    return {"version": 1, "source_sha256": source_hash, "phase": "new",
-            "attempts": [], "decision": None, "review_note": None}
+    return {"version": 2, "source_sha256": source_hash, "pipeline": None, "phase": "new",
+            "attempts": [], "decision": None, "review_note": None,
+            "inventory_checks": [], "correction": None}
+
+
+def _select_pipeline(state, path, pipeline=None):
+    pinned = os.environ.get("COLLAGE_ANALYSIS_PIPELINE")
+    require(not pinned or not pipeline or pinned == pipeline, "PIPELINE_MISMATCH",
+            "Use the pipeline pinned for this task")
+    selected = pipeline or pinned or state.get("pipeline") or "legacy"
+    require(selected in ("legacy", "inventory_v1"), "PIPELINE_INVALID", "Unknown analysis pipeline")
+    require(state.get("pipeline") in (None, selected), "PIPELINE_MISMATCH",
+            "Changing pipelines cannot restart this task")
+    if state.get("pipeline") is None:
+        state["pipeline"] = selected
+        _save(path, state)
+    return selected
 
 
 def _response(state, path, result, *, reused=False, stop=False):
@@ -56,7 +81,7 @@ def _response(state, path, result, *, reused=False, stop=False):
               "view_preview_once_then_finish" if result.get("ok") and result.get("preview") else
               "one_targeted_correction_or_finish_not_ready")
     return {**result, "workflow": {
-        "state": str(path), "attempts_used": count, "max_attempts": LIMIT,
+        "state": str(path), "pipeline": state.get("pipeline"), "correction": state.get("correction"), "attempts_used": count, "max_attempts": LIMIT,
         "remaining_attempts": max(0, LIMIT-count), "reused": reused,
         "stop_rechecking": stop or terminal or count >= LIMIT,
         "next_action": action, "decision": state.get("decision"),
@@ -71,23 +96,41 @@ def _error(code, message):
 
 def _finish_failed(state, path, code, message):
     state.update(phase="finished", decision="not_ready", review_note=message)
-    write_json(path, state)
+    _save(path, state)
     return _response(state, path, _error(code, message), stop=True)
 
 
 def run_draft_operation(task, input_path, reference, operation, *, output=None, reuse=None,
-                        issue=None, reason=None):
+                        issue=None, reason=None, pipeline=None, inventory=None, mapping=None,
+                        review_stage=None, object_ids=None):
     path, source_hash = state_path(task, reference)
     try:
         with FileLock(str(path)+".lock", timeout=0):
             state = _load(path, source_hash)
-            key = fingerprint(input_path)
+            if _select_pipeline(state, path, pipeline) == "inventory_v1":
+                from .inventory_session import run_draft_locked
+                return run_draft_locked(state, path, input_path, reference, operation,
+                    output=output, reuse=reuse, issue=issue, reason=reason, inventory=inventory,
+                    mapping=mapping, review_stage=review_stage, object_ids=object_ids)
+            key = fingerprint(input_path, full=True)
             attempts = state["attempts"]
             last = attempts[-1] if attempts else None
             if state["phase"] == "running":
                 return _finish_failed(state, path, "CHECK_INTERRUPTED",
                                       "A previous check was interrupted; preserve its artifacts and stop")
-            same = bool(last and key in last.get("fingerprints", []))
+            same = bool(last and (key in last.get("fingerprints", []) or
+                ((last.get("result") or {}).get("ok") and fingerprint(input_path) in last.get("fingerprints", []))))
+            if state["phase"] != "finished" and same and last.get("result", {}).get("ok"):
+                from .analysis import validate_draft
+                try:
+                    current, _ = validate_draft(input_path, reference)
+                except ToolError:
+                    same = False
+                else:
+                    last["questions"] = list(dict.fromkeys([*last.get("questions", []), *current.questions]))
+                    last["review_updates"] = {"input": str(Path(input_path).resolve()),
+                                              "input_hash": key, "questions": last["questions"]}
+                    _save(path, state)
             if last and (last.get("result") or {}).get("ok") and (state["phase"] != "finished" or same):
                 saved = Path(last["result"]["draft"])
                 # A changed rough input may be the intentional correction. Generated
@@ -123,7 +166,7 @@ def run_draft_operation(task, input_path, reference, operation, *, output=None, 
                        "fingerprints": [key], "issue": issue, "reason": reason, "result": None}
             attempts.append(attempt)
             state["phase"] = "running"
-            write_json(path, state)  # Reserve before validation: failures and interruptions count too.
+            _save(path, state)  # Reserve before validation: failures and interruptions count too.
             try:
                 if operation == "refine":
                     from .localize import refine_layout
@@ -148,28 +191,35 @@ def run_draft_operation(task, input_path, reference, operation, *, output=None, 
             if result["ok"]:
                 artifact = Path(result["draft"])
                 attempt["draft_sha256"] = file_hash(artifact)
-                attempt["fingerprints"].append(fingerprint(artifact))
+                attempt["fingerprints"].extend([fingerprint(input_path), fingerprint(artifact)])
+                attempt["input_hash"] = key
                 attempt["questions"] = read_json(artifact).get("questions", [])
             elif len(attempts) >= LIMIT or result["error"]["code"] == "DEPENDENCY_MISSING":
                 state.update(phase="finished", decision="not_ready", review_note=result["error"]["message"])
-            write_json(path, state)
+            _save(path, state)
             return _response(state, path, result)
     except Timeout:
         raise ToolError("TASK_BUSY", "A check is already running for this reference; do not start another") from None
 
 
-def finish_draft(task, reference, decision, note):
+def finish_draft(task, reference, decision, note, *, pipeline=None):
     require(decision in DECISIONS and bool(note.strip()), "DECISION_INVALID", "Choose a decision and record the actual review")
     path, source_hash = state_path(task, reference)
     try:
         with FileLock(str(path)+".lock", timeout=0):
             state = _load(path, source_hash)
+            if _select_pipeline(state, path, pipeline) == "inventory_v1":
+                from .inventory_session import finish_locked
+                return finish_locked(state, path, decision, note)
             attempts = state["attempts"]
             require(bool(attempts), "CHECK_MISSING", "No checked draft exists; preserve the draft and report not_ready")
             last = attempts[-1]
             if state["phase"] == "finished":
                 result = last.get("result") or _error("CHECK_INTERRUPTED", "The previous check did not finish")
-                return _response(state, path, {**result, "decision": state["decision"]}, reused=True, stop=True)
+                if state["decision"] != "not_ready":
+                    require(Path(result["draft"]).is_file() and file_hash(result["draft"]) == last["draft_sha256"],
+                            "DRAFT_CHANGED", "The adopted draft changed after finish")
+                return _response(state, path, _terminal_result(state, result, last), reused=True, stop=True)
             result = last.get("result") or _error("CHECK_INTERRUPTED", "The previous check did not finish")
             if decision != "not_ready":
                 require(result["ok"] and result.get("preview"), "DRAFT_NOT_READY",
@@ -179,8 +229,29 @@ def finish_draft(task, reference, decision, note):
                 if result.get("needs_review") or last.get("questions"):
                     decision = "usable_with_questions"
             state.update(phase="finished", decision=decision, review_note=note.strip())
-            write_json(path, state)
-            return _response(state, path, {**result, "decision": decision,
-                             "review_note": note.strip(), "unresolved": last.get("questions", [])}, stop=True)
+            _save(path, state)
+            return _response(state, path, _terminal_result(state, result, last), stop=True)
     except Timeout:
         raise ToolError("TASK_BUSY", "A check is already running; do not finish it concurrently") from None
+
+
+def _terminal_result(state, result, last):
+    response = {**result, "ok": True, "draft_ready": bool(result.get("ok")) and state["decision"] != "not_ready",
+                "decision": state["decision"], "review_note": state.get("review_note"),
+                "unresolved": last.get("questions", [])}
+    if not result.get("ok"):
+        response["last_error"] = response.pop("error", None)
+    return response
+
+
+def run_inventory_check(task, input_path, reference, *, reason=None, pipeline="inventory_v1"):
+    path, source_hash = state_path(task, reference)
+    try:
+        with FileLock(str(path) + ".lock", timeout=0):
+            state = _load(path, source_hash)
+            require(_select_pipeline(state, path, pipeline) == "inventory_v1",
+                    "PIPELINE_MISMATCH", "Inventory requires inventory_v1")
+            from .inventory_session import check_locked
+            return check_locked(state, path, input_path, reason)
+    except Timeout:
+        raise ToolError("TASK_BUSY", "An analysis operation is already running") from None

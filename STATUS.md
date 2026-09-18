@@ -2,6 +2,36 @@
 
 更新日期：2026-09-18（Asia/Shanghai）。
 
+## 2026-09-18：inventory_v1 已实现，16 图 A/B 已完成
+
+用户已授权执行 [plan-2.md](plan-2.md)、批测 D:/datas/图片排版样图 全部 16 张，并明确“授权将数据传递至openclaw和Qwen”。外发审批已通过，不再重复询问。当前分支 feat/weak-vlm-inventory-v1，基线 3148547。
+
+已实现清单 schema/校验、对象映射/完整性、两阶段 CLI 路由、跨阶段一次共享修正、geometry-only 范围检查、状态及新路径产物摘要保护。修复 legacy 必填备注补齐被误判未变、复用时丢新疑问、not_ready 结束返回失败、终态缓存仍合并新备注的问题。Draft/Project、坐标转换、renderer/service/export 保持兼容。
+
+用户追加指出普通文字和简单线条不应普遍生图。现已把普通可辨文字统一路由到 texts/字体渲染，为 Shape 增加 line/polyline，并新增 render_overlay.py 确定性输出 basic_shape 透明 PNG；特殊字形、复杂纹理或插画才保留 reference_generate。冻结 A/B 仍使用启动时的 runtime，避免中途改变实验条件。
+
+两阶段实现离线回归 **199 passed in 20.99s**；加入程序绘制分流后最终 **207 passed in 20.44s**，报告 D:/codes/collage-recreate-work/20260918-inventory-v1/offline-tests-program-draw.xml；skill 校验、compileall、diff 检查通过。A/B 使用同一冻结 runtime，批测期间未改变实验代码。
+
+真实环境继续 OpenClaw + bailian-token-plan/qwen3.8-flash，已核验 responseModel=qwen3.8-flash；现有百炼端点 token-plan.cn-beijing.maas.aliyuncs.com，隔离配置 imageMaxDimensionPx=2048，无全局配置改动。最小实现是两个产出阶段，不是严格两次 API 请求；实际模型响应与工具次数另计。
+
+前三张 inventory-only 试测曾显示主要人物/照片召回有可用部分，同时存在贴纸误分类、照片内部对象过拆和虚构框。随后完成每路每图一次的完整 A/B；批组使用幂等保护，没有重复启动、生图或建立 project.json。
+
+报告目录 D:/codes/collage-recreate-work/20260918-inventory-v1，入口 public/index.html；review-notes.json 保存逐图评价，comparison-audit.json/control-audit.json 保留结构与一致性证据。部分 not_ready 框图实际较好：页面区分诊断框图、有效预览和流程结束状态，不能用校验失败替代视觉结论，也不能用框图好看冒充自动流程成功。
+
+全 32 次运行和逐图人工复核已完成。legacy 正式 ready 15/16、结构有效 15/16；inventory_v1 正式 ready 1/16、结构有效 11/16。人工判断新流程明显较好 3 例、旧流程明显较好 6 例、其余 7 例相当或互有得失。Pass 1 对复杂对象召回有价值，但 Pass 2 draft + mapping 的结构负担导致大量 INPUT_INVALID、FILE_MISSING 和映射错误，尚未证明整体优于旧模式，默认保留 legacy。完整结论见 D:/codes/collage-recreate-work/20260918-inventory-v1/RESULTS.md，浏览入口为 public/index.html。
+
+## 2026-09-18：弱 VLM 计划基线保存与实施地图（完成规划，未开始实现）
+
+本轮用户要求先保存当前版本、开新分支并查看弱vlm识别更新计划.md 要改哪些地方、如何执行。已将原有 7 个修改文件及该计划一起提交到 main：`3148547`（chore: snapshot current analysis before inventory pipeline），随后创建并切换到 `feat/weak-vlm-inventory-v1`。这是重构前基线，包含已有 source_bbox_1000 实现及 19 项相关测试。
+
+已阅读完整 STATUS、目标计划及相关实现，按 skill-creator 的最小改动原则整理 [plan-2.md](plan-2.md)：逐文件修改、Inventory 契约、独立 draft_mapping、legacy/inventory_v1 路由、七阶段顺序和验证出口。Phase 1 仅计划新增 inventory.py / test_inventory.py 及开发记录，不改现有生产流程。用户随后要求将本轮计划独立保存，已从 PLAN.md 移至 plan-2.md；PLAN.md 仅保留历史内容和新计划入口，后续本轮计划更新集中在 plan-2.md。
+
+关键实现边界：现有 CLI 不调用模型，两个产出阶段不等于两次真实 API 请求；Pass 2 保留归一化坐标入口；无 bbox 的 inventory 能检查对象去向，不能程序证明视觉召回/框完整；修正资格跨阶段共用，inventory 修改使下游失效；fingerprint 忽略必填 review_notes、not_ready 的 finish 回传旧失败及轻量状态摘要的能力限制均已纳入方案。
+
+基线回归 158 passed in 18.41s。报告：D:/codes/collage-recreate-work/20260918-inventory-plan/baseline-tests-02.xml；首次因临时目录父目录未建立而 setup 失败，建立目录后重跑通过，首次报告保留。既有测试通过不代表上述历史缺陷已修复，也不证明新流程视觉效果。
+
+本轮只新增实施地图和本状态记录，运行代码、SKILL/references、用户原计划未再修改；没有模型调用、生图、样本改写或全局配置变更。下一步按 Phase 1 开始实现；阶段数与真实调用次数、是否需要独立 VLM 适配器须在 Phase 2 前明确，本轮推荐先采用最小阶段编排并如实计数。
+
 ## 2026-09-18：OpenClaw 图片上限2048隔离对照（完成，明显改善但未整体通过）
 
 用户批准只提高图片上限测试。目录D:/codes/collage-recreate-work/20260918-max-image2048；使用agent exec --config的独立配置，仅agents.defaults.imageMaxDimensionPx改为2048。配置中的字符串使用临时进程环境引用，不落地密钥，不修改全局配置。相较grounding-responsibility-max，全部运行文件摘要及任务提示（除目录）相同，仍OpenClaw + bailian-token-plan/qwen3.8-max，同一日落相框图，只有一次调用，不生图。

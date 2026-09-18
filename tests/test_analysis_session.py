@@ -8,7 +8,7 @@ from threading import Event
 import pytest
 from PIL import Image
 
-from collage_recreate.analysis_session import finish_draft, run_draft_operation, state_path
+from collage_recreate.analysis_session import finish_draft, run_draft_operation, state_path, _load, _save
 from collage_recreate.core import ToolError, read_json, write_json
 
 
@@ -150,8 +150,10 @@ def test_lock_blocks_concurrent_checks(case,monkeypatch):
 
 def test_interrupted_reservation_does_not_start_a_new_attempt(case):
     task,ref,path,data=case;statefile,sha=state_path(task,ref)
-    write_json(statefile,{"version":1,"source_sha256":sha,"phase":"running","attempts":[
-        {"number":1,"fingerprints":[],"result":None}],"decision":None})
+    state = _load(statefile, sha)
+    state.update(pipeline="legacy", phase="running", attempts=[
+        {"number":1,"fingerprints":[],"result":None}], decision=None)
+    _save(statefile, state)
     result=run(case)
     assert result["error"]["code"]=="CHECK_INTERRUPTED"
     assert result["workflow"]["attempts_used"]==1
@@ -183,3 +185,54 @@ def test_check_only_can_upgrade_once_to_preview(case):
     assert second["ok"] and second["preview"]
     assert second["workflow"]["attempts_used"]==2
     assert finish_draft(case[0],case[1],"usable","Preview checked")["decision"]=="usable"
+
+def test_unsigned_historical_state_is_preserved_without_reset(case):
+    task,ref,path,data=case;statefile,sha=state_path(task,ref)
+    write_json(statefile, {"version":1,"source_sha256":sha,"phase":"finished","attempts":[]})
+    before=statefile.read_bytes()
+    with pytest.raises(ToolError) as err:
+        run(case)
+    assert err.value.code=="STATE_LEGACY" and statefile.read_bytes()==before
+
+
+def test_legacy_missing_required_notes_can_be_fixed_once(case):
+    task,ref,path,data=case
+    data["overlays"]=[{"id":"decor","label":"decor","source_rect":[10,10,20,20],
+        "action":"reference_generate","generation_brief":"ink","requires_exact_content":False,"attachment":None}]
+    data["layer_order"].append({"type":"overlay","id":"decor"});write_json(path,data)
+    assert not run(case)["ok"]
+    data["overlays"][0]["review_notes"]="";write_json(path,data)
+    assert run(case,issue="structural",reason="decor: restore required field")["ok"]
+
+
+def test_reused_success_retains_new_questions_at_finish(case):
+    first=run(case);task,ref,path,data=case
+    copied=path.with_name("notes.json");data["questions"]=["New unresolved wording"];write_json(copied,data)
+    reused=run_draft_operation(task,copied,ref,"preview",output=task.parent/"unused")
+    assert reused["workflow"]["reused"]
+    result=finish_draft(task,ref,"usable","Reviewed")
+    assert result["decision"]=="usable_with_questions"
+    assert "New unresolved wording" in result["unresolved"]
+
+
+def test_terminal_not_ready_is_successful_finish_but_not_ready_draft(case):
+    task,ref,path,data=case
+    data["layer_order"]=[];write_json(path,data);run(case);run(case)
+    ended=finish_draft(task,ref,"not_ready","Retain structure error")
+    assert ended["ok"] and not ended["draft_ready"]
+    assert ended["decision"]=="not_ready" and ended["last_error"]
+
+
+def test_finished_cache_does_not_change_review_or_state(case):
+    run(case, "refine");task,ref,path,data=case
+    finish_draft(task,ref,"usable","Reviewed before finish")
+    statefile,_=state_path(task,ref);before=statefile.read_bytes()
+    data["questions"]=["New question after finish"]
+    copied=path.with_name("late-notes.json");write_json(copied,data)
+    reused=run_draft_operation(task,copied,ref,"refine",output=task.parent/"unused")
+    assert reused["workflow"]["reused"]
+    assert statefile.read_bytes()==before
+    finished=finish_draft(task,ref,"not_ready","Cannot replace existing review")
+    assert finished["decision"]=="usable"
+    assert finished["unresolved"]==[]
+    assert statefile.read_bytes()==before

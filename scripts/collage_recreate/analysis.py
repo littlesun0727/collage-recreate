@@ -47,13 +47,14 @@ class Attachment(Strict):
 
 
 class Shape(Strict):
-    kind: Literal["rectangle", "rounded_rectangle", "ellipse", "dashed_rectangle"]
+    kind: Literal["rectangle", "rounded_rectangle", "ellipse", "dashed_rectangle", "line", "polyline"]
     fill: str | None = None
     outline: str | None
     width: Annotated[int, Field(ge=0, le=1024)]
     radius: Annotated[float, Field(ge=0, le=8192)] | None = None
     dash: Annotated[int, Field(ge=1, le=8192)] | None = None
     gap: Annotated[int, Field(ge=0, le=8192)] | None = None
+    points: list[Annotated[list[int], Field(min_length=2, max_length=2)]] | None = None
 
     @model_validator(mode="after")
     def appearance(self):
@@ -62,12 +63,24 @@ class Shape(Strict):
                 ImageColor.getcolor(color, "RGBA")
         if self.kind == "rounded_rectangle" and self.radius is None:
             raise ValueError("rounded_rectangle requires radius")
+        path = self.kind in ("line", "polyline")
         if self.kind == "dashed_rectangle" and (self.dash is None or self.gap is None):
             raise ValueError("dashed_rectangle requires dash and gap")
+        if path:
+            if self.fill is not None or self.outline is None or self.width <= 0:
+                raise ValueError("line/polyline require outline and positive width, without fill")
+            if self.points is None or len(self.points) < 2 or (self.kind == "line" and len(self.points) != 2):
+                raise ValueError("line needs two points; polyline needs at least two")
+            if any(type(value) is not int or not 0 <= value <= 1000 for point in self.points for value in point):
+                raise ValueError("line/polyline points use integer local coordinates from 0 to 1000")
+            if (self.dash is None) != (self.gap is None):
+                raise ValueError("dashed line/polyline need both dash and gap")
+        elif self.points is not None:
+            raise ValueError("points only apply to line/polyline")
         if self.kind != "rounded_rectangle" and self.radius is not None:
             raise ValueError("radius only applies to rounded_rectangle")
-        if self.kind != "dashed_rectangle" and (self.dash is not None or self.gap is not None):
-            raise ValueError("dash/gap only apply to dashed_rectangle")
+        if self.kind not in ("dashed_rectangle", "line", "polyline") and (self.dash is not None or self.gap is not None):
+            raise ValueError("dash/gap only apply to dashed shapes")
         return self
 
 
@@ -85,7 +98,7 @@ class Overlay(Element):
         if self.action == "basic_shape" and self.shape is None:
             raise ValueError("basic_shape requires shape")
         if self.action == "basic_shape" and self.text_content:
-            raise ValueError("basic_shape describes one geometric shape, not embedded text; use texts or reference_generate for a complete fixed decoration")
+            raise ValueError("basic_shape describes geometry, not embedded text; put ordinary lettering in texts and reserve reference_generate for special or inseparable lettering")
         if self.action == "reference_generate":
             if self.shape is not None:
                 raise ValueError("reference_generate has no shape")

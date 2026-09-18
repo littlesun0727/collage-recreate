@@ -67,6 +67,16 @@ finish 的 decision 为 usable / usable_with_questions / not_ready。它保存�
 
 宿主可设置 COLLAGE_ANALYSIS_TASK_ROOT 为固定任务绝对路径，CLI 会拒绝不同的 --task；隔离实测使用此机制。看图次数由 skill 约束并以工具会话核对，本地脚本只能计数它实际执行的检查/预览生成，不能拦截宿主直接调用 view_image。
 
+## 确定性装饰素材
+
+普通文字由工程 text 元素和已绑定字体渲染。basic_shape 的矩形、圆角矩形、椭圆、虚线框、直线和简单折线可直接输出透明 PNG，不调用图像生成服务：
+
+~~~powershell
+python scripts/render_overlay.py --draft analysis/draft.json --reference reference.png --overlay-id divider --output analysis/assets/divider.png
+~~~
+
+工具先走完整 Draft 校验，只接受 basic_shape，拒绝覆盖已有文件；返回尺寸、SHA256、alpha_range 和 visual_status。line/polyline 的 points 是元素自身范围内 0..1000 坐标。输出仍需实际看图并按 project.md 作为普通图片素材导入；特殊手绘、纹理和插画才保留 reference_generate。
+
 定位另装 requirements-localization.txt（当前 NumPy 版本要求 Python >=3.12），基础渲染/导出不依赖 OpenCV。环境缺依赖时返回错误并结束，不让生产主控现场安装或读源码调试。无 pip 的开发虚拟环境可使用 uv pip install --python .venv/Scripts/python.exe -r requirements-localization.txt。
 
 ## 离线可执行示例
@@ -90,8 +100,22 @@ finish 的 decision 为 usable / usable_with_questions / not_ready。它保存�
 - export.py：筛选工程使用的资源并打包独立运行代码。
 - demo.py：可执行离线示例。
 - scripts/review_analysis.py、collage_recreate/analysis.py：六字段草案校验、附属层展开和编号/交互预览。
+- scripts/render_overlay.py、collage_recreate/draw_overlay.py：basic_shape 的透明装饰素材确定性绘制；不调用生图。
 - collage_recreate/analysis_session.py：共享检查预算、未变输入复用与结束状态。
 - scripts/refine_layout.py、collage_recreate/localize.py：批量局部定位、缓存与前后对照。
 - scripts/inspect_reference.py：分析前的尺寸/摘要读取和原图坐标局部裁切；无远端调用。
 
 任务中的 project.json 是布局事实来源；.state 是私有恢复记录，private 保存原始输入，assets 是归一化/生成的不可变素材，outputs 是按图像内容命名的 PNG。不要直接覆盖哈希素材；用 apply 导入替换。
+
+
+## 开发期开关 inventory_v1
+
+默认 legacy。任务指定 inventory_v1 时，先读 [视觉清单](inventory.md)，再用 [草案规范](analysis.md) 的 Pass 2。
+~~~powershell
+python scripts/review_inventory.py --task analysis --reference reference.png --input analysis/inventory.json
+python scripts/refine_layout.py --task analysis --pipeline inventory_v1 --reference reference.png --input analysis/draft.json --mapping analysis/draft_mapping.json --output analysis/refine-01
+python scripts/review_analysis.py finish --task analysis --reference reference.png --decision usable_with_questions --note "实际观察和未解决项"
+~~~
+省略 --pipeline 沿用同任务记录模式；--inventory 可显式指定已登记清单。check/preview/refine 接受 --mapping、--review-stage draft|geometry、可重复 --object-id；清单修正用 review_inventory.py --reason。各阶段共用一次修正资格。
+
+状态 version=2 使用 payload_hash 及输入/采用产物摘要，检测未同步重算摘要的外部改写；不能抵御同时改内容和摘要。历史 version=1 保留并返回 STATE_LEGACY，不自动重置预算。finish 的 ok 表示动作成功，draft_ready/decision/last_error 区分草案状态。

@@ -9,7 +9,7 @@ draft.json 决定制作内容；project.json 绑定真实资源并执行排版�
 - background：摄影背景槽绑定实际客户照片；固定纹理底板优先复用，必要时清版/重绘，纯色可用画布色。缺客户背景图片时保持待绑定，不自动回退大面积清版。
 - slots：只绑定客户图片；mode 为素材准备要求，unknown 先澄清。
 - texts：绑定准确文字与字体，保留可编辑文字层；固定装饰字在 overlay 中出现时不重复排字。
-- overlays：basic_shape 用确定性工具制作素材，reference_generate 在已有授权范围内生成独立素材；source_rect 用于取参考，不直接裁出照片/边框当成品。
+- overlays：basic_shape 用确定性工具制作透明素材，包含规则图形、直线和简单折线；普通文字继续使用 text 元素，即使它是固定标签。reference_generate 仅在确定性图形与字体排版无法合理还原时，才在已有授权范围内生成独立素材；source_rect 用于取参考，不直接裁出照片/边框当成品。
 - attachment：对应照片和附属装饰建立同组，保持整体移动；group 本身只提供 dx/dy，不自动处理遮挡。
 - layer_order：按校验工具返回的 expanded_layer_order 从底到顶写图层。采用经复核的 source_rect 作为初始参考位置；目标画布变化时确定性映射到工程 x/y/width/height，实际移动修改只写工程。还须补齐资产、字体、遮罩等执行信息。
 - questions：影响制作的疑点及定位 needs_review 项先解决；读取与有效草案对应的 localization.json，不能将粗框当精确值。其他疑点保留在交付说明。

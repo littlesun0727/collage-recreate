@@ -2,6 +2,54 @@
 
 第一步产出 analysis/draft.json，决定客户图片、可改文字、装饰制作组合及叠放顺序。随后运行本地定位细化并看对照预览；真实素材和 project.json 属于下一阶段。无需另写分析 Markdown。
 
+## inventory_v1：Pass 2 制作草案
+
+仅在任务使用 inventory_v1 且 inventory.json 已通过 review_inventory.py 后使用本节。输入为同一参考、清单和客户任务，不重新从零枚举对象。清单明显错漏时记录证据，使用唯一共享修正机会校验修正清单，再更新受影响的 draft/mapping；不静默补造参考对象。
+
+先逐一处理 photo 的替换用途、text 的可编辑需求，再组合装饰，最后确定剩余底层。装饰组合主要看是否需独立编辑、跨越主要元素、分开控制前后遮挡；同一局部成品默认整体制作。photo 不等于最终 slot，background_candidate 不等于最终 background，按实际任务决定并保留依据。
+
+复用下文六字段 draft.json，仍用 source_bbox_1000；框覆盖组合全部可见成员，CV 仅微调局部边缘。同时保存 analysis/draft_mapping.json，不能把映射字段塞进 draft。
+
+### mapping 格式
+
+顶层 version=1、bindings、ignored、unresolved。每个实际 slot/text/overlay/固定 background 恰好一条 binding：
+~~~json
+{"version":1,"bindings":[
+  {"type":"background","origin":"default","reason":"主体之外的剩余纯色底层"},
+  {"type":"slot","id":"photo_a","source_objects":["obj_001"]},
+  {"type":"overlay","id":"decor_a","source_objects":["obj_002","obj_003"]}
+],"ignored":[],"unresolved":[]}
+~~~
+
+- type 为 slot / text / overlay / background；background 不填 id，照片背景绑定实际 slot ID。
+- source_objects 只能引用清单 ID；多个装饰可合成一个 overlay。一个对象确须拆成多个制作项时，每条相关 binding 都写 split_reason。
+- 用户明确新增文字/背景等不在参考里的内容，用 origin=user、source_objects=[]、reason 记录任务依据。仅固定背景可用 origin=default 表达剩余底层，不用于掩盖漏识别。
+- 每个清单对象须有去向，或在 ignored 写 {object_id,reason}，或在 unresolved 写 {object_id,question,blocking}。blocking 默认 true；明确不影响主要内容/制作时才写 false。不要为消除错误把主要照片丢进 ignored。
+- photo 被设为背景/装饰、贴纸被设为 slot、unknown 直接采用会提示复核。确有依据的例外在 binding.reason 写明，工具保留警告；一句理由不证明视觉正确。多个独立 photo 共用一槽/背景仍须复核。
+- 平台界面等明确不属设计的项以 ignored + reason 说明取舍。未知字保持 null 和具体问题。
+
+### 定位和共享修正机会
+
+直接运行一次，不另跑 check 消耗定位次数：
+~~~powershell
+python scripts/refine_layout.py --task analysis --pipeline inventory_v1 --reference reference.png --input analysis/draft.json --mapping analysis/draft_mapping.json --output analysis/refine-01
+~~~
+
+inventory 默认使用任务登记的清单，可显式传 --inventory。工具先检查草案、映射及覆盖，再定位/预览。COVERAGE_REVIEW_REQUIRED 的 coverage.issues 包含 stage/object_ids/code/evidence/suggested_action；coverage.warnings 保留有理由的例外。结构/覆盖通过不等于视觉通过。
+
+清单、分类、geometry 共用一次修正资格。首次失败或预览发现重大问题时，按原因另存修正稿：
+~~~powershell
+python scripts/refine_layout.py --task analysis --reference reference.png --input analysis/draft.corrected.json --mapping analysis/mapping.corrected.json --output analysis/refine-02 --issue wrong_assignment --reason "对象、观察证据及要修正的角色" --review-stage draft
+~~~
+
+只有坐标错时从实际采用稿另存，保留非坐标字段与同一 mapping，使用 --review-stage geometry 和 --object-id 指定制作项 ID（可重复）。清单本身错时另存清单，用 review_inventory.py --reason 校验；旧 draft/mapping 的检查随后失效，不能直接 finish 可用。修正仍失败、次数用尽或依据不足时 not_ready。
+
+看一次有效预览后使用下文 finish 命令。finish 的 ok=true 表示结束动作成功，draft_ready 与 decision 才表示草案就绪状态；not_ready 仍保留 last_error。文件/状态摘要不一致就停止，不手改 .state。下面的字段规范两条路径共用；“一次定位”中的旧预算说明适用于 legacy，新路径还受共享修正资格约束。
+
+## legacy：一步制作流程
+
+legacy 直接观察并制作 draft，不需要 inventory/mapping。
+
 ## 看图和决定制作范围
 
 先用图片工具看完整参考，用 inspect_reference.py 读尺寸。**初稿前每张图只看一次整图，最多一批、4 个必要局部**，同一局部不反复扩大/缩小重看。达到该上限就写草案：框按完整对象的可见范围定位，读不清的文字为 null，不确定归属写 questions。
@@ -17,8 +65,8 @@
 图片槽只框照片内容，不含另做的边框/标签；保留环境用 photo，柔边用 photo_feather，明确剪影才用 cutout，不确定用 unknown。有客户素材才绑定具体文件，没有则记录待提供。可改文字逐字记录准确内容，读不清为 null 并提问，不猜词；客户已提供的文案优先。设计底板有干净素材就复用，有覆盖内容才清版/重绘；纯色或简单渐变用确定性工具。
 
 - **半透明衬底**：遵循上述组合原则；需独立编辑或与其他元素分层时才单列 overlay，并表达完整范围、颜色、透明度和层级。独立的简单几何使用 basic_shape，以 shape.fill 的 #RRGGBBAA 表达颜色和透明度；无法确定时使用近似值并记录疑点，不声称恢复了原始精确透明度。
-- **连接线**：局部短笔触可并入所属主体；跨区域连接不同对象的线条应表达完整可见走向和连接对象，写在 generation_brief 中。同归属、同层级、共同调整的线可成组；需要分别跟随不同对象的线按归属分组，不必逐笔拆分。
-- **固定装饰字**可与图案合并，准确内容写 text_content，并说明位图字不能单独修改；客户要求可改的字保留 texts，以工程 group 共同移动。不能同时把同一串字画在 overlay 又重复放入 texts。
+- **连接线**：直线、规则折线、虚线优先用 basic_shape 的 line/polyline，由程序画透明素材。自由手绘曲线才写入 reference_generate 的 generation_brief。同归属、同层级、共同调整的线可成组；需要分别跟随不同对象的线按归属分组，不必逐笔拆分，也不要求弱 VLM 输出复杂路径。
+- **可辨文字优先走 texts**，无论它将来是否允许客户改字。工程阶段用字体渲染，并可和底板、边框放入同一 group 共同移动。只有商标、无法由普通字体表达的特殊手写字形，或文字与插画不可分割时，才作为 reference_generate 的固定装饰；准确内容仍写 text_content，不能同时在 overlay 与 texts 重复。
 - **attachment 只表达归属**：相同 attachment 不等于已经合成一份素材。合并要减少 overlays 条目；合并边框的照片开口保持透明，不将参考中的照片烘焙进去。
 - 外观说明写完整对象的形状、方向、颜色、质感及内部排列，不穷举笔触。未知标识记录疑点，不猜词或自行作删除决定。平台界面不属于重建设计内容。
 
@@ -53,7 +101,7 @@ kind 可为 photo / texture / solid / unknown。固定 photo 必须另有非空 
 ~~~
 mode 为 photo / photo_feather / cutout / unknown。upload_hint 可省略。没有 type、default_text。
 
-### texts：可编辑文字
+### texts：由字体确定性绘制的文字
 
 ~~~json
 {"id":"caption","label":"文案","source_bbox_1000":[100,50,800,120],"default_text":"准确原文","style_brief":"白色细体，居中","review_notes":""}
@@ -68,11 +116,14 @@ default_text 必填，可为 null；style_brief 可省略。不填图片 mode/up
 
 attachment 为 null，或 {"slot_id":"photo_a","position":"above"} / below，仅能归属一个非背景图片槽。跨照片装饰独立保留。无需将一份组合内每个笔触再列成子对象。
 
-basic_shape 仅表达一个几何形状，不能包含 text_content；带固定标签的完整装饰使用 reference_generate，需可改的字使用 texts。basic_shape 必须有 shape；reference_generate 不写 shape 或为 null。shape：
-- kind：rectangle / rounded_rectangle / ellipse / dashed_rectangle。
+basic_shape 表达程序可确定绘制的一个几何形状或一条简单路径，不能包含 text_content；标签拆成 basic_shape 底板/边框和 texts 文字，后续用工程 group 共同移动。basic_shape 必须有 shape；reference_generate 不写 shape 或为 null。shape：
+- kind：rectangle / rounded_rectangle / ellipse / dashed_rectangle / line / polyline。
 - 必填 outline（颜色或 null）、width（0..1024 像素）；fill 可省略或 null。
 - rounded_rectangle 另有 radius（0..8192）；dashed_rectangle 另有 dash（1..8192）和 gap（0..8192）。
+- line 必须恰有两个 points；polyline 至少两个。points 使用装饰框内部 0..1000 整数坐标 [x,y]，要求 outline 非空、width>0、fill=null。虚线另同时给 dash/gap；直线或简单折线之外的笔触使用 reference_generate。
 - 颜色为 #RRGGBB / #RRGGBBAA 或 Pillow 标准色名，不填无关形状参数。
+
+reference_generate 只用于确定性图形和字体排版无法合理还原的视觉素材，例如撕纸毛边、复杂手绘插画、特殊字形或真实纹理。它是制作建议，不自动调用生图；不得仅因元素是固定内容、有文字或需要整体移动而选择它。
 
 ### layer_order / questions
 

@@ -10,6 +10,11 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--task", required=True, help="Shared analysis task root; keep it for this request")
     parser.add_argument("--reference", required=True)
+    parser.add_argument("--pipeline", choices=["legacy", "inventory_v1"])
+    parser.add_argument("--inventory")
+    parser.add_argument("--mapping")
+    parser.add_argument("--review-stage", choices=["draft", "geometry"])
+    parser.add_argument("--object-id", action="append", default=[])
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True, help="New result directory")
     parser.add_argument("--reuse", help="Previous refinement directory; latest task result is reused automatically")
@@ -18,7 +23,9 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         result = run_draft_operation(args.task, args.input, args.reference, "refine",
-                    output=args.output, reuse=args.reuse, issue=args.issue, reason=args.reason)
+                    output=args.output, reuse=args.reuse, issue=args.issue, reason=args.reason,
+                    pipeline=args.pipeline, inventory=args.inventory, mapping=args.mapping,
+                    review_stage=args.review_stage, object_ids=args.object_id)
     except ToolError as exc:
         result = {"ok":False,"error":{"code":exc.code,"message":str(exc)}}
     except OSError:
