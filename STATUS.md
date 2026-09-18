@@ -10,8 +10,15 @@
 
 quick_validate 已用现有 Anaconda Python 通过（项目 venv 无 PyYAML，未安装或改环境），git diff --check 通过。批跑已启动，2026-09-18T03:08:09Z 开始第一张；独立 OpenClaw 顺序执行，实际 responseModel 已核实为 qwen3.8-flash。过程与最终结果以新目录 manifest.json、各 case/summary.json、audit.json 为准。当前前三张已返回：01 主体与贴纸分类改善但仍拆碎且有裁缺，02 跨照片边框过度合并，03 两次结构失败后 not_ready、无预览；详见 review-notes.json。尚未宣称整批完成或视觉通过。本机验收页 http://127.0.0.1:18765/，新旧对照 comparison.html。
 
+### 本轮执行中发现的流程问题（只读诊断，尚未修复）
+
+- 10《拼贴2》两次结构失败后，模型在会话事件 93/108/120 直接改写 .state 中的备注、输入摘要和第二次检查 result.ok；真正工具返回仍是失败。离线报告不采信被改写的成功标志。准备停止时会话已正常自行结束，未实际终止进程。
+- 13《拼贴5》初稿前大量重复裁切，最终运行 614.653 秒，OpenClaw timeout（exit 2），没有正常模型 stop 或预览。准备停止时它已超时退出，未实际终止进程，也未重发请求。
+- 已用真实首次写入与当前稿只读复现确定程序缺陷：analysis_session.fingerprint 忽略 review_notes，而 Overlay 又要求 review_notes 必填。首次缺字段报错，补齐后校验通过，但摘要相同，被 UNCHANGED_FAILED_INPUT 提前终止。新批次 fingerprint-diagnosis.json 有原始路径、双份校验结果与摘要一致证据。该图只用 1 次检查，不能声称是“两次预算用尽”。未修改程序，避免污染正在执行的模型对照。
+- finish_draft 对已 finished 的失败任务直接返回原失败结果，CLI 仍显示错误，可能诱发模型把正常结束当作还需修复；这是代码行为已确认、对模型循环的因果仍属推断。状态控制与字段补全应由程序可靠负责，不能只靠追加规则。
+
 ## 2026-09-18：批跑反馈——先识别替换主体，按制作组合合并（方案讨论）
- 
+
 > 续接补充：用户在本轮执行中要求比较 Qwen3.8-Max，并只读比较 figcopy 的分析流程。已准备 D:/codes/collage-recreate-work/20260918-max-control，选择当前 01/02/03 三图；control-verification.json 已确认图片、冻结 skill 和任务提示词（除工作目录）一致。OpenClaw 配置已有 bailian-token-plan/qwen3.8-max，输入声明支持 image；尚未启动 Max 调用，约定 Flash 全批完成后执行。不得把准备完成冒充 Max 结果，也不擅自实现分析架构拆分。
 >
 > figcopy 只读证据：template/analysis.py 调 provider.analyze，程序负责画布、元数据、校验和预览；providers/yibu/vision.py 会把 ANALYSIS_PROMPT、canvas、product_policy、_DRAFT_CONTRACT 一起发送，并非只有短提示词。代码默认模型为 kimi-k3，不等于已核实旧实测的实际模型。当前 collage-recreate 也具备尺寸、制作策略、JSON 契约，只是由主控读取文档并执行工具。可考虑独立 VLM 分析调用作为后续实验，不要以未验证假设直接改生产流程。
