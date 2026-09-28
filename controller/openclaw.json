@@ -1,0 +1,39 @@
+{
+  "models": {
+    "mode": "replace",
+    "providers": {
+      "bailian-token-plan": {
+        "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+        "apiKey": "${BAILIAN_TOKEN_PLAN_API_KEY}",
+        "api": "anthropic-messages",
+        "timeoutSeconds": 600,
+        "models": [{
+          "id": "qwen3.8-max",
+          "name": "Qwen3.8 Max Token Plan controller",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 983616,
+          "contextTokens": 262144,
+          "maxTokens": 131072,
+          "compat": {"thinkingFormat": "openai"}
+        }]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {"primary": "bailian-token-plan/qwen3.8-max", "fallbacks": []},
+      "models": {"bailian-token-plan/qwen3.8-max": {"params": {"maxTokens": 32768}}},
+      "thinkingDefault": "high",
+      "timeoutSeconds": 7200,
+      "skipBootstrap": true
+    }
+  },
+  "tools": {
+    "profile": "coding",
+    "deny": ["message", "sessions_spawn", "sessions_send", "browser", "web_search", "web_fetch"]
+  },
+  "plugins": {"enabled": false},
+  "skills": {"allowBundled": []},
+  "logging": {"level": "info", "consoleLevel": "warn"}
+}
