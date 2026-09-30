@@ -1,0 +1,226 @@
+"""Reveal poster adapter. Cache reads are offline; --reveal enables new requests."""
+import base64
+import math
+import os
+import time
+import threading
+import json as jsonlib
+from urllib.request import Request, urlopen
+from pathlib import Path
+import numpy as np
+from PIL import Image
+from common import read, save, sha, fingerprint, event, now
+
+BASE = 'https://api.research.360.cn/v1'
+_submission_budget_lock=threading.Lock()
+
+
+def reserve_submission(task, budget_root):
+    """A run gets at most three new remote tasks, including interrupted submits."""
+    from reveal_plan import MAX_REQUESTS
+    task=Path(task);budget_root=Path(budget_root)
+    with _submission_budget_lock:
+        marker=task/'budget-reserved.json'
+        if marker.exists() or (task/'submission_started.json').exists() or (task/'submit_response.json').exists():return
+        used={p.parent for name in ['budget-reserved.json','submission_started.json','submit_response.json'] for p in budget_root.rglob(name)}
+        if len(used)>=MAX_REQUESTS:raise ValueError('Hard limit: at most 3 Reveal submissions per run; no fourth task')
+        save(marker,{'reserved_at':now(),'limit':MAX_REQUESTS})
+
+
+def http(url, json=None, headers=None, timeout=120):
+    """Small standard-library transport, shared with injectable HTTP test doubles."""
+    payload=jsonlib.dumps(json).encode('utf-8') if json is not None else None
+    request=Request(url,data=payload,headers={**(headers or {}),**({'Content-Type':'application/json'} if payload else {})})
+    with urlopen(request,timeout=max(timeout) if isinstance(timeout,tuple) else timeout) as response:
+        content=response.read()
+    class Response:
+        def raise_for_status(self):pass
+        def json(self):return jsonlib.loads(self.content)
+    result=Response();result.content=content;return result
+
+
+def same_image(a, b):
+    with Image.open(a) as x, Image.open(b) as y:
+        return x.size == y.size and np.array_equal(np.asarray(x.convert('RGB')), np.asarray(y.convert('RGB')))
+
+
+def request_object(target, size, padding=.1):
+    """Expand each edge by a fraction of the original width/height, then clamp."""
+    if not math.isfinite(padding) or not 0 <= padding <= 1:
+        raise ValueError('Reveal padding must be a finite fraction in 0..1')
+    l,t,r,b=target['bbox'];w,h=size
+    box=[max(0,math.floor(l-(r-l)*padding)),max(0,math.floor(t-(b-t)*padding)),
+         min(w,math.ceil(r+(r-l)*padding)),min(h,math.ceil(b+(b-t)*padding))]
+    minimum=math.ceil(8*max(w,h)/1024)
+    for axis,limit in [(0,w),(1,h)]:
+        span=min(limit,minimum)
+        if box[axis+2]-box[axis]<span:
+            box[axis]=max(0,min(limit-span,math.floor((box[axis]+box[axis+2]-span)/2)))
+            box[axis+2]=box[axis]+span
+    return {'id':target['id'],'bbox':box,'original_bbox':list(target['bbox']),'padding':padding}
+
+
+def matches_request(saved, desired):
+    if saved['id']!=desired['id'] or saved['bbox']!=desired['bbox']:return False
+    if 'original_bbox' not in saved:return desired['padding']==0
+    return saved['original_bbox']==desired['original_bbox'] and saved.get('padding')==desired['padding']
+
+
+def downloads_ready(task):
+    qp=task/'query_response.json'
+    if not qp.exists():return False
+    result=read(qp)
+    if result.get('status')!='done':return False
+    return all((task/f'layers_aug_{i:02d}.png').exists() or (task/f'layers_base_{i:02d}.png').exists()
+               for i in range(1,len(result['output'].get('boxes_mapping_index',[]))+1))
+
+
+def load_cache(folder, reference, expected=None, allow_partial=False):
+    folder = Path(folder)
+    if not same_image(folder/'input.png', reference):
+        raise ValueError('Reveal cache reference does not match this task')
+    found = {}; receipts = []
+    for task in sorted(folder.glob('batch_*')):
+        if not (task/'query_response.json').is_file(): continue
+        meta = read(task/'request_meta.json'); result = read(task/'query_response.json')
+        if result.get('status') != 'done': continue
+        if allow_partial and not downloads_ready(task):continue
+        relevant=[o for o in meta['objects'] if expected is None or (o['id'] in expected and matches_request(o,expected[o['id']]))]
+        if not relevant:continue
+        if meta.get('model') != 'ecommerce_layer' or meta.get('version') != 'v1.1':
+            raise ValueError('Unsupported Reveal cache model/version')
+        output = result['output']; indices = output.get('boxes_mapping_index')
+        if not isinstance(indices,list) or len(set(indices)) != len(indices):
+            raise ValueError('Missing or duplicate Reveal mapping')
+        for j, index in enumerate(indices,1):
+            if type(index) is not int or not 0 <= index < len(meta['objects']):
+                raise ValueError('Invalid Reveal target index')
+            obj = meta['objects'][index]; oid = obj['id']
+            if obj not in relevant:continue
+            if oid in found: raise ValueError('Duplicate Reveal object ID')
+            file = task/f'layers_aug_{j:02d}.png'
+            if not file.is_file(): file=task/f'layers_base_{j:02d}.png'
+            with Image.open(file) as im:
+                if 'A' not in im.getbands(): raise ValueError('Reveal layer lacks alpha')
+                im.verify()
+            found[oid]={'file':str(file.resolve()),'sha256':sha(file),'bbox':obj['bbox'],
+                        'original_bbox':obj.get('original_bbox',obj['bbox']),'padding':obj.get('padding',0)}
+        receipts.append({'task':str(task),'generation_seconds':result.get('generation_time'),
+                         'targets':sum(meta['objects'][i] in relevant for i in indices),'requested_ids':[o['id'] for o in relevant],
+                         'task_id':result.get('task_id') or (read(task/'submit_response.json').get('task_id') if (task/'submit_response.json').exists() else None),
+                         'timings':read(task/'timing.json') if (task/'timing.json').exists() else None})
+    return found, receipts
+
+
+def api_key(path):
+    key = os.environ.get('360_API_KEY')
+    if not key and Path(path).is_file():
+        for line in Path(path).read_text(encoding='utf-8-sig').splitlines():
+            if line.strip().startswith('360_API_KEY='):
+                key=line.split('=',1)[1].strip().strip('"').strip("'");break
+    if not key: raise ValueError('360_API_KEY missing in environment or configured key file')
+    return key
+
+
+def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None, sleep=time.sleep):
+    """A submit with unknown outcome is never automatically repeated."""
+    post=post or http;get=get or http
+    task=Path(task);task.mkdir(parents=True,exist_ok=True)
+    identity={'reference_sha256':sha(reference),'objects':objects,'model':'ecommerce_layer',
+              'version':'v1.1','seed':42,'steps':28}
+    digest=fingerprint(identity);mp=task/'request_meta.json'
+    if mp.exists() and read(mp)['sha256']!=digest:raise ValueError('Reveal request changed in an existing task')
+    save(mp,{**identity,'sha256':digest})
+    deadline=time.monotonic()+timeout
+    timing_file=task/'timing.json';timings=read(timing_file) if timing_file.exists() else {'started_at':now()}
+    def elapsed(stage,started):
+        timings[stage]=round(timings.get(stage,0)+time.monotonic()-started,3);timings['updated_at']=now();save(timing_file,timings)
+    def request(endpoint,payload):
+        left=deadline-time.monotonic()
+        if left<=0:raise TimeoutError('Reveal task timeout; resume with the same cache')
+        started=time.monotonic()
+        try:
+            response=post(BASE+'/'+endpoint,json=payload,headers={'Authorization':'Bearer '+key},timeout=(min(30,left),min(120,left)))
+            response.raise_for_status();return response.json()
+        finally:elapsed('submit_seconds' if endpoint=='submit_task' else 'query_seconds',started)
+    submitted=task/'submit_response.json'
+    if not submitted.exists():
+        if (task/'submission_started.json').exists():
+            raise ValueError('Reveal submit outcome unknown; do not resubmit automatically')
+        payload={'model':'ecommerce_layer','version':'v1.1','pipeline_type':'crop','time_out':3600,
+                 'seed':42,'steps':28,'image_boxes':[o['bbox'] for o in objects],
+                 'input':[{'type':'input_image','image_url':'data:image/png;base64,'+base64.b64encode(Path(reference).read_bytes()).decode()}]}
+        save(task/'submission_started.json',{'request_sha256':digest})
+        save(submitted,request('submit_task',payload))
+    result=read(submitted)
+    if result.get('response_status')!=0 or not result.get('task_id'):raise ValueError('Reveal submission rejected; inspect saved response')
+    query={'model':'ecommerce_layer','version':'v1.1','task_id':result['task_id']}
+    qp=task/'query_response.json';result=read(qp) if qp.exists() else {}
+    while result.get('status')!='done':
+        if result.get('status') in ['failed','not_found'] or result.get('response_status')==-1:
+            raise ValueError('Reveal task failed; saved task will not be resubmitted')
+        result=request('query_task',query);save(qp,result)
+        if result.get('status')!='done':
+            started=time.monotonic();sleep(min(5,max(0,deadline-time.monotonic())));elapsed('poll_wait_seconds',started)
+    for field in ['layers_base','layers_aug']:
+        for i,url in enumerate(result['output'].get(field,[])):
+            path=task/f'{field}_{i:02d}.png'
+            if path.exists():
+                with Image.open(path) as im:im.verify()
+                continue
+            left=deadline-time.monotonic()
+            if left<=0:raise TimeoutError('Reveal download timeout; resume existing task')
+            started=time.monotonic()
+            try:
+                response=get(url,timeout=(min(30,left),min(120,left)));response.raise_for_status()
+                tmp=path.with_suffix('.part');tmp.write_bytes(response.content)
+                with Image.open(tmp) as im:im.verify()
+                tmp.replace(path)
+            finally:elapsed('download_seconds',started)
+
+
+def acquire(run, scene, targets, config):
+    if config.get('layout','legacy') in ['grouped','full']:
+        from reveal_grouped import acquire as grouped_acquire
+        return grouped_acquire(run,scene,targets,config)
+    if config.get('layout','legacy')!='legacy':raise ValueError('Unknown Reveal layout')
+    run=Path(run);reference=scene['reference']['file'];found={};receipts=[];errors=[];attempted=set()
+    expected={t['id']:request_object(t,scene['reference_size'],config.get('padding',.1)) for t in targets}
+    save(run/'assets/reveal/request-targets.json',list(expected.values()))
+    def ingest(folder):
+        existing,previous=load_cache(folder,reference,expected,allow_partial=Path(folder)==run/'assets/reveal/api');found.update(existing)
+        receipts[:]=[r for r in receipts if Path(r['task']).parent!=Path(folder)]+previous
+        attempted.update(oid for r in previous for oid in r['requested_ids'])
+    if config.get('cache'):ingest(config['cache'])
+    root=run/'assets/reveal/api'
+    def dispatch(task,objects):
+        start=time.monotonic();event(run,'reveal_request_started',task=str(task),targets=[o['id'] for o in objects])
+        try:
+            reserve_submission(task,run/'assets/reveal')
+            fetch_batch(task,root/'input.png',objects,api_key(config.get('key_file','D:/codes/.env')),config.get('timeout',360))
+            event(run,'reveal_request_finished',task=str(task),elapsed_seconds=round(time.monotonic()-start,3));return True
+        except Exception as exc:
+            error=type(exc).__name__+(' HTTP '+str(exc.code) if hasattr(exc,'code') else '')
+            event(run,'reveal_request_failed',task=str(task),error=error,elapsed_seconds=round(time.monotonic()-start,3))
+            errors.append({'task':str(task),'error':error,'requested_ids':[o['id'] for o in objects]});return False
+    if root.exists():
+        if not same_image(root/'input.png',reference):raise ValueError('Reveal internal cache reference mismatch')
+        for task in sorted(root.glob('batch_*')):
+            objects=read(task/'request_meta.json')['objects']
+            relevant=[o for o in objects if o['id'] in expected and matches_request(o,expected[o['id']])]
+            if not relevant:continue
+            attempted.update(o['id'] for o in relevant)
+            if not downloads_ready(task) and config.get('remote'):
+                if not dispatch(task,objects):
+                    ingest(root);return found,receipts+errors
+        ingest(root)
+    missing=[expected[t['id']] for t in targets if t.get('request',True) and t['id'] not in found and t['id'] not in attempted]
+    if missing and config.get('remote'):
+        root.mkdir(parents=True,exist_ok=True)
+        if not (root/'input.png').exists():
+            with Image.open(reference) as im:im.convert('RGB').save(root/'input.png')
+        for start in range(0,len(missing),20):
+            chunk=missing[start:start+20];task=root/('batch_'+fingerprint([sha(reference),chunk])[:16])
+            if not dispatch(task,chunk):break
+            ingest(root)
+    return found,receipts+errors
