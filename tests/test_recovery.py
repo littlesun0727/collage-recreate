@@ -22,7 +22,8 @@ def test_default_preserves_raw_pixels_and_photo_geometry(task):
     assert raw.tobytes()==kept.tobytes() and p['bbox']==before['bbox']
     assert p['rotation']==before['rotation']
     result=render(task)
-    assert 'photo' in result['incomplete_objects']  # Opaque old photo is NOT claimed as usable.
+    assert 'frame' in result['incomplete_objects']  # Opaque candidate is quarantined, not claimed as usable.
+    assert result['photo_visible_fractions']['photo']>.99
     save(task/'review.json',review(task))
     with pytest.raises(ValueError):accept_review(task,task/'review.json')
 

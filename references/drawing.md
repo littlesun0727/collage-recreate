@@ -15,7 +15,7 @@
 | 纸与纹理 | edge=straight/torn（paper/tape），默认整齐直边；texture=none/paper/grain/dots/stripes/grid，seed可省略 |
 | 提取 | extract_mode=auto/foreground/color/crop；指定extract_background时auto去底色，否则前景分离；extract_tolerance默认35 |
 
-简单圆角照片只填顶层`appearance:"rounded_photo"`，默认半径为短边8%。拍立得统一用photo内口加独立相纸overlay，见analysis.md；`appearance:"polaroid"`与card只兼容历史数据。需要差异时再加style，不逐个填写默认值。frame是透明中空均匀轮廓，不能代替下沿较宽的相纸；当前本地形状无法准确表达的载体使用extract，不因此改回一体photo。
+简单圆角照片只填顶层`appearance:"rounded_photo"`，默认半径为短边8%。拍立得统一用photo内口加独立相纸overlay，见analysis.md；`appearance:"polaroid"`与card只兼容历史数据。需要差异时再加style，不逐个填写默认值。frame是透明中空均匀轮廓，不能代替下沿较宽的相纸；简单相纸可用paper/rectangle外形加已有photo_id或photo.parent_id窗口留孔；复杂轮廓仍用extract。
 
 ```json
 {"shape":"curve","points":[[0.1,0.1],[0.6,0.3],[0.8,0.7],[0.2,0.9]],"stroke":"#FFFFFF","stroke_width":2,"dash":[6,5],"line_cap":"round"}
@@ -24,3 +24,7 @@
 points只在line/arrow/polyline/curve/polygon中使用，polygon至少3点。自由曲线的关键走向需要points，默认工具不能从description猜出任意路径。frame可使用dash，内部保持透明。
 
 字体是本机候选（Arial/Times/Courier/Comic/微软雅黑/楷体）的近似。纸纹和规则图形也不保证还原特殊手绘或摄影质感。提取后的候选必须看实际像素；crop仅用于确认不含参考照片的矩形素材，程序对与photo框重叠的原样裁图仍保守拒绝。不要以crop绕过人物替换。
+
+## 提取不可用时的本地兜底
+
+已有明确shape时可自动回退；没有参数时，一次screen的draw指定现有shape和样式，舍弃提取像素直接重画。关联cover照片按原bbox、rotation与圆角留透明孔，可保留不同边宽；不挖原提取层，不改变客户照片。简单相纸、规则纸底、胶带与几何装饰适合此路径。复杂插画、印字或独特纹理不能由几何兜底冒充，仍报告缺口。详见[筛选与补画](asset-gate.md)。

@@ -156,8 +156,8 @@ def test_crop_at_canvas_edge_never_cuts_requested_bounds():
     s={'reference_size':[3000,5000],'objects':[{'id':'edge','kind':'overlay','bbox':[0,0,80,150]}]}
     b=plan(s,targets(s),mode='grouped')['batches'][0]
     assert b['crop_box'][:2]==[0,0]
-    assert b['objects'][0]['bbox']==[0,0,88,165]
-    assert b['crop_box'][2]>=88 and b['crop_box'][3]>=165
+    assert b['objects'][0]['bbox']==[0,0,88,158]
+    assert b['crop_box'][2]>=88 and b['crop_box'][3]>=158
 
 
 def test_over_sixty_unique_targets_blocks_all_requests():

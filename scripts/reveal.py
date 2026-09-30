@@ -44,24 +44,35 @@ def same_image(a, b):
         return x.size == y.size and np.array_equal(np.asarray(x.convert('RGB')), np.asarray(y.convert('RGB')))
 
 
-def request_object(target, size, padding=.1):
-    """Expand each edge by a fraction of the original width/height, then clamp."""
+def request_object(target, size, padding=.1, padding_mode='capped'):
+    """Expand an original bbox, enforce the API minimum, then clamp to the reference."""
     if not math.isfinite(padding) or not 0 <= padding <= 1:
         raise ValueError('Reveal padding must be a finite fraction in 0..1')
+    if padding_mode not in ['capped','ratio']:
+        raise ValueError('Unknown Reveal padding mode')
     l,t,r,b=target['bbox'];w,h=size
-    box=[max(0,math.floor(l-(r-l)*padding)),max(0,math.floor(t-(b-t)*padding)),
-         min(w,math.ceil(r+(r-l)*padding)),min(h,math.ceil(b+(b-t)*padding))]
+    if padding_mode=='ratio':
+        px=(r-l)*padding;py=(b-t)*padding
+    else:
+        scale=min(1,1024/max(w,h))
+        edge=min(padding*min(r-l,b-t),6/scale)
+        px=py=edge
+    box=[max(0,math.floor(l-px)),max(0,math.floor(t-py)),
+         min(w,math.ceil(r+px)),min(h,math.ceil(b+py))]
     minimum=math.ceil(8*max(w,h)/1024)
     for axis,limit in [(0,w),(1,h)]:
         span=min(limit,minimum)
         if box[axis+2]-box[axis]<span:
             box[axis]=max(0,min(limit-span,math.floor((box[axis]+box[axis+2]-span)/2)))
             box[axis+2]=box[axis]+span
-    return {'id':target['id'],'bbox':box,'original_bbox':list(target['bbox']),'padding':padding}
+    result={'id':target['id'],'bbox':box,'original_bbox':list(target['bbox']),'padding':padding}
+    if padding_mode!='ratio':result['padding_mode']=padding_mode
+    return result
 
 
 def matches_request(saved, desired):
     if saved['id']!=desired['id'] or saved['bbox']!=desired['bbox']:return False
+    if saved.get('padding_mode','ratio')!=desired.get('padding_mode','ratio'):return False
     if 'original_bbox' not in saved:return desired['padding']==0
     return saved['original_bbox']==desired['original_bbox'] and saved.get('padding')==desired['padding']
 
@@ -105,6 +116,7 @@ def load_cache(folder, reference, expected=None, allow_partial=False):
                 im.verify()
             found[oid]={'file':str(file.resolve()),'sha256':sha(file),'bbox':obj['bbox'],
                         'original_bbox':obj.get('original_bbox',obj['bbox']),'padding':obj.get('padding',0)}
+            if 'padding_mode' in obj:found[oid]['padding_mode']=obj['padding_mode']
         receipts.append({'task':str(task),'generation_seconds':result.get('generation_time'),
                          'targets':sum(meta['objects'][i] in relevant for i in indices),'requested_ids':[o['id'] for o in relevant],
                          'task_id':result.get('task_id') or (read(task/'submit_response.json').get('task_id') if (task/'submit_response.json').exists() else None),
@@ -185,7 +197,8 @@ def acquire(run, scene, targets, config):
         return grouped_acquire(run,scene,targets,config)
     if config.get('layout','legacy')!='legacy':raise ValueError('Unknown Reveal layout')
     run=Path(run);reference=scene['reference']['file'];found={};receipts=[];errors=[];attempted=set()
-    expected={t['id']:request_object(t,scene['reference_size'],config.get('padding',.1)) for t in targets}
+    expected={t['id']:request_object(t,scene['reference_size'],config.get('padding',.1),
+                                     config.get('padding_mode','ratio')) for t in targets}
     save(run/'assets/reveal/request-targets.json',list(expected.values()))
     def ingest(folder):
         existing,previous=load_cache(folder,reference,expected,allow_partial=Path(folder)==run/'assets/reveal/api');found.update(existing)

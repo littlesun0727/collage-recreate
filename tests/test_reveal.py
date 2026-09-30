@@ -69,7 +69,8 @@ def test_integrated_card_derived_without_extra_analysis_object(task):
     layer=np.asarray(Image.open(task/'assets/reveal'/f"{p['reveal_frame_id']}.png"))
     # Legacy card conversion still supplies placement, but no longer erases returned pixels.
     assert np.any(layer[:,:,3][mask>128]>0)
-    assert s['layer_order'].index(p['reveal_frame_id'])>s['layer_order'].index('photo')
+    assert s['layer_order'].index(p['reveal_frame_id'])<s['layer_order'].index('photo')
+    assert read(task/'assets/reveal/index.json')['records'][0]['layer_placement']=='derived_foreground_blocked'
     assert render(task)['customer_photos_verified']
 
 
@@ -82,6 +83,13 @@ def test_text_suppression_requires_explicit_relation(task):
     s=load_scene(task);assert 'caption' in s['reveal_unconfirmed_text']
     assert not s['objects'][-1].get('embedded_owner')
     a['objects'][-1]['embedded_in']='paper';save(task/'analysis.json',a);compile_scene(task)
+    assert not load_scene(task)['objects'][-1].get('embedded_owner')
+    gate=read(task/'assets/gate/report.json')['records'][0]
+    save(task/'recovery.json',{'schema_version':'collage-recovery-v1',
+        'reference_sha256':read(task/'input.json')['reference']['sha256'],
+        'decisions':[{'id':'paper','input_key':gate['input_key'],'verdict':'accepted',
+                      'reason':'Confirmed complete embedded caption','embedded_ids':['caption']}]})
+    compile_scene(task,config)
     assert load_scene(task)['objects'][-1]['embedded_owner']=='paper'
     r=render(task);assert r['coverage_complete']
     assert len(read(task/'result.json')['extraction_sheets'])==1

@@ -7,7 +7,7 @@ from common import read, save, sha, verify_source
 
 
 def check_plan(plan, scene):
-    if not isinstance(plan, dict) or set(plan)-{'schema_version','reference_sha256','groups','windows','omit'}:
+    if not isinstance(plan, dict) or set(plan)-{'schema_version','reference_sha256','groups','windows','omit','edits','decisions'}:
         raise ValueError('Unknown recovery plan fields')
     if plan.get('schema_version')!='collage-recovery-v1':raise ValueError('Invalid recovery schema')
     if plan.get('reference_sha256')!=scene['reference']['sha256']:
@@ -75,6 +75,8 @@ def check_plan(plan, scene):
         if oid in omitted_seen or oid in members_seen or any(w[0]==oid for w in windows_seen):
             raise ValueError('Conflicting omitted layer')
         omitted_seen.add(oid)
+    from asset_gate import check_extensions
+    check_extensions(plan,scene)
     return plan
 
 
@@ -151,6 +153,7 @@ def recover(run, path):
     needed={p['source_id'] for g in plan.get('groups',[]) for p in g['parts']}
     needed.update(w['overlay_id'] for w in plan.get('windows',[]))
     needed.update(o['id'] for o in plan.get('omit',[]))
+    needed.update(o['id'] for o in plan.get('edits',[]))
     if needed-available:raise ValueError('Missing downloaded recovery sources: '+', '.join(sorted(needed-available)))
     save(run/'recovery.json',plan)
     compile_scene(run,config)

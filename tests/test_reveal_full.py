@@ -62,7 +62,7 @@ def test_full_preserves_parent_relations_for_multiwindow_frames_and_embedded_ass
     assert {'p0','extra_photo'} <= {o['source_id'] for o in b['objects'] if o['role']=='photo_context'}
 
 
-@pytest.mark.parametrize('layout',[None,'grouped','legacy'])
+@pytest.mark.parametrize('layout',[None,'full','grouped','legacy'])
 def test_build_cli_default_and_explicit_layout_are_saved(task,monkeypatch,layout):
     import reveal
     import workflow
@@ -72,15 +72,30 @@ def test_build_cli_default_and_explicit_layout_are_saved(task,monkeypatch,layout
     if layout:args+=['--reveal-layout',layout]
     monkeypatch.setattr(sys,'argv',args)
     assert workflow.main()==0
-    expected=layout or 'full'
+    expected=layout or 'grouped'
     assert read(task/'reveal-config.json')['layout']==expected
+    assert read(task/'reveal-config.json')['padding_mode']=='capped'
     # An existing run with no new extraction flags keeps its saved mode.
     monkeypatch.setattr(sys,'argv',['workflow.py','build','--run',str(task)])
     assert workflow.main()==0
     assert read(task/'reveal-config.json')['layout']==expected
+    assert read(task/'reveal-config.json')['padding_mode']=='capped'
 
 
-def test_reveal_plan_cli_defaults_to_full_and_keeps_linked_photo(task,monkeypatch):
+def test_build_cli_explicit_ratio_padding_mode_is_saved(task,monkeypatch):
+    import reveal
+    import workflow
+    monkeypatch.setattr(reveal,'api_key',lambda *_:pytest.fail('Unexpected API request'))
+    monkeypatch.setattr(sys,'argv',['workflow.py','build','--run',str(task),
+                                   '--reveal','--reveal-padding-mode','ratio'])
+    assert workflow.main()==0
+    config=read(task/'reveal-config.json')
+    assert config['layout']=='grouped'
+    assert config['padding']==.1
+    assert config['padding_mode']=='ratio'
+
+
+def test_reveal_plan_cli_defaults_to_grouped_and_keeps_linked_photo(task,monkeypatch):
     import workflow
     a=read(task/'analysis.json')
     a['objects'].append({'id':'frame','kind':'overlay','bbox':[0,0,200,300],
@@ -89,7 +104,17 @@ def test_reveal_plan_cli_defaults_to_full_and_keeps_linked_photo(task,monkeypatc
     monkeypatch.setattr(sys,'argv',['workflow.py','reveal-plan','--run',str(task)])
     assert workflow.main()==0
     p=read(task/'previews/reveal-plan/request-plan.json')
-    assert p['mode']=='full' and len(p['batches'])==1
+    assert p['mode']=='grouped' and p['padding_mode']=='capped' and len(p['batches'])==1
     b=p['batches'][0]
     assert b['count']==2 and b['crop_box']==[0,0,200,300]
     assert next(o for o in b['objects'] if o['role']=='photo_context')['bbox']==[10,20,190,280]
+
+
+def test_historical_plan_without_padding_mode_remains_ratio_compatible():
+    s=scene(1)
+    old=plan(s,targets(s),padding_mode='ratio')
+    asset=next(o for o in old['batches'][0]['objects'] if o['role']=='asset')
+    photo=next(o for o in old['batches'][0]['objects'] if o['role']=='photo_context')
+    assert 'padding_mode' not in old and 'padding_mode' not in asset
+    assert asset['reference_bbox']==[32,26,248,314]
+    assert photo['reference_bbox']==photo['original_bbox']==[70,70,210,230]

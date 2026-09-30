@@ -9,17 +9,19 @@ from common import read, timed, locked, save
 def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     a=sub.add_parser('prepare');a.add_argument('--reference',required=True);a.add_argument('--materials',nargs='+',required=True);a.add_argument('--run',required=True);a.add_argument('--width',type=int,default=1200);a.add_argument('--instructions',default='');a.add_argument('--cutout-model')
-    for name in ['validate','build','reveal-plan','render','apply','review','generate','recover']:
+    for name in ['validate','build','reveal-plan','render','apply','review','generate','recover','screen']:
         a=sub.add_parser(name);a.add_argument('--run',required=True)
-        if name in ['apply','review','recover']:a.add_argument('--file',required=True)
+        a.add_argument('--brief',action='store_true',help='Print only paths and outcome; complete evidence remains in result.json')
+        if name in ['apply','review','recover','screen']:a.add_argument('--file',required=True)
         if name in ['build','reveal-plan']:
             a.add_argument('--reveal',action='store_true',help='Enable remote Reveal requests for missing complex assets')
             a.add_argument('--reveal-cache',help='Existing downloaded Reveal sample folder; offline unless --reveal is also set')
             a.add_argument('--reveal-key-file',default='D:/codes/.env')
             a.add_argument('--reveal-timeout',type=int,default=360)
-            a.add_argument('--reveal-padding',type=float,default=.1,help='Expand each request edge by this fraction of original width/height (default .1)')
+            a.add_argument('--reveal-padding',type=float,default=.1,help='Reveal request padding fraction (default .1)')
+            a.add_argument('--reveal-padding-mode',choices=['capped','ratio'],default='capped',help='Equal capped padding (default), or historical per-axis ratio padding')
             a.add_argument('--no-reveal',action='store_true')
-            a.add_argument('--reveal-layout',choices=['full','grouped','legacy'],default='full',help='Full image with photo context (default; split only above 20 boxes), optional spatial crops, or historical overlay-only requests')
+            a.add_argument('--reveal-layout',choices=['full','grouped','legacy'],default='grouped',help='Spatial crops (default, at most 3 groups), full image, or historical requests')
         if name=='generate':
             a.add_argument('--ids',nargs='+',required=True);a.add_argument('--credentials',default='D:/codes/yibu_credentials.local.json');a.add_argument('--allow-remote',action='store_true');a.add_argument('--timeout',type=int,default=300);a.add_argument('--workers',type=int,default=2);a.add_argument('--dry-run',action='store_true');a.add_argument('--group',action='store_true',help='Generate selected overlay/text members as one fused unit')
     args=p.parse_args()
@@ -46,7 +48,7 @@ def main():
                     a=analysis_check(read(run/'analysis.json'),read(run/'input.json'))
                     for o in a['objects']:o['style']=resolve_style(o)
                     if args.reveal_layout=='legacy':raise ValueError('Plan preview supports grouped or full')
-                    result=preview(read(run/'input.json')['reference']['file'],plan(a,targets(a),args.reveal_padding,args.reveal_layout),run/'previews/reveal-plan')
+                    result=preview(read(run/'input.json')['reference']['file'],plan(a,targets(a),args.reveal_padding,args.reveal_layout,args.reveal_padding_mode),run/'previews/reveal-plan')
                 elif args.command=='build':
                     from scene import compile_scene
                     from render import render
@@ -54,7 +56,7 @@ def main():
                     if args.no_reveal and (args.reveal or args.reveal_cache):raise ValueError('Conflicting Reveal options')
                     if args.no_reveal:config={'enabled':False}
                     elif args.reveal or args.reveal_cache:
-                        config={'enabled':True,'remote':args.reveal,'cache':str(Path(args.reveal_cache).resolve()) if args.reveal_cache else None,'key_file':args.reveal_key_file,'timeout':args.reveal_timeout,'padding':args.reveal_padding,'layout':args.reveal_layout}
+                        config={'enabled':True,'remote':args.reveal,'cache':str(Path(args.reveal_cache).resolve()) if args.reveal_cache else None,'key_file':args.reveal_key_file,'timeout':args.reveal_timeout,'padding':args.reveal_padding,'padding_mode':args.reveal_padding_mode,'layout':args.reveal_layout}
                     compile_scene(run,config);result=render(run)
                 elif args.command=='render':
                     from render import render
@@ -62,6 +64,9 @@ def main():
                 elif args.command=='recover':
                     from recovery import recover
                     result=recover(run,args.file)
+                elif args.command=='screen':
+                    from screening import screen
+                    result=screen(run,args.file)
                 elif args.command=='apply':
                     from scene import apply_review
                     from render import render
@@ -72,6 +77,8 @@ def main():
                 elif args.command=='generate':
                     from generation.generate import generate
                     result=generate(run,args)
+        if getattr(args,'brief',False) and isinstance(result,dict) and 'render_id' in result:
+            result={k:result[k] for k in ['status','render_id','incomplete_objects','asset_gate_summary','extraction_sheets','renders_verified'] if k in result}
         print(json.dumps(result,ensure_ascii=True,indent=2));return 0
     except Exception as exc:
         print(json.dumps({'status':'failed','error':str(exc),'type':type(exc).__name__},ensure_ascii=True));return 2

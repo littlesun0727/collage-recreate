@@ -8,6 +8,8 @@ from common import read, save, sha, fingerprint, verify_source
 from effects import photo_layout, rounded_mask
 from reveal import acquire, request_object
 from recovery import load_plan, compose_groups, verify_asset
+from asset_gate import inspect as inspect_asset, publish as publish_gate
+from asset_repair import apply_edits
 
 
 def area(b):return max(0,b[2]-b[0])*max(0,b[3]-b[1])
@@ -25,7 +27,7 @@ def frame_hint(o):
 def targets(scene):
     result=[]
     for o in scene['objects']:
-        if o['kind']=='overlay':result.append({**o,'request':o.get('method')!='local' or bool(frame_hint(o))})
+        if o['kind']=='overlay':result.append({**o,'request':o.get('method')!='local'})
         elif o['kind']=='photo' and (o.get('appearance')=='polaroid' or 'card' in o['style']):
             result.append({'id':'frame_'+fingerprint(o['id'])[:16],'kind':'overlay','bbox':o['bbox'],
                            'photo_id':o['id'],'label':o['label']+' 相纸','description':'Derived photo frame',
@@ -48,6 +50,14 @@ def has_ink(image,box):
     return bool(len(values) and np.percentile(values,95)-np.percentile(values,5)>55)
 
 
+def window_coverage(image, photo, size):
+    """Visible alpha inside this photo's window, not across the carrier canvas."""
+    mask=make_window(size,photo.get('window_bbox',photo['bbox']),
+                     photo.get('rotation',0),photo.get('style',{}).get('corner_radius',0))
+    selected=np.asarray(mask)>128
+    return float((np.asarray(image.getchannel('A'))[selected]>16).mean()) if selected.any() else 1.0
+
+
 def attach(run,scene,config):
     run=Path(run);folder=run/'assets/reveal';folder.mkdir(parents=True,exist_ok=True)
     repair=load_plan(run,scene)
@@ -59,7 +69,7 @@ def attach(run,scene,config):
     missing={w['overlay_id'] for w in repair.get('windows',[])}-assets.keys()
     if missing:raise ValueError('Missing window repair sources: '+', '.join(sorted(missing)))
     by_id={o['id']:o for o in scene['objects']};photos=[o for o in scene['objects'] if o['kind']=='photo']
-    width,height=scene['reference_size'];records=[];recovered={};owners={};used_photos=set()
+    width,height=scene['reference_size'];records=[];recovered={};owners={};used_photos=set();gate_records=[]
     for target in requested:
         oid=target['id'];o=target if target.get('derived') else by_id[oid]
         expected=request_object(target,scene['reference_size'],config.get('padding',.1))
@@ -74,6 +84,10 @@ def attach(run,scene,config):
             obj['reveal_warning']=reason
             if obj['kind']!='photo':
                 obj['method']='local' if obj.get('style',{}).get('shape') else 'placeholder'
+                gate={'id':oid,'status':'rejected','basis':'program','input_key':fingerprint([scene['sources'],target,reason]),
+                      'issues':[reason],'use_local':False}
+                gate_records.append(gate);obj['gate']={k:gate[k] for k in ['status','basis','input_key']}
+                if obj['method']=='local':obj['gate_local']=True;gate['local_fallback']=True
         if oid not in assets:
             if target.get('request'):fallback('Reveal target unavailable; local fallback requires review')
             else:rec['action']='local_primitive'
@@ -83,8 +97,12 @@ def attach(run,scene,config):
         tolerance=max(2,np.ceil(8*max(width,height)/1024))
         if any(abs(a-b)>tolerance for a,b in zip(source['original_bbox'],target['bbox'])):
             fallback('Cached target box differs from current design; request a matching layer');continue
-        with Image.open(verify_source(source)) as raw:
-            api_size=raw.size;image=raw.convert('RGBA').resize((width,height),Image.Resampling.LANCZOS)
+        verified=verify_source(source)
+        try:
+            with Image.open(verified) as raw:
+                api_size=raw.size;image=raw.convert('RGBA').resize((width,height),Image.Resampling.LANCZOS)
+        except OSError:
+            fallback('Unreadable extracted image');continue
         rec.update(source=source,api_size=list(api_size),scale_to_reference=[width/api_size[0],height/api_size[1]])
         if image.getchannel('A').getextrema()[1]<16:
             fallback('Reveal layer is empty or nearly transparent');continue
@@ -137,32 +155,70 @@ def attach(run,scene,config):
             elif fraction>.05:
                 notes.append('Window '+photo['id']+' contains visible pixels; inspect for old photos or intentional decoration')
             rec.setdefault('windows',[]).append(item);used_photos.add(photo['id'])
+        image,edit_records,repair_errors=apply_edits(run,image,oid,repair)
+        if edit_records:rec['edits']=edit_records
+        # Relationships do not imply foreground placement. Preserve the explicit
+        # analysis order, including opaque backings below their customer photos.
+        coverage={p['id']:window_coverage(image,p,(width,height)) for p in related if p.get('mode')=='cover'}
+        if target.get('derived'):
+            # Legacy cards have no explicit overlay position. Only add their frame
+            # above the photo when every associated opening is substantially clear.
+            foreground=bool(coverage) and all(v<=.05 for v in coverage.values())
+            scene['layer_order'].insert(scene['layer_order'].index(target['photo_id'])+int(foreground),oid)
+            rec['layer_placement']='derived_above_clear_window' if foreground else 'derived_foreground_blocked'
+            if not foreground:notes.append('Derived frame foreground placement blocked: photo window is not sufficiently transparent; inspect for repair')
+        order=scene['layer_order']
+        for p in related:
+            if p['id'] not in coverage:continue
+            above=order.index(oid)>order.index(p['id'])
+            occupied=coverage[p['id']]>.05
+            rec.setdefault('layer_checks',[]).append({'photo_id':p['id'],
+                'position':'above_photo' if above else 'below_photo',
+                'visible_fraction':round(coverage[p['id']],6),
+                'review_required':above and occupied,
+                'action':'preserve_analysis_order' if not target.get('derived') else rec['layer_placement']})
+            if above and occupied:
+                notes.append('Foreground carrier window '+p['id']+' still contains visible pixels; inspect for occlusion or intentional decoration before clearing')
         if notes:rec['notes']=notes;o['reveal_notes']=notes
         file=folder/(oid+'.png');image.save(file)
         reference_crop=folder/(oid+'-reference.png');foreground=folder/(oid+'-preview.png')
         with Image.open(scene['reference']['file']) as ref:ref.crop(source['bbox']).save(reference_crop)
         image.crop(source['bbox']).save(foreground)
-        o['recovered']={'file':str(file),'sha256':sha(file),'source':source,'reference_crop':str(reference_crop),
-                        'foreground':str(foreground),'action':rec['action']}
-        rec['clean']=o['recovered'];recovered[oid]=image;owners[oid]=o
+        candidate={'file':str(file),'sha256':sha(file),'source':source,'reference_crop':str(reference_crop),
+                   'foreground':str(foreground),'action':rec['action']}
+        text_candidates=[]
+        for child in scene['objects']:
+            if child['id']==oid or child['kind'] not in ['text','overlay']:continue
+            owner=child.get('embedded_in') or child.get('parent_id')
+            if owner in merged_owners:owner=merged_owners[owner]
+            if owner==oid:text_candidates.append({'id':child['id'],'relation':'explicit'})
+            elif child['kind']=='text' and not owner and contains(o['bbox'],child['bbox'])>.95 and has_ink(image,child['bbox']):
+                text_candidates.append({'id':child['id'],'relation':'possible'})
+        gate=inspect_asset(image,target,scene,source,repair,rec.get('layer_checks',[]),text_candidates,repair_errors)
+        gate.update(candidate=candidate,reference_crop=str(reference_crop),foreground=str(foreground))
+        gate_records.append(gate);rec['gate']=gate;o['gate']={k:gate[k] for k in ['status','basis','input_key']}
+        rec['clean']=candidate
+        if gate['status']=='accepted':
+            o['recovered']=candidate;recovered[oid]=image;owners[oid]=o;o['gate_embedded_ids']=gate['embedded_ids']
+        else:
+            o['reveal_warning']='Asset gate '+gate['status']+': '+', '.join(gate['issues'])
+            if o.get('style',{}).get('shape') and not source.get('recovery_group'):
+                o['gate_local']=True;o['method']='local';gate['local_fallback']=True
+            elif gate['use_local']:
+                gate['issues'].append('local_fallback_not_supported')
         if target.get('derived'):
             obj={k:v for k,v in o.items() if k not in ['derived','request']};obj['text_unresolved']=False
             scene['objects'].append(obj);by_id[oid]=obj
-            scene['layer_order'].insert(scene['layer_order'].index(photo['id'])+1,oid)
-        elif related:
-            # A frame with a transparent opening belongs above its customer photo.
-            order=scene['layer_order']
-            attached=[p for p in related if p.get('reveal_frame_id')==oid]
-            if attached:
-                last=max(attached,key=lambda p:order.index(p['id']))
-                if order.index(oid)<order.index(last['id']):order.remove(oid);order.insert(order.index(last['id'])+1,oid)
     suppressed={};candidates={}
+    for gate in gate_records:
+        for child in gate.get('text_candidates',[]):
+            if child['id'] not in gate.get('embedded_ids',[]):candidates.setdefault(child['id'],[]).append(gate['id'])
     for obj in scene['objects']:
-        if obj['kind']=='photo' or obj.get('text_unresolved') or obj.get('text_origin'):continue
+        if obj['kind']=='photo' or obj.get('text_origin'):continue
         owner=obj.get('embedded_in') or obj.get('parent_id')
         if owner in merged_owners:owner=merged_owners[owner]
         if owner in by_id and by_id[owner].get('reveal_frame_id'):owner=by_id[owner]['reveal_frame_id']
-        if owner in recovered and contains(owners[owner]['bbox'],obj['bbox'])>.9 and has_ink(recovered[owner],obj['bbox']):
+        if owner in recovered and obj['id'] in by_id[owner].get('gate_embedded_ids',[]) and contains(owners[owner]['bbox'],obj['bbox'])>.9:
             obj['embedded_owner']=owner;suppressed[obj['id']]=owner
         elif obj['kind']=='text':
             possible=[oid for oid,image in recovered.items() if contains(owners[oid]['bbox'],obj['bbox'])>.95 and has_ink(image,obj['bbox'])]
@@ -173,10 +229,13 @@ def attach(run,scene,config):
     save(folder/'index.json',index)
     scene['reveal_index']={'file':str(folder/'index.json'),'sha256':sha(folder/'index.json')}
     scene['reveal_unconfirmed_text']=candidates
+    publish_gate(run,scene,gate_records)
     return index
 
 
 def verify(scene):
+    from asset_gate import verify as verify_gate
+    verify_gate(scene)
     if scene.get('reveal_index'):verify_source(scene['reveal_index'])
     if scene.get('recovery_plan'):verify_source(scene['recovery_plan'])
     for obj in scene['objects']:

@@ -37,7 +37,8 @@ def restore(raw, crop, reference_size, destination, box_mapping=None):
 def acquire(run,scene,targets,config):
     from reveal import fetch_batch,api_key,downloads_ready,reserve_submission
     run=Path(run);reference=Path(scene['reference']['file']);reference_hash=sha(reference)
-    p=plan(scene,targets,config.get('padding',.1),config.get('layout','full'))
+    p=plan(scene,targets,config.get('padding',.1),config.get('layout','full'),
+           config.get('padding_mode','ratio'))
     preview(reference,p,run/'assets/reveal')
     if p['blocked']:
         receipts=[{'error':b['reason'],'requested_ids':b['ids'],'blocked':True} for b in p['blocked']]
@@ -92,6 +93,7 @@ def acquire(run,scene,targets,config):
                 found[o['id']]={'file':str(dest.resolve()),'sha256':sha(dest),'bbox':o['reference_bbox'],
                                'original_bbox':o['original_bbox'],'padding':o['padding'],'pixel_scale':scale,
                                'raw_file':str(raw.resolve()),'raw_sha256':sha(raw),'crop_box':batch['crop_box'],'task':str(task)}
+                if 'padding_mode' in o:found[o['id']]['padding_mode']=o['padding_mode']
             receipt['missing_ids']=[oid for oid in batch['primary_ids'] if oid not in found]
         except Exception as exc:
             receipt['error']=type(exc).__name__+': '+str(exc)

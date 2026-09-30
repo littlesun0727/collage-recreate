@@ -47,7 +47,10 @@ def render(run):
             with Image.open(path) as raw:tile=raw.convert('RGBA')
             metadata=cached['metadata']
         else:
-            if o['kind']=='photo':tile,metadata=make_photo(o,o['source'],o['binding'],size,run,s.get('cutout_model'));metadata['quality']='ready'
+            if o.get('gate',{}).get('status') in ['pending','rejected'] and not o.get('gate_local') and not o.get('generated'):
+                tile=Image.new('RGBA',size)
+                metadata={'quality':'unresolved','method':'quarantined','note':o.get('reveal_warning','Asset gate blocked this layer')}
+            elif o['kind']=='photo':tile,metadata=make_photo(o,o['source'],o['binding'],size,run,s.get('cutout_model'));metadata['quality']='ready'
             elif o.get('generated'):
                 generated=o['generated'];p=verify_source(generated)
                 with Image.open(p) as raw:tile=raw.convert('RGBA').resize(size,Image.Resampling.LANCZOS)
@@ -62,8 +65,10 @@ def render(run):
             else:
                 tile,metadata=draw_overlay(o,size,reference,photo_objects,run,s.get('cutout_model'))
             if o.get('text_unresolved'):metadata.update(quality='unresolved',note='Unknown text has no replacement')
-            if o.get('reveal_warning') and not o.get('generated'):
+            if o.get('reveal_warning') and not o.get('generated') and not o.get('gate_local'):
                 metadata.update(quality='unresolved',note=o['reveal_warning'])
+            if o.get('gate_local'):
+                metadata['note']='Explicit local fallback; approximate and requires visual review'
             opacity=o['style'].get('opacity',1)
             if opacity!=1:tile.putalpha(tile.getchannel('A').point(lambda v:round(v*opacity)))
             tile.save(path);save(receipt_path,{'input_key':key,'sha256':sha(path),'metadata':metadata})
@@ -79,6 +84,15 @@ def render(run):
             if content_alpha is not None:content_alpha=content_alpha.rotate(-o['rotation'],Image.Resampling.BICUBIC,expand=True)
         x=round((box[0]+box[2]-tile.width)/2);y=round((box[1]+box[3]-tile.height)/2)
         layer=Image.new('RGBA',(w,h));layer.alpha_composite(tile,(x,y))
+        if o['kind']=='overlay' and o.get('method')=='local' and not o.get('recovered') and not o.get('generated'):
+            # Newly drawn carriers use the existing customer-photo geometry for holes.
+            # No extracted pixels or customer crop coordinates are modified.
+            from reveal_assets import make_window
+            for photo in photo_objects:
+                if photo.get('mode','cover')!='cover' or not (photo['id']==o.get('photo_id') or photo.get('parent_id')==oid):continue
+                window=make_window((w,h),[round(v*scale) for v in photo.get('window_bbox',photo['bbox'])],
+                                   photo.get('rotation',0),photo['style'].get('corner_radius',0)*scale)
+                layer.putalpha(ImageChops.multiply(layer.getchannel('A'),ImageChops.invert(window)))
         photo_alpha=Image.new('L',(w,h)) if content_alpha is not None else None
         if photo_alpha is not None:photo_alpha.paste(content_alpha,(x,y))
         if o.get('photo_window'):
@@ -116,6 +130,8 @@ def render(run):
     proof=all(r['kind']!='photo' or r['metadata'].get('resource_type')=='customer_photo' for r in records)
     result={'schema_version':'collage-result-v1','exported':True,'status':'preview','renders_verified':False,'coverage_complete':len(records)==len(s['objects']),'customer_photos_verified':proof and len(visibility)==len(photo_objects),'photo_visible_fractions':visibility,'incomplete_objects':sorted(set(incomplete)),'issues':issues,'scene_sha256':sha(run/'scene.json'),'final_sha256':sha(run/'final.png'),'resources':records,'visual_review':None,'at':now()}
     result['extraction_sheets']=extraction_sheets
+    if s.get('asset_gate'):
+        result['asset_gate']=s['asset_gate'];result['asset_gate_summary']=s['asset_gate_summary']
     if s.get('reveal_index'):result['reveal_index']=s['reveal_index']
     result['render_id']=fingerprint([result['scene_sha256'],result['final_sha256']])[:16]
     save(run/'result.json',result)

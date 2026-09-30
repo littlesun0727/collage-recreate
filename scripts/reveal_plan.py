@@ -133,9 +133,10 @@ def gap(a,b,size):
                       max(0,a[1]-b[3],b[1]-a[3])/size[1])
 
 
-def plan(scene, targets, padding=.1, mode='full'):
+def plan(scene, targets, padding=.1, mode='full', padding_mode='capped'):
     from reveal import request_object
     if mode not in ['grouped','full']:raise ValueError('Unknown grouped request mode')
+    if padding_mode not in ['capped','ratio']:raise ValueError('Unknown Reveal padding mode')
     version=FULL_VERSION if mode=='full' else VERSION
     size=scene['reference_size'];w,h=size;full=[0,0,w,h]
     by_id={o['id']:o for o in scene['objects']}
@@ -155,7 +156,7 @@ def plan(scene, targets, padding=.1, mode='full'):
         ids=sorted(ids);members=[];contexts={};notes=[]
         for oid in ids:
             t=selected[oid]
-            o=request_object(t,size,padding);o['role']='asset';members.append(o)
+            o=request_object(t,size,padding,padding_mode);o['role']='asset';members.append(o)
             required=[]
             if t.get('photo_id'):
                 if t['photo_id'] not in photos:raise ValueError('Missing linked photo: '+oid)
@@ -195,11 +196,14 @@ def plan(scene, targets, padding=.1, mode='full'):
             blocked.append({'ids':group['ids'],'reason':'Photo context below API minimum; not expanded','photos':invalid});continue
         batch={'primary_ids':group['ids'],'crop_box':crop,'reference_size':size,'objects':local,
                'count':len(local),'reason':reason,'notes':group['notes'],'estimated_sampling_gain':round(gain,3)}
-        batch['id']='batch_'+fingerprint([version,mode,padding,batch])[:16];batches.append(batch)
-    return {'version':version,'mode':mode,'reference_size':size,'padding':padding,
+        identity=[version,mode,padding,batch] if padding_mode=='ratio' else [version,mode,padding_mode,padding,batch]
+        batch['id']='batch_'+fingerprint(identity)[:16];batches.append(batch)
+    result={'version':version,'mode':mode,'reference_size':size,'padding':padding,
             'soft_limit':SOFT_LIMIT if mode=='grouped' else None,'hard_limit':HARD_LIMIT,'max_requests':MAX_REQUESTS,
             'status':'blocked' if blocked else 'ready','alternatives':alternatives,
             'batches':[] if blocked else batches,'blocked':blocked}
+    if padding_mode!='ratio':result['padding_mode']=padding_mode
+    return result
 
 
 def preview(reference, plan_data, folder):
