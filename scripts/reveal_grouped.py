@@ -37,7 +37,7 @@ def restore(raw, crop, reference_size, destination, box_mapping=None):
 def acquire(run,scene,targets,config):
     from reveal import fetch_batch,api_key,downloads_ready,reserve_submission
     run=Path(run);reference=Path(scene['reference']['file']);reference_hash=sha(reference)
-    p=plan(scene,targets,config.get('padding',.1),config.get('layout','grouped'))
+    p=plan(scene,targets,config.get('padding',.1),config.get('layout','full'))
     preview(reference,p,run/'assets/reveal')
     if p['blocked']:
         receipts=[{'error':b['reason'],'requested_ids':b['ids'],'blocked':True} for b in p['blocked']]

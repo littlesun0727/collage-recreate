@@ -1,4 +1,4 @@
-"""Deterministic spatial request planning. No model calls or network access."""
+"""Full-image batching by capacity, with optional spatial crops. No network access."""
 import math
 from functools import lru_cache
 from pathlib import Path
@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw
 from common import save, fingerprint
 
 VERSION = 'spatial-crop-v2-max3'
+FULL_VERSION = 'full-image-v1-max3'
 SOFT_LIMIT, HARD_LIMIT = 10, 20
 MAX_REQUESTS = 3
 REQUEST_COST = .12
@@ -18,13 +19,13 @@ def crop_geometry(box, size, mode):
     scale=min(1,1024/max(crop[2]-crop[0],crop[3]-crop[1]))
     gain=scale/min(1,1024/max(size));reason='spatial_crop'
     if mode=='full' or gain<1.15:
-        crop=full;reason='full_control' if mode=='full' else 'limited_resolution_gain'
+        crop=full;reason='full_image' if mode=='full' else 'limited_resolution_gain'
         scale=min(1,1024/max(size));gain=1
     return crop,scale,gain,reason
 
 
 def partition(units,size,mode):
-    """Choose 1..3 whole-region partitions. Ten is a cost, never a cut-off."""
+    """Full mode splits only for capacity; grouped mode also scores resolution."""
     if not units:return [],[],None
     if len({o['id'] for u in units for o in u['objects']})>MAX_REQUESTS*HARD_LIMIT:
         return [],[],'More than 60 distinct request boxes cannot fit 3 requests of 20'
@@ -50,6 +51,13 @@ def partition(units,size,mode):
                 result.add(tuple(sorted((tuple(sorted(ordered[:cut])),tuple(sorted(ordered[cut:]))))))
         return tuple(sorted(result))
     def score(parts):
+        if mode=='full':
+            # Among equal-size batch plans, prefer nearby units and less
+            # duplicated photo context. Resolution never triggers another batch.
+            count=sum(len(group(g)['objects']) for g in parts)
+            unique=len({o['id'] for g in parts for o in group(g)['objects']})
+            return round(sum(area(group(g)['bbox'])/(size[0]*size[1]) for g in parts)
+                         +(count-unique)/HARD_LIMIT,9)
         loss=soft=orphan=0
         for indices in parts:
             g=group(indices);_,scale,_,_=crop_geometry(g['bbox'],size,mode)
@@ -62,7 +70,9 @@ def partition(units,size,mode):
     for k in range(1,MAX_REQUESTS+1):
         candidates=levels.get(k,set())
         valid=[p for p in candidates if all(len(group(g)['objects'])<=HARD_LIMIT for g in p)]
-        if valid:best[k]=min(valid,key=lambda p:(score(p),p))
+        if valid:
+            best[k]=min(valid,key=lambda p:(score(p),p))
+            if mode=='full':break
         if k==MAX_REQUESTS:continue
         nxt=set()
         for parts in candidates:
@@ -100,7 +110,10 @@ def partition(units,size,mode):
     alternatives=[{'requests':k,'score':score(p),'counts':[len(group(g)['objects']) for g in p],
                    'selected':p==chosen} for k,p in sorted(best.items())]
     groups=[group(g) for g in chosen]
-    for g in groups:g['notes']=['capacity_fallback'] if fallback else ['regional_partition']
+    for g in groups:
+        g['notes']=['capacity_fallback'] if fallback else [
+            'single_full_image' if mode=='full' and len(groups)==1 else
+            'capacity_partition' if mode=='full' else 'regional_partition']
     return sorted(groups,key=lambda g:(g['bbox'][1],g['bbox'][0],g['ids'])),alternatives,None
 
 
@@ -120,9 +133,10 @@ def gap(a,b,size):
                       max(0,a[1]-b[3],b[1]-a[3])/size[1])
 
 
-def plan(scene, targets, padding=.1, mode='grouped'):
+def plan(scene, targets, padding=.1, mode='full'):
     from reveal import request_object
     if mode not in ['grouped','full']:raise ValueError('Unknown grouped request mode')
+    version=FULL_VERSION if mode=='full' else VERSION
     size=scene['reference_size'];w,h=size;full=[0,0,w,h]
     by_id={o['id']:o for o in scene['objects']}
     selected={t['id']:t for t in targets if t.get('request',True)}
@@ -181,9 +195,9 @@ def plan(scene, targets, padding=.1, mode='grouped'):
             blocked.append({'ids':group['ids'],'reason':'Photo context below API minimum; not expanded','photos':invalid});continue
         batch={'primary_ids':group['ids'],'crop_box':crop,'reference_size':size,'objects':local,
                'count':len(local),'reason':reason,'notes':group['notes'],'estimated_sampling_gain':round(gain,3)}
-        batch['id']='batch_'+fingerprint([VERSION,mode,padding,batch])[:16];batches.append(batch)
-    return {'version':VERSION,'mode':mode,'reference_size':size,'padding':padding,
-            'soft_limit':SOFT_LIMIT,'hard_limit':HARD_LIMIT,'max_requests':MAX_REQUESTS,
+        batch['id']='batch_'+fingerprint([version,mode,padding,batch])[:16];batches.append(batch)
+    return {'version':version,'mode':mode,'reference_size':size,'padding':padding,
+            'soft_limit':SOFT_LIMIT if mode=='grouped' else None,'hard_limit':HARD_LIMIT,'max_requests':MAX_REQUESTS,
             'status':'blocked' if blocked else 'ready','alternatives':alternatives,
             'batches':[] if blocked else batches,'blocked':blocked}
 

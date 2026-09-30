@@ -24,20 +24,20 @@ def targets(s):return [o for o in s['objects'] if o['kind']=='overlay']
 
 
 def test_spatial_groups_and_exact_photo_boxes():
-    s=scene();p=plan(s,targets(s));assert 1<=len(p['batches'])<=3
+    s=scene();p=plan(s,targets(s),mode='grouped');assert 1<=len(p['batches'])<=3
     for b in p['batches']:
         assert b['count']<=20 and b['estimated_sampling_gain']>2
         photo=next(o for o in b['objects'] if o['role']=='photo_context')
         assert photo['reference_bbox']==photo['original_bbox'] and photo['padding']==0
         for o in b['objects']:
             c=b['crop_box'];assert o['bbox']==[o['reference_bbox'][0]-c[0],o['reference_bbox'][1]-c[1],o['reference_bbox'][2]-c[0],o['reference_bbox'][3]-c[1]]
-    assert plan(s,list(reversed(targets(s))))==p
+    assert plan(s,list(reversed(targets(s))),mode='grouped')==p
 
 
 def test_nearby_merge_without_distant_chain():
     s=scene(3)
     for o in s['objects'][2:4]:o['bbox']=[v-680 if j%2==0 else v for j,v in enumerate(o['bbox'])]
-    p=plan(s,targets(s));assert sorted(b['count'] for b in p['batches'])==[2,4]
+    p=plan(s,targets(s),mode='grouped');assert sorted(b['count'] for b in p['batches'])==[2,4]
 
 
 def test_atomic_above_ten_and_over_twenty_blocked():
@@ -51,7 +51,7 @@ def test_atomic_above_ten_and_over_twenty_blocked():
 
 def test_global_overlay_does_not_swallow_small_groups():
     s=scene();big={'id':'big','kind':'overlay','bbox':[0,0,4000,4000]};s['objects'].append(big)
-    p=plan(s,targets(s));assert len(p['batches'])<=3
+    p=plan(s,targets(s),mode='grouped');assert len(p['batches'])<=3
     b=next(b for b in p['batches'] if 'big' in b['primary_ids'])
     assert b['crop_box']==[0,0,4000,4000] and b['count']==5
     assert all(b['count']<=20 for b in p['batches'])
@@ -88,12 +88,18 @@ def test_restore_service_dimension_rounding_requires_coordinate_evidence(tmp_pat
         with pytest.raises(ValueError,match='aspect'):restore(raw,crop,[1080,1442],dest,invalid)
 
 
-def test_request_resume_identity_and_aux_exclusion(tmp_path,monkeypatch):
+@pytest.mark.parametrize('layout',['grouped','full',None])
+def test_request_resume_identity_and_aux_exclusion(tmp_path,monkeypatch,layout):
     import reveal
     s=scene(1);ref=tmp_path/'reference.png';Image.new('RGB',(4000,4000),'white').save(ref);s['reference']={'file':str(ref)}
     run=tmp_path/'run';calls=[]
     def fake(task,reference,objects,key,timeout):
         calls.append(str(task));task=Path(task)
+        if layout!='grouped':
+            with Image.open(reference) as uploaded,Image.open(ref) as original:
+                assert uploaded.size==original.size and uploaded.tobytes()==original.tobytes()
+            context=next(o for o in objects if o['role']=='photo_context')
+            assert context['bbox']==s['objects'][1]['bbox']
         from common import sha
         save(task/'request_meta.json',{'reference_sha256':sha(reference),'objects':objects})
         save(task/'query_response.json',{'status':'done','task_id':'fake','output':{'boxes_mapping_index':list(range(len(objects)))}})
@@ -101,7 +107,8 @@ def test_request_resume_identity_and_aux_exclusion(tmp_path,monkeypatch):
         with Image.open(reference) as im:size=im.size
         for i in range(len(objects)):Image.new('RGBA',size,'red').save(task/f'layers_aug_{i+1:02d}.png')
     monkeypatch.setattr(reveal,'api_key',lambda _:'fake');monkeypatch.setattr(reveal,'fetch_batch',fake)
-    cfg={'layout':'grouped','remote':True}
+    cfg={'remote':True}
+    if layout is not None:cfg['layout']=layout
     assets,r=acquire(run,s,targets(s),cfg);assert set(assets)=={'f0'} and len(calls)==1 and not r[0].get('error')
     assets,r=acquire(run,s,targets(s),cfg);assert len(calls)==1
     # Same overlay bbox but changed photo context MUST use a different batch.
@@ -147,7 +154,7 @@ def test_unknown_submission_not_resent_by_group_adapter(tmp_path,monkeypatch):
 
 def test_crop_at_canvas_edge_never_cuts_requested_bounds():
     s={'reference_size':[3000,5000],'objects':[{'id':'edge','kind':'overlay','bbox':[0,0,80,150]}]}
-    b=plan(s,targets(s))['batches'][0]
+    b=plan(s,targets(s),mode='grouped')['batches'][0]
     assert b['crop_box'][:2]==[0,0]
     assert b['objects'][0]['bbox']==[0,0,88,165]
     assert b['crop_box'][2]>=88 and b['crop_box'][3]>=165

@@ -19,7 +19,7 @@ def main():
             a.add_argument('--reveal-timeout',type=int,default=360)
             a.add_argument('--reveal-padding',type=float,default=.1,help='Expand each request edge by this fraction of original width/height (default .1)')
             a.add_argument('--no-reveal',action='store_true')
-            a.add_argument('--reveal-layout',choices=['grouped','full','legacy'],default='grouped',help='Spatial crops (default), full-image context control, or historical overlay-only requests')
+            a.add_argument('--reveal-layout',choices=['full','grouped','legacy'],default='full',help='Full image with photo context (default; split only above 20 boxes), optional spatial crops, or historical overlay-only requests')
         if name=='generate':
             a.add_argument('--ids',nargs='+',required=True);a.add_argument('--credentials',default='D:/codes/yibu_credentials.local.json');a.add_argument('--allow-remote',action='store_true');a.add_argument('--timeout',type=int,default=300);a.add_argument('--workers',type=int,default=2);a.add_argument('--dry-run',action='store_true');a.add_argument('--group',action='store_true',help='Generate selected overlay/text members as one fused unit')
     args=p.parse_args()
