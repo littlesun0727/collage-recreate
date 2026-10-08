@@ -28,7 +28,7 @@
 
 ```powershell
 $py = 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe'
-$skill = 'D:/codes/collage-recreate-v5'
+$skill = 'D:/codes/collage-recreate-v5/skill'
 $testRoot = 'D:/codes/collage_outputs/test-' + [guid]::NewGuid().ToString('N')
 & $py -B -m pytest "$skill/tests" -q -p no:cacheprovider --basetemp $testRoot
 ```

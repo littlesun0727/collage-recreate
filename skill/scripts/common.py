@@ -48,23 +48,23 @@ def now():
 
 
 def event(run, name, **data):
-    path = Path(run) / 'events.jsonl'
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open('a', encoding='utf-8') as f:
-        f.write(json.dumps({'at': now(), 'event': name, **data}, ensure_ascii=False) + '\n')
+    from observation import emit
+    emit(run, name, **data)
 
 
 @contextmanager
 def timed(run, name):
+    from observation import operation
     started = time.monotonic()
-    event(run, name + '_started')
-    try:
-        yield
-    except Exception as exc:
-        event(run, name + '_failed', elapsed_seconds=round(time.monotonic()-started, 3), error=str(exc))
-        raise
-    else:
-        event(run, name + '_finished', elapsed_seconds=round(time.monotonic()-started, 3))
+    with operation(run, name):
+        event(run, name + '_started')
+        try:
+            yield
+        except Exception as exc:
+            event(run, name + '_failed', elapsed_seconds=round(time.monotonic()-started, 3), error=str(exc))
+            raise
+        else:
+            event(run, name + '_finished', elapsed_seconds=round(time.monotonic()-started, 3))
 
 
 @contextmanager

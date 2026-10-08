@@ -9,6 +9,10 @@ from common import read, timed, locked, save
 def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     a=sub.add_parser('prepare');a.add_argument('--reference',required=True);a.add_argument('--materials',nargs='+',required=True);a.add_argument('--run',required=True);a.add_argument('--width',type=int,default=1200);a.add_argument('--instructions',default='');a.add_argument('--cutout-model')
+    a=sub.add_parser('progress',help='Record an actual Codex stage observation')
+    a.add_argument('--run',required=True);a.add_argument('--stage',type=int,choices=range(1,7),required=True)
+    a.add_argument('--status',choices=['running','waiting','blocked','complete','skipped','failed'],required=True)
+    a.add_argument('--summary',required=True);a.add_argument('--analysis-only',action='store_true')
     for name in ['validate','build','reveal-plan','render','apply','review','generate','recover','screen']:
         a=sub.add_parser(name);a.add_argument('--run',required=True)
         a.add_argument('--brief',action='store_true',help='Print only paths and outcome; complete evidence remains in result.json')
@@ -26,13 +30,20 @@ def main():
             a.add_argument('--ids',nargs='+',required=True);a.add_argument('--credentials',default='D:/codes/yibu_credentials.local.json');a.add_argument('--allow-remote',action='store_true');a.add_argument('--timeout',type=int,default=300);a.add_argument('--workers',type=int,default=2);a.add_argument('--dry-run',action='store_true');a.add_argument('--group',action='store_true',help='Generate selected overlay/text members as one fused unit')
     args=p.parse_args()
     try:
-        if args.command=='prepare':
+        if args.command=='progress':
+            from observation import checkpoint
+            with locked(Path(args.run)):
+                result=checkpoint(args.run,args.stage,args.status,args.summary,args.analysis_only)
+        elif args.command=='prepare':
             from prepare import prepare
             result=prepare(args.reference,args.materials,args.run,args.width,args.instructions,args.cutout_model)
         else:
             run=Path(args.run).resolve()
             if not (run/'input.json').exists():raise ValueError('Run prepare first')
             with locked(run),timed(run,args.command):
+                if getattr(args,'file',None):
+                    from observation import evidence
+                    evidence(run,args.file)
                 if args.command=='validate':
                     from validate import analysis_check, bindings_check
                     from prepare import boxes

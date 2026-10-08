@@ -15,7 +15,7 @@ description: 根据拼贴参考图和客户照片制作替换照片后的拼贴�
 
 ```powershell
 $py = 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe'
-$skill = 'D:/codes/collage-recreate-v5'
+$skill = 'D:/codes/collage-recreate-v5/skill'
 $run = 'D:/codes/collage_outputs/任务名'
 $ref = 'D:/实际路径/参考图.png'
 $materials = @('D:/实际路径/客户照片')
@@ -30,6 +30,8 @@ $cutout = 'D:/codes/visual-recreate-validation/models/birefnet-lite-fp32.onnx'
 - 继续已有任务时读取其 `input.json`，不要再次 `prepare`。
 
 **完成条件：** 得到 `input.json`、`prepared/reference.png`、`prepared/catalog.json` 和客户联系表。记录返回的实际 `reference_size`、素材数与警告。
+
+工作台默认从任务目录读取事件和版本快照，不需要启动网页才能制作。prepare 后先读 [工作台进度记录](references/workbench.md)，在分析、筛选、看图复核和交付的实际边界执行 `progress`；脚本命令及素材处理进度自动记录。记录只描述实际已做的操作，不以命令成功代替看图判断。
 
 ## 2. 看图，写分析与绑定，叠框纠偏
 

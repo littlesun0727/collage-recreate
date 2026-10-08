@@ -8,11 +8,15 @@ from text import render_text
 from overlays import draw_overlay
 from scene import load_scene, checked_review
 from effects import scale_style,shadow_layer
+from common import event
+import uuid
 
 
 def render(run):
     run=Path(run);s=load_scene(run);w,h=s['canvas_size'];scale=w/s['reference_size'][0]
     if w*h>20_000_000:raise ValueError('Canvas exceeds 20 million pixels')
+    material_attempt=uuid.uuid4().hex
+    event(run,'materials_started',material_attempt=material_attempt,ids=s['layer_order'])
     # Invalidate old visual acceptance before attempting a new render.
     save(run/'result.json',{'exported':False,'renders_verified':False,'status':'rendering','at':now()})
     with Image.open(verify_source(s['reference'])) as raw:reference=raw.convert('RGB')
@@ -30,6 +34,7 @@ def render(run):
         group_info=grouped.get(oid)
         if group_info and group_info['primary']!=oid:continue
         original=by_id[oid];o=deepcopy(original)
+        event(run,'material_started',object_id=oid,material_attempt=material_attempt)
         if group_info:o.update(bbox=group_info['bbox'],generated=group_info['source'],kind='overlay',rotation=0,style={},text_unresolved=any(by_id[i]['text_unresolved'] for i in group_info['member_ids']))
         if o.get('recovered') and not o.get('generated'):
             dx,dy=o.get('extracted_offset',[0,0]);rw,rh=s['reference_size']
@@ -44,7 +49,8 @@ def render(run):
         cached=read(receipt_path) if receipt_path.exists() else {}
         cm=cached.get('metadata',{}).get('content_mask')
         mask_valid=not cm or (Path(cm).exists() and sha(cm)==cached['metadata'].get('content_mask_sha256'))
-        if cached.get('input_key')==key and path.exists() and cached.get('sha256')==sha(path) and mask_valid:
+        cache_hit=cached.get('input_key')==key and path.exists() and cached.get('sha256')==sha(path) and mask_valid
+        if cache_hit:
             with Image.open(path) as raw:tile=raw.convert('RGBA')
             metadata=cached['metadata']
         else:
@@ -74,6 +80,8 @@ def render(run):
             if opacity!=1:tile.putalpha(tile.getchannel('A').point(lambda v:round(v*opacity)))
             tile.save(path);save(receipt_path,{'input_key':key,'sha256':sha(path),'metadata':metadata})
         if metadata['quality'] in ['placeholder','unresolved']:incomplete.append(oid)
+        event(run,'material_finished',object_id=oid,material_attempt=material_attempt,
+              quality=metadata['quality'],cache_hit=bool(cache_hit),file=str(path),sha256=sha(path))
         if metadata.get('note'):issues.append({'id':oid,'note':metadata['note']})
         for note in original.get('reveal_notes',[]):issues.append({'id':oid,'note':note})
         content_alpha=None
@@ -139,6 +147,8 @@ def render(run):
     if s.get('reveal_index'):result['reveal_index']=s['reveal_index']
     result['render_id']=fingerprint([result['scene_sha256'],result['final_sha256']])[:16]
     save(run/'result.json',result)
+    from observation import publish
+    publish(run)
     return {k:v for k,v in result.items() if k!='resources'}
 
 
@@ -156,4 +166,5 @@ def accept_review(run,path):
         raise ValueError('Cannot pass with unresolved/placeholder/hidden photos')
     result.update(status='verified' if passed else 'needs_changes',renders_verified=passed,visual_review=r)
     save(run/'review.json',r);save(run/'result.json',result)
+    event(run,'review_registered',render_id=result['render_id'],review=r)
     return {'status':result['status'],'renders_verified':passed}

@@ -66,7 +66,8 @@ def acquire(run,scene,targets,config):
                 with Image.open(ip) as im:
                     if im.convert('RGB').tobytes()!=crop.tobytes() or im.size!=crop.size:raise ValueError('Cached crop changed')
             else:crop.save(ip)
-            if not downloads_ready(task):
+            receipt['cache_hit']=downloads_ready(task)
+            if not receipt['cache_hit']:
                 if not config.get('remote') or readonly:
                     receipt['error']='No complete matching grouped cache';return found,receipt
                 event(run,'reveal_request_started',task=str(task),targets=batch['primary_ids'])
@@ -94,6 +95,8 @@ def acquire(run,scene,targets,config):
                                'original_bbox':o['original_bbox'],'padding':o['padding'],'pixel_scale':scale,
                                'raw_file':str(raw.resolve()),'raw_sha256':sha(raw),'crop_box':batch['crop_box'],'task':str(task)}
                 if 'padding_mode' in o:found[o['id']]['padding_mode']=o['padding_mode']
+                event(run,'material_extracted',object_id=o['id'],raw_file=str(raw),
+                      processed_file=str(dest),cache_hit=receipt['cache_hit'])
             receipt['missing_ids']=[oid for oid in batch['primary_ids'] if oid not in found]
         except Exception as exc:
             receipt['error']=type(exc).__name__+': '+str(exc)

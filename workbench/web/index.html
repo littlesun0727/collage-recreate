@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>拼贴制作工作台</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a href="/" class="brand"
+        ><span class="brand-icon">▧</span
+        ><span>拼贴工作台<small>COLLAGE STUDIO</small></span></a
+      >
+      <div class="side-label">制作任务 <span id="taskCount">0</span></div>
+      <input
+        id="search"
+        type="search"
+        placeholder="搜索任务"
+        aria-label="搜索任务"
+      />
+      <nav id="tasks" aria-label="制作任务"></nav>
+      <div class="side-foot">
+        <i id="connectionDot"></i><span id="connection">正在连接工作台</span
+        ><small>过程自动保存 · 随时回看</small>
+      </div>
+    </aside>
+    <main>
+      <section id="empty" class="empty-state">
+        <span class="eyebrow">每一步，都看得见</span>
+        <h1>一张拼贴的制作过程</h1>
+        <p>
+          在 Codex 中开始制作后，任务会自动出现在这里。<br />查看素材、比较成图，回看每一次修改。
+        </p>
+        <div class="empty-cards">
+          <span>01<br />分析布局</span><span>02<br />制作素材</span
+          ><span>03<br />对照成图</span>
+        </div>
+      </section>
+      <section id="workspace" hidden>
+        <header class="task-heading">
+          <div>
+            <span class="eyebrow"
+              >制作记录 / <span id="taskKind">实时任务</span></span
+            >
+            <h1 id="title"></h1>
+            <p id="subtitle"></p>
+          </div>
+          <div class="heading-actions">
+            <span id="execution" class="badge"></span
+            ><a id="download" class="button primary" download="collage.png"
+              >下载当前成图 ↗</a
+            >
+          </div>
+        </header>
+        <nav id="stages" class="stages" aria-label="六步进度"></nav>
+        <p id="sdkTiming" class="subtle" hidden></p>
+        <div id="notice" class="notice" hidden></div>
+        <div id="historyBanner" class="history-banner" hidden>
+          <span id="viewing"></span
+          ><button id="follow" class="text-button">返回当前步骤 →</button>
+        </div>
+        <div class="workspace-grid">
+          <div class="primary-column">
+            <section class="panel preview-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">CANVAS</span>
+                  <h2 id="canvasTitle">成图对照</h2>
+                </div>
+                <span id="versionBadge" class="subtle"></span>
+              </div>
+              <div class="canvas-toolbar">
+                <div class="segmented" id="modes">
+                  <button data-mode="side" class="active">并排对照</button
+                  ><button data-mode="wipe">滑动对照</button
+                  ><button data-mode="before">修改前后</button>
+                </div>
+                <label id="boxesControl"
+                  ><input id="boxes" type="checkbox" checked />
+                  显示分析框</label
+                >
+                <div class="zoom-tools">
+                  <button id="zoomOut" title="缩小">−</button
+                  ><span id="zoomLabel">100%</span
+                  ><button id="zoomIn" title="放大">＋</button
+                  ><button id="resetZoom">适应</button
+                  ><button id="original">原图 ↗</button>
+                </div>
+              </div>
+              <div id="canvas" class="canvas"></div>
+              <div class="canvas-foot">
+                <span id="canvasHint"
+                  >滚轮缩放 · 拖动画面同步移动 · 点击素材定位</span
+                ><span id="dimensions"></span>
+              </div>
+            </section>
+            <section class="panel versions-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">VERSIONS</span>
+                  <h2>修改版本链</h2>
+                </div>
+                <span class="subtle">每一版都保留</span>
+              </div>
+              <div id="versions" class="versions"></div>
+            </section>
+            <section class="panel materials-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">MATERIALS</span>
+                  <h2 id="materialHeading">素材制作过程</h2>
+                </div>
+                <span id="materialCount" class="subtle"></span>
+              </div>
+              <div id="materialProgress"></div>
+              <div id="groups"></div>
+              <div id="materials" class="materials"></div>
+            </section>
+          </div>
+          <aside class="details-column">
+            <section class="panel step-panel">
+              <span class="eyebrow">当前查看步骤</span>
+              <h2 id="stepTitle"></h2>
+              <span id="stepStatus" class="badge"></span>
+              <p id="stepSummary"></p>
+              <div id="quality"></div>
+              <div id="stepFacts"></div>
+            </section>
+            <section class="panel changes-panel">
+              <div class="panel-head">
+                <h2>这一版改了什么</h2>
+                <span id="changeCount" class="counter"></span>
+              </div>
+              <div id="changes"></div>
+            </section>
+            <section class="panel">
+              <h2>复核记录</h2>
+              <div id="review"></div>
+            </section>
+            <section class="panel timeline-panel">
+              <h2>制作动态</h2>
+              <ol id="timeline" class="timeline"></ol>
+            </section>
+          </aside>
+        </div>
+        <footer>
+          原始参考 · 客户素材 · 制作过程 <span id="updated"></span>
+        </footer>
+      </section>
+    </main>
+    <dialog id="imageDialog">
+      <div class="dialog-top">
+        <strong id="imageTitle">原图</strong
+        ><button id="closeImage">关闭 ✕</button>
+      </div>
+      <div class="original-scroll">
+        <img id="originalImage" alt="原尺寸图片" />
+      </div>
+      <a id="originalDownload" class="button" download="collage.png"
+        >下载图片</a
+      >
+    </dialog>
+    <script src="/app.js"></script>
+  </body>
+</html>
