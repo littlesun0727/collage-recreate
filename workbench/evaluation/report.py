@@ -3,6 +3,8 @@ import argparse
 import csv
 import hashlib
 import json
+import statistics
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
@@ -62,7 +64,7 @@ def main():
         run = root/'tasks'/sample['task']
         result = read(run/'result.json')
         events = records(run/'events.jsonl')
-        review = result.get('visual_review', {})
+        review = result.get('visual_review') or {}
         versions = list((run/'observability/versions').glob('*/manifest.json'))
         versions = [p for p in versions if not p.parent.name.startswith('.')]
         errors = []
@@ -86,6 +88,7 @@ def main():
                      'workflow_command_seconds':metrics,
                      'reveal_submissions':sum(e.get('event')=='reveal_request_started' for e in events),
                      'issues':review.get('items',[]), 'run':str(run),
+                     'supervisor_verdict':observations.get(sample['index'],{}).get('verdict','未抽查'),
                      'supervisor_review':observations.get(sample['index'])})
     overlap = []
     previous = None
@@ -95,22 +98,33 @@ def main():
         if previous and (not previous['finished_at'] or datetime.fromisoformat(row['started_at']) < datetime.fromisoformat(previous['finished_at'])):
             overlap.append([previous['index'],row['index']])
         previous = row
+    completed = [r for r in rows if r['status']=='completed']
+    durations = [r['elapsed_seconds'] for r in completed]
+    totals = {'elapsed_seconds':round(sum(durations),1),
+              'mean_seconds':round(statistics.mean(durations),1) if durations else None,
+              'median_seconds':round(statistics.median(durations),1) if durations else None,
+              'min_seconds':min(durations) if durations else None,
+              'max_seconds':max(durations) if durations else None,
+              'agent_verdicts':dict(Counter(r['visual_verdict'] for r in completed)),
+              'supervisor_verdicts':dict(Counter(r['supervisor_verdict'] for r in completed))}
     audit = {'model':manifest['model'],'effort':manifest['effort'],'concurrency':1,
              'samples':len(rows),'completed':sum(r['status']=='completed' for r in rows),
-             'overlapping_samples':overlap,'rows':rows}
+             'overlapping_samples':overlap,'totals':totals,'rows':rows}
     (root/'audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     with (root/'timings.csv').open('w',encoding='utf-8-sig',newline='') as out:
-        fields=['index','name','status','started_at','finished_at','elapsed_seconds','visual_verdict','versions','model_verified','render_verified','reveal_submissions']
+        fields=['index','name','status','started_at','finished_at','elapsed_seconds','visual_verdict','supervisor_verdict','versions','model_verified','render_verified','reveal_submissions']
         writer=csv.DictWriter(out,fieldnames=fields,extrasaction='ignore');writer.writeheader();writer.writerows(rows)
     lines=['# Codex SDK 串行端到端测试','',f"模型：`{manifest['model']}`，推理档位：`{manifest['effort']}`，并发数：1。",
            '',f"共 {len(rows)} 张；已完整交付 {audit['completed']} 张；检测到样本重叠 {len(overlap)} 处。",
+           '',f"已完成样片累计 {totals['elapsed_seconds']} 秒；平均 {totals['mean_seconds']} 秒；中位数 {totals['median_seconds']} 秒。",
+           '', 'Agent 复核是被测模型自己的判断；主控抽查单独记录参考对照中的可见问题，不覆盖原始结果。执行完成不等于视觉通过。',
            '', '耗时从 SDK turn 启动到最终响应结束，包含启动、分析、工具、远端等待和复核。命令耗时单独保存在 audit.json，不将总耗时减去命令耗时冒称纯模型思考时间。',
-           '', '| 序号 | 样片 | 执行状态 | 总耗时 | 视觉结论 | 版本数 |', '|---|---|---|---|---|---|']
+           '', '| 序号 | 样片 | 执行状态 | 总耗时 | Agent 复核 | 主控抽查 | 版本数 |', '|---|---|---|---|---|---|---|']
     for row in rows:
         seconds=row['elapsed_seconds']
         duration='—' if seconds is None else f'{int(seconds//60)}分{seconds%60:.1f}秒'
         if row['status']=='running':duration+='（进行中）'
-        lines.append(f"| {row['index']} | [{row['name']}](tasks/{row['task']}/previews/comparison.png) | {row['status']} | {duration} | {row['visual_verdict']} | {row['versions']} |")
+        lines.append(f"| {row['index']} | [{row['name']}](tasks/{row['task']}/previews/comparison.png) | {row['status']} | {duration} | {row['visual_verdict']} | {row['supervisor_verdict']} | {row['versions']} |")
     lines += ['', '## 每张样片的实际复核','']
     for row in rows:
         lines += [f"### {row['index']:02d} {row['name']}",'',row['summary'] or '尚未登记复核。','']

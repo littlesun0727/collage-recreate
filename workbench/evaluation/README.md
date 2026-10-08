@@ -30,4 +30,6 @@ node workbench/evaluation/run-serial-sdk.mjs --root D:/codes/collage_outputs/sdk
 
 输出 `REPORT.md`、`timings.csv`、`audit.json` 和参考/成图联系表。审计从真实 session 的 turn_context 验证模型与档位，检查样本时间是否重叠、客户照片来源校验以及当前成图和历史快照哈希。素材提取门禁与 agent 视觉复核分别记录，完成执行不代表视觉通过。
 
+如在批次根目录保存 `supervisor-review.json`，报告会并列展示主控额外看图结论，保留被测 agent 原始复核不变。其结构为 `{"samples":[{"index":1,"verdict":"needs_changes","observations":["实际看图发现的问题"]}]}`。累计、平均和中位耗时只统计已完整交付的样片，进行中的耗时不混入汇总。
+
 2026-10-08 首次预检目录 `sdk-serial-20261008` 因 Windows 状态文件占用在分析阶段结束，尚未提取。修复记录器后使用独立正式批次 `sdk-serial-20261008-r1`，不把预检中断耗时混入正式样本。

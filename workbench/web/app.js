@@ -329,6 +329,7 @@ function renderMaterials() {
 function render() {
   const d = state.data;
   if (!d) return;
+  renderTiming();
   $("#empty").hidden = true;
   $("#workspace").hidden = false;
   const step = state.stage || d.current_stage,

@@ -73,12 +73,15 @@ def main():
         records=[]
         for task in b.js('state.tasks.map(t=>t.id)'):
             b.js('selectTask('+json.dumps(task)+')');b.until('state.data?.id === '+json.dumps(task)+' && !state.busy')
-            records.append(b.js('({name:state.data.name,versions:state.data.versions.length,stage:state.data.current_stage})'))
+            records.append(b.js('({id:state.data.id,name:state.data.name,versions:state.data.versions.length,stage:state.data.current_stage})'))
+            assert b.js('document.querySelector("#sdkTiming").hidden === !state.data.sdk_timing?.started_at')
+            if b.js('Boolean(state.data.sdk_timing?.started_at)'):
+                assert b.js('document.querySelector("#sdkTiming").textContent.includes(state.data.sdk_timing.model)')
             assert b.js('document.querySelectorAll(".material").length')==b.js('state.data.materials.length')
             b.js('document.querySelector(\'[data-stage="2"]\').click();refresh()');b.until('!state.busy')
             assert b.js('state.stage')==2
             b.js('document.querySelector("#follow").click()');assert b.js('state.stage') is None
-        target=b.js('state.tasks.find(t=>t.name.includes("03-"))?.id || state.tasks[0].id')
+        target=max(records,key=lambda task:task['versions'])['id']
         b.js('selectTask('+json.dumps(target)+')');b.until('state.data?.id === '+json.dumps(target)+' && !state.busy')
         b.until('Array.from(document.querySelectorAll("#canvas img")).every(i=>i.complete && i.naturalWidth>0)')
         b.screenshot(args.out/'01-workbench.png')
@@ -105,7 +108,7 @@ def main():
         assert b.js('document.documentElement.scrollWidth <= window.innerWidth+1'),'Mobile overflow'
         b.call('Page.reload');b.until('Boolean(state.data && !state.busy)')
         assert not b.errors,b.errors
-        report={'passed':True,'final':args.final,'tasks':records,'checks':['six-stages','all-tasks','history-pinning','wipe','zoom','version-pinning','modal-persistence','material-details','object-focus','responsive','reload'],'console_errors':b.errors}
+        report={'passed':True,'final':args.final,'tasks':records,'checks':['six-stages','all-tasks','sdk-timing','history-pinning','wipe','zoom','version-pinning','modal-persistence','material-details','object-focus','responsive','reload'],'console_errors':b.errors}
         (args.out/'browser-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
         print(json.dumps({'passed':True,'out':str(args.out)}))
     finally:b.close()

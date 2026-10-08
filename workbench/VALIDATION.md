@@ -6,15 +6,15 @@
 
 - 原有 skill 回归 164 项、新增工作台与观察契约测试 13 项：共 **177 项通过**。
 - skill 格式校验通过；浏览器 JavaScript 语法检查通过。
-- 真实任务浏览器验收通过：六步进度、三任务切换、历史步骤固定、滑动对照、缩放、版本固定、原图弹窗、素材详情保留、对象定位、手机布局及刷新恢复。浏览器控制台无异常。
+- 真实任务浏览器验收通过：六步进度、全部 19 个任务切换、SDK 计时、历史步骤固定、滑动对照、缩放、版本固定、原图弹窗、素材详情保留、对象定位、手机布局及刷新恢复。浏览器控制台无异常。
 - 动态浏览器验收通过：实际渲染器执行时先显示完成的素材、心跳与本轮数量正确；查看历史步骤或版本时后台继续，新版本不会继承旧版本的复核结论；修改前后图可对照。该项使用明确标记的合成图片测试，和下述真实样片分开保存。
 - 契约测试覆盖事件并发与半条记录恢复、未完成快照忽略、不可变图像、修改依据及差异、复核绑定、同图重渲染去重、新旧素材批次隔离、阶段产物校验、仅分析任务、历史任务、禁用观察记录、只读接口与重启恢复。
 
 工作台完成记录与视觉质量分别展示：执行结束不等于图片通过复核。观察服务未启动时，skill 仍会保存事件和版本；浏览器轮询不会触发远端制作请求。
 
-## 真实样片
+## 首轮功能验证：三张真实样片
 
-从 `D:/datas/图片排版样图_去水印` 的 16 张参考图中选择以下 3 张，覆盖人像抠图、风景叠放和装饰提取。客户素材来自 `D:/视频素材/人像素材3.0` 与 `D:/视频素材/风景照片`，共读取 19 张照片，具体使用情况留在每个任务的 bindings 和结果中。本次没有宣称测试全部 16 张参考图。
+首轮从 `D:/datas/图片排版样图_去水印` 的 16 张参考图中选择以下 3 张，覆盖人像抠图、风景叠放和装饰提取。客户素材来自 `D:/视频素材/人像素材3.0` 与 `D:/视频素材/风景照片`，共读取 19 张照片，具体使用情况留在每个任务的 bindings 和结果中。这三张由主控执行，用于功能验收；后续独立 SDK 串行测试另行记录，不混合计时或结论。
 
 | 任务 | 原始参考图 | 实际制作与修改 | 当前视觉结论 |
 |---|---|---|---|
@@ -26,21 +26,62 @@
 
 本次目标是使制作过程和真实成片问题可见。上述视觉问题如实留在页面复核卡片与对应版本，未用“流程完成”冒充视觉验收通过；没有为提高测试结论而替换客户素材或伪造成图。
 
+## 完整 SDK 串行端到端测试：16 张
+
+按用户追加要求，使用官方 `@openai/codex-sdk` 0.158.0 与本机 Codex CLI 0.157.1，固定 `gpt-5.6-sol / medium`，对指定参考目录内全部 16 张图片逐张执行。每张独立 thread；上一张结束才启动下一张，未使用并行样本。两组客户素材均来自用户指定目录。
+
+正式批次：`D:/codes/collage_outputs/sdk-serial-20261008-r1`。全部 16 张完成六步交付，累计 **1 小时 59 分 9.2 秒**，平均 **7 分 26.8 秒**，中位数 **7 分 0.5 秒**；最快 **3 分 31.2 秒**，最慢 **12 分 8.9 秒**。总耗时包含 SDK 启动、分析、工具、远端等待、复核及最终响应，不等同于单次渲染耗时。
+
+| 序号 | 样片 | 总耗时 | Agent 自评 | 主控看图 | 版本数 |
+|---|---|---|---|---|---|
+| 1 | 20260908-192922.jpg | 9分37.1秒 | 待修改 | 待修改 | 2 |
+| 2 | 20260908-192946.jpg | 8分58.0秒 | 通过 | 待修改 | 1 |
+| 3 | 20260915-170355_封面样图.png | 5分20.1秒 | 通过 | 通过 | 1 |
+| 4 | 20260915-170441_封面样图.png | 12分8.9秒 | 待修改 | 待修改 | 2 |
+| 5 | 20260915-170446_封面样图.png | 8分38.5秒 | 通过 | 待修改 | 1 |
+| 6 | 20260915-170457_封面样图.png | 7分52.5秒 | 待修改 | 待修改 | 3 |
+| 7 | 20260915-170502_封面样图.png | 3分31.2秒 | 通过 | 待修改 | 2 |
+| 8 | reference-a.png | 6分43.0秒 | 通过 | 待修改 | 2 |
+| 9 | 拼贴1.jpg | 6分26.4秒 | 通过 | 待修改 | 1 |
+| 10 | 拼贴2.jpg | 6分39.3秒 | 待修改 | 待修改 | 1 |
+| 11 | 拼贴3.jpg | 7分0.3秒 | 待修改 | 待修改 | 1 |
+| 12 | 拼贴4.jpg | 5分59.1秒 | 通过 | 待修改 | 1 |
+| 13 | 拼贴5.jpg | 6分34.7秒 | 通过 | 待修改 | 1 |
+| 14 | 拼贴6.jpg | 7分0.6秒 | 待修改 | 待修改 | 2 |
+| 15 | 拼贴7.jpg | 8分47.9秒 | 待修改 | 待修改 | 2 |
+| 16 | 海边人像拼图.jpg | 7分51.6秒 | 通过 | 待修改 | 3 |
+
+Agent 自评为 9 张通过、7 张待修改。主控额外逐张查看最终参考对照后，认为 1 张可作为首版通过、15 张仍需修改；这是主控视觉判断，不是人工标注的标准答案。原 agent 的 review/result 不被覆盖，两份结论并列保留在报告中。
+
+主要问题集中在复杂装饰提取缺失、提取层夹带参考照片、人物出框识别或抠图边缘、边框与照片的局部层级以及照片内口对齐。第 7 张漏掉人物出框结构，第 12 张仍有车牌残留；第 16 张则真实完成了清除旧人物、移开遮脸雨滴两次有效修改。完整工作台能够暴露这些问题，但本次测试不能据此宣称 skill 已达到稳定的客户成片质量。
+
+最终证据检查：16 个真实 session 的模型与档位均一致；样本时间无重叠；全部客户照片来源、当前成图/场景哈希及 26 个历史版本快照核验通过；整个测试期间 skill 源文件哈希未变。页面最终加载 19 个任务（首轮 3 个 + SDK 16 个），均有六步交付记录，没有过程记录缺失提示。
+
+最终隐藏浏览器验收通过：任务切换、SDK 计时、六步回看、滑动对照、缩放、历史版本固定、原图弹窗、素材详情、对象定位、手机布局和刷新恢复。浏览器控制台无异常。
+
+- 逐张结论与对照入口：`D:/codes/collage_outputs/sdk-serial-20261008-r1/REPORT.md`
+- 耗时表：`D:/codes/collage_outputs/sdk-serial-20261008-r1/timings.csv`
+- 模型、命令计时、快照审计：同目录 `audit.json` 与 `FINAL_AUDIT.json`
+- 逐张主控观察：同目录 `supervisor-review.json`；四张参考/成图总览：`contact-01.jpg` 至 `contact-04.jpg`
+- 最终页面验收：`D:/codes/collage_outputs/workbench-validation/browser-sdk-final/browser-report.json`
+
+本次未为提高通过率而在样本间修改 skill、重跑样本或覆盖被测 agent 的结论。初始记录器预检因 Windows 文件占用中断的批次单独保留，不计入正式 16 张耗时。
+
 ## 本地证据与启动
 
 真实任务根目录：`D:/codes/collage_outputs/workbench-validation`。三个子目录内包含输入、绑定、分析、素材、最终图、复核、事件及 `observability/versions` 快照。
 
-- 最终浏览器报告：`D:/codes/collage_outputs/workbench-validation/browser-final/browser-report.json`
-- 最终桌面截图：`D:/codes/collage_outputs/workbench-validation/browser-final/01-workbench.png`
-- 手机截图：`D:/codes/collage_outputs/workbench-validation/browser-final/03-mobile.png`
-- 动态测试报告：`D:/codes/collage_outputs/workbench-live-test/live-report.json`
-- 素材提前出现截图：`D:/codes/collage_outputs/workbench-live-test/01-material-before-final.png`
-- 修改前后截图：`D:/codes/collage_outputs/workbench-live-test/02-modification-chain.png`
+- 最终浏览器报告：`D:/codes/collage_outputs/workbench-validation/browser-sdk-final/browser-report.json`
+- 最终桌面截图：`D:/codes/collage_outputs/workbench-validation/browser-sdk-final/01-workbench.png`
+- 手机截图：`D:/codes/collage_outputs/workbench-validation/browser-sdk-final/03-mobile.png`
+- 动态测试报告：`D:/codes/collage_outputs/workbench-live-final/live-report.json`，包括前后版本按各自坐标定位、分析叠框按分析坐标定位。
+- 素材提前出现截图：`D:/codes/collage_outputs/workbench-live-final/01-material-before-final.png`
+- 修改前后截图：`D:/codes/collage_outputs/workbench-live-final/02-modification-chain.png`
 
 在仓库根目录执行：
 
 ```powershell
-& 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe' -B -m workbench --runs D:/codes/collage_outputs/workbench-validation --port 8790
+& 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe' -B -m workbench --runs D:/codes/collage_outputs/workbench-validation D:/codes/collage_outputs/sdk-serial-20261008-r1/tasks --port 8790
 ```
 
 访问 http://127.0.0.1:8790 。本版是本机观察页面，远程客户分享尚未部署。图片、客户素材、模型、凭据和浏览器运行目录均保存在源码仓库外。
