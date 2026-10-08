@@ -269,10 +269,12 @@ class Store:
             groups = {k: v for k, v in groups.items() if v.get('at', '') >= last_command.get('at', '')}
         reference = self.image(key, run, run/'prepared/reference.png')
         boxes = self.image(key, run, latest_checkpoint.get('previews/analysis-boxes.png') or run/'previews/analysis-boxes.png')
+        reference_analysis = read(run/latest_checkpoint['analysis.json']) if latest_checkpoint.get('analysis.json') else analysis
         timing = read(run/'sdk-timing.json')
         timing = {k: timing[k] for k in ('model','effort','started_at','finished_at','elapsed_seconds','status') if k in timing}
         return clean({'id': key, 'name': run.name, 'created_at': inp.get('created_at'), 'reference_size': inp.get('reference_size'),
                       'sdk_timing': timing,
+                      'reference_objects': reference_analysis.get('objects', []),
                       'instructions': inp.get('instructions', ''), 'historical': not observed, 'current_stage': current,
                       'stages': stages, 'execution': execution, 'live': live, 'heartbeat_at': heartbeat.get('at'),
                       'history': history[-160:], 'reference': reference, 'boxes': boxes,

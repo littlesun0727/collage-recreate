@@ -102,6 +102,7 @@ function selectTask(id) {
   state.stage = null;
   state.version = null;
   state.data = null;
+  state.focus = null;
   state.canvasKey = "";
   state.materialKeys.clear();
   state.zoom = 1;
@@ -139,21 +140,50 @@ function transform() {
   $("#zoomLabel").textContent = `${Math.round(state.zoom * 100)}%`;
 }
 function highlight() {
-  document.querySelectorAll(".highlight").forEach((e) => e.remove());
-  const b = state.focus;
-  if (!b || !state.data.reference_size) return;
+  document.querySelectorAll(".highlight-layer").forEach((e) => e.remove());
+  if (!state.focus || !state.data.reference_size) return;
   const [w, h] = state.data.reference_size;
   document.querySelectorAll(".image-world").forEach((e) => {
-    const box = document.createElement("span");
-    box.className = "highlight";
-    Object.assign(box.style, {
-      left: `${(b[0] / w) * 100}%`,
-      top: `${(b[1] / h) * 100}%`,
-      width: `${((b[2] - b[0]) / w) * 100}%`,
-      height: `${((b[3] - b[1]) / h) * 100}%`,
+    const roles =
+      e.dataset.role === "wipe" ? ["reference", "after"] : [e.dataset.role];
+    roles.forEach((role) => {
+      const b = focusBounds(state.focus, role);
+      if (!b) return;
+      const layer = document.createElement("div");
+      layer.className = "highlight-layer";
+      if (e.dataset.role === "wipe") {
+        const value = $(".wipe-slider")?.value || 50;
+        layer.style.clipPath =
+          role === "after"
+            ? `inset(0 ${100 - value}% 0 0)`
+            : `inset(0 0 0 ${value}%)`;
+      }
+      const box = document.createElement("span");
+      box.className = "highlight";
+      Object.assign(box.style, {
+        left: `${(b[0] / w) * 100}%`,
+        top: `${(b[1] / h) * 100}%`,
+        width: `${((b[2] - b[0]) / w) * 100}%`,
+        height: `${((b[3] - b[1]) / h) * 100}%`,
+      });
+      layer.append(box);
+      e.append(layer);
     });
-    e.append(box);
   });
+}
+function focusBounds(id, role) {
+  const version = selectedVersion();
+  const previous = state.data.versions.find((v) => v.id === version?.parent_id);
+  const objects =
+    role === "before"
+      ? previous?.objects
+      : role === "reference"
+        ? state.data.reference_objects
+        : version?.objects || state.data.materials;
+  const obj = objects?.find((o) => o.id === id);
+  if (!obj?.bbox) return null;
+  const [dx, dy] = obj.extracted_offset || [0, 0];
+  return obj.bbox.map((coordinate, i) => coordinate + (i % 2 ? dy : dx));
 }
 function fitWorlds() {
   if (!state.data?.reference_size) return;
@@ -169,20 +199,16 @@ function fitWorlds() {
   });
 }
 function focusObject(id) {
-  const version = selectedVersion();
-  const obj = (version?.objects || state.data.materials).find(
-    (o) => o.id === id,
-  );
-  if (!obj?.bbox) return;
-  state.focus = obj.bbox;
+  if (!focusBounds(id, "after") && !focusBounds(id, "reference")) return;
+  state.focus = id;
   state.zoom = 1;
   state.pan = [0, 0];
   transform();
   highlight();
   $("#canvas").scrollIntoView({ behavior: "smooth", block: "center" });
 }
-function pane(url, label, aspect) {
-  return `<div class="image-pane"><div class="pane-label"><span>${escapeHTML(label)}</span><span>${url ? "点击「原图」查看细节" : ""}</span></div><div class="viewport">${url ? `<div class="image-world" style="aspect-ratio:${aspect}"><img src="${url}" alt="${escapeHTML(label)}" draggable="false"></div>` : '<div class="no-image">这一阶段还没有成图<br>制作完成后会自动显示</div>'}</div></div>`;
+function pane(url, label, aspect, role) {
+  return `<div class="image-pane"><div class="pane-label"><span>${escapeHTML(label)}</span><span>${url ? "点击「原图」查看细节" : ""}</span></div><div class="viewport">${url ? `<div class="image-world" data-role="${role}" style="aspect-ratio:${aspect}"><img src="${url}" alt="${escapeHTML(label)}" draggable="false"></div>` : '<div class="no-image">这一阶段还没有成图<br>制作完成后会自动显示</div>'}</div></div>`;
 }
 function renderCanvas() {
   const d = state.data,
@@ -233,9 +259,15 @@ function renderCanvas() {
   const aspect = (d.reference_size || [3, 4]).join("/");
   if (state.mode === "wipe" && left && right) {
     c.classList.add("wipe");
-    c.innerHTML = `<div class="pane-label"><span>${ll} / ${rl}</span><span>拖动滑块对照</span></div><div class="wipe-container viewport"><div class="image-world" style="aspect-ratio:${aspect}"><img src="${left}" alt="${ll}"><div class="wipe-top"><img src="${right}" alt="${rl}"></div><div class="wipe-line"></div></div></div><input class="wipe-slider" type="range" min="0" max="100" value="50" aria-label="对比位置">`;
+    c.innerHTML = `<div class="pane-label"><span>${ll} / ${rl}</span><span>拖动滑块对照</span></div><div class="wipe-container viewport"><div class="image-world" data-role="${step === 2 ? "reference" : "wipe"}" style="aspect-ratio:${aspect}"><img src="${left}" alt="${ll}"><div class="wipe-top"><img src="${right}" alt="${rl}"></div><div class="wipe-line"></div></div></div><input class="wipe-slider" type="range" min="0" max="100" value="50" aria-label="对比位置">`;
   } else {
-    c.innerHTML = pane(left, ll, aspect) + pane(right, rl, aspect);
+    c.innerHTML =
+      pane(
+        left,
+        ll,
+        aspect,
+        state.mode === "before" && step > 2 ? "before" : "reference",
+      ) + pane(right, rl, aspect, step === 2 ? "reference" : "after");
   }
   if (state.mode === "before" && !before)
     $("#canvasHint").textContent =
@@ -500,6 +532,7 @@ $("#canvas").addEventListener("input", (e) => {
   if (e.target.matches(".wipe-slider")) {
     $(".wipe-top").style.clipPath = `inset(0 ${100 - e.target.value}% 0 0)`;
     $(".wipe-line").style.left = e.target.value + "%";
+    highlight();
   }
 });
 $("#canvas").addEventListener(

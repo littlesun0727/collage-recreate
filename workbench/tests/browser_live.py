@@ -52,9 +52,13 @@ def main():
         assert browser.js('state.data.versions[1].review.verdict')=='pass'
         browser.js('document.querySelector("#follow").click();document.querySelector("[data-mode=before]").click();window.scrollTo(0,0)')
         browser.until('Array.from(document.querySelectorAll("#canvas img")).every(i=>i.complete && i.naturalWidth>0)')
+        browser.js('focusObject("star")')
+        assert browser.js('Array.from(document.querySelectorAll(".highlight")).map(e=>e.style.left)')==['75%','70%']
         browser.screenshot(args.out/'02-modification-chain.png')
+        browser.js('document.querySelector(\'[data-stage="2"]\').click();focusObject("star")')
+        assert browser.js('Array.from(document.querySelectorAll(".highlight")).map(e=>e.style.left)')==['75%','75%']
         assert not browser.errors,browser.errors
-        report={'passed':True,'fixture':True,'checks':['material-before-final','live-heartbeat','current-attempt-count','historical-step-during-build','pinned-version-during-new-render','review-bound-to-current-version','before-after'],'console_errors':browser.errors}
+        report={'passed':True,'fixture':True,'checks':['material-before-final','live-heartbeat','current-attempt-count','historical-step-during-build','pinned-version-during-new-render','review-bound-to-current-version','before-after','before-after-focus','analysis-focus'],'console_errors':browser.errors}
         (args.out/'live-report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
         print(json.dumps(report))
     finally:

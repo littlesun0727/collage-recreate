@@ -55,6 +55,7 @@ def main():
     args = parser.parse_args()
     root = args.root.resolve()
     manifest = read(root/'manifest.json')
+    observations = {r['index']: r for r in read(root/'supervisor-review.json').get('samples', [])}
     rows = []
     for sample in manifest['samples']:
         state = read(root/'controller'/sample['task']/'state.json')
@@ -84,7 +85,8 @@ def main():
                      'render_verified':bool(verified), 'versions':len(versions), 'snapshot_errors':errors,
                      'workflow_command_seconds':metrics,
                      'reveal_submissions':sum(e.get('event')=='reveal_request_started' for e in events),
-                     'issues':review.get('items',[]), 'run':str(run)})
+                     'issues':review.get('items',[]), 'run':str(run),
+                     'supervisor_review':observations.get(sample['index'])})
     overlap = []
     previous = None
     for row in rows:
@@ -113,6 +115,9 @@ def main():
     for row in rows:
         lines += [f"### {row['index']:02d} {row['name']}",'',row['summary'] or '尚未登记复核。','']
         lines += [f"- {item.get('id','')}：{item.get('reason','')}" for item in row['issues']]
+        if row['supervisor_review']:
+            lines += ['', '主控额外抽查：'+row['supervisor_review']['verdict']+'（保留上面的 agent 原始结论）','']
+            lines += ['- '+note for note in row['supervisor_review']['observations']]
         lines += ['']
     (root/'REPORT.md').write_text('\n'.join(lines),encoding='utf-8')
     if args.contact_sheets:
