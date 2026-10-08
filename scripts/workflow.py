@@ -78,7 +78,7 @@ def main():
                     from generation.generate import generate
                     result=generate(run,args)
         if getattr(args,'brief',False) and isinstance(result,dict) and 'render_id' in result:
-            result={k:result[k] for k in ['status','render_id','incomplete_objects','asset_gate_summary','extraction_sheets','renders_verified'] if k in result}
+            result={k:result[k] for k in ['status','render_id','incomplete_objects','asset_gate_summary','extraction_sheets','review_regions','renders_verified'] if k in result}
         print(json.dumps(result,ensure_ascii=True,indent=2));return 0
     except Exception as exc:
         print(json.dumps({'status':'failed','error':str(exc),'type':type(exc).__name__},ensure_ascii=True));return 2

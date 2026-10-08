@@ -31,6 +31,29 @@ def stroke_path(draw,points,color,width,dash=None,cap='butt'):
             if dash:phase=(phase+step)%period
 
 
+def frame_image(size,style,color,width):
+    """Closed, inward outline; radius is a fraction of the outer short side."""
+    factor=1 if style.get('dash') and not style.get('radius') else 4;w,h=size
+    width=min(width,min(size));radius=min(min(size)/2,min(size)*style.get('radius',0))
+    im=Image.new('RGBA',(w*factor,h*factor));d=ImageDraw.Draw(im)
+    if not style.get('dash'):
+        d.rounded_rectangle((0,0,w*factor-1,h*factor-1),radius=radius*factor,
+                            outline=color,width=max(1,round(width*factor)))
+    else:
+        left=top=width*factor/2;right=max(left,w*factor-1-left);bottom=max(top,h*factor-1-top)
+        r=max(0,min(radius*factor-width*factor/2,(right-left)/2,(bottom-top)/2))
+        if r:
+            points=[]
+            for cx,cy,start in [(right-r,top+r,-90),(right-r,bottom-r,0),
+                                (left+r,bottom-r,90),(left+r,top+r,180)]:
+                for angle in np.linspace(start,start+90,max(3,math.ceil(r/2))):
+                    a=math.radians(angle);points.append((cx+r*math.cos(a),cy+r*math.sin(a)))
+            points.append(points[0])
+        else:points=[(left,top),(right,top),(right,bottom),(left,bottom),(left,top)]
+        stroke_path(d,points,color,max(1,round(width*factor)),[v*factor for v in style['dash']],style.get('line_cap','butt'))
+    return im.resize(size,Image.Resampling.LANCZOS)
+
+
 def draw_overlay(obj,size,reference=None,photos=(),run=None,model=None):
     style=obj.get('style',{});method=obj.get('method','local');note=''
     if method=='extract':
@@ -59,8 +82,7 @@ def draw_overlay(obj,size,reference=None,photos=(),run=None,model=None):
     elif shape=='ellipse':d.ellipse(box,fill=fill,outline=stroke,width=sw)
     elif shape=='frame':
         width=sw if 'stroke_width' in style else max(1,round(min(w,h)*.06))
-        left=top=width/2;right=max(left,w-1-width/2);bottom=max(top,h-1-width/2)
-        stroke_path(d,[(left,top),(right,top),(right,bottom),(left,bottom),(left,top)],stroke or fill,width,style.get('dash'),style.get('line_cap','butt'))
+        im=frame_image(size,style,stroke or fill,width)
     elif shape=='paperclip':
         points=[(.7,.82),(.7,.2),(.67,.12),(.6,.08),(.4,.08),(.33,.12),(.3,.2),(.3,.86),(.35,.94),(.45,.97),(.6,.97),(.8,.9),(.85,.8),(.85,.25),(.8,.18),(.7,.15),(.55,.15),(.48,.2),(.48,.73)]
         stroke_path(d,[(x*(w-1),y*(h-1)) for x,y in points],stroke or fill,sw,cap='round')

@@ -55,6 +55,8 @@ member_ids列出被整个组合替代的overlay，primary是其中一个现有ID
 
 ## 明确选区与文字修复
 
+当前 skill 不附带 OCR/LaMa 环境和模型。`inpaint`、`remove_text` 需要另行配置对应后端；普通 `erase`、`fill` 以及上述组合和窗口恢复不依赖这些模型。未配置时保留问题，不假定工具可用。
+
 同一collage-recovery-v1增加可选edits，旧文件继续兼容。示例字段应替换为实际对象、区域和原因；以下只演示格式，不是默认清理所有文字。
 
 ```json

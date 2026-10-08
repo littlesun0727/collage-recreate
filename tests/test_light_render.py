@@ -107,3 +107,26 @@ def test_compact_pass_needs_explicit_whole_image_check(tmp_path):
 def test_invalid_card_geometry_rejected_before_build(tmp_path):
     run=task(tmp_path);a=read(run/'analysis.json');a['objects'][0]['style']['card']={'padding':[100,100,100,100]}
     with pytest.raises(ValueError,match='window'):analysis_check(a)
+
+
+def test_solid_frame_fills_corner_joins_and_keeps_window_transparent():
+    im,_=draw_overlay({'kind':'overlay','style':{'shape':'frame','stroke':'#FFFFFF','stroke_width':20}},(160,200))
+    a=np.asarray(im)[:,:,3]
+    for y,x in [(5,5),(5,154),(194,5),(194,154)]:assert a[y,x]==255
+    assert a[100,80]==0 and a[10,80]==255
+
+
+def test_frame_radius_rounds_outer_edge_without_filling_window():
+    style={'shape':'frame','stroke':'#FFFFFF80','stroke_width':8,'radius':.2}
+    im,_=draw_overlay({'kind':'overlay','style':style},(160,200));a=np.asarray(im)[:,:,3]
+    assert a[0,0]==0 and a[3,80]==128 and a[100,80]==0
+    assert 0<a.max()<=140 and ((a>0)&(a<120)).any()
+
+
+@pytest.mark.parametrize('radius',[0,.2])
+def test_dashed_frame_preserves_gaps_and_transparent_center(radius):
+    im,_=draw_overlay({'kind':'overlay','style':{'shape':'frame','stroke':'#FFFFFF',
+        'stroke_width':4,'radius':radius,'dash':[10,10]}},(160,200));a=np.asarray(im)[:,:,3]
+    assert a[100,80]==0
+    from cv2 import connectedComponents
+    assert connectedComponents((a>127).astype('uint8'))[0]>8

@@ -1,5 +1,7 @@
 # 按需使用的本地绘制参数
 
+本页列工具能力，不决定制作方式。先按 [分析与绑定](analysis.md) 判断：有同名shape不代表能还原参考中的手绘笔触、特殊轮廓或艺术字；这些固定装饰应提取。
+
 全部是可选style字段；颜色为#RRGGBB或#RRGGBBAA。长度（字体、描边、照片圆角、相纸padding、阴影、虚线）均为原图像素，程序统一缩放。shape的radius仍为相对短边比例0..1，与照片corner_radius不同。
 
 | 用途 | 参数与默认 |
@@ -21,7 +23,7 @@
 {"shape":"curve","points":[[0.1,0.1],[0.6,0.3],[0.8,0.7],[0.2,0.9]],"stroke":"#FFFFFF","stroke_width":2,"dash":[6,5],"line_cap":"round"}
 ```
 
-points只在line/arrow/polyline/curve/polygon中使用，polygon至少3点。自由曲线的关键走向需要points，默认工具不能从description猜出任意路径。frame可使用dash，内部保持透明。
+points只在line/arrow/polyline/curve/polygon中使用，polygon至少3点。自由曲线的关键走向需要points，默认工具不能从description猜出任意路径。frame为连续闭合轮廓，内部透明；radius控制外轮廓圆角（默认0），stroke_width向内绘制，也可使用dash。
 
 字体是本机候选（Arial/Times/Courier/Comic/微软雅黑/楷体）的近似。纸纹和规则图形也不保证还原特殊手绘或摄影质感。提取后的候选必须看实际像素；crop仅用于确认不含参考照片的矩形素材，程序对与photo框重叠的原样裁图仍保守拒绝。不要以crop绕过人物替换。
 

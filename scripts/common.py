@@ -2,7 +2,6 @@
 import hashlib
 import json
 import os
-import sys
 import time
 import uuid
 from contextlib import contextmanager
@@ -10,9 +9,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-deps = ROOT / ('.deps314' if sys.version_info[:2] == (3,14) else '.deps')
-if deps.is_dir():
-    sys.path.insert(0, str(deps))
 
 
 def read(path):

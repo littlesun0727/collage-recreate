@@ -105,6 +105,15 @@
     },
     "checked_entire_composition": {
       "type": "boolean"
+    },
+    "layer_order": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
     }
   },
   "required": [

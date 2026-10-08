@@ -100,6 +100,12 @@ def bindings_check(value, analysis, catalog, verify=True):
 def review_check(value, scene):
     schema_check('review', value)
     ids = {o['id'] for o in scene['objects']}
+    if 'layer_order' in value:
+        order=value['layer_order']
+        if len(order)!=len(ids) or set(order)!=ids:
+            raise ValueError('layer_order must contain each scene object ID exactly once')
+        if value['verdict']=='pass':
+            raise ValueError('Apply layer_order before writing a new pass review')
     seen = set()
     for item in value['items']:
         if item['id'] not in ids or item['id'] in seen: raise ValueError('Review IDs must be unique known objects')

@@ -32,7 +32,8 @@ def render(run):
         original=by_id[oid];o=deepcopy(original)
         if group_info:o.update(bbox=group_info['bbox'],generated=group_info['source'],kind='overlay',rotation=0,style={},text_unresolved=any(by_id[i]['text_unresolved'] for i in group_info['member_ids']))
         if o.get('recovered') and not o.get('generated'):
-            o.update(bbox=[0,0,*s['reference_size']],rotation=0,style={})
+            dx,dy=o.get('extracted_offset',[0,0]);rw,rh=s['reference_size']
+            o.update(bbox=[dx,dy,rw+dx,rh+dy],rotation=0,style={})
         box=[round(n*scale) for n in o['bbox']];size=(max(1,box[2]-box[0]),max(1,box[3]-box[1]))
         o['style']=scale_style(o['style'],scale)
         group='photos' if o['kind']=='photo' else 'text' if o['kind']=='text' else 'overlays'
@@ -84,7 +85,7 @@ def render(run):
             if content_alpha is not None:content_alpha=content_alpha.rotate(-o['rotation'],Image.Resampling.BICUBIC,expand=True)
         x=round((box[0]+box[2]-tile.width)/2);y=round((box[1]+box[3]-tile.height)/2)
         layer=Image.new('RGBA',(w,h));layer.alpha_composite(tile,(x,y))
-        if o['kind']=='overlay' and o.get('method')=='local' and not o.get('recovered') and not o.get('generated'):
+        if o['kind']=='overlay' and o.get('method','local')=='local' and not o.get('recovered') and not o.get('generated'):
             # Newly drawn carriers use the existing customer-photo geometry for holes.
             # No extracted pixels or customer crop coordinates are modified.
             from reveal_assets import make_window
@@ -125,11 +126,14 @@ def render(run):
     if not (previews/'first.png').exists():
         final.save(previews/'first.png');save(previews/'first-scene.json',s)
     comp=Image.new('RGB',(w*2,h),'#eeeeee');comp.paste(reference.resize((w,h)),(0,0));comp.paste(final,(w,0));comp.save(previews/'comparison.png')
+    from review_previews import publish as review_previews
+    review_regions=review_previews(run,s,reference,final)
     from extraction import sheets
     extraction_sheets=sheets(run,[r for r in records if not r['metadata'].get('embedded_content')])
     proof=all(r['kind']!='photo' or r['metadata'].get('resource_type')=='customer_photo' for r in records)
     result={'schema_version':'collage-result-v1','exported':True,'status':'preview','renders_verified':False,'coverage_complete':len(records)==len(s['objects']),'customer_photos_verified':proof and len(visibility)==len(photo_objects),'photo_visible_fractions':visibility,'incomplete_objects':sorted(set(incomplete)),'issues':issues,'scene_sha256':sha(run/'scene.json'),'final_sha256':sha(run/'final.png'),'resources':records,'visual_review':None,'at':now()}
     result['extraction_sheets']=extraction_sheets
+    result['review_regions']=review_regions
     if s.get('asset_gate'):
         result['asset_gate']=s['asset_gate'];result['asset_gate_summary']=s['asset_gate_summary']
     if s.get('reveal_index'):result['reveal_index']=s['reveal_index']
