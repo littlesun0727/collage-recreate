@@ -9,6 +9,11 @@ from common import read, timed, locked, save
 def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     a=sub.add_parser('prepare');a.add_argument('--reference',required=True);a.add_argument('--materials',nargs='+',required=True);a.add_argument('--run',required=True);a.add_argument('--width',type=int,default=1200);a.add_argument('--instructions',default='');a.add_argument('--cutout-model')
+    a=sub.add_parser('prepare-live',help='Prepare mixed photos and native-frame Live videos')
+    a.add_argument('--reference',required=True);a.add_argument('--materials',nargs='+',required=True);a.add_argument('--run',required=True)
+    a.add_argument('--width',type=int,default=1200);a.add_argument('--instructions',default='');a.add_argument('--cutout-model')
+    a=sub.add_parser('motion-render',help='Render Live motion after freezing a static cover')
+    a.add_argument('--run',required=True);a.add_argument('--request-id');a.add_argument('--base-render-id')
     a=sub.add_parser('progress',help='Record an actual Codex stage observation')
     a.add_argument('--run',required=True);a.add_argument('--stage',type=int,choices=range(1,7),required=True)
     a.add_argument('--status',choices=['running','waiting','blocked','complete','skipped','failed'],required=True)
@@ -31,7 +36,13 @@ def main():
             a.add_argument('--ids',nargs='+',required=True);a.add_argument('--credentials',default='D:/codes/yibu_credentials.local.json');a.add_argument('--allow-remote',action='store_true');a.add_argument('--timeout',type=int,default=300);a.add_argument('--workers',type=int,default=2);a.add_argument('--dry-run',action='store_true');a.add_argument('--group',action='store_true',help='Generate selected overlay/text members as one fused unit')
     args=p.parse_args()
     try:
-        if args.command=='progress':
+        if args.command=='prepare-live':
+            from live_media import prepare_live
+            result=prepare_live(args.reference,args.materials,args.run,args.width,args.instructions,args.cutout_model)
+        elif args.command=='motion-render':
+            from motion_render import execute
+            result=execute(args.run,args.request_id,args.base_render_id)
+        elif args.command=='progress':
             from observation import checkpoint
             with locked(Path(args.run)):
                 result=checkpoint(args.run,args.stage,args.status,args.summary,args.analysis_only)

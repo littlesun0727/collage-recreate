@@ -25,7 +25,7 @@ class Browser:
         with urllib.request.urlopen(f'http://127.0.0.1:{port}/json',timeout=5) as r:
             target=next(t for t in json.load(r) if t['type']=='page')
         self.socket=websocket.create_connection(target['webSocketDebuggerUrl'],timeout=20,suppress_origin=True)
-        self.counter=0;self.errors=[]
+        self.counter=0;self.errors=[];self.network_failures=[]
         try:
             self.call('Runtime.enable');self.call('Page.enable')
         except Exception:
@@ -37,6 +37,7 @@ class Browser:
         while True:
             message=json.loads(self.socket.recv())
             if message.get('method')=='Runtime.exceptionThrown':self.errors.append(message['params']['exceptionDetails'])
+            if message.get('method')=='Network.loadingFailed':self.network_failures.append(message['params'])
             if message.get('id')==self.counter:
                 if 'error' in message:raise RuntimeError(message['error'])
                 return message.get('result',{})

@@ -33,6 +33,12 @@ $py = 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe'
 
 工作台服务只需要 Python 和 Pillow；制作环境依赖见 `skill/requirements.txt`。页面使用原生 HTML、CSS、JavaScript，不需要 npm 构建或联网加载资源。
 
+客户素材含 Live 视频时，安装 `skill/requirements-motion.txt`，在启动参数加 `--enable-motion --cutout-model D:/codes/visual-recreate-validation/models/birefnet-lite-fp32.onnx`。左侧可上传参考图、图片和 MP4/MOV；准备完成后将页面提供的任务说明交给 Codex 继续原六步封面制作。现有上传功能不会自行启动一次新的 Agent 分析。
+
+含 Live 代表帧的封面完成后，“动态成片”区域可提交独立渲染，查看原视频、各阶段进度和耗时、播放与下载 MP4。保留原生帧时间，最长三秒，短素材循环，默认静音；人物先逐帧抠图再合成。源视频最多 60 秒、单文件 128 MB。动态队列串行执行，状态和帧缓存落盘；`--media-root` 可指定上传与队列保存目录，重启使用同一目录。修改封面后旧视频保留并标明过期，重新制作可复用抠图缓存。
+
+具体规则见 [Live 使用说明](skill/references/live-media.md) 和 [实施计划](workbench/LIVE_MEDIA_PLAN.md)。原静态 `prepare/build/render` 行为保持不变，动态流程不需要逐帧调用 SDK。
+
 六步进度展示脚本执行与 Codex 实际看图记录。大图支持并排、滑动及修改前后对照；素材完成后即显示；每次变化的成图保存独立快照。历史任务只显示已留存的信息。录入实际业务阶段的方式见 `skill/references/workbench.md`。
 
 任务图片、素材和运行缓存保存在仓库外。工作台为本机服务，跨机器的客户访问尚未提供。

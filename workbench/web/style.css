@@ -1024,3 +1024,22 @@ button:disabled { opacity:.5; cursor:not-allowed; }
 .editor-heading,.editor-toolbar{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid #dce4dc;flex-wrap:wrap}.editor-heading{justify-content:space-between}.editor-heading small{display:block;font-size:12px;margin-top:6px;color:#62766b}.editor-toolbar button,.editor-heading button{padding:8px 12px;border:1px solid #c4d3c7;border-radius:7px;background:#fff;color:#28543f}.editor-toolbar .primary{background:#28664f;color:white}.editor-toolbar #editorDirty{margin-right:auto;font-size:12px}
 #editorStatus{margin:0;padding:10px 20px;font-size:13px;min-height:38px;background:#eaf0e6}.editor-body{display:flex;flex:1;min-height:0}.editor-properties{width:260px;padding:18px;overflow:auto;background:#fff;border-left:1px solid #dce4dc;font-size:13px}.editor-properties label{display:block}.editor-properties select,.editor-properties textarea{width:100%;margin:8px 0;padding:8px;border:1px solid #bacdbf;border-radius:6px}.editor-properties p,.editor-properties small{line-height:1.6;color:#667a6b}.editor-properties img{max-width:100%;margin-top:15px}#editorViewport{flex:1;min-width:0;min-height:0;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#dfe6dc;touch-action:none;user-select:none}#editorSvg{background:white;flex-shrink:0;box-shadow:0 5px 25px #17302522}#editorSvg image{pointer-events:none}#editorTextLabel[hidden]{display:none}#editorDialog button:disabled{opacity:.45;cursor:default}
 @media(max-width:700px){#editorDialog{width:98vw;max-width:98vw;height:96vh;max-height:96vh}.editor-heading,.editor-toolbar{padding:8px;gap:6px}.editor-body{flex-direction:column}.editor-properties{width:100%;height:190px;border-left:0;border-top:1px solid #dce4dc;padding:10px;flex-shrink:0}.editor-properties img{display:none}.editor-properties p{margin:4px 0}#editorViewport{min-height:200px}#editorStatus{padding:8px;font-size:12px}}
+/* Live production stays separate from the six static-cover stages. */
+.motion-panel video { display:block; width:100%; max-height:620px; background:#ebe8e1; border-radius:10px; }
+.motion-stages { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; margin:14px 0; }
+.motion-stages>div { border:1px solid #e5e0d6; padding:10px; border-radius:8px; }
+.motion-stages small { display:block; margin-top:6px; color:#756f66; }
+.motion-stages .running { background:#fff4d8; }
+.motion-stages .complete { background:#edf5eb; }
+.motion-stages .failed { background:#fbe9e3; }
+.motion-job { margin:12px 0; }
+.motion-versions { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+.live-materials { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:16px; }
+.live-materials video { max-height:230px; }
+.live-materials p { overflow-wrap:anywhere; margin:6px 0; }
+#openUpload { margin:0 18px 16px; }
+#uploadDialog { width:min(620px,90vw); padding:26px; border:0; border-radius:16px; }
+#uploadForm label { display:block; margin:16px 0; }
+#uploadForm input,#uploadForm textarea,#uploadHandoffText { display:block; width:100%; margin-top:8px; }
+#uploadProgress { width:100%; }
+@media(max-width:850px) { .motion-stages { grid-template-columns:1fr 1fr; } .live-materials { grid-template-columns:1fr 1fr; } }

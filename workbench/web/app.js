@@ -450,6 +450,7 @@ function render() {
   renderCanvas();
   renderMaterials();
   window.refreshChat?.();
+  window.refreshMotion?.();
 }
 async function refresh() {
   if (state.busy) return;

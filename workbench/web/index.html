@@ -13,6 +13,7 @@
         ><span>拼贴工作台<small>COLLAGE STUDIO</small></span></a
       >
       <div class="side-label">制作任务 <span id="taskCount">0</span></div>
+      <button id="openUpload" class="button" hidden>＋ 上传图片 / Live 素材</button>
       <input
         id="search"
         type="search"
@@ -106,6 +107,15 @@
               </div>
               <div id="versions" class="versions"></div>
             </section>
+            <section id="motionPanel" class="panel motion-panel" hidden>
+              <div class="panel-head"><div><span class="eyebrow">LIVE</span><h2>动态成片</h2></div><button id="renderMotion" class="button primary">制作动态成片</button></div>
+              <p id="motionSummary" class="subtle"></p>
+              <p id="motionError" class="chat-error" role="alert"></p>
+              <div id="motionProgress" aria-live="polite"></div>
+              <div id="motionPlayer" hidden><video id="motionVideo" controls playsinline muted loop preload="metadata"></video><p><span id="motionCaption"></span> <a id="motionDownload" class="button" download="collage-live.mp4">下载 MP4 ↗</a></p></div>
+              <div id="motionVersions" class="motion-versions"></div>
+              <details><summary>原始 Live 素材</summary><div id="liveMaterials" class="live-materials"></div></details>
+            </section>
             <section class="panel materials-panel">
               <div class="panel-head">
                 <div>
@@ -176,6 +186,19 @@
         >下载图片</a
       >
     </dialog>
+    <dialog id="uploadDialog" aria-label="上传素材">
+      <div class="dialog-top"><strong>新建素材任务</strong><button id="closeUpload">收起 ✕</button></div>
+      <p>图片与 Live 视频可以混合上传。先完成静态封面，再制作最长 3 秒的动态成片。</p>
+      <form id="uploadForm">
+        <label>参考图<input id="uploadReference" type="file" accept="image/png,image/jpeg,image/webp,image/bmp" required></label>
+        <label>客户素材<input id="uploadMaterials" type="file" accept="image/png,image/jpeg,image/webp,image/bmp,video/mp4,video/quicktime,.mov" multiple required></label>
+        <label>制作要求<textarea id="uploadInstructions" maxlength="4000" rows="3" placeholder="可填写希望保留的文字和其他要求"></textarea></label>
+        <p class="subtle">单个素材不超过 128 MB，一批最多 100 个文件。视频首个有效画面将作为封面素材。</p>
+        <button id="uploadSubmit" class="button primary" type="submit">上传并准备素材</button>
+      </form>
+      <p id="uploadStatus" role="status"></p><progress id="uploadProgress" max="100" value="0" hidden></progress>
+      <div id="uploadHandoff" hidden><p>素材已准备好。将下面的任务说明交给 Codex，继续原来的封面制作流程：</p><textarea id="uploadHandoffText" readonly rows="4"></textarea><button id="uploadOpenTask" class="button">查看制作任务 →</button></div>
+    </dialog>
     <dialog id="editorDialog" aria-label="手动编辑画布">
       <div class="editor-heading"><div><strong>编辑画布</strong><small>拖动照片和贴纸 · 双击独立文字 · 空格拖动画布</small></div><button id="closeEditor">收起 ✕</button></div>
       <div class="editor-toolbar"><button id="editorUndo">撤销</button><button id="editorRedo">重做</button><button id="editorFit">适应画布</button><button id="editorReload">重新载入最新版本</button><span id="editorDirty"></span><button id="editorPreview">预览文字 / 成图</button><button id="editorSave" class="button primary">保存新版本</button></div>
@@ -185,5 +208,6 @@
     <script src="/app.js"></script>
     <script src="/chat.js"></script>
     <script src="/editor.js"></script>
+    <script src="/motion.js"></script>
   </body>
 </html>
