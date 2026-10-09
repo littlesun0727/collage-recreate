@@ -182,8 +182,8 @@ function focusBounds(id, role) {
         : version?.objects || state.data.materials;
   const obj = objects?.find((o) => o.id === id);
   if (!obj?.bbox) return null;
-  const [dx, dy] = obj.extracted_offset || [0, 0];
-  return obj.bbox.map((coordinate, i) => coordinate + (i % 2 ? dy : dx));
+  // Scene bbox already includes the translation; extracted_offset moves the full RGBA layer.
+  return obj.bbox;
 }
 function fitWorlds() {
   if (!state.data?.reference_size) return;
@@ -211,6 +211,7 @@ function pane(url, label, aspect, role) {
   return `<div class="image-pane"><div class="pane-label"><span>${escapeHTML(label)}</span><span>${url ? "点击「原图」查看细节" : ""}</span></div><div class="viewport">${url ? `<div class="image-world" data-role="${role}" style="aspect-ratio:${aspect}"><img src="${url}" alt="${escapeHTML(label)}" draggable="false"></div>` : '<div class="no-image">这一阶段还没有成图<br>制作完成后会自动显示</div>'}</div></div>`;
 }
 function renderCanvas() {
+  $("#modes").querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.mode===state.mode));
   const d = state.data,
     v = selectedVersion(),
     step = state.stage || d.current_stage;
@@ -398,7 +399,7 @@ function render() {
     bbox: "位置或尺寸",
     rotation: "角度",
     style: "外观",
-    binding: "照片裁切",
+    binding: "照片或裁切",
     method: "制作方式",
     gate: "素材采用",
     layer_order: "前后顺序",
@@ -446,6 +447,7 @@ function render() {
     "最近同步 " + new Date().toLocaleTimeString("zh-CN");
   renderCanvas();
   renderMaterials();
+  window.refreshChat?.();
 }
 async function refresh() {
   if (state.busy) return;

@@ -991,3 +991,31 @@ dialog::backdrop {
   inset: 0;
   pointer-events: none;
 }
+/* Conversation remains beside the canvas; drafts are never replaced by polling. */
+.chat-panel { border-color: #b6cabb; }
+.chat-panel h2 { margin: 0; }
+.chat-messages { max-height: 380px; overflow-y: auto; overscroll-behavior: contain; }
+.chat-round { margin: 14px 0 20px; font-size: 13px; }
+.chat-customer { background: #e5ede1; padding: 12px; border-radius: 12px 12px 2px 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-reply { padding: 10px 2px 0; overflow-wrap: anywhere; }
+.chat-reply p { margin: 6px 0; white-space: pre-wrap; }
+.chat-reply small { display: block; color: #836531; margin-top: 8px; }
+.chat-meta { color: var(--green); font-size: 11px; }
+.chat-phases { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.chat-phases span { color: #87908a; font-size: 11px; }
+.chat-phases .active { color: #23624c; background: #e6f1e9; padding: 2px 5px; border-radius: 4px; }
+.chat-selection,.chat-actions { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:10px; font-size:12px; }
+.chat-object-label { display:block; margin:12px 0; font-size:12px; }
+#chatObject { width:100%; max-width:100%; padding:7px; border:1px solid #dce2d9; border-radius:6px; background:white; }
+#chatInput { box-sizing:border-box; width:100%; resize:vertical; min-height:90px; max-height:240px; padding:12px; margin-top:12px; font:inherit; font-size:13px; border:1px solid #b9cdbc; border-radius:9px; background:#fffefb; }
+#chatInput:focus { outline:2px solid #c1d6c5; }
+.chat-error { color:#984634; font-size:12px; margin:6px 0; }
+#chatPhotos summary,.chat-reply summary { cursor:pointer; font-size:12px; color:#466e58; }
+.chat-catalog { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; max-height:240px; overflow:auto; padding-top:10px; }
+.chat-catalog button { padding:3px; min-width:0; border:2px solid transparent; border-radius:6px; background:#f0f2ed; }
+.chat-catalog button.selected { border-color:#28664e; }
+.chat-catalog img { width:100%; height:70px; object-fit:cover; border-radius:3px; }
+.chat-catalog span { display:block; font-size:10px; }
+button:disabled { opacity:.5; cursor:not-allowed; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media(max-width:900px){.chat-panel{order:-1}.details-column{display:flex;flex-direction:column}}

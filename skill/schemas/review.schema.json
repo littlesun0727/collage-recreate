@@ -46,6 +46,8 @@
           "changes": {
             "type": "object",
             "properties": {
+              "asset_id": {"type": "string", "minLength": 1, "maxLength": 128},
+              "text": {"type": "string", "minLength": 1, "maxLength": 2000},
               "bbox": {
                 "type": "array",
                 "items": {

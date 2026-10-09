@@ -72,7 +72,7 @@ def locked(run):
     """Only one writer per task; never silently remove a stale lock."""
     path = Path(run) / '.write.lock'
     with path.open('x', encoding='utf-8') as f:
-        f.write(json.dumps({'pid': os.getpid(), 'at': now()}))
+        f.write(json.dumps({'pid': os.getpid(), 'at': now(), 'request_id':os.environ.get('COLLAGE_REQUEST_ID')}))
     try:
         yield
     finally:

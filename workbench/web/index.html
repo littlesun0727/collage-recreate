@@ -119,6 +119,20 @@
             </section>
           </div>
           <aside class="details-column">
+            <section class="panel chat-panel" aria-label="继续修改">
+              <div class="panel-head"><h2>继续修改</h2><span class="subtle" id="chatBase"></span></div>
+              <p id="chatHelp" class="subtle">选中画面对象，或直接描述想改的地方。</p>
+              <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+              <div id="chatSelection" class="chat-selection"></div>
+              <label class="chat-object-label">修改对象 <select id="chatObject"><option value="">按描述定位</option></select></label>
+              <details id="chatPhotos"><summary>选择替换照片 <span id="chatPhotoLabel"></span></summary><div id="chatCatalog" class="chat-catalog"></div></details>
+              <form id="chatForm">
+                <label class="sr-only" for="chatInput">修改要求</label>
+                <textarea id="chatInput" maxlength="4000" rows="3" placeholder="例如：这张照片放大人物，白便签放到照片前面"></textarea>
+                <p id="chatError" class="chat-error" role="alert"></p>
+                <div class="chat-actions"><span class="subtle">每次修改保留新版本</span><button id="chatSend" class="button primary" type="submit">发送修改 →</button></div>
+              </form>
+            </section>
             <section class="panel step-panel">
               <span class="eyebrow">当前查看步骤</span>
               <h2 id="stepTitle"></h2>
@@ -162,5 +176,6 @@
       >
     </dialog>
     <script src="/app.js"></script>
+    <script src="/chat.js"></script>
   </body>
 </html>

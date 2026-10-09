@@ -12,7 +12,7 @@ from common import event
 import uuid
 
 
-def render(run):
+def render(run, publish_result=True):
     run=Path(run);s=load_scene(run);w,h=s['canvas_size'];scale=w/s['reference_size'][0]
     if w*h>20_000_000:raise ValueError('Canvas exceeds 20 million pixels')
     material_attempt=uuid.uuid4().hex
@@ -148,7 +148,7 @@ def render(run):
     result['render_id']=fingerprint([result['scene_sha256'],result['final_sha256']])[:16]
     save(run/'result.json',result)
     from observation import publish
-    publish(run)
+    if publish_result:publish(run)
     return {k:v for k,v in result.items() if k!='resources'}
 
 

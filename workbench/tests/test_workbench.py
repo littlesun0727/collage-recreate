@@ -206,7 +206,7 @@ def test_http_denies_arbitrary_files_and_writes_and_restores_saved_state(run):
             assert exc.value.code==404
         req=urllib.request.Request(base+'/api/tasks',data=b'{}',method='POST')
         with pytest.raises(urllib.error.HTTPError) as exc:urllib.request.urlopen(req)
-        assert exc.value.code==501
+        assert exc.value.code==403
         req=urllib.request.Request(base+'/api/tasks',headers={'Host':'evil.example'})
         with pytest.raises(urllib.error.HTTPError) as exc:urllib.request.urlopen(req)
         assert exc.value.code==403

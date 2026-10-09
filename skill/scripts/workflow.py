@@ -13,10 +13,11 @@ def main():
     a.add_argument('--run',required=True);a.add_argument('--stage',type=int,choices=range(1,7),required=True)
     a.add_argument('--status',choices=['running','waiting','blocked','complete','skipped','failed'],required=True)
     a.add_argument('--summary',required=True);a.add_argument('--analysis-only',action='store_true')
-    for name in ['validate','build','reveal-plan','render','apply','review','generate','recover','screen']:
+    for name in ['validate','build','reveal-plan','render','apply','review','generate','recover','screen','revision-prepare','revision-commit','revision-recover']:
         a=sub.add_parser(name);a.add_argument('--run',required=True)
         a.add_argument('--brief',action='store_true',help='Print only paths and outcome; complete evidence remains in result.json')
-        if name in ['apply','review','recover','screen']:a.add_argument('--file',required=True)
+        if name in ['apply','review','recover','screen','revision-prepare','revision-commit']:a.add_argument('--file',required=True)
+        if name.startswith('revision-'):a.add_argument('--request-id',required=True)
         if name in ['build','reveal-plan']:
             a.add_argument('--reveal',action='store_true',help='Enable remote Reveal requests for missing complex assets')
             a.add_argument('--reveal-cache',help='Existing downloaded Reveal sample folder; offline unless --reveal is also set')
@@ -44,7 +45,16 @@ def main():
                 if getattr(args,'file',None):
                     from observation import evidence
                     evidence(run,args.file)
-                if args.command=='validate':
+                if args.command=='revision-recover':
+                    from revision import recover_commit
+                    marker=read(run/'chat/commit.json') if (run/'chat/commit.json').exists() else {}
+                    if marker and marker.get('request_id')!=args.request_id:raise ValueError('Commit belongs to another request')
+                    recover_commit(run);result={'recovered':True}
+                elif args.command in ['revision-prepare','revision-commit']:
+                    from revision import prepare_revision,commit_revision
+                    function=prepare_revision if args.command=='revision-prepare' else commit_revision
+                    result=function(run,args.request_id,read(args.file))
+                elif args.command=='validate':
                     from validate import analysis_check, bindings_check
                     from prepare import boxes
                     analysis=analysis_check(read(run/'analysis.json'),read(run/'input.json'))

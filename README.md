@@ -11,7 +11,19 @@ $py = 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe'
 & $py -B -m workbench --runs D:/codes/collage_outputs --port 8790
 ```
 
-打开 http://127.0.0.1:8790 。`--runs` 可以接多个任务根目录，也可以直接接单个任务目录。页面每两秒读取更新，不执行任何制作命令。
+打开 http://127.0.0.1:8790 。`--runs` 可以接多个任务根目录，也可以直接接单个任务目录。默认只读；加 `--enable-chat` 启用交付后的对话修改。
+
+启用本机对话修改（需已登录的 Codex CLI、Node.js 和安装好的 Codex SDK）：
+
+```powershell
+& $py -B -m workbench --runs D:/codes/collage_outputs/workbench-validation D:/codes/collage_outputs/sdk-serial-20261008-r1/tasks --port 8790 --enable-chat --chat-state D:/codes/collage_outputs/chat-validation-20261009/queue.sqlite --sdk-path D:/codes/collage_batch/node_modules/@openai/codex-sdk/dist/index.js --codex-path C:/Users/admin/AppData/Local/Programs/OpenAI/Codex/bin/codex.exe
+```
+
+其他机器可在 `workbench` 下运行 `npm install` 安装固定版本SDK，省略 `--sdk-path` 使用该安装；`--codex-path` 可指定本机CLI。对话模式需使用完整的 skill Python 环境；模型固定为 `gpt-5.6-sol / medium`。API调用使用本机已有Codex登录，不向页面暴露凭据。
+
+在右侧“继续修改”中直接描述要求，也可点击成图对象或下拉选择对象，再从客户素材中选替换照片。明确要求直接执行，含糊要求会追问。每轮显示四阶段、排队/执行与分段耗时；支持刷新恢复、失败重试及修改前后查看。请求全局串行，队列保存在 `--chat-state`；重启应继续使用同一个队列文件。服务重启中断的请求显示失败，可复用工作副本重试，不自动重复执行未知结果。
+
+普通修改只复用现有素材。修改先生成候选图，真实看图复核后发布新版本；旧版本仍可查看。历史版本当前只读，排队期间基础版本变化会提示重新确认最新成图。暂不提供任意生成、历史分支或撤销；本地服务仍仅绑定127.0.0.1，远程客户登录与托管尚未提供。
 
 查看本次三组真实样片时，将 `--runs` 改为 `D:/codes/collage_outputs/workbench-validation`。
 

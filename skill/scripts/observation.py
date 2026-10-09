@@ -14,7 +14,8 @@ from common import now, read, save, sha
 _context = {}
 _thread_lock = threading.RLock()
 STAGES = {'prepare': 1, 'validate': 2, 'reveal-plan': 2, 'build': 3,
-          'render': 3, 'screen': 4, 'apply': 5, 'review': 5, 'recover': 5, 'generate': 5}
+          'render': 3, 'screen': 4, 'apply': 5, 'review': 5, 'recover': 5, 'generate': 5,
+          'revision-prepare':5,'revision-commit':5,'revision-recover':5}
 
 
 def enabled():

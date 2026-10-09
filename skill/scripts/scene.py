@@ -115,12 +115,26 @@ def apply_review(run, path):
                 translates_extraction=not linked and not grouped and new[2]-old[2]==dx and new[3]-old[3]==dy
                 if translates_extraction:
                     offset=o.get('extracted_offset',[0,0]);o['extracted_offset']=[offset[0]+dx,offset[1]+dy]
-            if protected and not translates_extraction and set(changes)-{'crop_center','source_crop','mirror_x'}:
+            allowed_photo={'crop_center','source_crop','mirror_x','asset_id'} if o['kind']=='photo' else set()
+            if protected and not translates_extraction and set(changes)-allowed_photo:
                 raise ValueError('Recovered geometry/text belongs to the extraction: update analysis and build again')
             if any(o['id'] in g['member_ids'] for g in s.get('generated_groups',[])):
                 raise ValueError('Fused generated member cannot be adjusted separately; recompile analysis to split or regenerate the whole group')
             for key,value in changes.items():
-                if key=='style':
+                if key=='asset_id':
+                    if o['kind']!='photo':raise ValueError('asset_id only applies to customer photos')
+                    catalog={a['id']:a for a in read(run/'prepared/catalog.json')['assets']}
+                    if value not in catalog:raise ValueError('Unknown customer asset: '+value)
+                    verify_source(catalog[value])
+                    o['source']=deepcopy(catalog[value]);o['binding']['asset_id']=value
+                    for placement in ['source_crop','crop_center','mirror_x']:
+                        if placement not in changes:o['binding'].pop(placement,None)
+                elif key=='text':
+                    if o['kind']!='text' or o.get('method')=='extract' or o.get('generated'):
+                        raise ValueError('Only independent local text can be edited')
+                    if not value.strip():raise ValueError('Text must not be blank')
+                    o.update(text=value,text_status='known',text_unresolved=False,text_origin='customer_revision')
+                elif key=='style':
                     for name,setting in value.items():
                         if isinstance(setting,dict):o['style'][name]={**o['style'].get(name,{}),**setting}
                         else:o['style'][name]=setting
