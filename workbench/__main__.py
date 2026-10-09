@@ -10,6 +10,7 @@ def main():
     parser.add_argument('--runs', nargs='+', required=True, help='Task roots or individual run directories')
     parser.add_argument('--port', type=int, default=8790)
     parser.add_argument('--enable-chat',action='store_true',help='Enable the durable local revision worker')
+    parser.add_argument('--enable-editor',action='store_true',help='Enable manual canvas editing without an SDK')
     parser.add_argument('--chat-state',help='SQLite queue path outside the source repository')
     parser.add_argument('--sdk-path',help='Installed @openai/codex-sdk/dist/index.js')
     parser.add_argument('--codex-path',help='Codex CLI executable')
@@ -17,7 +18,7 @@ def main():
     if args.sdk_path:os.environ['COLLAGE_CODEX_SDK']=str(Path(args.sdk_path).resolve())
     if args.codex_path:os.environ['COLLAGE_CODEX_CLI']=str(Path(args.codex_path).resolve())
     chat_path=(args.chat_state or str(Path(args.runs[0])/'.workbench/chat.sqlite')) if args.enable_chat else None
-    server = create_server(args.runs, args.port,chat_path=chat_path)
+    server = create_server(args.runs, args.port,chat_path=chat_path,enable_editor=args.enable_editor)
     print(f'Collage workbench: http://127.0.0.1:{server.server_port}', flush=True)
     try:
         server.serve_forever()

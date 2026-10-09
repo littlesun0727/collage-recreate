@@ -47,6 +47,7 @@
             <p id="subtitle"></p>
           </div>
           <div class="heading-actions">
+            <button id="openEditor" class="button" hidden>编辑画布 ✎</button>
             <span id="execution" class="badge"></span
             ><a id="download" class="button primary" download="collage.png"
               >下载当前成图 ↗</a
@@ -175,7 +176,14 @@
         >下载图片</a
       >
     </dialog>
+    <dialog id="editorDialog" aria-label="手动编辑画布">
+      <div class="editor-heading"><div><strong>编辑画布</strong><small>拖动照片和贴纸 · 双击独立文字 · 空格拖动画布</small></div><button id="closeEditor">收起 ✕</button></div>
+      <div class="editor-toolbar"><button id="editorUndo">撤销</button><button id="editorRedo">重做</button><button id="editorFit">适应画布</button><button id="editorReload">重新载入最新版本</button><span id="editorDirty"></span><button id="editorPreview">预览文字 / 成图</button><button id="editorSave" class="button primary">保存新版本</button></div>
+      <p id="editorStatus" role="status"></p>
+      <div class="editor-body"><div id="editorViewport"><svg id="editorSvg" xmlns="http://www.w3.org/2000/svg" aria-label="可编辑成图"></svg></div><aside class="editor-properties"><label>选择对象<select id="editorObjects"></select></label><p id="editorSelection"></p><label id="editorTextLabel" hidden>文字内容<textarea id="editorText" rows="6" maxlength="2000"></textarea><small>保持原文字框，较长内容会自动缩小字号。修改后点击预览查看实际效果。</small></label><p>保存将生成新版本，每一版均可在修改版本链中查看。</p><img id="editorResult" alt="最近一次预览" hidden></aside></div>
+    </dialog>
     <script src="/app.js"></script>
     <script src="/chat.js"></script>
+    <script src="/editor.js"></script>
   </body>
 </html>

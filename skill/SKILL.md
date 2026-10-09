@@ -129,6 +129,8 @@ screen 离线重新合成，不重新提取；`previews/first.png` 保持不变�
 
 ## 用户明确要求精修时
 
+已有成图的手动拖动与文字编辑使用工作台入口，见 [手动画布编辑](references/manual-editor.md)；此入口不属于默认分析成图步骤。
+
 再读 [局部恢复](references/recovery.md)，按实际问题选择离线 `recover` 或必要的非照片 `generate`。这些操作不是默认排版修正；每次新成图都重新复核，失败保留原因和已成功资源。
 
 客户照片必须来自 catalog，不能生成替代人物或把参考整图回填。`analysis` 描述设计，`bindings` 记录客户素材；`scene`、`result` 及来源校验记录由工具生成。

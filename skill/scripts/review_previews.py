@@ -7,6 +7,8 @@ from PIL import Image, ImageDraw
 
 def envelope(obj):
     l,t,r,b=obj['bbox'];cx=(l+r)/2;cy=(t+b)/2
+    if obj.get('editor_transform'):
+        cx+=obj['editor_transform'].get('x',0);cy+=obj['editor_transform'].get('y',0)
     angle=math.radians(obj.get('rotation',0));c=abs(math.cos(angle));s=abs(math.sin(angle))
     w=(r-l)*c+(b-t)*s;h=(r-l)*s+(b-t)*c
     return [cx-w/2,cy-h/2,cx+w/2,cy+h/2]

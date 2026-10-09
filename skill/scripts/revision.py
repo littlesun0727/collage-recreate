@@ -61,7 +61,7 @@ def recover_commit(run):
     state['status']='rolled_back';save(marker,state)
 
 
-def commit_revision(run,request_id,review):
+def commit_revision(run,request_id,review,manual=False):
     run=Path(run);root=folder(run,request_id)
     if (root/'committed.json').exists():
         outcome=read(root/'committed.json')
@@ -75,7 +75,11 @@ def commit_revision(run,request_id,review):
     if read(run/'result.json').get('render_id')!=saved['base_render_id']:raise ValueError('Base version changed')
     if sha(candidate/'scene.json')!=saved['scene_sha256'] or sha(candidate/'final.png')!=saved['final_sha256']:
         raise ValueError('Candidate changed since rendering')
-    save(root/'review.json',review);accept_review(candidate,root/'review.json')
+    if manual:
+        if saved.get('origin')!='manual':raise ValueError('Not a manual candidate')
+        save(candidate/'review.json',{'status':'not_reviewed','origin':'manual'})
+    else:
+        save(root/'review.json',review);accept_review(candidate,root/'review.json')
     # Only generated outputs are promoted. Analysis, catalog and original references stay intact.
     files=[p for directory in ['assets','previews','reviews'] for p in (candidate/directory).rglob('*') if p.is_file()]
     files += [candidate/n for n in ['scene.json','result.json','final.png','review.json']]
@@ -92,14 +96,19 @@ def commit_revision(run,request_id,review):
             else:shutil.copy2(p,dest)
         result=read(run/'result.json');result['scene_sha256']=sha(run/'scene.json')
         result['render_id']=fingerprint([result['scene_sha256'],result['final_sha256']])[:16]
-        final_review=read(run/'review.json')
-        final_review.update(render_id=result['render_id'],scene_sha256=result['scene_sha256'],final_sha256=result['final_sha256'])
-        result['visual_review']=final_review;save(run/'result.json',result);save(run/'review.json',final_review)
-        accept_review(run,run/'review.json')
+        if manual:
+            result['visual_review']=None;result['renders_verified']=False
+            result['edit_origin']='manual';save(run/'result.json',result)
+        else:
+            final_review=read(run/'review.json')
+            final_review.update(render_id=result['render_id'],scene_sha256=result['scene_sha256'],final_sha256=result['final_sha256'])
+            result['visual_review']=final_review;save(run/'result.json',result);save(run/'review.json',final_review)
+            accept_review(run,run/'review.json')
         load_scene(run)
     except Exception:
         recover_commit(run);raise
     outcome={'render_id':result['render_id'],'base_render_id':saved['base_render_id'],'request_id':request_id}
+    if manual:outcome['origin']='manual'
     marker.update(status='done',outcome=outcome);save(run/'chat/commit.json',marker)
     save(root/'committed.json',outcome)
     publish_revision(run,root,outcome)
@@ -109,10 +118,11 @@ def commit_revision(run,request_id,review):
 def publish_revision(run,root,outcome):
     result=read(run/'result.json');final_review=read(run/'review.json')
     from observation import evidence,publish,operation
-    with operation(run,'revision-commit'):
+    manual=outcome.get('origin')=='manual'
+    with operation(run,'manual-edit' if manual else 'revision-commit'):
         evidence(run,root/'plan.json');publish(run)
-        event(run,'review_registered',render_id=result['render_id'],review=final_review)
-        event(run,'chat_revision_published',**outcome)
+        if not manual:event(run,'review_registered',render_id=result['render_id'],review=final_review)
+        event(run,'manual_revision_published' if manual else 'chat_revision_published',**outcome)
     manifests=list((run/'observability/versions').glob('*/manifest.json'))
     if not any(read(p).get('render_id')==outcome['render_id'] for p in manifests):
         raise ValueError('The reviewed image is saved but its version snapshot needs a retry')

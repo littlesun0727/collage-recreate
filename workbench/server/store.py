@@ -12,7 +12,7 @@ from PIL import Image
 LABELS = ['准备素材', '分析布局', '构建首版', '筛选素材', '整图复核', '交付结果']
 COMMAND_STAGE = {'revision-recover':5,'revision-prepare':5,'revision-commit':5,'prepare': 1, 'validate': 2, 'reveal-plan': 2, 'build': 3, 'render': 3,
                  'screen': 4, 'apply': 5, 'review': 5, 'recover': 5, 'generate': 5}
-COMMAND_LABEL = {'revision-commit':'对话修改','revision-prepare':'制作修改预览','build': '构建首版', 'render': '合成成图', 'screen': '筛选素材',
+COMMAND_LABEL = {'manual-edit':'手动编辑','revision-commit':'对话修改','revision-prepare':'制作修改预览','build': '构建首版', 'render': '合成成图', 'screen': '筛选素材',
                  'apply': '调整排版', 'generate': '素材精修', 'recover': '局部恢复'}
 
 

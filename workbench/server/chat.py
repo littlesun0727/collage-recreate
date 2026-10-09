@@ -190,7 +190,7 @@ class ChatQueue:
             context={'message':job['request']['message'],'selected_ids':job['request'].get('selected_ids',[]),
               'reply_to':job['request'].get('reply_to'),
               'selected_asset_id':job['request'].get('asset_id'),'reference_size':scene['reference_size'],
-              'objects':[{k:o[k] for k in ['id','label','kind','bbox','rotation','style','text','method','mode','binding','parent_id','photo_id'] if k in o} |
+              'objects':[{k:o[k] for k in ['id','label','kind','bbox','rotation','style','text','method','mode','binding','parent_id','photo_id','editor_transform'] if k in o} |
                          {'protected':bool(o.get('recovered') or o.get('embedded_owner') or o.get('photo_window')),
                           'extracted':bool(o.get('recovered')),'fixed_window':bool(o.get('photo_window')),'generated':bool(o.get('generated'))}
                          for o in scene['objects']], 'layer_order':scene['layer_order'],

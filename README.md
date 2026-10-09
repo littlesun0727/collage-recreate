@@ -13,6 +13,10 @@ $py = 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe'
 
 打开 http://127.0.0.1:8790 。`--runs` 可以接多个任务根目录，也可以直接接单个任务目录。默认只读；加 `--enable-chat` 启用交付后的对话修改。
 
+加 `--enable-editor` 启用“编辑画布”：照片、贴纸可直接拖动，明确关联的相框和照片一起移动，独立文字支持双击编辑；提供撤销/重做、本机草稿恢复、预览和保存新版本。该功能不需要SDK或模型，独立于 `--enable-chat`，也可同时启用。需要完整skill Python渲染环境。
+
+拖动立即预览；文字输入后点击“预览文字 / 成图”查看现有字体渲染器的实际排版。旧版本保留，手动版本明确显示未重新复核。嵌入贴纸中的文字不可独立改字。SVG用于图层显示，本版没有素材缩放/旋转控件或自包含SVG导出。实施与兼容性约定见 [画布编辑计划](workbench/CANVAS_EDITOR_PLAN.md)。
+
 启用本机对话修改（需已登录的 Codex CLI、Node.js 和安装好的 Codex SDK）：
 
 ```powershell

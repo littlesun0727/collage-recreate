@@ -126,7 +126,7 @@ def evidence(run, path):
 def differences(before, after):
     old = {o['id']: o for o in before.get('objects', [])}
     changes = []
-    keys = ('bbox', 'rotation', 'style', 'binding', 'method', 'extracted_offset', 'gate', 'text')
+    keys = ('bbox', 'rotation', 'style', 'binding', 'method', 'extracted_offset', 'gate', 'text', 'editor_transform')
     for obj in after.get('objects', []):
         delta = {k: {'before': old.get(obj['id'], {}).get(k), 'after': obj.get(k)}
                  for k in keys if old.get(obj['id'], {}).get(k) != obj.get(k)}

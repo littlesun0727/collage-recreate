@@ -90,7 +90,7 @@ $('#canvas').addEventListener('pointerup',e=>{
   if(Math.hypot(e.clientX-p.x,e.clientY-p.y)>5||!['after','wipe'].includes(p.world.dataset.role))return;
   const r=p.world.getBoundingClientRect(),[w,h]=state.data.reference_size;
   const x=(e.clientX-r.left)/r.width*w,y=(e.clientY-r.top)/r.height*h;
-  const choices=(selectedVersion()?.objects||state.data.materials).filter(o=>o.kind!=='background'&&o.bbox&&x>=o.bbox[0]&&x<=o.bbox[2]&&y>=o.bbox[1]&&y<=o.bbox[3]);
+  const choices=(selectedVersion()?.objects||state.data.materials).filter(o=>{const b=focusBounds(o.id,'after');return o.kind!=='background'&&b&&x>=b[0]&&x<=b[2]&&y>=b[1]&&y<=b[3];});
   choices.sort((a,b)=>(a.bbox[2]-a.bbox[0])*(a.bbox[3]-a.bbox[1])-(b.bbox[2]-b.bbox[0])*(b.bbox[3]-b.bbox[1]));
   if(choices.length){state.focus=choices[0].id;highlight();renderChat();}
 });

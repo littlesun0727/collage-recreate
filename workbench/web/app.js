@@ -183,7 +183,8 @@ function focusBounds(id, role) {
   const obj = objects?.find((o) => o.id === id);
   if (!obj?.bbox) return null;
   // Scene bbox already includes the translation; extracted_offset moves the full RGBA layer.
-  return obj.bbox;
+  const t=obj.editor_transform||{x:0,y:0};
+  return obj.bbox.map((n,i)=>n+(i%2?t.y||0:t.x||0));
 }
 function fitWorlds() {
   if (!state.data?.reference_size) return;
@@ -404,6 +405,7 @@ function render() {
     gate: "素材采用",
     layer_order: "前后顺序",
     extracted_offset: "装饰平移",
+    editor_transform: "手动移动位置",
     text: "文字",
   };
   setHTML(

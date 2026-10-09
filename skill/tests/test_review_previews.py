@@ -10,6 +10,13 @@ from scene import compile_scene,apply_review
 from render import render
 
 
+def test_manual_translation_updates_detail_region_envelope():
+    obj={'bbox':[20,30,70,90],'rotation':20}
+    before=envelope(obj)
+    after=envelope(dict(obj,editor_transform={'x':15,'y':-10}))
+    assert all(abs(new-old-(15 if i%2==0 else -10))<1e-8 for i,(old,new) in enumerate(zip(before,after)))
+
+
 def test_portrait_decoration_is_prioritized_over_photo_inside_paper():
     scene={'reference_size':[1000,1200],'objects':[
         {'id':'page','kind':'overlay','bbox':[0,0,450,1100]},

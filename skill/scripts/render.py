@@ -12,7 +12,7 @@ from common import event
 import uuid
 
 
-def render(run, publish_result=True):
+def render(run, publish_result=True, capture_layers=False):
     run=Path(run);s=load_scene(run);w,h=s['canvas_size'];scale=w/s['reference_size'][0]
     if w*h>20_000_000:raise ValueError('Canvas exceeds 20 million pixels')
     material_attempt=uuid.uuid4().hex
@@ -24,6 +24,7 @@ def render(run, publish_result=True):
     canvas=Image.new('RGBA',(w,h),'white');layers=[];issues=[];incomplete=[];records=[]
     code=fingerprint({str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'scripts').rglob('*.py')})
     grouped={member:group for group in s.get('generated_groups',[]) for member in group['member_ids']}
+    editor_layers=[]
     def recovered_owner(obj):return obj.get('recovery_owner') or obj.get('embedded_owner')
     def embedded_in_recovered(obj):
         owner=recovered_owner(obj)
@@ -108,7 +109,18 @@ def render(run, publish_result=True):
             with Image.open(verify_source(o['photo_window'])) as raw:window=raw.convert('L').resize((w,h),Image.Resampling.LANCZOS)
             layer.putalpha(ImageChops.multiply(layer.getchannel('A'),window))
             photo_alpha=ImageChops.multiply(photo_alpha,window)
-        if 'shadow' in o['style']:canvas=Image.alpha_composite(canvas,shadow_layer(layer.getchannel('A'),o['style']['shadow']))
+        shadow=shadow_layer(layer.getchannel('A'),o['style']['shadow']) if 'shadow' in o['style'] else None
+        if capture_layers:
+            folder=run/'editor_layers';folder.mkdir(exist_ok=True)
+            image=Image.alpha_composite(shadow,layer) if shadow is not None else layer
+            path_editor=folder/(oid+'.png');image.save(path_editor)
+            editor_layers.append({'id':oid,'file':str(path_editor),'sha256':sha(path_editor)})
+        if original.get('editor_transform'):
+            from editor_scene import translate
+            layer=translate(layer,original,scale)
+            if shadow is not None:shadow=translate(shadow,original,scale)
+            if photo_alpha is not None:photo_alpha=translate(photo_alpha,original,scale)
+        if shadow is not None:canvas=Image.alpha_composite(canvas,shadow)
         canvas=Image.alpha_composite(canvas,layer)
         layers.append((oid,o['kind'],layer.getchannel('A'),photo_alpha))
         for member in group_info['member_ids'] if group_info else [oid]:
@@ -140,6 +152,7 @@ def render(run, publish_result=True):
     extraction_sheets=sheets(run,[r for r in records if not r['metadata'].get('embedded_content')])
     proof=all(r['kind']!='photo' or r['metadata'].get('resource_type')=='customer_photo' for r in records)
     result={'schema_version':'collage-result-v1','exported':True,'status':'preview','renders_verified':False,'coverage_complete':len(records)==len(s['objects']),'customer_photos_verified':proof and len(visibility)==len(photo_objects),'photo_visible_fractions':visibility,'incomplete_objects':sorted(set(incomplete)),'issues':issues,'scene_sha256':sha(run/'scene.json'),'final_sha256':sha(run/'final.png'),'resources':records,'visual_review':None,'at':now()}
+    if capture_layers:result['editor_layers']=editor_layers
     result['extraction_sheets']=extraction_sheets
     result['review_regions']=review_regions
     if s.get('asset_gate'):
