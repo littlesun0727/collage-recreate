@@ -69,10 +69,16 @@ def acquire(run,scene,targets,config):
             receipt['cache_hit']=downloads_ready(task)
             if not receipt['cache_hit']:
                 if not config.get('remote') or readonly:
-                    receipt['error']='No complete matching grouped cache';return found,receipt
-                event(run,'reveal_request_started',task=str(task),targets=batch['primary_ids'])
-                reserve_submission(task,run/'assets/reveal')
-                fetch_batch(task,ip,batch['objects'],api_key(config.get('key_file','D:/codes/.env')),config.get('timeout',360))
+                    receipt['error']='No complete matching grouped cache'
+                else:
+                    event(run,'reveal_request_started',task=str(task),targets=batch['primary_ids'])
+                    reserve_submission(task,run/'assets/reveal')
+                    try:
+                        fetch_batch(task,ip,batch['objects'],api_key(config.get('key_file','D:/codes/.env')),config.get('timeout',360))
+                    except Exception as exc:
+                        receipt['error']=type(exc).__name__+': '+str(exc)
+                qp=task/'query_response.json'
+                if not qp.exists() or read(qp).get('status')!='done':return found,receipt
             meta=read(task/'request_meta.json')
             if meta['reference_sha256']!=sha(ip) or meta['objects']!=batch['objects']:raise ValueError('Request metadata changed')
             q=read(task/'query_response.json');out=q['output'];indices=out.get('boxes_mapping_index')
@@ -86,11 +92,18 @@ def acquire(run,scene,targets,config):
             for j,i in enumerate(indices,1):
                 o=batch['objects'][i]
                 if o['role']!='asset':continue
-                raw=task/f'layers_aug_{j:02d}.png'
-                if not raw.exists():raw=task/f'layers_base_{j:02d}.png'
                 dest=restored/(fingerprint(o['id'])[:20]+'.png')
-                scale=restore(raw,batch['crop_box'],scene['reference_size'],dest,
-                              (out.get('image_boxes',boxes),out.get('resized_image_boxes')))
+                errors=[]
+                for raw in [task/f'layers_aug_{j:02d}.png',task/f'layers_base_{j:02d}.png']:
+                    if not raw.exists():continue
+                    try:
+                        scale=restore(raw,batch['crop_box'],scene['reference_size'],dest,
+                                      (out.get('image_boxes',boxes),out.get('resized_image_boxes')))
+                        break
+                    except (OSError, ValueError) as exc:errors.append(type(exc).__name__+': '+str(exc))
+                else:
+                    receipt.setdefault('object_errors',{})[o['id']]='; '.join(errors) or 'Layer download missing'
+                    continue
                 found[o['id']]={'file':str(dest.resolve()),'sha256':sha(dest),'bbox':o['reference_bbox'],
                                'original_bbox':o['original_bbox'],'padding':o['padding'],'pixel_scale':scale,
                                'raw_file':str(raw.resolve()),'raw_sha256':sha(raw),'crop_box':batch['crop_box'],'task':str(task)}
@@ -98,6 +111,9 @@ def acquire(run,scene,targets,config):
                 event(run,'material_extracted',object_id=o['id'],raw_file=str(raw),
                       processed_file=str(dest),cache_hit=receipt['cache_hit'])
             receipt['missing_ids']=[oid for oid in batch['primary_ids'] if oid not in found]
+            receipt['available_ids']=list(found)
+            if receipt['missing_ids']:
+                receipt.setdefault('error','Some target layers are unavailable; resume existing downloads')
         except Exception as exc:
             receipt['error']=type(exc).__name__+': '+str(exc)
         finally:

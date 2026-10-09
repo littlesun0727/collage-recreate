@@ -67,6 +67,22 @@ Agent 自评为 9 张通过、7 张待修改。主控额外逐张查看最终参
 
 本次未为提高通过率而在样本间修改 skill、重跑样本或覆盖被测 agent 的结论。初始记录器预检因 Windows 文件占用中断的批次单独保留，不计入正式 16 张耗时。
 
+## 2026-10-09：分阶段计时与拼贴3下载恢复
+
+新增原始16样本的逐阶段耗时分析，报告和Excel位于 `D:/codes/collage_outputs/sdk-serial-20261008-r1/timing-analysis/`。第六步没有独立开始事件，因此“交付与收尾”明确使用 review_finished 到 SDK finished_at；启动和步骤交接空档单列。脚本子耗时不与阶段重复累加。
+
+拼贴3原提取任务实际完成15个装饰，下载第13个装饰基础层时发生HTTP502，旧代码提前退出整组，已下载12个装饰也未回填。此次修复下载有限重试、单文件失败后继续下载、有效部分缓存逐对象回填，以及页面失败原因显示。缓存身份、坐标映射与素材门禁仍然生效，不重新提交已有远端任务。
+
+恢复任务另存于 `D:/codes/collage_outputs/workbench-validation/04-拼贴3-下载恢复-20261009`：补下载4.081秒，离线重建11.981秒，层级修正5.006秒；新增提取提交0次，15个装饰全部回填，缺失数归零。原任务所有文件哈希未变，原7分0.3秒SDK耗时不变；恢复动作不属于新的SDK端到端测试。
+
+逐图检查后修正蓝色拍立得被底部照片穿透遮挡、右侧白便签底板被照片覆盖两处层级问题。仍保留 needs_changes：原分析未建模明信片邮票/邮编格，淡色装饰、纸张和字体存在外观差异。不得将下载恢复成功等同于最终成片质量通过。
+
+182项自动测试通过；隐藏浏览器验收20任务、34版本通过；专项页面检查确认原任务显示15项失败及HTTP502，恢复任务15个装饰可用且保存两个版本。JavaScript语法及git差异检查通过。
+
+完整报告：`D:/codes/collage_outputs/recovery-validation-20261009/REPORT.html` / `REPORT.md`。续传证据 `recovery-report.json`；原任务校验 `original-manifest.json`；页面证据 `case11-ui.json` 和 `browser/`。
+
+交付后对话修改的设计另见 [CHAT_REVISION_PLAN.md](CHAT_REVISION_PLAN.md)，尚未实现相关交互或执行服务。
+
 ## 本地证据与启动
 
 真实任务根目录：`D:/codes/collage_outputs/workbench-validation`。三个子目录内包含输入、绑定、分析、素材、最终图、复核、事件及 `observability/versions` 快照。

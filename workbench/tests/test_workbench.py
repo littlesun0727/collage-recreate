@@ -92,6 +92,19 @@ def test_review_does_not_carry_to_new_pixels(run):
         checkpoint(run,6,'complete','未经复核的新图')
 
 
+def test_download_error_is_visible_without_discarding_successful_material(run):
+    a=read(run/'analysis.json')
+    a['objects'][-1]['method']='extract';save(run/'analysis.json',a)
+    build(run)
+    event(run,'reveal_group_finished',task='batch',requested_ids=['star','photo'],
+          available_ids=['photo'],missing_ids=['star'],error='HTTPError HTTP 502')
+    _,d=document(run)
+    cards={m['id']:m for m in d['materials']}
+    assert cards['star']['status']=='failed' and '502' in cards['star']['note']
+    assert cards['photo']['status']=='complete'
+    assert d['groups'][0]['missing_ids']==['star'] and '502' in d['groups'][0]['error']
+
+
 def test_repeat_identical_render_does_not_duplicate_version_or_keep_acceptance(run):
     build(run);review(run)
     with locked(run),timed(run,'render'):

@@ -187,6 +187,9 @@ class Store:
             if event == 'reveal_group_finished':
                 groups[row.get('task', '')] = {'status': 'failed' if row.get('error') else 'complete',
                                                'ids': row.get('requested_ids', []), 'at': at,
+                                               'error': clean(row.get('error', '')),
+                                               'available_ids': row.get('available_ids', []),
+                                               'missing_ids': row.get('missing_ids', row.get('requested_ids', [])) if row.get('error') else [],
                                                'elapsed_seconds': row.get('elapsed_seconds'), 'cache_hit': row.get('cache_hit', False)}
             if event == 'version_published':
                 current_version = row.get('version_id'); reviews.pop(current_version, None)
@@ -262,9 +265,16 @@ class Store:
                     state = 'waiting'
             if output and isinstance(metadata.get('foreground'), str):
                 images['processed'] = self.image(key, run, metadata['foreground'])
+            failure = next((g for g in reversed(list(groups.values())) if g.get('status') == 'failed'
+                            and oid in g.get('missing_ids', [])
+                            and (not rebuilding or g.get('at', '') >= last_command.get('at', ''))), None)
+            note = metadata.get('note', '')
+            if failure and state == 'unresolved':
+                state = 'failed'
+                note = failure['error'] or '提取或下载失败，未采用该素材'
             cards.append({'id': oid, 'label': obj.get('label', oid), 'kind': obj['kind'], 'bbox': obj.get('bbox'),
                           'method': method, 'status': state, 'quality': quality, 'cache_hit': row.get('cache_hit', False),
-                          'images': images, 'decision': clean(obj.get('gate', {})), 'note': clean(metadata.get('note', ''))})
+                          'images': images, 'decision': clean(obj.get('gate', {})), 'note': clean(note)})
         if rebuilding:
             groups = {k: v for k, v in groups.items() if v.get('at', '') >= last_command.get('at', '')}
         reference = self.image(key, run, run/'prepared/reference.png')

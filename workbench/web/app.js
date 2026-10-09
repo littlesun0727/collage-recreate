@@ -17,7 +17,7 @@ const statusText = {
   failed: "执行失败",
   blocked: "需要处理",
   saved: "已有产物",
-  unresolved: "待处理",
+  unresolved: "未解决",
 };
 const state = {
   id: new URLSearchParams(location.search).get("task"),
@@ -289,18 +289,19 @@ function renderMaterials() {
       ? v.materials
       : d.materials;
   const completed = cards.filter((m) => m.status === "complete").length,
-    unresolved = cards.filter((m) => m.status === "unresolved").length;
+    unresolved = cards.filter((m) => m.status === "unresolved").length,
+    failed = cards.filter((m) => m.status === "failed").length;
   $("#materialHeading").textContent =
     historical && v ? "该版本的素材" : "素材制作过程";
   $("#materialCount").textContent = `${cards.length} 件`;
   setHTML(
     $("#materialProgress"),
-    `<div class="material-progress">可用 ${completed} 件 · 待处理 ${unresolved} 件 · 处理中或待制作 ${cards.length - completed - unresolved} 件${cards.length ? `<div class="progress-track"><span style="width:${((completed + unresolved) / cards.length) * 100}%"></span></div>` : ""}</div>`,
+    `<div class="material-progress">可用 ${completed} 件 · 失败 ${failed} 件 · 未解决 ${unresolved} 件 · 处理中或待制作 ${cards.length - completed - unresolved - failed} 件${cards.length ? `<div class="progress-track"><span style="width:${((completed + unresolved + failed) / cards.length) * 100}%"></span></div>` : ""}</div>`,
   );
   setHTML(
     $("#groups"),
     !historical && d.groups.length
-      ? `<div class="groups">提取请求 ${d.groups.length} 组 · 已返回 ${d.groups.filter((g) => g.status === "complete").length} 组 · 等待 ${d.groups.filter((g) => g.status === "waiting").length} 组${d.groups.some((g) => g.status === "failed") ? " · 有请求需要处理" : ""}</div>`
+      ? `<div class="groups">提取请求 ${d.groups.length} 组 · 已返回 ${d.groups.filter((g) => g.status === "complete").length} 组 · 等待 ${d.groups.filter((g) => g.status === "waiting").length} 组${d.groups.filter((g) => g.status === "failed").map((g) => `<p>提取或下载异常：${escapeHTML(g.error || "未获得完整结果")} · 已恢复 ${g.available_ids?.length || 0} 件，缺失 ${g.missing_ids?.length || 0} 件</p>`).join("")}</div>`
       : "",
   );
   const grid = $("#materials"),

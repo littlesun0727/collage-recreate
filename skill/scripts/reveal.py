@@ -6,6 +6,7 @@ import time
 import threading
 import json as jsonlib
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -174,21 +175,37 @@ def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None,
         result=request('query_task',query);save(qp,result)
         if result.get('status')!='done':
             started=time.monotonic();sleep(min(5,max(0,deadline-time.monotonic())));elapsed('poll_wait_seconds',started)
+    download_errors=[]
     for field in ['layers_base','layers_aug']:
         for i,url in enumerate(result['output'].get(field,[])):
             path=task/f'{field}_{i:02d}.png'
             if path.exists():
-                with Image.open(path) as im:im.verify()
-                continue
-            left=deadline-time.monotonic()
-            if left<=0:raise TimeoutError('Reveal download timeout; resume existing task')
-            started=time.monotonic()
-            try:
-                response=get(url,timeout=(min(30,left),min(120,left)));response.raise_for_status()
-                tmp=path.with_suffix('.part');tmp.write_bytes(response.content)
-                with Image.open(tmp) as im:im.verify()
-                tmp.replace(path)
-            finally:elapsed('download_seconds',started)
+                try:
+                    with Image.open(path) as im:im.verify()
+                    continue
+                except (OSError, ValueError):pass
+            for attempt in range(3):
+                started=time.monotonic()
+                try:
+                    left=deadline-time.monotonic()
+                    if left<=0:raise TimeoutError('Reveal download timeout; resume existing task')
+                    response=get(url,timeout=(min(30,left),min(120,left)));response.raise_for_status()
+                    tmp=path.with_suffix('.part');tmp.write_bytes(response.content)
+                    with Image.open(tmp) as im:im.verify()
+                    tmp.replace(path)
+                    break
+                except (OSError, ValueError) as exc:
+                    code=getattr(exc,'code',None)
+                    transient=(isinstance(exc,HTTPError) and code in {408,429,500,502,503,504}) or (isinstance(exc,(URLError,TimeoutError,ConnectionError)) and not isinstance(exc,HTTPError))
+                    if transient and attempt<2 and deadline-time.monotonic()>attempt+1:
+                        sleep(attempt+1)
+                        continue
+                    download_errors.append({'file':path.name,'error':type(exc).__name__+(f' HTTP {code}' if code else ''),'attempts':attempt+1})
+                    break
+                finally:elapsed('download_seconds',started)
+    save(task/'download-report.json',{'errors':download_errors,'complete':not download_errors,'at':now()})
+    if download_errors:
+        raise RuntimeError('Reveal download incomplete: '+'; '.join(e['file']+': '+e['error'] for e in download_errors))
 
 
 def acquire(run, scene, targets, config):
