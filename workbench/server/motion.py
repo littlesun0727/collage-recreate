@@ -1,5 +1,6 @@
-"""Serial, persisted Live import/render jobs; the HTTP server never loads ONNX."""
+"""Persisted jobs with independent serial import, creation and render workers."""
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 import hashlib
 import json
 import os
@@ -15,7 +16,7 @@ from .store import clean
 from .chat import now, Conflict, process_alive
 
 REPO = Path(__file__).resolve().parents[2]
-IDENTIFIER = re.compile(r'(?:motion|import|batch)-[a-zA-Z0-9_-]{8,72}')
+IDENTIFIER = re.compile(r'(?:motion|import|batch|create)-[a-zA-Z0-9_-]{8,72}')
 
 
 def read(path,default=None):
@@ -50,8 +51,9 @@ def save(path,value):
 
 
 class Motion:
-    def __init__(self, store, media_root, cutout_model=None):
+    def __init__(self, store, media_root, cutout_model=None, creator=None):
         self.store = store
+        self.creator = creator
         self.root = Path(media_root).resolve()
         self.root.mkdir(parents=True, exist_ok=True)
         self.queue_lock = (self.root/'queue.lock').open('a+b')
@@ -70,19 +72,63 @@ class Motion:
             self.queue_lock.close(); raise
         self.cutout_model = cutout_model
         self.guard = threading.RLock()
-        self.executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='live-motion')
+        self.executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='live-create')
+        self.render_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='live-motion')
+        self.import_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='live-import')
         self.active = set()
         self.verified_content = {}
         # Persist queued jobs; recover an orphaned child before starting another sample.
-        for path in sorted((self.root/'jobs').glob('*.json')):
-            job = read(path)
+        pending=[(path,read(path)) for path in (self.root/'jobs').glob('*.json')]
+        for path,job in sorted(pending,key=lambda item:(item[1].get('status')!='running',self.queue_key(item[1]))):
             if job.get('status') in {'queued', 'running'}:
+                if job.get('kind')=='create' and not self.creator:
+                    continue
+                if job.get('kind')=='import' and job.get('auto_create') and not self.creator:
+                    continue
+                if job.get('kind')=='render' and job['status']=='queued':
+                    blocker=self.render_blocker(Path(job['run']),base_render_id=job.get('base_render_id'))
+                    if blocker:
+                        job.update(status='failed',error=blocker,finished_at=now(),pid=None)
+                        save(path,job)
+                        continue
                 self.active.add(job['id'])
-                self.executor.submit(self.work, path, job)
+                self.worker(job).submit(self.work, path, job)
+        # Recover an import saved just before its automatic creation was enqueued.
+        if self.creator:
+            for path in sorted((self.root/'jobs').glob('import-*.json')):
+                job=read(path)
+                if job.get('status')=='completed' and job.get('auto_create'):
+                    self.creator.submit(self,job)
 
     def close(self):
+        self.import_executor.shutdown(wait=True)
         self.executor.shutdown(wait=True)
+        self.render_executor.shutdown(wait=True)
         self.queue_lock.close()
+
+    def worker(self, job):
+        if job['kind']=='import':
+            return self.import_executor
+        if job['kind']=='render':
+            return self.render_executor
+        return self.executor
+
+    @staticmethod
+    def queue_key(job):
+        return (job.get('queued_at') or job.get('created_at',''),job.get('id',''))
+
+    def render_blocker(self, run, result=None, base_render_id=None):
+        result=read(run/'result.json') if result is None else result
+        if not result.get('exported'):
+            return '请先完成静态封面，再制作动态成片。'
+        if base_render_id and result.get('render_id')!=base_render_id:
+            return '封面已更新，请基于最新封面重新制作动态成片。'
+        missing=result.get('incomplete_objects',[])
+        if missing:
+            labels={o['id']:o.get('label') or o['id'] for o in read(run/'scene.json').get('objects',[])}
+            names='、'.join(labels.get(oid,oid) for oid in missing)
+            return f'封面对象尚未完成：{names}。请先修复，或在编辑画布中删除这些对象并保存，再制作动态成片；直接重试不能解决此问题。'
+        return None
 
     def location(self, task):
         run = self.store.tasks().get(task)
@@ -159,12 +205,15 @@ class Motion:
                 raise ValueError('输出宽度或说明无效')
             if not any(f['role']=='reference' for f in batch['files']) or not any(f['role']=='material' for f in batch['files']):
                 raise ValueError('请上传一张参考图和至少一个客户素材')
+            if self.creator:
+                self.creator.preflight()
             roots = [r for r in self.store.roots if not (r/'input.json').exists()]
             if not roots:
                 raise ValueError('工作台需要一个任务父目录才能创建任务')
             job = {'id': 'import-'+uuid.uuid4().hex, 'kind': 'import', 'batch_id': identifier,
                    'run': str(roots[0]/('Live-'+uuid.uuid4().hex[:12])), 'payload': payload,
-                   'width': width, 'instructions': instructions, 'status': 'queued', 'created_at': now()}
+                   'width': width, 'instructions': instructions, 'status': 'queued', 'created_at': now(),
+                   'auto_create': bool(self.creator)}
             batch.update(sealed=True, job_id=job['id']); save(path, batch)
             return self.enqueue(job)
 
@@ -180,6 +229,8 @@ class Motion:
                     raise Conflict('请求编号已用于其他内容')
                 if old['status']=='completed' or old['id'] in self.active:
                     return self.job(old['id'])
+                blocker=self.render_blocker(run,base_render_id=old.get('base_render_id'))
+                if blocker:raise Conflict(blocker)
                 return self.enqueue(old)
             versions = self.store.document(task)['versions']
             result = read(run/'result.json')
@@ -187,19 +238,25 @@ class Motion:
                 raise Conflict('封面已更新，请返回最新版本后再制作动态成片')
             if not (run/'media/manifest.json').exists():
                 raise ValueError('此任务没有导入 Live 视频')
+            blocker=self.render_blocker(run,result)
+            if blocker:raise Conflict(blocker)
             job = {'id': payload['request_id'], 'kind': 'render', 'task': task, 'run': str(run),
                    'payload': payload, 'base_render_id': result['render_id'], 'created_at': now()}
             return self.enqueue(job)
 
     def enqueue(self, job):
         path = self.root/'jobs'/(job['id']+'.json')
-        job.update(status='queued', error=None)
+        job.update(status='queued', error=None,queued_at=now())
+        for key in ('started_at','finished_at','elapsed_seconds','pid'):
+            job.pop(key,None)
         save(path, job)
         if job['id'] not in self.active:
-            self.active.add(job['id']); self.executor.submit(self.work, path, job)
+            self.active.add(job['id']); self.worker(job).submit(self.work, path, job)
         return {'id': job['id'], 'status': 'queued'}
 
     def work(self, path, job):
+        if job['kind']=='create':
+            return self.creator.work(self,path,job)
         start = time.monotonic()
         try:
             # If the server restarted while its child survived, wait for that child.
@@ -221,12 +278,19 @@ class Motion:
             else:
                 _, batch = self.batch(job['batch_id'])
                 if run.exists():
+                    has_video=any(Path(f['file']).suffix.lower() in {'.mp4','.mov'} for f in batch['files'])
+                    if job.get('auto_create') and (run/'input.json').is_file() and (run/'prepared/catalog.json').is_file() and (not has_video or (run/'media/manifest.json').is_file()):
+                        job['task_id']=next(key for key,value in self.store.tasks().items() if value==run)
+                        job.update(status='completed')
+                        self.creator.submit(self,job)
+                        return
                     raise ValueError('上次素材准备已中断；请新建素材批次，旧记录保留供检查')
                 reference = next(f['file'] for f in batch['files'] if f['role']=='reference')
                 materials = self.root/'uploads'/job['batch_id']/'materials'
                 command = [sys.executable, '-B', str(REPO/'skill/scripts/workflow.py'), 'prepare-live',
                            '--run', str(run), '--reference', reference, '--materials', str(materials),
                            '--width', str(job['width']), '--instructions', job['instructions']]
+                command += ['--progress-file',str(path.with_suffix('.progress.json'))]
                 if self.cutout_model:
                     command += ['--cutout-model', str(self.cutout_model)]
             env = dict(os.environ); env['COLLAGE_REQUEST_ID'] = job['id']
@@ -251,6 +315,8 @@ class Motion:
                     save(manifest_path,manifest)
                 job['task_id'] = next(key for key, value in self.store.tasks().items() if value==run)
                 job['handoff'] = '素材准备完成。请在 Codex 中继续该任务的布局分析、静态封面制作与复核；封面完成后可制作动态成片。'
+                if job.get('auto_create') and self.creator:
+                    self.creator.submit(self,job)
         except Exception as exc:
             job.update(status='failed', error=clean(str(exc))[:700])
         finally:
@@ -267,12 +333,34 @@ class Motion:
             raise KeyError('Job')
         if task is not None and row.get('task')!=task:
             raise KeyError('Job')
-        value = {key: row[key] for key in ('id','kind','status','created_at','started_at','finished_at','elapsed_seconds','error','task_id','handoff') if key in row}
+        value = {key: row[key] for key in ('id','kind','status','created_at','queued_at','started_at','finished_at','elapsed_seconds','error','task_id','handoff','auto_create','visual_verdict','attempts') if key in row}
+        if row['status']=='queued':
+            ahead=[j for p in (self.root/'jobs').glob('*.json') if (j:=read(p)).get('kind') in {'import','create','render'} and
+                j.get('status') in {'queued','running'} and j.get('id')!=row['id'] and
+                j['kind']==row['kind'] and
+                (j.get('status')=='running' or self.queue_key(j)<self.queue_key(row))]
+            value['queue_position']=len(ahead)+1
+            value['waiting_seconds']=round(max(0,(datetime.now(timezone.utc)-datetime.fromisoformat(row.get('queued_at') or row['created_at'])).total_seconds()),1)
+            blocker=next((j for j in ahead if j['status']=='running'),None)
+            if blocker:value['blocked_by']={'id':blocker['id'],'kind':blocker['kind'],'task_name':Path(blocker['run']).name}
+        if row['kind']=='create':
+            value.update(model='gpt-5.6-sol',effort='medium')
+            value.setdefault('queue_position',0)
         if row['kind']=='render':
-            value['progress'] = clean(read(Path(row['run'])/'chat/motion/versions'/identifier/'progress.json'))
-        elif row.get('status')=='completed':
+            progress=read(Path(row['run'])/'chat/motion/versions'/identifier/'progress.json')
+            if row['status']=='queued' or (row['status']=='running' and progress.get('started_at','')<row.get('started_at','')):
+                progress={}
+            value['progress'] = clean(progress)
+        elif row['kind']=='import':
+            value['progress']=read((self.root/'jobs'/(identifier+'.json')).with_suffix('.progress.json'))
+            current=value['progress'].get('current')
+            if current:
+                _,batch=self.batch(row['batch_id'])
+                value['progress']['current']=next((f['name'] for f in batch['files'] if Path(f['file']).name==current),current)
+        if row['kind']=='import' and row.get('status')=='completed' and not row.get('auto_create'):
             # Intentional operator handoff, not an arbitrary filesystem argument accepted by an API.
             value['codex_handoff'] = f"继续任务 {row['run']}：已 prepare-live，按 collage-recreate-v5 完成原六步封面制作，再 motion-render。"
+        if value.get('error'):value['error']=clean(value['error'])
         return value
 
     def document(self, task):
@@ -308,6 +396,7 @@ class Motion:
         jobs.sort(key=lambda job:job.get('created_at') or job.get('started_at') or '')
         return {'enabled': True, 'videos': videos, 'versions': sorted(versions,key=lambda v:v['at']), 'jobs': jobs,
                 'base_render_id': current.get('render_id'),'eligible_slots':eligible,
+                'render_blocker': self.render_blocker(run,current),
                 'target_duration_us': min(3_000_000,max((v['duration_us'] for v in videos),default=0))}
 
     def content(self, task, kind, identifier):

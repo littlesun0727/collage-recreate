@@ -4,6 +4,7 @@ import io
 import json
 import re
 import threading
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -17,9 +18,15 @@ COMMAND_LABEL = {'manual-edit':'手动编辑','revision-commit':'对话修改','
 
 
 def read(path, default=None):
-    try:
-        return json.loads(Path(path).read_text(encoding='utf-8-sig'))
-    except (OSError, ValueError):
+    for attempt in range(9):
+        try:
+            return json.loads(Path(path).read_text(encoding='utf-8-sig'))
+        except PermissionError:
+            # Windows briefly denies readers while another worker replaces a file.
+            if attempt<8:
+                time.sleep(min(.005*2**attempt,.15));continue
+        except (OSError, ValueError):
+            pass
         return {} if default is None else default
 
 

@@ -46,6 +46,43 @@ def rebase(value, before, after):
     return value
 
 
+def stage_promotion(files, candidate, run, staging):
+    """Rebase JSON paths and their verified dependencies before touching live files."""
+    sources={(run/p.relative_to(candidate)).resolve():p for p in files}
+    staged={};pending=set()
+    def stage(target):
+        if target in staged:return staged[target]
+        source=sources[target]
+        if source.suffix!='.json':return source
+        if target in pending:raise ValueError('Cyclic JSON asset references during promotion')
+        pending.add(target)
+        def update(value):
+            if isinstance(value,list):return [update(v) for v in value]
+            if not isinstance(value,dict):return rebase(value,candidate,run)
+            local_reference=(isinstance(value.get('file'),str) and
+                             Path(value['file']).resolve().is_relative_to(candidate.resolve()))
+            value={k:update(v) for k,v in value.items()}
+            if isinstance(value.get('file'),str) and isinstance(value.get('sha256'),str):
+                dependency=Path(value['file']).resolve()
+                original=sources.get(dependency)
+                if original is not None and original.suffix=='.json':
+                    rebased_hash=sha(stage(dependency));original_hash=sha(original)
+                    # Frozen first-version evidence can retain historical hashes.
+                    # Leave existing references untouched when their JSON did not move.
+                    if not local_reference and rebased_hash==original_hash:return value
+                    # Only refresh a hash whose pre-promotion content is verified.
+                    # A stale/tampered reference must never become valid by rebasing.
+                    if original_hash!=value['sha256']:
+                        raise ValueError('JSON asset changed before promotion: '+str(original))
+                    value['sha256']=rebased_hash
+            return value
+        value=update(read(source))
+        destination=staging/source.relative_to(candidate)
+        save(destination,value);staged[target]=destination;pending.remove(target)
+        return destination
+    return {p:stage((run/p.relative_to(candidate)).resolve()) for p in files}
+
+
 def recover_commit(run):
     """Called under the task writer lock before retry; never guesses a new base."""
     run=Path(run);marker=run/'chat/commit.json'
@@ -83,6 +120,7 @@ def commit_revision(run,request_id,review,manual=False):
     # Only generated outputs are promoted. Analysis, catalog and original references stay intact.
     files=[p for directory in ['assets','previews','reviews'] for p in (candidate/directory).rglob('*') if p.is_file()]
     files += [candidate/n for n in ['scene.json','result.json','final.png','review.json']]
+    promoted=stage_promotion(files,candidate,run,root/'promotion')
     backup=root/'rollback';backup.mkdir(exist_ok=True)
     mapping={p.relative_to(candidate).as_posix():(run/p.relative_to(candidate)).exists() for p in files}
     for rel,existed in mapping.items():
@@ -92,8 +130,7 @@ def commit_revision(run,request_id,review,manual=False):
     try:
         for p in files:
             dest=run/p.relative_to(candidate);dest.parent.mkdir(parents=True,exist_ok=True)
-            if p.suffix=='.json':save(dest,rebase(read(p),candidate,run))
-            else:shutil.copy2(p,dest)
+            shutil.copy2(promoted[p],dest)
         result=read(run/'result.json');result['scene_sha256']=sha(run/'scene.json')
         result['render_id']=fingerprint([result['scene_sha256'],result['final_sha256']])[:16]
         if manual:

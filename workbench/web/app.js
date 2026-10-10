@@ -62,7 +62,7 @@ function renderTiming() {
     ? timing.elapsed_seconds
     : (Date.now() - Date.parse(timing.started_at)) / 1000;
   const n = Math.max(0, Math.floor(seconds));
-  el.textContent = `SDK 串行测试 · ${timing.model} / ${timing.effort} · ${timing.finished_at ? "总耗时" : "已用时"} ${Math.floor(n / 60)}分${n % 60}秒 · 包含分析、制作与复核`;
+  el.textContent = `自动制作 · ${timing.model} / ${timing.effort} · ${timing.finished_at ? "总耗时" : "已用时"} ${Math.floor(n / 60)}分${n % 60}秒 · 包含分析、制作与复核`;
 }
 async function api(url) {
   const r = await fetch(url, { cache: "no-store" });
@@ -183,8 +183,9 @@ function focusBounds(id, role) {
   const obj = objects?.find((o) => o.id === id);
   if (!obj?.bbox) return null;
   // Scene bbox already includes the translation; extracted_offset moves the full RGBA layer.
-  const t=obj.editor_transform||{x:0,y:0};
-  return obj.bbox.map((n,i)=>n+(i%2?t.y||0:t.x||0));
+  const t={x:0,y:0,rotation:0,scale:1,...obj.editor_transform},[l,top,r,b]=obj.bbox,cx=(l+r)/2+t.x,cy=(top+b)/2+t.y;
+  const angle=((obj.rotation||0)+t.rotation)*Math.PI/180,c=Math.abs(Math.cos(angle))*t.scale,s=Math.abs(Math.sin(angle))*t.scale,w=(r-l)*c+(b-top)*s,h=(r-l)*s+(b-top)*c;
+  return [cx-w/2,cy-h/2,cx+w/2,cy+h/2];
 }
 function fitWorlds() {
   if (!state.data?.reference_size) return;
@@ -397,6 +398,8 @@ function render() {
     ]),
   );
   const fields = {
+    removed: "已删除",
+    kind: "对象类型",
     bbox: "位置或尺寸",
     rotation: "角度",
     style: "外观",
@@ -415,10 +418,10 @@ function render() {
           .map(
             (c) =>
               `<button class="change" data-focus="${escapeHTML(c.id)}"><strong>${escapeHTML(c.label)}</strong><small>${escapeHTML(
-                reasons.get(c.id) ||
+                reasons.get(c.id) || (c.fields.removed ? "已删除" :
                   Object.keys(c.fields)
                     .map((k) => fields[k] || k)
-                    .join("、") + "发生变化",
+                    .join("、") + "发生变化"),
               )}</small></button>`,
           )
           .join("")

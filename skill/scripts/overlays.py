@@ -1,7 +1,7 @@
 """Inexpensive local primitives and conservative reference extraction."""
 import math
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageChops
 from text import render_text
 from paths import smooth_points
 
@@ -125,6 +125,16 @@ def draw_overlay(obj,size,reference=None,photos=(),run=None,model=None):
         if texture=='grid':
             for x in range(step//2,w,step):pd.line((x,0,x,h),fill=ink,width=1)
         pattern.putalpha(Image.fromarray((np.asarray(pattern.getchannel('A'),dtype='float32')*np.asarray(im.getchannel('A'))/255).astype('uint8')));im=Image.alpha_composite(im,pattern)
+    if style.get('window'):
+        from effects import rounded_mask
+        window=style['window'];left,top,right,bottom=window['bbox']
+        if not (0<=left<right<=1 and 0<=top<bottom<=1):
+            raise ValueError('window.bbox must be a positive normalized rectangle')
+        left,top,right,bottom=round(left*w),round(top*h),round(right*w),round(bottom*h)
+        opening=Image.new('L',size)
+        inner=(max(1,right-left),max(1,bottom-top))
+        opening.paste(rounded_mask(inner,min(inner)*window.get('radius',0)),(left,top))
+        im.putalpha(ImageChops.multiply(im.getchannel('A'),ImageChops.invert(opening)))
     if obj.get('text'):
         ts={**style,'fill':style.get('stroke','#171717')};lettering,_=render_text(obj['text'],(max(1,round(w*.88)),max(1,round(h*.8))),ts)
         im.alpha_composite(lettering,((w-lettering.width)//2,(h-lettering.height)//2))

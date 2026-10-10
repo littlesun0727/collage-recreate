@@ -1,6 +1,6 @@
 """Post-cover motion production. Never rewrites the approved static scene/PNG."""
 import argparse
-from contextlib import contextmanager
+from contextlib import contextmanager, ExitStack
 from copy import deepcopy
 import json
 import math
@@ -12,10 +12,10 @@ import numpy as np
 from PIL import Image, ImageOps, ImageChops
 from common import read, sha, now, locked, verify_source, fingerprint
 from motion_io import save
-from live_media import timeline, frame_index, decode_needed, encode_frames, verify_encoded
+from live_media import timeline, frame_index, decode_needed, encode_frames, verify_encoded, NativeFrameReader
 from photos import cutout, fit_image, feather_alpha
 from effects import photo_layout, photo_card, clip_round, expanded_outline, scale_style, shadow_layer
-from editor_scene import translate
+from editor_scene import translate,clip_window
 
 
 class Progress:
@@ -120,6 +120,7 @@ def fixed_photo_layer(obj, image, anchor, scene):
     shadow = shadow_layer(layer.getchannel('A'), style['shadow']) if 'shadow' in style else None
     if shadow is not None:
         layer = Image.alpha_composite(shadow, layer)
+    layer=clip_window(layer,obj,scale)
     return translate(layer, obj, scale) if obj.get('editor_transform') else layer
 
 
@@ -221,18 +222,21 @@ def _execute(run, identifier=None, base_render_id=None):
                                       'unique_source_frames': {key: sorted(value) for key, value in needed.items()}})
         cache = run/'chat/motion/cache'
         decoded = {}
+        cutout_ids = {s['video_id'] for s in plan['slots'] if s['mode']=='cutout'}
+        streamed = [v for v in selected if v['id'] not in cutout_ids]
         with progress.stage('decode'):
             decoded_count = 0
-            decode_total = sum(len(value) for value in needed.values())
-            progress.count(0,decode_total)
+            decode_total = sum(len(needed[key]) for key in cutout_ids)
+            progress.count(0,decode_total,skipped=not decode_total,streamed_videos=len(streamed),
+                           streamed_frames=sum(len(needed[v['id']]) for v in streamed))
             for video in selected:
+                if video['id'] not in cutout_ids:continue
                 decoded[video['id']] = decode_needed(video, needed[video['id']], cache/'frames',
                     lambda done, total: progress.count(decoded_count+done, decode_total, video_id=video['id'],
                                                         source_done=done,source_total=total))
                 decoded_count += len(decoded[video['id']])
                 progress.count(decoded_count,decode_total,video_id=video['id'])
         mattes = {}; anchors = {}; inference_rows = []; warnings = []
-        cutout_ids = {s['video_id'] for s in plan['slots'] if s['mode']=='cutout'}
         model = scene.get('cutout_model')
         with progress.stage('matte'):
             total = sum(len(needed[key]) for key in cutout_ids); done = 0
@@ -309,9 +313,12 @@ def _execute(run, identifier=None, base_render_id=None):
                         index = frame_index(by_video[key], at)
                         cached = recent.get(layer)
                         if not cached or cached[0] != index:
-                            path = mattes[key][index] if slot['mode']=='cutout' else decoded[key][index]['file']
-                            with Image.open(path) as raw:
-                                image = raw.convert('RGBA')
+                            if key in readers:
+                                image=readers[key].get(index)
+                            else:
+                                path = mattes[key][index] if slot['mode']=='cutout' else decoded[key][index]['file']
+                                with Image.open(path) as raw:
+                                    image = raw.convert('RGBA')
                             dynamic = fixed_photo_layer(by_obj[layer], image, anchors.get(key), scene)
                             recent[layer] = (index, dynamic)
                         layer = recent[layer][1]
@@ -326,13 +333,16 @@ def _execute(run, identifier=None, base_render_id=None):
                     image.save(root/f'frame-{number:04d}.png')
                 composition_seconds += time.monotonic()-start
                 yield image
-        with progress.stage('compose_encode'):
+        with progress.stage('compose_encode'), ExitStack() as stack:
+            readers={v['id']:stack.enter_context(NativeFrameReader(v)) for v in streamed}
             video_path = root/'final.mp4'
             encoding_started=time.monotonic()
             encode_frames(video_path, tuple(scene['canvas_size']), points,
                           plan['duration_us'], frames(), progress.count, validate=False)
             progress.data['stages']['compose_encode']['composition_seconds'] = round(composition_seconds, 3)
             progress.data['stages']['compose_encode']['encoding_mux_seconds'] = round(max(0,time.monotonic()-encoding_started-composition_seconds),3)
+            progress.data['stages']['compose_encode']['stream_decode_seconds']=round(sum(r.elapsed_seconds for r in readers.values()),3)
+            progress.data['stages']['compose_encode']['stream_decoded_frames']=sum(r.decoded_frames for r in readers.values())
         with progress.stage('validate'):
             metadata=verify_encoded(video_path,points,plan['duration_us'])
             for video in plan['videos']:
@@ -353,7 +363,9 @@ def _execute(run, identifier=None, base_render_id=None):
                       'frame_count': metadata['frame_count'], 'time_policy': plan['time_policy'], 'audio': 'muted',
                       'video': {'file': str(video_path), 'sha256': sha(video_path)},
                       'canvas_size': scene['canvas_size'], 'encoded_size': metadata['size'],
-                      'unique_source_frames': sum(len(v) for v in decoded.values()),
+                      'unique_source_frames': sum(len(v) for v in needed.values()),
+                      'streamed_source_frames':sum(len(needed[v['id']]) for v in streamed),
+                      'cached_source_frames':sum(len(v) for v in decoded.values()),
                       'matte_frames': len(inference_rows), 'matte_cache_hits': sum(r['cache_hit'] for r in inference_rows),
                       'warnings': warnings, 'cover_alignment':alignment,'timing': progress.data}
         progress.data['status'] = 'completed'

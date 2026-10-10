@@ -12,6 +12,7 @@ def main():
     parser.add_argument('--enable-chat',action='store_true',help='Enable the durable local revision worker')
     parser.add_argument('--enable-editor',action='store_true',help='Enable manual canvas editing without an SDK')
     parser.add_argument('--enable-motion',action='store_true',help='Enable mixed media upload and serial native-frame motion rendering')
+    parser.add_argument('--enable-create',action='store_true',help='Automatically produce uploaded collages with Codex gpt-5.6-sol / medium (includes uploads)')
     parser.add_argument('--media-root',help='Live upload and durable queue directory outside the source repository')
     parser.add_argument('--cutout-model',help='BiRefNet FP32 ONNX model for newly uploaded tasks')
     parser.add_argument('--chat-state',help='SQLite queue path outside the source repository')
@@ -22,7 +23,8 @@ def main():
     if args.codex_path:os.environ['COLLAGE_CODEX_CLI']=str(Path(args.codex_path).resolve())
     chat_path=(args.chat_state or str(Path(args.runs[0])/'.workbench/chat.sqlite')) if args.enable_chat else None
     server = create_server(args.runs, args.port,chat_path=chat_path,enable_editor=args.enable_editor,
-                           enable_motion=args.enable_motion,media_root=args.media_root,cutout_model=args.cutout_model)
+                           enable_motion=args.enable_motion,media_root=args.media_root,cutout_model=args.cutout_model,
+                           enable_create=args.enable_create)
     print(f'Collage workbench: http://127.0.0.1:{server.server_port}', flush=True)
     try:
         server.serve_forever()

@@ -39,6 +39,17 @@ def live_run(run):
     return target
 
 
+def test_editor_crop_is_used_by_live_frames(live_run):
+    from manual_edit import execute as edit
+    from test_editor import request
+    edit(live_run,'save',request(live_run,'edit-live-crop',changes=[{'id':'photo','source_crop':[.2,.1,.8,.9],'window_crop':[.1,.1,.9,.7]}]))
+    result=execute(live_run,'motion-editor-crop')
+    root=live_run/'chat/motion/versions/motion-editor-crop'
+    with Image.open(root/'composed-first.png') as frame,Image.open(live_run/'final.png') as cover:
+        assert ImageChops.difference(frame,cover).getbbox() is None
+    assert result['frame_count']==7 and result['cover_alignment']['mean_absolute_error']==0
+
+
 def test_vfr_duration_and_odd_dimensions(tmp_path):
     meta=clip(tmp_path/'clip.mp4',size=(129,161))
     assert meta['duration_us']==203000 and meta['size']==[130,162]
@@ -225,3 +236,144 @@ def test_queued_job_resumes_after_restart(live_run,tmp_path):
         assert job['status']=='completed',job
         assert service.document(task)['versions'][0]['base_render_id']==result['render_id']
     finally:service.close()
+
+
+def test_import_has_own_serial_worker_and_truthful_queue(tmp_path,monkeypatch):
+    from workbench.server.motion import Motion,save as save_job
+    from workbench.server.store import Store
+    heavy=threading.Event();importing=threading.Event();second=threading.Event();release=threading.Event()
+    def work(self,path,job):
+        job['status']='running';save_job(path,job)
+        if job['kind']=='render':heavy.set();release.wait(5)
+        elif job['id']=='import-first-1234':importing.set();release.wait(5)
+        else:second.set()
+        job['status']='completed';save_job(path,job)
+    monkeypatch.setattr(Motion,'work',work)
+    service=Motion(Store([tmp_path/'tasks']),tmp_path/'service')
+    def job(identifier,kind,at):return {'id':identifier,'kind':kind,'run':str(tmp_path/identifier),'created_at':at}
+    try:
+        service.enqueue(job('motion-busy-1234','render','2026-10-09T01:00:00+00:00'))
+        assert heavy.wait(2)
+        service.enqueue(job('import-first-1234','import','2026-10-09T01:00:01+00:00'))
+        assert importing.wait(2),'Import must start while rendering is busy'
+        service.enqueue(job('import-next-1234','import','2026-10-09T01:00:02+00:00'))
+        row=service.job('import-next-1234')
+        assert row['status']=='queued' and row['queue_position']==2
+        assert row['blocked_by']['id']=='import-first-1234'
+        assert not second.is_set()
+    finally:release.set();service.close()
+    assert second.is_set()
+
+
+def test_import_progress_reports_contact_sheets_and_completion(run,tmp_path):
+    target=tmp_path/'progress-task';progress=tmp_path/'progress.json'
+    result=prepare_live(run/'prepared/reference.png',[run.parent.parent/'inputs'],target,progress_file=progress)
+    value=read(progress)
+    assert value['stage']=='complete' and value['assets']==result['asset_count']==1
+    assert value['elapsed_seconds']>=0
+
+
+@pytest.mark.parametrize('recover',[False,True])
+def test_creation_and_render_have_independent_serial_queues(tmp_path,monkeypatch,recover):
+    from workbench.server.motion import Motion,save as save_job
+    from workbench.server.store import Store
+    release=threading.Event()
+    started={kind:threading.Event() for kind in ['create','render','import']}
+    finished=[]
+    def work(self,path,job):
+        job['status']='running';save_job(path,job)
+        if job['id'].endswith('first-1234'):
+            started[job['kind']].set()
+            assert release.wait(10)
+        finished.append(job['id'])
+        job['status']='completed';save_job(path,job)
+        with self.guard:self.active.discard(job['id'])
+    monkeypatch.setattr(Motion,'work',work)
+    root=tmp_path/'service'
+    jobs=[]
+    for index,(kind,prefix) in enumerate([('create','create'),('render','motion'),('import','import')]):
+        for offset,label in enumerate(['first','next']):
+            jobs.append({'id':f'{prefix}-{label}-1234','kind':kind,'status':'queued',
+                         'run':str(tmp_path/f'{prefix}-{label}'),
+                         'created_at':f'2026-10-09T01:00:0{index*2+offset}+00:00'})
+    if recover:
+        for job in jobs:
+            if job['kind']=='render':save_job(Path(job['run'])/'result.json',{'exported':True})
+            save_job(root/'jobs'/(job['id']+'.json'),job)
+    service=Motion(Store([tmp_path/'tasks']),root,creator=object())
+    try:
+        if not recover:
+            for job in jobs:service.enqueue(job)
+        for kind,event in started.items():
+            assert event.wait(2),f'{kind} must start while other queues are busy'
+        assert not finished,'Each lane must keep its second job queued'
+        for kind,prefix in [('create','create'),('render','motion'),('import','import')]:
+            row=service.job(f'{prefix}-next-1234')
+            assert row['status']=='queued' and row['queue_position']==2
+            assert row['blocked_by']['id']==f'{prefix}-first-1234'
+            assert row['blocked_by']['kind']==kind
+    finally:
+        release.set();service.close()
+    assert len(finished)==len(set(finished))==6
+    for prefix in ['create','motion','import']:
+        assert finished.index(f'{prefix}-first-1234')<finished.index(f'{prefix}-next-1234')
+
+
+def test_incomplete_cover_rejected_before_enqueue_and_after_restart(live_run,tmp_path):
+    from workbench.server.motion import Motion,save as save_job
+    from workbench.server.store import Store
+    from workbench.server.chat import Conflict
+    store=Store([live_run]);task=next(iter(store.tasks()))
+    version=store.document(task)['versions'][-1]['id']
+    scene=read(live_run/'scene.json');missing=scene['objects'][0]
+    result=read(live_run/'result.json');result['incomplete_objects']=[missing['id']]
+    save(live_run/'result.json',result)
+    root=tmp_path/'service';identifier='motion-incomplete-1234'
+    job={'id':identifier,'kind':'render','task':task,'run':str(live_run),'status':'queued',
+         'created_at':'2026-10-09T01:00:00+00:00','base_render_id':result['render_id'],
+         'payload':{'request_id':identifier,'base_version_id':version}}
+    save_job(root/'jobs'/(identifier+'.json'),job)
+    service=Motion(store,root)
+    try:
+        recovered=service.job(identifier)
+        assert recovered['status']=='failed' and identifier not in service.active
+        blocker=service.document(task)['render_blocker']
+        assert (missing.get('label') or missing['id']) in blocker
+        assert recovered['error']==blocker
+        for request_id in [identifier,'motion-incomplete-new1234']:
+            with pytest.raises(Conflict,match='封面对象尚未完成'):
+                service.submit(task,{'request_id':request_id,'base_version_id':version})
+        assert len(list((root/'jobs').glob('*.json')))==1
+        assert not (live_run/'chat/motion/versions'/identifier/'progress.json').exists()
+    finally:service.close()
+
+
+def test_retry_goes_to_back_of_queue_without_previous_attempt_progress(tmp_path,monkeypatch):
+    from workbench.server.motion import Motion,save as save_job
+    from workbench.server.store import Store
+    started=threading.Event();release=threading.Event();order=[]
+    def work(self,path,job):
+        job.update(status='running',started_at='2026-10-09T01:01:00+00:00');save_job(path,job)
+        if job['id']=='motion-first-1234':started.set();release.wait(10)
+        order.append(job['id']);job['status']='completed';save_job(path,job)
+        with self.guard:self.active.discard(job['id'])
+    monkeypatch.setattr(Motion,'work',work)
+    service=Motion(Store([tmp_path/'tasks']),tmp_path/'service')
+    def job(name,created):return {'id':f'motion-{name}-1234','kind':'render','run':str(tmp_path/name),'created_at':created}
+    try:
+        service.enqueue(job('first','2026-10-09T01:00:01+00:00'));assert started.wait(2)
+        service.enqueue(job('second','2026-10-09T01:00:02+00:00'))
+        retried=job('retry','2026-10-09T01:00:00+00:00')
+        retried.update(status='failed',started_at='2026-10-09T01:00:00+00:00',finished_at='2026-10-09T01:00:01+00:00',elapsed_seconds=1)
+        save_job(Path(retried['run'])/'chat/motion/versions'/retried['id']/'progress.json',
+                 {'status':'failed','started_at':retried['started_at'],'stages':{'prepare':{'status':'failed'}}})
+        service.enqueue(retried)
+        row=service.job(retried['id'])
+        assert row['queue_position']==3 and row['progress']=={}
+        assert row['waiting_seconds']<2 and 'started_at' not in row and 'elapsed_seconds' not in row
+        # The worker has begun a new attempt, but has not written its progress yet.
+        path=service.root/'jobs'/(retried['id']+'.json')
+        save_job(path,retried|{'status':'running','started_at':'2026-10-09T01:01:00+00:00'})
+        assert service.job(retried['id'])['progress']=={}
+    finally:release.set();service.close()
+    assert order==['motion-first-1234','motion-second-1234','motion-retry-1234']

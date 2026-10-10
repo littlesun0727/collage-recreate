@@ -190,11 +190,11 @@ class ChatQueue:
             context={'message':job['request']['message'],'selected_ids':job['request'].get('selected_ids',[]),
               'reply_to':job['request'].get('reply_to'),
               'selected_asset_id':job['request'].get('asset_id'),'reference_size':scene['reference_size'],
-              'objects':[{k:o[k] for k in ['id','label','kind','bbox','rotation','style','text','method','mode','binding','parent_id','photo_id','editor_transform'] if k in o} |
+              'objects':[{k:o[k] for k in ['id','label','kind','bbox','rotation','style','text','method','mode','binding','parent_id','photo_id','embedded_owner','recovery_owner','customer_background','editor_transform'] if k in o} |
                          {'protected':bool(o.get('recovered') or o.get('embedded_owner') or o.get('photo_window')),
                           'extracted':bool(o.get('recovered')),'fixed_window':bool(o.get('photo_window')),'generated':bool(o.get('generated'))}
-                         for o in scene['objects']], 'layer_order':scene['layer_order'],
-              'catalog':[{'id':a['id'],'name':Path(a['file']).name} for a in read(run/'prepared/catalog.json')['assets']],
+                         for o in scene['objects']], 'layer_order':scene['layer_order'],'generated_groups':scene.get('generated_groups',[]),
+              'catalog':[{'id':a['id'],'number':n+1,'name':Path(a['file']).name} for n,a in enumerate(read(run/'prepared/catalog.json')['assets'])],
               'previous_review':read(run/'result.json').get('visual_review'),
               'conversation':[{'request_id':j['id'],'customer':j['request']['message'],'assistant':j['message']} for j in self.rows(job['task_id']) if j['created_at']<job['created_at']][-12:]}
             if not (root/'plan.json').exists():
@@ -205,10 +205,11 @@ class ChatQueue:
                 answer=self.agent('plan',root,context,images);job['timings']['understanding']=round(time.monotonic()-start,3)
                 if answer['decision']!='edit':
                     job.update(status=answer['decision'],message=answer.get('question') or answer['summary']);return
-                if not answer['changes'] and not answer['layer_order']:raise ValueError('没有可执行的修改')
+                if not answer['changes'] and not answer['layer_order'] and not answer.get('remove_ids'):raise ValueError('没有可执行的修改')
                 plan={'schema_version':'collage-review-v1','render_id':job['base_render_id'],'verdict':'needs_changes',
                       'summary':answer['summary'],'items':[{'id':c['id'],'action':'adjust','reason':c['reason'],
                           'changes':json.loads(c['changes_json'])} for c in answer['changes']]}
+                plan['items'] += [{'id':oid,'action':'remove','reason':answer['summary']} for oid in answer.get('remove_ids',[])]
                 if answer['layer_order']:plan['layer_order']=answer['layer_order']
                 save(root/'plan.json',plan)
             job['summary']=read(root/'plan.json')['summary']

@@ -3,6 +3,7 @@ from pathlib import Path
 from fractions import Fraction
 import bisect
 import uuid
+import time
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 from common import read, sha, verify_source
@@ -29,7 +30,7 @@ def oriented(frame):
     return image.rotate(angle, expand=True) if angle else image
 
 
-def inspect_video(path, poster=None):
+def inspect_video(path, poster=None, progress=None):
     """Decode native PTS once. Audio duration never sets the video duration."""
     path = Path(path).resolve()
     source_hash = sha(path)
@@ -44,6 +45,7 @@ def inspect_video(path, poster=None):
         if stream.duration and stream.duration * stream.time_base > 60:
             raise ValueError('Live source must be at most 60 seconds')
         first = None
+        reported=0
         for index, frame in enumerate(container.decode(stream)):
             if index >= 7200 or frame.pts is None:
                 raise ValueError('Unsupported frame count or missing video timestamps')
@@ -64,6 +66,8 @@ def inspect_video(path, poster=None):
                 raise ValueError('Video timestamps must increase within 60 seconds')
             rows.append({'index': index, 'pts': frame.pts, 'at_us': at,
                          'duration_us': round(frame.duration * frame.time_base / MICROSECOND)})
+            if progress and (index==0 or time.monotonic()-reported>=1):
+                progress(index+1,stream.frames or None);reported=time.monotonic()
         if not rows:
             raise ValueError('Empty video')
         last = rows[-1]
@@ -85,8 +89,12 @@ def inspect_video(path, poster=None):
                 'frame_count': len(rows), 'has_audio': bool(container.streams.audio)}
 
 
-def prepare_live(reference, materials, run, width=1200, instructions='', cutout_model=None):
+def prepare_live(reference, materials, run, width=1200, instructions='', cutout_model=None, progress_file=None):
     from prepare import prepare
+    from common import now
+    started=time.monotonic()
+    def publish(stage,**details):
+        if progress_file:save(progress_file,{'stage':stage,'updated_at':now(),'elapsed_seconds':round(time.monotonic()-started,1),**details})
     run = Path(run).resolve()
     if run.exists():
         raise ValueError('prepare-live requires a new task directory')
@@ -96,16 +104,20 @@ def prepare_live(reference, materials, run, width=1200, instructions='', cutout_
     videos = sorted({p.resolve() for root in roots for p in root.rglob('*')
                      if p.is_file() and p.suffix.lower() in VIDEO_EXTENSIONS})
     if not videos:
-        return prepare(reference, materials, run, width, instructions, cutout_model)
+        publish('contact_sheets')
+        result=prepare(reference, materials, run, width, instructions, cutout_model)
+        publish('complete',assets=result['asset_count']);return result
     # Sibling cache is outside the not-yet-created run; original prepare stays intact.
     cache = run.parent / '.live-media' / (run.name+'-'+uuid.uuid4().hex[:12])
     records = []
-    for video in videos:
+    for number,video in enumerate(videos):
+        details={'done':number,'total':len(videos),'current':video.name}
+        publish('video',**details)
         digest = sha(video)
         if any(r['sha256'] == digest for r in records):
             continue
         poster = cache / (digest + '.png')
-        record = inspect_video(video, poster)
+        record = inspect_video(video, poster,progress=lambda done,total:publish('video',**details,frames_decoded=done,frames_total=total))
         record.update(id='live_'+digest[:24], name=video.name,
                       poster={'file': str(poster), 'sha256': sha(poster)}, poster_at_us=0)
         record['asset_id'] = 'asset_'+record['poster']['sha256'][:16]
@@ -113,10 +125,12 @@ def prepare_live(reference, materials, run, width=1200, instructions='', cutout_
     ids = [r['asset_id'] for r in records]
     if len(set(ids)) != len(ids):
         raise ValueError('Different videos have identical posters; choose distinct cover frames first')
+    publish('contact_sheets',done=len(videos),total=len(videos))
     result = prepare(reference, [*materials, str(cache)], run, width, instructions, cutout_model)
     save(run/'media/manifest.json', {'schema_version': 'collage-live-v1', 'videos': records,
                                     'audio': 'muted', 'poster_policy': 'first_native_frame'})
     result['live_count'] = len(records)
+    publish('complete',assets=result['asset_count'],videos=len(records))
     return result
 
 
@@ -136,6 +150,53 @@ def timeline(videos, duration_us):
 def frame_index(video, at_us):
     return bisect.bisect_right([r['at_us'] for r in video['frames']],
                               at_us % video['duration_us'])-1
+
+
+class NativeFrameReader:
+    """Sequential native frames, retaining only the current image per video.
+
+    A backwards request means a short source has looped; reopen it and decode
+    from the beginning so VFR timestamps and frame identities remain exact.
+    """
+    def __init__(self, video):
+        verify_source(video)
+        self.video=video;self.container=None;self.frames=None;self.index=-1;self.image=None
+        self.decoded_frames=0;self.converted_frames=0;self.elapsed_seconds=0
+
+    def _restart(self):
+        self.close()
+        self.container=av_module().open(self.video['file'])
+        self.frames=enumerate(self.container.decode(video=0));self.index=-1
+
+    def __enter__(self):
+        self._restart();return self
+
+    def __exit__(self, *args):
+        self.close()
+
+    def close(self):
+        if self.container is not None:self.container.close()
+        self.container=None;self.frames=None;self.image=None
+
+    def get(self, index):
+        if type(index) is not int or not 0<=index<len(self.video['frames']):raise ValueError('Invalid native frame index')
+        if self.container is None:raise RuntimeError('Native frame reader is closed')
+        if index==self.index:return self.image
+        start=time.monotonic()
+        try:
+            if index<self.index:self._restart()
+            for current,frame in self.frames:
+                self.decoded_frames+=1
+                if current>=len(self.video['frames']) or frame.pts!=self.video['frames'][current]['pts'] or frame.rotation!=self.video['rotation']:
+                    raise ValueError('Decoded frame metadata changed')
+                displayed=[frame.height,frame.width] if frame.rotation%180 else [frame.width,frame.height]
+                if displayed!=self.video['size']:raise ValueError('Decoded frame dimensions changed')
+                if current==index:
+                    # Match the existing lossless RGB PNG path, including alpha policy.
+                    self.image=oriented(frame).convert('RGB').convert('RGBA');self.index=current
+                    self.converted_frames+=1;return self.image
+            raise ValueError('Video ended before required frames')
+        finally:self.elapsed_seconds+=time.monotonic()-start
 
 
 def decode_needed(video, indices, cache, progress=lambda *args: None):
@@ -165,7 +226,7 @@ def decode_needed(video, indices, cache, progress=lambda *args: None):
                     raise ValueError('Decoded frame metadata changed')
                 path = folder/f'{index:05d}.png'
                 info = PngInfo(); info.add_text('live_source_sha256', video['sha256'])
-                oriented(frame).convert('RGB').save(path, pnginfo=info)
+                oriented(frame).convert('RGB').save(path, pnginfo=info,compress_level=1)
                 record = {'file': str(path), 'sha256': sha(path), 'index': index,
                           'pts': frame.pts, 'source_sha256': video['sha256']}
                 result[index] = saved[str(index)] = record

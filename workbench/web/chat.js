@@ -19,7 +19,7 @@ function renderChat(){
   $('#chatSend').disabled=!enabled||!latest||old||chat.sending;
   $('#chatSend').textContent=chat.sending?'正在发送…':'发送修改 →';
   const objects=view?.objects||state.data.materials;
-  setHTML($('#chatObject'),'<option value="">按描述定位</option>'+objects.filter(o=>o.kind!=='background').map(o=>`<option value="${escapeHTML(o.id)}">${escapeHTML(o.label||o.id)}</option>`).join(''));
+  setHTML($('#chatObject'),'<option value="">按描述定位</option>'+objects.map(o=>`<option value="${escapeHTML(o.id)}">${escapeHTML(o.label||o.id)}</option>`).join(''));
   $('#chatObject').value=state.focus||'';
   const selected=objects.find(o=>o.id===state.focus);
   setHTML($('#chatSelection'),selected?`<span>已选：${escapeHTML(selected.label||selected.id)}</span><button type="button" class="text-button" data-chat-clear>清除</button>`:'');

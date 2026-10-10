@@ -306,6 +306,19 @@
             "crop"
           ]
         },
+        "window": {
+          "description": "Explicit transparent opening in a local overlay, independent of photo mode. bbox is normalized to the overlay; radius is a fraction of the opening's short side.",
+          "type": "object",
+          "required": ["bbox"],
+          "additionalProperties": false,
+          "properties": {
+            "bbox": {
+              "type": "array", "minItems": 4, "maxItems": 4,
+              "items": {"type": "number", "minimum": 0, "maximum": 1}
+            },
+            "radius": {"type": "number", "minimum": 0, "maximum": 0.5}
+          }
+        },
         "corner_radius": {
           "type": "number",
           "minimum": 0,

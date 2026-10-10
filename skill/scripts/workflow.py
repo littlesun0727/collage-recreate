@@ -12,6 +12,7 @@ def main():
     a=sub.add_parser('prepare-live',help='Prepare mixed photos and native-frame Live videos')
     a.add_argument('--reference',required=True);a.add_argument('--materials',nargs='+',required=True);a.add_argument('--run',required=True)
     a.add_argument('--width',type=int,default=1200);a.add_argument('--instructions',default='');a.add_argument('--cutout-model')
+    a.add_argument('--progress-file')
     a=sub.add_parser('motion-render',help='Render Live motion after freezing a static cover')
     a.add_argument('--run',required=True);a.add_argument('--request-id');a.add_argument('--base-render-id')
     a=sub.add_parser('progress',help='Record an actual Codex stage observation')
@@ -38,7 +39,7 @@ def main():
     try:
         if args.command=='prepare-live':
             from live_media import prepare_live
-            result=prepare_live(args.reference,args.materials,args.run,args.width,args.instructions,args.cutout_model)
+            result=prepare_live(args.reference,args.materials,args.run,args.width,args.instructions,args.cutout_model,progress_file=args.progress_file)
         elif args.command=='motion-render':
             from motion_render import execute
             result=execute(args.run,args.request_id,args.base_render_id)

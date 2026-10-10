@@ -13,6 +13,16 @@ def schema_check(name, value):
         raise ValueError('; '.join(f'{".".join(map(str,e.path)) or "$"}: {e.message}' for e in errors[:15]))
 
 
+def window_check(obj, style):
+    window=style.get('window')
+    if window is None:return
+    if obj['kind']!='overlay' or obj.get('method','local')!='local' or obj.get('recovered') or obj.get('generated'):
+        raise ValueError('window requires a local overlay')
+    left,top,right,bottom=window['bbox']
+    if not (0<=left<right<=1 and 0<=top<bottom<=1):
+        raise ValueError('window.bbox must be a positive normalized rectangle')
+
+
 def analysis_check(value, inputs=None):
     schema_check('analysis', value)
     if inputs and value['reference_size'] != inputs['reference_size']:
@@ -31,6 +41,7 @@ def analysis_check(value, inputs=None):
         if o.get('parent_id') and (o['parent_id'] not in ids or o['parent_id'] == o['id']):
             raise ValueError(f'{o["id"]}.parent_id: invalid reference')
         style=o.get('style',{})
+        window_check(o,style)
         if o.get('appearance') and o['kind']!='photo':raise ValueError('appearance is for photos only')
         if any(k in style for k in ['card','corner_radius','outline_width','outline_color']) and o['kind']!='photo':
             raise ValueError(f'{o["id"]}: photo effects require kind=photo')
@@ -100,16 +111,18 @@ def bindings_check(value, analysis, catalog, verify=True):
 def review_check(value, scene):
     schema_check('review', value)
     ids = {o['id'] for o in scene['objects']}
+    removed={i['id'] for i in value['items'] if i['action']=='remove'}
     if 'layer_order' in value:
         order=value['layer_order']
-        if len(order)!=len(ids) or set(order)!=ids:
-            raise ValueError('layer_order must contain each scene object ID exactly once')
+        if len(order)!=len(ids-removed) or set(order)!=ids-removed:
+            raise ValueError('layer_order must contain each remaining scene object ID exactly once')
         if value['verdict']=='pass':
             raise ValueError('Apply layer_order before writing a new pass review')
     seen = set()
     for item in value['items']:
         if item['id'] not in ids or item['id'] in seen: raise ValueError('Review IDs must be unique known objects')
         seen.add(item['id'])
+        window_check(next(o for o in scene['objects'] if o['id']==item['id']),item.get('changes',{}).get('style',{}))
         if item['action']=='adjust' and not item.get('changes'): raise ValueError('adjust requires changes')
         if item['action']!='adjust' and item.get('changes'): raise ValueError('changes only apply to adjust')
         crop=item.get('changes',{}).get('source_crop')

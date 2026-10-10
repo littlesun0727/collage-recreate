@@ -56,7 +56,9 @@ class Editor:
 
     def expose(self,task,document):
         run=self.location(task);value=dict(document)
-        value['objects']=[{k:v for k,v in o.items() if k!='file'}|{'image':self.store.image(task,run,o['file'])} for o in document['objects']]
+        value['objects']=[{k:v for k,v in o.items() if k not in {'file','crop_source_file'}}|
+                          {'image':self.store.image(task,run,o['file']),
+                           'crop_image':self.store.image(task,run,o.get('crop_source_file'))} for o in document['objects']]
         value['image']=self.store.image(task,run,document['final_file']);value.pop('final_file',None)
         return value
 
@@ -77,7 +79,9 @@ class Editor:
         if action not in ['preview','save']:raise ValueError('Unknown editor action')
         identifier=payload.get('request_id')
         if not isinstance(identifier,str) or not re.fullmatch(r'edit-[a-zA-Z0-9_-]{8,72}',identifier):raise ValueError('编辑请求编号无效')
-        if set(payload)!={'request_id','base_version_id','changes'} or not isinstance(payload['changes'],list) or not 1<=len(payload['changes'])<=200:raise ValueError('编辑请求格式无效')
+        required={'request_id','base_version_id','changes'}
+        if not required<=payload.keys() or set(payload)-required-{'layer_order'} or not isinstance(payload['changes'],list) or len(payload['changes'])>200 or (not payload['changes'] and not payload.get('layer_order')):raise ValueError('编辑请求格式无效')
+        if 'layer_order' in payload and (not isinstance(payload['layer_order'],list) or not 1<=len(payload['layer_order'])<=1000 or any(not isinstance(i,str) for i in payload['layer_order'])):raise ValueError('图层顺序格式无效')
         run=self.location(task);path=run/'chat/editor-jobs'/(identifier+'.json')
         with self.guard:
             old=read(path)
@@ -101,6 +105,7 @@ class Editor:
             job.update(status='running',started_at=now(),attempts=job['attempts']+1);save(path,job)
             payload=job['payload'];request={'request_id':job['id'],'base_render_id':job['base_render_id'],
                 'base_scene_sha256':job['base_scene_sha256'],'changes':payload['changes']}
+            if 'layer_order' in payload:request['layer_order']=payload['layer_order']
             result=self.command(self.location(task),job['action'],request)
             job['result']=result;job['status']='completed'
             if job['action']=='save':

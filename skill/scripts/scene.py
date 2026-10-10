@@ -83,6 +83,29 @@ def move_local_photos(scene, before, carrier, explicit_geometry):
         photo['rotation']=(photo.get('rotation',0)+angle+180)%360-180
 
 
+def remove_objects(s, removed):
+    removed=set(removed);by_id={o['id']:o for o in s['objects']}
+    if not removed:return
+    if not removed<=by_id.keys():raise ValueError('Unknown object to remove')
+    if len(removed)==len(by_id):raise ValueError('Keep at least one visible scene object')
+    for obj in s['objects']:
+        for key in ['embedded_owner','recovery_owner']:
+            owner=obj.get(key)
+            if owner and ((obj['id'] in removed)!=(owner in removed)):
+                raise ValueError('Remove the complete merged layer: '+obj['id']+' and '+owner)
+    for group in s.get('generated_groups',[]):
+        members=set(group['member_ids'])
+        if removed & members and not members<=removed:raise ValueError('Remove the complete generated group')
+    s['objects']=[o for o in s['objects'] if o['id'] not in removed]
+    s['layer_order']=[oid for oid in s['layer_order'] if oid not in removed]
+    s['generated_groups']=[g for g in s.get('generated_groups',[]) if not set(g['member_ids'])<=removed]
+    for obj in s['objects']:
+        for key in ['photo_id','parent_id','embedded_in','reveal_frame_id']:
+            if obj.get(key) in removed:obj.pop(key)
+    s['reveal_unconfirmed_text']={k:[v for v in values if v not in removed]
+        for k,values in s.get('reveal_unconfirmed_text',{}).items() if k not in removed}
+
+
 def apply_review(run, path):
     run=Path(run);s,r=checked_review(run,path);by_id={o['id']:o for o in s['objects']};pending=[]
     # Validate all changes in memory before writing a revision or altering assets.
@@ -97,6 +120,8 @@ def apply_review(run, path):
                        (p['id']==carrier.get('photo_id') or p.get('parent_id')==carrier['id']))
     if len(claimed)!=len(set(claimed)):
         raise ValueError('A photo cannot follow multiple adjusted carriers')
+    removed={i['id'] for i in r['items'] if i['action']=='remove'}
+    remove_objects(s,removed)
     if 'layer_order' in r:s['layer_order']=list(r['layer_order'])
     for item in r['items']:
         o=by_id[item['id']]
@@ -115,17 +140,29 @@ def apply_review(run, path):
                 translates_extraction=not linked and not grouped and new[2]-old[2]==dx and new[3]-old[3]==dy
                 if translates_extraction:
                     offset=o.get('extracted_offset',[0,0]);o['extracted_offset']=[offset[0]+dx,offset[1]+dy]
-            allowed_photo={'crop_center','source_crop','mirror_x','asset_id'} if o['kind']=='photo' else set()
+            allowed_photo={'crop_center','source_crop','mirror_x','asset_id'} if o['kind'] in {'photo','background'} else set()
             if protected and not translates_extraction and set(changes)-allowed_photo:
                 raise ValueError('Recovered geometry/text belongs to the extraction: update analysis and build again')
             if any(o['id'] in g['member_ids'] for g in s.get('generated_groups',[])):
                 raise ValueError('Fused generated member cannot be adjusted separately; recompile analysis to split or regenerate the whole group')
-            for key,value in changes.items():
+            # Bind a replacement first so placement does not depend on JSON key order.
+            ordered=sorted(changes,key=lambda key:key!='asset_id')
+            for key in ordered:
+                value=changes[key]
                 if key=='asset_id':
-                    if o['kind']!='photo':raise ValueError('asset_id only applies to customer photos')
+                    if o['kind'] not in {'photo','background'}:raise ValueError('asset_id only applies to customer photos or backgrounds')
                     catalog={a['id']:a for a in read(run/'prepared/catalog.json')['assets']}
                     if value not in catalog:raise ValueError('Unknown customer asset: '+value)
                     verify_source(catalog[value])
+                    if o['kind']=='background':
+                        if o.get('embedded_owner') or o.get('recovery_owner') or any(
+                            p.get('embedded_owner')==o['id'] or p.get('recovery_owner')==o['id'] for p in s['objects']):
+                            raise ValueError('Cannot replace a background merged with other objects')
+                        # Keep the layer ID/position/order; replace its pixels with a verified customer image.
+                        for old_key in ['recovered','generated','gate','gate_local','photo_window','window_bbox','text','text_status','extracted_offset']:
+                            o.pop(old_key,None)
+                        o.update(kind='photo',mode='cover',style={},binding={'slot_id':o['id']},
+                                 text_unresolved=False,customer_background=True)
                     o['source']=deepcopy(catalog[value]);o['binding']['asset_id']=value
                     for placement in ['source_crop','crop_center','mirror_x']:
                         if placement not in changes:o['binding'].pop(placement,None)

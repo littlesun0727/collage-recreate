@@ -126,7 +126,12 @@ def evidence(run, path):
 def differences(before, after):
     old = {o['id']: o for o in before.get('objects', [])}
     changes = []
-    keys = ('bbox', 'rotation', 'style', 'binding', 'method', 'extracted_offset', 'gate', 'text', 'editor_transform')
+    keys = ('kind', 'bbox', 'rotation', 'style', 'binding', 'method', 'extracted_offset', 'gate', 'text', 'editor_transform')
+    current={o['id'] for o in after.get('objects',[])}
+    for oid,obj in old.items():
+        if oid not in current:
+            changes.append({'id':oid,'label':obj.get('label',oid),'bbox':obj.get('bbox'),
+                            'fields':{'removed':{'before':True,'after':False}}})
     for obj in after.get('objects', []):
         delta = {k: {'before': old.get(obj['id'], {}).get(k), 'after': obj.get(k)}
                  for k in keys if old.get(obj['id'], {}).get(k) != obj.get(k)}

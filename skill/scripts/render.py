@@ -12,8 +12,12 @@ from common import event
 import uuid
 
 
-def render(run, publish_result=True, capture_layers=False):
+def render(run, publish_result=True, capture_layers=False, editor_export=False):
     run=Path(run);s=load_scene(run);w,h=s['canvas_size'];scale=w/s['reference_size'][0]
+    frozen=read(run/'result.json') if editor_export else None
+    if editor_export and (not capture_layers or frozen.get('scene_sha256')!=sha(run/'scene.json') or frozen.get('final_sha256')!=sha(run/'final.png')):
+        raise ValueError('Editor export requires a verified current render')
+    existing={r['id']:r for r in frozen['resources']} if editor_export else {}
     if w*h>20_000_000:raise ValueError('Canvas exceeds 20 million pixels')
     material_attempt=uuid.uuid4().hex
     event(run,'materials_started',material_attempt=material_attempt,ids=s['layer_order'])
@@ -51,6 +55,11 @@ def render(run, publish_result=True, capture_layers=False):
         cm=cached.get('metadata',{}).get('content_mask')
         mask_valid=not cm or (Path(cm).exists() and sha(cm)==cached['metadata'].get('content_mask_sha256'))
         cache_hit=cached.get('input_key')==key and path.exists() and cached.get('sha256')==sha(path) and mask_valid
+        if editor_export:
+            # Opening the canvas reuses verified tiles, including expensive cutouts.
+            record=existing[oid];path=Path(verify_source(record));cached={'metadata':record['metadata']};cache_hit=True
+            cm=cached['metadata'].get('content_mask')
+            if cm and sha(cm)!=cached['metadata']['content_mask_sha256']:raise ValueError('Photo content mask changed')
         if cache_hit:
             with Image.open(path) as raw:tile=raw.convert('RGBA')
             metadata=cached['metadata']
@@ -94,7 +103,7 @@ def render(run, publish_result=True, capture_layers=False):
             if content_alpha is not None:content_alpha=content_alpha.rotate(-o['rotation'],Image.Resampling.BICUBIC,expand=True)
         x=round((box[0]+box[2]-tile.width)/2);y=round((box[1]+box[3]-tile.height)/2)
         layer=Image.new('RGBA',(w,h));layer.alpha_composite(tile,(x,y))
-        if o['kind']=='overlay' and o.get('method','local')=='local' and not o.get('recovered') and not o.get('generated'):
+        if o['kind']=='overlay' and o.get('method','local')=='local' and not o.get('recovered') and not o.get('generated') and not o['style'].get('window'):
             # Newly drawn carriers use the existing customer-photo geometry for holes.
             # No extracted pixels or customer crop coordinates are modified.
             from reveal_assets import make_window
@@ -110,11 +119,21 @@ def render(run, publish_result=True, capture_layers=False):
             layer.putalpha(ImageChops.multiply(layer.getchannel('A'),window))
             photo_alpha=ImageChops.multiply(photo_alpha,window)
         shadow=shadow_layer(layer.getchannel('A'),o['style']['shadow']) if 'shadow' in o['style'] else None
+        uncropped=None
+        if original.get('window_crop'):
+            from editor_scene import clip_window
+            if capture_layers:uncropped=Image.alpha_composite(shadow,layer) if shadow is not None else layer.copy()
+            layer=clip_window(layer,original,scale)
+            if shadow is not None:shadow=clip_window(shadow,original,scale)
+            if photo_alpha is not None:photo_alpha=clip_window(photo_alpha,original,scale)
         if capture_layers:
             folder=run/'editor_layers';folder.mkdir(exist_ok=True)
             image=Image.alpha_composite(shadow,layer) if shadow is not None else layer
             path_editor=folder/(oid+'.png');image.save(path_editor)
             editor_layers.append({'id':oid,'file':str(path_editor),'sha256':sha(path_editor)})
+            if uncropped is not None:
+                uncropped_path=folder/(oid+'-unclipped.png');uncropped.save(uncropped_path)
+                editor_layers[-1]['unclipped_file']=str(uncropped_path)
         if original.get('editor_transform'):
             from editor_scene import translate
             layer=translate(layer,original,scale)
@@ -142,6 +161,10 @@ def render(run, publish_result=True, capture_layers=False):
             if fraction<.005:issues.append({'id':oid,'note':'Customer photo fully or almost fully occluded'});incomplete.append(oid)
         trans*=1-a
     final=canvas.convert('RGB');tmp=run/'final.tmp.png';final.save(tmp);tmp.replace(run/'final.png')
+    if editor_export:
+        if sha(run/'final.png')!=frozen['final_sha256']:raise ValueError('Exported editor layers do not match the current image')
+        save(run/'result.json',{**frozen,'editor_layers':editor_layers})
+        return
     previews=run/'previews';previews.mkdir(exist_ok=True)
     if not (previews/'first.png').exists():
         final.save(previews/'first.png');save(previews/'first-scene.json',s)
