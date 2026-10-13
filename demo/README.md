@@ -23,11 +23,13 @@ Python、渲染依赖及抠图模型已经随包提供，不需要安装 GPU、C
 
 ## Linux，x86_64
 
-需要 Python 3.10+、venv 和 pip。首次运行下面的脚本会在独立虚拟环境安装 Linux Python 依赖，因此首次安装需要网络；素材和模型已在仓库里，不需要重新下载。Windows 的二进制依赖不能直接用于 Linux。
+需要 Python 3.11+、venv 和 pip。首次运行下面的脚本会在独立虚拟环境安装 Linux Python 依赖，因此首次安装需要网络；素材和模型已在仓库里，不需要重新下载。Windows 的二进制依赖不能直接用于 Linux。
 
 ```bash
 bash demo/start-edit.sh
 ```
+
+若系统默认 Python 较旧，但已安装 Python 3.12，可用 `COLLAGE_PYTHON=python3.12 bash demo/start-edit.sh` 指定解释器。
 
 已经有完整 Python 渲染环境时，可以直接执行：
 
