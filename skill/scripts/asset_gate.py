@@ -112,7 +112,8 @@ def publish(run, scene, records):
     sheets=[]
     selected=[r for r in records if (r['status']!='accepted' or r.get('warnings')) and r.get('candidate')]
     from PIL import ImageFont
-    font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',15)
+    from text import font_file
+    font=ImageFont.truetype(font_file({'font':'sans'},''),15)
     for start in range(0,len(selected),6):
         sheet=Image.new('RGB',(1080,960),'#dddddd');draw=ImageDraw.Draw(sheet)
         for i,rec in enumerate(selected[start:start+6]):

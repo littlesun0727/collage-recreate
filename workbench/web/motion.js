@@ -27,7 +27,8 @@ function showMotionVideo(record){
   $('#motionPlayer').hidden=false;
   $('#motionDownload').href=record.url+'?download=1';
   const cover=state.data.versions.findIndex(v=>v.render_id===record.base_render_id)+1;
-  $('#motionCaption').textContent=`关联封面第 ${cover||'?'} 版 · ${motionSeconds(record.duration_us/1e6)} · ${record.frame_count} 帧 · 动态效果待复核${record.stale?' · 封面已修改，此视频为旧版':''}`;
+  const coverIssues=record.cover_issues?.incomplete_objects?.length||record.cover_issues?.visual_verdict==='needs_changes';
+  $('#motionCaption').textContent=`关联封面第 ${cover||'?'} 版 · ${motionSeconds(record.duration_us/1e6)} · ${record.frame_count} 帧 · 动态效果待复核${coverIssues?' · 沿用有待改问题的封面':''}${record.stale?' · 封面已修改，此视频为旧版':''}`;
 }
 function renderMotion(){
   const data=live.data;
@@ -36,7 +37,7 @@ function renderMotion(){
   const current=state.data.versions.at(-1), selected=selectedVersion();
   if(live.cover!==selected?.render_id){live.cover=selected?.render_id;live.video=null;}
   const jobs=data.jobs||[], active=jobs.find(j=>['queued','running'].includes(j.status));
-  $('#motionSummary').textContent=data.render_blocker||`${data.videos.length} 段 Live 素材 · ${data.eligible_slots||0} 个动态照片槽 · 目标 ${motionSeconds(data.target_duration_us/1e6)} · 保留原视频帧率 · 短素材循环 · 静音`;
+  $('#motionSummary').textContent=data.render_blocker||`${data.videos.length} 段 Live 素材 · ${data.eligible_slots||0} 个动态照片槽 · 目标 ${motionSeconds(data.target_duration_us/1e6)} · 保留原视频帧率 · 短素材循环 · 静音${data.cover_warning?'。'+data.cover_warning:''}`;
   $('#renderMotion').disabled=!current||!data.eligible_slots||selected?.id!==current.id||!!active||live.sending||!!data.render_blocker;
   $('#renderMotion').textContent=data.render_blocker?'请先处理封面问题':active?.status==='queued'?'视频排队中…':active?'正在制作…':'制作 / 更新动态成片';
   setHTML($('#motionProgress'),jobs.slice(-3).map(job=>{

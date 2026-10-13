@@ -10,12 +10,23 @@ FULL_VERSION = 'full-image-v1-max3'
 SOFT_LIMIT, HARD_LIMIT = 10, 20
 MAX_REQUESTS = 3
 REQUEST_COST = .12
+MIN_CROP_SIDE = 129  # Keep grouped inputs strictly above the API's 128 px minimum.
 
 
 def crop_geometry(box, size, mode):
     w,h=size;l,t,r,b=box;full=[0,0,w,h]
     margin=max(8,math.ceil(max(r-l,b-t)*.025))
     crop=[max(0,l-margin),max(0,t-margin),min(w,r+margin),min(h,b+margin)]
+    if mode=='grouped':
+        if min(size)<MIN_CROP_SIDE:
+            raise ValueError('Reference is too small to crop both sides above 128 pixels')
+        # Extend original-image context; never resize pixels or pad outside it.
+        # At an edge, shift the extra context to the opposite side.
+        for axis,limit in enumerate(size):
+            length=crop[axis+2]-crop[axis]
+            if length<MIN_CROP_SIDE:
+                start=max(0,min(crop[axis]-(MIN_CROP_SIDE-length)//2,limit-MIN_CROP_SIDE))
+                crop[axis],crop[axis+2]=start,start+MIN_CROP_SIDE
     scale=min(1,1024/max(crop[2]-crop[0],crop[3]-crop[1]))
     gain=scale/min(1,1024/max(size));reason='spatial_crop'
     if mode=='full' or gain<1.15:

@@ -196,8 +196,11 @@ def _execute(run, identifier=None, base_render_id=None):
                     raise ValueError('Finalize the static cover before motion rendering')
                 if base_render_id and result['render_id'] != base_render_id:
                     raise ValueError('Cover changed; refresh before rendering motion')
-                if result.get('incomplete_objects'):
-                    raise ValueError('Resolve incomplete cover objects before motion rendering')
+                # Preserve visual gaps in the existing cover rather than blocking encoding.
+                cover_review=result.get('visual_review') or {}
+                cover_issues={'incomplete_objects':list(result.get('incomplete_objects',[])),
+                              'visual_verdict':cover_review.get('verdict'),
+                              'summary':cover_review.get('summary')}
                 plan = make_plan(run, scene, result)
                 saved_plan = root/'motion.json'
                 if saved_plan.exists() and read(saved_plan) != plan:
@@ -358,6 +361,7 @@ def _execute(run, identifier=None, base_render_id=None):
                 warnings.append({'reason':'cover_alignment_needs_review','detail':alignment})
             output = {'schema_version': 'collage-motion-result-v1', 'id': identifier,
                       'status': 'needs_review', 'visual_verified': False, 'at': now(),
+                      'cover_issues': cover_issues,
                       'base_render_id': plan['base_render_id'], 'base_scene_sha256': plan['base_scene_sha256'],
                       'base_final_sha256': plan['base_final_sha256'], 'duration_us': metadata['duration_us'],
                       'frame_count': metadata['frame_count'], 'time_policy': plan['time_policy'], 'audio': 'muted',

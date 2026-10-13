@@ -1,8 +1,9 @@
 """Fixed font selection and measured text; no per-task drawing scripts."""
 from pathlib import Path
+import os
 from PIL import Image, ImageDraw, ImageFont
 
-FONT_ROOT=Path('C:/Windows/Fonts')
+FONT_ROOT=Path(os.environ.get('COLLAGE_FONT_ROOT', 'C:/Windows/Fonts'))
 FONTS={'sans':'arial','serif':'times','mono':'cour','hand':'comic','cjk':'msyh','cjk-hand':'simkai'}
 
 
@@ -17,6 +18,8 @@ def font_file(style,text):
         if base=='comic' and suffix=='bi':suffix='z'
         name_file=base+suffix+'.ttf'
     path=FONT_ROOT/name_file
+    if not path.exists():
+        path=Path(__file__).resolve().parents[2]/'demo/editable/fonts/NotoSansCJKsc-Regular.otf'
     if not path.exists():raise ValueError(f'Font unavailable: {path}')
     return str(path)
 

@@ -31,7 +31,8 @@ def prepare(reference, materials, run, width=1200, instructions='', cutout_model
                 seen.add(digest)
             except (OSError,ValueError) as exc: warnings.append({'file':str(path),'error':str(exc)})
         if not assets: raise ValueError('No decodable customer photos')
-        sheets=[];font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',15)
+        from text import font_file
+        sheets=[];font=ImageFont.truetype(font_file({'font':'sans'},''),15)
         for offset in range(0,len(assets),12):
             sheet=Image.new('RGB',(1120,810),'#eeeeee');d=ImageDraw.Draw(sheet)
             for i,a in enumerate(assets[offset:offset+12]):
@@ -49,7 +50,8 @@ def prepare(reference, materials, run, width=1200, instructions='', cutout_model
 def boxes(run, analysis):
     run=Path(run)
     with Image.open(run/'prepared/reference.png') as ref: im=ref.convert('RGB')
-    d=ImageDraw.Draw(im);font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',max(13,im.width//65))
+    from text import font_file
+    d=ImageDraw.Draw(im);font=ImageFont.truetype(font_file({'font':'sans'},''),max(13,im.width//65))
     colors={'background':'#964b00','photo':'#00bb00','text':'#ff2222','overlay':'#0077ff'}
     for o in analysis['objects']:
         box=o['bbox'];color=colors[o['kind']]

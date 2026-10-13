@@ -1,0 +1,23 @@
+{
+  "font": {
+    "name": "Noto Sans CJK SC Regular",
+    "source": "https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/SimplifiedChinese",
+    "license": "editable/fonts/LICENSE",
+    "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b"
+  },
+  "model": {
+    "name": "BiRefNet lite FP32 ONNX",
+    "provenance": "The model used by the existing local workbench, copied byte-for-byte",
+    "sha256": "5600024376f572a557870a5eb0afb1e5961636bef4e1e22132025467d0f03333"
+  },
+  "windows_dependencies": {
+    "source": "Installed Python 3.14 cp314 Windows x64 packages from the working local renderer",
+    "versions": "editable/windows-packages.json",
+    "licenses": "runtime/Lib/site-packages/*dist-info/licenses or each package license files"
+  },
+  "source_snapshot": {
+    "base": "1ba4626c041b376860211ce9182c6541f6505371",
+    "includes_local_changes": true,
+    "note": "Existing live workbench frontend, Reveal fixes and motion source copied from the working directory; migration adapters add path restoration, stable task IDs and Linux font fallback."
+  }
+}

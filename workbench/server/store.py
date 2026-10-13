@@ -89,6 +89,11 @@ class Store:
                 if not (run/'input.json').exists():
                     continue
                 key = hashlib.sha256(str(run).encode()).hexdigest()[:16]
+                portable = read(run/'portable-task.json').get('id')
+                if isinstance(portable,str) and re.fullmatch(r'[0-9a-f]{16}',portable):
+                    key = portable
+                if key in tasks and tasks[key] != run:
+                    raise ValueError('Duplicate portable task identifier')
                 tasks[key] = run
         return tasks
 

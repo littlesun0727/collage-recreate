@@ -319,15 +319,18 @@ def test_creation_and_render_have_independent_serial_queues(tmp_path,monkeypatch
         assert finished.index(f'{prefix}-first-1234')<finished.index(f'{prefix}-next-1234')
 
 
-def test_incomplete_cover_rejected_before_enqueue_and_after_restart(live_run,tmp_path):
+@pytest.mark.parametrize('has_missing',[True,False])
+def test_imperfect_cover_renders_after_restart_and_new_submit(live_run,tmp_path,has_missing):
     from workbench.server.motion import Motion,save as save_job
     from workbench.server.store import Store
-    from workbench.server.chat import Conflict
     store=Store([live_run]);task=next(iter(store.tasks()))
     version=store.document(task)['versions'][-1]['id']
     scene=read(live_run/'scene.json');missing=scene['objects'][0]
-    result=read(live_run/'result.json');result['incomplete_objects']=[missing['id']]
+    result=read(live_run/'result.json');result['incomplete_objects']=[missing['id']] if has_missing else []
+    result['status']='needs_changes'
+    result['visual_review']={'verdict':'needs_changes','summary':'Known cover approximation'}
     save(live_run/'result.json',result)
+    frozen={name:sha(live_run/name) for name in ['scene.json','final.png','result.json']}
     root=tmp_path/'service';identifier='motion-incomplete-1234'
     job={'id':identifier,'kind':'render','task':task,'run':str(live_run),'status':'queued',
          'created_at':'2026-10-09T01:00:00+00:00','base_render_id':result['render_id'],
@@ -335,16 +338,28 @@ def test_incomplete_cover_rejected_before_enqueue_and_after_restart(live_run,tmp
     save_job(root/'jobs'/(identifier+'.json'),job)
     service=Motion(store,root)
     try:
-        recovered=service.job(identifier)
-        assert recovered['status']=='failed' and identifier not in service.active
-        blocker=service.document(task)['render_blocker']
-        assert (missing.get('label') or missing['id']) in blocker
-        assert recovered['error']==blocker
+        document=service.document(task)
+        assert document['render_blocker'] is None
+        assert document['cover_warning']
+        if has_missing:assert (missing.get('label') or missing['id']) in document['cover_warning']
+        for _ in range(150):
+            recovered=service.job(identifier)
+            if recovered['status'] in {'completed','failed'}:break
+            time.sleep(.1)
+        assert recovered['status']=='completed',recovered
         for request_id in [identifier,'motion-incomplete-new1234']:
-            with pytest.raises(Conflict,match='封面对象尚未完成'):
-                service.submit(task,{'request_id':request_id,'base_version_id':version})
-        assert len(list((root/'jobs').glob('*.json')))==1
-        assert not (live_run/'chat/motion/versions'/identifier/'progress.json').exists()
+            service.submit(task,{'request_id':request_id,'base_version_id':version})
+        for _ in range(150):
+            fresh=service.job('motion-incomplete-new1234')
+            if fresh['status'] in {'completed','failed'}:break
+            time.sleep(.1)
+        assert fresh['status']=='completed',fresh
+        output=read(live_run/'chat/motion/versions'/identifier/'result.json')
+        assert output['cover_issues']['incomplete_objects']==result['incomplete_objects']
+        assert output['cover_issues']['visual_verdict']=='needs_changes'
+        assert output['visual_verified'] is False
+        assert service.document(task)['versions'][-1]['cover_issues']==output['cover_issues']
+        assert {name:sha(live_run/name) for name in frozen}==frozen
     finally:service.close()
 
 

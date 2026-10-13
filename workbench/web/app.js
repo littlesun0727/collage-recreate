@@ -21,6 +21,11 @@ const statusText = {
 };
 const state = {
   id: new URLSearchParams(location.search).get("task"),
+  page: new URLSearchParams(location.search).get("view") === "technical" ? "technical" : "workbench",
+  techSlide: new URLSearchParams(location.search).get("slide") === "motion" ? "motion" : "overview",
+  techArtifact: "analysis",
+  techObject: null,
+  revealObject: null,
   data: null,
   stage: null,
   version: null,
@@ -98,6 +103,9 @@ function taskList() {
   $("#taskCount").textContent = state.tasks.length;
 }
 function selectTask(id) {
+  state.page = "workbench";
+  state.techObject = null;
+  state.revealObject = null;
   state.id = id;
   state.stage = null;
   state.version = null;
@@ -109,9 +117,143 @@ function selectTask(id) {
   state.pan = [0, 0];
   const u = new URL(location.href);
   u.searchParams.set("task", id);
+  u.searchParams.delete("view");
+  u.searchParams.delete("slide");
   history.replaceState({}, "", u);
+  renderPage();
   taskList();
   refresh();
+}
+// The presentation shares task selection, but polling must never leave its page.
+function renderPage() {
+  const technical = state.page === "technical";
+  $("#technical").hidden = !technical;
+  $("#workspace").hidden = technical || !state.data;
+  $("#empty").hidden = technical || !!state.data;
+  $("#openTechnical").classList.toggle("active", technical);
+  $("#openTechnical").setAttribute("aria-pressed", String(technical));
+  $("#techShowCase").textContent = state.id ? "查看当前案例 →" : "查看制作效果 →";
+  document.title = technical ? "技术方案 · 拼贴制作工作台" : "拼贴制作工作台";
+  if (!technical) setPresentation(false);
+  for (const name of ["overview", "motion"]) {
+    const selected = state.techSlide === name;
+    const tab = $(`[role=tab][data-tech-slide="${name}"]`);
+    tab.setAttribute("aria-selected", String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    $(name === "overview" ? "#techOverview" : "#techMotion").hidden = !selected;
+  }
+  if (technical && $("#techJson").open) renderTechVisual();
+  if (technical && $("#techReveal").open) renderRevealExample();
+}
+function renderRevealExample() {
+  const d = state.data;
+  if (!d || state.page !== "technical" || !$("#techReveal").open) return;
+  const candidates = (d.reference_objects || []).filter(o => o.method === "extract");
+  $("#revealExample").hidden = !candidates.length;
+  if (!candidates.length) return;
+  if (!candidates.some(o => o.id === state.revealObject)) {
+    state.revealObject = (candidates.find(o => d.materials.some(m => m.id === o.id && m.status === "complete")) || candidates[0]).id;
+  }
+  const object = candidates.find(o => o.id === state.revealObject);
+  const material = d.materials.find(m => m.id === object.id);
+  const version = d.versions.at(-1);
+  const current = version?.objects?.find(o => o.id === object.id);
+  setHTML($("#revealObject"), candidates.map(o => `<option value="${escapeHTML(o.id)}">${escapeHTML(o.label || o.id)} · ${escapeHTML(o.id)}</option>`).join(""));
+  $("#revealObject").value = object.id;
+  $("#revealExampleStatus").textContent = `${d.name} · ${statusText[material?.status] || material?.status || "等待提取"}`;
+  setHTML($("#revealReference"), techObjectMap(d.reference, [object], object.id));
+  const image = material?.status === "complete" ? (material.images.processed || material.images.final) : null;
+  setHTML($("#revealForeground"), image ? `<img src="${escapeHTML(image)}" alt="${escapeHTML(object.label || object.id)}的已处理提取图层" loading="lazy">` : '<div class="tech-visual-empty">当前对象没有可用提取结果<br>保留缺口，等待处理</div>');
+  setHTML($("#revealComposition"), techObjectMap(version?.image || d.current_image, current ? [current] : [], object.id));
+}
+function techObjectMap(url, objects, selected, clickable = false) {
+  if (!url) return '<div class="tech-visual-empty">尚未生成画面</div>';
+  const [width, height] = state.data.reference_size;
+  const rect = (obj) => {
+    if (!obj.bbox) return "";
+    const [l, t, r, b] = obj.bbox;
+    const transform = {x:0, y:0, scale:1, rotation:0, ...obj.editor_transform};
+    const cx = (l+r)/2, cy = (t+b)/2;
+    const active = obj.id === selected;
+    return `<rect x="${l}" y="${t}" width="${r-l}" height="${b-t}" transform="translate(${transform.x} ${transform.y}) rotate(${(obj.rotation || 0)+transform.rotation} ${cx} ${cy}) translate(${cx} ${cy}) scale(${transform.scale}) translate(${-cx} ${-cy})" vector-effect="non-scaling-stroke" class="${active ? "selected" : ""}" ${clickable ? `data-tech-object="${escapeHTML(obj.id)}" role="button" tabindex="0" aria-label="${escapeHTML(obj.label || obj.id)}"` : ''}><title>${escapeHTML(obj.label || obj.id)}</title></rect>`;
+  };
+  const ordered = [...objects.filter(o => o.id !== selected), ...objects.filter(o => o.id === selected)];
+  return `<svg viewBox="0 0 ${width} ${height}" aria-label="${clickable ? '参考图与可选择对象框' : '当前成图与对象位置'}"><image href="${escapeHTML(url)}" width="${width}" height="${height}" />${ordered.map(rect).join("")}</svg>`;
+}
+function renderTechVisual() {
+  const d = state.data;
+  if (!d || state.page !== "technical" || !$("#techJson").open) return;
+  const originals = d.reference_objects || [];
+  if (!originals.length) {
+    $("#techVisual").hidden = true;
+    $("#techJsonHint").textContent = "当前任务尚无分析对象，分析完成后可查看图与真实对象字段的对照。";
+    document.querySelectorAll(".tech-json-content pre code").forEach(code => { code.textContent = "{}"; });
+    return;
+  }
+  if (!originals.some(o => o.id === state.techObject)) {
+    state.techObject = (originals.find(o => o.kind === "photo") || originals[0]).id;
+  }
+  const original = originals.find(o => o.id === state.techObject);
+  const version = d.versions.at(-1);
+  const current = version?.objects?.find(o => o.id === original.id);
+  const material = d.materials.find(m => m.id === original.id);
+  const binding = current?.binding;
+  const customer = d.catalog.find(a => a.id === binding?.asset_id);
+  const photo = original.kind === "photo";
+  $("#techVisual").hidden = false;
+  $("#techJsonHint").textContent = `当前案例：${d.name}。选择对象后，三张图与下方 JSON 同步更新。JSON 为公开记录中的当前对象片段，省略完整层级、路径与哈希；不是完整运行文件。`;
+  setHTML($("#techObject"), originals.map(o => `<option value="${escapeHTML(o.id)}">${escapeHTML(o.label || o.id)} · ${escapeHTML(o.id)}</option>`).join(""));
+  $("#techObject").value = original.id;
+  $("#techObjectRelation").textContent = binding ? `${original.id} → ${binding.asset_id}` : `${original.id} · ${original.method || original.kind}`;
+  setHTML($("#techReferenceMap"), techObjectMap(d.reference, originals, original.id, true));
+  setHTML($("#techResultMap"), techObjectMap(version?.image || d.current_image, current ? [current] : [], original.id));
+  $("#techBoxCaption").textContent = `bbox = [${original.bbox.join(", ")}] · 参考图 ${d.reference_size.join(" × ")} px`;
+  $("#techAssetLabel").textContent = photo ? "绑定的客户素材" : "制作后的独立图层";
+  const assetImage = photo ? (customer?.image || material?.images.customer) : material?.status === "complete" ? (material?.images.processed || material?.images.final) : null;
+  setHTML($("#techAssetPreview"), assetImage ? `<img src="${escapeHTML(assetImage)}" alt="${escapeHTML(photo ? '绑定的客户素材代表图' : '制作后的独立素材图层')}" loading="lazy">` : '<div class="tech-visual-empty">尚无可用素材<br>缺失或未采用的结果不会作为成品展示</div>');
+  $("#techAssetCaption").textContent = photo ? (binding?.asset_id || "尚无已编译的素材绑定") : `${material?.method || original.method || "本地绘制"} · ${statusText[material?.status] || material?.status || "待制作"}`;
+  $("#techResultCaption").textContent = current ? `render_id: ${version.render_id} · 高亮为布局框，描边与人物可超出框外` : "当前成图中没有该对象（可能已删除或尚未构建）";
+  const explanations = {
+    analysis: `左图高亮的是“${original.label || original.id}”。下方 bbox 决定它的位置，kind 决定对象类型，method / mode 决定制作方式。点击其它框可查看对应对象。`,
+    bindings: binding ? `左边的 ${binding.slot_id} 窗口，绑定到中间这张客户素材 ${binding.asset_id}，裁剪后进入右边成图。Live 素材在这里展示其代表帧。` : photo ? "这个照片槽尚无已编译的绑定记录。完成分析与构建后可查看它对应的客户素材。" : "当前选中的是装饰或背景，不需要客户照片绑定。切换到照片对象，即可看到 slot_id 与 asset_id 的图像对应关系。",
+    scene: `右图展示当前成图，下方是该对象当前编译记录。${binding ? "binding 把照片窗口与客户素材连起来；渲染器沿用对象的布局和样式。" : "装饰的制作方式、素材检查结果和已提取资源会随对象一起交给渲染器。"}`,
+  };
+  $("#techVisualExplanation").textContent = explanations[state.techArtifact];
+  const snippets = {
+    analysis: {schema_version:"collage-analysis-v1", reference_size:d.reference_size, objects:[original]},
+    bindings: {schema_version:"collage-bindings-v1", photos:binding ? [binding] : []},
+    scene: {schema_version:"collage-scene-v1", reference_size:d.reference_size, objects:current ? [current] : []},
+  };
+  for (const [name, snippet] of Object.entries(snippets)) {
+    const code = $(`[data-tech-json-panel="${name}"] pre code`);
+    code.parentElement.setAttribute("aria-label", `${name}.json 当前对象片段`);
+    const text = JSON.stringify(snippet, null, 2);
+    if (code.textContent !== text) code.textContent = text;
+  }
+}
+function setPresentation(enabled) {
+  document.body.classList.toggle("tech-presenting", enabled);
+  $("#techPresent").setAttribute("aria-pressed", String(enabled));
+  $("#techPresent").textContent = enabled ? "退出演示 · Esc" : "演示模式";
+}
+function showPage(page, slide = state.techSlide) {
+  state.page = page;
+  state.techSlide = slide === "motion" ? "motion" : "overview";
+  const url = new URL(location.href);
+  if (state.id) url.searchParams.set("task", state.id);
+  if (page === "technical") {
+    url.searchParams.set("view", "technical");
+    url.searchParams.set("slide", state.techSlide);
+    document.querySelectorAll("#workspace video").forEach(video => video.pause());
+  } else {
+    url.searchParams.delete("view");
+    url.searchParams.delete("slide");
+  }
+  history.replaceState({}, "", url);
+  renderPage();
+  if (page === "workbench" && state.data) render();
+  window.scrollTo(0, 0);
+  requestAnimationFrame(fitWorlds);
 }
 function follow() {
   state.stage = null;
@@ -331,11 +473,12 @@ function renderMaterials() {
     .forEach((el) => el.remove());
 }
 function render() {
+  renderPage();
   const d = state.data;
   if (!d) return;
   renderTiming();
   $("#empty").hidden = true;
-  $("#workspace").hidden = false;
+  $("#workspace").hidden = state.page === "technical";
   const step = state.stage || d.current_stage,
     s = d.stages[step - 1],
     v = selectedVersion();
@@ -484,6 +627,46 @@ async function refresh() {
   }
 }
 document.addEventListener("click", (e) => {
+  const revealTopic = e.target.closest("[data-reveal-topic]");
+  if (revealTopic) return selectRevealTopic(revealTopic.dataset.revealTopic);
+  const revealZoom = e.target.closest("[data-reveal-zoom]");
+  if (revealZoom) {
+    const original = document.getElementById(revealZoom.dataset.revealZoom);
+    $("#revealFigureLarge").src = original.src;
+    $("#revealFigureLarge").alt = original.alt;
+    $("#revealFigureTitle").textContent = original.dataset.revealAsset === "architecture" ? "Figure 3 · RevealLayer 模型架构" : "Figure 4 · 训练数据构建";
+    setRevealFigureZoom(false);
+    $("#revealFigureDialog").showModal();
+    $("#revealFigureViewport").scrollTo(0, 0);
+    return;
+  }
+  const visualObject = e.target.closest("[data-tech-object]");
+  if (visualObject) {
+    state.techObject = visualObject.dataset.techObject;
+    renderTechVisual();
+    return;
+  }
+  const artifact = e.target.closest("[data-tech-artifact]");
+  if (artifact) {
+    const name = artifact.dataset.techArtifact;
+    state.techArtifact = name;
+    $("#techJson").open = true;
+    document.querySelectorAll("[data-tech-json-panel]").forEach(panel => {
+      panel.hidden = panel.dataset.techJsonPanel !== name;
+    });
+    document.querySelectorAll("#techJson .tech-json-switch button").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.techArtifact === name));
+    });
+    renderTechVisual();
+    if (artifact.closest(".tech-contract")) $("#techJson").scrollIntoView({ block: "start" });
+    return;
+  }
+  const slide = e.target.closest("[data-tech-slide]");
+  if (slide) {
+    showPage("technical", slide.dataset.techSlide);
+    $(`[role=tab][data-tech-slide="${state.techSlide}"]`).focus({ preventScroll: true });
+    return;
+  }
   const task = e.target.closest("[data-task]");
   if (task) return selectTask(task.dataset.task);
   const step = e.target.closest("[data-stage]");
@@ -512,6 +695,97 @@ document.addEventListener("click", (e) => {
   if (focus) return focusObject(focus.dataset.focus);
   const enlarge = e.target.closest("[data-enlarge]");
   if (enlarge) return openImage(enlarge.dataset.enlarge, enlarge.dataset.title);
+});
+$("#openTechnical").onclick = () => showPage("technical");
+function selectRevealTopic(topic) {
+  document.querySelectorAll("[data-reveal-topic]").forEach(button => {
+    const active = button.dataset.revealTopic === topic;
+    button.setAttribute("aria-selected", String(active));
+    button.tabIndex = active ? 0 : -1;
+    document.getElementById(button.getAttribute("aria-controls")).hidden = !active;
+  });
+  $("#techReveal .reveal-scroll").scrollTop = 0;
+  if (topic === "integration") renderRevealExample();
+}
+function loadRevealFigures() {
+  document.querySelectorAll("img[data-reveal-asset]").forEach(img => {
+    if (img.hasAttribute("src")) return;
+    const source = document.getElementById(`revealAsset-${img.dataset.revealAsset}`);
+    const bytes = Uint8Array.from(atob(source.content.textContent.trim()), char => char.charCodeAt(0));
+    img.src = URL.createObjectURL(new Blob([bytes], {type:"image/png"}));
+  });
+}
+$("#openRevealDetail").onclick = () => {
+  loadRevealFigures();
+  selectRevealTopic("architecture");
+  $("#techReveal").showModal();
+  document.body.classList.add("reveal-open");
+  $("#openRevealDetail").setAttribute("aria-expanded", "true");
+  renderRevealExample();
+};
+$("#openRevealDetail").addEventListener("keydown", event => {
+  if (!["Enter", " "].includes(event.key)) return;
+  event.preventDefault();
+  $("#openRevealDetail").click();
+});
+$("#closeReveal").onclick = () => $("#techReveal").close();
+$("#techReveal").addEventListener("close", () => {
+  document.body.classList.remove("reveal-open");
+  $("#openRevealDetail").setAttribute("aria-expanded", "false");
+  $("#openRevealDetail").focus({preventScroll:true});
+});
+$("#techReveal").addEventListener("keydown", event => {
+  const tab = event.target.closest("[data-reveal-topic]");
+  if (!tab || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+  event.preventDefault();
+  event.stopPropagation();
+  const tabs = [...document.querySelectorAll("[data-reveal-topic]")];
+  const index = event.key === "Home" ? 0 : event.key === "End" ? tabs.length-1 :
+    (tabs.indexOf(tab) + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+  selectRevealTopic(tabs[index].dataset.revealTopic);
+  tabs[index].focus();
+});
+function setRevealFigureZoom(zoomed) {
+  $("#revealFigureViewport").classList.toggle("zoomed", zoomed);
+  $("#revealFigureZoom").setAttribute("aria-pressed", String(zoomed));
+}
+$("#revealFigureFit").onclick = () => setRevealFigureZoom(false);
+$("#revealFigureZoom").onclick = () => setRevealFigureZoom(true);
+$("#closeRevealFigure").onclick = () => $("#revealFigureDialog").close();
+$("#revealFigureDialog").addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  // Close only the enlarged figure, keeping the paper walkthrough underneath.
+  event.preventDefault();
+  event.stopPropagation();
+  $("#revealFigureDialog").close();
+});
+$("#revealObject").onchange = (event) => {
+  state.revealObject = event.target.value;
+  renderRevealExample();
+};
+$("#techObject").onchange = (event) => {
+  state.techObject = event.target.value;
+  renderTechVisual();
+};
+$("#techJson").addEventListener("toggle", () => { if ($("#techJson").open) renderTechVisual(); });
+$("#techShowCase").onclick = $("#techFinish").onclick = () => showPage("workbench");
+$("#techPresent").onclick = () => setPresentation(!document.body.classList.contains("tech-presenting"));
+document.addEventListener("keydown", (e) => {
+  if (state.page === "technical" && e.target.matches("[data-tech-object]") && ["Enter", " "].includes(e.key)) {
+    e.preventDefault();
+    state.techObject = e.target.dataset.techObject;
+    renderTechVisual();
+    return;
+  }
+  if (state.page !== "technical" || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey ||
+      e.target.closest("input, textarea, select, [contenteditable], dialog")) return;
+  if (e.key === "Escape") return setPresentation(false);
+  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
+  // Arrow navigation is scoped to tabs or presentation mode, preserving normal scrolling.
+  if (!e.target.closest("[role=tab]") && !document.body.classList.contains("tech-presenting")) return;
+  e.preventDefault();
+  showPage("technical", ["ArrowRight", "End"].includes(e.key) ? "motion" : "overview");
+  $(`[role=tab][data-tech-slide="${state.techSlide}"]`).focus({ preventScroll: true });
 });
 $("#search").oninput = taskList;
 $("#follow").onclick = follow;
@@ -576,6 +850,7 @@ new MutationObserver(() => requestAnimationFrame(fitWorlds)).observe(
   $("#canvas"),
   { childList: true },
 );
+renderPage();
 refresh();
 setInterval(refresh, 2000);
 setInterval(renderTiming, 1000);

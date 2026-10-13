@@ -71,7 +71,8 @@ def extract(obj,reference,photos,size,run=None,model=None):
 def sheets(run,records):
     """One batch contact sheet, alongside whole-composition review; no unit review loop."""
     selected=[r for r in records if r['metadata'].get('reference_crop')]
-    paths=[];font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',16)
+    from text import font_file
+    paths=[];font=ImageFont.truetype(font_file({'font':'sans'},''),16)
     for start in range(0,len(selected),6):
         sheet=Image.new('RGB',(1040,900),'#dddddd');d=ImageDraw.Draw(sheet)
         for index,r in enumerate(selected[start:start+6]):

@@ -123,11 +123,17 @@ class Motion:
             return '请先完成静态封面，再制作动态成片。'
         if base_render_id and result.get('render_id')!=base_render_id:
             return '封面已更新，请基于最新封面重新制作动态成片。'
+        return None
+
+    def cover_warning(self, run, result=None):
+        result=read(run/'result.json') if result is None else result
         missing=result.get('incomplete_objects',[])
         if missing:
             labels={o['id']:o.get('label') or o['id'] for o in read(run/'scene.json').get('objects',[])}
             names='、'.join(labels.get(oid,oid) for oid in missing)
-            return f'封面对象尚未完成：{names}。请先修复，或在编辑画布中删除这些对象并保存，再制作动态成片；直接重试不能解决此问题。'
+            return f'封面有未完成对象：{names}。仍可制作动态成片，视频将沿用当前封面效果。'
+        if result.get('status')=='needs_changes' or (result.get('visual_review') or {}).get('verdict')=='needs_changes':
+            return '封面复核有待改问题。仍可制作动态成片，视频将沿用当前封面效果。'
         return None
 
     def location(self, task):
@@ -382,6 +388,7 @@ class Motion:
             value = {k: result[k] for k in ('id','base_render_id','status','duration_us','frame_count','matte_frames','matte_cache_hits','timing','at') if k in result}
             value.update(stale=result.get('base_render_id')!=current.get('render_id'),
                          url=f'/api/tasks/{task}/motion/versions/{result["id"]}/content')
+            if result.get('cover_issues'):value['cover_issues']=result['cover_issues']
             versions.append(value)
         jobs = [self.job(p.stem) for p in sorted((self.root/'jobs').glob('motion-*.json')) if read(p).get('task')==task]
         for path in (run/'chat/motion/versions').glob('*/progress.json'):
@@ -397,6 +404,7 @@ class Motion:
         return {'enabled': True, 'videos': videos, 'versions': sorted(versions,key=lambda v:v['at']), 'jobs': jobs,
                 'base_render_id': current.get('render_id'),'eligible_slots':eligible,
                 'render_blocker': self.render_blocker(run,current),
+                'cover_warning': self.cover_warning(run,current),
                 'target_duration_us': min(3_000_000,max((v['duration_us'] for v in videos),default=0))}
 
     def content(self, task, kind, identifier):
