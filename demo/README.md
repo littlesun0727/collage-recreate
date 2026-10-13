@@ -41,6 +41,22 @@ python3 demo/edit.py
 
 Linux 缺少原 Windows 字体时使用随包的 Noto Sans CJK 字体。历史图片保持原样；重新渲染的文字字形可能与 Windows 不同。
 
+### 点击“编辑画布”出现 503
+
+已修复跨平台 PNG 编码不同导致的误报：首次准备图层时比较解码后的像素，保留原始成图文件；同一版本再次打开使用缓存。真实画面差异仍会报错。
+
+更新代码后需要重启后台。在仓库根目录执行下面的命令；使用自定义 `--workspace` 时，停止和启动都传入同一个目录。
+
+```bash
+git pull --ff-only
+bash demo/start-edit.sh --stop
+bash demo/start-edit.sh --no-browser
+```
+
+启动后刷新网页。已有项目及编辑记录仍保存在 `demo/workspace`，无需重新导入。Windows 更新后先双击 `demo/stop.vbs`，再双击 `demo/start.vbs`。
+
+若仍失败，页面会显示画布处理的具体错误及任务目录下的相对日志路径，例如 `chat/requests/editor-export-…/editor-log.txt`。任务目录位于 `demo/workspace/tasks/`。只有“HTTP 503”且没有详细原因时，也需检查访问代理是否自行返回了 503。
+
 ## 打开后如何用
 
 打开任一现有项目，点击原来的“编辑画布”，继续编辑、预览、保存新版本。历史版本保留。动态成片入口及原 Live 素材也一起迁入，可使用原有的 CPU 渲染流程。

@@ -15,6 +15,12 @@ from .chat import save,now,process_alive,Conflict
 REPO=Path(__file__).resolve().parents[2]
 
 
+class EditorError(ValueError):
+    def __init__(self,message,log):
+        super().__init__(message)
+        self.log=log
+
+
 class Editor:
     def __init__(self,store):
         self.store=store;self.guard=threading.RLock();self.executor=ThreadPoolExecutor(max_workers=1,thread_name_prefix='manual-editor')
@@ -43,15 +49,27 @@ class Editor:
         lock=run/'.write.lock';owner=read(lock)
         if owner.get('request_id')==identifier and not process_alive(owner.get('pid')):lock.unlink(missing_ok=True)
         output=root/'editor-output.json';env=dict(os.environ);env['COLLAGE_REQUEST_ID']=identifier
-        outcome=subprocess.run([sys.executable,'-B',str(REPO/'skill/scripts/manual_edit.py'),'--run',str(run),
-            '--action',action,'--request',str(saved),'--output',str(output)],
-            stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=env,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0),timeout=300)
-        (root/'editor-log.txt').write_bytes(outcome.stdout)
+        log=root/'editor-log.txt'
+        log_hint=log.relative_to(run).as_posix()
+        try:
+            outcome=subprocess.run([sys.executable,'-B',str(REPO/'skill/scripts/manual_edit.py'),'--run',str(run),
+                '--action',action,'--request',str(saved),'--output',str(output)],
+                stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env=env,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0),timeout=300)
+        except subprocess.TimeoutExpired as exc:
+            log.write_bytes((exc.output or b'')+b'\nEditor process timed out after 300 seconds.\n')
+            raise EditorError('画布处理超过 300 秒，请查看日志后重试',log_hint) from exc
+        except OSError as exc:
+            log.write_text(str(exc),encoding='utf8')
+            raise EditorError('无法启动画布处理程序，请查看日志',log_hint) from exc
+        log.write_bytes(outcome.stdout)
         if outcome.returncode:
             message=outcome.stdout.decode('utf8',errors='replace')[-3000:]
             try:message=json.loads(message)['error']
             except (ValueError,KeyError):pass
-            raise ValueError(clean(message)[:600])
+            message=str(message)
+            for location in (run,REPO,Path.home()):
+                for value in (str(location),location.as_posix()):message=message.replace(value,'[local]')
+            raise EditorError(clean(message.strip())[:600] or f'画布处理程序退出，状态码 {outcome.returncode}',log_hint)
         return read(output)
 
     def expose(self,task,document):

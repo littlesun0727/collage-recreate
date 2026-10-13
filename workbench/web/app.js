@@ -71,7 +71,13 @@ function renderTiming() {
 }
 async function api(url) {
   const r = await fetch(url, { cache: "no-store" });
-  if (!r.ok) throw Error(`HTTP ${r.status}`);
+  if (!r.ok) {
+    let detail;
+    try { detail = await r.json(); } catch (_) { /* A proxy may return HTML. */ }
+    const message = typeof detail?.error === "string" ? `：${detail.error}` : "";
+    const log = typeof detail?.log === "string" ? `；任务目录下的日志：${detail.log}` : "";
+    throw Error(`HTTP ${r.status}${message}${log}`);
+  }
   return r.json();
 }
 function selectedVersion() {

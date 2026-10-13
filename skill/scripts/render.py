@@ -160,11 +160,16 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
             visibility[oid]=round(fraction,5)
             if fraction<.005:issues.append({'id':oid,'note':'Customer photo fully or almost fully occluded'});incomplete.append(oid)
         trans*=1-a
-    final=canvas.convert('RGB');tmp=run/'final.tmp.png';final.save(tmp);tmp.replace(run/'final.png')
+    final=canvas.convert('RGB')
     if editor_export:
-        if sha(run/'final.png')!=frozen['final_sha256']:raise ValueError('Exported editor layers do not match the current image')
+        # PNG bytes vary by encoder/platform even when every pixel is identical.
+        # Verify the reconstructed pixels and retain the already verified file.
+        with Image.open(run/'final.png') as original:
+            if original.size!=final.size or ImageChops.difference(original.convert('RGB'),final).getbbox() is not None:
+                raise ValueError('Exported editor layers do not match the current image')
         save(run/'result.json',{**frozen,'editor_layers':editor_layers})
         return
+    tmp=run/'final.tmp.png';final.save(tmp);tmp.replace(run/'final.png')
     previews=run/'previews';previews.mkdir(exist_ok=True)
     if not (previews/'first.png').exists():
         final.save(previews/'first.png');save(previews/'first-scene.json',s)

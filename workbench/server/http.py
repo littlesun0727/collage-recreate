@@ -16,7 +16,7 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
     store = Store(roots)
     from .chat import ChatQueue, Conflict
     queue=ChatQueue(store,chat_path,agent=agent) if chat_path else None
-    from .editor import Editor
+    from .editor import Editor,EditorError
     editor=Editor(store) if enable_editor else None
     from .motion import Motion
     from .creation import Creation
@@ -120,6 +120,10 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                 else:
                     raise KeyError('Unknown route')
                 self.send(json.dumps(data, ensure_ascii=False).encode('utf-8'), 'application/json; charset=utf-8')
+            except EditorError as exc:
+                self.send(json.dumps({'error':str(exc),'log':exc.log},ensure_ascii=False).encode('utf8'), 'application/json; charset=utf-8',503)
+            except Conflict as exc:
+                self.send(json.dumps({'error':str(exc)},ensure_ascii=False).encode('utf8'), 'application/json; charset=utf-8',409)
             except (KeyError, FileNotFoundError):
                 self.send(b'{"error":"not_found"}', 'application/json', 404)
             except (OSError, ValueError, TypeError):

@@ -34,6 +34,32 @@ def test_export_preserves_scene_and_pixels_and_rgba_reconstructs(run,monkeypatch
     with Image.open(run/'final.png') as im:assert ImageChops.difference(canvas.convert('RGB'),im).getbbox() is None
 
 
+def test_export_accepts_identical_pixels_with_different_png_encoding(run):
+    from PIL.PngImagePlugin import PngInfo
+    build(run)
+    original_hash=sha(run/'final.png')
+    with Image.open(run/'final.png') as im:original=im.copy()
+    metadata=PngInfo();metadata.add_text('encoder','another OS / PNG encoder')
+    original.save(run/'final.png',compress_level=0,pnginfo=metadata)
+    encoded_hash=sha(run/'final.png');assert encoded_hash!=original_hash
+    result=read(run/'result.json');result['final_sha256']=encoded_hash;save(run/'result.json',result)
+    before={name:sha(run/name) for name in ['scene.json','result.json','final.png']}
+    data=execute(run,'export',request(run,'editor-export-reencoded'))
+    assert sha(data['final_file'])==encoded_hash
+    assert before=={name:sha(run/name) for name in before}
+
+
+def test_export_still_rejects_a_real_pixel_difference(run):
+    build(run)
+    with Image.open(run/'final.png') as im:changed=im.copy()
+    changed.putpixel((0,0),(1,2,3));changed.save(run/'final.png')
+    result=read(run/'result.json');result['final_sha256']=sha(run/'final.png');save(run/'result.json',result)
+    before=sha(run/'final.png')
+    with pytest.raises(ValueError,match='editor layers do not match'):
+        execute(run,'export',request(run,'editor-export-pixel-change'))
+    assert sha(run/'final.png')==before
+
+
 def test_manual_commit_isolated_idempotent_unreviewed_and_rerenderable(run):
     build(run);review(run);old=sha(run/'final.png');inp=sha(run/'analysis.json');req=request(run)
     preview=execute(run,'preview',dict(req,request_id='edit-preview-1'))
@@ -198,6 +224,33 @@ def test_manual_commit_failure_rolls_back_and_retry_succeeds(run,monkeypatch):
     with pytest.raises(OSError):execute(run,'save',req)
     assert before=={n:sha(run/n) for n in before}
     execute(run,'save',req);assert sha(run/'final.png')!=before['final.png']
+
+
+@pytest.mark.parametrize('failure',['exit','timeout','conflict'])
+def test_editor_http_reports_failure_details(run,monkeypatch,failure):
+    import subprocess
+    import workbench.server.editor as backend
+    build(run);_,doc=document(run)
+    task=doc['id'];message='Exported editor layers do not match the current image'
+    def failed_process(*args,**kwargs):
+        if failure=='timeout':raise subprocess.TimeoutExpired('manual_edit',300,output=b'partial diagnostic\n')
+        return subprocess.CompletedProcess(args[0],1,json.dumps({'error':message}).encode())
+    if failure=='conflict':
+        scene=read(run/'scene.json');scene['conflict_test']=True;save(run/'scene.json',scene)
+    else:monkeypatch.setattr(backend.subprocess,'run',failed_process)
+    server=create_server([run],port=0,enable_editor=True)
+    thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+    try:
+        with pytest.raises(urllib.error.HTTPError) as exc:
+            urllib.request.urlopen(f'http://127.0.0.1:{server.server_port}/api/tasks/{task}/editor')
+        assert exc.value.code==(409 if failure=='conflict' else 503)
+        data=json.load(exc.value)
+        if failure=='conflict':assert '正在更新' in data['error']
+        else:
+            assert (message if failure=='exit' else '300 秒') in data['error']
+            log=run/data['log'];assert log.is_relative_to(run) and log.is_file()
+            if failure=='timeout':assert 'partial diagnostic' in log.read_text()
+    finally:server.shutdown();server.server_close();thread.join()
 
 
 def test_editor_http_without_chat_origin_idempotency_and_versions(run):
