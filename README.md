@@ -1,6 +1,6 @@
 # 拼贴制作与工作台
 
-**迁移到新电脑继续编辑：** 本分支附带 [完整工作台迁移包](demo/README.md)，包括 38 个原始项目、素材及历史结果。Windows 双击 demo/start.vbs，Linux 执行 bash demo/start-edit.sh，默认打开可编辑工作台。首次启动会自动恢复项目；修改保存在 demo/workspace/。
+**迁移到新电脑继续编辑：** 本分支附带 [完整工作台迁移包](demo/README.md)，包括 39 个原始项目、素材及历史结果，已同步 2026-10-16 的 `Live-445b6017208a` 测评结果（任务 `654d3268a99aef37`）。Windows 双击 demo/start.vbs，Linux 执行 bash demo/start-edit.sh，默认打开可编辑工作台。首次启动会自动恢复项目；修改保存在 demo/workspace/。
 
 同一仓库包含 `skill/` 拼贴制作能力和 `workbench/` 本地观察页面。冻结基线标签为 `collage-recreate-v5-frozen-20261008`。
 

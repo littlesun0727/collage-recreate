@@ -1,0 +1,2061 @@
+{
+  "id": "654d3268a99aef37",
+  "name": "Live-445b6017208a",
+  "created_at": "2026-10-16T02:48:11.698436+00:00",
+  "reference_size": [
+    1440,
+    2560
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T06:33:50.023Z",
+    "finished_at": "2026-10-16T06:42:29.167250+00:00",
+    "elapsed_seconds": 519.095,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        2560
+      ],
+      "label": "底层浅蓝灰底",
+      "description": "仅在照片拼接边缘可能露出的浅蓝灰底色",
+      "style": {
+        "fill": "#c8dce4"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1440,
+        855
+      ],
+      "label": "顶部满版照片",
+      "description": "顶部横向满版客户视频首帧，承接人物与旅行环境，不含固定手写字和花字"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        0,
+        855,
+        1440,
+        1435
+      ],
+      "label": "中部满版照片",
+      "description": "中部横向满版客户视频首帧，不含固定英文花体字与蝴蝶"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1435,
+        1440,
+        2560
+      ],
+      "label": "底部满版照片",
+      "description": "底部满版客户视频首帧，保留旅行人物与环境，不含固定手写字和花字"
+    },
+    {
+      "id": "art_top_left",
+      "kind": "overlay",
+      "bbox": [
+        35,
+        275,
+        610,
+        625
+      ],
+      "label": "左上春日手写字",
+      "description": "白色中文手写字、不负好春光主题字样、粉色spring与短划涂鸦组成的一整组固定艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "art_top_right",
+      "kind": "overlay",
+      "bbox": [
+        1050,
+        155,
+        1350,
+        445
+      ],
+      "label": "右上花卉春字",
+      "description": "黄色手绘春字、绿色枝叶、橙红小花与粉色蝴蝶组成的完整装饰单元",
+      "method": "extract"
+    },
+    {
+      "id": "art_middle_right",
+      "kind": "overlay",
+      "bbox": [
+        885,
+        745,
+        1305,
+        1095
+      ],
+      "label": "中部英文花体字",
+      "description": "右侧白色Sweet heart系列花体字及粉色蝴蝶组成的完整艺术字单元",
+      "method": "extract"
+    },
+    {
+      "id": "art_bottom_left",
+      "kind": "overlay",
+      "bbox": [
+        60,
+        1420,
+        330,
+        1965
+      ],
+      "label": "左下竖排春日文案",
+      "description": "白色竖排中文手写字、粉色圆形光晕、彩色点和蓝色蝴蝶组成的完整装饰单元",
+      "method": "extract"
+    },
+    {
+      "id": "art_bottom_upper_right",
+      "kind": "overlay",
+      "bbox": [
+        940,
+        1415,
+        1365,
+        1785
+      ],
+      "label": "右下上部手写字",
+      "description": "白色中文手写短句、绿色spring字样、蓝色蝴蝶与绿色叶片点缀组成的完整单元",
+      "method": "extract"
+    },
+    {
+      "id": "art_bottom_lower_right",
+      "kind": "overlay",
+      "bbox": [
+        1195,
+        2050,
+        1385,
+        2425
+      ],
+      "label": "右下春日物语竖字",
+      "description": "白色春日物语竖排艺术字；不包含参考图右下角平台水印与账号",
+      "method": "extract"
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:48:11.717885+00:00",
+      "started_at": "2026-10-16T02:48:09.830526+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成三段照片布局、六组艺术字装饰与三段视频首帧绑定，校验通过并按原尺寸检查叠框，无需坐标纠偏",
+      "at": "2026-10-16T06:36:34.813873+00:00",
+      "started_at": "2026-10-16T06:36:17.377877+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T06:37:44.829838+00:00",
+      "started_at": "2026-10-16T06:36:35.034144+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已检查完整对照图和六组提取检查表，未发现旧照片污染、重复文字或需隔离素材；无需 screen，保留少量装饰细节近似说明",
+      "at": "2026-10-16T06:38:21.444486+00:00",
+      "started_at": "2026-10-16T06:37:50.457149+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T06:39:56.581229+00:00",
+      "started_at": "2026-10-16T06:39:56.053022+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "静态封面已复核通过并完成一次接缝排版调整；3秒静音动态成片已编码校验并检查首中末帧，交付时说明照片硬切、左下装饰弱化及动态完整播放待核验",
+      "at": "2026-10-16T06:41:50.929666+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T06:39:56.581905+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:48:09.830526+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:48:11.717885+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:35:14.139319+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看参考图与客户视频首帧联系表，分析布局和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T06:36:17.377877+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:36:18.260832+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T06:36:34.813873+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成三段照片布局、六组艺术字装饰与三段视频首帧绑定，校验通过并按原尺寸检查叠框，无需坐标纠偏"
+    },
+    {
+      "at": "2026-10-16T06:36:35.034144+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:37:44.829838+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:37:50.457149+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "首版已生成，正在检查完整对照图和六组 RevealLayer 装饰素材是否缺失、污染或重复"
+    },
+    {
+      "at": "2026-10-16T06:38:21.444486+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已检查完整对照图和六组提取检查表，未发现旧照片污染、重复文字或需隔离素材；无需 screen，保留少量装饰细节近似说明"
+    },
+    {
+      "at": "2026-10-16T06:38:21.666963+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核当前整图及四处指定局部，检查照片裁切、遮挡关系和装饰完整性"
+    },
+    {
+      "at": "2026-10-16T06:38:59.457385+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "调整排版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:39:03.306823+00:00",
+      "stage": 5,
+      "status": "waiting",
+      "summary": "调整排版 · 排版调整完成，等待复核新图"
+    },
+    {
+      "at": "2026-10-16T06:39:56.053022+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:39:56.581229+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:41:50.929666+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "静态封面已复核通过并完成一次接缝排版调整；3秒静音动态成片已编码校验并检查首中末帧，交付时说明照片硬切、左下装饰弱化及动态完整播放待核验"
+    }
+  ],
+  "reference": "/api/tasks/654d3268a99aef37/images/e7ac27202eb8b4f7cea777e6",
+  "boxes": "/api/tasks/654d3268a99aef37/images/f73a6c2f25abad5c15bdb39c",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/654d3268a99aef37/images/6ceac01070702a6de40072cf"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/654d3268a99aef37/images/c6a78f326726cc7484067c37"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/654d3268a99aef37/images/acaecf3d985706793104c484"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/654d3268a99aef37/images/9102b24491fbda24eb3f6bc2"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/654d3268a99aef37/images/01d97e5c234878da5c4d45ce"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/654d3268a99aef37/images/9edebf61f2a4f8a8379f6c36"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/654d3268a99aef37/images/eca30b038d4bd5e7762710af"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/654d3268a99aef37/images/0da9ae683295e60b2f9dce64"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/654d3268a99aef37/images/6c5bd16197e712e22325955f"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/654d3268a99aef37/images/b16018a07048685661124caf"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/654d3268a99aef37/images/1fc1d6c1444ca638148a6442"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/654d3268a99aef37/images/8ed6dd52814c859838cbc23d"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/654d3268a99aef37/images/fd2be0453c283722b2c48f63"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/654d3268a99aef37/images/3f85f3d5dad7d40ca3d551f0"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/654d3268a99aef37/images/7bd64492c426ed86d092d393"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/654d3268a99aef37/images/ee294433ff6e117b5204f4e9"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/654d3268a99aef37/images/b9084f508ad651fa806a5e7a"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/654d3268a99aef37/images/d26005faf4d391f4c53a09ae"
+    }
+  ],
+  "current_image": "/api/tasks/654d3268a99aef37/images/4a0079939f35792639979e8f",
+  "first_image": "/api/tasks/654d3268a99aef37/images/a14c65c6675d039b1968be25",
+  "versions": [
+    {
+      "id": "0001-4a53388c",
+      "parent_id": null,
+      "render_id": "0d71cb938b213483",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "底层浅蓝灰底",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2560
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/1d031a20ed1c5f49de06ea33",
+            "final": "/api/tasks/654d3268a99aef37/images/500e4f82f746fb76b9156607",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部满版照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            855
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/a0cd3be130b175e0aaf20050",
+            "final": "/api/tasks/654d3268a99aef37/images/974b7a6080cb3920f7b868fe",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部满版照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            855,
+            1440,
+            1435
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/5239a3feba3209e302f6d745",
+            "final": "/api/tasks/654d3268a99aef37/images/17bfdab26fd1862f9a50173f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部满版照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1435,
+            1440,
+            2560
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/d5c534902ad023879f8c4995",
+            "final": "/api/tasks/654d3268a99aef37/images/5eeb47f05c2847be992f91aa",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "art_top_left",
+          "label": "左上春日手写字",
+          "kind": "overlay",
+          "bbox": [
+            35,
+            275,
+            610,
+            625
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/cb12a746e61eb01a3bf059bf",
+            "final": "/api/tasks/654d3268a99aef37/images/e5690276281f27d572c127ac",
+            "raw": "/api/tasks/654d3268a99aef37/images/7efd7c010b68d4e2bd64382e",
+            "processed": "/api/tasks/654d3268a99aef37/images/1445c8a75571eddafa561d9a"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "360a181ea0a6f907b903f2a0c543202bf2454145063939f6d8604dc176726bba"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_top_right",
+          "label": "右上花卉春字",
+          "kind": "overlay",
+          "bbox": [
+            1050,
+            155,
+            1350,
+            445
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/6bd11c849db5fb6fa452ddd5",
+            "final": "/api/tasks/654d3268a99aef37/images/c32e8f7aec4b54b227403807",
+            "raw": "/api/tasks/654d3268a99aef37/images/926e462d54f3d91eccaeaf7e",
+            "processed": "/api/tasks/654d3268a99aef37/images/18a31667f114e87ea9401ad7"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "0ed5787920ad6efa04b6db26299e32d9c12668a5ac339e775af87c2fe2f1cf40"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_middle_right",
+          "label": "中部英文花体字",
+          "kind": "overlay",
+          "bbox": [
+            885,
+            745,
+            1305,
+            1095
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/d1f5e245695f4097a0746968",
+            "final": "/api/tasks/654d3268a99aef37/images/f65edcb9176c2762013b745e",
+            "raw": "/api/tasks/654d3268a99aef37/images/f911ab57b8fcf9b2050533b6",
+            "processed": "/api/tasks/654d3268a99aef37/images/af04d680faff7551c6ef5221"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ee2ab56bda7bf0812960f10acd807ccffd8109bf2b054f5d965b1dfbbeaf0768"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_left",
+          "label": "左下竖排春日文案",
+          "kind": "overlay",
+          "bbox": [
+            60,
+            1420,
+            330,
+            1965
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/81a1d59bd873db7d1bed9005",
+            "final": "/api/tasks/654d3268a99aef37/images/4104804075baf28ab59d44d1",
+            "raw": "/api/tasks/654d3268a99aef37/images/dd420b81ff0e3c0552666f6f",
+            "processed": "/api/tasks/654d3268a99aef37/images/65e29785864aada635f08f88"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "fcbd761c85349875e381a11c4f761b8fb65b33014f5fb5bfe84d9a76d96d0f72"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_upper_right",
+          "label": "右下上部手写字",
+          "kind": "overlay",
+          "bbox": [
+            940,
+            1415,
+            1365,
+            1785
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/3bbd2bad85855e112740a8b0",
+            "final": "/api/tasks/654d3268a99aef37/images/4a51dc5008c0775d5b180b05",
+            "raw": "/api/tasks/654d3268a99aef37/images/39c35523e5ff3ad0955a1d13",
+            "processed": "/api/tasks/654d3268a99aef37/images/4c83b378fcc3499c69eaed4b"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4061df091a99c00519c944c3ffd88d90b1180a885e8a9ae2d76a90d4b58de53a"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_lower_right",
+          "label": "右下春日物语竖字",
+          "kind": "overlay",
+          "bbox": [
+            1195,
+            2050,
+            1385,
+            2425
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/df97611b2c7d83a4bed1af31",
+            "final": "/api/tasks/654d3268a99aef37/images/0345f031e7beb611be80d6a9",
+            "raw": "/api/tasks/654d3268a99aef37/images/42e24e32e5c45f3fcaacfbbe",
+            "processed": "/api/tasks/654d3268a99aef37/images/c4e187a1338baedaf644273f"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "552679968b24c577bd7f923773c7479d3548e440a477f39a09d51feaab994383"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T06:37:44.818920+00:00",
+      "image": "/api/tasks/654d3268a99aef37/images/08c6c4e4103f39ac215e5752",
+      "artifacts": {
+        "final.png": "/api/tasks/654d3268a99aef37/images/08c6c4e4103f39ac215e5752",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/654d3268a99aef37/images/d1775d1442875405ef11d2c5",
+        "previews/comparison.png": "/api/tasks/654d3268a99aef37/images/85fe27a333e7d4f37725e93a",
+        "material:background": "/api/tasks/654d3268a99aef37/images/500e4f82f746fb76b9156607",
+        "material:photo_top": "/api/tasks/654d3268a99aef37/images/974b7a6080cb3920f7b868fe",
+        "material:photo_middle": "/api/tasks/654d3268a99aef37/images/17bfdab26fd1862f9a50173f",
+        "material:photo_bottom": "/api/tasks/654d3268a99aef37/images/5eeb47f05c2847be992f91aa",
+        "material:art_top_left": "/api/tasks/654d3268a99aef37/images/e5690276281f27d572c127ac",
+        "processed:art_top_left": "/api/tasks/654d3268a99aef37/images/1445c8a75571eddafa561d9a",
+        "raw:art_top_left": "/api/tasks/654d3268a99aef37/images/7efd7c010b68d4e2bd64382e",
+        "material:art_top_right": "/api/tasks/654d3268a99aef37/images/c32e8f7aec4b54b227403807",
+        "processed:art_top_right": "/api/tasks/654d3268a99aef37/images/18a31667f114e87ea9401ad7",
+        "raw:art_top_right": "/api/tasks/654d3268a99aef37/images/926e462d54f3d91eccaeaf7e",
+        "material:art_middle_right": "/api/tasks/654d3268a99aef37/images/f65edcb9176c2762013b745e",
+        "processed:art_middle_right": "/api/tasks/654d3268a99aef37/images/af04d680faff7551c6ef5221",
+        "raw:art_middle_right": "/api/tasks/654d3268a99aef37/images/f911ab57b8fcf9b2050533b6",
+        "material:art_bottom_left": "/api/tasks/654d3268a99aef37/images/4104804075baf28ab59d44d1",
+        "processed:art_bottom_left": "/api/tasks/654d3268a99aef37/images/65e29785864aada635f08f88",
+        "raw:art_bottom_left": "/api/tasks/654d3268a99aef37/images/dd420b81ff0e3c0552666f6f",
+        "material:art_bottom_upper_right": "/api/tasks/654d3268a99aef37/images/4a51dc5008c0775d5b180b05",
+        "processed:art_bottom_upper_right": "/api/tasks/654d3268a99aef37/images/4c83b378fcc3499c69eaed4b",
+        "raw:art_bottom_upper_right": "/api/tasks/654d3268a99aef37/images/39c35523e5ff3ad0955a1d13",
+        "material:art_bottom_lower_right": "/api/tasks/654d3268a99aef37/images/0345f031e7beb611be80d6a9",
+        "processed:art_bottom_lower_right": "/api/tasks/654d3268a99aef37/images/c4e187a1338baedaf644273f",
+        "raw:art_bottom_lower_right": "/api/tasks/654d3268a99aef37/images/42e24e32e5c45f3fcaacfbbe",
+        "sheet:0": "/api/tasks/654d3268a99aef37/images/402fbe59bb374805a8f98ec2",
+        "previews/review-detail-1.png": "/api/tasks/654d3268a99aef37/images/8c48959762c1a090a5ee39c7",
+        "previews/review-detail-2.png": "/api/tasks/654d3268a99aef37/images/328dd4ae65e996e934f6a37a",
+        "previews/review-detail-3.png": "/api/tasks/654d3268a99aef37/images/beeca5e4e53f09085e2c4167",
+        "previews/review-detail-4.png": "/api/tasks/654d3268a99aef37/images/94983f5f480a3eb56f831712"
+      },
+      "changes": [],
+      "intent": {},
+      "review": null,
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2560
+          ],
+          "label": "底层浅蓝灰底",
+          "description": "仅在照片拼接边缘可能露出的浅蓝灰底色",
+          "style": {
+            "fill": "#c8dce4"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            855
+          ],
+          "label": "顶部满版照片",
+          "description": "顶部横向满版客户视频首帧，承接人物与旅行环境，不含固定手写字和花字",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_6cad0072779df484",
+            "reason": "纵向远景人物张开双臂，构图与参考顶部主体动作和留白关系最接近",
+            "crop_center": [
+              0.5,
+              0.43
+            ]
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            855,
+            1440,
+            1435
+          ],
+          "label": "中部满版照片",
+          "description": "中部横向满版客户视频首帧，不含固定英文花体字与蝴蝶",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "横向人物与湖景适合中段宽幅窗口，人物位于右侧可避开右侧花体字",
+            "crop_center": [
+              0.52,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1435,
+            1440,
+            2560
+          ],
+          "label": "底部满版照片",
+          "description": "底部满版客户视频首帧，保留旅行人物与环境，不含固定手写字和花字",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_06638b50677afc7c",
+            "reason": "纵向海边全身人物适合底部高窗，可保留完整旅行人物",
+            "crop_center": [
+              0.5,
+              0.47
+            ]
+          }
+        },
+        {
+          "id": "art_top_left",
+          "kind": "overlay",
+          "bbox": [
+            35,
+            275,
+            610,
+            625
+          ],
+          "label": "左上春日手写字",
+          "description": "白色中文手写字、不负好春光主题字样、粉色spring与短划涂鸦组成的一整组固定艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "360a181ea0a6f907b903f2a0c543202bf2454145063939f6d8604dc176726bba"
+          },
+          "recovered": {
+            "sha256": "3ea360f061801059b6d7d9c267345ba81311f6963efd63267d291c8873c9fa46",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "art_top_right",
+          "kind": "overlay",
+          "bbox": [
+            1050,
+            155,
+            1350,
+            445
+          ],
+          "label": "右上花卉春字",
+          "description": "黄色手绘春字、绿色枝叶、橙红小花与粉色蝴蝶组成的完整装饰单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "0ed5787920ad6efa04b6db26299e32d9c12668a5ac339e775af87c2fe2f1cf40"
+          },
+          "recovered": {
+            "sha256": "d27ced060db4550ca4b1bb01048c81be6553f856aac7d3d1bcfc0aefdd9c6c30",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "art_middle_right",
+          "kind": "overlay",
+          "bbox": [
+            885,
+            745,
+            1305,
+            1095
+          ],
+          "label": "中部英文花体字",
+          "description": "右侧白色Sweet heart系列花体字及粉色蝴蝶组成的完整艺术字单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ee2ab56bda7bf0812960f10acd807ccffd8109bf2b054f5d965b1dfbbeaf0768"
+          },
+          "recovered": {
+            "sha256": "36eaf740c8ffd176a22feb04da5b2537f013e3e063070133cc733b1b6865c73d",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "art_bottom_left",
+          "kind": "overlay",
+          "bbox": [
+            60,
+            1420,
+            330,
+            1965
+          ],
+          "label": "左下竖排春日文案",
+          "description": "白色竖排中文手写字、粉色圆形光晕、彩色点和蓝色蝴蝶组成的完整装饰单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "fcbd761c85349875e381a11c4f761b8fb65b33014f5fb5bfe84d9a76d96d0f72"
+          },
+          "recovered": {
+            "sha256": "2dd45375e1818d66f459aad7718fc5a4d75cb15d6c234045ce19864f97b7d72c",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "art_bottom_upper_right",
+          "kind": "overlay",
+          "bbox": [
+            940,
+            1415,
+            1365,
+            1785
+          ],
+          "label": "右下上部手写字",
+          "description": "白色中文手写短句、绿色spring字样、蓝色蝴蝶与绿色叶片点缀组成的完整单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4061df091a99c00519c944c3ffd88d90b1180a885e8a9ae2d76a90d4b58de53a"
+          },
+          "recovered": {
+            "sha256": "74ab51a4402b389f8fe3b6f6a8b7705ac01af8dc1b159c81dd1bf7342272efde",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "art_bottom_lower_right",
+          "kind": "overlay",
+          "bbox": [
+            1195,
+            2050,
+            1385,
+            2425
+          ],
+          "label": "右下春日物语竖字",
+          "description": "白色春日物语竖排艺术字；不包含参考图右下角平台水印与账号",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "552679968b24c577bd7f923773c7479d3548e440a477f39a09d51feaab994383"
+          },
+          "recovered": {
+            "sha256": "05f5b45fd86695fd85903bd72cf5c2647c9425d4584c1e86062cb025739788c8",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "art_top_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_top_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_middle_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_upper_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_lower_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0002-337042f6",
+      "parent_id": "0001-4a53388c",
+      "render_id": "f105cbcce159a927",
+      "command": "apply",
+      "materials": [
+        {
+          "id": "background",
+          "label": "底层浅蓝灰底",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2560
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/1d031a20ed1c5f49de06ea33",
+            "final": "/api/tasks/654d3268a99aef37/images/c3f33bd27ccb708029603967",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部满版照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            855
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/a0cd3be130b175e0aaf20050",
+            "final": "/api/tasks/654d3268a99aef37/images/5cb558f4d41986b31c4722a8",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部满版照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            855,
+            1440,
+            1435
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/5239a3feba3209e302f6d745",
+            "final": "/api/tasks/654d3268a99aef37/images/d43216766cdd74c4aa2b22fe",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部满版照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1435,
+            1440,
+            2560
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/d5c534902ad023879f8c4995",
+            "final": "/api/tasks/654d3268a99aef37/images/436ea6164ea8fd573263271f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "art_top_left",
+          "label": "左上春日手写字",
+          "kind": "overlay",
+          "bbox": [
+            35,
+            275,
+            610,
+            625
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/cb12a746e61eb01a3bf059bf",
+            "final": "/api/tasks/654d3268a99aef37/images/7727d13553315db8e6c62b62",
+            "raw": "/api/tasks/654d3268a99aef37/images/db26d52cd7c8c16f962a20b6",
+            "processed": "/api/tasks/654d3268a99aef37/images/7603a6cc86b7e3496a80a958"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "360a181ea0a6f907b903f2a0c543202bf2454145063939f6d8604dc176726bba"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_top_right",
+          "label": "右上花卉春字",
+          "kind": "overlay",
+          "bbox": [
+            1050,
+            155,
+            1350,
+            445
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/6bd11c849db5fb6fa452ddd5",
+            "final": "/api/tasks/654d3268a99aef37/images/c78849351557ad11dc1014c6",
+            "raw": "/api/tasks/654d3268a99aef37/images/0ccb52184c5f99a65a76197e",
+            "processed": "/api/tasks/654d3268a99aef37/images/a4b518bfd13830e73cdc4719"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "0ed5787920ad6efa04b6db26299e32d9c12668a5ac339e775af87c2fe2f1cf40"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_middle_right",
+          "label": "中部英文花体字",
+          "kind": "overlay",
+          "bbox": [
+            885,
+            875,
+            1305,
+            1225
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/43e0c9e9d9a1d07f89ce39ea",
+            "final": "/api/tasks/654d3268a99aef37/images/ab39d1c5afd048af336a5c0f",
+            "raw": "/api/tasks/654d3268a99aef37/images/6f475b6ee8b85e7aad9b9ec8",
+            "processed": "/api/tasks/654d3268a99aef37/images/72f2a62b8c21a403165fef7c"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ee2ab56bda7bf0812960f10acd807ccffd8109bf2b054f5d965b1dfbbeaf0768"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_left",
+          "label": "左下竖排春日文案",
+          "kind": "overlay",
+          "bbox": [
+            60,
+            1450,
+            330,
+            1995
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/3763ceb30514b6b02c8fff77",
+            "final": "/api/tasks/654d3268a99aef37/images/681755aa005fd0624e684016",
+            "raw": "/api/tasks/654d3268a99aef37/images/3c2b077f414537b8d5d1d85f",
+            "processed": "/api/tasks/654d3268a99aef37/images/76abab62f21f6b7280ee514c"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "fcbd761c85349875e381a11c4f761b8fb65b33014f5fb5bfe84d9a76d96d0f72"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_upper_right",
+          "label": "右下上部手写字",
+          "kind": "overlay",
+          "bbox": [
+            940,
+            1455,
+            1365,
+            1825
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/908af3ccc4dbc978de407802",
+            "final": "/api/tasks/654d3268a99aef37/images/8f0a9126ac2e75841a1d068a",
+            "raw": "/api/tasks/654d3268a99aef37/images/c73e04995ec49d9b36688bb7",
+            "processed": "/api/tasks/654d3268a99aef37/images/50874a60a4e11cf72c8be292"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4061df091a99c00519c944c3ffd88d90b1180a885e8a9ae2d76a90d4b58de53a"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_lower_right",
+          "label": "右下春日物语竖字",
+          "kind": "overlay",
+          "bbox": [
+            1195,
+            2050,
+            1385,
+            2425
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/654d3268a99aef37/images/df97611b2c7d83a4bed1af31",
+            "final": "/api/tasks/654d3268a99aef37/images/f581fc10df4fb525dcd7cc34",
+            "raw": "/api/tasks/654d3268a99aef37/images/4563f09d867cd6a978f5090a",
+            "processed": "/api/tasks/654d3268a99aef37/images/db895535141bcfd6c7f6a6de"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "552679968b24c577bd7f923773c7479d3548e440a477f39a09d51feaab994383"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "调整排版",
+      "at": "2026-10-16T06:39:03.295160+00:00",
+      "image": "/api/tasks/654d3268a99aef37/images/4a0079939f35792639979e8f",
+      "artifacts": {
+        "final.png": "/api/tasks/654d3268a99aef37/images/4a0079939f35792639979e8f",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/654d3268a99aef37/images/bef541f909337f2aa8d30d0d",
+        "previews/comparison.png": "/api/tasks/654d3268a99aef37/images/2b9c202a828c01cf90283a7e",
+        "material:background": "/api/tasks/654d3268a99aef37/images/c3f33bd27ccb708029603967",
+        "material:photo_top": "/api/tasks/654d3268a99aef37/images/5cb558f4d41986b31c4722a8",
+        "material:photo_middle": "/api/tasks/654d3268a99aef37/images/d43216766cdd74c4aa2b22fe",
+        "material:photo_bottom": "/api/tasks/654d3268a99aef37/images/436ea6164ea8fd573263271f",
+        "material:art_top_left": "/api/tasks/654d3268a99aef37/images/7727d13553315db8e6c62b62",
+        "processed:art_top_left": "/api/tasks/654d3268a99aef37/images/7603a6cc86b7e3496a80a958",
+        "raw:art_top_left": "/api/tasks/654d3268a99aef37/images/db26d52cd7c8c16f962a20b6",
+        "material:art_top_right": "/api/tasks/654d3268a99aef37/images/c78849351557ad11dc1014c6",
+        "processed:art_top_right": "/api/tasks/654d3268a99aef37/images/a4b518bfd13830e73cdc4719",
+        "raw:art_top_right": "/api/tasks/654d3268a99aef37/images/0ccb52184c5f99a65a76197e",
+        "material:art_middle_right": "/api/tasks/654d3268a99aef37/images/ab39d1c5afd048af336a5c0f",
+        "processed:art_middle_right": "/api/tasks/654d3268a99aef37/images/72f2a62b8c21a403165fef7c",
+        "raw:art_middle_right": "/api/tasks/654d3268a99aef37/images/6f475b6ee8b85e7aad9b9ec8",
+        "material:art_bottom_left": "/api/tasks/654d3268a99aef37/images/681755aa005fd0624e684016",
+        "processed:art_bottom_left": "/api/tasks/654d3268a99aef37/images/76abab62f21f6b7280ee514c",
+        "raw:art_bottom_left": "/api/tasks/654d3268a99aef37/images/3c2b077f414537b8d5d1d85f",
+        "material:art_bottom_upper_right": "/api/tasks/654d3268a99aef37/images/8f0a9126ac2e75841a1d068a",
+        "processed:art_bottom_upper_right": "/api/tasks/654d3268a99aef37/images/50874a60a4e11cf72c8be292",
+        "raw:art_bottom_upper_right": "/api/tasks/654d3268a99aef37/images/c73e04995ec49d9b36688bb7",
+        "material:art_bottom_lower_right": "/api/tasks/654d3268a99aef37/images/f581fc10df4fb525dcd7cc34",
+        "processed:art_bottom_lower_right": "/api/tasks/654d3268a99aef37/images/db895535141bcfd6c7f6a6de",
+        "raw:art_bottom_lower_right": "/api/tasks/654d3268a99aef37/images/4563f09d867cd6a978f5090a",
+        "sheet:0": "/api/tasks/654d3268a99aef37/images/24dadc4ca682bdc897d7e7b8",
+        "previews/review-detail-1.png": "/api/tasks/654d3268a99aef37/images/1d0a2723f9c6d423ada892a6",
+        "previews/review-detail-2.png": "/api/tasks/654d3268a99aef37/images/63c67525994aab837eaeb3c0",
+        "previews/review-detail-3.png": "/api/tasks/654d3268a99aef37/images/156874651a5d890e0d15cf1b",
+        "previews/review-detail-4.png": "/api/tasks/654d3268a99aef37/images/a6ba391a7ac8ebde34ce12b3"
+      },
+      "changes": [
+        {
+          "id": "art_middle_right",
+          "label": "中部英文花体字",
+          "bbox": [
+            885,
+            875,
+            1305,
+            1225
+          ],
+          "fields": {
+            "bbox": {
+              "before": [
+                885,
+                745,
+                1305,
+                1095
+              ],
+              "after": [
+                885,
+                875,
+                1305,
+                1225
+              ]
+            },
+            "extracted_offset": {
+              "before": null,
+              "after": [
+                0,
+                130
+              ]
+            }
+          }
+        },
+        {
+          "id": "art_bottom_left",
+          "label": "左下竖排春日文案",
+          "bbox": [
+            60,
+            1450,
+            330,
+            1995
+          ],
+          "fields": {
+            "bbox": {
+              "before": [
+                60,
+                1420,
+                330,
+                1965
+              ],
+              "after": [
+                60,
+                1450,
+                330,
+                1995
+              ]
+            },
+            "extracted_offset": {
+              "before": null,
+              "after": [
+                0,
+                30
+              ]
+            }
+          }
+        },
+        {
+          "id": "art_bottom_upper_right",
+          "label": "右下上部手写字",
+          "bbox": [
+            940,
+            1455,
+            1365,
+            1825
+          ],
+          "fields": {
+            "bbox": {
+              "before": [
+                940,
+                1415,
+                1365,
+                1785
+              ],
+              "after": [
+                940,
+                1455,
+                1365,
+                1825
+              ]
+            },
+            "extracted_offset": {
+              "before": null,
+              "after": [
+                0,
+                40
+              ]
+            }
+          }
+        }
+      ],
+      "intent": {
+        "schema_version": "collage-review-v1",
+        "render_id": "0d71cb938b213483",
+        "checked_entire_composition": true,
+        "verdict": "needs_changes",
+        "summary": "三组装饰跨越照片硬切接缝，整体下移到各自照片内部以避免文字被接缝割裂",
+        "items": [
+          {
+            "id": "art_middle_right",
+            "action": "adjust",
+            "reason": "英文花体字跨越顶部与中部照片接缝，整体下移130像素",
+            "changes": {
+              "bbox": [
+                885,
+                875,
+                1305,
+                1225
+              ]
+            }
+          },
+          {
+            "id": "art_bottom_left",
+            "action": "adjust",
+            "reason": "左下竖排字顶部压住中部与底部接缝，整体下移30像素",
+            "changes": {
+              "bbox": [
+                60,
+                1450,
+                330,
+                1995
+              ]
+            }
+          },
+          {
+            "id": "art_bottom_upper_right",
+            "action": "adjust",
+            "reason": "右下上部手写字顶部跨接缝，整体下移40像素",
+            "changes": {
+              "bbox": [
+                940,
+                1455,
+                1365,
+                1825
+              ]
+            }
+          }
+        ]
+      },
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "f105cbcce159a927",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看调整后的完整对照图与四处局部；三组跨接缝装饰已下移生效，三张客户照片完整可见且无遮挡脸。首版保留照片硬切与左下光晕、蓝蝶弱化的近似说明。",
+        "items": [],
+        "scene_sha256": "9c6f1c8a82793feb4fe3052cb8c03f884a03469fb00f901c0b3471db019a7acb",
+        "final_sha256": "8bfb216017bb4eb7e2d59340743a5b0af234b98297d351f3a0f8327db8abc11f"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2560
+          ],
+          "label": "底层浅蓝灰底",
+          "description": "仅在照片拼接边缘可能露出的浅蓝灰底色",
+          "style": {
+            "fill": "#c8dce4"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            855
+          ],
+          "label": "顶部满版照片",
+          "description": "顶部横向满版客户视频首帧，承接人物与旅行环境，不含固定手写字和花字",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_6cad0072779df484",
+            "reason": "纵向远景人物张开双臂，构图与参考顶部主体动作和留白关系最接近",
+            "crop_center": [
+              0.5,
+              0.43
+            ]
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            855,
+            1440,
+            1435
+          ],
+          "label": "中部满版照片",
+          "description": "中部横向满版客户视频首帧，不含固定英文花体字与蝴蝶",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "横向人物与湖景适合中段宽幅窗口，人物位于右侧可避开右侧花体字",
+            "crop_center": [
+              0.52,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1435,
+            1440,
+            2560
+          ],
+          "label": "底部满版照片",
+          "description": "底部满版客户视频首帧，保留旅行人物与环境，不含固定手写字和花字",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_06638b50677afc7c",
+            "reason": "纵向海边全身人物适合底部高窗，可保留完整旅行人物",
+            "crop_center": [
+              0.5,
+              0.47
+            ]
+          }
+        },
+        {
+          "id": "art_top_left",
+          "kind": "overlay",
+          "bbox": [
+            35,
+            275,
+            610,
+            625
+          ],
+          "label": "左上春日手写字",
+          "description": "白色中文手写字、不负好春光主题字样、粉色spring与短划涂鸦组成的一整组固定艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "360a181ea0a6f907b903f2a0c543202bf2454145063939f6d8604dc176726bba"
+          },
+          "recovered": {
+            "sha256": "3ea360f061801059b6d7d9c267345ba81311f6963efd63267d291c8873c9fa46",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "art_top_right",
+          "kind": "overlay",
+          "bbox": [
+            1050,
+            155,
+            1350,
+            445
+          ],
+          "label": "右上花卉春字",
+          "description": "黄色手绘春字、绿色枝叶、橙红小花与粉色蝴蝶组成的完整装饰单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "0ed5787920ad6efa04b6db26299e32d9c12668a5ac339e775af87c2fe2f1cf40"
+          },
+          "recovered": {
+            "sha256": "d27ced060db4550ca4b1bb01048c81be6553f856aac7d3d1bcfc0aefdd9c6c30",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "art_middle_right",
+          "kind": "overlay",
+          "bbox": [
+            885,
+            875,
+            1305,
+            1225
+          ],
+          "label": "中部英文花体字",
+          "description": "右侧白色Sweet heart系列花体字及粉色蝴蝶组成的完整艺术字单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ee2ab56bda7bf0812960f10acd807ccffd8109bf2b054f5d965b1dfbbeaf0768"
+          },
+          "recovered": {
+            "sha256": "36eaf740c8ffd176a22feb04da5b2537f013e3e063070133cc733b1b6865c73d",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": [],
+          "extracted_offset": [
+            0,
+            130
+          ]
+        },
+        {
+          "id": "art_bottom_left",
+          "kind": "overlay",
+          "bbox": [
+            60,
+            1450,
+            330,
+            1995
+          ],
+          "label": "左下竖排春日文案",
+          "description": "白色竖排中文手写字、粉色圆形光晕、彩色点和蓝色蝴蝶组成的完整装饰单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "fcbd761c85349875e381a11c4f761b8fb65b33014f5fb5bfe84d9a76d96d0f72"
+          },
+          "recovered": {
+            "sha256": "2dd45375e1818d66f459aad7718fc5a4d75cb15d6c234045ce19864f97b7d72c",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": [],
+          "extracted_offset": [
+            0,
+            30
+          ]
+        },
+        {
+          "id": "art_bottom_upper_right",
+          "kind": "overlay",
+          "bbox": [
+            940,
+            1455,
+            1365,
+            1825
+          ],
+          "label": "右下上部手写字",
+          "description": "白色中文手写短句、绿色spring字样、蓝色蝴蝶与绿色叶片点缀组成的完整单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4061df091a99c00519c944c3ffd88d90b1180a885e8a9ae2d76a90d4b58de53a"
+          },
+          "recovered": {
+            "sha256": "74ab51a4402b389f8fe3b6f6a8b7705ac01af8dc1b159c81dd1bf7342272efde",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": [],
+          "extracted_offset": [
+            0,
+            40
+          ]
+        },
+        {
+          "id": "art_bottom_lower_right",
+          "kind": "overlay",
+          "bbox": [
+            1195,
+            2050,
+            1385,
+            2425
+          ],
+          "label": "右下春日物语竖字",
+          "description": "白色春日物语竖排艺术字；不包含参考图右下角平台水印与账号",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "552679968b24c577bd7f923773c7479d3548e440a477f39a09d51feaab994383"
+          },
+          "recovered": {
+            "sha256": "05f5b45fd86695fd85903bd72cf5c2647c9425d4584c1e86062cb025739788c8",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "art_top_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_top_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_middle_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_upper_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "art_bottom_lower_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "底层浅蓝灰底",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        2560
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/1d031a20ed1c5f49de06ea33",
+        "customer": null,
+        "final": "/api/tasks/654d3268a99aef37/images/4856030ea69f5bf586b88def"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_top",
+      "label": "顶部满版照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1440,
+        855
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/a0cd3be130b175e0aaf20050",
+        "customer": "/api/tasks/654d3268a99aef37/images/7bd64492c426ed86d092d393",
+        "final": "/api/tasks/654d3268a99aef37/images/1407d9837ac5d5ecf9ad3ab9"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle",
+      "label": "中部满版照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        855,
+        1440,
+        1435
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/5239a3feba3209e302f6d745",
+        "customer": "/api/tasks/654d3268a99aef37/images/ee294433ff6e117b5204f4e9",
+        "final": "/api/tasks/654d3268a99aef37/images/48413e7be98e4b9a1a99433e"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "底部满版照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1435,
+        1440,
+        2560
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/d5c534902ad023879f8c4995",
+        "customer": "/api/tasks/654d3268a99aef37/images/b9084f508ad651fa806a5e7a",
+        "final": "/api/tasks/654d3268a99aef37/images/18374b03c534f041b8ae68b6"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "art_top_left",
+      "label": "左上春日手写字",
+      "kind": "overlay",
+      "bbox": [
+        35,
+        275,
+        610,
+        625
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/cb12a746e61eb01a3bf059bf",
+        "customer": null,
+        "final": "/api/tasks/654d3268a99aef37/images/40eea9dfbf874c7dd2f1edd5",
+        "raw": "/api/tasks/654d3268a99aef37/images/5dc5c2a710bfea4ef58991dc",
+        "processed": "/api/tasks/654d3268a99aef37/images/824f3802178e6ab4a430c67b"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "360a181ea0a6f907b903f2a0c543202bf2454145063939f6d8604dc176726bba"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_top_right",
+      "label": "右上花卉春字",
+      "kind": "overlay",
+      "bbox": [
+        1050,
+        155,
+        1350,
+        445
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/6bd11c849db5fb6fa452ddd5",
+        "customer": null,
+        "final": "/api/tasks/654d3268a99aef37/images/998d9b1139f10b73d73ba960",
+        "raw": "/api/tasks/654d3268a99aef37/images/7e18aaa4a14864c8ffc88074",
+        "processed": "/api/tasks/654d3268a99aef37/images/d71387c82166a7685ca87a0a"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "0ed5787920ad6efa04b6db26299e32d9c12668a5ac339e775af87c2fe2f1cf40"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_middle_right",
+      "label": "中部英文花体字",
+      "kind": "overlay",
+      "bbox": [
+        885,
+        875,
+        1305,
+        1225
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/43e0c9e9d9a1d07f89ce39ea",
+        "customer": null,
+        "final": "/api/tasks/654d3268a99aef37/images/cfd8aed2cd13f63763ccaf72",
+        "raw": "/api/tasks/654d3268a99aef37/images/a2ef8fe9a8e4f227d8afb089",
+        "processed": "/api/tasks/654d3268a99aef37/images/eb3daf283d4eb6c751898369"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ee2ab56bda7bf0812960f10acd807ccffd8109bf2b054f5d965b1dfbbeaf0768"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_bottom_left",
+      "label": "左下竖排春日文案",
+      "kind": "overlay",
+      "bbox": [
+        60,
+        1450,
+        330,
+        1995
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/3763ceb30514b6b02c8fff77",
+        "customer": null,
+        "final": "/api/tasks/654d3268a99aef37/images/ae0b930e58f5c7b369315f1d",
+        "raw": "/api/tasks/654d3268a99aef37/images/1ec98bb7cfb0d122e864b126",
+        "processed": "/api/tasks/654d3268a99aef37/images/901e2d500691f42fffb15a51"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "fcbd761c85349875e381a11c4f761b8fb65b33014f5fb5bfe84d9a76d96d0f72"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_bottom_upper_right",
+      "label": "右下上部手写字",
+      "kind": "overlay",
+      "bbox": [
+        940,
+        1455,
+        1365,
+        1825
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/908af3ccc4dbc978de407802",
+        "customer": null,
+        "final": "/api/tasks/654d3268a99aef37/images/de62bc39e0b59f80539a6f28",
+        "raw": "/api/tasks/654d3268a99aef37/images/91cf9076ca34eb7e3eda1524",
+        "processed": "/api/tasks/654d3268a99aef37/images/bff0900ba83cb4a9f0971e36"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "4061df091a99c00519c944c3ffd88d90b1180a885e8a9ae2d76a90d4b58de53a"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_bottom_lower_right",
+      "label": "右下春日物语竖字",
+      "kind": "overlay",
+      "bbox": [
+        1195,
+        2050,
+        1385,
+        2425
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/654d3268a99aef37/images/df97611b2c7d83a4bed1af31",
+        "customer": null,
+        "final": "/api/tasks/654d3268a99aef37/images/d57146a964a948cb9e5b26b5",
+        "raw": "/api/tasks/654d3268a99aef37/images/c9cb3904d3f4279655e1be40",
+        "processed": "/api/tasks/654d3268a99aef37/images/1b9b7d2421a21f736f7992c1"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "552679968b24c577bd7f923773c7479d3548e440a477f39a09d51feaab994383"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "art_middle_right",
+        "art_top_left",
+        "art_top_right"
+      ],
+      "at": "2026-10-16T06:37:34.321016+00:00",
+      "error": "",
+      "available_ids": [
+        "art_middle_right",
+        "art_top_left",
+        "art_top_right"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 58.223,
+      "cache_hit": false
+    },
+    {
+      "status": "complete",
+      "ids": [
+        "art_bottom_left",
+        "art_bottom_lower_right",
+        "art_bottom_upper_right"
+      ],
+      "at": "2026-10-16T06:37:37.709729+00:00",
+      "error": "",
+      "available_ids": [
+        "art_bottom_left",
+        "art_bottom_lower_right",
+        "art_bottom_upper_right"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 61.611,
+      "cache_hit": false
+    }
+  ],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "art_top_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_top_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_middle_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_bottom_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_bottom_upper_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "art_bottom_lower_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "f105cbcce159a927",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已查看调整后的完整对照图与四处局部；三组跨接缝装饰已下移生效，三张客户照片完整可见且无遮挡脸。首版保留照片硬切与左下光晕、蓝蝶弱化的近似说明。",
+    "items": [],
+    "scene_sha256": "9c6f1c8a82793feb4fe3052cb8c03f884a03469fb00f901c0b3471db019a7acb",
+    "final_sha256": "8bfb216017bb4eb7e2d59340743a5b0af234b98297d351f3a0f8327db8abc11f"
+  },
+  "recording_incomplete": false
+}
