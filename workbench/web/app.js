@@ -35,6 +35,7 @@ const state = {
   focus: null,
   busy: false,
   tasks: [],
+  closedTaskGroups: new Set(),
   canvasKey: "",
   materialKeys: new Map(),
 };
@@ -95,17 +96,27 @@ function selectedVersion() {
   return d.versions.at(-1) || null;
 }
 function taskList() {
-  const term = $("#search").value.toLowerCase();
-  setHTML(
-    $("#tasks"),
-    state.tasks
-      .filter((t) => t.name.toLowerCase().includes(term))
-      .map(
-        (t) =>
-          `<button class="task ${t.id === state.id ? "active" : ""}" data-task="${t.id}">${t.thumbnail ? `<img src="${t.thumbnail}" alt="">` : ""}<span><strong>${escapeHTML(t.name)}</strong><small>${t.created_at ? new Date(t.created_at).toLocaleDateString("zh-CN") : ""}</small></span></button>`,
-      )
-      .join(""),
+  const term = $("#search").value.trim().toLowerCase();
+  const visible = state.tasks.filter((t) =>
+    [t.name, t.reference_name, t.group_label].some((value) => String(value || "").toLowerCase().includes(term)),
   );
+  const card = (t) => `<button class="task ${t.id === state.id ? "active" : ""}" data-task="${escapeHTML(t.id)}">${t.thumbnail ? `<img src="${escapeHTML(t.thumbnail)}" alt="">` : ""}<span><strong>${escapeHTML(t.reference_name || t.name)}</strong><small>${t.reference_name ? `${escapeHTML(t.name)} · ` : ""}${t.created_at ? new Date(t.created_at).toLocaleDateString("zh-CN") : ""}</small></span></button>`;
+  const grouped = state.tasks.some((task) => task.group);
+  $("#tasks").classList.toggle("task-list-grouped", grouped);
+  if (grouped) {
+    const groups = new Map();
+    for (const task of visible) {
+      const id = task.group || "history";
+      if (!groups.has(id)) groups.set(id, { label: task.group_label || "历史测试", tasks: [] });
+      groups.get(id).tasks.push(task);
+    }
+    setHTML($("#tasks"), [...groups].map(([id, group]) => {
+      const open = Boolean(term) || !state.closedTaskGroups.has(id);
+      return `<section class="task-group" data-task-group="${escapeHTML(id)}"><button class="task-group-toggle" data-task-group-toggle="${escapeHTML(id)}" aria-expanded="${open}"><span>${escapeHTML(group.label)}</span><span>${group.tasks.length} <span aria-hidden="true">${open ? "▾" : "▸"}</span></span></button><div class="task-group-items" ${open ? "" : "hidden"}>${group.tasks.map(card).join("")}</div></section>`;
+    }).join("") || '<p class="task-empty">没有匹配的项目</p>');
+  } else {
+    setHTML($("#tasks"), visible.map(card).join("") || '<p class="task-empty">没有匹配的项目</p>');
+  }
   $("#taskCount").textContent = state.tasks.length;
 }
 function selectTask(id) {
@@ -610,8 +621,19 @@ async function refresh() {
   const id = state.id;
   try {
     state.tasks = await api("/api/tasks");
-    if (!state.id && state.tasks.length) {
-      state.id = state.tasks[0].id;
+    if (!state.tasks.some((task) => task.id === state.id)) {
+      state.id = state.tasks[0]?.id || null;
+      state.data = null;
+      state.version = null;
+      state.stage = null;
+      state.focus = null;
+      state.canvasKey = "";
+      state.materialKeys.clear();
+      const url = new URL(location.href);
+      if (state.id) url.searchParams.set("task", state.id);
+      else url.searchParams.delete("task");
+      history.replaceState({}, "", url);
+      if (!state.id) renderPage();
     }
     taskList();
     if (state.id) {
@@ -633,6 +655,14 @@ async function refresh() {
   }
 }
 document.addEventListener("click", (e) => {
+  const taskGroup = e.target.closest("[data-task-group-toggle]");
+  if (taskGroup) {
+    const id = taskGroup.dataset.taskGroupToggle;
+    if (state.closedTaskGroups.has(id)) state.closedTaskGroups.delete(id);
+    else state.closedTaskGroups.add(id);
+    taskList();
+    return;
+  }
   const revealTopic = e.target.closest("[data-reveal-topic]");
   if (revealTopic) return selectRevealTopic(revealTopic.dataset.revealTopic);
   const revealZoom = e.target.closest("[data-reveal-zoom]");

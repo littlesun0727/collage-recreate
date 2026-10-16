@@ -1,0 +1,3823 @@
+{
+  "id": "368876ba2add87e8",
+  "name": "Live-367e7e0d0ea7",
+  "created_at": "2026-10-16T02:45:05.334660+00:00",
+  "reference_size": [
+    1080,
+    1440
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T05:15:53.277Z",
+    "finished_at": "2026-10-16T05:26:51.710794+00:00",
+    "elapsed_seconds": 658.389,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "label": "天空蓝底",
+      "description": "柔和天蓝色底，原图细微天空明暗作为弱质感近似",
+      "style": {
+        "fill": "#78B2D3",
+        "texture": "grain",
+        "opacity": 1
+      }
+    },
+    {
+      "id": "cloud_top_corner",
+      "kind": "overlay",
+      "bbox": [
+        954,
+        0,
+        1080,
+        137
+      ],
+      "label": "右上角云团",
+      "description": "画布右上角越界的暖白蓬松云团，保留柔软摄影质感和边缘",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_upper_right",
+      "kind": "overlay",
+      "bbox": [
+        773,
+        151,
+        1080,
+        305
+      ],
+      "label": "右上天空云带",
+      "description": "右上方横向暖白云带，位于照片后方",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_center",
+      "kind": "overlay",
+      "bbox": [
+        285,
+        775,
+        724,
+        1055
+      ],
+      "label": "中央积云",
+      "description": "画面中央从左下向右上隆起的暖白积云主体，位于照片与手绘标记后方",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_left_bank",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        835,
+        414,
+        1440
+      ],
+      "label": "左侧云海",
+      "description": "左侧与左下越界的大块暖白云海，包含柔和灰蓝阴影，位于照片后方",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_right_bank",
+      "kind": "overlay",
+      "bbox": [
+        912,
+        566,
+        1080,
+        1372
+      ],
+      "label": "右侧云海",
+      "description": "右边缘连续的暖白云柱和灰蓝阴影，位于照片后方",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_bottom_haze",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        1167,
+        1080,
+        1440
+      ],
+      "label": "底部云雾",
+      "description": "画布底部横向浅灰蓝云雾与柔光，作为天空背景的下缘层次",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        110,
+        258,
+        364,
+        509
+      ],
+      "label": "左上方形照片",
+      "description": "参考猫眼图位置的近方形客户照片窗口"
+    },
+    {
+      "id": "photo_top_center",
+      "kind": "photo",
+      "bbox": [
+        397,
+        104,
+        698,
+        506
+      ],
+      "label": "上中竖幅照片",
+      "description": "参考纸张图位置的竖幅客户照片窗口"
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        741,
+        261,
+        1023,
+        543
+      ],
+      "label": "右上方形照片",
+      "description": "参考卡片图位置的近方形客户照片窗口"
+    },
+    {
+      "id": "photo_mid_left",
+      "kind": "photo",
+      "bbox": [
+        39,
+        542,
+        306,
+        899
+      ],
+      "label": "左中竖幅照片",
+      "description": "参考蘑菇图位置的竖幅客户照片窗口"
+    },
+    {
+      "id": "photo_mid_center",
+      "kind": "photo",
+      "bbox": [
+        402,
+        619,
+        680,
+        760
+      ],
+      "label": "中央横幅照片",
+      "description": "参考双眼图位置的扁横幅客户照片窗口"
+    },
+    {
+      "id": "photo_mid_right",
+      "kind": "photo",
+      "bbox": [
+        741,
+        591,
+        1061,
+        829
+      ],
+      "label": "右中横幅照片",
+      "description": "参考长椅图位置的横幅客户照片窗口"
+    },
+    {
+      "id": "photo_low_left",
+      "kind": "photo",
+      "bbox": [
+        109,
+        933,
+        339,
+        1162
+      ],
+      "label": "左下方形照片",
+      "description": "参考手心星片图位置的近方形客户照片窗口"
+    },
+    {
+      "id": "photo_low_center",
+      "kind": "photo",
+      "bbox": [
+        413,
+        927,
+        684,
+        1287
+      ],
+      "label": "下中竖幅照片",
+      "description": "参考蜡烛图位置的竖幅客户照片窗口"
+    },
+    {
+      "id": "photo_low_right",
+      "kind": "photo",
+      "bbox": [
+        726,
+        859,
+        1016,
+        1148
+      ],
+      "label": "右下方形照片",
+      "description": "参考流星天空图位置的近方形客户照片窗口"
+    },
+    {
+      "id": "hand_arrow",
+      "kind": "overlay",
+      "bbox": [
+        493,
+        562,
+        701,
+        890
+      ],
+      "label": "白色手绘折线箭头",
+      "description": "中央照片旁由上向下折转的白色手绘双端指示线，保留不规则笔触",
+      "method": "extract"
+    },
+    {
+      "id": "star_sparkles",
+      "kind": "overlay",
+      "bbox": [
+        337,
+        475,
+        792,
+        1098
+      ],
+      "label": "白色星光点缀",
+      "description": "分散在中央云团周围的一组白色四角星与小星光，作为一个完整点缀组保留手绘光晕",
+      "method": "extract"
+    },
+    {
+      "id": "number_1",
+      "kind": "text",
+      "bbox": [
+        529,
+        79,
+        571,
+        130
+      ],
+      "label": "编号1",
+      "description": "上中照片顶部居中的白色手写编号",
+      "text": "1",
+      "text_status": "known",
+      "style": {
+        "font": "cjk-hand",
+        "font_size": 48,
+        "fill": "#FFFFFF",
+        "align": "center"
+      }
+    },
+    {
+      "id": "number_2",
+      "kind": "text",
+      "bbox": [
+        990,
+        762,
+        1036,
+        817
+      ],
+      "label": "编号2",
+      "description": "右中照片右下角的白色手写编号",
+      "text": "2",
+      "text_status": "known",
+      "style": {
+        "font": "cjk-hand",
+        "font_size": 48,
+        "fill": "#FFFFFF",
+        "align": "center"
+      }
+    },
+    {
+      "id": "number_3",
+      "kind": "text",
+      "bbox": [
+        532,
+        1261,
+        575,
+        1316
+      ],
+      "label": "编号3",
+      "description": "下中照片底部的白色手写编号",
+      "text": "3",
+      "text_status": "known",
+      "style": {
+        "font": "cjk-hand",
+        "font_size": 48,
+        "fill": "#FFFFFF",
+        "align": "center"
+      }
+    },
+    {
+      "id": "number_4",
+      "kind": "text",
+      "bbox": [
+        48,
+        641,
+        92,
+        717
+      ],
+      "label": "编号4",
+      "description": "左中照片左上区域的白色手写编号",
+      "text": "4",
+      "text_status": "known",
+      "style": {
+        "font": "cjk-hand",
+        "font_size": 56,
+        "fill": "#FFFFFF",
+        "align": "center"
+      }
+    },
+    {
+      "id": "footer_title",
+      "kind": "text",
+      "bbox": [
+        421,
+        1338,
+        724,
+        1391
+      ],
+      "label": "底部标题",
+      "description": "底部居中的白色中文标题",
+      "text": "20%细腻感知",
+      "text_status": "known",
+      "style": {
+        "font": "cjk",
+        "font_size": 36,
+        "fill": "#FFFFFF",
+        "align": "center"
+      }
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:45:05.342343+00:00",
+      "started_at": "2026-10-16T02:45:03.781155+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成9个照片窗口、天空云层、手绘箭头、星光与文字的分析绑定，并查看叠框确认定位",
+      "at": "2026-10-16T05:18:42.379507+00:00",
+      "started_at": "2026-10-16T05:18:22.629948+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:20:28.898783+00:00",
+      "started_at": "2026-10-16T05:18:42.594655+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已检查完整对照和提取素材，并隔离4个含参考残留或灰影的云层候选",
+      "at": "2026-10-16T05:21:59.943400+00:00",
+      "started_at": "2026-10-16T05:21:27.612876+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:23:13.496565+00:00",
+      "started_at": "2026-10-16T05:23:12.926945+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "已交付当前静态首版；9个客户照片窗口、编号、箭头、星光与文字已复核，4个复杂云层缺口如实登记为needs_changes",
+      "at": "2026-10-16T05:26:13.025193+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T05:23:13.497293+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:45:03.781155+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:45:05.342343+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:16:54.367816+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看参考图与客户视频首帧联系表，分析布局和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T05:18:22.629948+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:18:23.277647+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T05:18:42.379507+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成9个照片窗口、天空云层、手绘箭头、星光与文字的分析绑定，并查看叠框确认定位"
+    },
+    {
+      "at": "2026-10-16T05:18:42.594655+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:20:28.898783+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:20:46.135386+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在检查完整对照图与提取素材，核验云层、箭头、星光及参考内容残留"
+    },
+    {
+      "at": "2026-10-16T05:21:27.612876+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "筛选素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:21:30.982638+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "筛选素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:21:59.943400+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已检查完整对照和提取素材，并隔离4个含参考残留或灰影的云层候选"
+    },
+    {
+      "at": "2026-10-16T05:22:00.151228+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核筛选后的整图和指定局部，检查遮挡、裁切、文字与剩余素材完整性"
+    },
+    {
+      "at": "2026-10-16T05:23:12.926945+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:23:13.496565+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:26:13.025193+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "已交付当前静态首版；9个客户照片窗口、编号、箭头、星光与文字已复核，4个复杂云层缺口如实登记为needs_changes"
+    }
+  ],
+  "reference": "/api/tasks/368876ba2add87e8/images/2f1e91f91d92bb4c51b344c5",
+  "boxes": "/api/tasks/368876ba2add87e8/images/de46a0c5c810b3769c64c21c",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/368876ba2add87e8/images/c8d56ae6b37ca714aeb834ea"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/368876ba2add87e8/images/b48e921c90705769f1f4a2dc"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/368876ba2add87e8/images/c5476fd4090423885885fd2f"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/368876ba2add87e8/images/391673ffa82950fd25deaa47"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/368876ba2add87e8/images/15f05a18945bad350caa450d"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/368876ba2add87e8/images/e2a79f9e39e0bdad4af0ac52"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/368876ba2add87e8/images/2b6ce32bc988b7e9b1bbf625"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/368876ba2add87e8/images/54202f58216c61c414ff4cc6"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/368876ba2add87e8/images/48f3cdbc344c776efda849ae"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/368876ba2add87e8/images/44e17471009afb2c8da600ea"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/368876ba2add87e8/images/2ae5679afb0668378e09cb9e"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/368876ba2add87e8/images/78dc73b10fd1c350b80a51d8"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/368876ba2add87e8/images/63444989adf16b2717b1139a"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/368876ba2add87e8/images/dcf019dba0adb7ab8ca6cbbd"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/368876ba2add87e8/images/fbeb7aae2f73c5bc7ca1d234"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/368876ba2add87e8/images/87195f2386e4647e1c65b80b"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/368876ba2add87e8/images/c0540ad4fb47a393d7c7b668"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/368876ba2add87e8/images/e38f2337207fe1f47a33e17c"
+    }
+  ],
+  "current_image": "/api/tasks/368876ba2add87e8/images/ad645851f9b07eace5f396f2",
+  "first_image": "/api/tasks/368876ba2add87e8/images/8fd30e2c4b93db8ec3d61467",
+  "versions": [
+    {
+      "id": "0001-3122c252",
+      "parent_id": null,
+      "render_id": "d0c941033d92f9ba",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "天空蓝底",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/91514cd277ee2fcf32731318",
+            "final": "/api/tasks/368876ba2add87e8/images/a0dcc70946c695c821641d12",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "cloud_top_corner",
+          "label": "右上角云团",
+          "kind": "overlay",
+          "bbox": [
+            954,
+            0,
+            1080,
+            137
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/ca78bdc0daf6499bf004e18f",
+            "final": "/api/tasks/368876ba2add87e8/images/212ff421bdb66da61677de13",
+            "raw": "/api/tasks/368876ba2add87e8/images/5bcc898fd33b685724cc2075",
+            "processed": "/api/tasks/368876ba2add87e8/images/c2f8ece4a7dee1a62adeb3ca"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "da89eda032431a2cfd9f90c0b39a25cd4c68cd903dcb6856728fd6eb1416ff8d"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_upper_right",
+          "label": "右上天空云带",
+          "kind": "overlay",
+          "bbox": [
+            773,
+            151,
+            1080,
+            305
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/a0df2ab9a74564c290030753",
+            "final": "/api/tasks/368876ba2add87e8/images/f8670c4fc7062f9da0aa99f1",
+            "raw": "/api/tasks/368876ba2add87e8/images/081fef51dd5447e6bf25ff47",
+            "processed": "/api/tasks/368876ba2add87e8/images/71f2b81ab1c6b1611c756757"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "8c1e1b3e8f23c410dd3657ffcdb671c6429d7b08d9d3c2335f41b9b674144333"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_center",
+          "label": "中央积云",
+          "kind": "overlay",
+          "bbox": [
+            285,
+            775,
+            724,
+            1055
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/0d68b015b33b8a227e38b780",
+            "final": "/api/tasks/368876ba2add87e8/images/4e6c6d7600cfaf899881bcef",
+            "raw": "/api/tasks/368876ba2add87e8/images/44c1df47c30ea81f589a42b4",
+            "processed": "/api/tasks/368876ba2add87e8/images/da7d9fc029c5c6882b6a1588"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1be08ea2a29fa3bccddb807ba3a618805c9966cc0432b84ec5541e2b562ecf24"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_left_bank",
+          "label": "左侧云海",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            835,
+            414,
+            1440
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/4e2d1754f48bc4ed78538d4a",
+            "final": "/api/tasks/368876ba2add87e8/images/f54ee3675f2f66ea85b1ef44",
+            "raw": "/api/tasks/368876ba2add87e8/images/103de26564962c9d2f2e13d7",
+            "processed": "/api/tasks/368876ba2add87e8/images/bde74c6234895832eaf7d1e8"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6b7683005744effb0801bf7fa2fbf5536095f8f12ef8959687c1a97b1e942338"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_right_bank",
+          "label": "右侧云海",
+          "kind": "overlay",
+          "bbox": [
+            912,
+            566,
+            1080,
+            1372
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/59d1483dc9a09a8c9ed44a2d",
+            "final": "/api/tasks/368876ba2add87e8/images/392ae5825ed3bcc1280cdac0",
+            "raw": "/api/tasks/368876ba2add87e8/images/1fd2bb6af051fd5e285c009a",
+            "processed": "/api/tasks/368876ba2add87e8/images/0a2563f748e94f6e6d1aaefd"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9f8644948056b860b4c9b457b1f972987a678b08ca1e847511b6d075787fd3f5"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_bottom_haze",
+          "label": "底部云雾",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1167,
+            1080,
+            1440
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/86baf0b571df29dce931349c",
+            "final": "/api/tasks/368876ba2add87e8/images/6de5a5674e4643dfbd64eb07",
+            "raw": "/api/tasks/368876ba2add87e8/images/d110f59dcefb3c02b543c337",
+            "processed": "/api/tasks/368876ba2add87e8/images/f8be758549cbac0aa07c0683"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "31e21c5c73e4c974568cc6c62e0fc2cec82ba2626e3fbe8c4ed6c2b48e9b79ae"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_top_left",
+          "label": "左上方形照片",
+          "kind": "photo",
+          "bbox": [
+            110,
+            258,
+            364,
+            509
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/08e295108a02d906935f0a3d",
+            "final": "/api/tasks/368876ba2add87e8/images/a6ed0f92fddf871d880ffa4e",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top_center",
+          "label": "上中竖幅照片",
+          "kind": "photo",
+          "bbox": [
+            397,
+            104,
+            698,
+            506
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/a41324edf507f171b61c37c8",
+            "final": "/api/tasks/368876ba2add87e8/images/025be8429b237f8e6184ead2",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top_right",
+          "label": "右上方形照片",
+          "kind": "photo",
+          "bbox": [
+            741,
+            261,
+            1023,
+            543
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/70332b1abf5f5d3d451a5c41",
+            "final": "/api/tasks/368876ba2add87e8/images/c4edb0f2130494862bb02c76",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_mid_left",
+          "label": "左中竖幅照片",
+          "kind": "photo",
+          "bbox": [
+            39,
+            542,
+            306,
+            899
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/4d657f9c3c5bc9a58fba7d0e",
+            "final": "/api/tasks/368876ba2add87e8/images/7ae18e23651f3cb613bc2c41",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_mid_center",
+          "label": "中央横幅照片",
+          "kind": "photo",
+          "bbox": [
+            402,
+            619,
+            680,
+            760
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/369c737c3a48c4707bd31ed0",
+            "final": "/api/tasks/368876ba2add87e8/images/666cec19748f8d522f7db2be",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_mid_right",
+          "label": "右中横幅照片",
+          "kind": "photo",
+          "bbox": [
+            741,
+            591,
+            1061,
+            829
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/00bccd853e2e9ba41e2c37a8",
+            "final": "/api/tasks/368876ba2add87e8/images/a75db230ae0cb1925bdc7f2c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_low_left",
+          "label": "左下方形照片",
+          "kind": "photo",
+          "bbox": [
+            109,
+            933,
+            339,
+            1162
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/e98c840af880a987e9ef3306",
+            "final": "/api/tasks/368876ba2add87e8/images/c963b1aca9e95f72f302f27f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_low_center",
+          "label": "下中竖幅照片",
+          "kind": "photo",
+          "bbox": [
+            413,
+            927,
+            684,
+            1287
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/95e97dd4beea37c024468f8b",
+            "final": "/api/tasks/368876ba2add87e8/images/4eacda91b1ff483c27b12b2c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_low_right",
+          "label": "右下方形照片",
+          "kind": "photo",
+          "bbox": [
+            726,
+            859,
+            1016,
+            1148
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/35cc3c6c50d2f6ba584b2314",
+            "final": "/api/tasks/368876ba2add87e8/images/7e25bff6cb1cf9e720e81ebb",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "hand_arrow",
+          "label": "白色手绘折线箭头",
+          "kind": "overlay",
+          "bbox": [
+            493,
+            562,
+            701,
+            890
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/8a2276240c21608f7946beb7",
+            "final": "/api/tasks/368876ba2add87e8/images/a2046fad7c9f8a2b38f3fbdf",
+            "raw": "/api/tasks/368876ba2add87e8/images/e3a721c72941d8eb2d447f49",
+            "processed": "/api/tasks/368876ba2add87e8/images/b4c947dcb72e41ab1ce818d1"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "5b80a494b3e5eb1efc1fd107374f846cb9d4a629e0e5cfd4e26a514b3df5c406"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "star_sparkles",
+          "label": "白色星光点缀",
+          "kind": "overlay",
+          "bbox": [
+            337,
+            475,
+            792,
+            1098
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/1c2e14a5c5cb8dbff4fab989",
+            "final": "/api/tasks/368876ba2add87e8/images/0d091a8e3c33f7dd8302d48c",
+            "raw": "/api/tasks/368876ba2add87e8/images/93f0a463356e078805349fdf",
+            "processed": "/api/tasks/368876ba2add87e8/images/cb6e0eff352a8a555118a4aa"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1dc096524e0fa37f5fad97c29bf46b58a64bc4b7acef148d138a9cec27cf297f"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "number_1",
+          "label": "编号1",
+          "kind": "text",
+          "bbox": [
+            529,
+            79,
+            571,
+            130
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/c96e980661ad7c9adf860265",
+            "final": "/api/tasks/368876ba2add87e8/images/1d47c6307f34f873a9bd612c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "number_2",
+          "label": "编号2",
+          "kind": "text",
+          "bbox": [
+            990,
+            762,
+            1036,
+            817
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/0a408b6509fa10eac2b3d4f0",
+            "final": "/api/tasks/368876ba2add87e8/images/76d76d37e818fafacac3341a",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "number_3",
+          "label": "编号3",
+          "kind": "text",
+          "bbox": [
+            532,
+            1261,
+            575,
+            1316
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/550be03fde6fce3346c6094b",
+            "final": "/api/tasks/368876ba2add87e8/images/a43d4113eb51c16d7a4e246d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "number_4",
+          "label": "编号4",
+          "kind": "text",
+          "bbox": [
+            48,
+            641,
+            92,
+            717
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/9b85c00d08047102154544c6",
+            "final": "/api/tasks/368876ba2add87e8/images/0da602a7c43de4c6ed83f57f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "footer_title",
+          "label": "底部标题",
+          "kind": "text",
+          "bbox": [
+            421,
+            1338,
+            724,
+            1391
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/dca88324b3d060a24d09c17c",
+            "final": "/api/tasks/368876ba2add87e8/images/fa1bbfd91cdd08bb9e22933b",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T05:20:28.888613+00:00",
+      "image": "/api/tasks/368876ba2add87e8/images/fd58fcef967c963e87899e60",
+      "artifacts": {
+        "final.png": "/api/tasks/368876ba2add87e8/images/fd58fcef967c963e87899e60",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/368876ba2add87e8/images/7832a44d0b0054819f04e95e",
+        "previews/comparison.png": "/api/tasks/368876ba2add87e8/images/215e73420660c93364d30bc3",
+        "material:background": "/api/tasks/368876ba2add87e8/images/a0dcc70946c695c821641d12",
+        "material:cloud_top_corner": "/api/tasks/368876ba2add87e8/images/212ff421bdb66da61677de13",
+        "processed:cloud_top_corner": "/api/tasks/368876ba2add87e8/images/c2f8ece4a7dee1a62adeb3ca",
+        "raw:cloud_top_corner": "/api/tasks/368876ba2add87e8/images/5bcc898fd33b685724cc2075",
+        "material:cloud_upper_right": "/api/tasks/368876ba2add87e8/images/f8670c4fc7062f9da0aa99f1",
+        "processed:cloud_upper_right": "/api/tasks/368876ba2add87e8/images/71f2b81ab1c6b1611c756757",
+        "raw:cloud_upper_right": "/api/tasks/368876ba2add87e8/images/081fef51dd5447e6bf25ff47",
+        "material:cloud_center": "/api/tasks/368876ba2add87e8/images/4e6c6d7600cfaf899881bcef",
+        "processed:cloud_center": "/api/tasks/368876ba2add87e8/images/da7d9fc029c5c6882b6a1588",
+        "raw:cloud_center": "/api/tasks/368876ba2add87e8/images/44c1df47c30ea81f589a42b4",
+        "material:cloud_left_bank": "/api/tasks/368876ba2add87e8/images/f54ee3675f2f66ea85b1ef44",
+        "processed:cloud_left_bank": "/api/tasks/368876ba2add87e8/images/bde74c6234895832eaf7d1e8",
+        "raw:cloud_left_bank": "/api/tasks/368876ba2add87e8/images/103de26564962c9d2f2e13d7",
+        "material:cloud_right_bank": "/api/tasks/368876ba2add87e8/images/392ae5825ed3bcc1280cdac0",
+        "processed:cloud_right_bank": "/api/tasks/368876ba2add87e8/images/0a2563f748e94f6e6d1aaefd",
+        "raw:cloud_right_bank": "/api/tasks/368876ba2add87e8/images/1fd2bb6af051fd5e285c009a",
+        "material:cloud_bottom_haze": "/api/tasks/368876ba2add87e8/images/6de5a5674e4643dfbd64eb07",
+        "processed:cloud_bottom_haze": "/api/tasks/368876ba2add87e8/images/f8be758549cbac0aa07c0683",
+        "raw:cloud_bottom_haze": "/api/tasks/368876ba2add87e8/images/d110f59dcefb3c02b543c337",
+        "material:photo_top_left": "/api/tasks/368876ba2add87e8/images/a6ed0f92fddf871d880ffa4e",
+        "material:photo_top_center": "/api/tasks/368876ba2add87e8/images/025be8429b237f8e6184ead2",
+        "material:photo_top_right": "/api/tasks/368876ba2add87e8/images/c4edb0f2130494862bb02c76",
+        "material:photo_mid_left": "/api/tasks/368876ba2add87e8/images/7ae18e23651f3cb613bc2c41",
+        "material:photo_mid_center": "/api/tasks/368876ba2add87e8/images/666cec19748f8d522f7db2be",
+        "material:photo_mid_right": "/api/tasks/368876ba2add87e8/images/a75db230ae0cb1925bdc7f2c",
+        "material:photo_low_left": "/api/tasks/368876ba2add87e8/images/c963b1aca9e95f72f302f27f",
+        "material:photo_low_center": "/api/tasks/368876ba2add87e8/images/4eacda91b1ff483c27b12b2c",
+        "material:photo_low_right": "/api/tasks/368876ba2add87e8/images/7e25bff6cb1cf9e720e81ebb",
+        "material:hand_arrow": "/api/tasks/368876ba2add87e8/images/a2046fad7c9f8a2b38f3fbdf",
+        "processed:hand_arrow": "/api/tasks/368876ba2add87e8/images/b4c947dcb72e41ab1ce818d1",
+        "raw:hand_arrow": "/api/tasks/368876ba2add87e8/images/e3a721c72941d8eb2d447f49",
+        "material:star_sparkles": "/api/tasks/368876ba2add87e8/images/0d091a8e3c33f7dd8302d48c",
+        "processed:star_sparkles": "/api/tasks/368876ba2add87e8/images/cb6e0eff352a8a555118a4aa",
+        "raw:star_sparkles": "/api/tasks/368876ba2add87e8/images/93f0a463356e078805349fdf",
+        "material:number_1": "/api/tasks/368876ba2add87e8/images/1d47c6307f34f873a9bd612c",
+        "material:number_2": "/api/tasks/368876ba2add87e8/images/76d76d37e818fafacac3341a",
+        "material:number_3": "/api/tasks/368876ba2add87e8/images/a43d4113eb51c16d7a4e246d",
+        "material:number_4": "/api/tasks/368876ba2add87e8/images/0da602a7c43de4c6ed83f57f",
+        "material:footer_title": "/api/tasks/368876ba2add87e8/images/fa1bbfd91cdd08bb9e22933b",
+        "sheet:0": "/api/tasks/368876ba2add87e8/images/51dd84f5da9da61393d18ca6",
+        "sheet:1": "/api/tasks/368876ba2add87e8/images/5d8bec4b75e30a11d88325f4",
+        "previews/review-detail-1.png": "/api/tasks/368876ba2add87e8/images/1257abbb4c76b6bc66ea3259",
+        "previews/review-detail-2.png": "/api/tasks/368876ba2add87e8/images/85268ced56689abc5f1a62a9",
+        "previews/review-detail-3.png": "/api/tasks/368876ba2add87e8/images/badc15d3bc6ea00d1e351c2d",
+        "previews/review-detail-4.png": "/api/tasks/368876ba2add87e8/images/e00a79906e837a3899faa5de"
+      },
+      "changes": [],
+      "intent": {},
+      "review": null,
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "天空蓝底",
+          "description": "柔和天蓝色底，原图细微天空明暗作为弱质感近似",
+          "style": {
+            "fill": "#78B2D3",
+            "texture": "grain",
+            "opacity": 1
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "cloud_top_corner",
+          "kind": "overlay",
+          "bbox": [
+            954,
+            0,
+            1080,
+            137
+          ],
+          "label": "右上角云团",
+          "description": "画布右上角越界的暖白蓬松云团，保留柔软摄影质感和边缘",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "da89eda032431a2cfd9f90c0b39a25cd4c68cd903dcb6856728fd6eb1416ff8d"
+          },
+          "recovered": {
+            "sha256": "7c930955d0c8a9f4a0adab79e2539c8836d048fb9009bb10df04e08646e2c6b6",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_upper_right",
+          "kind": "overlay",
+          "bbox": [
+            773,
+            151,
+            1080,
+            305
+          ],
+          "label": "右上天空云带",
+          "description": "右上方横向暖白云带，位于照片后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "8c1e1b3e8f23c410dd3657ffcdb671c6429d7b08d9d3c2335f41b9b674144333"
+          },
+          "recovered": {
+            "sha256": "a7d3137231d643f58bfa4e3dc1e72f060665e38b042f094671697b1ffec2ea7d",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_center",
+          "kind": "overlay",
+          "bbox": [
+            285,
+            775,
+            724,
+            1055
+          ],
+          "label": "中央积云",
+          "description": "画面中央从左下向右上隆起的暖白积云主体，位于照片与手绘标记后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1be08ea2a29fa3bccddb807ba3a618805c9966cc0432b84ec5541e2b562ecf24"
+          },
+          "recovered": {
+            "sha256": "49c3a9f3c8e44738e898dc26d9867edfccf5d33b40c451121f19be05044a6379",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_left_bank",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            835,
+            414,
+            1440
+          ],
+          "label": "左侧云海",
+          "description": "左侧与左下越界的大块暖白云海，包含柔和灰蓝阴影，位于照片后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6b7683005744effb0801bf7fa2fbf5536095f8f12ef8959687c1a97b1e942338"
+          },
+          "recovered": {
+            "sha256": "b448d2b574abb70037b49fbcabdadb6537b4ec2d09a3324f40ff35d60a79d78b",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_right_bank",
+          "kind": "overlay",
+          "bbox": [
+            912,
+            566,
+            1080,
+            1372
+          ],
+          "label": "右侧云海",
+          "description": "右边缘连续的暖白云柱和灰蓝阴影，位于照片后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9f8644948056b860b4c9b457b1f972987a678b08ca1e847511b6d075787fd3f5"
+          },
+          "recovered": {
+            "sha256": "0f5a7df526bb9db6cc5a4e6141824e57c98afcb0648781634678993e47b1cb05",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_bottom_haze",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1167,
+            1080,
+            1440
+          ],
+          "label": "底部云雾",
+          "description": "画布底部横向浅灰蓝云雾与柔光，作为天空背景的下缘层次",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "31e21c5c73e4c974568cc6c62e0fc2cec82ba2626e3fbe8c4ed6c2b48e9b79ae"
+          },
+          "recovered": {
+            "sha256": "e8d5231ceefd8305c554afc58d2013e86003505e186c3c8225a46234435178d0",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_top_left",
+          "kind": "photo",
+          "bbox": [
+            110,
+            258,
+            364,
+            509
+          ],
+          "label": "左上方形照片",
+          "description": "参考猫眼图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_left",
+            "asset_id": "asset_f4e6838a79ca6adc",
+            "reason": "人物近景适合左上紧凑窗口",
+            "crop_center": [
+              0.5,
+              0.38
+            ]
+          }
+        },
+        {
+          "id": "photo_top_center",
+          "kind": "photo",
+          "bbox": [
+            397,
+            104,
+            698,
+            506
+          ],
+          "label": "上中竖幅照片",
+          "description": "参考纸张图位置的竖幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_center",
+            "asset_id": "asset_04c2d3e1b7f8314b",
+            "reason": "竖幅人物与上中纵向窗口比例匹配",
+            "crop_center": [
+              0.5,
+              0.48
+            ]
+          }
+        },
+        {
+          "id": "photo_top_right",
+          "kind": "photo",
+          "bbox": [
+            741,
+            261,
+            1023,
+            543
+          ],
+          "label": "右上方形照片",
+          "description": "参考卡片图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_right",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "人物与湖面横向环境适合近方形窗口",
+            "crop_center": [
+              0.62,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_mid_left",
+          "kind": "photo",
+          "bbox": [
+            39,
+            542,
+            306,
+            899
+          ],
+          "label": "左中竖幅照片",
+          "description": "参考蘑菇图位置的竖幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_mid_left",
+            "asset_id": "asset_06638b50677afc7c",
+            "reason": "竖幅全身人物适合左中高窄窗口",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_mid_center",
+          "kind": "photo",
+          "bbox": [
+            402,
+            619,
+            680,
+            760
+          ],
+          "label": "中央横幅照片",
+          "description": "参考双眼图位置的扁横幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_mid_center",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "近景人物可在中央扁横窗口形成视觉焦点",
+            "crop_center": [
+              0.5,
+              0.35
+            ]
+          }
+        },
+        {
+          "id": "photo_mid_right",
+          "kind": "photo",
+          "bbox": [
+            741,
+            591,
+            1061,
+            829
+          ],
+          "label": "右中横幅照片",
+          "description": "参考长椅图位置的横幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_mid_right",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽湖岸画面适合右中横幅窗口",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_low_left",
+          "kind": "photo",
+          "bbox": [
+            109,
+            933,
+            339,
+            1162
+          ],
+          "label": "左下方形照片",
+          "description": "参考手心星片图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_low_left",
+            "asset_id": "asset_9868e13cfdc69c46",
+            "reason": "人物姿态适合左下近方形窗口",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "photo_low_center",
+          "kind": "photo",
+          "bbox": [
+            413,
+            927,
+            684,
+            1287
+          ],
+          "label": "下中竖幅照片",
+          "description": "参考蜡烛图位置的竖幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_low_center",
+            "asset_id": "asset_6cad0072779df484",
+            "reason": "日落人物竖幅适合下中纵向窗口",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_low_right",
+          "kind": "photo",
+          "bbox": [
+            726,
+            859,
+            1016,
+            1148
+          ],
+          "label": "右下方形照片",
+          "description": "参考流星天空图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_low_right",
+            "asset_id": "asset_fce89c38adda66d5",
+            "reason": "湖岸风景适合右下近方形窗口",
+            "crop_center": [
+              0.5,
+              0.45
+            ]
+          }
+        },
+        {
+          "id": "hand_arrow",
+          "kind": "overlay",
+          "bbox": [
+            493,
+            562,
+            701,
+            890
+          ],
+          "label": "白色手绘折线箭头",
+          "description": "中央照片旁由上向下折转的白色手绘双端指示线，保留不规则笔触",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "5b80a494b3e5eb1efc1fd107374f846cb9d4a629e0e5cfd4e26a514b3df5c406"
+          },
+          "recovered": {
+            "sha256": "c84f4b84ca61d9a614ea18b3dc581b538cf752a609a8e4360867c63fc65ef7fa",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "star_sparkles",
+          "kind": "overlay",
+          "bbox": [
+            337,
+            475,
+            792,
+            1098
+          ],
+          "label": "白色星光点缀",
+          "description": "分散在中央云团周围的一组白色四角星与小星光，作为一个完整点缀组保留手绘光晕",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1dc096524e0fa37f5fad97c29bf46b58a64bc4b7acef148d138a9cec27cf297f"
+          },
+          "recovered": {
+            "sha256": "670159b2cded3fd1cd46cc723b3d437d8d9cb7f412b4197403ede3f064bb8b34",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "number_1",
+          "kind": "text",
+          "bbox": [
+            529,
+            79,
+            571,
+            130
+          ],
+          "label": "编号1",
+          "description": "上中照片顶部居中的白色手写编号",
+          "text": "1",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 48,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "number_2",
+          "kind": "text",
+          "bbox": [
+            990,
+            762,
+            1036,
+            817
+          ],
+          "label": "编号2",
+          "description": "右中照片右下角的白色手写编号",
+          "text": "2",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 48,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "number_3",
+          "kind": "text",
+          "bbox": [
+            532,
+            1261,
+            575,
+            1316
+          ],
+          "label": "编号3",
+          "description": "下中照片底部的白色手写编号",
+          "text": "3",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 48,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "number_4",
+          "kind": "text",
+          "bbox": [
+            48,
+            641,
+            92,
+            717
+          ],
+          "label": "编号4",
+          "description": "左中照片左上区域的白色手写编号",
+          "text": "4",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 56,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "footer_title",
+          "kind": "text",
+          "bbox": [
+            421,
+            1338,
+            724,
+            1391
+          ],
+          "label": "底部标题",
+          "description": "底部居中的白色中文标题",
+          "text": "20%细腻感知",
+          "text_status": "known",
+          "style": {
+            "font": "cjk",
+            "font_size": 36,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "cloud_top_corner",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_upper_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_center",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_left_bank",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_right_bank",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_bottom_haze",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "hand_arrow",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "star_sparkles",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0002-07514ac3",
+      "parent_id": "0001-3122c252",
+      "render_id": "573a82235c9768d4",
+      "command": "screen",
+      "materials": [
+        {
+          "id": "background",
+          "label": "天空蓝底",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/91514cd277ee2fcf32731318",
+            "final": "/api/tasks/368876ba2add87e8/images/a21a3490d20da37a1f8b6a76",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "cloud_top_corner",
+          "label": "右上角云团",
+          "kind": "overlay",
+          "bbox": [
+            954,
+            0,
+            1080,
+            137
+          ],
+          "method": "参考提取",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/ca78bdc0daf6499bf004e18f",
+            "final": "/api/tasks/368876ba2add87e8/images/79d8f2bf6b0aa822f53daa53",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "da89eda032431a2cfd9f90c0b39a25cd4c68cd903dcb6856728fd6eb1416ff8d"
+          },
+          "note": "Screen rejected extracted layer: 实际检查提取表与整图后发现右上角候选形成块状灰影，未保留干净云缘"
+        },
+        {
+          "id": "cloud_upper_right",
+          "label": "右上天空云带",
+          "kind": "overlay",
+          "bbox": [
+            773,
+            151,
+            1080,
+            305
+          ],
+          "method": "参考提取",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/a0df2ab9a74564c290030753",
+            "final": "/api/tasks/368876ba2add87e8/images/1583b6d6a011edeb3cbbd76a",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "8c1e1b3e8f23c410dd3657ffcdb671c6429d7b08d9d3c2335f41b9b674144333"
+          },
+          "note": "Screen rejected extracted layer: 实际检查发现候选只留下大面积不自然斜向阴影，不能代表原云带"
+        },
+        {
+          "id": "cloud_center",
+          "label": "中央积云",
+          "kind": "overlay",
+          "bbox": [
+            285,
+            775,
+            724,
+            1055
+          ],
+          "method": "参考提取",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/0d68b015b33b8a227e38b780",
+            "final": "/api/tasks/368876ba2add87e8/images/bdae4ff7b8b52654a87c07ce",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "1be08ea2a29fa3bccddb807ba3a618805c9966cc0432b84ec5541e2b562ecf24"
+          },
+          "note": "Screen rejected extracted layer: 实际检查提取表发现中央云层候选混入下方蜡烛照片的橙色残片"
+        },
+        {
+          "id": "cloud_left_bank",
+          "label": "左侧云海",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            835,
+            414,
+            1440
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/4e2d1754f48bc4ed78538d4a",
+            "final": "/api/tasks/368876ba2add87e8/images/6c8d5bbbc16e339142fd8508",
+            "raw": "/api/tasks/368876ba2add87e8/images/ac0b987b4be870245a5ede4b",
+            "processed": "/api/tasks/368876ba2add87e8/images/5b05eb6972d0f8da136002d6"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6b7683005744effb0801bf7fa2fbf5536095f8f12ef8959687c1a97b1e942338"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_right_bank",
+          "label": "右侧云海",
+          "kind": "overlay",
+          "bbox": [
+            912,
+            566,
+            1080,
+            1372
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/59d1483dc9a09a8c9ed44a2d",
+            "final": "/api/tasks/368876ba2add87e8/images/65605148936b8ed6500cc982",
+            "raw": "/api/tasks/368876ba2add87e8/images/ec3acc9c6a05ce9bc5b06f4e",
+            "processed": "/api/tasks/368876ba2add87e8/images/00e992256cf953bf654c3372"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9f8644948056b860b4c9b457b1f972987a678b08ca1e847511b6d075787fd3f5"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_bottom_haze",
+          "label": "底部云雾",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1167,
+            1080,
+            1440
+          ],
+          "method": "参考提取",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/86baf0b571df29dce931349c",
+            "final": "/api/tasks/368876ba2add87e8/images/fa947416b024f11b5acb2eb7",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "31e21c5c73e4c974568cc6c62e0fc2cec82ba2626e3fbe8c4ed6c2b48e9b79ae"
+          },
+          "note": "Screen rejected extracted layer: 实际检查发现候选带入编号和底部标题，造成重复文字，并含下中照片残留"
+        },
+        {
+          "id": "photo_top_left",
+          "label": "左上方形照片",
+          "kind": "photo",
+          "bbox": [
+            110,
+            258,
+            364,
+            509
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/08e295108a02d906935f0a3d",
+            "final": "/api/tasks/368876ba2add87e8/images/ad8403096a173aa20c29257e",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top_center",
+          "label": "上中竖幅照片",
+          "kind": "photo",
+          "bbox": [
+            397,
+            104,
+            698,
+            506
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/a41324edf507f171b61c37c8",
+            "final": "/api/tasks/368876ba2add87e8/images/474b1937c912b8dd0cb52269",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top_right",
+          "label": "右上方形照片",
+          "kind": "photo",
+          "bbox": [
+            741,
+            261,
+            1023,
+            543
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/70332b1abf5f5d3d451a5c41",
+            "final": "/api/tasks/368876ba2add87e8/images/2b496ef1bd0c9bce21270d69",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_mid_left",
+          "label": "左中竖幅照片",
+          "kind": "photo",
+          "bbox": [
+            39,
+            542,
+            306,
+            899
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/4d657f9c3c5bc9a58fba7d0e",
+            "final": "/api/tasks/368876ba2add87e8/images/f68c8696b657d5262ecd1d64",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_mid_center",
+          "label": "中央横幅照片",
+          "kind": "photo",
+          "bbox": [
+            402,
+            619,
+            680,
+            760
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/369c737c3a48c4707bd31ed0",
+            "final": "/api/tasks/368876ba2add87e8/images/bcaed187fa7c8c663fd529ac",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_mid_right",
+          "label": "右中横幅照片",
+          "kind": "photo",
+          "bbox": [
+            741,
+            591,
+            1061,
+            829
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/00bccd853e2e9ba41e2c37a8",
+            "final": "/api/tasks/368876ba2add87e8/images/2da8f2e32faa59e256a6e54a",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_low_left",
+          "label": "左下方形照片",
+          "kind": "photo",
+          "bbox": [
+            109,
+            933,
+            339,
+            1162
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/e98c840af880a987e9ef3306",
+            "final": "/api/tasks/368876ba2add87e8/images/9a49cec53037be9eaa02f73c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_low_center",
+          "label": "下中竖幅照片",
+          "kind": "photo",
+          "bbox": [
+            413,
+            927,
+            684,
+            1287
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/95e97dd4beea37c024468f8b",
+            "final": "/api/tasks/368876ba2add87e8/images/18d194dd31ce01cc0920ec91",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_low_right",
+          "label": "右下方形照片",
+          "kind": "photo",
+          "bbox": [
+            726,
+            859,
+            1016,
+            1148
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/35cc3c6c50d2f6ba584b2314",
+            "final": "/api/tasks/368876ba2add87e8/images/62f77fd4a95c2dbcaf5e5461",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "hand_arrow",
+          "label": "白色手绘折线箭头",
+          "kind": "overlay",
+          "bbox": [
+            493,
+            562,
+            701,
+            890
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/8a2276240c21608f7946beb7",
+            "final": "/api/tasks/368876ba2add87e8/images/c93cdb675d94ae6d323c7b68",
+            "raw": "/api/tasks/368876ba2add87e8/images/fefe30e1ad580feda2f753fc",
+            "processed": "/api/tasks/368876ba2add87e8/images/fa12f359874e6a3c602a2b05"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "5b80a494b3e5eb1efc1fd107374f846cb9d4a629e0e5cfd4e26a514b3df5c406"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "star_sparkles",
+          "label": "白色星光点缀",
+          "kind": "overlay",
+          "bbox": [
+            337,
+            475,
+            792,
+            1098
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/1c2e14a5c5cb8dbff4fab989",
+            "final": "/api/tasks/368876ba2add87e8/images/6b7bc4f2c7cb9b3d893c847b",
+            "raw": "/api/tasks/368876ba2add87e8/images/cc1eb0e968b42603421b67e0",
+            "processed": "/api/tasks/368876ba2add87e8/images/1638f549ce53232066f782d4"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1dc096524e0fa37f5fad97c29bf46b58a64bc4b7acef148d138a9cec27cf297f"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "number_1",
+          "label": "编号1",
+          "kind": "text",
+          "bbox": [
+            529,
+            79,
+            571,
+            130
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/c96e980661ad7c9adf860265",
+            "final": "/api/tasks/368876ba2add87e8/images/396391b53b88dd62b47a131e",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "number_2",
+          "label": "编号2",
+          "kind": "text",
+          "bbox": [
+            990,
+            762,
+            1036,
+            817
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/0a408b6509fa10eac2b3d4f0",
+            "final": "/api/tasks/368876ba2add87e8/images/1757d511d33115d0bf74ab6f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "number_3",
+          "label": "编号3",
+          "kind": "text",
+          "bbox": [
+            532,
+            1261,
+            575,
+            1316
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/550be03fde6fce3346c6094b",
+            "final": "/api/tasks/368876ba2add87e8/images/6ade43f274930abbec6b6618",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "number_4",
+          "label": "编号4",
+          "kind": "text",
+          "bbox": [
+            48,
+            641,
+            92,
+            717
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/9b85c00d08047102154544c6",
+            "final": "/api/tasks/368876ba2add87e8/images/66729058580d0e9aa9568998",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "footer_title",
+          "label": "底部标题",
+          "kind": "text",
+          "bbox": [
+            421,
+            1338,
+            724,
+            1391
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/368876ba2add87e8/images/dca88324b3d060a24d09c17c",
+            "final": "/api/tasks/368876ba2add87e8/images/41e839366885bfb3fda45fde",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "筛选素材",
+      "at": "2026-10-16T05:21:30.971781+00:00",
+      "image": "/api/tasks/368876ba2add87e8/images/ad645851f9b07eace5f396f2",
+      "artifacts": {
+        "final.png": "/api/tasks/368876ba2add87e8/images/ad645851f9b07eace5f396f2",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/368876ba2add87e8/images/521f68bf52d04192d4380853",
+        "previews/comparison.png": "/api/tasks/368876ba2add87e8/images/b33fef9e2db4a2bec119caf9",
+        "material:background": "/api/tasks/368876ba2add87e8/images/a21a3490d20da37a1f8b6a76",
+        "material:cloud_top_corner": "/api/tasks/368876ba2add87e8/images/79d8f2bf6b0aa822f53daa53",
+        "material:cloud_upper_right": "/api/tasks/368876ba2add87e8/images/1583b6d6a011edeb3cbbd76a",
+        "material:cloud_center": "/api/tasks/368876ba2add87e8/images/bdae4ff7b8b52654a87c07ce",
+        "material:cloud_left_bank": "/api/tasks/368876ba2add87e8/images/6c8d5bbbc16e339142fd8508",
+        "processed:cloud_left_bank": "/api/tasks/368876ba2add87e8/images/5b05eb6972d0f8da136002d6",
+        "raw:cloud_left_bank": "/api/tasks/368876ba2add87e8/images/ac0b987b4be870245a5ede4b",
+        "material:cloud_right_bank": "/api/tasks/368876ba2add87e8/images/65605148936b8ed6500cc982",
+        "processed:cloud_right_bank": "/api/tasks/368876ba2add87e8/images/00e992256cf953bf654c3372",
+        "raw:cloud_right_bank": "/api/tasks/368876ba2add87e8/images/ec3acc9c6a05ce9bc5b06f4e",
+        "material:cloud_bottom_haze": "/api/tasks/368876ba2add87e8/images/fa947416b024f11b5acb2eb7",
+        "material:photo_top_left": "/api/tasks/368876ba2add87e8/images/ad8403096a173aa20c29257e",
+        "material:photo_top_center": "/api/tasks/368876ba2add87e8/images/474b1937c912b8dd0cb52269",
+        "material:photo_top_right": "/api/tasks/368876ba2add87e8/images/2b496ef1bd0c9bce21270d69",
+        "material:photo_mid_left": "/api/tasks/368876ba2add87e8/images/f68c8696b657d5262ecd1d64",
+        "material:photo_mid_center": "/api/tasks/368876ba2add87e8/images/bcaed187fa7c8c663fd529ac",
+        "material:photo_mid_right": "/api/tasks/368876ba2add87e8/images/2da8f2e32faa59e256a6e54a",
+        "material:photo_low_left": "/api/tasks/368876ba2add87e8/images/9a49cec53037be9eaa02f73c",
+        "material:photo_low_center": "/api/tasks/368876ba2add87e8/images/18d194dd31ce01cc0920ec91",
+        "material:photo_low_right": "/api/tasks/368876ba2add87e8/images/62f77fd4a95c2dbcaf5e5461",
+        "material:hand_arrow": "/api/tasks/368876ba2add87e8/images/c93cdb675d94ae6d323c7b68",
+        "processed:hand_arrow": "/api/tasks/368876ba2add87e8/images/fa12f359874e6a3c602a2b05",
+        "raw:hand_arrow": "/api/tasks/368876ba2add87e8/images/fefe30e1ad580feda2f753fc",
+        "material:star_sparkles": "/api/tasks/368876ba2add87e8/images/6b7bc4f2c7cb9b3d893c847b",
+        "processed:star_sparkles": "/api/tasks/368876ba2add87e8/images/1638f549ce53232066f782d4",
+        "raw:star_sparkles": "/api/tasks/368876ba2add87e8/images/cc1eb0e968b42603421b67e0",
+        "material:number_1": "/api/tasks/368876ba2add87e8/images/396391b53b88dd62b47a131e",
+        "material:number_2": "/api/tasks/368876ba2add87e8/images/1757d511d33115d0bf74ab6f",
+        "material:number_3": "/api/tasks/368876ba2add87e8/images/6ade43f274930abbec6b6618",
+        "material:number_4": "/api/tasks/368876ba2add87e8/images/66729058580d0e9aa9568998",
+        "material:footer_title": "/api/tasks/368876ba2add87e8/images/41e839366885bfb3fda45fde",
+        "sheet:0": "/api/tasks/368876ba2add87e8/images/a57c62d135f3036da3abd975",
+        "previews/review-detail-1.png": "/api/tasks/368876ba2add87e8/images/ef4817156c23b9daf59f2521",
+        "previews/review-detail-2.png": "/api/tasks/368876ba2add87e8/images/bd4f4acfabf456f6faca8674",
+        "previews/review-detail-3.png": "/api/tasks/368876ba2add87e8/images/da76a03888a37fbba73d5f4f",
+        "previews/review-detail-4.png": "/api/tasks/368876ba2add87e8/images/1bb078d5997674aca98fecb9"
+      },
+      "changes": [
+        {
+          "id": "cloud_top_corner",
+          "label": "右上角云团",
+          "bbox": [
+            954,
+            0,
+            1080,
+            137
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "da89eda032431a2cfd9f90c0b39a25cd4c68cd903dcb6856728fd6eb1416ff8d"
+              },
+              "after": {
+                "status": "rejected",
+                "basis": "visual",
+                "input_key": "da89eda032431a2cfd9f90c0b39a25cd4c68cd903dcb6856728fd6eb1416ff8d"
+              }
+            }
+          }
+        },
+        {
+          "id": "cloud_upper_right",
+          "label": "右上天空云带",
+          "bbox": [
+            773,
+            151,
+            1080,
+            305
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "8c1e1b3e8f23c410dd3657ffcdb671c6429d7b08d9d3c2335f41b9b674144333"
+              },
+              "after": {
+                "status": "rejected",
+                "basis": "visual",
+                "input_key": "8c1e1b3e8f23c410dd3657ffcdb671c6429d7b08d9d3c2335f41b9b674144333"
+              }
+            }
+          }
+        },
+        {
+          "id": "cloud_center",
+          "label": "中央积云",
+          "bbox": [
+            285,
+            775,
+            724,
+            1055
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "1be08ea2a29fa3bccddb807ba3a618805c9966cc0432b84ec5541e2b562ecf24"
+              },
+              "after": {
+                "status": "rejected",
+                "basis": "visual",
+                "input_key": "1be08ea2a29fa3bccddb807ba3a618805c9966cc0432b84ec5541e2b562ecf24"
+              }
+            }
+          }
+        },
+        {
+          "id": "cloud_bottom_haze",
+          "label": "底部云雾",
+          "bbox": [
+            0,
+            1167,
+            1080,
+            1440
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "31e21c5c73e4c974568cc6c62e0fc2cec82ba2626e3fbe8c4ed6c2b48e9b79ae"
+              },
+              "after": {
+                "status": "rejected",
+                "basis": "visual",
+                "input_key": "31e21c5c73e4c974568cc6c62e0fc2cec82ba2626e3fbe8c4ed6c2b48e9b79ae"
+              }
+            }
+          }
+        }
+      ],
+      "intent": {
+        "render_id": "d0c941033d92f9ba",
+        "decisions": [
+          {
+            "id": "cloud_top_corner",
+            "action": "drop",
+            "reason": "实际检查提取表与整图后发现右上角候选形成块状灰影，未保留干净云缘"
+          },
+          {
+            "id": "cloud_upper_right",
+            "action": "drop",
+            "reason": "实际检查发现候选只留下大面积不自然斜向阴影，不能代表原云带"
+          },
+          {
+            "id": "cloud_center",
+            "action": "drop",
+            "reason": "实际检查提取表发现中央云层候选混入下方蜡烛照片的橙色残片"
+          },
+          {
+            "id": "cloud_bottom_haze",
+            "action": "drop",
+            "reason": "实际检查发现候选带入编号和底部标题，造成重复文字，并含下中照片残留"
+          }
+        ]
+      },
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "573a82235c9768d4",
+        "checked_entire_composition": true,
+        "verdict": "needs_changes",
+        "summary": "已查看筛选后整图、提取检查表和4处局部；客户照片、编号、箭头、星光及文字排版可用且无参考照片残留，但4个复杂云层因提取污染被隔离，天空纹理与云量较参考明显简化。",
+        "items": [
+          {
+            "id": "cloud_top_corner",
+            "action": "unresolved",
+            "reason": "右上角复杂云缘候选形成块状灰影，已筛除，当前缺少该固定云团"
+          },
+          {
+            "id": "cloud_upper_right",
+            "action": "unresolved",
+            "reason": "右上横向云带候选只剩不自然斜影，已筛除，当前背景在此处简化"
+          },
+          {
+            "id": "cloud_center",
+            "action": "unresolved",
+            "reason": "中央积云候选混入参考蜡烛照片橙色残片，已筛除，当前中央云层缺失"
+          },
+          {
+            "id": "cloud_bottom_haze",
+            "action": "unresolved",
+            "reason": "底部云雾候选带入编号、标题和参考照片残留，已筛除，当前底部天空为本地近似"
+          }
+        ],
+        "scene_sha256": "2a662edae1bb8dd0326333d9ed66260cd4de4808e812879257efc8b7fb2ccb37",
+        "final_sha256": "93b32e9b62811c505824375cb3a08a7c549c4e5c70f62263e25c09ba915575b9"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "天空蓝底",
+          "description": "柔和天蓝色底，原图细微天空明暗作为弱质感近似",
+          "style": {
+            "fill": "#78B2D3",
+            "texture": "grain",
+            "opacity": 1
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "cloud_top_corner",
+          "kind": "overlay",
+          "bbox": [
+            954,
+            0,
+            1080,
+            137
+          ],
+          "label": "右上角云团",
+          "description": "画布右上角越界的暖白蓬松云团，保留柔软摄影质感和边缘",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "da89eda032431a2cfd9f90c0b39a25cd4c68cd903dcb6856728fd6eb1416ff8d"
+          },
+          "reveal_warning": "Screen rejected extracted layer: 实际检查提取表与整图后发现右上角候选形成块状灰影，未保留干净云缘"
+        },
+        {
+          "id": "cloud_upper_right",
+          "kind": "overlay",
+          "bbox": [
+            773,
+            151,
+            1080,
+            305
+          ],
+          "label": "右上天空云带",
+          "description": "右上方横向暖白云带，位于照片后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "8c1e1b3e8f23c410dd3657ffcdb671c6429d7b08d9d3c2335f41b9b674144333"
+          },
+          "reveal_warning": "Screen rejected extracted layer: 实际检查发现候选只留下大面积不自然斜向阴影，不能代表原云带"
+        },
+        {
+          "id": "cloud_center",
+          "kind": "overlay",
+          "bbox": [
+            285,
+            775,
+            724,
+            1055
+          ],
+          "label": "中央积云",
+          "description": "画面中央从左下向右上隆起的暖白积云主体，位于照片与手绘标记后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "1be08ea2a29fa3bccddb807ba3a618805c9966cc0432b84ec5541e2b562ecf24"
+          },
+          "reveal_warning": "Screen rejected extracted layer: 实际检查提取表发现中央云层候选混入下方蜡烛照片的橙色残片"
+        },
+        {
+          "id": "cloud_left_bank",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            835,
+            414,
+            1440
+          ],
+          "label": "左侧云海",
+          "description": "左侧与左下越界的大块暖白云海，包含柔和灰蓝阴影，位于照片后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6b7683005744effb0801bf7fa2fbf5536095f8f12ef8959687c1a97b1e942338"
+          },
+          "recovered": {
+            "sha256": "b448d2b574abb70037b49fbcabdadb6537b4ec2d09a3324f40ff35d60a79d78b",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_right_bank",
+          "kind": "overlay",
+          "bbox": [
+            912,
+            566,
+            1080,
+            1372
+          ],
+          "label": "右侧云海",
+          "description": "右边缘连续的暖白云柱和灰蓝阴影，位于照片后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9f8644948056b860b4c9b457b1f972987a678b08ca1e847511b6d075787fd3f5"
+          },
+          "recovered": {
+            "sha256": "0f5a7df526bb9db6cc5a4e6141824e57c98afcb0648781634678993e47b1cb05",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_bottom_haze",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1167,
+            1080,
+            1440
+          ],
+          "label": "底部云雾",
+          "description": "画布底部横向浅灰蓝云雾与柔光，作为天空背景的下缘层次",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "31e21c5c73e4c974568cc6c62e0fc2cec82ba2626e3fbe8c4ed6c2b48e9b79ae"
+          },
+          "reveal_warning": "Screen rejected extracted layer: 实际检查发现候选带入编号和底部标题，造成重复文字，并含下中照片残留"
+        },
+        {
+          "id": "photo_top_left",
+          "kind": "photo",
+          "bbox": [
+            110,
+            258,
+            364,
+            509
+          ],
+          "label": "左上方形照片",
+          "description": "参考猫眼图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_left",
+            "asset_id": "asset_f4e6838a79ca6adc",
+            "reason": "人物近景适合左上紧凑窗口",
+            "crop_center": [
+              0.5,
+              0.38
+            ]
+          }
+        },
+        {
+          "id": "photo_top_center",
+          "kind": "photo",
+          "bbox": [
+            397,
+            104,
+            698,
+            506
+          ],
+          "label": "上中竖幅照片",
+          "description": "参考纸张图位置的竖幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_center",
+            "asset_id": "asset_04c2d3e1b7f8314b",
+            "reason": "竖幅人物与上中纵向窗口比例匹配",
+            "crop_center": [
+              0.5,
+              0.48
+            ]
+          }
+        },
+        {
+          "id": "photo_top_right",
+          "kind": "photo",
+          "bbox": [
+            741,
+            261,
+            1023,
+            543
+          ],
+          "label": "右上方形照片",
+          "description": "参考卡片图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_right",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "人物与湖面横向环境适合近方形窗口",
+            "crop_center": [
+              0.62,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_mid_left",
+          "kind": "photo",
+          "bbox": [
+            39,
+            542,
+            306,
+            899
+          ],
+          "label": "左中竖幅照片",
+          "description": "参考蘑菇图位置的竖幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_mid_left",
+            "asset_id": "asset_06638b50677afc7c",
+            "reason": "竖幅全身人物适合左中高窄窗口",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_mid_center",
+          "kind": "photo",
+          "bbox": [
+            402,
+            619,
+            680,
+            760
+          ],
+          "label": "中央横幅照片",
+          "description": "参考双眼图位置的扁横幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_mid_center",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "近景人物可在中央扁横窗口形成视觉焦点",
+            "crop_center": [
+              0.5,
+              0.35
+            ]
+          }
+        },
+        {
+          "id": "photo_mid_right",
+          "kind": "photo",
+          "bbox": [
+            741,
+            591,
+            1061,
+            829
+          ],
+          "label": "右中横幅照片",
+          "description": "参考长椅图位置的横幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_mid_right",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽湖岸画面适合右中横幅窗口",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_low_left",
+          "kind": "photo",
+          "bbox": [
+            109,
+            933,
+            339,
+            1162
+          ],
+          "label": "左下方形照片",
+          "description": "参考手心星片图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_low_left",
+            "asset_id": "asset_9868e13cfdc69c46",
+            "reason": "人物姿态适合左下近方形窗口",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "photo_low_center",
+          "kind": "photo",
+          "bbox": [
+            413,
+            927,
+            684,
+            1287
+          ],
+          "label": "下中竖幅照片",
+          "description": "参考蜡烛图位置的竖幅客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_low_center",
+            "asset_id": "asset_6cad0072779df484",
+            "reason": "日落人物竖幅适合下中纵向窗口",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_low_right",
+          "kind": "photo",
+          "bbox": [
+            726,
+            859,
+            1016,
+            1148
+          ],
+          "label": "右下方形照片",
+          "description": "参考流星天空图位置的近方形客户照片窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_low_right",
+            "asset_id": "asset_fce89c38adda66d5",
+            "reason": "湖岸风景适合右下近方形窗口",
+            "crop_center": [
+              0.5,
+              0.45
+            ]
+          }
+        },
+        {
+          "id": "hand_arrow",
+          "kind": "overlay",
+          "bbox": [
+            493,
+            562,
+            701,
+            890
+          ],
+          "label": "白色手绘折线箭头",
+          "description": "中央照片旁由上向下折转的白色手绘双端指示线，保留不规则笔触",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "5b80a494b3e5eb1efc1fd107374f846cb9d4a629e0e5cfd4e26a514b3df5c406"
+          },
+          "recovered": {
+            "sha256": "c84f4b84ca61d9a614ea18b3dc581b538cf752a609a8e4360867c63fc65ef7fa",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "star_sparkles",
+          "kind": "overlay",
+          "bbox": [
+            337,
+            475,
+            792,
+            1098
+          ],
+          "label": "白色星光点缀",
+          "description": "分散在中央云团周围的一组白色四角星与小星光，作为一个完整点缀组保留手绘光晕",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1dc096524e0fa37f5fad97c29bf46b58a64bc4b7acef148d138a9cec27cf297f"
+          },
+          "recovered": {
+            "sha256": "670159b2cded3fd1cd46cc723b3d437d8d9cb7f412b4197403ede3f064bb8b34",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "number_1",
+          "kind": "text",
+          "bbox": [
+            529,
+            79,
+            571,
+            130
+          ],
+          "label": "编号1",
+          "description": "上中照片顶部居中的白色手写编号",
+          "text": "1",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 48,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "number_2",
+          "kind": "text",
+          "bbox": [
+            990,
+            762,
+            1036,
+            817
+          ],
+          "label": "编号2",
+          "description": "右中照片右下角的白色手写编号",
+          "text": "2",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 48,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "number_3",
+          "kind": "text",
+          "bbox": [
+            532,
+            1261,
+            575,
+            1316
+          ],
+          "label": "编号3",
+          "description": "下中照片底部的白色手写编号",
+          "text": "3",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 48,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "number_4",
+          "kind": "text",
+          "bbox": [
+            48,
+            641,
+            92,
+            717
+          ],
+          "label": "编号4",
+          "description": "左中照片左上区域的白色手写编号",
+          "text": "4",
+          "text_status": "known",
+          "style": {
+            "font": "cjk-hand",
+            "font_size": 56,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "footer_title",
+          "kind": "text",
+          "bbox": [
+            421,
+            1338,
+            724,
+            1391
+          ],
+          "label": "底部标题",
+          "description": "底部居中的白色中文标题",
+          "text": "20%细腻感知",
+          "text_status": "known",
+          "style": {
+            "font": "cjk",
+            "font_size": 36,
+            "fill": "#FFFFFF",
+            "align": "center"
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "cloud_top_corner",
+          "note": "Screen rejected extracted layer: 实际检查提取表与整图后发现右上角候选形成块状灰影，未保留干净云缘"
+        },
+        {
+          "id": "cloud_upper_right",
+          "note": "Screen rejected extracted layer: 实际检查发现候选只留下大面积不自然斜向阴影，不能代表原云带"
+        },
+        {
+          "id": "cloud_center",
+          "note": "Screen rejected extracted layer: 实际检查提取表发现中央云层候选混入下方蜡烛照片的橙色残片"
+        },
+        {
+          "id": "cloud_left_bank",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_right_bank",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_bottom_haze",
+          "note": "Screen rejected extracted layer: 实际检查发现候选带入编号和底部标题，造成重复文字，并含下中照片残留"
+        },
+        {
+          "id": "hand_arrow",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "star_sparkles",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": [
+        "cloud_bottom_haze",
+        "cloud_center",
+        "cloud_top_corner",
+        "cloud_upper_right"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "天空蓝底",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/91514cd277ee2fcf32731318",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/cb6b0d1900ad6bcf040a0f11"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "cloud_top_corner",
+      "label": "右上角云团",
+      "kind": "overlay",
+      "bbox": [
+        954,
+        0,
+        1080,
+        137
+      ],
+      "method": "参考提取",
+      "status": "unresolved",
+      "quality": "unresolved",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/ca78bdc0daf6499bf004e18f",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/1198ea3b2dc0565a8deb4d32",
+        "raw": "/api/tasks/368876ba2add87e8/images/3ac15224d5e988e9b0831941",
+        "processed": "/api/tasks/368876ba2add87e8/images/5b9a912f0983c6f0bf22f0d6"
+      },
+      "decision": {
+        "status": "rejected",
+        "basis": "visual",
+        "input_key": "da89eda032431a2cfd9f90c0b39a25cd4c68cd903dcb6856728fd6eb1416ff8d"
+      },
+      "note": "Screen rejected extracted layer: 实际检查提取表与整图后发现右上角候选形成块状灰影，未保留干净云缘"
+    },
+    {
+      "id": "cloud_upper_right",
+      "label": "右上天空云带",
+      "kind": "overlay",
+      "bbox": [
+        773,
+        151,
+        1080,
+        305
+      ],
+      "method": "参考提取",
+      "status": "unresolved",
+      "quality": "unresolved",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/a0df2ab9a74564c290030753",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/1143046c7e6924be0c868c12",
+        "raw": "/api/tasks/368876ba2add87e8/images/16c72e8d3cd44d780095cfca",
+        "processed": "/api/tasks/368876ba2add87e8/images/904d30bf3a14a3f0f244c62c"
+      },
+      "decision": {
+        "status": "rejected",
+        "basis": "visual",
+        "input_key": "8c1e1b3e8f23c410dd3657ffcdb671c6429d7b08d9d3c2335f41b9b674144333"
+      },
+      "note": "Screen rejected extracted layer: 实际检查发现候选只留下大面积不自然斜向阴影，不能代表原云带"
+    },
+    {
+      "id": "cloud_center",
+      "label": "中央积云",
+      "kind": "overlay",
+      "bbox": [
+        285,
+        775,
+        724,
+        1055
+      ],
+      "method": "参考提取",
+      "status": "unresolved",
+      "quality": "unresolved",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/0d68b015b33b8a227e38b780",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/3e93c429a5ed71b423ffa934",
+        "raw": "/api/tasks/368876ba2add87e8/images/72755a8a77a1c2cede88c046",
+        "processed": "/api/tasks/368876ba2add87e8/images/31a9d3df308e84bdb71d3de0"
+      },
+      "decision": {
+        "status": "rejected",
+        "basis": "visual",
+        "input_key": "1be08ea2a29fa3bccddb807ba3a618805c9966cc0432b84ec5541e2b562ecf24"
+      },
+      "note": "Screen rejected extracted layer: 实际检查提取表发现中央云层候选混入下方蜡烛照片的橙色残片"
+    },
+    {
+      "id": "cloud_left_bank",
+      "label": "左侧云海",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        835,
+        414,
+        1440
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/4e2d1754f48bc4ed78538d4a",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/46c1c62c2d810c000b5fc189",
+        "raw": "/api/tasks/368876ba2add87e8/images/2ce772605c2f5222c32c73f2",
+        "processed": "/api/tasks/368876ba2add87e8/images/c2fac8baa696ebb7108f97dd"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6b7683005744effb0801bf7fa2fbf5536095f8f12ef8959687c1a97b1e942338"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_right_bank",
+      "label": "右侧云海",
+      "kind": "overlay",
+      "bbox": [
+        912,
+        566,
+        1080,
+        1372
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/59d1483dc9a09a8c9ed44a2d",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/761e91254c1e6ba702a5c6d0",
+        "raw": "/api/tasks/368876ba2add87e8/images/a0448c1ebd388f3634f5b42d",
+        "processed": "/api/tasks/368876ba2add87e8/images/f778ceaba406d50bebf461bd"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9f8644948056b860b4c9b457b1f972987a678b08ca1e847511b6d075787fd3f5"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_bottom_haze",
+      "label": "底部云雾",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        1167,
+        1080,
+        1440
+      ],
+      "method": "参考提取",
+      "status": "unresolved",
+      "quality": "unresolved",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/86baf0b571df29dce931349c",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/4fde89b071ddf278413c5208",
+        "raw": "/api/tasks/368876ba2add87e8/images/f59b44c62c7d22674ea591df",
+        "processed": "/api/tasks/368876ba2add87e8/images/d92c1175d7cb17f49a109b08"
+      },
+      "decision": {
+        "status": "rejected",
+        "basis": "visual",
+        "input_key": "31e21c5c73e4c974568cc6c62e0fc2cec82ba2626e3fbe8c4ed6c2b48e9b79ae"
+      },
+      "note": "Screen rejected extracted layer: 实际检查发现候选带入编号和底部标题，造成重复文字，并含下中照片残留"
+    },
+    {
+      "id": "photo_top_left",
+      "label": "左上方形照片",
+      "kind": "photo",
+      "bbox": [
+        110,
+        258,
+        364,
+        509
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/08e295108a02d906935f0a3d",
+        "customer": "/api/tasks/368876ba2add87e8/images/c8d56ae6b37ca714aeb834ea",
+        "final": "/api/tasks/368876ba2add87e8/images/02044be0119c29535147645c"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_top_center",
+      "label": "上中竖幅照片",
+      "kind": "photo",
+      "bbox": [
+        397,
+        104,
+        698,
+        506
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/a41324edf507f171b61c37c8",
+        "customer": "/api/tasks/368876ba2add87e8/images/2b6ce32bc988b7e9b1bbf625",
+        "final": "/api/tasks/368876ba2add87e8/images/baf0591d77517bbc318edcf1"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_top_right",
+      "label": "右上方形照片",
+      "kind": "photo",
+      "bbox": [
+        741,
+        261,
+        1023,
+        543
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/70332b1abf5f5d3d451a5c41",
+        "customer": "/api/tasks/368876ba2add87e8/images/87195f2386e4647e1c65b80b",
+        "final": "/api/tasks/368876ba2add87e8/images/e4763b23291741b58ec08c06"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_mid_left",
+      "label": "左中竖幅照片",
+      "kind": "photo",
+      "bbox": [
+        39,
+        542,
+        306,
+        899
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/4d657f9c3c5bc9a58fba7d0e",
+        "customer": "/api/tasks/368876ba2add87e8/images/c0540ad4fb47a393d7c7b668",
+        "final": "/api/tasks/368876ba2add87e8/images/f67f4fa2b582a6f64c3d5d32"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_mid_center",
+      "label": "中央横幅照片",
+      "kind": "photo",
+      "bbox": [
+        402,
+        619,
+        680,
+        760
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/369c737c3a48c4707bd31ed0",
+        "customer": "/api/tasks/368876ba2add87e8/images/dcf019dba0adb7ab8ca6cbbd",
+        "final": "/api/tasks/368876ba2add87e8/images/4f7d907ad642179814759699"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_mid_right",
+      "label": "右中横幅照片",
+      "kind": "photo",
+      "bbox": [
+        741,
+        591,
+        1061,
+        829
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/00bccd853e2e9ba41e2c37a8",
+        "customer": "/api/tasks/368876ba2add87e8/images/54202f58216c61c414ff4cc6",
+        "final": "/api/tasks/368876ba2add87e8/images/8253180e36e6a7d4f1c5299f"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_low_left",
+      "label": "左下方形照片",
+      "kind": "photo",
+      "bbox": [
+        109,
+        933,
+        339,
+        1162
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/e98c840af880a987e9ef3306",
+        "customer": "/api/tasks/368876ba2add87e8/images/44e17471009afb2c8da600ea",
+        "final": "/api/tasks/368876ba2add87e8/images/f24a40566cb86638d606c626"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_low_center",
+      "label": "下中竖幅照片",
+      "kind": "photo",
+      "bbox": [
+        413,
+        927,
+        684,
+        1287
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/95e97dd4beea37c024468f8b",
+        "customer": "/api/tasks/368876ba2add87e8/images/fbeb7aae2f73c5bc7ca1d234",
+        "final": "/api/tasks/368876ba2add87e8/images/74bc2fc5b9653c9b3c6298cb"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_low_right",
+      "label": "右下方形照片",
+      "kind": "photo",
+      "bbox": [
+        726,
+        859,
+        1016,
+        1148
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/35cc3c6c50d2f6ba584b2314",
+        "customer": "/api/tasks/368876ba2add87e8/images/e38f2337207fe1f47a33e17c",
+        "final": "/api/tasks/368876ba2add87e8/images/342ca765950249fd9ac148b9"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "hand_arrow",
+      "label": "白色手绘折线箭头",
+      "kind": "overlay",
+      "bbox": [
+        493,
+        562,
+        701,
+        890
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/8a2276240c21608f7946beb7",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/2dc5926b255ebeb1133bdb50",
+        "raw": "/api/tasks/368876ba2add87e8/images/fb810f8ee9082181ef3f5e53",
+        "processed": "/api/tasks/368876ba2add87e8/images/07237ce1ad10db1e966bf4f1"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5b80a494b3e5eb1efc1fd107374f846cb9d4a629e0e5cfd4e26a514b3df5c406"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "star_sparkles",
+      "label": "白色星光点缀",
+      "kind": "overlay",
+      "bbox": [
+        337,
+        475,
+        792,
+        1098
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/1c2e14a5c5cb8dbff4fab989",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/dcee39c076072a0fcb348b91",
+        "raw": "/api/tasks/368876ba2add87e8/images/fe5a5af6e58a1cd0699248cc",
+        "processed": "/api/tasks/368876ba2add87e8/images/cc2d437448922c0d23718ec5"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1dc096524e0fa37f5fad97c29bf46b58a64bc4b7acef148d138a9cec27cf297f"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "number_1",
+      "label": "编号1",
+      "kind": "text",
+      "bbox": [
+        529,
+        79,
+        571,
+        130
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/c96e980661ad7c9adf860265",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/8d3e883ba4bbbb25e7337614"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "number_2",
+      "label": "编号2",
+      "kind": "text",
+      "bbox": [
+        990,
+        762,
+        1036,
+        817
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/0a408b6509fa10eac2b3d4f0",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/aa4ec0fa24a886182042046f"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "number_3",
+      "label": "编号3",
+      "kind": "text",
+      "bbox": [
+        532,
+        1261,
+        575,
+        1316
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/550be03fde6fce3346c6094b",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/a57aadbce477a07dd5a6141a"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "number_4",
+      "label": "编号4",
+      "kind": "text",
+      "bbox": [
+        48,
+        641,
+        92,
+        717
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/9b85c00d08047102154544c6",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/5d2146fb2606a1a297a7bc71"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "footer_title",
+      "label": "底部标题",
+      "kind": "text",
+      "bbox": [
+        421,
+        1338,
+        724,
+        1391
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/368876ba2add87e8/images/dca88324b3d060a24d09c17c",
+        "customer": null,
+        "final": "/api/tasks/368876ba2add87e8/images/a6f4f43f5b88eadadeb6fe6e"
+      },
+      "decision": {},
+      "note": ""
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "cloud_top_corner",
+        "cloud_upper_right",
+        "hand_arrow"
+      ],
+      "at": "2026-10-16T05:19:22.878973+00:00",
+      "error": "",
+      "available_ids": [
+        "cloud_top_corner",
+        "cloud_upper_right",
+        "hand_arrow"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 39.574,
+      "cache_hit": false
+    },
+    {
+      "status": "complete",
+      "ids": [
+        "cloud_bottom_haze",
+        "cloud_center",
+        "cloud_left_bank",
+        "cloud_right_bank",
+        "star_sparkles"
+      ],
+      "at": "2026-10-16T05:20:21.261276+00:00",
+      "error": "",
+      "available_ids": [
+        "cloud_bottom_haze",
+        "cloud_center",
+        "cloud_left_bank",
+        "cloud_right_bank",
+        "star_sparkles"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 97.956,
+      "cache_hit": false
+    }
+  ],
+  "quality": "needs_changes",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "cloud_top_corner",
+      "note": "Screen rejected extracted layer: 实际检查提取表与整图后发现右上角候选形成块状灰影，未保留干净云缘"
+    },
+    {
+      "id": "cloud_upper_right",
+      "note": "Screen rejected extracted layer: 实际检查发现候选只留下大面积不自然斜向阴影，不能代表原云带"
+    },
+    {
+      "id": "cloud_center",
+      "note": "Screen rejected extracted layer: 实际检查提取表发现中央云层候选混入下方蜡烛照片的橙色残片"
+    },
+    {
+      "id": "cloud_left_bank",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_right_bank",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_bottom_haze",
+      "note": "Screen rejected extracted layer: 实际检查发现候选带入编号和底部标题，造成重复文字，并含下中照片残留"
+    },
+    {
+      "id": "hand_arrow",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "star_sparkles",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "573a82235c9768d4",
+    "checked_entire_composition": true,
+    "verdict": "needs_changes",
+    "summary": "已查看筛选后整图、提取检查表和4处局部；客户照片、编号、箭头、星光及文字排版可用且无参考照片残留，但4个复杂云层因提取污染被隔离，天空纹理与云量较参考明显简化。",
+    "items": [
+      {
+        "id": "cloud_top_corner",
+        "action": "unresolved",
+        "reason": "右上角复杂云缘候选形成块状灰影，已筛除，当前缺少该固定云团"
+      },
+      {
+        "id": "cloud_upper_right",
+        "action": "unresolved",
+        "reason": "右上横向云带候选只剩不自然斜影，已筛除，当前背景在此处简化"
+      },
+      {
+        "id": "cloud_center",
+        "action": "unresolved",
+        "reason": "中央积云候选混入参考蜡烛照片橙色残片，已筛除，当前中央云层缺失"
+      },
+      {
+        "id": "cloud_bottom_haze",
+        "action": "unresolved",
+        "reason": "底部云雾候选带入编号、标题和参考照片残留，已筛除，当前底部天空为本地近似"
+      }
+    ],
+    "scene_sha256": "2a662edae1bb8dd0326333d9ed66260cd4de4808e812879257efc8b7fb2ccb37",
+    "final_sha256": "93b32e9b62811c505824375cb3a08a7c549c4e5c70f62263e25c09ba915575b9"
+  },
+  "recording_incomplete": false
+}

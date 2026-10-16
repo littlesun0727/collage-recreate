@@ -133,6 +133,25 @@ h2 {
   overflow: auto;
   flex: 1;
 }
+.task-group { margin-bottom: 16px; }
+.task-group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 7px;
+  margin-bottom: 6px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 650;
+  text-align: left;
+}
+.task-group-toggle span:last-child { color: var(--muted); white-space: nowrap; }
+.task-empty { color: var(--muted); font-size: 12px; padding: 8px; }
 .task {
   display: flex;
   align-items: center;
@@ -914,6 +933,10 @@ dialog::backdrop {
     display: flex;
     overflow: auto;
   }
+  .sidebar nav.task-list-grouped { display: block; }
+  .task-group { margin-bottom: 8px; }
+  .task-group-items:not([hidden]) { display: flex; overflow: auto; }
+  .task-group-items .task { flex-shrink: 0; }
   .task {
     min-width: 180px;
     max-width: 230px;

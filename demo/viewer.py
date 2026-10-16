@@ -81,7 +81,8 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--port',type=int,default=8795)
     parser.add_argument('--no-browser',action='store_true');parser.add_argument('--stop',action='store_true')
     args=parser.parse_args();root=Path(__file__).resolve().parent;state_path=root/'.viewer-state.json'
-    suffix='/?task=b85eec1d0ef5933e'
+    manifest=json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+    suffix='/?task='+manifest.get('default_task','b85eec1d0ef5933e')
     previous=json.loads(state_path.read_text(encoding='utf-8')) if state_path.exists() else None
     if previous:
         url=f"http://127.0.0.1:{int(previous['port'])}"

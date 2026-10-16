@@ -1,0 +1,616 @@
+{
+  "id": "d71d150756b7f383",
+  "name": "Live-e19d11f1c65b",
+  "created_at": "2026-10-16T02:46:07.699509+00:00",
+  "reference_size": [
+    1080,
+    1920
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T05:35:07.429Z",
+    "finished_at": "2026-10-16T05:41:32.115591+00:00",
+    "elapsed_seconds": 384.638,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "label": "底层背景",
+      "description": "三联屏照片后的纯黑兜底背景，正常情况下被三个照片窗口完全覆盖",
+      "style": {
+        "fill": "#000000"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        640
+      ],
+      "label": "顶部横幅照片",
+      "description": "全宽横向海景窗口，使用客户Live视频代表帧裁切填满；参考中的设备水印属于原照片内容，不保留",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        0,
+        640,
+        1080,
+        1280
+      ],
+      "label": "中部横幅照片",
+      "description": "全宽横向风景窗口，与上下照片无间距衔接，使用客户Live视频代表帧裁切填满",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1280,
+        1080,
+        1920
+      ],
+      "label": "底部横幅照片",
+      "description": "全宽横向海岸或盐湖风景窗口，使用客户Live视频代表帧裁切填满；参考中的设备水印属于原照片内容，不保留",
+      "mode": "cover"
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:46:07.708449+00:00",
+      "started_at": "2026-10-16T02:46:06.101646+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成三联屏布局与三段Live素材绑定，原尺寸叠框核验无偏移或漏框",
+      "at": "2026-10-16T05:36:56.952991+00:00",
+      "started_at": "2026-10-16T05:36:40.615706+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:37:01.081079+00:00",
+      "started_at": "2026-10-16T05:36:57.217773+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已检查完整对照图，三张客户照片完整且无旧图残留，无需素材筛选",
+      "at": "2026-10-16T05:37:36.206608+00:00",
+      "started_at": "2026-10-16T05:37:13.336582+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:38:06.269892+00:00",
+      "started_at": "2026-10-16T05:38:05.724258+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "静态三联屏封面已整图复核通过；3秒静音动态成片已生成并完成首中末帧原尺寸检查与全片解码，连续播放视觉复核因当前无视频播放查看接口而保留needs_review",
+      "at": "2026-10-16T05:41:01.792767+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T05:38:06.270635+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:46:06.101646+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:46:07.708449+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:36:01.428390+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看原尺寸参考图与18段Live素材联系表，分析布局和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T05:36:40.615706+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:36:41.158929+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T05:36:56.952991+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成三联屏布局与三段Live素材绑定，原尺寸叠框核验无偏移或漏框"
+    },
+    {
+      "at": "2026-10-16T05:36:57.217773+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:37:01.081079+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:37:13.336582+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在对照检查静态首版的三张客户照片、裁切边界与完整性"
+    },
+    {
+      "at": "2026-10-16T05:37:36.206608+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已检查完整对照图，三张客户照片完整且无旧图残留，无需素材筛选"
+    },
+    {
+      "at": "2026-10-16T05:37:36.444635+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核静态成图的整体构图、三联屏边界和客户素材显示"
+    },
+    {
+      "at": "2026-10-16T05:38:05.724258+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:38:06.269892+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:41:01.792767+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "静态三联屏封面已整图复核通过；3秒静音动态成片已生成并完成首中末帧原尺寸检查与全片解码，连续播放视觉复核因当前无视频播放查看接口而保留needs_review"
+    }
+  ],
+  "reference": "/api/tasks/d71d150756b7f383/images/705c637b843fe19c58dfc61c",
+  "boxes": "/api/tasks/d71d150756b7f383/images/6cdeacddec2c722796dc8a16",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/d71d150756b7f383/images/488162db3f07eb904feab0a9"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/d71d150756b7f383/images/88e433bd7cefbe2f8510992a"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/d71d150756b7f383/images/5b0b30ce1a74c6ede625697d"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/d71d150756b7f383/images/06347936398731d3e11f9c27"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/d71d150756b7f383/images/ed6bf1059734ea9db2a52739"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/d71d150756b7f383/images/c1daba54960e502631fae5af"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/d71d150756b7f383/images/fea6d17d245e2aaf2bfb2fd9"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/d71d150756b7f383/images/20c76fcadee5962af16f638d"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/d71d150756b7f383/images/357c57c63f3d53a1de418ca7"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/d71d150756b7f383/images/b8e138dd51cbb4c851d28951"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/d71d150756b7f383/images/3ec8413bb55c197d2c0097b6"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/d71d150756b7f383/images/65be9c354a2731b10d032ba6"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/d71d150756b7f383/images/9b3df3c49225ddb2f1b26774"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/d71d150756b7f383/images/319052d46c1269aa1f52ffbe"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/d71d150756b7f383/images/129f253f7161487c3b9bba84"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/d71d150756b7f383/images/6280a38250e616777e8508ae"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/d71d150756b7f383/images/c0d4474159832b788a11aea6"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/d71d150756b7f383/images/f807d21171fee1983658d59d"
+    }
+  ],
+  "current_image": "/api/tasks/d71d150756b7f383/images/79f5a593e0df4e5376e1afdb",
+  "first_image": "/api/tasks/d71d150756b7f383/images/7c0730917b3ab0dd2acd9fa1",
+  "versions": [
+    {
+      "id": "0001-7577f927",
+      "parent_id": null,
+      "render_id": "2c18676a0ed078ab",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "底层背景",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1920
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/d71d150756b7f383/images/a5f5bf19427fa1bac8592609",
+            "final": "/api/tasks/d71d150756b7f383/images/a49312a66561cd05f793999f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            640
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/d71d150756b7f383/images/f4f6323dfbd090df2b14bb76",
+            "final": "/api/tasks/d71d150756b7f383/images/5ba30592235b8081d194d8db",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            640,
+            1080,
+            1280
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/d71d150756b7f383/images/833efb8ef1ad0dbb800ee01f",
+            "final": "/api/tasks/d71d150756b7f383/images/3ed79de1932497acd3264dbc",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1280,
+            1080,
+            1920
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/d71d150756b7f383/images/fa3eb35a29901211244573d4",
+            "final": "/api/tasks/d71d150756b7f383/images/528e964673dd006dbf46e749",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T05:37:01.070577+00:00",
+      "image": "/api/tasks/d71d150756b7f383/images/79f5a593e0df4e5376e1afdb",
+      "artifacts": {
+        "final.png": "/api/tasks/d71d150756b7f383/images/79f5a593e0df4e5376e1afdb",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/d71d150756b7f383/images/93ac8ce0b51ac5b3fff34eb7",
+        "previews/comparison.png": "/api/tasks/d71d150756b7f383/images/91ade03000ff2e8c47822009",
+        "material:background": "/api/tasks/d71d150756b7f383/images/a49312a66561cd05f793999f",
+        "material:photo_top": "/api/tasks/d71d150756b7f383/images/5ba30592235b8081d194d8db",
+        "material:photo_middle": "/api/tasks/d71d150756b7f383/images/3ed79de1932497acd3264dbc",
+        "material:photo_bottom": "/api/tasks/d71d150756b7f383/images/528e964673dd006dbf46e749"
+      },
+      "changes": [],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "2c18676a0ed078ab",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已按原尺寸查看静态整图和完整对照图。三联屏等高分区、全宽裁切与无缝衔接均符合参考结构，三张客户Live代表帧完整可见，无旧参考照片残留、重复内容、空白或错层。客户源视频自带的DJI水印按来源保留。",
+        "items": [],
+        "scene_sha256": "ebc9e4c96945c459b5b6b31753ec1ade5854d038fc21c7aff2bd9c0308f3fc1f",
+        "final_sha256": "5c18671f358fa49379a5e06f15160dd797ee19a636e39ada8a739b4d77540ef4"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1920
+          ],
+          "label": "底层背景",
+          "description": "三联屏照片后的纯黑兜底背景，正常情况下被三个照片窗口完全覆盖",
+          "style": {
+            "fill": "#000000"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            640
+          ],
+          "label": "顶部横幅照片",
+          "description": "全宽横向海景窗口，使用客户Live视频代表帧裁切填满；参考中的设备水印属于原照片内容，不保留",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横向航拍盐湖画面开阔，适合顶部全宽横幅"
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            640,
+            1080,
+            1280
+          ],
+          "label": "中部横幅照片",
+          "description": "全宽横向风景窗口，与上下照片无间距衔接，使用客户Live视频代表帧裁切填满",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽湖岸画面与中部横向窗口比例接近，主体可见范围稳定"
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1280,
+            1080,
+            1920
+          ],
+          "label": "底部横幅照片",
+          "description": "全宽横向海岸或盐湖风景窗口，使用客户Live视频代表帧裁切填满；参考中的设备水印属于原照片内容，不保留",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_f044e11373093d30",
+            "reason": "横向盐湖航拍层次丰富，适合底部大面积裁切"
+          }
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "底层背景",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/d71d150756b7f383/images/a5f5bf19427fa1bac8592609",
+        "customer": null,
+        "final": "/api/tasks/d71d150756b7f383/images/e2d553fa2c0df82befd3c881"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_top",
+      "label": "顶部横幅照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        640
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/d71d150756b7f383/images/f4f6323dfbd090df2b14bb76",
+        "customer": "/api/tasks/d71d150756b7f383/images/88e433bd7cefbe2f8510992a",
+        "final": "/api/tasks/d71d150756b7f383/images/16c442e703513cfdf7e69306"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle",
+      "label": "中部横幅照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        640,
+        1080,
+        1280
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/d71d150756b7f383/images/833efb8ef1ad0dbb800ee01f",
+        "customer": "/api/tasks/d71d150756b7f383/images/20c76fcadee5962af16f638d",
+        "final": "/api/tasks/d71d150756b7f383/images/e7408b5b16367ab5972607b8"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "底部横幅照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1280,
+        1080,
+        1920
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/d71d150756b7f383/images/fa3eb35a29901211244573d4",
+        "customer": "/api/tasks/d71d150756b7f383/images/65be9c354a2731b10d032ba6",
+        "final": "/api/tasks/d71d150756b7f383/images/c2abfb3349f53862ee64d525"
+      },
+      "decision": {},
+      "note": ""
+    }
+  ],
+  "groups": [],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "2c18676a0ed078ab",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已按原尺寸查看静态整图和完整对照图。三联屏等高分区、全宽裁切与无缝衔接均符合参考结构，三张客户Live代表帧完整可见，无旧参考照片残留、重复内容、空白或错层。客户源视频自带的DJI水印按来源保留。",
+    "items": [],
+    "scene_sha256": "ebc9e4c96945c459b5b6b31753ec1ade5854d038fc21c7aff2bd9c0308f3fc1f",
+    "final_sha256": "5c18671f358fa49379a5e06f15160dd797ee19a636e39ada8a739b4d77540ef4"
+  },
+  "recording_incomplete": false
+}

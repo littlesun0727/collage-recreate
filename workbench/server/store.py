@@ -72,8 +72,9 @@ def events(run):
 
 
 class Store:
-    def __init__(self, roots):
+    def __init__(self, roots, task_catalog=None):
         self.roots = [Path(p).resolve() for p in roots]
+        self.task_catalog = task_catalog or {}
         self._artifacts = {}
         self._lock = threading.RLock()
 
@@ -92,6 +93,11 @@ class Store:
                 portable = read(run/'portable-task.json').get('id')
                 if isinstance(portable,str) and re.fullmatch(r'[0-9a-f]{16}',portable):
                     key = portable
+                if key in self.task_catalog.get('excluded_tasks', []):
+                    continue
+                excluded_categories = self.task_catalog.get('excluded_categories', [])
+                if excluded_categories and read(run/'workbench-task.json').get('category') in excluded_categories:
+                    continue
                 if key in tasks and tasks[key] != run:
                     raise ValueError('Duplicate portable task identifier')
                 tasks[key] = run
@@ -129,12 +135,22 @@ class Store:
 
     def listing(self):
         result = []
+        groups = {group['id']: (index, group['label'])
+                  for index, group in enumerate(self.task_catalog.get('groups', []))}
         for key, run in self.tasks().items():
             inp = read(run/'input.json'); outcome = read(run/'result.json')
-            result.append({'id': key, 'name': run.name, 'created_at': inp.get('created_at'),
+            item = {'id': key, 'name': run.name, 'created_at': inp.get('created_at'),
                            'quality': outcome.get('status', 'pending'),
-                           'thumbnail': self.image(key, run, run/'final.png') or self.image(key, run, run/'prepared/reference.png')})
-        return sorted(result, key=lambda r: r.get('created_at') or '', reverse=True)
+                           'thumbnail': self.image(key, run, run/'final.png') or self.image(key, run, run/'prepared/reference.png')}
+            entry = self.task_catalog.get('tasks', {}).get(key, {})
+            group = entry.get('group', self.task_catalog.get('default_group'))
+            if group in groups:
+                index, label = groups[group]
+                item.update(group=group, group_label=label, group_order=index,
+                            reference_name=entry.get('reference_name'), production_order=entry.get('order'))
+            result.append(item)
+        result.sort(key=lambda r: r.get('created_at') or '', reverse=True)
+        return sorted(result, key=lambda r: (r.get('group_order', 0), r.get('production_order') or float('inf')))
 
     def document(self, key):
         run = self.tasks().get(key)

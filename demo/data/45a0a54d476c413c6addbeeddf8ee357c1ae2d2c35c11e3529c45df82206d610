@@ -1,0 +1,2044 @@
+{
+  "id": "e26ecd7ad75315be",
+  "name": "Live-119c0fe93a37",
+  "created_at": "2026-10-16T02:40:51.742373+00:00",
+  "reference_size": [
+    1080,
+    1439
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T03:21:40.139Z",
+    "finished_at": "2026-10-16T03:30:30.337586+00:00",
+    "elapsed_seconds": 530.165,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background_base",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1439
+      ],
+      "label": "底层基底",
+      "description": "浅蓝绿色兜底，实际满版环境由客户照片替换",
+      "style": {
+        "fill": "#B7D2D0"
+      }
+    },
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1439
+      ],
+      "label": "满版环境照片",
+      "description": "覆盖整张画布的旅行环境底图，承担天空、树木与草地般的整体氛围",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        222,
+        66,
+        580,
+        531
+      ],
+      "label": "左上大照片",
+      "description": "左上竖向大照片窗口，直角边缘",
+      "mode": "cover"
+    },
+    {
+      "id": "doodle_top_left",
+      "kind": "overlay",
+      "bbox": [
+        194,
+        194,
+        352,
+        314
+      ],
+      "label": "左上星星涂鸦",
+      "description": "两颗白色手绘星星、散点与斜线组成的一组涂鸦，保留不规则笔触",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top_center",
+      "kind": "photo",
+      "bbox": [
+        520,
+        154,
+        808,
+        440
+      ],
+      "label": "上方波浪框照片",
+      "description": "上方偏右近方形照片内口，位于白色手绘波浪边框下方",
+      "mode": "cover"
+    },
+    {
+      "id": "frame_top_center",
+      "kind": "overlay",
+      "bbox": [
+        505,
+        141,
+        818,
+        453
+      ],
+      "label": "波浪相框与角饰",
+      "description": "白色不规则波浪相框，连同左上黄色旋涡和右上、左下黄色闪光角饰；窗口内部需透明",
+      "method": "extract",
+      "photo_id": "photo_top_center"
+    },
+    {
+      "id": "star_top_right",
+      "kind": "overlay",
+      "bbox": [
+        859,
+        148,
+        982,
+        267
+      ],
+      "label": "右上灰色星星",
+      "description": "带柔和阴影的灰白五角星贴纸",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bridge",
+      "kind": "photo",
+      "bbox": [
+        200,
+        540,
+        494,
+        932
+      ],
+      "label": "左中竖向照片",
+      "description": "左中竖向照片窗口，直角边缘",
+      "mode": "cover"
+    },
+    {
+      "id": "sparkle_left_mid",
+      "kind": "overlay",
+      "bbox": [
+        180,
+        506,
+        220,
+        551
+      ],
+      "label": "左中白色闪光",
+      "description": "照片左上角外侧的四芒白色发光星",
+      "method": "extract"
+    },
+    {
+      "id": "thought_cloud",
+      "kind": "overlay",
+      "bbox": [
+        374,
+        600,
+        458,
+        685
+      ],
+      "label": "白色思考云",
+      "description": "带灰色立体阴影的白色云朵思考气泡",
+      "method": "extract"
+    },
+    {
+      "id": "smile_yellow",
+      "kind": "overlay",
+      "bbox": [
+        520,
+        644,
+        618,
+        716
+      ],
+      "label": "黄色笑脸",
+      "description": "两个圆点眼睛与粗弧形嘴组成的黄色手绘笑脸",
+      "method": "extract"
+    },
+    {
+      "id": "photo_lake",
+      "kind": "photo",
+      "bbox": [
+        645,
+        452,
+        1008,
+        793
+      ],
+      "label": "右中大照片",
+      "description": "右中宽幅风景照片窗口，直角边缘",
+      "mode": "cover"
+    },
+    {
+      "id": "burst_white",
+      "kind": "overlay",
+      "bbox": [
+        790,
+        456,
+        960,
+        622
+      ],
+      "label": "白色爆炸线涂鸦",
+      "description": "照片天空上的白色手绘感叹号、放射线、菱形和圆点整组图案",
+      "method": "extract"
+    },
+    {
+      "id": "photo_person_strip",
+      "kind": "photo",
+      "bbox": [
+        752,
+        793,
+        1008,
+        934
+      ],
+      "label": "右侧横向小照片",
+      "description": "右侧扁横向照片窗口，与上方大照片下沿衔接",
+      "mode": "cover"
+    },
+    {
+      "id": "like_bubble",
+      "kind": "overlay",
+      "bbox": [
+        503,
+        812,
+        640,
+        915
+      ],
+      "label": "双心点赞气泡",
+      "description": "白色圆角对话气泡，内含一深一浅两颗灰色爱心并带立体阴影",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bottom_center",
+      "kind": "photo",
+      "bbox": [
+        352,
+        932,
+        752,
+        1189
+      ],
+      "label": "下方横向照片",
+      "description": "下方居中的横向风景照片窗口，直角边缘",
+      "mode": "cover"
+    },
+    {
+      "id": "heart_dotted",
+      "kind": "overlay",
+      "bbox": [
+        100,
+        1094,
+        224,
+        1205
+      ],
+      "label": "左下点阵爱心",
+      "description": "白色柔光心形轮廓及右上点阵渐隐纹理，保留特殊发光和点阵外观",
+      "method": "extract"
+    },
+    {
+      "id": "caption_bottom",
+      "kind": "text",
+      "bbox": [
+        252,
+        1278,
+        840,
+        1324
+      ],
+      "label": "底部法文手写句",
+      "description": "底部居中的两行细小白色手写体法文，低对比度",
+      "text": "En fait, les quatre saisons sont toujours les mêmes, mais quand je suis avec vous, le vent\nprintanier, la lune d’automne est belle.",
+      "text_status": "known",
+      "style": {
+        "font": "hand",
+        "italic": true,
+        "fill": "#FFFFFFB8",
+        "align": "center",
+        "font_size": 14,
+        "line_spacing": 1.1
+      }
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:40:51.756040+00:00",
+      "started_at": "2026-10-16T02:40:50.164384+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成原尺寸参考图和联系表分析；7 个照片槽均绑定真实 Live 素材，叠框校验通过并完成定位复核",
+      "at": "2026-10-16T03:24:19.070624+00:00",
+      "started_at": "2026-10-16T03:24:00.711490+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T03:25:36.972631+00:00",
+      "started_at": "2026-10-16T03:24:19.293157+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已核对完整对照及全部非空提取检查表；9 个装饰透明层可用，门禁警告为参考设计内的波浪框与爆炸线，无需筛选",
+      "at": "2026-10-16T03:26:25.271870+00:00",
+      "started_at": "2026-10-16T03:25:44.947045+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T03:27:16.359058+00:00",
+      "started_at": "2026-10-16T03:27:15.766584+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "静态封面已完成整图、提取检查表和指定局部复核并登记通过；3 秒静音动态成片已生成并核对首中末帧，动态仍保留 needs_review 以反映未完成真实播放验收",
+      "at": "2026-10-16T03:29:59.868441+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T03:27:16.359761+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:40:50.164384+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:40:51.756040+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:22:32.871221+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看原尺寸参考图与两张客户联系表，分析布局、照片窗口和素材绑定"
+    },
+    {
+      "at": "2026-10-16T03:24:00.711490+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:24:01.377710+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T03:24:19.070624+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成原尺寸参考图和联系表分析；7 个照片槽均绑定真实 Live 素材，叠框校验通过并完成定位复核"
+    },
+    {
+      "at": "2026-10-16T03:24:19.293157+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:25:36.972631+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:25:44.947045+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "首版已生成，正在检查完整对照、两张提取检查表和素材门禁警告"
+    },
+    {
+      "at": "2026-10-16T03:26:25.271870+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已核对完整对照及全部非空提取检查表；9 个装饰透明层可用，门禁警告为参考设计内的波浪框与爆炸线，无需筛选"
+    },
+    {
+      "at": "2026-10-16T03:26:25.482323+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核当前整图及四处照片与装饰重叠局部，检查遮挡、裁切与层级"
+    },
+    {
+      "at": "2026-10-16T03:27:15.766584+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:27:16.359058+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:29:59.868441+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "静态封面已完成整图、提取检查表和指定局部复核并登记通过；3 秒静音动态成片已生成并核对首中末帧，动态仍保留 needs_review 以反映未完成真实播放验收"
+    }
+  ],
+  "reference": "/api/tasks/e26ecd7ad75315be/images/5035f70f5392d2388dec1074",
+  "boxes": "/api/tasks/e26ecd7ad75315be/images/50ff8a18c8b4047c9c2bb9ec",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/e26ecd7ad75315be/images/207d11386cfb00186c9958f1"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/e26ecd7ad75315be/images/725e491dc5b58bb578c51b10"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/e26ecd7ad75315be/images/23b15d1a8779c93657efe4b3"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/e26ecd7ad75315be/images/470b54a5ec17573248613d9f"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/e26ecd7ad75315be/images/4ddee5204e87c315d9a2f6aa"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/e26ecd7ad75315be/images/3ce6db918ba44f4ec8eede0b"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/e26ecd7ad75315be/images/2cd88657e94a1e41eb29aa4c"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/e26ecd7ad75315be/images/5910be5c0197a8dbe53a0eb2"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/e26ecd7ad75315be/images/460253ca1bebf838b976ea17"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/e26ecd7ad75315be/images/e7e95afebb8b85d75cd87d8b"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/e26ecd7ad75315be/images/817e0a9c613dcbf81ad6c5c4"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/e26ecd7ad75315be/images/43ffdc22779f2251693a57ce"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/e26ecd7ad75315be/images/40e81a5f205a5deaf97b1925"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/e26ecd7ad75315be/images/4f8f595d56d60d34de1ef83a"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/e26ecd7ad75315be/images/29f97ea96e0ec9916a4e89f5"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/e26ecd7ad75315be/images/d73b18b1cdb57526d3f42898"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/e26ecd7ad75315be/images/7a5d5e5dc448a8e6aee467a1"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/e26ecd7ad75315be/images/a41561a3142b4f6953ed887f"
+    }
+  ],
+  "current_image": "/api/tasks/e26ecd7ad75315be/images/2448bddb84d4004749df5616",
+  "first_image": "/api/tasks/e26ecd7ad75315be/images/1d818dd05ae4064a13d30b84",
+  "versions": [
+    {
+      "id": "0001-0722f009",
+      "parent_id": null,
+      "render_id": "3ffc41d8a2c1c074",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background_base",
+          "label": "底层基底",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/1e6fefcc64fc411fe6f496fd",
+            "final": "/api/tasks/e26ecd7ad75315be/images/879b2852856cfdb0cbc71e59",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_background",
+          "label": "满版环境照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/1e6fefcc64fc411fe6f496fd",
+            "final": "/api/tasks/e26ecd7ad75315be/images/381331723fe8ee51f690a322",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top_left",
+          "label": "左上大照片",
+          "kind": "photo",
+          "bbox": [
+            222,
+            66,
+            580,
+            531
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/f950be226ecca978e55d6fe3",
+            "final": "/api/tasks/e26ecd7ad75315be/images/970d015414b970f90e758613",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "doodle_top_left",
+          "label": "左上星星涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            194,
+            194,
+            352,
+            314
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/b83687963ed872f72d4e4636",
+            "final": "/api/tasks/e26ecd7ad75315be/images/52158632d6f78a4231737106",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/0ddf29558df1819c95530efc",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/3a1a64e3b494b286d177ba51"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "3e5a9710fa554f004522e84d22cdcb36f8e3c545053df5daf6490eb2d75fc776"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_top_center",
+          "label": "上方波浪框照片",
+          "kind": "photo",
+          "bbox": [
+            520,
+            154,
+            808,
+            440
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/68378b71b04dd2cbb95daf77",
+            "final": "/api/tasks/e26ecd7ad75315be/images/7344ce0d5986a03c3d4b7f65",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "frame_top_center",
+          "label": "波浪相框与角饰",
+          "kind": "overlay",
+          "bbox": [
+            505,
+            141,
+            818,
+            453
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/fa398987b04e7746137b61ec",
+            "final": "/api/tasks/e26ecd7ad75315be/images/3ea8d2f3089db3fae91bd5e6",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/a362a8b74821448668ca0524",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/208b8c7a04497297509b2a82"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "e8cbfec33e85e7c774685bea3cc1d3d0c1093f620ecb9718600a477d8e3f7347"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "star_top_right",
+          "label": "右上灰色星星",
+          "kind": "overlay",
+          "bbox": [
+            859,
+            148,
+            982,
+            267
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/adcc1f475587f364e61f38c5",
+            "final": "/api/tasks/e26ecd7ad75315be/images/ab402aeb54a4d9d548c3864d",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/9d24a0355b1b4dbcc307e372",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/84d949cf63f533481ce5670b"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "e276098334c4d5e0d7f8db7d717cca5de024f584d9b2b2bd8a764667c571537d"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_bridge",
+          "label": "左中竖向照片",
+          "kind": "photo",
+          "bbox": [
+            200,
+            540,
+            494,
+            932
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/9cfb597910e756b3e081a6ac",
+            "final": "/api/tasks/e26ecd7ad75315be/images/adc35683143e488ad86dc01a",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "sparkle_left_mid",
+          "label": "左中白色闪光",
+          "kind": "overlay",
+          "bbox": [
+            180,
+            506,
+            220,
+            551
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/1a7719305217c03880bfefd0",
+            "final": "/api/tasks/e26ecd7ad75315be/images/e6616f93e7b48b73f5f03343",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/c3e14053f22be86189736ee9",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/e62cf36f9990e0b9a0c1c48f"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "cf30c9119df85ef5e30e48859b624d2edc2b63db86385935c7073893418d9dd8"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "thought_cloud",
+          "label": "白色思考云",
+          "kind": "overlay",
+          "bbox": [
+            374,
+            600,
+            458,
+            685
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/eaefe0c28dfface0791af60c",
+            "final": "/api/tasks/e26ecd7ad75315be/images/58d684cfc7493859594a70b4",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/241cb7e14877d47255b82370",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/f35b5b71234965df4e1eddd7"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "30b644df404685d655d6ee47d35c20bacaa4392194040c74ea5eab0210e7e318"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "smile_yellow",
+          "label": "黄色笑脸",
+          "kind": "overlay",
+          "bbox": [
+            520,
+            644,
+            618,
+            716
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/05a7246fb723654dc75c4186",
+            "final": "/api/tasks/e26ecd7ad75315be/images/aecc75b8d6fbac73928c3928",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/64746cfc558865808c79f7b1",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/e511b2f52b83c3339ced717d"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "fa22d9a3ed7df8af099a4c7aaa79c9105933d1f2e3c93a597ee30b69346d563c"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_lake",
+          "label": "右中大照片",
+          "kind": "photo",
+          "bbox": [
+            645,
+            452,
+            1008,
+            793
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/b81de4dd6fdc64de36b4ef01",
+            "final": "/api/tasks/e26ecd7ad75315be/images/72a1ed22384a3f05aefd0b26",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "burst_white",
+          "label": "白色爆炸线涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            790,
+            456,
+            960,
+            622
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/26119fc4fa4267fa2c42e943",
+            "final": "/api/tasks/e26ecd7ad75315be/images/373610a617e535acab5af6d4",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/63ffe81561e4968617e77928",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/bd3e6eeb5c605a3ad568b22f"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4e026dadb2c5cc742020e71adb46d55137aadd63f1a7790df8dac5f03c7f5a62"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_person_strip",
+          "label": "右侧横向小照片",
+          "kind": "photo",
+          "bbox": [
+            752,
+            793,
+            1008,
+            934
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/6dfb5bb3deb1f9ed382a2a19",
+            "final": "/api/tasks/e26ecd7ad75315be/images/71a1dc40feb559147bd7ac7c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "like_bubble",
+          "label": "双心点赞气泡",
+          "kind": "overlay",
+          "bbox": [
+            503,
+            812,
+            640,
+            915
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/f264d0147b91e4abd97fddde",
+            "final": "/api/tasks/e26ecd7ad75315be/images/060b22ddafb867d64e40a65b",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/b2ece042e855328298c9db61",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/a30addeca2717b40a74a91db"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9e4a5ab255a02dd37680d5c233ec0ca4b65f30649d439d9e8c05fdb0cff3c683"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_bottom_center",
+          "label": "下方横向照片",
+          "kind": "photo",
+          "bbox": [
+            352,
+            932,
+            752,
+            1189
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/8bc6f9e6ca1601f54190331f",
+            "final": "/api/tasks/e26ecd7ad75315be/images/387fcd99702cab1467c1f3f5",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "heart_dotted",
+          "label": "左下点阵爱心",
+          "kind": "overlay",
+          "bbox": [
+            100,
+            1094,
+            224,
+            1205
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/00024c98521e840a95e9e655",
+            "final": "/api/tasks/e26ecd7ad75315be/images/2f40fe04298ca7b487432606",
+            "raw": "/api/tasks/e26ecd7ad75315be/images/e8c28ea4a8d5061b0d2102ad",
+            "processed": "/api/tasks/e26ecd7ad75315be/images/9d7386f273837a91ae91d9aa"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "8787695b3223b927a051e28e01198670ce8f09ea399585c922fe934a969a32d0"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "caption_bottom",
+          "label": "底部法文手写句",
+          "kind": "text",
+          "bbox": [
+            252,
+            1278,
+            840,
+            1324
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e26ecd7ad75315be/images/d87cafa8921328a95c8c5674",
+            "final": "/api/tasks/e26ecd7ad75315be/images/89ed7b66572c73257d3af32d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T03:25:36.961448+00:00",
+      "image": "/api/tasks/e26ecd7ad75315be/images/2448bddb84d4004749df5616",
+      "artifacts": {
+        "final.png": "/api/tasks/e26ecd7ad75315be/images/2448bddb84d4004749df5616",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/e26ecd7ad75315be/images/7098bce0148c5a6b1f958b43",
+        "previews/comparison.png": "/api/tasks/e26ecd7ad75315be/images/4f0b84f7614cebc243f81e8f",
+        "material:background_base": "/api/tasks/e26ecd7ad75315be/images/879b2852856cfdb0cbc71e59",
+        "material:photo_background": "/api/tasks/e26ecd7ad75315be/images/381331723fe8ee51f690a322",
+        "material:photo_top_left": "/api/tasks/e26ecd7ad75315be/images/970d015414b970f90e758613",
+        "material:doodle_top_left": "/api/tasks/e26ecd7ad75315be/images/52158632d6f78a4231737106",
+        "processed:doodle_top_left": "/api/tasks/e26ecd7ad75315be/images/3a1a64e3b494b286d177ba51",
+        "raw:doodle_top_left": "/api/tasks/e26ecd7ad75315be/images/0ddf29558df1819c95530efc",
+        "material:photo_top_center": "/api/tasks/e26ecd7ad75315be/images/7344ce0d5986a03c3d4b7f65",
+        "material:frame_top_center": "/api/tasks/e26ecd7ad75315be/images/3ea8d2f3089db3fae91bd5e6",
+        "processed:frame_top_center": "/api/tasks/e26ecd7ad75315be/images/208b8c7a04497297509b2a82",
+        "raw:frame_top_center": "/api/tasks/e26ecd7ad75315be/images/a362a8b74821448668ca0524",
+        "material:star_top_right": "/api/tasks/e26ecd7ad75315be/images/ab402aeb54a4d9d548c3864d",
+        "processed:star_top_right": "/api/tasks/e26ecd7ad75315be/images/84d949cf63f533481ce5670b",
+        "raw:star_top_right": "/api/tasks/e26ecd7ad75315be/images/9d24a0355b1b4dbcc307e372",
+        "material:photo_bridge": "/api/tasks/e26ecd7ad75315be/images/adc35683143e488ad86dc01a",
+        "material:sparkle_left_mid": "/api/tasks/e26ecd7ad75315be/images/e6616f93e7b48b73f5f03343",
+        "processed:sparkle_left_mid": "/api/tasks/e26ecd7ad75315be/images/e62cf36f9990e0b9a0c1c48f",
+        "raw:sparkle_left_mid": "/api/tasks/e26ecd7ad75315be/images/c3e14053f22be86189736ee9",
+        "material:thought_cloud": "/api/tasks/e26ecd7ad75315be/images/58d684cfc7493859594a70b4",
+        "processed:thought_cloud": "/api/tasks/e26ecd7ad75315be/images/f35b5b71234965df4e1eddd7",
+        "raw:thought_cloud": "/api/tasks/e26ecd7ad75315be/images/241cb7e14877d47255b82370",
+        "material:smile_yellow": "/api/tasks/e26ecd7ad75315be/images/aecc75b8d6fbac73928c3928",
+        "processed:smile_yellow": "/api/tasks/e26ecd7ad75315be/images/e511b2f52b83c3339ced717d",
+        "raw:smile_yellow": "/api/tasks/e26ecd7ad75315be/images/64746cfc558865808c79f7b1",
+        "material:photo_lake": "/api/tasks/e26ecd7ad75315be/images/72a1ed22384a3f05aefd0b26",
+        "material:burst_white": "/api/tasks/e26ecd7ad75315be/images/373610a617e535acab5af6d4",
+        "processed:burst_white": "/api/tasks/e26ecd7ad75315be/images/bd3e6eeb5c605a3ad568b22f",
+        "raw:burst_white": "/api/tasks/e26ecd7ad75315be/images/63ffe81561e4968617e77928",
+        "material:photo_person_strip": "/api/tasks/e26ecd7ad75315be/images/71a1dc40feb559147bd7ac7c",
+        "material:like_bubble": "/api/tasks/e26ecd7ad75315be/images/060b22ddafb867d64e40a65b",
+        "processed:like_bubble": "/api/tasks/e26ecd7ad75315be/images/a30addeca2717b40a74a91db",
+        "raw:like_bubble": "/api/tasks/e26ecd7ad75315be/images/b2ece042e855328298c9db61",
+        "material:photo_bottom_center": "/api/tasks/e26ecd7ad75315be/images/387fcd99702cab1467c1f3f5",
+        "material:heart_dotted": "/api/tasks/e26ecd7ad75315be/images/2f40fe04298ca7b487432606",
+        "processed:heart_dotted": "/api/tasks/e26ecd7ad75315be/images/9d7386f273837a91ae91d9aa",
+        "raw:heart_dotted": "/api/tasks/e26ecd7ad75315be/images/e8c28ea4a8d5061b0d2102ad",
+        "material:caption_bottom": "/api/tasks/e26ecd7ad75315be/images/89ed7b66572c73257d3af32d",
+        "sheet:0": "/api/tasks/e26ecd7ad75315be/images/1c72a2b2cbbb9df1b2f9e278",
+        "sheet:1": "/api/tasks/e26ecd7ad75315be/images/f6907fd22fc586053cde9a1f",
+        "previews/review-detail-1.png": "/api/tasks/e26ecd7ad75315be/images/7a8c6d9988e2887bf72be0bd",
+        "previews/review-detail-2.png": "/api/tasks/e26ecd7ad75315be/images/052ce592f1dd2cb987342e7b",
+        "previews/review-detail-3.png": "/api/tasks/e26ecd7ad75315be/images/c8df935db532be620ddd1dd9",
+        "previews/review-detail-4.png": "/api/tasks/e26ecd7ad75315be/images/09bf7f5acaa46d03b6e42bed"
+      },
+      "changes": [],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "3ffc41d8a2c1c074",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看完整成图、完整对照、全部提取检查表及四处指定局部。7 个客户照片槽均可辨且填满窗口，波浪相框、星星、气泡、笑脸、点阵爱心和爆炸线没有旧照片残留或关键遮挡；无需筛选或排版调整。首版保留底部手写字体近似，并将左中闪光的长横线简化为闪光主体。",
+        "items": [],
+        "scene_sha256": "bbce89c561627c76525f9dcae49471b1b366db3d4f2b60c84f8cf318471da196",
+        "final_sha256": "9270edb93865f418c3b59fcf27987392d8fb3e1dc2ac29c849014a477dff6bf8"
+      },
+      "objects": [
+        {
+          "id": "background_base",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "label": "底层基底",
+          "description": "浅蓝绿色兜底，实际满版环境由客户照片替换",
+          "style": {
+            "fill": "#B7D2D0"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_background",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "label": "满版环境照片",
+          "description": "覆盖整张画布的旅行环境底图，承担天空、树木与草地般的整体氛围",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_background",
+            "asset_id": "asset_4026ebaa393a4e64",
+            "reason": "竖幅航拍盐湖画面适合作为满版旅行环境底图"
+          }
+        },
+        {
+          "id": "photo_top_left",
+          "kind": "photo",
+          "bbox": [
+            222,
+            66,
+            580,
+            531
+          ],
+          "label": "左上大照片",
+          "description": "左上竖向大照片窗口，直角边缘",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top_left",
+            "asset_id": "asset_f4e6838a79ca6adc",
+            "reason": "竖幅人物旅行照适合左上主窗口"
+          }
+        },
+        {
+          "id": "doodle_top_left",
+          "kind": "overlay",
+          "bbox": [
+            194,
+            194,
+            352,
+            314
+          ],
+          "label": "左上星星涂鸦",
+          "description": "两颗白色手绘星星、散点与斜线组成的一组涂鸦，保留不规则笔触",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "3e5a9710fa554f004522e84d22cdcb36f8e3c545053df5daf6490eb2d75fc776"
+          },
+          "recovered": {
+            "sha256": "1da135e3a2358f73dc954b38b110de2c35933aa06305dc5c3b0e4a00a56ab447",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_top_center",
+          "kind": "photo",
+          "bbox": [
+            520,
+            154,
+            808,
+            440
+          ],
+          "label": "上方波浪框照片",
+          "description": "上方偏右近方形照片内口，位于白色手绘波浪边框下方",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top_center",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横幅航拍湖景适合近方形风景窗口"
+          },
+          "photo_window": {
+            "sha256": "3d9f353bafb89bbb2fffb2f628f926a470323b8bd13da68223f483c0bad4a88f"
+          },
+          "reveal_frame_id": "frame_top_center"
+        },
+        {
+          "id": "frame_top_center",
+          "kind": "overlay",
+          "bbox": [
+            505,
+            141,
+            818,
+            453
+          ],
+          "label": "波浪相框与角饰",
+          "description": "白色不规则波浪相框，连同左上黄色旋涡和右上、左下黄色闪光角饰；窗口内部需透明",
+          "method": "extract",
+          "photo_id": "photo_top_center",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_notes": [
+            "Window photo_top_center contains visible pixels; inspect for old photos or intentional decoration",
+            "Foreground carrier window photo_top_center still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+          ],
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "e8cbfec33e85e7c774685bea3cc1d3d0c1093f620ecb9718600a477d8e3f7347"
+          },
+          "recovered": {
+            "sha256": "dc356658e05aadabe5a6bd2e4292e065f6966ac30d6c3e0796f6518b3ac41fd6",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "star_top_right",
+          "kind": "overlay",
+          "bbox": [
+            859,
+            148,
+            982,
+            267
+          ],
+          "label": "右上灰色星星",
+          "description": "带柔和阴影的灰白五角星贴纸",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "e276098334c4d5e0d7f8db7d717cca5de024f584d9b2b2bd8a764667c571537d"
+          },
+          "recovered": {
+            "sha256": "288898523e7304745b673f704335b619e40e13359dc15cc4c8fccebd62c7d4ae",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_bridge",
+          "kind": "photo",
+          "bbox": [
+            200,
+            540,
+            494,
+            932
+          ],
+          "label": "左中竖向照片",
+          "description": "左中竖向照片窗口，直角边缘",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bridge",
+            "asset_id": "asset_04c2d3e1b7f8314b",
+            "reason": "竖幅人物构图适合左中竖向窗口",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "sparkle_left_mid",
+          "kind": "overlay",
+          "bbox": [
+            180,
+            506,
+            220,
+            551
+          ],
+          "label": "左中白色闪光",
+          "description": "照片左上角外侧的四芒白色发光星",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "cf30c9119df85ef5e30e48859b624d2edc2b63db86385935c7073893418d9dd8"
+          },
+          "recovered": {
+            "sha256": "35542945f0e334b6ee86e35a297a9fe9b03d2043d47fcd6af2d6214a7ec110e3",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "thought_cloud",
+          "kind": "overlay",
+          "bbox": [
+            374,
+            600,
+            458,
+            685
+          ],
+          "label": "白色思考云",
+          "description": "带灰色立体阴影的白色云朵思考气泡",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "30b644df404685d655d6ee47d35c20bacaa4392194040c74ea5eab0210e7e318"
+          },
+          "recovered": {
+            "sha256": "98b00c7ed168538bb221bdac9f34486ea3350d5de8e2ee8f475ce8e0b300f8cc",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "smile_yellow",
+          "kind": "overlay",
+          "bbox": [
+            520,
+            644,
+            618,
+            716
+          ],
+          "label": "黄色笑脸",
+          "description": "两个圆点眼睛与粗弧形嘴组成的黄色手绘笑脸",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "fa22d9a3ed7df8af099a4c7aaa79c9105933d1f2e3c93a597ee30b69346d563c"
+          },
+          "recovered": {
+            "sha256": "288ea6657f346da4c15d32155e8edf236e9509991d99bfcca1f008a143caed82",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_lake",
+          "kind": "photo",
+          "bbox": [
+            645,
+            452,
+            1008,
+            793
+          ],
+          "label": "右中大照片",
+          "description": "右中宽幅风景照片窗口，直角边缘",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_lake",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "横幅人物与湖景适合右中宽幅窗口"
+          }
+        },
+        {
+          "id": "burst_white",
+          "kind": "overlay",
+          "bbox": [
+            790,
+            456,
+            960,
+            622
+          ],
+          "label": "白色爆炸线涂鸦",
+          "description": "照片天空上的白色手绘感叹号、放射线、菱形和圆点整组图案",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4e026dadb2c5cc742020e71adb46d55137aadd63f1a7790df8dac5f03c7f5a62"
+          },
+          "recovered": {
+            "sha256": "921d609ba2162b17f380deec855a81113bc86b8323387f89612873db7e790486",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_person_strip",
+          "kind": "photo",
+          "bbox": [
+            752,
+            793,
+            1008,
+            934
+          ],
+          "label": "右侧横向小照片",
+          "description": "右侧扁横向照片窗口，与上方大照片下沿衔接",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_person_strip",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽海岸画面适合扁横向小窗口"
+          }
+        },
+        {
+          "id": "like_bubble",
+          "kind": "overlay",
+          "bbox": [
+            503,
+            812,
+            640,
+            915
+          ],
+          "label": "双心点赞气泡",
+          "description": "白色圆角对话气泡，内含一深一浅两颗灰色爱心并带立体阴影",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9e4a5ab255a02dd37680d5c233ec0ca4b65f30649d439d9e8c05fdb0cff3c683"
+          },
+          "recovered": {
+            "sha256": "78b06c53fd7a3f1debdcb8e14817a0bc6c190273d2409f693a7f875ac98aaa8c",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_bottom_center",
+          "kind": "photo",
+          "bbox": [
+            352,
+            932,
+            752,
+            1189
+          ],
+          "label": "下方横向照片",
+          "description": "下方居中的横向风景照片窗口，直角边缘",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom_center",
+            "asset_id": "asset_f044e11373093d30",
+            "reason": "横幅航拍盐湖纹理适合下方居中照片"
+          }
+        },
+        {
+          "id": "heart_dotted",
+          "kind": "overlay",
+          "bbox": [
+            100,
+            1094,
+            224,
+            1205
+          ],
+          "label": "左下点阵爱心",
+          "description": "白色柔光心形轮廓及右上点阵渐隐纹理，保留特殊发光和点阵外观",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "8787695b3223b927a051e28e01198670ce8f09ea399585c922fe934a969a32d0"
+          },
+          "recovered": {
+            "sha256": "74ba19b8b3c344e5a64ba388a8699725b22433c0d8c131fccad27a5a3dcbc6ca",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "caption_bottom",
+          "kind": "text",
+          "bbox": [
+            252,
+            1278,
+            840,
+            1324
+          ],
+          "label": "底部法文手写句",
+          "description": "底部居中的两行细小白色手写体法文，低对比度",
+          "text": "En fait, les quatre saisons sont toujours les mêmes, mais quand je suis avec vous, le vent\nprintanier, la lune d’automne est belle.",
+          "text_status": "known",
+          "style": {
+            "font": "hand",
+            "italic": true,
+            "fill": "#FFFFFFB8",
+            "align": "center",
+            "font_size": 14,
+            "line_spacing": 1.1
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background_base",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "doodle_top_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "frame_top_center",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "frame_top_center",
+          "note": "Window photo_top_center contains visible pixels; inspect for old photos or intentional decoration"
+        },
+        {
+          "id": "frame_top_center",
+          "note": "Foreground carrier window photo_top_center still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+        },
+        {
+          "id": "star_top_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "sparkle_left_mid",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "thought_cloud",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "smile_yellow",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "burst_white",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "like_bubble",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "heart_dotted",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background_base",
+      "label": "底层基底",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1439
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/1e6fefcc64fc411fe6f496fd",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/5090dd42735c5e6dffafe9e9"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_background",
+      "label": "满版环境照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1439
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/1e6fefcc64fc411fe6f496fd",
+        "customer": "/api/tasks/e26ecd7ad75315be/images/40e81a5f205a5deaf97b1925",
+        "final": "/api/tasks/e26ecd7ad75315be/images/a55ffe5476dc2137fe1a6fcd"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_top_left",
+      "label": "左上大照片",
+      "kind": "photo",
+      "bbox": [
+        222,
+        66,
+        580,
+        531
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/f950be226ecca978e55d6fe3",
+        "customer": "/api/tasks/e26ecd7ad75315be/images/207d11386cfb00186c9958f1",
+        "final": "/api/tasks/e26ecd7ad75315be/images/9646a90e045263233088fb7b"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "doodle_top_left",
+      "label": "左上星星涂鸦",
+      "kind": "overlay",
+      "bbox": [
+        194,
+        194,
+        352,
+        314
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/b83687963ed872f72d4e4636",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/be074f8865c227b35357b39a",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/e7d0a7bb6db6ad2d6bde5706",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/fc0bd2befbb1f56bbe58fff1"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3e5a9710fa554f004522e84d22cdcb36f8e3c545053df5daf6490eb2d75fc776"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "photo_top_center",
+      "label": "上方波浪框照片",
+      "kind": "photo",
+      "bbox": [
+        520,
+        154,
+        808,
+        440
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/68378b71b04dd2cbb95daf77",
+        "customer": "/api/tasks/e26ecd7ad75315be/images/725e491dc5b58bb578c51b10",
+        "final": "/api/tasks/e26ecd7ad75315be/images/d72e8ae902223cc8e418d567"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "frame_top_center",
+      "label": "波浪相框与角饰",
+      "kind": "overlay",
+      "bbox": [
+        505,
+        141,
+        818,
+        453
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/fa398987b04e7746137b61ec",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/5217dc00e4578d1cd6789f79",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/7b3bf0cf54c1467d1756dc80",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/148970ed99af873e7e3b5d5d"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e8cbfec33e85e7c774685bea3cc1d3d0c1093f620ecb9718600a477d8e3f7347"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "star_top_right",
+      "label": "右上灰色星星",
+      "kind": "overlay",
+      "bbox": [
+        859,
+        148,
+        982,
+        267
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/adcc1f475587f364e61f38c5",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/ffdcdca5cfca02747330115a",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/4e3c557d12bf52efdaa1c036",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/0b92f01f0df3a8fc8367e14a"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e276098334c4d5e0d7f8db7d717cca5de024f584d9b2b2bd8a764667c571537d"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "photo_bridge",
+      "label": "左中竖向照片",
+      "kind": "photo",
+      "bbox": [
+        200,
+        540,
+        494,
+        932
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/9cfb597910e756b3e081a6ac",
+        "customer": "/api/tasks/e26ecd7ad75315be/images/2cd88657e94a1e41eb29aa4c",
+        "final": "/api/tasks/e26ecd7ad75315be/images/c625563eeac08cdd66aa0335"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "sparkle_left_mid",
+      "label": "左中白色闪光",
+      "kind": "overlay",
+      "bbox": [
+        180,
+        506,
+        220,
+        551
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/1a7719305217c03880bfefd0",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/56fc56a9cbbd40cc4463cf10",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/019e7ed995cc42fe3679f5e0",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/a6db66c7594bf7be4dd3f55a"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "cf30c9119df85ef5e30e48859b624d2edc2b63db86385935c7073893418d9dd8"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "thought_cloud",
+      "label": "白色思考云",
+      "kind": "overlay",
+      "bbox": [
+        374,
+        600,
+        458,
+        685
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/eaefe0c28dfface0791af60c",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/143a8484cced355c00a80ace",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/53743b51e2ad4159ccb75e16",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/7ce8fa6a17daa2784cac92f4"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "30b644df404685d655d6ee47d35c20bacaa4392194040c74ea5eab0210e7e318"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "smile_yellow",
+      "label": "黄色笑脸",
+      "kind": "overlay",
+      "bbox": [
+        520,
+        644,
+        618,
+        716
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/05a7246fb723654dc75c4186",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/d90e652c3d84351a4f58db04",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/80c699001aab5cf71d5cd795",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/bea56541cc0f5bda529da9a9"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "fa22d9a3ed7df8af099a4c7aaa79c9105933d1f2e3c93a597ee30b69346d563c"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "photo_lake",
+      "label": "右中大照片",
+      "kind": "photo",
+      "bbox": [
+        645,
+        452,
+        1008,
+        793
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/b81de4dd6fdc64de36b4ef01",
+        "customer": "/api/tasks/e26ecd7ad75315be/images/d73b18b1cdb57526d3f42898",
+        "final": "/api/tasks/e26ecd7ad75315be/images/fac73cb3bf80cac051c67b92"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "burst_white",
+      "label": "白色爆炸线涂鸦",
+      "kind": "overlay",
+      "bbox": [
+        790,
+        456,
+        960,
+        622
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/26119fc4fa4267fa2c42e943",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/7f71ac80d472bb073552e948",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/81db8dbc173dfca7ebfacbce",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/007129f4813d4e868c62cf47"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "4e026dadb2c5cc742020e71adb46d55137aadd63f1a7790df8dac5f03c7f5a62"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "photo_person_strip",
+      "label": "右侧横向小照片",
+      "kind": "photo",
+      "bbox": [
+        752,
+        793,
+        1008,
+        934
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/6dfb5bb3deb1f9ed382a2a19",
+        "customer": "/api/tasks/e26ecd7ad75315be/images/5910be5c0197a8dbe53a0eb2",
+        "final": "/api/tasks/e26ecd7ad75315be/images/ecd1810d3ba3f86dcd26c35a"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "like_bubble",
+      "label": "双心点赞气泡",
+      "kind": "overlay",
+      "bbox": [
+        503,
+        812,
+        640,
+        915
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/f264d0147b91e4abd97fddde",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/1d932d7bae4c2a48f60a0c67",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/8b9a8f8f97b695e347ba30ed",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/8374b40117205cfe4c62907c"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9e4a5ab255a02dd37680d5c233ec0ca4b65f30649d439d9e8c05fdb0cff3c683"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "photo_bottom_center",
+      "label": "下方横向照片",
+      "kind": "photo",
+      "bbox": [
+        352,
+        932,
+        752,
+        1189
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/8bc6f9e6ca1601f54190331f",
+        "customer": "/api/tasks/e26ecd7ad75315be/images/43ffdc22779f2251693a57ce",
+        "final": "/api/tasks/e26ecd7ad75315be/images/c126c9427a330b98706928d3"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "heart_dotted",
+      "label": "左下点阵爱心",
+      "kind": "overlay",
+      "bbox": [
+        100,
+        1094,
+        224,
+        1205
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/00024c98521e840a95e9e655",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/8a2bb37d85e8df20d7ae5df6",
+        "raw": "/api/tasks/e26ecd7ad75315be/images/92ff31cc5912462b8a2bb5c7",
+        "processed": "/api/tasks/e26ecd7ad75315be/images/c7634d5baaa28451dd9de7a4"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8787695b3223b927a051e28e01198670ce8f09ea399585c922fe934a969a32d0"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "caption_bottom",
+      "label": "底部法文手写句",
+      "kind": "text",
+      "bbox": [
+        252,
+        1278,
+        840,
+        1324
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e26ecd7ad75315be/images/d87cafa8921328a95c8c5674",
+        "customer": null,
+        "final": "/api/tasks/e26ecd7ad75315be/images/3bb562b719c2e31823b68092"
+      },
+      "decision": {},
+      "note": ""
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "burst_white",
+        "doodle_top_left",
+        "frame_top_center",
+        "heart_dotted",
+        "like_bubble",
+        "smile_yellow",
+        "sparkle_left_mid",
+        "star_top_right",
+        "thought_cloud"
+      ],
+      "at": "2026-10-16T03:25:29.898628+00:00",
+      "error": "",
+      "available_ids": [
+        "burst_white",
+        "doodle_top_left",
+        "frame_top_center",
+        "heart_dotted",
+        "like_bubble",
+        "smile_yellow",
+        "sparkle_left_mid",
+        "star_top_right",
+        "thought_cloud"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 69.78,
+      "cache_hit": false
+    }
+  ],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background_base",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "doodle_top_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "frame_top_center",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "frame_top_center",
+      "note": "Window photo_top_center contains visible pixels; inspect for old photos or intentional decoration"
+    },
+    {
+      "id": "frame_top_center",
+      "note": "Foreground carrier window photo_top_center still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+    },
+    {
+      "id": "star_top_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "sparkle_left_mid",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "thought_cloud",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "smile_yellow",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "burst_white",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "like_bubble",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "heart_dotted",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "3ffc41d8a2c1c074",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已查看完整成图、完整对照、全部提取检查表及四处指定局部。7 个客户照片槽均可辨且填满窗口，波浪相框、星星、气泡、笑脸、点阵爱心和爆炸线没有旧照片残留或关键遮挡；无需筛选或排版调整。首版保留底部手写字体近似，并将左中闪光的长横线简化为闪光主体。",
+    "items": [],
+    "scene_sha256": "bbce89c561627c76525f9dcae49471b1b366db3d4f2b60c84f8cf318471da196",
+    "final_sha256": "9270edb93865f418c3b59fcf27987392d8fb3e1dc2ac29c849014a477dff6bf8"
+  },
+  "recording_incomplete": false
+}

@@ -1,0 +1,930 @@
+{
+  "id": "6f7df1b476b303c3",
+  "name": "Live-1d0517267769",
+  "created_at": "2026-10-16T02:46:50.225780+00:00",
+  "reference_size": [
+    1440,
+    2561
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T05:47:06.070Z",
+    "finished_at": "2026-10-16T05:54:53.510642+00:00",
+    "elapsed_seconds": 467.401,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        2561
+      ],
+      "label": "浅蓝过渡底色",
+      "description": "三段照片柔边交叠下的浅蓝兜底色，避免叠化边缘出现透明缝隙",
+      "style": {
+        "fill": "#B7D4E6"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1440,
+        1015
+      ],
+      "label": "顶部湖景人物画面",
+      "description": "全宽横向窗口，人物位于右侧，底缘与中段画面做柔边叠化",
+      "mode": "feather"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        0,
+        780,
+        1440,
+        1845
+      ],
+      "label": "中部山湖人物画面",
+      "description": "全宽横向窗口，人物偏左，上下边缘分别与相邻画面柔边交叠",
+      "mode": "feather"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1625,
+        1440,
+        2561
+      ],
+      "label": "底部湖景人物画面",
+      "description": "全宽横向窗口，人物位于右侧，顶缘与中段画面做柔边叠化",
+      "mode": "feather"
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:46:50.240203+00:00",
+      "started_at": "2026-10-16T02:46:48.314827+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "完成三段全宽柔边照片窗分析与真实Live素材绑定；已查看原尺寸叠框并确认两处交叠区定位",
+      "at": "2026-10-16T05:49:24.527098+00:00",
+      "started_at": "2026-10-16T05:49:09.381497+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:49:30.519425+00:00",
+      "started_at": "2026-10-16T05:49:25.780046+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "首版素材检查完成：三段客户照片清晰，无旧照片残留、重复文字或需隔离素材，无需screen",
+      "at": "2026-10-16T05:50:28.429196+00:00",
+      "started_at": "2026-10-16T05:49:40.024152+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:51:15.599839+00:00",
+      "started_at": "2026-10-16T05:51:15.085790+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "静态封面已复核通过并完成一次中段裁切修正；3秒静音动态成片已实际播放及核对首中末帧，运动和柔边层级稳定，完成交付",
+      "at": "2026-10-16T05:54:17.521817+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T05:51:15.600586+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:46:48.314827+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:46:50.240203+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:48:26.593529+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看原尺寸参考图与18段Live视频联系表，分析布局和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T05:49:09.381497+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:49:10.449437+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T05:49:24.527098+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "完成三段全宽柔边照片窗分析与真实Live素材绑定；已查看原尺寸叠框并确认两处交叠区定位"
+    },
+    {
+      "at": "2026-10-16T05:49:25.780046+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:49:30.519425+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:49:40.024152+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在检查冻结首版的完整对照图、照片残留和柔边叠化质量"
+    },
+    {
+      "at": "2026-10-16T05:50:28.429196+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "首版素材检查完成：三段客户照片清晰，无旧照片残留、重复文字或需隔离素材，无需screen"
+    },
+    {
+      "at": "2026-10-16T05:50:29.633024+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核完整构图与两处柔边交叠，并调整中段人物横向位置"
+    },
+    {
+      "at": "2026-10-16T05:50:40.195481+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "调整排版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:50:43.505083+00:00",
+      "stage": 5,
+      "status": "waiting",
+      "summary": "调整排版 · 排版调整完成，等待复核新图"
+    },
+    {
+      "at": "2026-10-16T05:51:15.085790+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:51:15.599839+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:54:17.521817+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "静态封面已复核通过并完成一次中段裁切修正；3秒静音动态成片已实际播放及核对首中末帧，运动和柔边层级稳定，完成交付"
+    }
+  ],
+  "reference": "/api/tasks/6f7df1b476b303c3/images/6421cbe35ccf3bf149e0cd4b",
+  "boxes": "/api/tasks/6f7df1b476b303c3/images/370fc074fad8b8539f9caac0",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/6f7df1b476b303c3/images/f1ab12d5cc2f13328488954d"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/6f7df1b476b303c3/images/006f5aa5b6c542b912180ea3"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/6f7df1b476b303c3/images/65ec110917a58d7c538a00b5"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/6f7df1b476b303c3/images/c486dde585e8abb2d59cd1aa"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/6f7df1b476b303c3/images/91e8e93d52ff280b79ceb24f"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/6f7df1b476b303c3/images/c16674f4d6e11181f93424cd"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/6f7df1b476b303c3/images/6371f26cb7cf68a512f41de4"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/6f7df1b476b303c3/images/91ade7901d508f1751b32b1e"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/6f7df1b476b303c3/images/7d48fe98ae0e8ca6022159ac"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/6f7df1b476b303c3/images/220b8f16949fe95aba0cd56a"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/6f7df1b476b303c3/images/3e8dcbd9b3f824f1cbb15443"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/6f7df1b476b303c3/images/92cb60a255e7a41976549e5e"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/6f7df1b476b303c3/images/b09f4aacfd8d637006462db6"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/6f7df1b476b303c3/images/d4f73360f3826eec8d6b6d3d"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/6f7df1b476b303c3/images/d975e63763c7de118ed623f0"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/6f7df1b476b303c3/images/8f9b7d9be9c6cf3f926adf55"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/6f7df1b476b303c3/images/17849ae11d0cc733c58f9800"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/6f7df1b476b303c3/images/126ce6bf8d1a2f4da2a4cf22"
+    }
+  ],
+  "current_image": "/api/tasks/6f7df1b476b303c3/images/772dce2d79b142a56a78e9ce",
+  "first_image": "/api/tasks/6f7df1b476b303c3/images/c951bf0b87608092c9af1b09",
+  "versions": [
+    {
+      "id": "0001-436f898a",
+      "parent_id": null,
+      "render_id": "cb91475c6360ba33",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "浅蓝过渡底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/ef27ebbe02c4d8aae41023ef",
+            "final": "/api/tasks/6f7df1b476b303c3/images/e88c950764fa980c42b7fa1c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部湖景人物画面",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            1015
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/ded997e7eba7ba09b52b811c",
+            "final": "/api/tasks/6f7df1b476b303c3/images/73160be9b6c5480947063768",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部山湖人物画面",
+          "kind": "photo",
+          "bbox": [
+            0,
+            780,
+            1440,
+            1845
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/cba8a25c514d63dc3dd3f55c",
+            "final": "/api/tasks/6f7df1b476b303c3/images/993c1bb16a40cdfa88cb111c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部湖景人物画面",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1625,
+            1440,
+            2561
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/f602ef38cb8cb03be8a8e65f",
+            "final": "/api/tasks/6f7df1b476b303c3/images/9a63f0bd6d13c6664f0d843f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T05:49:30.509669+00:00",
+      "image": "/api/tasks/6f7df1b476b303c3/images/78d01a17583f8b54ae44763e",
+      "artifacts": {
+        "final.png": "/api/tasks/6f7df1b476b303c3/images/78d01a17583f8b54ae44763e",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/6f7df1b476b303c3/images/50ec799cbe051518e982fa98",
+        "previews/comparison.png": "/api/tasks/6f7df1b476b303c3/images/ba81fcc5c5b2f2604a1236ca",
+        "material:background": "/api/tasks/6f7df1b476b303c3/images/e88c950764fa980c42b7fa1c",
+        "material:photo_top": "/api/tasks/6f7df1b476b303c3/images/73160be9b6c5480947063768",
+        "material:photo_middle": "/api/tasks/6f7df1b476b303c3/images/993c1bb16a40cdfa88cb111c",
+        "material:photo_bottom": "/api/tasks/6f7df1b476b303c3/images/9a63f0bd6d13c6664f0d843f",
+        "previews/review-detail-1.png": "/api/tasks/6f7df1b476b303c3/images/32a77feb003a91d80e12874b",
+        "previews/review-detail-2.png": "/api/tasks/6f7df1b476b303c3/images/99a922a397eb0afd3992c07a"
+      },
+      "changes": [],
+      "intent": {},
+      "review": null,
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "label": "浅蓝过渡底色",
+          "description": "三段照片柔边交叠下的浅蓝兜底色，避免叠化边缘出现透明缝隙",
+          "style": {
+            "fill": "#B7D4E6"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            1015
+          ],
+          "label": "顶部湖景人物画面",
+          "description": "全宽横向窗口，人物位于右侧，底缘与中段画面做柔边叠化",
+          "mode": "feather",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_314880705d0e7976",
+            "crop_center": [
+              0.58,
+              0.48
+            ],
+            "reason": "横向湖边人物素材，人物可落在顶部画面的右侧"
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            780,
+            1440,
+            1845
+          ],
+          "label": "中部山湖人物画面",
+          "description": "全宽横向窗口，人物偏左，上下边缘分别与相邻画面柔边交叠",
+          "mode": "feather",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_04c2d3e1b7f8314b",
+            "crop_center": [
+              0.62,
+              0.48
+            ],
+            "reason": "山地人物素材，向右取景可让人物在窗口内偏左呈现"
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1625,
+            1440,
+            2561
+          ],
+          "label": "底部湖景人物画面",
+          "description": "全宽横向窗口，人物位于右侧，顶缘与中段画面做柔边叠化",
+          "mode": "feather",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_06638b50677afc7c",
+            "crop_center": [
+              0.38,
+              0.46
+            ],
+            "reason": "海边人物素材，向左取景可让人物在窗口内偏右呈现"
+          }
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0002-173d5414",
+      "parent_id": "0001-436f898a",
+      "render_id": "e8ac79e3f3d18a23",
+      "command": "apply",
+      "materials": [
+        {
+          "id": "background",
+          "label": "浅蓝过渡底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/ef27ebbe02c4d8aae41023ef",
+            "final": "/api/tasks/6f7df1b476b303c3/images/1d70e6a56e5b19d4bc246d23",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部湖景人物画面",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            1015
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/ded997e7eba7ba09b52b811c",
+            "final": "/api/tasks/6f7df1b476b303c3/images/a85a7a15a2ceb24e5c15b749",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部山湖人物画面",
+          "kind": "photo",
+          "bbox": [
+            0,
+            780,
+            1440,
+            1845
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/cba8a25c514d63dc3dd3f55c",
+            "final": "/api/tasks/6f7df1b476b303c3/images/96ea2ab90a65742d363cc60d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部湖景人物画面",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1625,
+            1440,
+            2561
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6f7df1b476b303c3/images/f602ef38cb8cb03be8a8e65f",
+            "final": "/api/tasks/6f7df1b476b303c3/images/fec4121b18cad27b7322d740",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "调整排版",
+      "at": "2026-10-16T05:50:43.487244+00:00",
+      "image": "/api/tasks/6f7df1b476b303c3/images/772dce2d79b142a56a78e9ce",
+      "artifacts": {
+        "final.png": "/api/tasks/6f7df1b476b303c3/images/772dce2d79b142a56a78e9ce",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/6f7df1b476b303c3/images/325cdadeb745204c6732f52f",
+        "previews/comparison.png": "/api/tasks/6f7df1b476b303c3/images/34b6e6903ac5cc900cd379f8",
+        "material:background": "/api/tasks/6f7df1b476b303c3/images/1d70e6a56e5b19d4bc246d23",
+        "material:photo_top": "/api/tasks/6f7df1b476b303c3/images/a85a7a15a2ceb24e5c15b749",
+        "material:photo_middle": "/api/tasks/6f7df1b476b303c3/images/96ea2ab90a65742d363cc60d",
+        "material:photo_bottom": "/api/tasks/6f7df1b476b303c3/images/fec4121b18cad27b7322d740",
+        "previews/review-detail-1.png": "/api/tasks/6f7df1b476b303c3/images/867737059796c1766af23266",
+        "previews/review-detail-2.png": "/api/tasks/6f7df1b476b303c3/images/d1bdb8d81e3bc3bf1ad782bf"
+      },
+      "changes": [
+        {
+          "id": "photo_middle",
+          "label": "中部山湖人物画面",
+          "bbox": [
+            0,
+            780,
+            1440,
+            1845
+          ],
+          "fields": {
+            "binding": {
+              "before": {
+                "slot_id": "photo_middle",
+                "asset_id": "asset_04c2d3e1b7f8314b",
+                "crop_center": [
+                  0.62,
+                  0.48
+                ],
+                "reason": "山地人物素材，向右取景可让人物在窗口内偏左呈现"
+              },
+              "after": {
+                "slot_id": "photo_middle",
+                "asset_id": "asset_04c2d3e1b7f8314b",
+                "crop_center": [
+                  0.5,
+                  0.48
+                ],
+                "reason": "山地人物素材，向右取景可让人物在窗口内偏左呈现",
+                "source_crop": [
+                  0.2,
+                  0.0,
+                  1.0,
+                  1.0
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "intent": {
+        "schema_version": "collage-review-v1",
+        "render_id": "cb91475c6360ba33",
+        "checked_entire_composition": true,
+        "verdict": "needs_changes",
+        "summary": "中段人物相较参考图偏右，收窄源图左侧取景范围以把人物移到画面左部",
+        "items": [
+          {
+            "id": "photo_middle",
+            "action": "adjust",
+            "reason": "参考图中段人物靠左，当前人物接近中线",
+            "changes": {
+              "source_crop": [
+                0.2,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "crop_center": [
+                0.5,
+                0.48
+              ]
+            }
+          }
+        ]
+      },
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "e8ac79e3f3d18a23",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看调整后的完整对照图和两处交叠局部；中段人物已移至左部，三段真实客户画面清晰且柔边衔接连续，无旧照片残留、重复内容或关键遮挡问题。允许客户场景色调差异及轻微侧缘雾化作为首版近似。",
+        "items": [],
+        "scene_sha256": "cd2d1f129d85afedf63cb6b895a3c9eb03562c64011551261161c1e02bea878b",
+        "final_sha256": "4398b7a2dc703b173282a53f37f2929891c2b40148c311fe67700fa2bb2b83b8"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "label": "浅蓝过渡底色",
+          "description": "三段照片柔边交叠下的浅蓝兜底色，避免叠化边缘出现透明缝隙",
+          "style": {
+            "fill": "#B7D4E6"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            1015
+          ],
+          "label": "顶部湖景人物画面",
+          "description": "全宽横向窗口，人物位于右侧，底缘与中段画面做柔边叠化",
+          "mode": "feather",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_314880705d0e7976",
+            "crop_center": [
+              0.58,
+              0.48
+            ],
+            "reason": "横向湖边人物素材，人物可落在顶部画面的右侧"
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            780,
+            1440,
+            1845
+          ],
+          "label": "中部山湖人物画面",
+          "description": "全宽横向窗口，人物偏左，上下边缘分别与相邻画面柔边交叠",
+          "mode": "feather",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_04c2d3e1b7f8314b",
+            "crop_center": [
+              0.5,
+              0.48
+            ],
+            "reason": "山地人物素材，向右取景可让人物在窗口内偏左呈现",
+            "source_crop": [
+              0.2,
+              0.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1625,
+            1440,
+            2561
+          ],
+          "label": "底部湖景人物画面",
+          "description": "全宽横向窗口，人物位于右侧，顶缘与中段画面做柔边叠化",
+          "mode": "feather",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_06638b50677afc7c",
+            "crop_center": [
+              0.38,
+              0.46
+            ],
+            "reason": "海边人物素材，向左取景可让人物在窗口内偏右呈现"
+          }
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "浅蓝过渡底色",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        2561
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/6f7df1b476b303c3/images/ef27ebbe02c4d8aae41023ef",
+        "customer": null,
+        "final": "/api/tasks/6f7df1b476b303c3/images/5f1e5099b75a7585000c957f"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_top",
+      "label": "顶部湖景人物画面",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1440,
+        1015
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/6f7df1b476b303c3/images/ded997e7eba7ba09b52b811c",
+        "customer": "/api/tasks/6f7df1b476b303c3/images/8f9b7d9be9c6cf3f926adf55",
+        "final": "/api/tasks/6f7df1b476b303c3/images/7833aa85874d9b36a72c06c2"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle",
+      "label": "中部山湖人物画面",
+      "kind": "photo",
+      "bbox": [
+        0,
+        780,
+        1440,
+        1845
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6f7df1b476b303c3/images/cba8a25c514d63dc3dd3f55c",
+        "customer": "/api/tasks/6f7df1b476b303c3/images/6371f26cb7cf68a512f41de4",
+        "final": "/api/tasks/6f7df1b476b303c3/images/9c88d3568f30687357f6d2fa"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "底部湖景人物画面",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1625,
+        1440,
+        2561
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/6f7df1b476b303c3/images/f602ef38cb8cb03be8a8e65f",
+        "customer": "/api/tasks/6f7df1b476b303c3/images/17849ae11d0cc733c58f9800",
+        "final": "/api/tasks/6f7df1b476b303c3/images/bb86aa1e27ef4bed271f3d0d"
+      },
+      "decision": {},
+      "note": ""
+    }
+  ],
+  "groups": [],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "e8ac79e3f3d18a23",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已查看调整后的完整对照图和两处交叠局部；中段人物已移至左部，三段真实客户画面清晰且柔边衔接连续，无旧照片残留、重复内容或关键遮挡问题。允许客户场景色调差异及轻微侧缘雾化作为首版近似。",
+    "items": [],
+    "scene_sha256": "cd2d1f129d85afedf63cb6b895a3c9eb03562c64011551261161c1e02bea878b",
+    "final_sha256": "4398b7a2dc703b173282a53f37f2929891c2b40148c311fe67700fa2bb2b83b8"
+  },
+  "recording_incomplete": false
+}

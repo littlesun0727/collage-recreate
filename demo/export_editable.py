@@ -72,6 +72,9 @@ class Export:
             if p.suffix == '.json':
                 visiting.add(p)
                 value = read(p)
+                if relative == 'sdk-timing.json':
+                    value = {k: v for k, v in value.items() if k in {
+                        'model', 'effort', 'started_at', 'finished_at', 'elapsed_seconds', 'status'}}
                 if relative == 'reveal-config.json':
                     value = {k: v for k, v in value.items() if k in {'enabled', 'padding', 'batch_size'}}
                     value['offline'] = True
@@ -130,7 +133,7 @@ class Export:
                 continue
             if parts[0] == 'observability' and parts[1] not in {'versions', 'operations', 'checkpoints'}:
                 continue
-            if p.name in {'sdk-timing.json', '.write.lock'}:
+            if p.name == '.write.lock':
                 continue
             add(p)
         identifier = hashlib.sha256(str(run).encode()).hexdigest()[:16]

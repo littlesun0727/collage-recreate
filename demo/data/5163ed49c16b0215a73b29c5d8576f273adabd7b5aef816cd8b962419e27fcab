@@ -1,0 +1,1526 @@
+{
+  "id": "81368b7186ca9b2d",
+  "name": "Live-7d0c79661be1",
+  "created_at": "2026-10-16T02:46:28.895220+00:00",
+  "reference_size": [
+    1080,
+    1440
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T05:41:32.428Z",
+    "finished_at": "2026-10-16T05:47:05.673296+00:00",
+    "elapsed_seconds": 333.176,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "label": "白色九宫格底",
+      "description": "暖白底色从八个照片窗和中央设计单元之间露出，形成约四像素宽的横竖分隔线",
+      "style": {
+        "fill": "#F8F7F5"
+      }
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        357,
+        477
+      ],
+      "label": "左上照片窗",
+      "description": "九宫格左上完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "photo_top_center",
+      "kind": "photo",
+      "bbox": [
+        361,
+        0,
+        717,
+        477
+      ],
+      "label": "上中照片窗",
+      "description": "九宫格上中完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        721,
+        0,
+        1080,
+        477
+      ],
+      "label": "右上照片窗",
+      "description": "九宫格右上完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "photo_middle_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        483,
+        357,
+        957
+      ],
+      "label": "左中照片窗",
+      "description": "九宫格左中完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "center_strawberry_tile",
+      "kind": "overlay",
+      "bbox": [
+        361,
+        483,
+        717,
+        957
+      ],
+      "label": "中央草莓艺术字纹理块",
+      "description": "完整中央设计单元：粉色草莓表皮摄影纹理及白色打字机风格固定艺术字 spring in palette；文字随此单元仅制作一次",
+      "method": "extract",
+      "style": {
+        "extract_mode": "crop"
+      }
+    },
+    {
+      "id": "photo_middle_right",
+      "kind": "photo",
+      "bbox": [
+        721,
+        483,
+        1080,
+        957
+      ],
+      "label": "右中照片窗",
+      "description": "九宫格右中完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        963,
+        357,
+        1440
+      ],
+      "label": "左下照片窗",
+      "description": "九宫格左下完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "photo_bottom_center",
+      "kind": "photo",
+      "bbox": [
+        361,
+        963,
+        717,
+        1440
+      ],
+      "label": "下中照片窗",
+      "description": "九宫格下中完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "photo_bottom_right",
+      "kind": "photo",
+      "bbox": [
+        721,
+        963,
+        1080,
+        1440
+      ],
+      "label": "右下照片窗",
+      "description": "九宫格右下完整照片窗，客户照片等比铺满"
+    },
+    {
+      "id": "dot_upper_left",
+      "kind": "overlay",
+      "bbox": [
+        331,
+        451,
+        388,
+        509
+      ],
+      "label": "上排左交点粉圆",
+      "description": "压在上排横线与左竖线交点的实心珊瑚粉圆点",
+      "method": "local",
+      "style": {
+        "shape": "ellipse",
+        "fill": "#F59AAD"
+      }
+    },
+    {
+      "id": "dot_upper_right",
+      "kind": "overlay",
+      "bbox": [
+        692,
+        451,
+        748,
+        509
+      ],
+      "label": "上排右交点白圆",
+      "description": "压在上排横线与右竖线交点的暖白实心圆点",
+      "method": "local",
+      "style": {
+        "shape": "ellipse",
+        "fill": "#FBF5F2"
+      }
+    },
+    {
+      "id": "dot_lower_left",
+      "kind": "overlay",
+      "bbox": [
+        331,
+        931,
+        388,
+        989
+      ],
+      "label": "下排左交点白圆",
+      "description": "压在下排横线与左竖线交点的暖白实心圆点",
+      "method": "local",
+      "style": {
+        "shape": "ellipse",
+        "fill": "#FBF5F2"
+      }
+    },
+    {
+      "id": "dot_lower_right",
+      "kind": "overlay",
+      "bbox": [
+        692,
+        931,
+        748,
+        989
+      ],
+      "label": "下排右交点粉圆",
+      "description": "压在下排横线与右竖线交点的实心珊瑚粉圆点",
+      "method": "local",
+      "style": {
+        "shape": "ellipse",
+        "fill": "#F59AAD"
+      }
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 5,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:46:28.905217+00:00",
+      "started_at": "2026-10-16T02:46:27.135518+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成八个照片窗、中央固定设计单元与四个交点圆点的布局绑定；原尺寸叠框定位复核通过",
+      "at": "2026-10-16T05:43:39.199026+00:00",
+      "started_at": "2026-10-16T05:43:23.907505+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:44:07.920933+00:00",
+      "started_at": "2026-10-16T05:43:44.265325+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "素材检查完成：八张客户照片与圆点正常；中央草莓纹理提取缺失且无法用简单本地形状忠实补画，保留为关键缺口",
+      "at": "2026-10-16T05:45:03.346322+00:00",
+      "started_at": "2026-10-16T05:44:17.992285+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "failed",
+      "summary": "Recovered geometry/text belongs to the extraction: update analysis and build again",
+      "at": "2026-10-16T07:04:51.752999+00:00",
+      "started_at": "2026-10-16T07:04:51.005972+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "已交付当前静态首版与对照证据；八张客户照片及九宫格排版正常，中央草莓纹理缺失已登记 needs_changes，封面未定稿因此未制作动态成片",
+      "at": "2026-10-16T05:46:34.331291+00:00"
+    }
+  ],
+  "execution": "等待下一步",
+  "live": false,
+  "heartbeat_at": "2026-10-16T07:04:51.753877+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:46:27.135518+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:46:28.905217+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:42:20.800772+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看原尺寸参考图与客户联系表，分析布局和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T05:43:23.907505+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:43:24.532521+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T05:43:39.199026+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成八个照片窗、中央固定设计单元与四个交点圆点的布局绑定；原尺寸叠框定位复核通过"
+    },
+    {
+      "at": "2026-10-16T05:43:44.265325+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:44:07.920933+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:44:17.992285+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在检查完整对照图与中央设计单元提取检查表，核对污染、缺失和重复内容"
+    },
+    {
+      "at": "2026-10-16T05:45:03.346322+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "素材检查完成：八张客户照片与圆点正常；中央草莓纹理提取缺失且无法用简单本地形状忠实补画，保留为关键缺口"
+    },
+    {
+      "at": "2026-10-16T05:45:03.603527+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核当前整图与四处交点局部，对照照片裁切、分隔线和圆点层级"
+    },
+    {
+      "at": "2026-10-16T05:46:21.889343+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:46:22.520015+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:46:34.331291+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "已交付当前静态首版与对照证据；八张客户照片及九宫格排版正常，中央草莓纹理缺失已登记 needs_changes，封面未定稿因此未制作动态成片"
+    },
+    {
+      "at": "2026-10-16T06:36:20.432588+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "制作修改预览 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:36:21.167327+00:00",
+      "stage": 5,
+      "status": "failed",
+      "summary": "制作修改预览 · Recovered geometry/text belongs to the extraction: update analysis and build again"
+    },
+    {
+      "at": "2026-10-16T07:04:51.005972+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "制作修改预览 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T07:04:51.752999+00:00",
+      "stage": 5,
+      "status": "failed",
+      "summary": "制作修改预览 · Recovered geometry/text belongs to the extraction: update analysis and build again"
+    }
+  ],
+  "reference": "/api/tasks/81368b7186ca9b2d/images/be832434e9ff7d0b67724e52",
+  "boxes": "/api/tasks/81368b7186ca9b2d/images/f38aeda95e2726f514ec8161",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/81368b7186ca9b2d/images/c242a318a43f3c4fd6acf2c0"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/81368b7186ca9b2d/images/8d795cebeb2a696df7721ac9"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/81368b7186ca9b2d/images/576345d216fab05704af2178"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/81368b7186ca9b2d/images/9e043f5e52a2bd299e33bbd5"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/81368b7186ca9b2d/images/ab09b6e6d000ca5ee2fb9e7d"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/81368b7186ca9b2d/images/9e8b6658b32bc2303836b4dc"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/81368b7186ca9b2d/images/a1785514822461d23855c65e"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/81368b7186ca9b2d/images/5fe08053c036c2933a1ee988"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/81368b7186ca9b2d/images/d38febf1ffd718efab8c6e78"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/81368b7186ca9b2d/images/3826c60a3fe54089fd62fc1b"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/81368b7186ca9b2d/images/d20047e90bff8ca9bac17c7b"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/81368b7186ca9b2d/images/33cd217fcf58355088f1f00f"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/81368b7186ca9b2d/images/9d8b2d4d1062f286ea355837"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/81368b7186ca9b2d/images/7abead18bbd968b1ec41a3d2"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/81368b7186ca9b2d/images/619e2eb918caac3a98c92847"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/81368b7186ca9b2d/images/f96b1ca4528f382c0e0345b3"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/81368b7186ca9b2d/images/fa91b0c863d90be2cedd7764"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/81368b7186ca9b2d/images/86d19a3982d621178edd53dd"
+    }
+  ],
+  "current_image": "/api/tasks/81368b7186ca9b2d/images/e2e4d9d8b9a7789d5d53be75",
+  "first_image": "/api/tasks/81368b7186ca9b2d/images/0c46a24e994484928104f6e8",
+  "versions": [
+    {
+      "id": "0001-6a9af1b7",
+      "parent_id": null,
+      "render_id": "37ac1ddc6459fc25",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "白色九宫格底",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/97a2e33fef2617530b979b98",
+            "final": "/api/tasks/81368b7186ca9b2d/images/e1c7b0519283dcb0e9bd34e7",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top_left",
+          "label": "左上照片窗",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            357,
+            477
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/fed2310d706af8d536adf72d",
+            "final": "/api/tasks/81368b7186ca9b2d/images/78d3f9a78b3b17483ceade5d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top_center",
+          "label": "上中照片窗",
+          "kind": "photo",
+          "bbox": [
+            361,
+            0,
+            717,
+            477
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/2c0b98b2a07041d6241e53b3",
+            "final": "/api/tasks/81368b7186ca9b2d/images/bd6670bb63903d7aea3b2222",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top_right",
+          "label": "右上照片窗",
+          "kind": "photo",
+          "bbox": [
+            721,
+            0,
+            1080,
+            477
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/99427fa62503c5283c310934",
+            "final": "/api/tasks/81368b7186ca9b2d/images/d7ee07d0c6ff8bb7a1ca3dc7",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle_left",
+          "label": "左中照片窗",
+          "kind": "photo",
+          "bbox": [
+            0,
+            483,
+            357,
+            957
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/885c0d3337468133910b9fb6",
+            "final": "/api/tasks/81368b7186ca9b2d/images/7de8fdf8f8235384d1da2673",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "center_strawberry_tile",
+          "label": "中央草莓艺术字纹理块",
+          "kind": "overlay",
+          "bbox": [
+            361,
+            483,
+            717,
+            957
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/698a8075f8b70add7bbfeb80",
+            "final": "/api/tasks/81368b7186ca9b2d/images/1edce214e7b3674c5b5b96a9",
+            "raw": "/api/tasks/81368b7186ca9b2d/images/e683b6799315d9f5ce111c6b",
+            "processed": "/api/tasks/81368b7186ca9b2d/images/34beaa07fbdc3c017d013c09"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b1d58b0a613cf7c9db839e2e51995aa9f28e74e1a265c1fa9cfa396dc97f4fed"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_middle_right",
+          "label": "右中照片窗",
+          "kind": "photo",
+          "bbox": [
+            721,
+            483,
+            1080,
+            957
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/c51264865fd51e69d37bf5db",
+            "final": "/api/tasks/81368b7186ca9b2d/images/7f7dc41deddbf4e8295995b4",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom_left",
+          "label": "左下照片窗",
+          "kind": "photo",
+          "bbox": [
+            0,
+            963,
+            357,
+            1440
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/a3e6cf29c3dc2accec2e3a2d",
+            "final": "/api/tasks/81368b7186ca9b2d/images/f239e06841e9f8f6421952d0",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom_center",
+          "label": "下中照片窗",
+          "kind": "photo",
+          "bbox": [
+            361,
+            963,
+            717,
+            1440
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/43d012f71cb6e91a0fb60b8e",
+            "final": "/api/tasks/81368b7186ca9b2d/images/2bb970d398870dd329fde91d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom_right",
+          "label": "右下照片窗",
+          "kind": "photo",
+          "bbox": [
+            721,
+            963,
+            1080,
+            1440
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/18440102c138390344841069",
+            "final": "/api/tasks/81368b7186ca9b2d/images/78086d30851339c46f6a068f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "dot_upper_left",
+          "label": "上排左交点粉圆",
+          "kind": "overlay",
+          "bbox": [
+            331,
+            451,
+            388,
+            509
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/aaddced593b461633193c403",
+            "final": "/api/tasks/81368b7186ca9b2d/images/0d40c88912223a8631555ac2",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "dot_upper_right",
+          "label": "上排右交点白圆",
+          "kind": "overlay",
+          "bbox": [
+            692,
+            451,
+            748,
+            509
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/c0a060055d8eec17a410aca0",
+            "final": "/api/tasks/81368b7186ca9b2d/images/b1ce4370f4d9056eaddd2cb5",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "dot_lower_left",
+          "label": "下排左交点白圆",
+          "kind": "overlay",
+          "bbox": [
+            331,
+            931,
+            388,
+            989
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/62f9389dbfa41b27d3178e57",
+            "final": "/api/tasks/81368b7186ca9b2d/images/4d998aef751874505a8c4510",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "dot_lower_right",
+          "label": "下排右交点粉圆",
+          "kind": "overlay",
+          "bbox": [
+            692,
+            931,
+            748,
+            989
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/81368b7186ca9b2d/images/0fcb6ce5e7ab379b1336c7bf",
+            "final": "/api/tasks/81368b7186ca9b2d/images/5584a98eb663a12b7c0320b5",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T05:44:07.904062+00:00",
+      "image": "/api/tasks/81368b7186ca9b2d/images/e2e4d9d8b9a7789d5d53be75",
+      "artifacts": {
+        "final.png": "/api/tasks/81368b7186ca9b2d/images/e2e4d9d8b9a7789d5d53be75",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/81368b7186ca9b2d/images/34d7d51a37e647c3626fb95a",
+        "previews/comparison.png": "/api/tasks/81368b7186ca9b2d/images/3086cf28184cc7c495dfb402",
+        "material:background": "/api/tasks/81368b7186ca9b2d/images/e1c7b0519283dcb0e9bd34e7",
+        "material:photo_top_left": "/api/tasks/81368b7186ca9b2d/images/78d3f9a78b3b17483ceade5d",
+        "material:photo_top_center": "/api/tasks/81368b7186ca9b2d/images/bd6670bb63903d7aea3b2222",
+        "material:photo_top_right": "/api/tasks/81368b7186ca9b2d/images/d7ee07d0c6ff8bb7a1ca3dc7",
+        "material:photo_middle_left": "/api/tasks/81368b7186ca9b2d/images/7de8fdf8f8235384d1da2673",
+        "material:center_strawberry_tile": "/api/tasks/81368b7186ca9b2d/images/1edce214e7b3674c5b5b96a9",
+        "processed:center_strawberry_tile": "/api/tasks/81368b7186ca9b2d/images/34beaa07fbdc3c017d013c09",
+        "raw:center_strawberry_tile": "/api/tasks/81368b7186ca9b2d/images/e683b6799315d9f5ce111c6b",
+        "material:photo_middle_right": "/api/tasks/81368b7186ca9b2d/images/7f7dc41deddbf4e8295995b4",
+        "material:photo_bottom_left": "/api/tasks/81368b7186ca9b2d/images/f239e06841e9f8f6421952d0",
+        "material:photo_bottom_center": "/api/tasks/81368b7186ca9b2d/images/2bb970d398870dd329fde91d",
+        "material:photo_bottom_right": "/api/tasks/81368b7186ca9b2d/images/78086d30851339c46f6a068f",
+        "material:dot_upper_left": "/api/tasks/81368b7186ca9b2d/images/0d40c88912223a8631555ac2",
+        "material:dot_upper_right": "/api/tasks/81368b7186ca9b2d/images/b1ce4370f4d9056eaddd2cb5",
+        "material:dot_lower_left": "/api/tasks/81368b7186ca9b2d/images/4d998aef751874505a8c4510",
+        "material:dot_lower_right": "/api/tasks/81368b7186ca9b2d/images/5584a98eb663a12b7c0320b5",
+        "sheet:0": "/api/tasks/81368b7186ca9b2d/images/2b1b985b13560446b0ad31da",
+        "previews/review-detail-1.png": "/api/tasks/81368b7186ca9b2d/images/4f3965a909f69012ddd1101c",
+        "previews/review-detail-2.png": "/api/tasks/81368b7186ca9b2d/images/292c6f2f9bc6f75d63bc8530",
+        "previews/review-detail-3.png": "/api/tasks/81368b7186ca9b2d/images/680a47a390955393d8020517",
+        "previews/review-detail-4.png": "/api/tasks/81368b7186ca9b2d/images/4a7aa0a6ded7f5196de592d8"
+      },
+      "changes": [],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "37ac1ddc6459fc25",
+        "checked_entire_composition": true,
+        "verdict": "needs_changes",
+        "summary": "已检查完整成图、完整对照图、中央提取检查表及四处交点局部。八张客户照片、白色格线和四个圆点的排版与遮挡关系正常；中央固定设计单元只保留了白色艺术字，参考中的粉色草莓表皮纹理缺失，属于关键素材缺口，当前首版不能判定通过。",
+        "items": [
+          {
+            "id": "center_strawberry_tile",
+            "action": "unresolved",
+            "reason": "Reveal 返回层仅保留 spring in palette 艺术字及少量角部圆点，中央粉色草莓表皮摄影纹理被透明化；该复杂纹理无法用允许的简单本地几何忠实补画，本轮不以近似方块冒充修复。"
+          }
+        ],
+        "scene_sha256": "576f960d0cf9c6ec2070e1842421717ed1fddfcd4039d378c321e4d8752f6a3d",
+        "final_sha256": "91fe7f506a16ca043496057ce5d9f10e5ee0fdf08bf15e1d3c29d4a7157024dd"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "白色九宫格底",
+          "description": "暖白底色从八个照片窗和中央设计单元之间露出，形成约四像素宽的横竖分隔线",
+          "style": {
+            "fill": "#F8F7F5"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top_left",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            357,
+            477
+          ],
+          "label": "左上照片窗",
+          "description": "九宫格左上完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_left",
+            "asset_id": "asset_f4e6838a79ca6adc",
+            "reason": "人物近景竖幅适合左上窗，并保留蓝天湖景"
+          }
+        },
+        {
+          "id": "photo_top_center",
+          "kind": "photo",
+          "bbox": [
+            361,
+            0,
+            717,
+            477
+          ],
+          "label": "上中照片窗",
+          "description": "九宫格上中完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_center",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "宽阔盐湖航拍横幅适合上中窗"
+          }
+        },
+        {
+          "id": "photo_top_right",
+          "kind": "photo",
+          "bbox": [
+            721,
+            0,
+            1080,
+            477
+          ],
+          "label": "右上照片窗",
+          "description": "九宫格右上完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top_right",
+            "asset_id": "asset_a7748ee803548c54",
+            "reason": "盐湖与建筑横幅画面适合右上窗"
+          }
+        },
+        {
+          "id": "photo_middle_left",
+          "kind": "photo",
+          "bbox": [
+            0,
+            483,
+            357,
+            957
+          ],
+          "label": "左中照片窗",
+          "description": "九宫格左中完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_middle_left",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅人物主体适合左中窗"
+          }
+        },
+        {
+          "id": "center_strawberry_tile",
+          "kind": "overlay",
+          "bbox": [
+            361,
+            483,
+            717,
+            957
+          ],
+          "label": "中央草莓艺术字纹理块",
+          "description": "完整中央设计单元：粉色草莓表皮摄影纹理及白色打字机风格固定艺术字 spring in palette；文字随此单元仅制作一次",
+          "method": "extract",
+          "style": {
+            "extract_mode": "crop"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b1d58b0a613cf7c9db839e2e51995aa9f28e74e1a265c1fa9cfa396dc97f4fed"
+          },
+          "recovered": {
+            "sha256": "6f8f3b08535bf7078e6a7b1ed66e75b536c7ce7a014c172b4100e2e7b103eb64",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_middle_right",
+          "kind": "photo",
+          "bbox": [
+            721,
+            483,
+            1080,
+            957
+          ],
+          "label": "右中照片窗",
+          "description": "九宫格右中完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_middle_right",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "横幅人物与湖面构图适合右中窗"
+          }
+        },
+        {
+          "id": "photo_bottom_left",
+          "kind": "photo",
+          "bbox": [
+            0,
+            963,
+            357,
+            1440
+          ],
+          "label": "左下照片窗",
+          "description": "九宫格左下完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_bottom_left",
+            "asset_id": "asset_6cad0072779df484",
+            "reason": "竖幅剪影人物适合左下窗"
+          }
+        },
+        {
+          "id": "photo_bottom_center",
+          "kind": "photo",
+          "bbox": [
+            361,
+            963,
+            717,
+            1440
+          ],
+          "label": "下中照片窗",
+          "description": "九宫格下中完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_bottom_center",
+            "asset_id": "asset_f044e11373093d30",
+            "reason": "横幅盐湖纹理画面适合下中窗"
+          }
+        },
+        {
+          "id": "photo_bottom_right",
+          "kind": "photo",
+          "bbox": [
+            721,
+            963,
+            1080,
+            1440
+          ],
+          "label": "右下照片窗",
+          "description": "九宫格右下完整照片窗，客户照片等比铺满",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_bottom_right",
+            "asset_id": "asset_9868e13cfdc69c46",
+            "reason": "竖幅人物画面适合右下窗"
+          }
+        },
+        {
+          "id": "dot_upper_left",
+          "kind": "overlay",
+          "bbox": [
+            331,
+            451,
+            388,
+            509
+          ],
+          "label": "上排左交点粉圆",
+          "description": "压在上排横线与左竖线交点的实心珊瑚粉圆点",
+          "method": "local",
+          "style": {
+            "shape": "ellipse",
+            "fill": "#F59AAD"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "dot_upper_right",
+          "kind": "overlay",
+          "bbox": [
+            692,
+            451,
+            748,
+            509
+          ],
+          "label": "上排右交点白圆",
+          "description": "压在上排横线与右竖线交点的暖白实心圆点",
+          "method": "local",
+          "style": {
+            "shape": "ellipse",
+            "fill": "#FBF5F2"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "dot_lower_left",
+          "kind": "overlay",
+          "bbox": [
+            331,
+            931,
+            388,
+            989
+          ],
+          "label": "下排左交点白圆",
+          "description": "压在下排横线与左竖线交点的暖白实心圆点",
+          "method": "local",
+          "style": {
+            "shape": "ellipse",
+            "fill": "#FBF5F2"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "dot_lower_right",
+          "kind": "overlay",
+          "bbox": [
+            692,
+            931,
+            748,
+            989
+          ],
+          "label": "下排右交点粉圆",
+          "description": "压在下排横线与右竖线交点的实心珊瑚粉圆点",
+          "method": "local",
+          "style": {
+            "shape": "ellipse",
+            "fill": "#F59AAD"
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "center_strawberry_tile",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "dot_upper_left",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "dot_upper_right",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "dot_lower_left",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "dot_lower_right",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "白色九宫格底",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/97a2e33fef2617530b979b98",
+        "customer": null,
+        "final": "/api/tasks/81368b7186ca9b2d/images/ee82a0a2973ab66863f56420"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_top_left",
+      "label": "左上照片窗",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        357,
+        477
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/fed2310d706af8d536adf72d",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/c242a318a43f3c4fd6acf2c0",
+        "final": "/api/tasks/81368b7186ca9b2d/images/5c1a539e4a4782f68700e34f"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_top_center",
+      "label": "上中照片窗",
+      "kind": "photo",
+      "bbox": [
+        361,
+        0,
+        717,
+        477
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/2c0b98b2a07041d6241e53b3",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/8d795cebeb2a696df7721ac9",
+        "final": "/api/tasks/81368b7186ca9b2d/images/0310f07f5e9b647f3e3658ad"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_top_right",
+      "label": "右上照片窗",
+      "kind": "photo",
+      "bbox": [
+        721,
+        0,
+        1080,
+        477
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/99427fa62503c5283c310934",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/576345d216fab05704af2178",
+        "final": "/api/tasks/81368b7186ca9b2d/images/c0cf220fb33b8d7b0199d1b4"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle_left",
+      "label": "左中照片窗",
+      "kind": "photo",
+      "bbox": [
+        0,
+        483,
+        357,
+        957
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/885c0d3337468133910b9fb6",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/7abead18bbd968b1ec41a3d2",
+        "final": "/api/tasks/81368b7186ca9b2d/images/bcb41c647506a0d9ac07f332"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "center_strawberry_tile",
+      "label": "中央草莓艺术字纹理块",
+      "kind": "overlay",
+      "bbox": [
+        361,
+        483,
+        717,
+        957
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/698a8075f8b70add7bbfeb80",
+        "customer": null,
+        "final": "/api/tasks/81368b7186ca9b2d/images/551b3165e57c19cf3cded2dc",
+        "raw": "/api/tasks/81368b7186ca9b2d/images/d3515737c36596701f81f714",
+        "processed": "/api/tasks/81368b7186ca9b2d/images/10dbe87aa85155ade242766c"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b1d58b0a613cf7c9db839e2e51995aa9f28e74e1a265c1fa9cfa396dc97f4fed"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "photo_middle_right",
+      "label": "右中照片窗",
+      "kind": "photo",
+      "bbox": [
+        721,
+        483,
+        1080,
+        957
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/c51264865fd51e69d37bf5db",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/f96b1ca4528f382c0e0345b3",
+        "final": "/api/tasks/81368b7186ca9b2d/images/fd21770a0c6925d7bb43656d"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom_left",
+      "label": "左下照片窗",
+      "kind": "photo",
+      "bbox": [
+        0,
+        963,
+        357,
+        1440
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/a3e6cf29c3dc2accec2e3a2d",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/619e2eb918caac3a98c92847",
+        "final": "/api/tasks/81368b7186ca9b2d/images/31cde8a7a85374a684764b1f"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom_center",
+      "label": "下中照片窗",
+      "kind": "photo",
+      "bbox": [
+        361,
+        963,
+        717,
+        1440
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/43d012f71cb6e91a0fb60b8e",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/33cd217fcf58355088f1f00f",
+        "final": "/api/tasks/81368b7186ca9b2d/images/0159be494a389e632d1b2cbd"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom_right",
+      "label": "右下照片窗",
+      "kind": "photo",
+      "bbox": [
+        721,
+        963,
+        1080,
+        1440
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/18440102c138390344841069",
+        "customer": "/api/tasks/81368b7186ca9b2d/images/3826c60a3fe54089fd62fc1b",
+        "final": "/api/tasks/81368b7186ca9b2d/images/d352076b640e6bec8ea73d6b"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "dot_upper_left",
+      "label": "上排左交点粉圆",
+      "kind": "overlay",
+      "bbox": [
+        331,
+        451,
+        388,
+        509
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/aaddced593b461633193c403",
+        "customer": null,
+        "final": "/api/tasks/81368b7186ca9b2d/images/c67b88a0c6d8f557ceb7168e"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "dot_upper_right",
+      "label": "上排右交点白圆",
+      "kind": "overlay",
+      "bbox": [
+        692,
+        451,
+        748,
+        509
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/c0a060055d8eec17a410aca0",
+        "customer": null,
+        "final": "/api/tasks/81368b7186ca9b2d/images/ed6f2b76071e33b436c6a48d"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "dot_lower_left",
+      "label": "下排左交点白圆",
+      "kind": "overlay",
+      "bbox": [
+        331,
+        931,
+        388,
+        989
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/62f9389dbfa41b27d3178e57",
+        "customer": null,
+        "final": "/api/tasks/81368b7186ca9b2d/images/6935fb74eb94845efa93d477"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "dot_lower_right",
+      "label": "下排右交点粉圆",
+      "kind": "overlay",
+      "bbox": [
+        692,
+        931,
+        748,
+        989
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/81368b7186ca9b2d/images/0fcb6ce5e7ab379b1336c7bf",
+        "customer": null,
+        "final": "/api/tasks/81368b7186ca9b2d/images/6ca42f09746057f220bff471"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "center_strawberry_tile"
+      ],
+      "at": "2026-10-16T05:44:02.962771+00:00",
+      "error": "",
+      "available_ids": [
+        "center_strawberry_tile"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 17.94,
+      "cache_hit": false
+    }
+  ],
+  "quality": "needs_changes",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "center_strawberry_tile",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "dot_upper_left",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "dot_upper_right",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "dot_lower_left",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "dot_lower_right",
+      "note": "Local primitive; visual similarity requires review"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "37ac1ddc6459fc25",
+    "checked_entire_composition": true,
+    "verdict": "needs_changes",
+    "summary": "已检查完整成图、完整对照图、中央提取检查表及四处交点局部。八张客户照片、白色格线和四个圆点的排版与遮挡关系正常；中央固定设计单元只保留了白色艺术字，参考中的粉色草莓表皮纹理缺失，属于关键素材缺口，当前首版不能判定通过。",
+    "items": [
+      {
+        "id": "center_strawberry_tile",
+        "action": "unresolved",
+        "reason": "Reveal 返回层仅保留 spring in palette 艺术字及少量角部圆点，中央粉色草莓表皮摄影纹理被透明化；该复杂纹理无法用允许的简单本地几何忠实补画，本轮不以近似方块冒充修复。"
+      }
+    ],
+    "scene_sha256": "576f960d0cf9c6ec2070e1842421717ed1fddfcd4039d378c321e4d8752f6a3d",
+    "final_sha256": "91fe7f506a16ca043496057ce5d9f10e5ee0fdf08bf15e1d3c29d4a7157024dd"
+  },
+  "recording_incomplete": false
+}

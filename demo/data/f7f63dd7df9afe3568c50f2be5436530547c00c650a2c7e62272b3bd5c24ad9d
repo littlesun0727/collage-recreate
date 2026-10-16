@@ -1,0 +1,1566 @@
+{
+  "id": "7d8ef08fe3f1dd69",
+  "name": "Live-7f6073f0430b",
+  "created_at": "2026-10-16T02:44:25.205743+00:00",
+  "reference_size": [
+    1080,
+    1439
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T04:39:52.984Z",
+    "finished_at": "2026-10-16T05:09:35.460891+00:00",
+    "elapsed_seconds": 1782.433,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1439
+      ],
+      "label": "白色底板与分隔留缝",
+      "description": "纯白底板；三段照片之间露出两条约16像素高的白色水平分隔带。",
+      "style": {
+        "fill": "#FFFFFF"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        469
+      ],
+      "label": "顶部横幅照片",
+      "description": "满幅横向风景照片，贴齐画布上边与左右边。",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        0,
+        486,
+        1080,
+        952
+      ],
+      "label": "中部人物照片",
+      "description": "满幅中段人物旅行照；人物主体另以同源抠图跨越上方白色分隔带。",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        969,
+        1080,
+        1439
+      ],
+      "label": "底部横幅照片",
+      "description": "满幅横向湖泊风景照片，贴齐画布底边与左右边。",
+      "mode": "cover"
+    },
+    {
+      "id": "subject_cutout",
+      "kind": "photo",
+      "bbox": [
+        38,
+        330,
+        1075,
+        955
+      ],
+      "label": "中段越框人物前景",
+      "description": "使用与中部人物照片相同的客户素材抠出人物，覆盖在中段照片之上并向上越过白色分隔带；人物自然姿态随客户素材替换，不补造参考人物服饰或手势。",
+      "mode": "cutout"
+    },
+    {
+      "id": "device_label",
+      "kind": "text",
+      "bbox": [
+        418,
+        1318,
+        692,
+        1362
+      ],
+      "label": "底部白色机型文字",
+      "description": "底部照片上方居中的白色无衬线品牌机型文字。",
+      "text": "OPPO Reno15 Pro",
+      "text_status": "known",
+      "style": {
+        "font": "sans",
+        "bold": true,
+        "fill": "#FFFFFF",
+        "align": "center",
+        "font_size": 28
+      }
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:44:25.216025+00:00",
+      "started_at": "2026-10-16T02:44:23.601674+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "waiting",
+      "summary": "数据校验完成，等待叠框看图检查",
+      "at": "2026-10-16T05:05:05.433906+00:00",
+      "started_at": "2026-10-16T05:05:04.928300+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:05:08.856187+00:00",
+      "started_at": "2026-10-16T05:05:06.441087+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "素材检查完成：无提取素材与缺失对象，无需screen；发现中段同源底图和人物抠图缩放不一致造成重复手臂，将在整图复核阶段集中排版纠偏",
+      "at": "2026-10-16T04:42:49.323218+00:00",
+      "started_at": "2026-10-16T04:42:29.124022+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T05:06:03.842337+00:00",
+      "started_at": "2026-10-16T05:06:03.345713+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "最终交付已复核静态封面与3秒静音动态成片；动态已排除手指遮挡和短素材循环跳变，全程实时解码、首中末与12时刻看图通过，人物边缘稳定，仅保留轻微浅色描边和字体近似",
+      "at": "2026-10-16T05:08:58.997341+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T05:06:03.843075+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:44:23.601674+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:44:25.216025+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T04:40:38.537397+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看参考图与18段Live素材联系表，分析布局、层级和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T04:41:40.725383+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:41:41.262097+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T04:41:58.911837+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成三段照片、越框人物和底部文字的布局绑定；离线校验通过并按原尺寸检查叠框，无需进一步纠偏"
+    },
+    {
+      "at": "2026-10-16T04:41:59.890939+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:42:18.437527+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T04:42:29.124022+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在检查首版完整对照图中的人物抠图、同源衔接、白色分隔和底部文字"
+    },
+    {
+      "at": "2026-10-16T04:42:49.323218+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "素材检查完成：无提取素材与缺失对象，无需screen；发现中段同源底图和人物抠图缩放不一致造成重复手臂，将在整图复核阶段集中排版纠偏"
+    },
+    {
+      "at": "2026-10-16T04:43:07.361002+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在按整图与指定局部复核中段人物越框关系，并准备一次离线排版纠偏"
+    },
+    {
+      "at": "2026-10-16T04:43:44.572146+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:43:45.051116+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T04:58:39.758659+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:58:40.265051+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T04:58:41.247246+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:58:43.663020+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T04:59:22.078295+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:59:22.507836+00:00",
+      "stage": 5,
+      "status": "failed",
+      "summary": "整图复核 · Review is stale: use current scene_sha256 and final_sha256 from result.json"
+    },
+    {
+      "at": "2026-10-16T04:59:58.548033+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:59:59.023380+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:03:18.335474+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "已交付复核通过的静态封面与3秒静音动态成片；动态首版发现底部视频手指遮挡后已更换为无遮挡游船湖景，第二版全程解码与12时刻视觉检查通过，人物边缘稳定，仅保留轻微浅色描边和字体近似"
+    },
+    {
+      "at": "2026-10-16T05:05:03.947113+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "动态接缝复核发现短素材循环跳变，已选择超过3秒且无遮挡的横向荒漠山景，正在重建并复核最终封面"
+    },
+    {
+      "at": "2026-10-16T05:05:04.928300+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:05:05.433906+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T05:05:06.441087+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:05:08.856187+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:06:03.345713+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T05:06:03.842337+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T05:08:58.997341+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "最终交付已复核静态封面与3秒静音动态成片；动态已排除手指遮挡和短素材循环跳变，全程实时解码、首中末与12时刻看图通过，人物边缘稳定，仅保留轻微浅色描边和字体近似"
+    }
+  ],
+  "reference": "/api/tasks/7d8ef08fe3f1dd69/images/ccebe1b64ae8de7e19be3e31",
+  "boxes": "/api/tasks/7d8ef08fe3f1dd69/images/dedf7c57a56dafa43281b48a",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/dcba626f5f496620cb74507a"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/609c8ec662afba0ff9ae4f54"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/eb2929978aeced29e2fa3f1f"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/e124f4078f312256011ae632"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/2c2638f38ff1254d3933a4ba"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/b6e54ff6fd33e75b1df8a4c5"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/afe2f731724d92d45f1634da"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/8a27d93a59e1a9e3979edf5f"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/76705b94ae78df9c12a34ccc"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/3c98a156b6fc1ba33cb20cad"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/bb8a49947e2d8485fb1486ae"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/4495dbaae010dbba3646a554"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/2cf6ad3026cd28cc792ecdf6"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/557a583d7b4e591caf3db693"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/1381b0daa8fc2f1de8b9f5f6"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/86ca887d976d4f32bd82dcda"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/a782a1dcd6399bc648285c9a"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/8df09bd1f13b956202ffb9bc"
+    }
+  ],
+  "current_image": "/api/tasks/7d8ef08fe3f1dd69/images/16d557c78b12f8db42dbc764",
+  "first_image": "/api/tasks/7d8ef08fe3f1dd69/images/74ca2e18f79637b1cf456d66",
+  "versions": [
+    {
+      "id": "0001-052108d0",
+      "parent_id": null,
+      "render_id": "89137982ca5e8182",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "白色底板与分隔留缝",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/0b2ae12fb20bfd98396c27b4",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/b74bb59d8c16ddaa3a6a557d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            469
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/748135c91b951e1274336629",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/ccec4722dc5a0508ac6bee09",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部人物照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            486,
+            1080,
+            952
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/3fa2a4ee204b8e6927c21414",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/c49393a1fbd9eba8243faf53",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/b0d5a1d7a844e1da1ac86a4f",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/b4b9ec4c9acb7a9b1a753a2d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "subject_cutout",
+          "label": "中段越框人物前景",
+          "kind": "photo",
+          "bbox": [
+            38,
+            330,
+            1075,
+            955
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/74d85d7363e335be99c47345",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/f68d70c0e7bb6a39b8286dd5",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "device_label",
+          "label": "底部白色机型文字",
+          "kind": "text",
+          "bbox": [
+            418,
+            1318,
+            692,
+            1362
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/1f33cab26456f3a15871f2d7",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/8fadc5f17cf2df0974c25570",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T04:42:18.429426+00:00",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/9cee59a9441f40bb8d880ec1",
+      "artifacts": {
+        "final.png": "/api/tasks/7d8ef08fe3f1dd69/images/9cee59a9441f40bb8d880ec1",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/7d8ef08fe3f1dd69/images/55b543a4c992f35443501a23",
+        "previews/comparison.png": "/api/tasks/7d8ef08fe3f1dd69/images/b2bff7f73aca92d46ef531f2",
+        "material:background": "/api/tasks/7d8ef08fe3f1dd69/images/b74bb59d8c16ddaa3a6a557d",
+        "material:photo_top": "/api/tasks/7d8ef08fe3f1dd69/images/ccec4722dc5a0508ac6bee09",
+        "material:photo_middle": "/api/tasks/7d8ef08fe3f1dd69/images/c49393a1fbd9eba8243faf53",
+        "material:photo_bottom": "/api/tasks/7d8ef08fe3f1dd69/images/b4b9ec4c9acb7a9b1a753a2d",
+        "material:subject_cutout": "/api/tasks/7d8ef08fe3f1dd69/images/f68d70c0e7bb6a39b8286dd5",
+        "material:device_label": "/api/tasks/7d8ef08fe3f1dd69/images/8fadc5f17cf2df0974c25570",
+        "previews/review-detail-1.png": "/api/tasks/7d8ef08fe3f1dd69/images/14859ddfce762587cc2e519b",
+        "previews/review-detail-2.png": "/api/tasks/7d8ef08fe3f1dd69/images/dc3107c27120a8a0238481c7"
+      },
+      "changes": [],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "89137982ca5e8182",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看完整对照图及两处人物交叠局部：三段照片和白色分隔正确，人物完整越过上方分隔且未遮脸，同源底图无旧人物残留，底部文字完整；抠图边缘浅色描边与普通字体为可接受首版近似。",
+        "items": [],
+        "scene_sha256": "bb344fd8f60d281aa2cebe937e779fab2ce42b06f46214972579544528e31f6b",
+        "final_sha256": "20bdbe307043e3e5aa496d523f1199050d22f43efb1d633fa82b10c1a7559372"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "label": "白色底板与分隔留缝",
+          "description": "纯白底板；三段照片之间露出两条约16像素高的白色水平分隔带。",
+          "style": {
+            "fill": "#FFFFFF"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            469
+          ],
+          "label": "顶部横幅照片",
+          "description": "满幅横向风景照片，贴齐画布上边与左右边。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横向高原湖泊全景，宽幅构图适合顶部横条。"
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            486,
+            1080,
+            952
+          ],
+          "label": "中部人物照片",
+          "description": "满幅中段人物旅行照；人物主体另以同源抠图跨越上方白色分隔带。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "近景人物占比高，适合中部主视觉。",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "label": "底部横幅照片",
+          "description": "满幅横向湖泊风景照片，贴齐画布底边与左右边。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_f044e11373093d30",
+            "reason": "横向盐湖纹理和天空形成清爽底段，能承载白色文字。"
+          }
+        },
+        {
+          "id": "subject_cutout",
+          "kind": "photo",
+          "bbox": [
+            38,
+            330,
+            1075,
+            955
+          ],
+          "label": "中段越框人物前景",
+          "description": "使用与中部人物照片相同的客户素材抠出人物，覆盖在中段照片之上并向上越过白色分隔带；人物自然姿态随客户素材替换，不补造参考人物服饰或手势。",
+          "mode": "cutout",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "subject_cutout",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "与中部照片同源复用以形成连续的越框人物效果。",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "device_label",
+          "kind": "text",
+          "bbox": [
+            418,
+            1318,
+            692,
+            1362
+          ],
+          "label": "底部白色机型文字",
+          "description": "底部照片上方居中的白色无衬线品牌机型文字。",
+          "text": "OPPO Reno15 Pro",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFFFFF",
+            "align": "center",
+            "font_size": 28
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0002-a9849487",
+      "parent_id": "0001-052108d0",
+      "render_id": "6ff57d506a3e4b9a",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "白色底板与分隔留缝",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/0b2ae12fb20bfd98396c27b4",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/f4dae29de0c92c894a0c3bc3",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            469
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/748135c91b951e1274336629",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/bb84214b473c0c4cd187887c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部人物照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            486,
+            1080,
+            952
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/3fa2a4ee204b8e6927c21414",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/3defe1d05ee49a60bf38526d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/b0d5a1d7a844e1da1ac86a4f",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/213d4bb21942f11b64cef3a6",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "subject_cutout",
+          "label": "中段越框人物前景",
+          "kind": "photo",
+          "bbox": [
+            38,
+            330,
+            1075,
+            955
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/74d85d7363e335be99c47345",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/1114610feee5dbd5e037333c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "device_label",
+          "label": "底部白色机型文字",
+          "kind": "text",
+          "bbox": [
+            418,
+            1318,
+            692,
+            1362
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/1f33cab26456f3a15871f2d7",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/b1df88c94e798f5ca0e37e7b",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "构建首版",
+      "at": "2026-10-16T04:58:43.655042+00:00",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/26b54cff7a2f0fb253b52d22",
+      "artifacts": {
+        "final.png": "/api/tasks/7d8ef08fe3f1dd69/images/26b54cff7a2f0fb253b52d22",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/7d8ef08fe3f1dd69/images/3e1305193cb49089461d095d",
+        "previews/comparison.png": "/api/tasks/7d8ef08fe3f1dd69/images/8691bc04660e2832db2bf047",
+        "material:background": "/api/tasks/7d8ef08fe3f1dd69/images/f4dae29de0c92c894a0c3bc3",
+        "material:photo_top": "/api/tasks/7d8ef08fe3f1dd69/images/bb84214b473c0c4cd187887c",
+        "material:photo_middle": "/api/tasks/7d8ef08fe3f1dd69/images/3defe1d05ee49a60bf38526d",
+        "material:photo_bottom": "/api/tasks/7d8ef08fe3f1dd69/images/213d4bb21942f11b64cef3a6",
+        "material:subject_cutout": "/api/tasks/7d8ef08fe3f1dd69/images/1114610feee5dbd5e037333c",
+        "material:device_label": "/api/tasks/7d8ef08fe3f1dd69/images/b1df88c94e798f5ca0e37e7b",
+        "previews/review-detail-1.png": "/api/tasks/7d8ef08fe3f1dd69/images/67602aadcfd2797cd4e4edee",
+        "previews/review-detail-2.png": "/api/tasks/7d8ef08fe3f1dd69/images/ef1ed60b196315709cf786e6"
+      },
+      "changes": [
+        {
+          "id": "photo_bottom",
+          "label": "底部横幅照片",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "fields": {
+            "binding": {
+              "before": {
+                "slot_id": "photo_bottom",
+                "asset_id": "asset_f044e11373093d30",
+                "reason": "横向盐湖纹理和天空形成清爽底段，能承载白色文字。"
+              },
+              "after": {
+                "slot_id": "photo_bottom",
+                "asset_id": "asset_895325c8721a4527",
+                "reason": "动态中段保持清晰无遮挡的横向游船湖景，时长接近3秒且蓝色水面能承载白色文字。"
+              }
+            }
+          }
+        }
+      ],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "6ff57d506a3e4b9a",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看更新后的完整对照图及两处人物交叠局部：三段照片和白色分隔正确，人物完整越过上方分隔且未遮脸，同源底图无旧人物残留；底部已换为动态全程无遮挡的游船湖景，文字完整清晰。抠图边缘浅色描边与普通字体为可接受首版近似。",
+        "items": [],
+        "scene_sha256": "c1910388e9b1baf2ca9e93e4e67585195eb97eee5961411b76b88393412e2bcf",
+        "final_sha256": "068e60da95f65d275c85b1bde4ff18b9b09405b81c3fb7ae0cc473913a254e72"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "label": "白色底板与分隔留缝",
+          "description": "纯白底板；三段照片之间露出两条约16像素高的白色水平分隔带。",
+          "style": {
+            "fill": "#FFFFFF"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            469
+          ],
+          "label": "顶部横幅照片",
+          "description": "满幅横向风景照片，贴齐画布上边与左右边。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横向高原湖泊全景，宽幅构图适合顶部横条。"
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            486,
+            1080,
+            952
+          ],
+          "label": "中部人物照片",
+          "description": "满幅中段人物旅行照；人物主体另以同源抠图跨越上方白色分隔带。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "近景人物占比高，适合中部主视觉。",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "label": "底部横幅照片",
+          "description": "满幅横向湖泊风景照片，贴齐画布底边与左右边。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_895325c8721a4527",
+            "reason": "动态中段保持清晰无遮挡的横向游船湖景，时长接近3秒且蓝色水面能承载白色文字。"
+          }
+        },
+        {
+          "id": "subject_cutout",
+          "kind": "photo",
+          "bbox": [
+            38,
+            330,
+            1075,
+            955
+          ],
+          "label": "中段越框人物前景",
+          "description": "使用与中部人物照片相同的客户素材抠出人物，覆盖在中段照片之上并向上越过白色分隔带；人物自然姿态随客户素材替换，不补造参考人物服饰或手势。",
+          "mode": "cutout",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "subject_cutout",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "与中部照片同源复用以形成连续的越框人物效果。",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "device_label",
+          "kind": "text",
+          "bbox": [
+            418,
+            1318,
+            692,
+            1362
+          ],
+          "label": "底部白色机型文字",
+          "description": "底部照片上方居中的白色无衬线品牌机型文字。",
+          "text": "OPPO Reno15 Pro",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFFFFF",
+            "align": "center",
+            "font_size": 28
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0003-2190fb38",
+      "parent_id": "0002-a9849487",
+      "render_id": "fb974464e2247854",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "白色底板与分隔留缝",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/0b2ae12fb20bfd98396c27b4",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/fd99aeb914b40cd2a2b70b98",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            469
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/748135c91b951e1274336629",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/a8a771f6c7f57b6c340fcf47",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部人物照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            486,
+            1080,
+            952
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/3fa2a4ee204b8e6927c21414",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/75c80246acc301d2018b8d86",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部横幅照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/b0d5a1d7a844e1da1ac86a4f",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/059af493538d3f0fb8425d89",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "subject_cutout",
+          "label": "中段越框人物前景",
+          "kind": "photo",
+          "bbox": [
+            38,
+            330,
+            1075,
+            955
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/74d85d7363e335be99c47345",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/fe8b85077d8ac3eeadd3eb18",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "device_label",
+          "label": "底部白色机型文字",
+          "kind": "text",
+          "bbox": [
+            418,
+            1318,
+            692,
+            1362
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/7d8ef08fe3f1dd69/images/1f33cab26456f3a15871f2d7",
+            "final": "/api/tasks/7d8ef08fe3f1dd69/images/15aba30412f1cc17cb1eb896",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "构建首版",
+      "at": "2026-10-16T05:05:08.848414+00:00",
+      "image": "/api/tasks/7d8ef08fe3f1dd69/images/16d557c78b12f8db42dbc764",
+      "artifacts": {
+        "final.png": "/api/tasks/7d8ef08fe3f1dd69/images/16d557c78b12f8db42dbc764",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/7d8ef08fe3f1dd69/images/ffdc191cbf567344274d5762",
+        "previews/comparison.png": "/api/tasks/7d8ef08fe3f1dd69/images/d3bf27a79693da123a00bb82",
+        "material:background": "/api/tasks/7d8ef08fe3f1dd69/images/fd99aeb914b40cd2a2b70b98",
+        "material:photo_top": "/api/tasks/7d8ef08fe3f1dd69/images/a8a771f6c7f57b6c340fcf47",
+        "material:photo_middle": "/api/tasks/7d8ef08fe3f1dd69/images/75c80246acc301d2018b8d86",
+        "material:photo_bottom": "/api/tasks/7d8ef08fe3f1dd69/images/059af493538d3f0fb8425d89",
+        "material:subject_cutout": "/api/tasks/7d8ef08fe3f1dd69/images/fe8b85077d8ac3eeadd3eb18",
+        "material:device_label": "/api/tasks/7d8ef08fe3f1dd69/images/15aba30412f1cc17cb1eb896",
+        "previews/review-detail-1.png": "/api/tasks/7d8ef08fe3f1dd69/images/d2476c03270f67f3a2e8e6ed",
+        "previews/review-detail-2.png": "/api/tasks/7d8ef08fe3f1dd69/images/efa8e2b6bc0f7271b49eef4d"
+      },
+      "changes": [
+        {
+          "id": "photo_bottom",
+          "label": "底部横幅照片",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "fields": {
+            "binding": {
+              "before": {
+                "slot_id": "photo_bottom",
+                "asset_id": "asset_895325c8721a4527",
+                "reason": "动态中段保持清晰无遮挡的横向游船湖景，时长接近3秒且蓝色水面能承载白色文字。"
+              },
+              "after": {
+                "slot_id": "photo_bottom",
+                "asset_id": "asset_87ae8cd18b29841f",
+                "reason": "3.028秒横向荒漠山景，中段和末段均无遮挡，可覆盖完整3秒成片而无需循环。"
+              }
+            }
+          }
+        }
+      ],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "fb974464e2247854",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看最终完整对照图及两处人物交叠局部：三段照片和白色分隔正确，人物完整越过上方分隔且未遮脸，同源底图无旧人物残留；底部使用超过3秒且全程无遮挡的荒漠山景，文字完整清晰。抠图边缘浅色描边与普通字体为可接受首版近似。",
+        "items": [],
+        "scene_sha256": "3c1b9c94bc38b35412f21a03c9cb4c74f9d0371e0c50700da44472e7ab303314",
+        "final_sha256": "fb2d4f3b79c6ee7a10ad6099e0ab979d5ced642d4ea696b072c8033b9afe2ffb"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1439
+          ],
+          "label": "白色底板与分隔留缝",
+          "description": "纯白底板；三段照片之间露出两条约16像素高的白色水平分隔带。",
+          "style": {
+            "fill": "#FFFFFF"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            469
+          ],
+          "label": "顶部横幅照片",
+          "description": "满幅横向风景照片，贴齐画布上边与左右边。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横向高原湖泊全景，宽幅构图适合顶部横条。"
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            486,
+            1080,
+            952
+          ],
+          "label": "中部人物照片",
+          "description": "满幅中段人物旅行照；人物主体另以同源抠图跨越上方白色分隔带。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "近景人物占比高，适合中部主视觉。",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            969,
+            1080,
+            1439
+          ],
+          "label": "底部横幅照片",
+          "description": "满幅横向湖泊风景照片，贴齐画布底边与左右边。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_87ae8cd18b29841f",
+            "reason": "3.028秒横向荒漠山景，中段和末段均无遮挡，可覆盖完整3秒成片而无需循环。"
+          }
+        },
+        {
+          "id": "subject_cutout",
+          "kind": "photo",
+          "bbox": [
+            38,
+            330,
+            1075,
+            955
+          ],
+          "label": "中段越框人物前景",
+          "description": "使用与中部人物照片相同的客户素材抠出人物，覆盖在中段照片之上并向上越过白色分隔带；人物自然姿态随客户素材替换，不补造参考人物服饰或手势。",
+          "mode": "cutout",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "subject_cutout",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "与中部照片同源复用以形成连续的越框人物效果。",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "device_label",
+          "kind": "text",
+          "bbox": [
+            418,
+            1318,
+            692,
+            1362
+          ],
+          "label": "底部白色机型文字",
+          "description": "底部照片上方居中的白色无衬线品牌机型文字。",
+          "text": "OPPO Reno15 Pro",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFFFFF",
+            "align": "center",
+            "font_size": 28
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "白色底板与分隔留缝",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1439
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/7d8ef08fe3f1dd69/images/0b2ae12fb20bfd98396c27b4",
+        "customer": null,
+        "final": "/api/tasks/7d8ef08fe3f1dd69/images/cc03da4c6fc05a64071d701f"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_top",
+      "label": "顶部横幅照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        469
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/7d8ef08fe3f1dd69/images/748135c91b951e1274336629",
+        "customer": "/api/tasks/7d8ef08fe3f1dd69/images/609c8ec662afba0ff9ae4f54",
+        "final": "/api/tasks/7d8ef08fe3f1dd69/images/f78c9a6b1bd7ac4a7aa58fc0"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle",
+      "label": "中部人物照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        486,
+        1080,
+        952
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/7d8ef08fe3f1dd69/images/3fa2a4ee204b8e6927c21414",
+        "customer": "/api/tasks/7d8ef08fe3f1dd69/images/557a583d7b4e591caf3db693",
+        "final": "/api/tasks/7d8ef08fe3f1dd69/images/a4f2ce7a4ed691b18b998f53"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "底部横幅照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        969,
+        1080,
+        1439
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/7d8ef08fe3f1dd69/images/b0d5a1d7a844e1da1ac86a4f",
+        "customer": "/api/tasks/7d8ef08fe3f1dd69/images/e124f4078f312256011ae632",
+        "final": "/api/tasks/7d8ef08fe3f1dd69/images/a2303492b0ab16c46bb5bb4c"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "subject_cutout",
+      "label": "中段越框人物前景",
+      "kind": "photo",
+      "bbox": [
+        38,
+        330,
+        1075,
+        955
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/7d8ef08fe3f1dd69/images/74d85d7363e335be99c47345",
+        "customer": "/api/tasks/7d8ef08fe3f1dd69/images/557a583d7b4e591caf3db693",
+        "final": "/api/tasks/7d8ef08fe3f1dd69/images/db7967b43d7bc35b51795943"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "device_label",
+      "label": "底部白色机型文字",
+      "kind": "text",
+      "bbox": [
+        418,
+        1318,
+        692,
+        1362
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/7d8ef08fe3f1dd69/images/1f33cab26456f3a15871f2d7",
+        "customer": null,
+        "final": "/api/tasks/7d8ef08fe3f1dd69/images/ecdb58f1642cf3d3db975a7f"
+      },
+      "decision": {},
+      "note": ""
+    }
+  ],
+  "groups": [],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "fb974464e2247854",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已查看最终完整对照图及两处人物交叠局部：三段照片和白色分隔正确，人物完整越过上方分隔且未遮脸，同源底图无旧人物残留；底部使用超过3秒且全程无遮挡的荒漠山景，文字完整清晰。抠图边缘浅色描边与普通字体为可接受首版近似。",
+    "items": [],
+    "scene_sha256": "3c1b9c94bc38b35412f21a03c9cb4c74f9d0371e0c50700da44472e7ab303314",
+    "final_sha256": "fb2d4f3b79c6ee7a10ad6099e0ab979d5ced642d4ea696b072c8033b9afe2ffb"
+  },
+  "recording_incomplete": false
+}

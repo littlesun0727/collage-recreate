@@ -1,0 +1,1535 @@
+{
+  "id": "24918e7f838606e1",
+  "name": "Live-fa2422d3ce04",
+  "created_at": "2026-10-16T02:47:31.023213+00:00",
+  "reference_size": [
+    962,
+    1712
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T06:02:45.230Z",
+    "finished_at": "2026-10-16T06:26:17.135811+00:00",
+    "elapsed_seconds": 1411.843,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        962,
+        1712
+      ],
+      "label": "冷蓝底色",
+      "description": "全幅冷蓝色基底，防止动态风景边缘露空。",
+      "style": {
+        "fill": "#4A8FAC"
+      }
+    },
+    {
+      "id": "photo_scenery",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        962,
+        1712
+      ],
+      "label": "全幅风景",
+      "description": "客户竖幅风景 Live 作为全幅背景，覆盖参考图的山水摄影内容；保持冷蓝、开阔的旅行氛围。",
+      "mode": "cover"
+    },
+    {
+      "id": "mist_rear",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        735,
+        962,
+        1175
+      ],
+      "label": "人物后方雾带",
+      "description": "横贯画面的浅蓝白半透明云雾带，只保留雾气和柔软羽化边缘，不保留参考人物、山体、树木、水面或灯光。位于客户人物后方，制造纵深。",
+      "method": "extract",
+      "style": {
+        "extract_mode": "foreground"
+      }
+    },
+    {
+      "id": "photo_person",
+      "kind": "photo",
+      "bbox": [
+        70,
+        505,
+        860,
+        1435
+      ],
+      "label": "中央人物",
+      "description": "客户人物 Live 的前景抠图，居中偏右呈半身到近全身比例，替换参考人物及其服饰、动作和随身物品；允许手臂自然伸展。",
+      "mode": "cutout",
+      "style": {
+        "feather": 0.01
+      }
+    },
+    {
+      "id": "mist_front",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        1080,
+        962,
+        1575
+      ],
+      "label": "前景雾幕",
+      "description": "覆盖人物腰腿及画面下部的蓝白半透明浓雾，保留大块柔和雾浪和渐隐边缘，不保留参考人物、山石、树木、水面、船只或平台水印。",
+      "method": "extract",
+      "style": {
+        "extract_mode": "foreground"
+      }
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:47:31.032199+00:00",
+      "started_at": "2026-10-16T02:47:29.462302+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成全幅风景、中央人物和前后雾层的布局绑定；叠框按原图核对无明显偏移或漏框",
+      "at": "2026-10-16T06:05:37.521947+00:00",
+      "started_at": "2026-10-16T06:05:13.498784+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T06:07:29.358544+00:00",
+      "started_at": "2026-10-16T06:05:44.700917+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已保留干净前景雾团并隔离带参考人物残影的后方雾层；旧人物污染已从当前成图移除",
+      "at": "2026-10-16T06:08:46.691847+00:00",
+      "started_at": "2026-10-16T06:08:21.152300+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T06:10:54.384042+00:00",
+      "started_at": "2026-10-16T06:10:53.819341+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "已交付当前静态封面与3秒静音动态成片；静态复核为 needs_changes，动态编码验证完成并查看首中末采样，仍需真实播放复核",
+      "at": "2026-10-16T06:25:43.724174+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T06:10:54.384809+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:47:29.462302+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:47:31.032199+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:03:50.402285+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看参考图与18段Live视频的代表帧，分析布局和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T06:05:13.498784+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:05:14.064066+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T06:05:37.521947+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成全幅风景、中央人物和前后雾层的布局绑定；叠框按原图核对无明显偏移或漏框"
+    },
+    {
+      "at": "2026-10-16T06:05:44.700917+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:07:29.358544+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:07:39.662544+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在检查首版完整对照图和雾层提取检查表，排查参考内容残留、缺失及遮挡问题"
+    },
+    {
+      "at": "2026-10-16T06:08:21.152300+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "筛选素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:08:24.092973+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "筛选素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:08:46.691847+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已保留干净前景雾团并隔离带参考人物残影的后方雾层；旧人物污染已从当前成图移除"
+    },
+    {
+      "at": "2026-10-16T06:08:47.727053+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核筛选后的完整构图及指定局部，检查人物位置、前景雾遮挡和边缘完整性"
+    },
+    {
+      "at": "2026-10-16T06:09:54.540608+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "调整排版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:09:58.430291+00:00",
+      "stage": 5,
+      "status": "waiting",
+      "summary": "调整排版 · 排版调整完成，等待复核新图"
+    },
+    {
+      "at": "2026-10-16T06:10:53.819341+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:10:54.384042+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:25:43.724174+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "已交付当前静态封面与3秒静音动态成片；静态复核为 needs_changes，动态编码验证完成并查看首中末采样，仍需真实播放复核"
+    }
+  ],
+  "reference": "/api/tasks/24918e7f838606e1/images/bfdfa4cafd0e42cc96556aa4",
+  "boxes": "/api/tasks/24918e7f838606e1/images/767de1b219c6a3f516cdfa33",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/24918e7f838606e1/images/d81bf65c994c26105d978ed3"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/24918e7f838606e1/images/7e35b44ebd02da10977ec5d8"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/24918e7f838606e1/images/ca4ef40b8c2d54cfe1c9f876"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/24918e7f838606e1/images/387848692b38b7aa957928f7"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/24918e7f838606e1/images/a1485c36118e07d75a61eaa0"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/24918e7f838606e1/images/5e2c9e716ae31cf91f05a4ec"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/24918e7f838606e1/images/7583a5406152735f246d04aa"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/24918e7f838606e1/images/64ae4a5ab265ed0e63ab87a5"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/24918e7f838606e1/images/8d6c457a6bdcfa2beae462ba"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/24918e7f838606e1/images/2efdfd4a39619e6d79aff0ae"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/24918e7f838606e1/images/4438609b6a3905517117c3ae"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/24918e7f838606e1/images/095e16f399e6632d756a8def"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/24918e7f838606e1/images/8106a10e7e6f8036306c9e61"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/24918e7f838606e1/images/290b1ced2f3a3bcd7c467753"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/24918e7f838606e1/images/825e115cec04f9736674838f"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/24918e7f838606e1/images/bd13f20b2d9de67d3eddd5a3"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/24918e7f838606e1/images/6420daf3e70ce4030db4087b"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/24918e7f838606e1/images/8a4011d53b5bdb0e0e5a00aa"
+    }
+  ],
+  "current_image": "/api/tasks/24918e7f838606e1/images/0ef2ab88ab78c00539343f84",
+  "first_image": "/api/tasks/24918e7f838606e1/images/bef4bdd27ffd0206051033bf",
+  "versions": [
+    {
+      "id": "0001-f7cd0914",
+      "parent_id": null,
+      "render_id": "6227daae71beb269",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "冷蓝底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+            "final": "/api/tasks/24918e7f838606e1/images/8dc9bc165b22378501233195",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_scenery",
+          "label": "全幅风景",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+            "final": "/api/tasks/24918e7f838606e1/images/b7080cf32a8a2b1607b6a55c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "mist_rear",
+          "label": "人物后方雾带",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            735,
+            962,
+            1175
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/205c59a01b5cd2bf1a810ac9",
+            "final": "/api/tasks/24918e7f838606e1/images/7400918311c2ed54ee9c8056",
+            "raw": "/api/tasks/24918e7f838606e1/images/7a35ee6c81f81e82dd48d3c1",
+            "processed": "/api/tasks/24918e7f838606e1/images/73a78a7c1b13c8b9a6433710"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_person",
+          "label": "中央人物",
+          "kind": "photo",
+          "bbox": [
+            70,
+            505,
+            860,
+            1435
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/23cf263a566742e3e932d41c",
+            "final": "/api/tasks/24918e7f838606e1/images/9bb871a18e92478656d0b448",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "mist_front",
+          "label": "前景雾幕",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1080,
+            962,
+            1575
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/9c86479cc696b2c9041ee1b0",
+            "final": "/api/tasks/24918e7f838606e1/images/67401d49a45fb27eeb745504",
+            "raw": "/api/tasks/24918e7f838606e1/images/1e3998e89a8e4a9a63d88e35",
+            "processed": "/api/tasks/24918e7f838606e1/images/273681ec58d93fdd1417dbb5"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T06:07:29.348543+00:00",
+      "image": "/api/tasks/24918e7f838606e1/images/5458b441773a2c721935c8fa",
+      "artifacts": {
+        "final.png": "/api/tasks/24918e7f838606e1/images/5458b441773a2c721935c8fa",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/24918e7f838606e1/images/90b482fed4dc6a72fdc2ef96",
+        "previews/comparison.png": "/api/tasks/24918e7f838606e1/images/c9c6ad496ecc3fcd6017d651",
+        "material:background": "/api/tasks/24918e7f838606e1/images/8dc9bc165b22378501233195",
+        "material:photo_scenery": "/api/tasks/24918e7f838606e1/images/b7080cf32a8a2b1607b6a55c",
+        "material:mist_rear": "/api/tasks/24918e7f838606e1/images/7400918311c2ed54ee9c8056",
+        "processed:mist_rear": "/api/tasks/24918e7f838606e1/images/73a78a7c1b13c8b9a6433710",
+        "raw:mist_rear": "/api/tasks/24918e7f838606e1/images/7a35ee6c81f81e82dd48d3c1",
+        "material:photo_person": "/api/tasks/24918e7f838606e1/images/9bb871a18e92478656d0b448",
+        "material:mist_front": "/api/tasks/24918e7f838606e1/images/67401d49a45fb27eeb745504",
+        "processed:mist_front": "/api/tasks/24918e7f838606e1/images/273681ec58d93fdd1417dbb5",
+        "raw:mist_front": "/api/tasks/24918e7f838606e1/images/1e3998e89a8e4a9a63d88e35",
+        "sheet:0": "/api/tasks/24918e7f838606e1/images/ab22e739c70b387d7fde0f72",
+        "previews/review-detail-1.png": "/api/tasks/24918e7f838606e1/images/2411358802702c6c80f7c8a0",
+        "previews/review-detail-2.png": "/api/tasks/24918e7f838606e1/images/f34378418e7e74638c40efc6"
+      },
+      "changes": [],
+      "intent": {},
+      "review": null,
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "label": "冷蓝底色",
+          "description": "全幅冷蓝色基底，防止动态风景边缘露空。",
+          "style": {
+            "fill": "#4A8FAC"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_scenery",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "label": "全幅风景",
+          "description": "客户竖幅风景 Live 作为全幅背景，覆盖参考图的山水摄影内容；保持冷蓝、开阔的旅行氛围。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_scenery",
+            "asset_id": "asset_4026ebaa393a4e64",
+            "reason": "竖幅航拍风景具有大面积天空、道路与湖泊，适合作为纵向全幅动态背景。",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "mist_rear",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            735,
+            962,
+            1175
+          ],
+          "label": "人物后方雾带",
+          "description": "横贯画面的浅蓝白半透明云雾带，只保留雾气和柔软羽化边缘，不保留参考人物、山体、树木、水面或灯光。位于客户人物后方，制造纵深。",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+          },
+          "recovered": {
+            "sha256": "1b40b6434e8ca70f439ea608159308e915309df883b3eda408c1c53658003a88",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_person",
+          "kind": "photo",
+          "bbox": [
+            70,
+            505,
+            860,
+            1435
+          ],
+          "label": "中央人物",
+          "description": "客户人物 Live 的前景抠图，居中偏右呈半身到近全身比例，替换参考人物及其服饰、动作和随身物品；允许手臂自然伸展。",
+          "mode": "cutout",
+          "style": {
+            "feather": 0.01
+          },
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_person",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅正面人物主体清晰、轮廓完整，适合居中抠图并保留 Live 动态。",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "mist_front",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1080,
+            962,
+            1575
+          ],
+          "label": "前景雾幕",
+          "description": "覆盖人物腰腿及画面下部的蓝白半透明浓雾，保留大块柔和雾浪和渐隐边缘，不保留参考人物、山石、树木、水面、船只或平台水印。",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+          },
+          "recovered": {
+            "sha256": "099d28f66dda57a450db37027c6fc01e051fb6d50a0fd524177a9f7020a0b081",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "mist_rear",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "mist_front",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0002-5313fd2c",
+      "parent_id": "0001-f7cd0914",
+      "render_id": "46dadb2683c56ee0",
+      "command": "screen",
+      "materials": [
+        {
+          "id": "background",
+          "label": "冷蓝底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+            "final": "/api/tasks/24918e7f838606e1/images/b309681b691b46b4e5a20585",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_scenery",
+          "label": "全幅风景",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+            "final": "/api/tasks/24918e7f838606e1/images/d810f9aa4e2b1603f933c39f",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "mist_rear",
+          "label": "人物后方雾带",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            735,
+            962,
+            1175
+          ],
+          "method": "参考提取",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/205c59a01b5cd2bf1a810ac9",
+            "final": "/api/tasks/24918e7f838606e1/images/0d19dc03a2fde1a312e7a972",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+          },
+          "note": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+        },
+        {
+          "id": "photo_person",
+          "label": "中央人物",
+          "kind": "photo",
+          "bbox": [
+            70,
+            505,
+            860,
+            1435
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/23cf263a566742e3e932d41c",
+            "final": "/api/tasks/24918e7f838606e1/images/c666c7d2d119ad45d7a8297c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "mist_front",
+          "label": "前景雾幕",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1080,
+            962,
+            1575
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/9c86479cc696b2c9041ee1b0",
+            "final": "/api/tasks/24918e7f838606e1/images/4b339c7213cd098d080b6389",
+            "raw": "/api/tasks/24918e7f838606e1/images/e413ed7b3fa63de7e714cd5e",
+            "processed": "/api/tasks/24918e7f838606e1/images/8ff12a8f4d1d68bc316ab56a"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "visual",
+            "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "筛选素材",
+      "at": "2026-10-16T06:08:24.083069+00:00",
+      "image": "/api/tasks/24918e7f838606e1/images/321dce2dde57ed39fe93fa72",
+      "artifacts": {
+        "final.png": "/api/tasks/24918e7f838606e1/images/321dce2dde57ed39fe93fa72",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/24918e7f838606e1/images/2be4eef22105dcaecaf55a39",
+        "previews/comparison.png": "/api/tasks/24918e7f838606e1/images/3f48afeea615462c76dc5a63",
+        "material:background": "/api/tasks/24918e7f838606e1/images/b309681b691b46b4e5a20585",
+        "material:photo_scenery": "/api/tasks/24918e7f838606e1/images/d810f9aa4e2b1603f933c39f",
+        "material:mist_rear": "/api/tasks/24918e7f838606e1/images/0d19dc03a2fde1a312e7a972",
+        "material:photo_person": "/api/tasks/24918e7f838606e1/images/c666c7d2d119ad45d7a8297c",
+        "material:mist_front": "/api/tasks/24918e7f838606e1/images/4b339c7213cd098d080b6389",
+        "processed:mist_front": "/api/tasks/24918e7f838606e1/images/8ff12a8f4d1d68bc316ab56a",
+        "raw:mist_front": "/api/tasks/24918e7f838606e1/images/e413ed7b3fa63de7e714cd5e",
+        "sheet:0": "/api/tasks/24918e7f838606e1/images/281673d187682a6178678211",
+        "previews/review-detail-1.png": "/api/tasks/24918e7f838606e1/images/6b9282c371758cdb6851d7f7",
+        "previews/review-detail-2.png": "/api/tasks/24918e7f838606e1/images/9ed2d9a744f3ce16759cfec8"
+      },
+      "changes": [
+        {
+          "id": "mist_rear",
+          "label": "人物后方雾带",
+          "bbox": [
+            0,
+            735,
+            962,
+            1175
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+              },
+              "after": {
+                "status": "rejected",
+                "basis": "visual",
+                "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+              }
+            }
+          }
+        },
+        {
+          "id": "mist_front",
+          "label": "前景雾幕",
+          "bbox": [
+            0,
+            1080,
+            962,
+            1575
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "visual",
+                "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+              }
+            }
+          }
+        }
+      ],
+      "intent": {
+        "render_id": "6227daae71beb269",
+        "decisions": [
+          {
+            "id": "mist_rear",
+            "action": "drop",
+            "reason": "原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+          },
+          {
+            "id": "mist_front",
+            "action": "keep",
+            "reason": "原尺寸检查确认候选仅保留柔和蓝白雾团，未见参考人物、山石、水印或文字残留。"
+          }
+        ]
+      },
+      "review": null,
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "label": "冷蓝底色",
+          "description": "全幅冷蓝色基底，防止动态风景边缘露空。",
+          "style": {
+            "fill": "#4A8FAC"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_scenery",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "label": "全幅风景",
+          "description": "客户竖幅风景 Live 作为全幅背景，覆盖参考图的山水摄影内容；保持冷蓝、开阔的旅行氛围。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_scenery",
+            "asset_id": "asset_4026ebaa393a4e64",
+            "reason": "竖幅航拍风景具有大面积天空、道路与湖泊，适合作为纵向全幅动态背景。",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "mist_rear",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            735,
+            962,
+            1175
+          ],
+          "label": "人物后方雾带",
+          "description": "横贯画面的浅蓝白半透明云雾带，只保留雾气和柔软羽化边缘，不保留参考人物、山体、树木、水面或灯光。位于客户人物后方，制造纵深。",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+          },
+          "reveal_warning": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+        },
+        {
+          "id": "photo_person",
+          "kind": "photo",
+          "bbox": [
+            70,
+            505,
+            860,
+            1435
+          ],
+          "label": "中央人物",
+          "description": "客户人物 Live 的前景抠图，居中偏右呈半身到近全身比例，替换参考人物及其服饰、动作和随身物品；允许手臂自然伸展。",
+          "mode": "cutout",
+          "style": {
+            "feather": 0.01
+          },
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_person",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅正面人物主体清晰、轮廓完整，适合居中抠图并保留 Live 动态。",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "mist_front",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1080,
+            962,
+            1575
+          ],
+          "label": "前景雾幕",
+          "description": "覆盖人物腰腿及画面下部的蓝白半透明浓雾，保留大块柔和雾浪和渐隐边缘，不保留参考人物、山石、树木、水面、船只或平台水印。",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "visual",
+            "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+          },
+          "recovered": {
+            "sha256": "099d28f66dda57a450db37027c6fc01e051fb6d50a0fd524177a9f7020a0b081",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "mist_rear",
+          "note": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+        },
+        {
+          "id": "mist_front",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": [
+        "mist_rear"
+      ]
+    },
+    {
+      "id": "0003-b22659ab",
+      "parent_id": "0002-5313fd2c",
+      "render_id": "7bb18583fb122bcc",
+      "command": "apply",
+      "materials": [
+        {
+          "id": "background",
+          "label": "冷蓝底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+            "final": "/api/tasks/24918e7f838606e1/images/6eeb97663b838c9a711bd275",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_scenery",
+          "label": "全幅风景",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+            "final": "/api/tasks/24918e7f838606e1/images/f6953dc0ee9d31b45f11ff58",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "mist_rear",
+          "label": "人物后方雾带",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            735,
+            962,
+            1175
+          ],
+          "method": "参考提取",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/205c59a01b5cd2bf1a810ac9",
+            "final": "/api/tasks/24918e7f838606e1/images/01d8d5b6229654e62c293726",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+          },
+          "note": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+        },
+        {
+          "id": "photo_person",
+          "label": "中央人物",
+          "kind": "photo",
+          "bbox": [
+            85,
+            520,
+            850,
+            1390
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/8d131b139a009f1e63a986d3",
+            "final": "/api/tasks/24918e7f838606e1/images/c1f75802428b247a5acda802",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "mist_front",
+          "label": "前景雾幕",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1080,
+            962,
+            1575
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/24918e7f838606e1/images/9c86479cc696b2c9041ee1b0",
+            "final": "/api/tasks/24918e7f838606e1/images/29e6566f5ebfe33472ca58c4",
+            "raw": "/api/tasks/24918e7f838606e1/images/d5db5ee7f4eae78ba72a064e",
+            "processed": "/api/tasks/24918e7f838606e1/images/28dcb62bc5f8f477cee82d61"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "visual",
+            "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "调整排版",
+      "at": "2026-10-16T06:09:58.420025+00:00",
+      "image": "/api/tasks/24918e7f838606e1/images/0ef2ab88ab78c00539343f84",
+      "artifacts": {
+        "final.png": "/api/tasks/24918e7f838606e1/images/0ef2ab88ab78c00539343f84",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/24918e7f838606e1/images/3b837eef6994f5b7f9f52895",
+        "previews/comparison.png": "/api/tasks/24918e7f838606e1/images/6c331147e462a7ae3e86b5c9",
+        "material:background": "/api/tasks/24918e7f838606e1/images/6eeb97663b838c9a711bd275",
+        "material:photo_scenery": "/api/tasks/24918e7f838606e1/images/f6953dc0ee9d31b45f11ff58",
+        "material:mist_rear": "/api/tasks/24918e7f838606e1/images/01d8d5b6229654e62c293726",
+        "material:photo_person": "/api/tasks/24918e7f838606e1/images/c1f75802428b247a5acda802",
+        "material:mist_front": "/api/tasks/24918e7f838606e1/images/29e6566f5ebfe33472ca58c4",
+        "processed:mist_front": "/api/tasks/24918e7f838606e1/images/28dcb62bc5f8f477cee82d61",
+        "raw:mist_front": "/api/tasks/24918e7f838606e1/images/d5db5ee7f4eae78ba72a064e",
+        "sheet:0": "/api/tasks/24918e7f838606e1/images/e58161518d0aaf530cea1b8e",
+        "previews/review-detail-1.png": "/api/tasks/24918e7f838606e1/images/c80ca0e1b5483f00dcb1af96",
+        "previews/review-detail-2.png": "/api/tasks/24918e7f838606e1/images/8b4775c55af78719e4d04573"
+      },
+      "changes": [
+        {
+          "id": "photo_person",
+          "label": "中央人物",
+          "bbox": [
+            85,
+            520,
+            850,
+            1390
+          ],
+          "fields": {
+            "bbox": {
+              "before": [
+                70,
+                505,
+                860,
+                1435
+              ],
+              "after": [
+                85,
+                520,
+                850,
+                1390
+              ]
+            }
+          }
+        }
+      ],
+      "intent": {
+        "schema_version": "collage-review-v1",
+        "render_id": "46dadb2683c56ee0",
+        "checked_entire_composition": true,
+        "verdict": "needs_changes",
+        "summary": "中央人物略大且底部抠图边界形成横向硬截边；轻微缩小人物并将底边上收至前景雾团覆盖区域。",
+        "items": [
+          {
+            "id": "photo_person",
+            "action": "adjust",
+            "reason": "改善人物比例，并让底部边界更充分落入现有前景雾层。",
+            "changes": {
+              "bbox": [
+                85,
+                520,
+                850,
+                1390
+              ]
+            }
+          }
+        ]
+      },
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "7bb18583fb122bcc",
+        "checked_entire_composition": true,
+        "verdict": "needs_changes",
+        "summary": "已查看当前整图、完整对照图及两处指定局部。筛选移除了参考人物残影，唯一一次排版调整改善了人物比例和底边位置；但后方雾层因污染被隔离，且人物抠图底部仍有浅色水平硬边，当前版本不能判定视觉通过。",
+        "items": [
+          {
+            "id": "mist_rear",
+            "action": "unresolved",
+            "reason": "Reveal 候选混入参考人物白衣、手臂与水面，已在一次 screen 中隔离；缺少参考图中人物后方的横向雾带。"
+          },
+          {
+            "id": "photo_person",
+            "action": "unresolved",
+            "reason": "一次 apply 已缩小并上收人物，比例改善，但原尺寸局部仍可见人物抠图底部的浅色水平截边。"
+          }
+        ],
+        "scene_sha256": "e54d38f578a36eac651231dbf6c0885070531f0d457238048ff5e76bf6cfdc31",
+        "final_sha256": "bdc246f5335897ed80c0e258beaa5c207811e9f8eb89eb1238f5a9b36d9aca47"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "label": "冷蓝底色",
+          "description": "全幅冷蓝色基底，防止动态风景边缘露空。",
+          "style": {
+            "fill": "#4A8FAC"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_scenery",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            962,
+            1712
+          ],
+          "label": "全幅风景",
+          "description": "客户竖幅风景 Live 作为全幅背景，覆盖参考图的山水摄影内容；保持冷蓝、开阔的旅行氛围。",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_scenery",
+            "asset_id": "asset_4026ebaa393a4e64",
+            "reason": "竖幅航拍风景具有大面积天空、道路与湖泊，适合作为纵向全幅动态背景。",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "mist_rear",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            735,
+            962,
+            1175
+          ],
+          "label": "人物后方雾带",
+          "description": "横贯画面的浅蓝白半透明云雾带，只保留雾气和柔软羽化边缘，不保留参考人物、山体、树木、水面或灯光。位于客户人物后方，制造纵深。",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "rejected",
+            "basis": "visual",
+            "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+          },
+          "reveal_warning": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+        },
+        {
+          "id": "photo_person",
+          "kind": "photo",
+          "bbox": [
+            85,
+            520,
+            850,
+            1390
+          ],
+          "label": "中央人物",
+          "description": "客户人物 Live 的前景抠图，居中偏右呈半身到近全身比例，替换参考人物及其服饰、动作和随身物品；允许手臂自然伸展。",
+          "mode": "cutout",
+          "style": {
+            "feather": 0.01
+          },
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_person",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅正面人物主体清晰、轮廓完整，适合居中抠图并保留 Live 动态。",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "mist_front",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            1080,
+            962,
+            1575
+          ],
+          "label": "前景雾幕",
+          "description": "覆盖人物腰腿及画面下部的蓝白半透明浓雾，保留大块柔和雾浪和渐隐边缘，不保留参考人物、山石、树木、水面、船只或平台水印。",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "visual",
+            "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+          },
+          "recovered": {
+            "sha256": "099d28f66dda57a450db37027c6fc01e051fb6d50a0fd524177a9f7020a0b081",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "mist_rear",
+          "note": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+        },
+        {
+          "id": "mist_front",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": [
+        "mist_rear"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "冷蓝底色",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        962,
+        1712
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+        "customer": null,
+        "final": "/api/tasks/24918e7f838606e1/images/1039c0af0aae987c8e290fdc"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_scenery",
+      "label": "全幅风景",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        962,
+        1712
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/24918e7f838606e1/images/033807a8cd9a9fbf1dfb8bcb",
+        "customer": "/api/tasks/24918e7f838606e1/images/8106a10e7e6f8036306c9e61",
+        "final": "/api/tasks/24918e7f838606e1/images/50ae4e6d0c51aeb332a2f481"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "mist_rear",
+      "label": "人物后方雾带",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        735,
+        962,
+        1175
+      ],
+      "method": "参考提取",
+      "status": "unresolved",
+      "quality": "unresolved",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/24918e7f838606e1/images/205c59a01b5cd2bf1a810ac9",
+        "customer": null,
+        "final": "/api/tasks/24918e7f838606e1/images/e090df998d11d0b34f7559aa",
+        "raw": "/api/tasks/24918e7f838606e1/images/b6aa7a90127fc2daa928a58a",
+        "processed": "/api/tasks/24918e7f838606e1/images/766f53c31beafc2618404e77"
+      },
+      "decision": {
+        "status": "rejected",
+        "basis": "visual",
+        "input_key": "e0ea11029346077e5369180071c51e0eb68cc1a7a98e523a2dfa98c7cf770339"
+      },
+      "note": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+    },
+    {
+      "id": "photo_person",
+      "label": "中央人物",
+      "kind": "photo",
+      "bbox": [
+        85,
+        520,
+        850,
+        1390
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/24918e7f838606e1/images/8d131b139a009f1e63a986d3",
+        "customer": "/api/tasks/24918e7f838606e1/images/290b1ced2f3a3bcd7c467753",
+        "final": "/api/tasks/24918e7f838606e1/images/652c8cc9196792cb37e6c4d3"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "mist_front",
+      "label": "前景雾幕",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        1080,
+        962,
+        1575
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/24918e7f838606e1/images/9c86479cc696b2c9041ee1b0",
+        "customer": null,
+        "final": "/api/tasks/24918e7f838606e1/images/21e53d034b68ea2063f0cfe6",
+        "raw": "/api/tasks/24918e7f838606e1/images/1251559d59b0900ac15f9627",
+        "processed": "/api/tasks/24918e7f838606e1/images/c97d5829d6128ede63a80b9a"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "visual",
+        "input_key": "db6c4954c2581c737a452ed8f24a224267f3425174d0ac7088fc2252c7f051a1"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "mist_front",
+        "mist_rear"
+      ],
+      "at": "2026-10-16T06:07:08.057097+00:00",
+      "error": "",
+      "available_ids": [
+        "mist_front",
+        "mist_rear"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 82.54,
+      "cache_hit": false
+    }
+  ],
+  "quality": "needs_changes",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "mist_rear",
+      "note": "Screen rejected extracted layer: 原尺寸检查确认候选带入参考人物白衣、手臂和水面，在首版中形成明显旧人物残影；复杂雾层无法用简单图形可靠替代。"
+    },
+    {
+      "id": "mist_front",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "7bb18583fb122bcc",
+    "checked_entire_composition": true,
+    "verdict": "needs_changes",
+    "summary": "已查看当前整图、完整对照图及两处指定局部。筛选移除了参考人物残影，唯一一次排版调整改善了人物比例和底边位置；但后方雾层因污染被隔离，且人物抠图底部仍有浅色水平硬边，当前版本不能判定视觉通过。",
+    "items": [
+      {
+        "id": "mist_rear",
+        "action": "unresolved",
+        "reason": "Reveal 候选混入参考人物白衣、手臂与水面，已在一次 screen 中隔离；缺少参考图中人物后方的横向雾带。"
+      },
+      {
+        "id": "photo_person",
+        "action": "unresolved",
+        "reason": "一次 apply 已缩小并上收人物，比例改善，但原尺寸局部仍可见人物抠图底部的浅色水平截边。"
+      }
+    ],
+    "scene_sha256": "e54d38f578a36eac651231dbf6c0885070531f0d457238048ff5e76bf6cfdc31",
+    "final_sha256": "bdc246f5335897ed80c0e258beaa5c207811e9f8eb89eb1238f5a9b36d9aca47"
+  },
+  "recording_incomplete": false
+}

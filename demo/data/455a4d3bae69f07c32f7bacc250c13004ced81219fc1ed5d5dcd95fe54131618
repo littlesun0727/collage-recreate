@@ -1,0 +1,2228 @@
+{
+  "id": "bb8f973c6fbf18f5",
+  "name": "Live-4a3ffc2d099f",
+  "created_at": "2026-10-16T02:41:52.406850+00:00",
+  "reference_size": [
+    1080,
+    1440
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T03:03:21.861Z",
+    "finished_at": "2026-10-16T03:14:35.657069+00:00",
+    "elapsed_seconds": 673.757,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "label": "底色",
+      "description": "画布兜底的浅天蓝色；正常情况下被整页背景照片覆盖",
+      "style": {
+        "fill": "#8ECBE8"
+      }
+    },
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "label": "整页背景照片",
+      "description": "铺满画布的海岸风景底图，以客户横向风景Live首帧替换；其上承托其他拼贴窗口"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        194,
+        154,
+        579,
+        528
+      ],
+      "label": "上方方形风景窗",
+      "description": "左上偏中的近方形风景照片窗口，无独立外框"
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        518,
+        330,
+        959,
+        918
+      ],
+      "label": "右侧竖幅人物窗",
+      "description": "右上偏中的竖幅照片窗口，以客户竖幅人物Live首帧替换，无独立外框"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        88,
+        873,
+        595,
+        1218
+      ],
+      "label": "下方横幅风景窗",
+      "description": "左下偏中的横向风景照片窗口，无独立外框"
+    },
+    {
+      "id": "tape_note",
+      "kind": "overlay",
+      "bbox": [
+        137,
+        137,
+        384,
+        195
+      ],
+      "label": "胶带手写便签",
+      "description": "两条米白撕边胶带及其深灰手写艺术字 You're a Sunday morning / Kind of beauty，作为不可分固定设计单元保留",
+      "method": "extract",
+      "style": {
+        "extract_mode": "foreground"
+      }
+    },
+    {
+      "id": "paperclip",
+      "kind": "overlay",
+      "bbox": [
+        704,
+        271,
+        806,
+        367
+      ],
+      "label": "立体回形针",
+      "description": "银色高光、带阴影的弯曲金属回形针装饰",
+      "method": "extract",
+      "style": {
+        "extract_mode": "foreground"
+      }
+    },
+    {
+      "id": "water_doodles",
+      "kind": "overlay",
+      "bbox": [
+        76,
+        778,
+        169,
+        938
+      ],
+      "label": "水滴涂鸦",
+      "description": "三枚米白色手绘水滴/弯曲线条组成的一组涂鸦，保留不规则笔触",
+      "method": "extract",
+      "style": {
+        "extract_mode": "foreground"
+      }
+    },
+    {
+      "id": "text_life",
+      "kind": "text",
+      "bbox": [
+        120,
+        663,
+        584,
+        697
+      ],
+      "label": "中部生活文案",
+      "description": "白色粗体圆润无衬线单行文案，位于画面中部偏左",
+      "text": "Life isn't perfect but your outfit can be.",
+      "text_status": "known",
+      "style": {
+        "font": "sans",
+        "bold": true,
+        "fill": "#FFFFFF",
+        "font_size": 20,
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_surprise",
+      "kind": "text",
+      "bbox": [
+        695,
+        395,
+        957,
+        423
+      ],
+      "label": "惊喜文案",
+      "description": "右侧照片上方的白色粗体单行文案，末尾有黄色闪光符号",
+      "text": "An unexpected surprise. ✨",
+      "text_status": "known",
+      "style": {
+        "font": "sans",
+        "bold": true,
+        "fill": "#FFFFFF",
+        "font_size": 18,
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_travel",
+      "kind": "text",
+      "bbox": [
+        518,
+        1068,
+        946,
+        1154
+      ],
+      "label": "底部旅行文案",
+      "description": "白色粗体斜体三行文案，横跨下方照片右侧与背景",
+      "text": "Travel is the spice of life,   but remember,\noccasionally life itself needs to be\nthe spice sprinkled on our journey.",
+      "text_status": "known",
+      "style": {
+        "font": "sans",
+        "bold": true,
+        "italic": true,
+        "fill": "#FFFFFF",
+        "font_size": 20,
+        "align": "left",
+        "line_spacing": 1.15
+      }
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 5,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:41:52.415908+00:00",
+      "started_at": "2026-10-16T02:41:50.813021+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "waiting",
+      "summary": "数据校验完成，等待叠框看图检查",
+      "at": "2026-10-16T03:08:17.071677+00:00",
+      "started_at": "2026-10-16T03:08:16.577484+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T03:08:38.497354+00:00",
+      "started_at": "2026-10-16T03:08:34.085316+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已实际查看完整首版与提取检查表；胶带、回形针和水滴提取完整干净，无旧照片残留或缺件，本轮无需screen",
+      "at": "2026-10-16T03:07:26.127056+00:00",
+      "started_at": "2026-10-16T03:06:58.771820+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "failed",
+      "summary": "[Errno 2] No such file or directory: '[本机文件]",
+      "at": "2026-10-16T08:14:38.215233+00:00",
+      "started_at": "2026-10-16T08:14:37.455563+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "静态首版已登记通过并完成交付；4个Live槽动态成片为3秒244帧静音MP4，已完整解码并查看首中末及16个等间隔时点，运动、窗口遮挡与固定装饰稳定，无循环接缝；闪光符号使用黄色双星号近似",
+      "at": "2026-10-16T03:13:58.436273+00:00"
+    }
+  ],
+  "execution": "等待下一步",
+  "live": false,
+  "heartbeat_at": "2026-10-16T08:14:38.216120+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:41:50.813021+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:41:52.415908+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:04:27.497189+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看原尺寸参考图与18段Live素材联系表，分析布局、层级和照片绑定"
+    },
+    {
+      "at": "2026-10-16T03:05:37.274846+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:05:37.775512+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T03:05:54.936621+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成原尺寸参考图和18段Live素材联系表检查；建立4个照片槽、3个复杂固定装饰与3组文字，绑定4个不同真实素材，校验通过并实际查看叠框，无需二次纠偏"
+    },
+    {
+      "at": "2026-10-16T03:06:02.110320+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:06:49.816435+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:06:58.771820+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "首版已生成，正在查看完整对照图与复杂装饰提取检查表，检查残留、缺失、模糊和重复文字"
+    },
+    {
+      "at": "2026-10-16T03:07:26.127056+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已实际查看完整首版与提取检查表；胶带、回形针和水滴提取完整干净，无旧照片残留或缺件，本轮无需screen"
+    },
+    {
+      "at": "2026-10-16T03:08:16.577484+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:08:17.071677+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T03:08:34.085316+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:08:38.497354+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:08:49.643647+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核修正后的完整对照图与4个指定局部，检查照片前后关系、装饰遮挡、人物出框和文字完整性"
+    },
+    {
+      "at": "2026-10-16T03:09:33.748797+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:09:34.285063+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:13:58.436273+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "静态首版已登记通过并完成交付；4个Live槽动态成片为3秒244帧静音MP4，已完整解码并查看首中末及16个等间隔时点，运动、窗口遮挡与固定装饰稳定，无循环接缝；闪光符号使用黄色双星号近似"
+    },
+    {
+      "at": "2026-10-16T08:11:46.038818+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "制作修改预览 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T08:11:49.987157+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "制作修改预览 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T08:12:59.329292+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "对话修改 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T08:13:00.239263+00:00",
+      "stage": 5,
+      "status": "failed",
+      "summary": "对话修改 · [Errno 2] No such file or directory: '[本机文件]"
+    },
+    {
+      "at": "2026-10-16T08:13:41.246878+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "制作修改预览 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T08:13:44.781315+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "制作修改预览 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T08:14:37.455563+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "对话修改 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T08:14:38.215233+00:00",
+      "stage": 5,
+      "status": "failed",
+      "summary": "对话修改 · [Errno 2] No such file or directory: '[本机文件]"
+    }
+  ],
+  "reference": "/api/tasks/bb8f973c6fbf18f5/images/6353fb70d805041132b0471a",
+  "boxes": "/api/tasks/bb8f973c6fbf18f5/images/4d235ec447bc9fd5995828f8",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/905faff89f0b70f75b520753"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/4139e07b7e811d727a49792d"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/fca2098c21e42d0b1fc2953e"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/06e0c50f08bfbb880b89b70f"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/590b45cbc45cb273b792e6f2"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/372436d153833fe75eba020e"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/37805368709f78a0bf7a5c95"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/8dd0d0f0cafac1c1e1ab091b"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/ae1c99da4349e38b5f25c9b3"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/8dd9791f67dee4a8d006789f"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/5d43e661d5ac9ff005a0e463"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/8220df98ce86d1c5e9a41390"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/d63e83b801bc028994d45e10"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/df320242d7b1c505c591a061"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/efea1eb55eee9e7e67bc4357"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/a2a69df44b4998cfc929c1db"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/bcceb379acaeaf3f75b3e6a6"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/9a111f5f24ba342709d34a67"
+    }
+  ],
+  "current_image": "/api/tasks/bb8f973c6fbf18f5/images/d131783765d3ba5e3b9ae31c",
+  "first_image": "/api/tasks/bb8f973c6fbf18f5/images/0cecbf33ecea4af595ea068b",
+  "versions": [
+    {
+      "id": "0001-d9b04c92",
+      "parent_id": null,
+      "render_id": "c30abb8a5438f471",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/b1599b9416f9cc136b0806c4",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/a5c7cf1c9723b47d8a05a508",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_background",
+          "label": "整页背景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/b1599b9416f9cc136b0806c4",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/94995fa4150671717a9d09c0",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top",
+          "label": "上方方形风景窗",
+          "kind": "photo",
+          "bbox": [
+            194,
+            154,
+            579,
+            528
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/7a5e0cb2ef87022d53c7dbb9",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/9144c0ce8d0320664b57b8bd",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_right",
+          "label": "右侧竖幅人物窗",
+          "kind": "photo",
+          "bbox": [
+            518,
+            330,
+            959,
+            918
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/11aa559d0810b515929b9ff7",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/30f654a0038a29acfbda8ae3",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "下方横幅风景窗",
+          "kind": "photo",
+          "bbox": [
+            88,
+            873,
+            595,
+            1218
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/355136b457b7f7e4ae901009",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/633e75549df94793bfadfcc6",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "tape_note",
+          "label": "胶带手写便签",
+          "kind": "overlay",
+          "bbox": [
+            137,
+            137,
+            384,
+            195
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/1e4472f47f2f36efe74640ec",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/990a643e2a912cb609d497d0",
+            "raw": "/api/tasks/bb8f973c6fbf18f5/images/9c6559e7f0b636fed929b94f",
+            "processed": "/api/tasks/bb8f973c6fbf18f5/images/6e3b4811228de4777b469b50"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b5c6801f36f98ecdd9eabe308c841ca21fe6c0399e04faa495aff56ba394e082"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "paperclip",
+          "label": "立体回形针",
+          "kind": "overlay",
+          "bbox": [
+            704,
+            271,
+            806,
+            367
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/e6993db343e7ccce74d99135",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/674b1d72b08a510d96fa0d40",
+            "raw": "/api/tasks/bb8f973c6fbf18f5/images/9b7bc56d8c6a228b3edc2831",
+            "processed": "/api/tasks/bb8f973c6fbf18f5/images/878ea757abebb29316b9cd76"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b5aa8b6d068ca9bd04488b54133a0ef91cd205e5dda0c8cfaf44249a7980caaf"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "water_doodles",
+          "label": "水滴涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            76,
+            778,
+            169,
+            938
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/1b3d2c5536a8b7cc11033c60",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/974aa11ecfb4c50939d8f794",
+            "raw": "/api/tasks/bb8f973c6fbf18f5/images/a6b6868ef635aadede5516d0",
+            "processed": "/api/tasks/bb8f973c6fbf18f5/images/c684ce7cff0ae766480b2117"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ed4fe8ba792fb4e70584b1a704bdea7a8e684ff3905ded5a4fa238438c316557"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "text_life",
+          "label": "中部生活文案",
+          "kind": "text",
+          "bbox": [
+            120,
+            663,
+            584,
+            697
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/21a066480a86a308076c2c42",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/3e55b94ab715715a3da32b92",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "text_surprise",
+          "label": "惊喜文案",
+          "kind": "text",
+          "bbox": [
+            695,
+            395,
+            957,
+            423
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/4a9cb20feac85900e025fc39",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/af2f1c11de8b7c389d75b541",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "text_travel",
+          "label": "底部旅行文案",
+          "kind": "text",
+          "bbox": [
+            518,
+            1068,
+            946,
+            1154
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/64bbb491b72b4588631191f0",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/0c0e6aae91ccd13649c3bd17",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T03:06:49.807845+00:00",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/c414832b43142d49d9837abd",
+      "artifacts": {
+        "final.png": "/api/tasks/bb8f973c6fbf18f5/images/c414832b43142d49d9837abd",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/bb8f973c6fbf18f5/images/ef4fb3dae490dba4ea018cba",
+        "previews/comparison.png": "/api/tasks/bb8f973c6fbf18f5/images/5504fa37048b502318526679",
+        "material:background": "/api/tasks/bb8f973c6fbf18f5/images/a5c7cf1c9723b47d8a05a508",
+        "material:photo_background": "/api/tasks/bb8f973c6fbf18f5/images/94995fa4150671717a9d09c0",
+        "material:photo_top": "/api/tasks/bb8f973c6fbf18f5/images/9144c0ce8d0320664b57b8bd",
+        "material:photo_right": "/api/tasks/bb8f973c6fbf18f5/images/30f654a0038a29acfbda8ae3",
+        "material:photo_bottom": "/api/tasks/bb8f973c6fbf18f5/images/633e75549df94793bfadfcc6",
+        "material:tape_note": "/api/tasks/bb8f973c6fbf18f5/images/990a643e2a912cb609d497d0",
+        "processed:tape_note": "/api/tasks/bb8f973c6fbf18f5/images/6e3b4811228de4777b469b50",
+        "raw:tape_note": "/api/tasks/bb8f973c6fbf18f5/images/9c6559e7f0b636fed929b94f",
+        "material:paperclip": "/api/tasks/bb8f973c6fbf18f5/images/674b1d72b08a510d96fa0d40",
+        "processed:paperclip": "/api/tasks/bb8f973c6fbf18f5/images/878ea757abebb29316b9cd76",
+        "raw:paperclip": "/api/tasks/bb8f973c6fbf18f5/images/9b7bc56d8c6a228b3edc2831",
+        "material:water_doodles": "/api/tasks/bb8f973c6fbf18f5/images/974aa11ecfb4c50939d8f794",
+        "processed:water_doodles": "/api/tasks/bb8f973c6fbf18f5/images/c684ce7cff0ae766480b2117",
+        "raw:water_doodles": "/api/tasks/bb8f973c6fbf18f5/images/a6b6868ef635aadede5516d0",
+        "material:text_life": "/api/tasks/bb8f973c6fbf18f5/images/3e55b94ab715715a3da32b92",
+        "material:text_surprise": "/api/tasks/bb8f973c6fbf18f5/images/af2f1c11de8b7c389d75b541",
+        "material:text_travel": "/api/tasks/bb8f973c6fbf18f5/images/0c0e6aae91ccd13649c3bd17",
+        "sheet:0": "/api/tasks/bb8f973c6fbf18f5/images/96a9d6926ff49e2ed9016b3c",
+        "previews/review-detail-1.png": "/api/tasks/bb8f973c6fbf18f5/images/cb10ab39be98a5d897414bdb",
+        "previews/review-detail-2.png": "/api/tasks/bb8f973c6fbf18f5/images/8de9c0040b3160ca85790a10",
+        "previews/review-detail-3.png": "/api/tasks/bb8f973c6fbf18f5/images/9c2946d8476acc0f22969102",
+        "previews/review-detail-4.png": "/api/tasks/bb8f973c6fbf18f5/images/0818e9638361236bd9ad819b"
+      },
+      "changes": [],
+      "intent": {},
+      "review": null,
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "底色",
+          "description": "画布兜底的浅天蓝色；正常情况下被整页背景照片覆盖",
+          "style": {
+            "fill": "#8ECBE8"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_background",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "整页背景照片",
+          "description": "铺满画布的海岸风景底图，以客户横向风景Live首帧替换；其上承托其他拼贴窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_background",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽横向湖岸景观适合整页背景，主体分布舒展并能承托上层拼贴"
+          }
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            194,
+            154,
+            579,
+            528
+          ],
+          "label": "上方方形风景窗",
+          "description": "左上偏中的近方形风景照片窗口，无独立外框",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_fce89c38adda66d5",
+            "reason": "湖泊与建筑风景构图集中，适合近方形上方窗口"
+          }
+        },
+        {
+          "id": "photo_right",
+          "kind": "photo",
+          "bbox": [
+            518,
+            330,
+            959,
+            918
+          ],
+          "label": "右侧竖幅人物窗",
+          "description": "右上偏中的竖幅照片窗口，以客户竖幅人物Live首帧替换，无独立外框",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_right",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅近景人物构图与右侧人物窗口比例匹配"
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            88,
+            873,
+            595,
+            1218
+          ],
+          "label": "下方横幅风景窗",
+          "description": "左下偏中的横向风景照片窗口，无独立外框",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横向航拍湖景适合下方宽幅窗口，并与人物槽保持素材不重复"
+          }
+        },
+        {
+          "id": "tape_note",
+          "kind": "overlay",
+          "bbox": [
+            137,
+            137,
+            384,
+            195
+          ],
+          "label": "胶带手写便签",
+          "description": "两条米白撕边胶带及其深灰手写艺术字 You're a Sunday morning / Kind of beauty，作为不可分固定设计单元保留",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b5c6801f36f98ecdd9eabe308c841ca21fe6c0399e04faa495aff56ba394e082"
+          },
+          "recovered": {
+            "sha256": "d370fa5fcb8a1dd5ffae1730d1b18cafe63df1037012c4a5d5a5e85836b4f94a",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "paperclip",
+          "kind": "overlay",
+          "bbox": [
+            704,
+            271,
+            806,
+            367
+          ],
+          "label": "立体回形针",
+          "description": "银色高光、带阴影的弯曲金属回形针装饰",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b5aa8b6d068ca9bd04488b54133a0ef91cd205e5dda0c8cfaf44249a7980caaf"
+          },
+          "recovered": {
+            "sha256": "9562991a17c0291bd8997141e47903b452d50a1a8d1c8d38371b8638829c3e62",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "water_doodles",
+          "kind": "overlay",
+          "bbox": [
+            76,
+            778,
+            169,
+            938
+          ],
+          "label": "水滴涂鸦",
+          "description": "三枚米白色手绘水滴/弯曲线条组成的一组涂鸦，保留不规则笔触",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ed4fe8ba792fb4e70584b1a704bdea7a8e684ff3905ded5a4fa238438c316557"
+          },
+          "recovered": {
+            "sha256": "baa0d88db4395fe4ee5359868d049356604bf75539b2dc28e7408e99241ea8e3",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "text_life",
+          "kind": "text",
+          "bbox": [
+            120,
+            663,
+            584,
+            697
+          ],
+          "label": "中部生活文案",
+          "description": "白色粗体圆润无衬线单行文案，位于画面中部偏左",
+          "text": "Life isn't perfect but your outfit can be.",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFFFFF",
+            "font_size": 20,
+            "align": "left"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "text_surprise",
+          "kind": "text",
+          "bbox": [
+            695,
+            395,
+            957,
+            423
+          ],
+          "label": "惊喜文案",
+          "description": "右侧照片上方的白色粗体单行文案，末尾有黄色闪光符号",
+          "text": "An unexpected surprise. ✨",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFFFFF",
+            "font_size": 18,
+            "align": "left"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "text_travel",
+          "kind": "text",
+          "bbox": [
+            518,
+            1068,
+            946,
+            1154
+          ],
+          "label": "底部旅行文案",
+          "description": "白色粗体斜体三行文案，横跨下方照片右侧与背景",
+          "text": "Travel is the spice of life,   but remember,\noccasionally life itself needs to be\nthe spice sprinkled on our journey.",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "italic": true,
+            "fill": "#FFFFFF",
+            "font_size": 20,
+            "align": "left",
+            "line_spacing": 1.15
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "tape_note",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "paperclip",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "water_doodles",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0002-913eb240",
+      "parent_id": "0001-d9b04c92",
+      "render_id": "5cf57341b76bc2bf",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/b1599b9416f9cc136b0806c4",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/a2d40ee78f6bfb580ef4d920",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_background",
+          "label": "整页背景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/b1599b9416f9cc136b0806c4",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/1f8726251145263c95839a9c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_top",
+          "label": "上方方形风景窗",
+          "kind": "photo",
+          "bbox": [
+            194,
+            154,
+            579,
+            528
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/7a5e0cb2ef87022d53c7dbb9",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/f5bdd3417633aac7920b7aaa",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_right",
+          "label": "右侧竖幅人物窗",
+          "kind": "photo",
+          "bbox": [
+            518,
+            330,
+            959,
+            918
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/11aa559d0810b515929b9ff7",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/e3640db7d48ccec6739cfe38",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "下方横幅风景窗",
+          "kind": "photo",
+          "bbox": [
+            88,
+            873,
+            595,
+            1218
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/355136b457b7f7e4ae901009",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/5ab8df934f0070396327f452",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "tape_note",
+          "label": "胶带手写便签",
+          "kind": "overlay",
+          "bbox": [
+            137,
+            137,
+            384,
+            195
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/1e4472f47f2f36efe74640ec",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/4036042bdcddb69943f3b0c4",
+            "raw": "/api/tasks/bb8f973c6fbf18f5/images/e46ccda651413b3681fc31c5",
+            "processed": "/api/tasks/bb8f973c6fbf18f5/images/c8de84dca8ba3c83d7f23242"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "edb191c6861bdb63b5bab68c53eab7ec80d5dcc37668a190ab2385b95e4fd1a1"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "paperclip",
+          "label": "立体回形针",
+          "kind": "overlay",
+          "bbox": [
+            704,
+            271,
+            806,
+            367
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/e6993db343e7ccce74d99135",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/40651725757fe6dbdf7c6322",
+            "raw": "/api/tasks/bb8f973c6fbf18f5/images/15bdbe95f0c2dbd52cf386d1",
+            "processed": "/api/tasks/bb8f973c6fbf18f5/images/d73c1aa0041fa999b87dc049"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "40f94057e1287dad5751602b32ce339e78268c7f9707f62364614245bf7f31c9"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "water_doodles",
+          "label": "水滴涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            76,
+            778,
+            169,
+            938
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/1b3d2c5536a8b7cc11033c60",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/1bb4373668c8144e757814ae",
+            "raw": "/api/tasks/bb8f973c6fbf18f5/images/088c1f055e1d9b6b3a171ff1",
+            "processed": "/api/tasks/bb8f973c6fbf18f5/images/445a365cdb05940f28c6517a"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7d7a7d332e39bf1c6892231a9b9ec429b5836068c9b81cac9768eaf0a1f3e471"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "text_life",
+          "label": "中部生活文案",
+          "kind": "text",
+          "bbox": [
+            120,
+            663,
+            584,
+            697
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/21a066480a86a308076c2c42",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/b87e7a3bfc807cff251f0916",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "text_surprise",
+          "label": "惊喜文案",
+          "kind": "text",
+          "bbox": [
+            695,
+            395,
+            957,
+            423
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/4a9cb20feac85900e025fc39",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/7660faeb7c68d737231451a6",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "sparkle_symbols",
+          "label": "黄色闪光符号",
+          "kind": "text",
+          "bbox": [
+            929,
+            394,
+            960,
+            423
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/d0e502f86e5102111b614c7e",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/68217c6f6ad8b586c28a5bed",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "text_travel",
+          "label": "底部旅行文案",
+          "kind": "text",
+          "bbox": [
+            518,
+            1068,
+            946,
+            1154
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/bb8f973c6fbf18f5/images/64bbb491b72b4588631191f0",
+            "final": "/api/tasks/bb8f973c6fbf18f5/images/41309585f0f96470940d69c3",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "构建首版",
+      "at": "2026-10-16T03:08:38.487756+00:00",
+      "image": "/api/tasks/bb8f973c6fbf18f5/images/d131783765d3ba5e3b9ae31c",
+      "artifacts": {
+        "final.png": "/api/tasks/bb8f973c6fbf18f5/images/d131783765d3ba5e3b9ae31c",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/bb8f973c6fbf18f5/images/a19f8800d36d388f3a5c683a",
+        "previews/comparison.png": "/api/tasks/bb8f973c6fbf18f5/images/c0d2696ffd9e412bd3748191",
+        "material:background": "/api/tasks/bb8f973c6fbf18f5/images/a2d40ee78f6bfb580ef4d920",
+        "material:photo_background": "/api/tasks/bb8f973c6fbf18f5/images/1f8726251145263c95839a9c",
+        "material:photo_top": "/api/tasks/bb8f973c6fbf18f5/images/f5bdd3417633aac7920b7aaa",
+        "material:photo_right": "/api/tasks/bb8f973c6fbf18f5/images/e3640db7d48ccec6739cfe38",
+        "material:photo_bottom": "/api/tasks/bb8f973c6fbf18f5/images/5ab8df934f0070396327f452",
+        "material:tape_note": "/api/tasks/bb8f973c6fbf18f5/images/4036042bdcddb69943f3b0c4",
+        "processed:tape_note": "/api/tasks/bb8f973c6fbf18f5/images/c8de84dca8ba3c83d7f23242",
+        "raw:tape_note": "/api/tasks/bb8f973c6fbf18f5/images/e46ccda651413b3681fc31c5",
+        "material:paperclip": "/api/tasks/bb8f973c6fbf18f5/images/40651725757fe6dbdf7c6322",
+        "processed:paperclip": "/api/tasks/bb8f973c6fbf18f5/images/d73c1aa0041fa999b87dc049",
+        "raw:paperclip": "/api/tasks/bb8f973c6fbf18f5/images/15bdbe95f0c2dbd52cf386d1",
+        "material:water_doodles": "/api/tasks/bb8f973c6fbf18f5/images/1bb4373668c8144e757814ae",
+        "processed:water_doodles": "/api/tasks/bb8f973c6fbf18f5/images/445a365cdb05940f28c6517a",
+        "raw:water_doodles": "/api/tasks/bb8f973c6fbf18f5/images/088c1f055e1d9b6b3a171ff1",
+        "material:text_life": "/api/tasks/bb8f973c6fbf18f5/images/b87e7a3bfc807cff251f0916",
+        "material:text_surprise": "/api/tasks/bb8f973c6fbf18f5/images/7660faeb7c68d737231451a6",
+        "material:sparkle_symbols": "/api/tasks/bb8f973c6fbf18f5/images/68217c6f6ad8b586c28a5bed",
+        "material:text_travel": "/api/tasks/bb8f973c6fbf18f5/images/41309585f0f96470940d69c3",
+        "sheet:0": "/api/tasks/bb8f973c6fbf18f5/images/6ffdc7d26d05ee4ac6734874",
+        "previews/review-detail-1.png": "/api/tasks/bb8f973c6fbf18f5/images/d8298a2b6e8b14ebff0f89dc",
+        "previews/review-detail-2.png": "/api/tasks/bb8f973c6fbf18f5/images/048d0abc9c919bc154c95565",
+        "previews/review-detail-3.png": "/api/tasks/bb8f973c6fbf18f5/images/db14c6365d26cbce33555fc0",
+        "previews/review-detail-4.png": "/api/tasks/bb8f973c6fbf18f5/images/78fa65854b58219f651bbd54"
+      },
+      "changes": [
+        {
+          "id": "photo_background",
+          "label": "整页背景照片",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "fields": {
+            "binding": {
+              "before": {
+                "slot_id": "photo_background",
+                "asset_id": "asset_0001e71335621e1c",
+                "reason": "超宽横向湖岸景观适合整页背景，主体分布舒展并能承托上层拼贴"
+              },
+              "after": {
+                "slot_id": "photo_background",
+                "asset_id": "asset_92fb06c23be73dc1",
+                "reason": "横向湖岸景观无明显水印，适合整页背景并能承托上层拼贴"
+              }
+            }
+          }
+        },
+        {
+          "id": "tape_note",
+          "label": "胶带手写便签",
+          "bbox": [
+            137,
+            137,
+            384,
+            195
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "b5c6801f36f98ecdd9eabe308c841ca21fe6c0399e04faa495aff56ba394e082"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "edb191c6861bdb63b5bab68c53eab7ec80d5dcc37668a190ab2385b95e4fd1a1"
+              }
+            }
+          }
+        },
+        {
+          "id": "paperclip",
+          "label": "立体回形针",
+          "bbox": [
+            704,
+            271,
+            806,
+            367
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "b5aa8b6d068ca9bd04488b54133a0ef91cd205e5dda0c8cfaf44249a7980caaf"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "40f94057e1287dad5751602b32ce339e78268c7f9707f62364614245bf7f31c9"
+              }
+            }
+          }
+        },
+        {
+          "id": "water_doodles",
+          "label": "水滴涂鸦",
+          "bbox": [
+            76,
+            778,
+            169,
+            938
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "ed4fe8ba792fb4e70584b1a704bdea7a8e684ff3905ded5a4fa238438c316557"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "7d7a7d332e39bf1c6892231a9b9ec429b5836068c9b81cac9768eaf0a1f3e471"
+              }
+            }
+          }
+        },
+        {
+          "id": "text_surprise",
+          "label": "惊喜文案",
+          "bbox": [
+            695,
+            395,
+            957,
+            423
+          ],
+          "fields": {
+            "text": {
+              "before": "An unexpected surprise. ✨",
+              "after": "An unexpected surprise."
+            }
+          }
+        },
+        {
+          "id": "sparkle_symbols",
+          "label": "黄色闪光符号",
+          "bbox": [
+            929,
+            394,
+            960,
+            423
+          ],
+          "fields": {
+            "kind": {
+              "before": null,
+              "after": "text"
+            },
+            "bbox": {
+              "before": null,
+              "after": [
+                929,
+                394,
+                960,
+                423
+              ]
+            },
+            "style": {
+              "before": null,
+              "after": {
+                "font": "sans",
+                "bold": true,
+                "fill": "#FFD84A",
+                "font_size": 18,
+                "align": "left"
+              }
+            },
+            "text": {
+              "before": null,
+              "after": "**"
+            }
+          }
+        },
+        {
+          "id": "layer_order",
+          "label": "图层前后顺序",
+          "fields": {
+            "layer_order": {
+              "before": [
+                "background",
+                "photo_background",
+                "photo_top",
+                "photo_right",
+                "photo_bottom",
+                "tape_note",
+                "paperclip",
+                "water_doodles",
+                "text_life",
+                "text_surprise",
+                "text_travel"
+              ],
+              "after": [
+                "background",
+                "photo_background",
+                "photo_top",
+                "photo_right",
+                "photo_bottom",
+                "tape_note",
+                "paperclip",
+                "water_doodles",
+                "text_life",
+                "text_surprise",
+                "sparkle_symbols",
+                "text_travel"
+              ]
+            }
+          }
+        }
+      ],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "5cf57341b76bc2bf",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已实际查看完整对照图、提取检查表和4个指定局部；4个客户照片窗口填充完整，复杂装饰无旧照片残留，层级与遮挡关系正确。已将带大幅水印的背景素材替换为无水印Live素材，并把不兼容的闪光emoji改为黄色双星号近似；当前无需要apply的排版问题。",
+        "items": [],
+        "scene_sha256": "773374b6de9d790582c4246a33457ac05f441a4de32cd6b957cedcb15583ef7c",
+        "final_sha256": "37bef69d0534e80e98b2983c4ccc605703cec4704330b91636991497cc3ac23a"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "底色",
+          "description": "画布兜底的浅天蓝色；正常情况下被整页背景照片覆盖",
+          "style": {
+            "fill": "#8ECBE8"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_background",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "整页背景照片",
+          "description": "铺满画布的海岸风景底图，以客户横向风景Live首帧替换；其上承托其他拼贴窗口",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_background",
+            "asset_id": "asset_92fb06c23be73dc1",
+            "reason": "横向湖岸景观无明显水印，适合整页背景并能承托上层拼贴"
+          }
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            194,
+            154,
+            579,
+            528
+          ],
+          "label": "上方方形风景窗",
+          "description": "左上偏中的近方形风景照片窗口，无独立外框",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_fce89c38adda66d5",
+            "reason": "湖泊与建筑风景构图集中，适合近方形上方窗口"
+          }
+        },
+        {
+          "id": "photo_right",
+          "kind": "photo",
+          "bbox": [
+            518,
+            330,
+            959,
+            918
+          ],
+          "label": "右侧竖幅人物窗",
+          "description": "右上偏中的竖幅照片窗口，以客户竖幅人物Live首帧替换，无独立外框",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_right",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅近景人物构图与右侧人物窗口比例匹配"
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            88,
+            873,
+            595,
+            1218
+          ],
+          "label": "下方横幅风景窗",
+          "description": "左下偏中的横向风景照片窗口，无独立外框",
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横向航拍湖景适合下方宽幅窗口，并与人物槽保持素材不重复"
+          }
+        },
+        {
+          "id": "tape_note",
+          "kind": "overlay",
+          "bbox": [
+            137,
+            137,
+            384,
+            195
+          ],
+          "label": "胶带手写便签",
+          "description": "两条米白撕边胶带及其深灰手写艺术字 You're a Sunday morning / Kind of beauty，作为不可分固定设计单元保留",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "edb191c6861bdb63b5bab68c53eab7ec80d5dcc37668a190ab2385b95e4fd1a1"
+          },
+          "recovered": {
+            "sha256": "d370fa5fcb8a1dd5ffae1730d1b18cafe63df1037012c4a5d5a5e85836b4f94a",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "paperclip",
+          "kind": "overlay",
+          "bbox": [
+            704,
+            271,
+            806,
+            367
+          ],
+          "label": "立体回形针",
+          "description": "银色高光、带阴影的弯曲金属回形针装饰",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "40f94057e1287dad5751602b32ce339e78268c7f9707f62364614245bf7f31c9"
+          },
+          "recovered": {
+            "sha256": "9562991a17c0291bd8997141e47903b452d50a1a8d1c8d38371b8638829c3e62",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "water_doodles",
+          "kind": "overlay",
+          "bbox": [
+            76,
+            778,
+            169,
+            938
+          ],
+          "label": "水滴涂鸦",
+          "description": "三枚米白色手绘水滴/弯曲线条组成的一组涂鸦，保留不规则笔触",
+          "method": "extract",
+          "style": {
+            "extract_mode": "foreground"
+          },
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7d7a7d332e39bf1c6892231a9b9ec429b5836068c9b81cac9768eaf0a1f3e471"
+          },
+          "recovered": {
+            "sha256": "baa0d88db4395fe4ee5359868d049356604bf75539b2dc28e7408e99241ea8e3",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "text_life",
+          "kind": "text",
+          "bbox": [
+            120,
+            663,
+            584,
+            697
+          ],
+          "label": "中部生活文案",
+          "description": "白色粗体圆润无衬线单行文案，位于画面中部偏左",
+          "text": "Life isn't perfect but your outfit can be.",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFFFFF",
+            "font_size": 20,
+            "align": "left"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "text_surprise",
+          "kind": "text",
+          "bbox": [
+            695,
+            395,
+            957,
+            423
+          ],
+          "label": "惊喜文案",
+          "description": "右侧照片上方的白色粗体单行文案，末尾有黄色闪光符号",
+          "text": "An unexpected surprise.",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFFFFF",
+            "font_size": 18,
+            "align": "left"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "sparkle_symbols",
+          "kind": "text",
+          "bbox": [
+            929,
+            394,
+            960,
+            423
+          ],
+          "label": "黄色闪光符号",
+          "description": "惊喜文案末尾的两枚小型黄色闪光，以兼容字体的星号近似，避免缺字符方框",
+          "text": "**",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "fill": "#FFD84A",
+            "font_size": 18,
+            "align": "left"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "text_travel",
+          "kind": "text",
+          "bbox": [
+            518,
+            1068,
+            946,
+            1154
+          ],
+          "label": "底部旅行文案",
+          "description": "白色粗体斜体三行文案，横跨下方照片右侧与背景",
+          "text": "Travel is the spice of life,   but remember,\noccasionally life itself needs to be\nthe spice sprinkled on our journey.",
+          "text_status": "known",
+          "style": {
+            "font": "sans",
+            "bold": true,
+            "italic": true,
+            "fill": "#FFFFFF",
+            "font_size": 20,
+            "align": "left",
+            "line_spacing": 1.15
+          },
+          "text_unresolved": false
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "tape_note",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "paperclip",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "water_doodles",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "底色",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/b1599b9416f9cc136b0806c4",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/a778a660dca7a3b9fcb41282"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_background",
+      "label": "整页背景照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/b1599b9416f9cc136b0806c4",
+        "customer": "/api/tasks/bb8f973c6fbf18f5/images/590b45cbc45cb273b792e6f2",
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/781be418970b3f34ae51670e"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_top",
+      "label": "上方方形风景窗",
+      "kind": "photo",
+      "bbox": [
+        194,
+        154,
+        579,
+        528
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/7a5e0cb2ef87022d53c7dbb9",
+        "customer": "/api/tasks/bb8f973c6fbf18f5/images/9a111f5f24ba342709d34a67",
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/56a1fc0a214f26320368548f"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_right",
+      "label": "右侧竖幅人物窗",
+      "kind": "photo",
+      "bbox": [
+        518,
+        330,
+        959,
+        918
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/11aa559d0810b515929b9ff7",
+        "customer": "/api/tasks/bb8f973c6fbf18f5/images/df320242d7b1c505c591a061",
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/77f22697eb29bd62681db4b1"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "下方横幅风景窗",
+      "kind": "photo",
+      "bbox": [
+        88,
+        873,
+        595,
+        1218
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/355136b457b7f7e4ae901009",
+        "customer": "/api/tasks/bb8f973c6fbf18f5/images/4139e07b7e811d727a49792d",
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/937b8ab922e8983e4be41b3c"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "tape_note",
+      "label": "胶带手写便签",
+      "kind": "overlay",
+      "bbox": [
+        137,
+        137,
+        384,
+        195
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/1e4472f47f2f36efe74640ec",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/8d0a4dbc572df459d49e2ed1",
+        "raw": "/api/tasks/bb8f973c6fbf18f5/images/9962c1d89e1683e80587409e",
+        "processed": "/api/tasks/bb8f973c6fbf18f5/images/4c9c18edd2f8b7da9e01a054"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "edb191c6861bdb63b5bab68c53eab7ec80d5dcc37668a190ab2385b95e4fd1a1"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "paperclip",
+      "label": "立体回形针",
+      "kind": "overlay",
+      "bbox": [
+        704,
+        271,
+        806,
+        367
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/e6993db343e7ccce74d99135",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/0aff9c49e86a3ef3a588b247",
+        "raw": "/api/tasks/bb8f973c6fbf18f5/images/dbcbb3331baa2d2ed9dc5814",
+        "processed": "/api/tasks/bb8f973c6fbf18f5/images/ccdeee4a472e2a386a1ef3d8"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "40f94057e1287dad5751602b32ce339e78268c7f9707f62364614245bf7f31c9"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "water_doodles",
+      "label": "水滴涂鸦",
+      "kind": "overlay",
+      "bbox": [
+        76,
+        778,
+        169,
+        938
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/1b3d2c5536a8b7cc11033c60",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/0852fa46b84a7a8db927d277",
+        "raw": "/api/tasks/bb8f973c6fbf18f5/images/2844191a18489f53d851d829",
+        "processed": "/api/tasks/bb8f973c6fbf18f5/images/7e8e3ff5c9738bb70bcf2d48"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7d7a7d332e39bf1c6892231a9b9ec429b5836068c9b81cac9768eaf0a1f3e471"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "text_life",
+      "label": "中部生活文案",
+      "kind": "text",
+      "bbox": [
+        120,
+        663,
+        584,
+        697
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/21a066480a86a308076c2c42",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/fa425567033c8f50bffd7e37"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "text_surprise",
+      "label": "惊喜文案",
+      "kind": "text",
+      "bbox": [
+        695,
+        395,
+        957,
+        423
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/4a9cb20feac85900e025fc39",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/56b55b47c4f5d6ddab7a9d03"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "sparkle_symbols",
+      "label": "黄色闪光符号",
+      "kind": "text",
+      "bbox": [
+        929,
+        394,
+        960,
+        423
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/d0e502f86e5102111b614c7e",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/edc59a4b4198978075ffc5ab"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "text_travel",
+      "label": "底部旅行文案",
+      "kind": "text",
+      "bbox": [
+        518,
+        1068,
+        946,
+        1154
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/bb8f973c6fbf18f5/images/64bbb491b72b4588631191f0",
+        "customer": null,
+        "final": "/api/tasks/bb8f973c6fbf18f5/images/92b850286b59ca52c14effcb"
+      },
+      "decision": {},
+      "note": ""
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "paperclip",
+        "tape_note",
+        "water_doodles"
+      ],
+      "at": "2026-10-16T03:08:35.071727+00:00",
+      "error": "",
+      "available_ids": [
+        "paperclip",
+        "tape_note",
+        "water_doodles"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 0.251,
+      "cache_hit": true
+    }
+  ],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "tape_note",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "paperclip",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "water_doodles",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "5cf57341b76bc2bf",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已实际查看完整对照图、提取检查表和4个指定局部；4个客户照片窗口填充完整，复杂装饰无旧照片残留，层级与遮挡关系正确。已将带大幅水印的背景素材替换为无水印Live素材，并把不兼容的闪光emoji改为黄色双星号近似；当前无需要apply的排版问题。",
+    "items": [],
+    "scene_sha256": "773374b6de9d790582c4246a33457ac05f441a4de32cd6b957cedcb15583ef7c",
+    "final_sha256": "37bef69d0534e80e98b2983c4ccc605703cec4704330b91636991497cc3ac23a"
+  },
+  "recording_incomplete": false
+}

@@ -12,8 +12,8 @@ from .store import Store
 WEB = Path(__file__).resolve().parents[1]/'web'
 
 
-def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=False, enable_motion=False, media_root=None, cutout_model=None, enable_create=False, creator=None):
-    store = Store(roots)
+def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=False, enable_motion=False, media_root=None, cutout_model=None, enable_create=False, creator=None, task_catalog=None):
+    store = Store(roots, task_catalog=task_catalog)
     from .chat import ChatQueue, Conflict
     queue=ChatQueue(store,chat_path,agent=agent) if chat_path else None
     from .editor import Editor,EditorError

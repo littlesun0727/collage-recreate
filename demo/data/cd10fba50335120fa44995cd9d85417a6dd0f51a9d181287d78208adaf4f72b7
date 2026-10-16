@@ -1,0 +1,2903 @@
+{
+  "id": "6848208576fd0003",
+  "name": "Live-481808ad68ce",
+  "created_at": "2026-10-16T02:43:45.024536+00:00",
+  "reference_size": [
+    1080,
+    1440
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T04:11:42.182Z",
+    "finished_at": "2026-10-16T04:18:21.697000+00:00",
+    "elapsed_seconds": 399.481,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "label": "底色",
+      "description": "客户背景照片下方的深蓝兜底色",
+      "style": {
+        "fill": "#27689B"
+      }
+    },
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "label": "满版天空湖景",
+      "description": "用客户Live素材替换参考中的满版蓝天云景，作为整页摄影背景",
+      "mode": "cover"
+    },
+    {
+      "id": "cloud_left",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        575,
+        395,
+        1195
+      ],
+      "label": "左侧云层",
+      "description": "左下方大面积柔软白云与雾气，位于照片和粉笔轨道后方",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_right",
+      "kind": "overlay",
+      "bbox": [
+        681,
+        492,
+        1080,
+        1190
+      ],
+      "label": "右侧云层",
+      "description": "右侧高耸白云和下方雾气，位于照片和文字后方",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_center",
+      "kind": "overlay",
+      "bbox": [
+        351,
+        481,
+        724,
+        872
+      ],
+      "label": "中部云雾",
+      "description": "三张照片之间与两侧穿出的轻薄云雾，不包含照片内容",
+      "method": "extract"
+    },
+    {
+      "id": "chalk_orbits",
+      "kind": "overlay",
+      "bbox": [
+        204,
+        393,
+        884,
+        1058
+      ],
+      "label": "粉笔轨道涂鸦",
+      "description": "三条白色手绘弧形轨道及沿线星芒，保留不规则粉笔笔触和透明空隙",
+      "method": "extract"
+    },
+    {
+      "id": "fork_doodle",
+      "kind": "overlay",
+      "bbox": [
+        102,
+        143,
+        234,
+        417
+      ],
+      "label": "叉子涂鸦",
+      "description": "左上白色手绘叉子轮廓及底部@Fork小字，作为完整涂鸦单元",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        392,
+        215,
+        679,
+        502
+      ],
+      "label": "顶部照片",
+      "description": "顶部方形客户旅行画面，完整矩形窗口",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        392,
+        543,
+        679,
+        831
+      ],
+      "label": "中部照片",
+      "description": "中部方形客户人物画面，完整矩形窗口",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        395,
+        865,
+        678,
+        1148
+      ],
+      "label": "底部照片",
+      "description": "底部方形客户旅行画面，完整矩形窗口",
+      "mode": "cover"
+    },
+    {
+      "id": "summer_photo",
+      "kind": "overlay",
+      "bbox": [
+        480,
+        337,
+        614,
+        376
+      ],
+      "label": "顶部照片Summer字样",
+      "description": "顶部照片中央白色细长手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_pink",
+      "kind": "overlay",
+      "bbox": [
+        219,
+        414,
+        341,
+        456
+      ],
+      "label": "粉色Summer字样",
+      "description": "左上粉紫渐变手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_upper_right",
+      "kind": "overlay",
+      "bbox": [
+        687,
+        405,
+        818,
+        449
+      ],
+      "label": "右上Summer字样",
+      "description": "右上白色细长手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_left",
+      "kind": "overlay",
+      "bbox": [
+        84,
+        527,
+        208,
+        572
+      ],
+      "label": "左侧Summer字样",
+      "description": "左侧白色细长手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_yellow",
+      "kind": "overlay",
+      "bbox": [
+        831,
+        509,
+        966,
+        553
+      ],
+      "label": "黄色Summer字样",
+      "description": "右上黄绿色手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_edge_left",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        686,
+        68,
+        733
+      ],
+      "label": "左缘Summer字样",
+      "description": "从画布左边缘裁出的白色手写summer艺术字，仅保留可见部分",
+      "method": "extract"
+    },
+    {
+      "id": "summer_edge_right",
+      "kind": "overlay",
+      "bbox": [
+        937,
+        700,
+        1080,
+        748
+      ],
+      "label": "右缘Summer字样",
+      "description": "靠画布右边缘的白色手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_cyan",
+      "kind": "overlay",
+      "bbox": [
+        70,
+        837,
+        199,
+        884
+      ],
+      "label": "青色Summer字样",
+      "description": "左下青蓝色手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_right",
+      "kind": "overlay",
+      "bbox": [
+        865,
+        838,
+        994,
+        886
+      ],
+      "label": "右下Summer字样",
+      "description": "右侧白色手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_lower_left",
+      "kind": "overlay",
+      "bbox": [
+        154,
+        945,
+        282,
+        994
+      ],
+      "label": "左下白色Summer字样",
+      "description": "左下云层前的白色手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_green",
+      "kind": "overlay",
+      "bbox": [
+        764,
+        918,
+        903,
+        971
+      ],
+      "label": "绿色Summer字样",
+      "description": "右下绿色渐变手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_center_right",
+      "kind": "overlay",
+      "bbox": [
+        612,
+        984,
+        740,
+        1037
+      ],
+      "label": "中下Summer字样",
+      "description": "底部照片右上方白色手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "summer_center_bottom",
+      "kind": "overlay",
+      "bbox": [
+        478,
+        1029,
+        611,
+        1084
+      ],
+      "label": "底部照片Summer字样",
+      "description": "底部照片上叠加的白色手写summer艺术字",
+      "method": "extract"
+    },
+    {
+      "id": "flower_top",
+      "kind": "overlay",
+      "bbox": [
+        636,
+        181,
+        729,
+        270
+      ],
+      "label": "顶部花朵",
+      "description": "顶部照片右上叠贴的粉白半透明五瓣花",
+      "method": "extract"
+    },
+    {
+      "id": "flower_bottom",
+      "kind": "overlay",
+      "bbox": [
+        348,
+        1057,
+        441,
+        1178
+      ],
+      "label": "底部花朵",
+      "description": "底部照片左下叠贴的蓝白半透明五瓣花",
+      "method": "extract"
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:43:45.031753+00:00",
+      "started_at": "2026-10-16T02:43:43.472474+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成原尺寸参考图和18段Live联系表分析；四个照片槽均绑定真实素材，叠框定位与装饰层级已复核",
+      "at": "2026-10-16T04:14:09.338281+00:00",
+      "started_at": "2026-10-16T04:13:54.925954+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T04:16:20.643441+00:00",
+      "started_at": "2026-10-16T04:14:13.579858+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已查看完整对照图和4张提取检查表；20个提取件透明且完整，未见旧照片残留或重复污染，无需筛选调整",
+      "at": "2026-10-16T04:16:57.266154+00:00",
+      "started_at": "2026-10-16T04:16:28.932831+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T04:17:45.968684+00:00",
+      "started_at": "2026-10-16T04:17:45.336602+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "首版已完成并真实复核通过；未执行筛选或排版调整，交付当前静态成图、对照图与复核记录",
+      "at": "2026-10-16T04:17:55.797847+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T04:17:45.969477+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:43:43.472474+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:43:45.031753+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T04:12:20.802931+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看参考图与18段Live素材联系表，分析布局、装饰层级和照片对应关系"
+    },
+    {
+      "at": "2026-10-16T04:13:54.925954+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:13:55.544984+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T04:14:09.338281+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成原尺寸参考图和18段Live联系表分析；四个照片槽均绑定真实素材，叠框定位与装饰层级已复核"
+    },
+    {
+      "at": "2026-10-16T04:14:13.579858+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:16:20.643441+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T04:16:28.932831+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在检查首版完整对照图和4张提取素材检查表，重点核对旧照片残留、云层污染和艺术字完整性"
+    },
+    {
+      "at": "2026-10-16T04:16:57.266154+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已查看完整对照图和4张提取检查表；20个提取件透明且完整，未见旧照片残留或重复污染，无需筛选调整"
+    },
+    {
+      "at": "2026-10-16T04:17:05.231932+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核当前整图及4处指定局部，检查照片裁切、轨道穿插、花朵压边和人物遮挡"
+    },
+    {
+      "at": "2026-10-16T04:17:45.336602+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T04:17:45.968684+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T04:17:55.797847+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "首版已完成并真实复核通过；未执行筛选或排版调整，交付当前静态成图、对照图与复核记录"
+    }
+  ],
+  "reference": "/api/tasks/6848208576fd0003/images/49210bf9a087f399b6f36074",
+  "boxes": "/api/tasks/6848208576fd0003/images/de98c075b6526e2aa329ca50",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/6848208576fd0003/images/7546ebf390d1c7ef30c45e3e"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/6848208576fd0003/images/d450e3b83289f3ad1aa94efa"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/6848208576fd0003/images/2d17709d92ecc1e35a4c8852"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/6848208576fd0003/images/f12ff1877f37a8587cf1fe7a"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/6848208576fd0003/images/6d8701a3a545b8c265a4a340"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/6848208576fd0003/images/7491555348e8a84cf70ac4e2"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/6848208576fd0003/images/2e326c604f14b57487603555"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/6848208576fd0003/images/b6d2e8dc8b7f17423552539c"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/6848208576fd0003/images/9f0b2f3d3e3d56e3615f5df0"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/6848208576fd0003/images/55782164dc8a950f4f140753"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/6848208576fd0003/images/54a2b8994e28119db2cbdbfc"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/6848208576fd0003/images/316245e3c4129100f3e8ab55"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/6848208576fd0003/images/4750715aa13cb82f0d4bfb54"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/6848208576fd0003/images/6b870d4399a11f4cb3307785"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/6848208576fd0003/images/6f7092560d9a8c03672c2a3d"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/6848208576fd0003/images/4cae163eadd14efbbc7cd8de"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/6848208576fd0003/images/46180edd046eecff6b67ea11"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/6848208576fd0003/images/feff6d70f4f4e7db4cb2f420"
+    }
+  ],
+  "current_image": "/api/tasks/6848208576fd0003/images/4ed64b78e6713a37c0a6e108",
+  "first_image": "/api/tasks/6848208576fd0003/images/67bbcfc23ba9b7c99217aa05",
+  "versions": [
+    {
+      "id": "0001-38ee4e8d",
+      "parent_id": null,
+      "render_id": "b250885f20f133ee",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/bb7970a0634b734e0d5c926e",
+            "final": "/api/tasks/6848208576fd0003/images/a3b5133631c10b6e6f9ec853",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_background",
+          "label": "满版天空湖景",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/bb7970a0634b734e0d5c926e",
+            "final": "/api/tasks/6848208576fd0003/images/48fdf8b6f61ee434ee75a5d4",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "cloud_left",
+          "label": "左侧云层",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            575,
+            395,
+            1195
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/361f26c14e3fb440d2679938",
+            "final": "/api/tasks/6848208576fd0003/images/31fa0c12ae11ac3eaf7edd59",
+            "raw": "/api/tasks/6848208576fd0003/images/fffc9e96baca1835a14dfcd4",
+            "processed": "/api/tasks/6848208576fd0003/images/b5f6e35d6d9ae27a80332292"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "2c35a0eaea3c3d6ab0695ec007a24a11b90fbcc4e1b3aa5d3619cbbff95a85de"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_right",
+          "label": "右侧云层",
+          "kind": "overlay",
+          "bbox": [
+            681,
+            492,
+            1080,
+            1190
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/b396a80d1a6fe5aded63266f",
+            "final": "/api/tasks/6848208576fd0003/images/97bfb68b31b14a8b73243706",
+            "raw": "/api/tasks/6848208576fd0003/images/94e20bad54be3b1ef48fda87",
+            "processed": "/api/tasks/6848208576fd0003/images/a44dff2ac040fa48bce57356"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "114689235322ce6102b529eeb85d993b6317c9d557ce5ea2949548563eab8b0e"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_center",
+          "label": "中部云雾",
+          "kind": "overlay",
+          "bbox": [
+            351,
+            481,
+            724,
+            872
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/b93783c4c60d5f2bb3bfeba5",
+            "final": "/api/tasks/6848208576fd0003/images/fb5b17a7b81b7b764b07eab5",
+            "raw": "/api/tasks/6848208576fd0003/images/eff60c10c240a24b79675f64",
+            "processed": "/api/tasks/6848208576fd0003/images/cc3a616e6793abb321c1f3a2"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "47c0a900d1dd9a9c59b575caf4cf7c847df3b5042798d0a42781617ec43f7b57"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "chalk_orbits",
+          "label": "粉笔轨道涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            204,
+            393,
+            884,
+            1058
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/208bea3af37050352abca52b",
+            "final": "/api/tasks/6848208576fd0003/images/3add3649e1a70123b3204b48",
+            "raw": "/api/tasks/6848208576fd0003/images/e9e997abf579bf7cc22779d5",
+            "processed": "/api/tasks/6848208576fd0003/images/065aed64bb34f2dc166c512b"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "0dfdcb29ba33fe806fb1f6666ea01ab4475525c58b687201aa902a964f3ccea6"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "fork_doodle",
+          "label": "叉子涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            102,
+            143,
+            234,
+            417
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/4658c909ccf07b3e42f1eead",
+            "final": "/api/tasks/6848208576fd0003/images/830ea30d7c01bd4a5e46b769",
+            "raw": "/api/tasks/6848208576fd0003/images/a1eebd8c75d0effe2beb07bb",
+            "processed": "/api/tasks/6848208576fd0003/images/cb8b461e437a7788266fb5c4"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7992bfd737407782ace16f3f0089628b025f8db8d438e98b798773130b2a3d15"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部照片",
+          "kind": "photo",
+          "bbox": [
+            392,
+            215,
+            679,
+            502
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/8d7a526973fab8f2f5bf2e6d",
+            "final": "/api/tasks/6848208576fd0003/images/12330db2f97cb65e6f91124e",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部照片",
+          "kind": "photo",
+          "bbox": [
+            392,
+            543,
+            679,
+            831
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/492276d1e33da4297a77c683",
+            "final": "/api/tasks/6848208576fd0003/images/dbc841c4b861c16c054b1795",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部照片",
+          "kind": "photo",
+          "bbox": [
+            395,
+            865,
+            678,
+            1148
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/1164c423ef1447310d3e7876",
+            "final": "/api/tasks/6848208576fd0003/images/9e17844818ae17b8765a8310",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "summer_photo",
+          "label": "顶部照片Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            480,
+            337,
+            614,
+            376
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/9b334d20b27a0f101c774b01",
+            "final": "/api/tasks/6848208576fd0003/images/f3f18d039647a3db6484943f",
+            "raw": "/api/tasks/6848208576fd0003/images/f0bd04c2a480cb1bcc84f470",
+            "processed": "/api/tasks/6848208576fd0003/images/bb75c806dd2197e685363eae"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9bad79e0efe4f07961b2d2b90bcc32780769df6c87a2c1aa34a2fcee2b693509"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_pink",
+          "label": "粉色Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            219,
+            414,
+            341,
+            456
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/71893ceb0bf1335f9416fdbd",
+            "final": "/api/tasks/6848208576fd0003/images/3e551c80f0912ba78438390b",
+            "raw": "/api/tasks/6848208576fd0003/images/67e172c8732883a4b8e6dadb",
+            "processed": "/api/tasks/6848208576fd0003/images/fe33e3f7c300fb9e75451894"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1505566c8ad3b0c885dcd8ab83b877665b999fd18c701ad7863942a6274fc326"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_upper_right",
+          "label": "右上Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            687,
+            405,
+            818,
+            449
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/1c2f996328dedaf2ee1fe668",
+            "final": "/api/tasks/6848208576fd0003/images/4b109460fb43a9030bf08fdb",
+            "raw": "/api/tasks/6848208576fd0003/images/ff17f19f299c955824f7146f",
+            "processed": "/api/tasks/6848208576fd0003/images/3355e896d448b88e366b5364"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "f43f04bacf8075473fe01f6b7d37aa4855a3a8bd9f3b2093fb388163d25f07ef"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_left",
+          "label": "左侧Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            84,
+            527,
+            208,
+            572
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/4a058a690521167700812f42",
+            "final": "/api/tasks/6848208576fd0003/images/119082ab3d87357bff41f271",
+            "raw": "/api/tasks/6848208576fd0003/images/49b6570b1d359c67d6f69ea0",
+            "processed": "/api/tasks/6848208576fd0003/images/7ffcb62bad1986f375042b36"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7dfcf7157afbde97dc9dbaa4cfe93ee9f8272143874ebcd53f5d4d530ee2fae7"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_yellow",
+          "label": "黄色Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            831,
+            509,
+            966,
+            553
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/923ae7f5565edac173d23d2c",
+            "final": "/api/tasks/6848208576fd0003/images/10b459c2e603ca24818efe57",
+            "raw": "/api/tasks/6848208576fd0003/images/e4b9b49e26b6813587f82f2f",
+            "processed": "/api/tasks/6848208576fd0003/images/62819c9baadab079676aba0e"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b81d4c7beb94c3b51dbeceb0b8e391ffbd8753e66fdda665482edc6954836362"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_edge_left",
+          "label": "左缘Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            686,
+            68,
+            733
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/7711f993b95777147f4ebb8e",
+            "final": "/api/tasks/6848208576fd0003/images/68071764dab8232d93806f8d",
+            "raw": "/api/tasks/6848208576fd0003/images/41e02e82dca56444ed539054",
+            "processed": "/api/tasks/6848208576fd0003/images/2fe9a2a6dabdc22a7ab16412"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "cf7494f054f464b8d9990b1c0d5a5a09f0207f3a034b50232f50d9169074a78f"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_edge_right",
+          "label": "右缘Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            937,
+            700,
+            1080,
+            748
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/b3578bd3bd26e6bd85797fff",
+            "final": "/api/tasks/6848208576fd0003/images/653f72b1aad43e497efb3f10",
+            "raw": "/api/tasks/6848208576fd0003/images/2cd55891e1da56726f9bd4d2",
+            "processed": "/api/tasks/6848208576fd0003/images/a7ef7413fb502ef56d6bd268"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6fdca71be2f7782ae73e4d5c96a22f915299bb8471eb19492e879c1469d74ddb"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_cyan",
+          "label": "青色Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            70,
+            837,
+            199,
+            884
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/8cb0d8284d03b3904a1e7ab0",
+            "final": "/api/tasks/6848208576fd0003/images/65e5f4e58c409731da4ef6fa",
+            "raw": "/api/tasks/6848208576fd0003/images/3e841a641bf994f8a2ccc12e",
+            "processed": "/api/tasks/6848208576fd0003/images/ae86a379c66172174000de0c"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "16c91b459cdaee99f0b24719602e9d0d42ec9aa2a4fd4a79ab7e209ab9ca2e77"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_right",
+          "label": "右下Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            865,
+            838,
+            994,
+            886
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/2da3e24bafce9d1b75365034",
+            "final": "/api/tasks/6848208576fd0003/images/40e41f008b2d3fef0d984488",
+            "raw": "/api/tasks/6848208576fd0003/images/6e4d13afc86e385969805413",
+            "processed": "/api/tasks/6848208576fd0003/images/628aa2826ebcd8b1df99eac8"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "dfdc6b8291659d1ce0a5097682db82c989c8ea53b5733e742ba193a2eb7c11ac"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_lower_left",
+          "label": "左下白色Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            154,
+            945,
+            282,
+            994
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/80cb36f97b528be4a6844d63",
+            "final": "/api/tasks/6848208576fd0003/images/e86ac5787c23df1e2d0f7702",
+            "raw": "/api/tasks/6848208576fd0003/images/cd4a672a1a6187456d419ca2",
+            "processed": "/api/tasks/6848208576fd0003/images/3fac46d21c8265582c00ffe1"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7d500b0921a69be7f349290a08a7ec88e4bb613eb448196b2718a0090a632150"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_green",
+          "label": "绿色Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            764,
+            918,
+            903,
+            971
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/73761b9592343f6e93ad3141",
+            "final": "/api/tasks/6848208576fd0003/images/5bee9c498f760cc94d4a8694",
+            "raw": "/api/tasks/6848208576fd0003/images/430aa08fc67274eb8c4db1a9",
+            "processed": "/api/tasks/6848208576fd0003/images/cbffa3b8feb8340094cf62ed"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "15cdfa66fa02280a43f55f251ddca484f323207d61ce507b1ff5bb868d29be6c"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_center_right",
+          "label": "中下Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            612,
+            984,
+            740,
+            1037
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/1b8f376280e7885387900a86",
+            "final": "/api/tasks/6848208576fd0003/images/36f3ca43c547a681bdb0c139",
+            "raw": "/api/tasks/6848208576fd0003/images/0052ae5e4385956b3c618a9b",
+            "processed": "/api/tasks/6848208576fd0003/images/f6edefdbc0b27d8fb92910da"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b3c92d5314ea0d1e7254ee307fe7cd820de2f9247ab83d7ad3c30e0f3e4bb2c2"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_center_bottom",
+          "label": "底部照片Summer字样",
+          "kind": "overlay",
+          "bbox": [
+            478,
+            1029,
+            611,
+            1084
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/179c1f38427702cff942e106",
+            "final": "/api/tasks/6848208576fd0003/images/1ca113a25f956a35d75c447e",
+            "raw": "/api/tasks/6848208576fd0003/images/0f806d66bb127b768517a7b2",
+            "processed": "/api/tasks/6848208576fd0003/images/75ed113388a8c7c841b75154"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "3444c366eb789cf7de1aa8545427bb429d590b3bf92b0495afeebd5ad3a31053"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "flower_top",
+          "label": "顶部花朵",
+          "kind": "overlay",
+          "bbox": [
+            636,
+            181,
+            729,
+            270
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/baa214f054ddb89d87e400d7",
+            "final": "/api/tasks/6848208576fd0003/images/5f48fe7391484dfbee2b4755",
+            "raw": "/api/tasks/6848208576fd0003/images/9b8677c0dc279a7f7a6b9e28",
+            "processed": "/api/tasks/6848208576fd0003/images/26604d97c7ea1964a146a27f"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "648eb0990484be814b3568fdc59d73bf8ce36ea65c0e1da5b2c3b98b781d0ab5"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "flower_bottom",
+          "label": "底部花朵",
+          "kind": "overlay",
+          "bbox": [
+            348,
+            1057,
+            441,
+            1178
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/6848208576fd0003/images/26e060b5f5c58c9566014c91",
+            "final": "/api/tasks/6848208576fd0003/images/e733517f3ec808bef46b0fc2",
+            "raw": "/api/tasks/6848208576fd0003/images/5e8003b4a7c4130f93b01124",
+            "processed": "/api/tasks/6848208576fd0003/images/30f8d8e391f040efd6c2ef6c"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "04953573e0833730f6c5d432ab41e3bfe8433e0290a33737e2bd786ed2fab651"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T04:16:20.633182+00:00",
+      "image": "/api/tasks/6848208576fd0003/images/4ed64b78e6713a37c0a6e108",
+      "artifacts": {
+        "final.png": "/api/tasks/6848208576fd0003/images/4ed64b78e6713a37c0a6e108",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/6848208576fd0003/images/90183fb04515185c41b369e4",
+        "previews/comparison.png": "/api/tasks/6848208576fd0003/images/5a038252d59872dcfd6fc57d",
+        "material:background": "/api/tasks/6848208576fd0003/images/a3b5133631c10b6e6f9ec853",
+        "material:photo_background": "/api/tasks/6848208576fd0003/images/48fdf8b6f61ee434ee75a5d4",
+        "material:cloud_left": "/api/tasks/6848208576fd0003/images/31fa0c12ae11ac3eaf7edd59",
+        "processed:cloud_left": "/api/tasks/6848208576fd0003/images/b5f6e35d6d9ae27a80332292",
+        "raw:cloud_left": "/api/tasks/6848208576fd0003/images/fffc9e96baca1835a14dfcd4",
+        "material:cloud_right": "/api/tasks/6848208576fd0003/images/97bfb68b31b14a8b73243706",
+        "processed:cloud_right": "/api/tasks/6848208576fd0003/images/a44dff2ac040fa48bce57356",
+        "raw:cloud_right": "/api/tasks/6848208576fd0003/images/94e20bad54be3b1ef48fda87",
+        "material:cloud_center": "/api/tasks/6848208576fd0003/images/fb5b17a7b81b7b764b07eab5",
+        "processed:cloud_center": "/api/tasks/6848208576fd0003/images/cc3a616e6793abb321c1f3a2",
+        "raw:cloud_center": "/api/tasks/6848208576fd0003/images/eff60c10c240a24b79675f64",
+        "material:chalk_orbits": "/api/tasks/6848208576fd0003/images/3add3649e1a70123b3204b48",
+        "processed:chalk_orbits": "/api/tasks/6848208576fd0003/images/065aed64bb34f2dc166c512b",
+        "raw:chalk_orbits": "/api/tasks/6848208576fd0003/images/e9e997abf579bf7cc22779d5",
+        "material:fork_doodle": "/api/tasks/6848208576fd0003/images/830ea30d7c01bd4a5e46b769",
+        "processed:fork_doodle": "/api/tasks/6848208576fd0003/images/cb8b461e437a7788266fb5c4",
+        "raw:fork_doodle": "/api/tasks/6848208576fd0003/images/a1eebd8c75d0effe2beb07bb",
+        "material:photo_top": "/api/tasks/6848208576fd0003/images/12330db2f97cb65e6f91124e",
+        "material:photo_middle": "/api/tasks/6848208576fd0003/images/dbc841c4b861c16c054b1795",
+        "material:photo_bottom": "/api/tasks/6848208576fd0003/images/9e17844818ae17b8765a8310",
+        "material:summer_photo": "/api/tasks/6848208576fd0003/images/f3f18d039647a3db6484943f",
+        "processed:summer_photo": "/api/tasks/6848208576fd0003/images/bb75c806dd2197e685363eae",
+        "raw:summer_photo": "/api/tasks/6848208576fd0003/images/f0bd04c2a480cb1bcc84f470",
+        "material:summer_pink": "/api/tasks/6848208576fd0003/images/3e551c80f0912ba78438390b",
+        "processed:summer_pink": "/api/tasks/6848208576fd0003/images/fe33e3f7c300fb9e75451894",
+        "raw:summer_pink": "/api/tasks/6848208576fd0003/images/67e172c8732883a4b8e6dadb",
+        "material:summer_upper_right": "/api/tasks/6848208576fd0003/images/4b109460fb43a9030bf08fdb",
+        "processed:summer_upper_right": "/api/tasks/6848208576fd0003/images/3355e896d448b88e366b5364",
+        "raw:summer_upper_right": "/api/tasks/6848208576fd0003/images/ff17f19f299c955824f7146f",
+        "material:summer_left": "/api/tasks/6848208576fd0003/images/119082ab3d87357bff41f271",
+        "processed:summer_left": "/api/tasks/6848208576fd0003/images/7ffcb62bad1986f375042b36",
+        "raw:summer_left": "/api/tasks/6848208576fd0003/images/49b6570b1d359c67d6f69ea0",
+        "material:summer_yellow": "/api/tasks/6848208576fd0003/images/10b459c2e603ca24818efe57",
+        "processed:summer_yellow": "/api/tasks/6848208576fd0003/images/62819c9baadab079676aba0e",
+        "raw:summer_yellow": "/api/tasks/6848208576fd0003/images/e4b9b49e26b6813587f82f2f",
+        "material:summer_edge_left": "/api/tasks/6848208576fd0003/images/68071764dab8232d93806f8d",
+        "processed:summer_edge_left": "/api/tasks/6848208576fd0003/images/2fe9a2a6dabdc22a7ab16412",
+        "raw:summer_edge_left": "/api/tasks/6848208576fd0003/images/41e02e82dca56444ed539054",
+        "material:summer_edge_right": "/api/tasks/6848208576fd0003/images/653f72b1aad43e497efb3f10",
+        "processed:summer_edge_right": "/api/tasks/6848208576fd0003/images/a7ef7413fb502ef56d6bd268",
+        "raw:summer_edge_right": "/api/tasks/6848208576fd0003/images/2cd55891e1da56726f9bd4d2",
+        "material:summer_cyan": "/api/tasks/6848208576fd0003/images/65e5f4e58c409731da4ef6fa",
+        "processed:summer_cyan": "/api/tasks/6848208576fd0003/images/ae86a379c66172174000de0c",
+        "raw:summer_cyan": "/api/tasks/6848208576fd0003/images/3e841a641bf994f8a2ccc12e",
+        "material:summer_right": "/api/tasks/6848208576fd0003/images/40e41f008b2d3fef0d984488",
+        "processed:summer_right": "/api/tasks/6848208576fd0003/images/628aa2826ebcd8b1df99eac8",
+        "raw:summer_right": "/api/tasks/6848208576fd0003/images/6e4d13afc86e385969805413",
+        "material:summer_lower_left": "/api/tasks/6848208576fd0003/images/e86ac5787c23df1e2d0f7702",
+        "processed:summer_lower_left": "/api/tasks/6848208576fd0003/images/3fac46d21c8265582c00ffe1",
+        "raw:summer_lower_left": "/api/tasks/6848208576fd0003/images/cd4a672a1a6187456d419ca2",
+        "material:summer_green": "/api/tasks/6848208576fd0003/images/5bee9c498f760cc94d4a8694",
+        "processed:summer_green": "/api/tasks/6848208576fd0003/images/cbffa3b8feb8340094cf62ed",
+        "raw:summer_green": "/api/tasks/6848208576fd0003/images/430aa08fc67274eb8c4db1a9",
+        "material:summer_center_right": "/api/tasks/6848208576fd0003/images/36f3ca43c547a681bdb0c139",
+        "processed:summer_center_right": "/api/tasks/6848208576fd0003/images/f6edefdbc0b27d8fb92910da",
+        "raw:summer_center_right": "/api/tasks/6848208576fd0003/images/0052ae5e4385956b3c618a9b",
+        "material:summer_center_bottom": "/api/tasks/6848208576fd0003/images/1ca113a25f956a35d75c447e",
+        "processed:summer_center_bottom": "/api/tasks/6848208576fd0003/images/75ed113388a8c7c841b75154",
+        "raw:summer_center_bottom": "/api/tasks/6848208576fd0003/images/0f806d66bb127b768517a7b2",
+        "material:flower_top": "/api/tasks/6848208576fd0003/images/5f48fe7391484dfbee2b4755",
+        "processed:flower_top": "/api/tasks/6848208576fd0003/images/26604d97c7ea1964a146a27f",
+        "raw:flower_top": "/api/tasks/6848208576fd0003/images/9b8677c0dc279a7f7a6b9e28",
+        "material:flower_bottom": "/api/tasks/6848208576fd0003/images/e733517f3ec808bef46b0fc2",
+        "processed:flower_bottom": "/api/tasks/6848208576fd0003/images/30f8d8e391f040efd6c2ef6c",
+        "raw:flower_bottom": "/api/tasks/6848208576fd0003/images/5e8003b4a7c4130f93b01124",
+        "sheet:0": "/api/tasks/6848208576fd0003/images/c28836a51c0f431b4202a2a2",
+        "sheet:1": "/api/tasks/6848208576fd0003/images/5596e7226233398073ea5654",
+        "sheet:2": "/api/tasks/6848208576fd0003/images/87350816f4f76cc15792d586",
+        "sheet:3": "/api/tasks/6848208576fd0003/images/5bbdecf75b55161f71f38646",
+        "previews/review-detail-1.png": "/api/tasks/6848208576fd0003/images/a5d49343eb930b3076dce60f",
+        "previews/review-detail-2.png": "/api/tasks/6848208576fd0003/images/ea6aab5e1d281ce60af46adb",
+        "previews/review-detail-3.png": "/api/tasks/6848208576fd0003/images/44c16a4401036dc50c9d718a",
+        "previews/review-detail-4.png": "/api/tasks/6848208576fd0003/images/3bc4d10d3e9771c529c28679"
+      },
+      "changes": [],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "b250885f20f133ee",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已按原尺寸查看最终整图、完整对照图、4张提取检查表及4处指定局部。四个客户照片槽均可见且裁切合理，三联方窗、粉笔轨道、叉子、云层、花朵和全部summer艺术字的层级与遮挡关系成立；未见参考人物、冰淇淋、咖啡或旧照片残留。满版客户盐湖素材使下半部较参考更偏绿水面，属于照片替换后的内容差异，不构成排版问题。",
+        "items": [],
+        "scene_sha256": "8f50fab75f23f07220cd269480a649010e86ba66f26f1d9eec84ac05ad1e405a",
+        "final_sha256": "b6184241bf57ff0adbb9b8cd8c0deda1a2bafc7dbf867b606bd6c5e1a0be57c2"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "底色",
+          "description": "客户背景照片下方的深蓝兜底色",
+          "style": {
+            "fill": "#27689B"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_background",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1440
+          ],
+          "label": "满版天空湖景",
+          "description": "用客户Live素材替换参考中的满版蓝天云景，作为整页摄影背景",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_background",
+            "asset_id": "asset_fce89c38adda66d5",
+            "reason": "竖幅盐湖和大面积蓝天适合满版背景，能延续参考的清透夏日天空氛围",
+            "crop_center": [
+              0.5,
+              0.48
+            ]
+          }
+        },
+        {
+          "id": "cloud_left",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            575,
+            395,
+            1195
+          ],
+          "label": "左侧云层",
+          "description": "左下方大面积柔软白云与雾气，位于照片和粉笔轨道后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "2c35a0eaea3c3d6ab0695ec007a24a11b90fbcc4e1b3aa5d3619cbbff95a85de"
+          },
+          "recovered": {
+            "sha256": "6ecbbbf7d3b8d7694d7455d4bd8a3bf37d8d102cf58fc1819e74fb26cdc21782",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_right",
+          "kind": "overlay",
+          "bbox": [
+            681,
+            492,
+            1080,
+            1190
+          ],
+          "label": "右侧云层",
+          "description": "右侧高耸白云和下方雾气，位于照片和文字后方",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "114689235322ce6102b529eeb85d993b6317c9d557ce5ea2949548563eab8b0e"
+          },
+          "recovered": {
+            "sha256": "d81b0f389c7d5426401e8275a27ed514f070aba5602a4f4fd0e2f6f764f14056",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "cloud_center",
+          "kind": "overlay",
+          "bbox": [
+            351,
+            481,
+            724,
+            872
+          ],
+          "label": "中部云雾",
+          "description": "三张照片之间与两侧穿出的轻薄云雾，不包含照片内容",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "47c0a900d1dd9a9c59b575caf4cf7c847df3b5042798d0a42781617ec43f7b57"
+          },
+          "recovered": {
+            "sha256": "fd283b03d5fbea3b510d715b1b4fc812a2626478aa8197e045c1401bfece9bb0",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "chalk_orbits",
+          "kind": "overlay",
+          "bbox": [
+            204,
+            393,
+            884,
+            1058
+          ],
+          "label": "粉笔轨道涂鸦",
+          "description": "三条白色手绘弧形轨道及沿线星芒，保留不规则粉笔笔触和透明空隙",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_notes": [
+            "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+          ],
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "0dfdcb29ba33fe806fb1f6666ea01ab4475525c58b687201aa902a964f3ccea6"
+          },
+          "recovered": {
+            "sha256": "e62b6ec08415e9e8d3460f33fe7c014542f46bf7f1fbe10795ec194cbaa2047f",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "fork_doodle",
+          "kind": "overlay",
+          "bbox": [
+            102,
+            143,
+            234,
+            417
+          ],
+          "label": "叉子涂鸦",
+          "description": "左上白色手绘叉子轮廓及底部@Fork小字，作为完整涂鸦单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7992bfd737407782ace16f3f0089628b025f8db8d438e98b798773130b2a3d15"
+          },
+          "recovered": {
+            "sha256": "7ef9287b1292155fb6524ba620a59b9f14714e249ef6d0ffc9bc448df69710b4",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            392,
+            215,
+            679,
+            502
+          ],
+          "label": "顶部照片",
+          "description": "顶部方形客户旅行画面，完整矩形窗口",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_0b4f42e2195efe34",
+            "reason": "横幅湖湾航拍适合顶部方形风景窗，保留水面和天空层次",
+            "crop_center": [
+              0.52,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            392,
+            543,
+            679,
+            831
+          ],
+          "label": "中部照片",
+          "description": "中部方形客户人物画面，完整矩形窗口",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅近景人物适合中部主照片，人物居中且蓝天背景与版面协调",
+            "crop_center": [
+              0.5,
+              0.43
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            395,
+            865,
+            678,
+            1148
+          ],
+          "label": "底部照片",
+          "description": "底部方形客户旅行画面，完整矩形窗口",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_6cad0072779df484",
+            "reason": "竖幅落日人物画面适合底部方形窗，形成与中部不同的旅行瞬间",
+            "crop_center": [
+              0.5,
+              0.48
+            ]
+          }
+        },
+        {
+          "id": "summer_photo",
+          "kind": "overlay",
+          "bbox": [
+            480,
+            337,
+            614,
+            376
+          ],
+          "label": "顶部照片Summer字样",
+          "description": "顶部照片中央白色细长手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9bad79e0efe4f07961b2d2b90bcc32780769df6c87a2c1aa34a2fcee2b693509"
+          },
+          "recovered": {
+            "sha256": "75559f912074a9edb9a3f8efd63125bd980ee9dfa761f99af47047ca6df63def",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_pink",
+          "kind": "overlay",
+          "bbox": [
+            219,
+            414,
+            341,
+            456
+          ],
+          "label": "粉色Summer字样",
+          "description": "左上粉紫渐变手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "1505566c8ad3b0c885dcd8ab83b877665b999fd18c701ad7863942a6274fc326"
+          },
+          "recovered": {
+            "sha256": "451948ad7421fd8be0012ec75abb7fbc8922da2625cb8191181fa5b684d0d748",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_upper_right",
+          "kind": "overlay",
+          "bbox": [
+            687,
+            405,
+            818,
+            449
+          ],
+          "label": "右上Summer字样",
+          "description": "右上白色细长手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "f43f04bacf8075473fe01f6b7d37aa4855a3a8bd9f3b2093fb388163d25f07ef"
+          },
+          "recovered": {
+            "sha256": "6246345db92695bbe44ab9bc59ac79798623abd20d0ef48ea3bdbd4b6af40732",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_left",
+          "kind": "overlay",
+          "bbox": [
+            84,
+            527,
+            208,
+            572
+          ],
+          "label": "左侧Summer字样",
+          "description": "左侧白色细长手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7dfcf7157afbde97dc9dbaa4cfe93ee9f8272143874ebcd53f5d4d530ee2fae7"
+          },
+          "recovered": {
+            "sha256": "e95d358a4634bcd490e8657b779337b6d1b6666002f1856e6826a5efc5a15c96",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_yellow",
+          "kind": "overlay",
+          "bbox": [
+            831,
+            509,
+            966,
+            553
+          ],
+          "label": "黄色Summer字样",
+          "description": "右上黄绿色手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b81d4c7beb94c3b51dbeceb0b8e391ffbd8753e66fdda665482edc6954836362"
+          },
+          "recovered": {
+            "sha256": "d77f83aaff443cbf82f4fb33cfcdbbc942bc36e6c471decc471475c5a9723f2b",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_edge_left",
+          "kind": "overlay",
+          "bbox": [
+            0,
+            686,
+            68,
+            733
+          ],
+          "label": "左缘Summer字样",
+          "description": "从画布左边缘裁出的白色手写summer艺术字，仅保留可见部分",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "cf7494f054f464b8d9990b1c0d5a5a09f0207f3a034b50232f50d9169074a78f"
+          },
+          "recovered": {
+            "sha256": "7dfa895c221ca5e974cd52c9f459a6cb9e9902edb04e0a789a30ddf33a31f395",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_edge_right",
+          "kind": "overlay",
+          "bbox": [
+            937,
+            700,
+            1080,
+            748
+          ],
+          "label": "右缘Summer字样",
+          "description": "靠画布右边缘的白色手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6fdca71be2f7782ae73e4d5c96a22f915299bb8471eb19492e879c1469d74ddb"
+          },
+          "recovered": {
+            "sha256": "9a645253ad4c0b78f3d322586b94ec956c641dacb3dc3ec01deb594ab44e6baf",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_cyan",
+          "kind": "overlay",
+          "bbox": [
+            70,
+            837,
+            199,
+            884
+          ],
+          "label": "青色Summer字样",
+          "description": "左下青蓝色手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "16c91b459cdaee99f0b24719602e9d0d42ec9aa2a4fd4a79ab7e209ab9ca2e77"
+          },
+          "recovered": {
+            "sha256": "6233b5c2d37abcf2d4d8825381d859df3a6d0bd21bd0676b37ec69bc18bcb109",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_right",
+          "kind": "overlay",
+          "bbox": [
+            865,
+            838,
+            994,
+            886
+          ],
+          "label": "右下Summer字样",
+          "description": "右侧白色手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "dfdc6b8291659d1ce0a5097682db82c989c8ea53b5733e742ba193a2eb7c11ac"
+          },
+          "recovered": {
+            "sha256": "f59cd7fbeaa2a7f9b2eb0b6ff1d55a58502488eb14457831a20368f2df82c9bb",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_lower_left",
+          "kind": "overlay",
+          "bbox": [
+            154,
+            945,
+            282,
+            994
+          ],
+          "label": "左下白色Summer字样",
+          "description": "左下云层前的白色手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7d500b0921a69be7f349290a08a7ec88e4bb613eb448196b2718a0090a632150"
+          },
+          "recovered": {
+            "sha256": "4094a12f4977a34f2c5fd29b17a701214d456f1f3621f8ccba80270a4eada136",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_green",
+          "kind": "overlay",
+          "bbox": [
+            764,
+            918,
+            903,
+            971
+          ],
+          "label": "绿色Summer字样",
+          "description": "右下绿色渐变手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "15cdfa66fa02280a43f55f251ddca484f323207d61ce507b1ff5bb868d29be6c"
+          },
+          "recovered": {
+            "sha256": "6ce46da8a7105f19dbaf1003fa31597ad1b9c521f414b939104aed9cdc1c3c95",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_center_right",
+          "kind": "overlay",
+          "bbox": [
+            612,
+            984,
+            740,
+            1037
+          ],
+          "label": "中下Summer字样",
+          "description": "底部照片右上方白色手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "b3c92d5314ea0d1e7254ee307fe7cd820de2f9247ab83d7ad3c30e0f3e4bb2c2"
+          },
+          "recovered": {
+            "sha256": "870ab3ecc351855fa57b9f86c826e82b95c5ba3eebc252af5b2da9771757f025",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "summer_center_bottom",
+          "kind": "overlay",
+          "bbox": [
+            478,
+            1029,
+            611,
+            1084
+          ],
+          "label": "底部照片Summer字样",
+          "description": "底部照片上叠加的白色手写summer艺术字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "3444c366eb789cf7de1aa8545427bb429d590b3bf92b0495afeebd5ad3a31053"
+          },
+          "recovered": {
+            "sha256": "f082fcb33fe2c810dfdd1c8c0f5bbae0b8954b41942a0c9abee449ebd60e3557",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "flower_top",
+          "kind": "overlay",
+          "bbox": [
+            636,
+            181,
+            729,
+            270
+          ],
+          "label": "顶部花朵",
+          "description": "顶部照片右上叠贴的粉白半透明五瓣花",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "648eb0990484be814b3568fdc59d73bf8ce36ea65c0e1da5b2c3b98b781d0ab5"
+          },
+          "recovered": {
+            "sha256": "247434959e98d9a365c0028f25ef0370ba77022a0da5f7d652b951e000f4e227",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "flower_bottom",
+          "kind": "overlay",
+          "bbox": [
+            348,
+            1057,
+            441,
+            1178
+          ],
+          "label": "底部花朵",
+          "description": "底部照片左下叠贴的蓝白半透明五瓣花",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "04953573e0833730f6c5d432ab41e3bfe8433e0290a33737e2bd786ed2fab651"
+          },
+          "recovered": {
+            "sha256": "b573a09bbf0149873b25b99e63617944043f0a063658b87ce8a0d9875713c28c",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "cloud_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "cloud_center",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "chalk_orbits",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "chalk_orbits",
+          "note": "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+        },
+        {
+          "id": "fork_doodle",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_photo",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_pink",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_upper_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_yellow",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_edge_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_edge_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_cyan",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_lower_left",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_green",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_center_right",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "summer_center_bottom",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "flower_top",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "flower_bottom",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "底色",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/bb7970a0634b734e0d5c926e",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/069232870a55a088d37ad67d"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_background",
+      "label": "满版天空湖景",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/bb7970a0634b734e0d5c926e",
+        "customer": "/api/tasks/6848208576fd0003/images/feff6d70f4f4e7db4cb2f420",
+        "final": "/api/tasks/6848208576fd0003/images/aa71ccce8f9e53e768b3ede7"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "cloud_left",
+      "label": "左侧云层",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        575,
+        395,
+        1195
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/361f26c14e3fb440d2679938",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/7e504569695e7c5c0f7bb805",
+        "raw": "/api/tasks/6848208576fd0003/images/098cb80abd3a4e9ecc2fa588",
+        "processed": "/api/tasks/6848208576fd0003/images/1aa7700490ce21aacb5e62e5"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2c35a0eaea3c3d6ab0695ec007a24a11b90fbcc4e1b3aa5d3619cbbff95a85de"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_right",
+      "label": "右侧云层",
+      "kind": "overlay",
+      "bbox": [
+        681,
+        492,
+        1080,
+        1190
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/b396a80d1a6fe5aded63266f",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/a2260c105eda19ea3344cb0c",
+        "raw": "/api/tasks/6848208576fd0003/images/59486360f96e292bc4b0999e",
+        "processed": "/api/tasks/6848208576fd0003/images/9b8aa606c32841feb3760d80"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "114689235322ce6102b529eeb85d993b6317c9d557ce5ea2949548563eab8b0e"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_center",
+      "label": "中部云雾",
+      "kind": "overlay",
+      "bbox": [
+        351,
+        481,
+        724,
+        872
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/b93783c4c60d5f2bb3bfeba5",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/4947ebb73deb9eb304f227e6",
+        "raw": "/api/tasks/6848208576fd0003/images/73ee266f944a4d8079a7fb6d",
+        "processed": "/api/tasks/6848208576fd0003/images/e7f1a1cf4f7792f07bdfeb50"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "47c0a900d1dd9a9c59b575caf4cf7c847df3b5042798d0a42781617ec43f7b57"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "chalk_orbits",
+      "label": "粉笔轨道涂鸦",
+      "kind": "overlay",
+      "bbox": [
+        204,
+        393,
+        884,
+        1058
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/208bea3af37050352abca52b",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/ff9e7e652f894e624b5b8dcf",
+        "raw": "/api/tasks/6848208576fd0003/images/1c735801b0b25ea3f8904372",
+        "processed": "/api/tasks/6848208576fd0003/images/60477dfa00570044e5e7b185"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "0dfdcb29ba33fe806fb1f6666ea01ab4475525c58b687201aa902a964f3ccea6"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "fork_doodle",
+      "label": "叉子涂鸦",
+      "kind": "overlay",
+      "bbox": [
+        102,
+        143,
+        234,
+        417
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/4658c909ccf07b3e42f1eead",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/d840edcf031f81840f693da2",
+        "raw": "/api/tasks/6848208576fd0003/images/11b5ea25100b311955694427",
+        "processed": "/api/tasks/6848208576fd0003/images/6fe19c7bfeaba6f45e32d606"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7992bfd737407782ace16f3f0089628b025f8db8d438e98b798773130b2a3d15"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "photo_top",
+      "label": "顶部照片",
+      "kind": "photo",
+      "bbox": [
+        392,
+        215,
+        679,
+        502
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/8d7a526973fab8f2f5bf2e6d",
+        "customer": "/api/tasks/6848208576fd0003/images/d450e3b83289f3ad1aa94efa",
+        "final": "/api/tasks/6848208576fd0003/images/894afb824086f5b958d16cf1"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle",
+      "label": "中部照片",
+      "kind": "photo",
+      "bbox": [
+        392,
+        543,
+        679,
+        831
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/492276d1e33da4297a77c683",
+        "customer": "/api/tasks/6848208576fd0003/images/6b870d4399a11f4cb3307785",
+        "final": "/api/tasks/6848208576fd0003/images/e4b3075900bc03e67fd479c7"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "底部照片",
+      "kind": "photo",
+      "bbox": [
+        395,
+        865,
+        678,
+        1148
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/1164c423ef1447310d3e7876",
+        "customer": "/api/tasks/6848208576fd0003/images/6f7092560d9a8c03672c2a3d",
+        "final": "/api/tasks/6848208576fd0003/images/cb8d61422dc6a827366d6e57"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "summer_photo",
+      "label": "顶部照片Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        480,
+        337,
+        614,
+        376
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/9b334d20b27a0f101c774b01",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/90d352615bf98b31da74e7d3",
+        "raw": "/api/tasks/6848208576fd0003/images/81d89b7a6a3f1796b0a924ef",
+        "processed": "/api/tasks/6848208576fd0003/images/28dc9dd65e211f1036b75de9"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9bad79e0efe4f07961b2d2b90bcc32780769df6c87a2c1aa34a2fcee2b693509"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_pink",
+      "label": "粉色Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        219,
+        414,
+        341,
+        456
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/71893ceb0bf1335f9416fdbd",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/49ea0b1128f38f410e651c4c",
+        "raw": "/api/tasks/6848208576fd0003/images/263ee871a4c71cca953060ff",
+        "processed": "/api/tasks/6848208576fd0003/images/2fe99e229a486af234f96af0"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1505566c8ad3b0c885dcd8ab83b877665b999fd18c701ad7863942a6274fc326"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_upper_right",
+      "label": "右上Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        687,
+        405,
+        818,
+        449
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/1c2f996328dedaf2ee1fe668",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/898a7340ca8d487c38d3ab3e",
+        "raw": "/api/tasks/6848208576fd0003/images/894b84daf22fee9413a3f402",
+        "processed": "/api/tasks/6848208576fd0003/images/43999c50934748ed43242d0a"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f43f04bacf8075473fe01f6b7d37aa4855a3a8bd9f3b2093fb388163d25f07ef"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_left",
+      "label": "左侧Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        84,
+        527,
+        208,
+        572
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/4a058a690521167700812f42",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/f004104a6d1354b453072aad",
+        "raw": "/api/tasks/6848208576fd0003/images/7f47e854cbd4b87bdd4596b7",
+        "processed": "/api/tasks/6848208576fd0003/images/d900d95fca1b61b59e537f04"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7dfcf7157afbde97dc9dbaa4cfe93ee9f8272143874ebcd53f5d4d530ee2fae7"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_yellow",
+      "label": "黄色Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        831,
+        509,
+        966,
+        553
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/923ae7f5565edac173d23d2c",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/5724e7aee658b1e7da4a667a",
+        "raw": "/api/tasks/6848208576fd0003/images/89cabe1ec7c987b4c39a61cc",
+        "processed": "/api/tasks/6848208576fd0003/images/76496e76436ef0a91cff6597"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b81d4c7beb94c3b51dbeceb0b8e391ffbd8753e66fdda665482edc6954836362"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_edge_left",
+      "label": "左缘Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        686,
+        68,
+        733
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/7711f993b95777147f4ebb8e",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/c47c5a65682be1877e86b932",
+        "raw": "/api/tasks/6848208576fd0003/images/2f4fd224c72e5d35994a45e8",
+        "processed": "/api/tasks/6848208576fd0003/images/33649ded12bcebdec504e1fa"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "cf7494f054f464b8d9990b1c0d5a5a09f0207f3a034b50232f50d9169074a78f"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_edge_right",
+      "label": "右缘Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        937,
+        700,
+        1080,
+        748
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/b3578bd3bd26e6bd85797fff",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/38cb1bf2ea79a48e674b2421",
+        "raw": "/api/tasks/6848208576fd0003/images/60bddd5f2e0f4d675d2b115e",
+        "processed": "/api/tasks/6848208576fd0003/images/f27b66fc39e9fbb3e36e5080"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6fdca71be2f7782ae73e4d5c96a22f915299bb8471eb19492e879c1469d74ddb"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_cyan",
+      "label": "青色Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        70,
+        837,
+        199,
+        884
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/8cb0d8284d03b3904a1e7ab0",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/3cd175e8ab4c4fbc5fbec81f",
+        "raw": "/api/tasks/6848208576fd0003/images/278bc49da87b081c37bbf7c6",
+        "processed": "/api/tasks/6848208576fd0003/images/bd7a8627102e8a2a6345d5b0"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "16c91b459cdaee99f0b24719602e9d0d42ec9aa2a4fd4a79ab7e209ab9ca2e77"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_right",
+      "label": "右下Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        865,
+        838,
+        994,
+        886
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/2da3e24bafce9d1b75365034",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/f2cfb4c32c879d4e8f2d17fc",
+        "raw": "/api/tasks/6848208576fd0003/images/bce3ac0e846cd8d07b6e54d5",
+        "processed": "/api/tasks/6848208576fd0003/images/0d7e970bd88634c9443a738f"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "dfdc6b8291659d1ce0a5097682db82c989c8ea53b5733e742ba193a2eb7c11ac"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_lower_left",
+      "label": "左下白色Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        154,
+        945,
+        282,
+        994
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/80cb36f97b528be4a6844d63",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/bd576353460ba2a3ce10603e",
+        "raw": "/api/tasks/6848208576fd0003/images/9e97ecfc552f334384196982",
+        "processed": "/api/tasks/6848208576fd0003/images/b0c75f8cadf8c9e9192d783b"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7d500b0921a69be7f349290a08a7ec88e4bb613eb448196b2718a0090a632150"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_green",
+      "label": "绿色Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        764,
+        918,
+        903,
+        971
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/73761b9592343f6e93ad3141",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/1a064e1abf4c914033910a88",
+        "raw": "/api/tasks/6848208576fd0003/images/40942c66bf29bdbe21c67fcf",
+        "processed": "/api/tasks/6848208576fd0003/images/2aafe5a9908cd48c7c2d3d91"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "15cdfa66fa02280a43f55f251ddca484f323207d61ce507b1ff5bb868d29be6c"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_center_right",
+      "label": "中下Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        612,
+        984,
+        740,
+        1037
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/1b8f376280e7885387900a86",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/912479254ce678abff0e9937",
+        "raw": "/api/tasks/6848208576fd0003/images/51b0dedc55f65b40b97dafa2",
+        "processed": "/api/tasks/6848208576fd0003/images/c4dde34e73cf8130bc56765d"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b3c92d5314ea0d1e7254ee307fe7cd820de2f9247ab83d7ad3c30e0f3e4bb2c2"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_center_bottom",
+      "label": "底部照片Summer字样",
+      "kind": "overlay",
+      "bbox": [
+        478,
+        1029,
+        611,
+        1084
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/179c1f38427702cff942e106",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/d3d77095baf1f7ec4e771a0d",
+        "raw": "/api/tasks/6848208576fd0003/images/3a15dc5cb9aa524e02ee72c4",
+        "processed": "/api/tasks/6848208576fd0003/images/518037277ec5dd9a998342d9"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3444c366eb789cf7de1aa8545427bb429d590b3bf92b0495afeebd5ad3a31053"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "flower_top",
+      "label": "顶部花朵",
+      "kind": "overlay",
+      "bbox": [
+        636,
+        181,
+        729,
+        270
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/baa214f054ddb89d87e400d7",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/0c84b35bd6059c6f92950e69",
+        "raw": "/api/tasks/6848208576fd0003/images/c767b1471a849da02374fc2b",
+        "processed": "/api/tasks/6848208576fd0003/images/7d65645ef5da0448f9a7a01c"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "648eb0990484be814b3568fdc59d73bf8ce36ea65c0e1da5b2c3b98b781d0ab5"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "flower_bottom",
+      "label": "底部花朵",
+      "kind": "overlay",
+      "bbox": [
+        348,
+        1057,
+        441,
+        1178
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/6848208576fd0003/images/26e060b5f5c58c9566014c91",
+        "customer": null,
+        "final": "/api/tasks/6848208576fd0003/images/7db40835f99e526befda824c",
+        "raw": "/api/tasks/6848208576fd0003/images/a1722bc15fe986d83b437b82",
+        "processed": "/api/tasks/6848208576fd0003/images/244b4f7761d700fc3f79485b"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "04953573e0833730f6c5d432ab41e3bfe8433e0290a33737e2bd786ed2fab651"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "chalk_orbits",
+        "cloud_center",
+        "cloud_left",
+        "cloud_right",
+        "flower_bottom",
+        "flower_top",
+        "fork_doodle",
+        "summer_center_bottom",
+        "summer_center_right",
+        "summer_cyan",
+        "summer_edge_left",
+        "summer_edge_right",
+        "summer_green",
+        "summer_left",
+        "summer_lower_left",
+        "summer_photo",
+        "summer_pink",
+        "summer_right",
+        "summer_upper_right",
+        "summer_yellow"
+      ],
+      "at": "2026-10-16T04:16:11.210481+00:00",
+      "error": "",
+      "available_ids": [
+        "chalk_orbits",
+        "cloud_center",
+        "cloud_left",
+        "cloud_right",
+        "flower_bottom",
+        "flower_top",
+        "fork_doodle",
+        "summer_center_bottom",
+        "summer_center_right",
+        "summer_cyan",
+        "summer_edge_left",
+        "summer_edge_right",
+        "summer_green",
+        "summer_left",
+        "summer_lower_left",
+        "summer_photo",
+        "summer_pink",
+        "summer_right",
+        "summer_upper_right",
+        "summer_yellow"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 116.869,
+      "cache_hit": false
+    }
+  ],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "cloud_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "cloud_center",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "chalk_orbits",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "chalk_orbits",
+      "note": "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+    },
+    {
+      "id": "fork_doodle",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_photo",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_pink",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_upper_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_yellow",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_edge_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_edge_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_cyan",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_lower_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_green",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_center_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "summer_center_bottom",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "flower_top",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "flower_bottom",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "b250885f20f133ee",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已按原尺寸查看最终整图、完整对照图、4张提取检查表及4处指定局部。四个客户照片槽均可见且裁切合理，三联方窗、粉笔轨道、叉子、云层、花朵和全部summer艺术字的层级与遮挡关系成立；未见参考人物、冰淇淋、咖啡或旧照片残留。满版客户盐湖素材使下半部较参考更偏绿水面，属于照片替换后的内容差异，不构成排版问题。",
+    "items": [],
+    "scene_sha256": "8f50fab75f23f07220cd269480a649010e86ba66f26f1d9eec84ac05ad1e405a",
+    "final_sha256": "b6184241bf57ff0adbb9b8cd8c0deda1a2bafc7dbf867b606bd6c5e1a0be57c2"
+  },
+  "recording_incomplete": false
+}

@@ -1,0 +1,926 @@
+{
+  "id": "a4f6c5eb729af603",
+  "name": "Live-e294fbba15a5",
+  "created_at": "2026-10-16T02:47:52.035928+00:00",
+  "reference_size": [
+    1440,
+    2561
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T06:26:17.466Z",
+    "finished_at": "2026-10-16T06:33:49.734039+00:00",
+    "elapsed_seconds": 452.225,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        2561
+      ],
+      "label": "画布底色",
+      "description": "被三段满版照片覆盖的浅色底层，仅用于避免边缘漏底",
+      "style": {
+        "fill": "#DCECF0"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1440,
+        862
+      ],
+      "label": "顶部横向风景照片",
+      "description": "顶部满版海景横幅；原图中的人物、海岸与漂浮物均属于照片内容，随客户素材整体替换",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        0,
+        862,
+        1440,
+        1784
+      ],
+      "label": "中部人物风景照片",
+      "description": "中部满版人物与风景横幅；人物服饰、帽子和背景均属于客户照片内容，不拆为固定装饰",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1784,
+        1440,
+        2561
+      ],
+      "label": "底部横向风景照片",
+      "description": "底部满版海景横幅；原图前景饮品及右下角平台水印均属于原照片内容，不保留为固定层",
+      "mode": "cover"
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:47:52.060140+00:00",
+      "started_at": "2026-10-16T02:47:50.102825+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成三段满版照片布局与Live素材绑定，校验通过并按原尺寸查看叠框，分界定位准确",
+      "at": "2026-10-16T06:28:50.240482+00:00",
+      "started_at": "2026-10-16T06:28:25.998982+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T06:28:55.363003+00:00",
+      "started_at": "2026-10-16T06:28:51.251368+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已查看首版完整对照图，无旧参考内容或重复素材，无需筛选",
+      "at": "2026-10-16T06:29:41.959307+00:00",
+      "started_at": "2026-10-16T06:29:05.641304+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T06:30:47.921644+00:00",
+      "started_at": "2026-10-16T06:30:47.400940+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "静态封面已复核通过并完成一次底部主体裁切调整；动态成片已生成并检查首中末帧，完整播放复核受当前工具限制，动态状态保留needs_review",
+      "at": "2026-10-16T06:33:22.018903+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T06:30:47.922352+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:47:50.102825+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:47:52.060140+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:27:23.392396+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看原尺寸参考图与客户联系表，分析布局、层级和照片绑定"
+    },
+    {
+      "at": "2026-10-16T06:28:25.998982+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:28:26.880123+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T06:28:50.240482+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成三段满版照片布局与Live素材绑定，校验通过并按原尺寸查看叠框，分界定位准确"
+    },
+    {
+      "at": "2026-10-16T06:28:51.251368+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:28:55.363003+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:29:05.641304+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "正在查看首版完整对照图，检查客户照片裁切、分段接缝与素材污染"
+    },
+    {
+      "at": "2026-10-16T06:29:41.959307+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已查看首版完整对照图，无旧参考内容或重复素材，无需筛选"
+    },
+    {
+      "at": "2026-10-16T06:29:43.002329+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核整图并对底部照片前景主体做一次本地裁切调整"
+    },
+    {
+      "at": "2026-10-16T06:30:05.879637+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "调整排版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:30:08.385712+00:00",
+      "stage": 5,
+      "status": "waiting",
+      "summary": "调整排版 · 排版调整完成，等待复核新图"
+    },
+    {
+      "at": "2026-10-16T06:30:47.400940+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T06:30:47.921644+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T06:33:22.018903+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "静态封面已复核通过并完成一次底部主体裁切调整；动态成片已生成并检查首中末帧，完整播放复核受当前工具限制，动态状态保留needs_review"
+    }
+  ],
+  "reference": "/api/tasks/a4f6c5eb729af603/images/1743bb77228d5143822376d2",
+  "boxes": "/api/tasks/a4f6c5eb729af603/images/4406d541b1be27d9871e5c41",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/a4f6c5eb729af603/images/73485ca711be042b2459df7a"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/a4f6c5eb729af603/images/80cebb08417e64a02a368c72"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/a4f6c5eb729af603/images/ec5520af42a66f4eeb0ff4b0"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/a4f6c5eb729af603/images/d9ef8031fa067d1061cf8ec1"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/a4f6c5eb729af603/images/8b72b598b92ce137e6289b23"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/a4f6c5eb729af603/images/a0e764aaf9e95eb9b845a6eb"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/a4f6c5eb729af603/images/3e8fc529a1bed22ba8a56a35"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/a4f6c5eb729af603/images/c7408cc380e336cfb625e6c9"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/a4f6c5eb729af603/images/5f423cb7fe2a3ab21146e3d1"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/a4f6c5eb729af603/images/9e8c33e819cfb2479a907978"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/a4f6c5eb729af603/images/83910b8ab631eb699cafc59c"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/a4f6c5eb729af603/images/187ddd5c97a20abe4f2a0ebb"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/a4f6c5eb729af603/images/bb23e4c9ba512d2b352b9958"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/a4f6c5eb729af603/images/d424ff332b6853b2e49130ac"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/a4f6c5eb729af603/images/a3c8683d15fa7e68195d72f7"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/a4f6c5eb729af603/images/a537c3b8c87b2531f2e586e3"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/a4f6c5eb729af603/images/5dca920579662032b674a63a"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/a4f6c5eb729af603/images/a1aa69649ca323c3bd126a3b"
+    }
+  ],
+  "current_image": "/api/tasks/a4f6c5eb729af603/images/d630174e1edf457bc0aff4f1",
+  "first_image": "/api/tasks/a4f6c5eb729af603/images/4edbda3851d09ebe07fa51fc",
+  "versions": [
+    {
+      "id": "0001-cffd5087",
+      "parent_id": null,
+      "render_id": "6785f046f70039a1",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "画布底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/1c95b2c8cb2a8f60d4614971",
+            "final": "/api/tasks/a4f6c5eb729af603/images/27cfa627b25e98dd99f0500b",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部横向风景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            862
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/adb67c3f679bc05aa6363359",
+            "final": "/api/tasks/a4f6c5eb729af603/images/a8ae785134352f93e44a5976",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部人物风景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            862,
+            1440,
+            1784
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/108bbc1fc5357ce3bf720af8",
+            "final": "/api/tasks/a4f6c5eb729af603/images/266352754b6662f3939060f1",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部横向风景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1784,
+            1440,
+            2561
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/382209a8b03cf9c0fd760041",
+            "final": "/api/tasks/a4f6c5eb729af603/images/9347374e6167ee9e8027dc07",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T06:28:55.354249+00:00",
+      "image": "/api/tasks/a4f6c5eb729af603/images/d079fabb58887d7810405b15",
+      "artifacts": {
+        "final.png": "/api/tasks/a4f6c5eb729af603/images/d079fabb58887d7810405b15",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/a4f6c5eb729af603/images/50c809f5fa77b1713f42304a",
+        "previews/comparison.png": "/api/tasks/a4f6c5eb729af603/images/26bb10d17dbc2d27b23933fd",
+        "material:background": "/api/tasks/a4f6c5eb729af603/images/27cfa627b25e98dd99f0500b",
+        "material:photo_top": "/api/tasks/a4f6c5eb729af603/images/a8ae785134352f93e44a5976",
+        "material:photo_middle": "/api/tasks/a4f6c5eb729af603/images/266352754b6662f3939060f1",
+        "material:photo_bottom": "/api/tasks/a4f6c5eb729af603/images/9347374e6167ee9e8027dc07"
+      },
+      "changes": [],
+      "intent": {},
+      "review": null,
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "label": "画布底色",
+          "description": "被三段满版照片覆盖的浅色底层，仅用于避免边缘漏底",
+          "style": {
+            "fill": "#DCECF0"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            862
+          ],
+          "label": "顶部横向风景照片",
+          "description": "顶部满版海景横幅；原图中的人物、海岸与漂浮物均属于照片内容，随客户素材整体替换",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽海岸全景适合顶部横幅，横向裁切后仍保留水岸与天空层次",
+            "crop_center": [
+              0.5,
+              0.48
+            ]
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            862,
+            1440,
+            1784
+          ],
+          "label": "中部人物风景照片",
+          "description": "中部满版人物与风景横幅；人物服饰、帽子和背景均属于客户照片内容，不拆为固定装饰",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅近景人物能对应参考图中部主体视觉重心",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1784,
+            1440,
+            2561
+          ],
+          "label": "底部横向风景照片",
+          "description": "底部满版海景横幅；原图前景饮品及右下角平台水印均属于原照片内容，不保留为固定层",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "横幅人物湖景适合底部较矮画幅，并与整页蓝色旅行主题连贯",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    },
+    {
+      "id": "0002-892f9555",
+      "parent_id": "0001-cffd5087",
+      "render_id": "95f83574c1bd8fc9",
+      "command": "apply",
+      "materials": [
+        {
+          "id": "background",
+          "label": "画布底色",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/1c95b2c8cb2a8f60d4614971",
+            "final": "/api/tasks/a4f6c5eb729af603/images/1f1dca4bc8ece73a67b64e79",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "顶部横向风景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            862
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/adb67c3f679bc05aa6363359",
+            "final": "/api/tasks/a4f6c5eb729af603/images/774deb1dfb6102cc11fd40db",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部人物风景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            862,
+            1440,
+            1784
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/108bbc1fc5357ce3bf720af8",
+            "final": "/api/tasks/a4f6c5eb729af603/images/db66884ad0829a721a919f88",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "底部横向风景照片",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1784,
+            1440,
+            2561
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/a4f6c5eb729af603/images/382209a8b03cf9c0fd760041",
+            "final": "/api/tasks/a4f6c5eb729af603/images/1710722ee3f16925cb54f722",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        }
+      ],
+      "label": "调整排版",
+      "at": "2026-10-16T06:30:08.375940+00:00",
+      "image": "/api/tasks/a4f6c5eb729af603/images/d630174e1edf457bc0aff4f1",
+      "artifacts": {
+        "final.png": "/api/tasks/a4f6c5eb729af603/images/d630174e1edf457bc0aff4f1",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/a4f6c5eb729af603/images/556dd245ddbd423a918aa17d",
+        "previews/comparison.png": "/api/tasks/a4f6c5eb729af603/images/c4b272ad3b242287e48e52e1",
+        "material:background": "/api/tasks/a4f6c5eb729af603/images/1f1dca4bc8ece73a67b64e79",
+        "material:photo_top": "/api/tasks/a4f6c5eb729af603/images/774deb1dfb6102cc11fd40db",
+        "material:photo_middle": "/api/tasks/a4f6c5eb729af603/images/db66884ad0829a721a919f88",
+        "material:photo_bottom": "/api/tasks/a4f6c5eb729af603/images/1710722ee3f16925cb54f722"
+      },
+      "changes": [
+        {
+          "id": "photo_bottom",
+          "label": "底部横向风景照片",
+          "bbox": [
+            0,
+            1784,
+            1440,
+            2561
+          ],
+          "fields": {
+            "binding": {
+              "before": {
+                "slot_id": "photo_bottom",
+                "asset_id": "asset_314880705d0e7976",
+                "reason": "横幅人物湖景适合底部较矮画幅，并与整页蓝色旅行主题连贯",
+                "crop_center": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "after": {
+                "slot_id": "photo_bottom",
+                "asset_id": "asset_314880705d0e7976",
+                "reason": "横幅人物湖景适合底部较矮画幅，并与整页蓝色旅行主题连贯",
+                "crop_center": [
+                  0.5,
+                  0.56
+                ],
+                "source_crop": [
+                  0.05,
+                  0.25,
+                  0.95,
+                  0.9
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "intent": {
+        "schema_version": "collage-review-v1",
+        "render_id": "6785f046f70039a1",
+        "checked_entire_composition": true,
+        "verdict": "needs_changes",
+        "summary": "底部客户人物相较参考的大前景主体偏小，保持原窗口和层级，仅通过源图裁切适度放大主体",
+        "items": [
+          {
+            "id": "photo_bottom",
+            "action": "adjust",
+            "reason": "加强底段前景主体比例，同时保留湖面与山脉背景",
+            "changes": {
+              "source_crop": [
+                0.05,
+                0.25,
+                0.95,
+                0.9
+              ],
+              "crop_center": [
+                0.5,
+                0.56
+              ]
+            }
+          }
+        ]
+      },
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "95f83574c1bd8fc9",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看调整后的完整对照图与成图；三段客户照片满版覆盖准确，底部主体放大生效，两条接缝无漏底或异常遮挡，未见旧参考内容、重复文字或关键缺口",
+        "items": [],
+        "scene_sha256": "3678ad3104a8fd071ffabcec0bebda46feafb404b267214647bca05a77428237",
+        "final_sha256": "2f9445392d216ba67051d5c71106fa461499adefd7d06fc4f626540d5246491c"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            2561
+          ],
+          "label": "画布底色",
+          "description": "被三段满版照片覆盖的浅色底层，仅用于避免边缘漏底",
+          "style": {
+            "fill": "#DCECF0"
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            0,
+            0,
+            1440,
+            862
+          ],
+          "label": "顶部横向风景照片",
+          "description": "顶部满版海景横幅；原图中的人物、海岸与漂浮物均属于照片内容，随客户素材整体替换",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽海岸全景适合顶部横幅，横向裁切后仍保留水岸与天空层次",
+            "crop_center": [
+              0.5,
+              0.48
+            ]
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            0,
+            862,
+            1440,
+            1784
+          ],
+          "label": "中部人物风景照片",
+          "description": "中部满版人物与风景横幅；人物服饰、帽子和背景均属于客户照片内容，不拆为固定装饰",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_b781a179c58a33aa",
+            "reason": "竖幅近景人物能对应参考图中部主体视觉重心",
+            "crop_center": [
+              0.5,
+              0.42
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            0,
+            1784,
+            1440,
+            2561
+          ],
+          "label": "底部横向风景照片",
+          "description": "底部满版海景横幅；原图前景饮品及右下角平台水印均属于原照片内容，不保留为固定层",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "横幅人物湖景适合底部较矮画幅，并与整页蓝色旅行主题连贯",
+            "crop_center": [
+              0.5,
+              0.56
+            ],
+            "source_crop": [
+              0.05,
+              0.25,
+              0.95,
+              0.9
+            ]
+          }
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "画布底色",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        2561
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/a4f6c5eb729af603/images/1c95b2c8cb2a8f60d4614971",
+        "customer": null,
+        "final": "/api/tasks/a4f6c5eb729af603/images/0df45dd3cb3b7278c7bf854b"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_top",
+      "label": "顶部横向风景照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1440,
+        862
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/a4f6c5eb729af603/images/adb67c3f679bc05aa6363359",
+        "customer": "/api/tasks/a4f6c5eb729af603/images/c7408cc380e336cfb625e6c9",
+        "final": "/api/tasks/a4f6c5eb729af603/images/1d90964375bdd836d0bd8d58"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle",
+      "label": "中部人物风景照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        862,
+        1440,
+        1784
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": true,
+      "images": {
+        "reference": "/api/tasks/a4f6c5eb729af603/images/108bbc1fc5357ce3bf720af8",
+        "customer": "/api/tasks/a4f6c5eb729af603/images/d424ff332b6853b2e49130ac",
+        "final": "/api/tasks/a4f6c5eb729af603/images/703ca127fd421dc18627ebb6"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "底部横向风景照片",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1784,
+        1440,
+        2561
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/a4f6c5eb729af603/images/382209a8b03cf9c0fd760041",
+        "customer": "/api/tasks/a4f6c5eb729af603/images/a537c3b8c87b2531f2e586e3",
+        "final": "/api/tasks/a4f6c5eb729af603/images/0b74cac7442c60349f4b02ac"
+      },
+      "decision": {},
+      "note": ""
+    }
+  ],
+  "groups": [],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "95f83574c1bd8fc9",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已查看调整后的完整对照图与成图；三段客户照片满版覆盖准确，底部主体放大生效，两条接缝无漏底或异常遮挡，未见旧参考内容、重复文字或关键缺口",
+    "items": [],
+    "scene_sha256": "3678ad3104a8fd071ffabcec0bebda46feafb404b267214647bca05a77428237",
+    "final_sha256": "2f9445392d216ba67051d5c71106fa461499adefd7d06fc4f626540d5246491c"
+  },
+  "recording_incomplete": false
+}

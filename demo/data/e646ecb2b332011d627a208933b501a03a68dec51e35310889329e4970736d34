@@ -1,0 +1,1551 @@
+{
+  "id": "e33bea752bda51ff",
+  "name": "Live-d0f063b10c4d",
+  "created_at": "2026-10-16T02:41:32.048805+00:00",
+  "reference_size": [
+    1440,
+    1920
+  ],
+  "sdk_timing": {
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "started_at": "2026-10-16T03:35:46.614Z",
+    "finished_at": "2026-10-16T03:43:55.458292+00:00",
+    "elapsed_seconds": 488.798,
+    "status": "completed"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        1920
+      ],
+      "label": "蓝色海面质感底",
+      "description": "覆盖整页的深浅蓝海面氛围底；作为弱纹理以蓝色颗粒近似，不复制参考整图或其中人物照片",
+      "style": {
+        "fill": "#087A9A",
+        "texture": "grain",
+        "seed": 27
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        148,
+        143,
+        809,
+        583
+      ],
+      "label": "上方横向照片",
+      "description": "左上较大的横向旅行照片窗口，直角裁切，无独立相框",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        410,
+        698,
+        1099,
+        1160
+      ],
+      "label": "中部横向照片",
+      "description": "页面中部横向水景照片窗口，直角裁切，上缘被方格胶带压住",
+      "mode": "cover"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        631,
+        1288,
+        1302,
+        1769
+      ],
+      "label": "下方横向照片",
+      "description": "右下横向旅行照片窗口，直角裁切，左上角被海岛贴纸轻微遮挡",
+      "mode": "cover"
+    },
+    {
+      "id": "stars_paper_cluster",
+      "kind": "overlay",
+      "bbox": [
+        84,
+        67,
+        232,
+        232
+      ],
+      "label": "三张手绘星星纸片",
+      "description": "左上三张错落的小纸片及黑色手绘实心星、线框星与交叉星，作为完整叠贴组合",
+      "method": "extract"
+    },
+    {
+      "id": "white_firework_doodle",
+      "kind": "overlay",
+      "bbox": [
+        620,
+        287,
+        808,
+        508
+      ],
+      "label": "白色烟花手绘",
+      "description": "上方照片右侧的白色弧线烟花及周围小星点，保留不规则手绘笔触",
+      "method": "extract"
+    },
+    {
+      "id": "journal_paragraph_art",
+      "kind": "overlay",
+      "bbox": [
+        842,
+        224,
+        1400,
+        522
+      ],
+      "label": "右上白色手写旅行段落",
+      "description": "固定白色手写艺术字：When we arrived at the southernmost tip of the African continent, Cape Town was right in front of us an unforgettable journey!；整体提取且不再另绘文字",
+      "method": "extract"
+    },
+    {
+      "id": "pink_star_trail",
+      "kind": "overlay",
+      "bbox": [
+        252,
+        541,
+        528,
+        837
+      ],
+      "label": "粉色星星轨迹涂鸦",
+      "description": "粉色线框大星、圆点、十字与小星组成的弯曲下落轨迹，跨越上方照片下缘并延伸到中部照片左侧",
+      "method": "extract"
+    },
+    {
+      "id": "gingham_tape",
+      "kind": "overlay",
+      "bbox": [
+        685,
+        643,
+        836,
+        759
+      ],
+      "label": "蓝白方格胶带",
+      "description": "压在中部照片上缘的半透明蓝白格纹方形胶带，保留织物格纹与轻微歪斜轮廓",
+      "method": "extract"
+    },
+    {
+      "id": "fish_bubble_doodle",
+      "kind": "overlay",
+      "bbox": [
+        1127,
+        1095,
+        1299,
+        1256
+      ],
+      "label": "白色小鱼气泡涂鸦",
+      "description": "页面右侧的白色线描圆鱼、鳍尾、眼睛及上方三个气泡，作为完整手绘单元",
+      "method": "extract"
+    },
+    {
+      "id": "island_sticker",
+      "kind": "overlay",
+      "bbox": [
+        550,
+        1230,
+        725,
+        1405
+      ],
+      "label": "黄色海岛椰树贴纸",
+      "description": "淡黄色不规则底的海岛、三棵黑色线描椰树及沙滩轮廓，压住下方照片左上角",
+      "method": "extract"
+    },
+    {
+      "id": "blue_note_art",
+      "kind": "overlay",
+      "bbox": [
+        146,
+        1461,
+        561,
+        1671
+      ],
+      "label": "蓝色手写夏日便签",
+      "description": "浅蓝矩形便签及固定黑色手写艺术字：Summer is ~ blue sea / ~ free breeze / ~ passionate and romantic sunshine；整体提取且不再另绘文字",
+      "method": "extract"
+    }
+  ],
+  "instructions": "使用本任务参考图做同款，使用上传的18段Live视频作为客户素材。请由工作流自动使用 Codex Agent SDK + gpt-5.6-sol + 360 RevealLayer 完成制作，包括静态封面与动态成片。全部制作和复核由工作流自动执行。",
+  "historical": false,
+  "current_stage": 6,
+  "stages": [
+    {
+      "id": 1,
+      "label": "准备素材",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T02:41:32.075083+00:00",
+      "started_at": "2026-10-16T02:41:30.259911+00:00"
+    },
+    {
+      "id": 2,
+      "label": "分析布局",
+      "status": "complete",
+      "summary": "已完成1440×1920参考图与两张联系表的原尺寸分析；3个照片槽均绑定真实Live首帧，8个复杂装饰框经叠框查看定位完整",
+      "at": "2026-10-16T03:38:22.719478+00:00",
+      "started_at": "2026-10-16T03:38:06.024934+00:00"
+    },
+    {
+      "id": 3,
+      "label": "构建首版",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T03:39:41.449583+00:00",
+      "started_at": "2026-10-16T03:38:22.944776+00:00"
+    },
+    {
+      "id": 4,
+      "label": "筛选素材",
+      "status": "complete",
+      "summary": "已查看完整对照图和两张提取检查表；8个装饰无旧照片污染、无缺笔或重复文字，无需筛选",
+      "at": "2026-10-16T03:40:13.478173+00:00",
+      "started_at": "2026-10-16T03:39:51.479655+00:00"
+    },
+    {
+      "id": 5,
+      "label": "整图复核",
+      "status": "complete",
+      "summary": "执行完成",
+      "at": "2026-10-16T03:41:06.259838+00:00",
+      "started_at": "2026-10-16T03:41:05.540676+00:00"
+    },
+    {
+      "id": 6,
+      "label": "交付结果",
+      "status": "complete",
+      "summary": "静态封面已真实查看整图、提取表和4处局部并复核通过；3秒动态成片已编码验证并查看首中末帧，因当前工具无法直接播放MP4，动态状态如实保留needs_review",
+      "at": "2026-10-16T03:43:26.223591+00:00"
+    }
+  ],
+  "execution": "已结束",
+  "live": false,
+  "heartbeat_at": "2026-10-16T03:41:06.260623+00:00",
+  "history": [
+    {
+      "at": "2026-10-16T02:41:30.259911+00:00",
+      "stage": 1,
+      "status": "running",
+      "summary": "准备素材 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T02:41:32.075083+00:00",
+      "stage": 1,
+      "status": "complete",
+      "summary": "准备素材 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:36:34.178676+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "正在查看原尺寸参考图与18段Live素材联系表，分析布局、装饰和照片绑定关系"
+    },
+    {
+      "at": "2026-10-16T03:38:06.024934+00:00",
+      "stage": 2,
+      "status": "running",
+      "summary": "分析布局 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:38:06.776966+00:00",
+      "stage": 2,
+      "status": "waiting",
+      "summary": "分析布局 · 数据校验完成，等待叠框看图检查"
+    },
+    {
+      "at": "2026-10-16T03:38:22.719478+00:00",
+      "stage": 2,
+      "status": "complete",
+      "summary": "已完成1440×1920参考图与两张联系表的原尺寸分析；3个照片槽均绑定真实Live首帧，8个复杂装饰框经叠框查看定位完整"
+    },
+    {
+      "at": "2026-10-16T03:38:22.944776+00:00",
+      "stage": 3,
+      "status": "running",
+      "summary": "构建首版 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:39:41.449583+00:00",
+      "stage": 3,
+      "status": "complete",
+      "summary": "构建首版 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:39:51.479655+00:00",
+      "stage": 4,
+      "status": "running",
+      "summary": "首版已完成，正在查看完整对照图与两张装饰提取检查表，核验旧照片残留、装饰完整性和重复文字"
+    },
+    {
+      "at": "2026-10-16T03:40:13.478173+00:00",
+      "stage": 4,
+      "status": "complete",
+      "summary": "已查看完整对照图和两张提取检查表；8个装饰无旧照片污染、无缺笔或重复文字，无需筛选"
+    },
+    {
+      "at": "2026-10-16T03:40:13.778439+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "正在复核当前整图与4处照片和装饰交叉局部，检查遮挡、裁切和前后关系"
+    },
+    {
+      "at": "2026-10-16T03:41:05.540676+00:00",
+      "stage": 5,
+      "status": "running",
+      "summary": "整图复核 · 正在执行"
+    },
+    {
+      "at": "2026-10-16T03:41:06.259838+00:00",
+      "stage": 5,
+      "status": "complete",
+      "summary": "整图复核 · 执行完成"
+    },
+    {
+      "at": "2026-10-16T03:43:26.223591+00:00",
+      "stage": 6,
+      "status": "complete",
+      "summary": "静态封面已真实查看整图、提取表和4处局部并复核通过；3秒动态成片已编码验证并查看首中末帧，因当前工具无法直接播放MP4，动态状态如实保留needs_review"
+    }
+  ],
+  "reference": "/api/tasks/e33bea752bda51ff/images/60c3851249d8d2202c0d7dab",
+  "boxes": "/api/tasks/e33bea752bda51ff/images/ea21a62b74a347ed61e6bdd6",
+  "catalog": [
+    {
+      "id": "asset_f4e6838a79ca6adc",
+      "image": "/api/tasks/e33bea752bda51ff/images/270f894bf03797cce3c5e288"
+    },
+    {
+      "id": "asset_0b4f42e2195efe34",
+      "image": "/api/tasks/e33bea752bda51ff/images/b62936ede6eb4b3058184908"
+    },
+    {
+      "id": "asset_a7748ee803548c54",
+      "image": "/api/tasks/e33bea752bda51ff/images/bef7598a11952e3a24441a42"
+    },
+    {
+      "id": "asset_87ae8cd18b29841f",
+      "image": "/api/tasks/e33bea752bda51ff/images/f2ece07fb064b95e6cf3113c"
+    },
+    {
+      "id": "asset_92fb06c23be73dc1",
+      "image": "/api/tasks/e33bea752bda51ff/images/3c9b35bfb22ed8b0ebbb4963"
+    },
+    {
+      "id": "asset_4c5ccf7d473f0908",
+      "image": "/api/tasks/e33bea752bda51ff/images/f7f9d1d94a53d8b9cbd80d72"
+    },
+    {
+      "id": "asset_04c2d3e1b7f8314b",
+      "image": "/api/tasks/e33bea752bda51ff/images/e0f4eff5a21e63b8f49d441f"
+    },
+    {
+      "id": "asset_0001e71335621e1c",
+      "image": "/api/tasks/e33bea752bda51ff/images/622849541ebb9e1a28085aa5"
+    },
+    {
+      "id": "asset_895325c8721a4527",
+      "image": "/api/tasks/e33bea752bda51ff/images/5cea092c044d961eacd18554"
+    },
+    {
+      "id": "asset_9868e13cfdc69c46",
+      "image": "/api/tasks/e33bea752bda51ff/images/9ce8b8fb33bbaf39897915ff"
+    },
+    {
+      "id": "asset_32634a073776d1e3",
+      "image": "/api/tasks/e33bea752bda51ff/images/de1cdffef04da82d178ba2b8"
+    },
+    {
+      "id": "asset_f044e11373093d30",
+      "image": "/api/tasks/e33bea752bda51ff/images/0bb8fb7cbecbbe25948b863b"
+    },
+    {
+      "id": "asset_4026ebaa393a4e64",
+      "image": "/api/tasks/e33bea752bda51ff/images/1febb4fe5a588f3877c546dc"
+    },
+    {
+      "id": "asset_b781a179c58a33aa",
+      "image": "/api/tasks/e33bea752bda51ff/images/5b261352c75b367df9bc3586"
+    },
+    {
+      "id": "asset_6cad0072779df484",
+      "image": "/api/tasks/e33bea752bda51ff/images/adea4051e11f4ab7d645a25b"
+    },
+    {
+      "id": "asset_314880705d0e7976",
+      "image": "/api/tasks/e33bea752bda51ff/images/8e8963920cc6f78d3c1da8e7"
+    },
+    {
+      "id": "asset_06638b50677afc7c",
+      "image": "/api/tasks/e33bea752bda51ff/images/39048f4cd6e4e1afd2defa4f"
+    },
+    {
+      "id": "asset_fce89c38adda66d5",
+      "image": "/api/tasks/e33bea752bda51ff/images/dffea84e7262884cfa8abfa9"
+    }
+  ],
+  "current_image": "/api/tasks/e33bea752bda51ff/images/6f447caa24eb8c4354f00c01",
+  "first_image": "/api/tasks/e33bea752bda51ff/images/179d26d9d202f28662561b9b",
+  "versions": [
+    {
+      "id": "0001-6436b78a",
+      "parent_id": null,
+      "render_id": "68591e7ef0d54c0a",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "蓝色海面质感底",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            1920
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/9941382eb1284af1836c994c",
+            "final": "/api/tasks/e33bea752bda51ff/images/2cc85587fb14da93e38c9fd1",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "photo_top",
+          "label": "上方横向照片",
+          "kind": "photo",
+          "bbox": [
+            148,
+            143,
+            809,
+            583
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/1594f3fc61ee0a81766df637",
+            "final": "/api/tasks/e33bea752bda51ff/images/8d360a7b341cd4d08b477e7c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_middle",
+          "label": "中部横向照片",
+          "kind": "photo",
+          "bbox": [
+            410,
+            698,
+            1099,
+            1160
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/a50e6e14cdaba1d76872486c",
+            "final": "/api/tasks/e33bea752bda51ff/images/40e26223ae153f0671a7e0b6",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "photo_bottom",
+          "label": "下方横向照片",
+          "kind": "photo",
+          "bbox": [
+            631,
+            1288,
+            1302,
+            1769
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/c2375c76d9ffb77e30d6bba4",
+            "final": "/api/tasks/e33bea752bda51ff/images/a19d790ea8fba972f2a69a7d",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "stars_paper_cluster",
+          "label": "三张手绘星星纸片",
+          "kind": "overlay",
+          "bbox": [
+            84,
+            67,
+            232,
+            232
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/6a7266203f312bdfb0f63ca4",
+            "final": "/api/tasks/e33bea752bda51ff/images/c440cedc13ec4d9a5614903f",
+            "raw": "/api/tasks/e33bea752bda51ff/images/1dbf9f460edbc957a646992a",
+            "processed": "/api/tasks/e33bea752bda51ff/images/7e8e95f994473673e12a7cab"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "968d836770e604a9b004cc75b094b234ce843e5eb7ee3f050c7a0fba64bf8f5c"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "white_firework_doodle",
+          "label": "白色烟花手绘",
+          "kind": "overlay",
+          "bbox": [
+            620,
+            287,
+            808,
+            508
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/4b189e81a2fcb1f91d75d487",
+            "final": "/api/tasks/e33bea752bda51ff/images/a875fb0d07bf9bd5471c899e",
+            "raw": "/api/tasks/e33bea752bda51ff/images/ab5f3ad39164800365949a04",
+            "processed": "/api/tasks/e33bea752bda51ff/images/3741819bf32801720de8037a"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "5ee12f6755ccd8284ee8fc5eb9fb7ef4346a1595ef34b5fe71259ec3a8967c60"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "journal_paragraph_art",
+          "label": "右上白色手写旅行段落",
+          "kind": "overlay",
+          "bbox": [
+            842,
+            224,
+            1400,
+            522
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/278a70e289d75dfc8c32ce40",
+            "final": "/api/tasks/e33bea752bda51ff/images/d90d02d2476d2181de8e86bb",
+            "raw": "/api/tasks/e33bea752bda51ff/images/79835cfc4315b46b01731212",
+            "processed": "/api/tasks/e33bea752bda51ff/images/8745d10e3b564b1e3fa25f40"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "2d88005d06560e040451dabe0e601e666124f81a1d6ad21d143253ed0987e487"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "pink_star_trail",
+          "label": "粉色星星轨迹涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            252,
+            541,
+            528,
+            837
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/b5aac5358b8d82974c9583cd",
+            "final": "/api/tasks/e33bea752bda51ff/images/a7ff1f3a6d8e4e4087ae7fc2",
+            "raw": "/api/tasks/e33bea752bda51ff/images/26ddaf017da43c882702a0b6",
+            "processed": "/api/tasks/e33bea752bda51ff/images/7add63ad6b2715f06aaf8385"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4b1ecdaed469c094a572b56f7e049f7f832e1615ea6fb8f7c93a748bcd7541b3"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "gingham_tape",
+          "label": "蓝白方格胶带",
+          "kind": "overlay",
+          "bbox": [
+            685,
+            643,
+            836,
+            759
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/bb762b80bd240e2d3ac63dea",
+            "final": "/api/tasks/e33bea752bda51ff/images/be81e03ba5aa79fe2b79a985",
+            "raw": "/api/tasks/e33bea752bda51ff/images/a6f8af91c4270635606e147b",
+            "processed": "/api/tasks/e33bea752bda51ff/images/3adde0dbb695c5dca1be1cb7"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "f15a5c33036db5a7db1cd9e3d598550dfb1615d79ca50a269c5e74388635af25"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "fish_bubble_doodle",
+          "label": "白色小鱼气泡涂鸦",
+          "kind": "overlay",
+          "bbox": [
+            1127,
+            1095,
+            1299,
+            1256
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/a4188c4c0475a53d671c91bb",
+            "final": "/api/tasks/e33bea752bda51ff/images/b2621174d8e7dd29544e835d",
+            "raw": "/api/tasks/e33bea752bda51ff/images/d1e91e005e4d0bbac8fdbca4",
+            "processed": "/api/tasks/e33bea752bda51ff/images/75132adc84a4dbf4ebfa5c45"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "c8685e50244e485739aae10abf58bfea8c6e63418aea892f57f2380c077d1ef8"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "island_sticker",
+          "label": "黄色海岛椰树贴纸",
+          "kind": "overlay",
+          "bbox": [
+            550,
+            1230,
+            725,
+            1405
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/195832ccee1807d45be4ed9c",
+            "final": "/api/tasks/e33bea752bda51ff/images/cfea0c9585121abd99ce4b74",
+            "raw": "/api/tasks/e33bea752bda51ff/images/d05d630d411c0e4e9e49bc2e",
+            "processed": "/api/tasks/e33bea752bda51ff/images/3dd2981c5c199cdf45a4c29b"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "62f427dca20cf0a934fc170e6d4c7eff84e3cb82ec5538616d13a8a093ee303b"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "blue_note_art",
+          "label": "蓝色手写夏日便签",
+          "kind": "overlay",
+          "bbox": [
+            146,
+            1461,
+            561,
+            1671
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/e33bea752bda51ff/images/da86f024b2bb277fbf193d6c",
+            "final": "/api/tasks/e33bea752bda51ff/images/43ebc76d93ef3dd47264b071",
+            "raw": "/api/tasks/e33bea752bda51ff/images/a465a72f6d7a7606f421ab7c",
+            "processed": "/api/tasks/e33bea752bda51ff/images/165990830e9dadb78e6c64a2"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6862ef3e759ddf44e756d585797aad69f56ded10761da9fe6f448183db504f53"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-16T03:39:41.438500+00:00",
+      "image": "/api/tasks/e33bea752bda51ff/images/6f447caa24eb8c4354f00c01",
+      "artifacts": {
+        "final.png": "/api/tasks/e33bea752bda51ff/images/6f447caa24eb8c4354f00c01",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/e33bea752bda51ff/images/9697751262b3d6f2d9adf7e6",
+        "previews/comparison.png": "/api/tasks/e33bea752bda51ff/images/7ef7c185670cc4f56e92da8c",
+        "material:background": "/api/tasks/e33bea752bda51ff/images/2cc85587fb14da93e38c9fd1",
+        "material:photo_top": "/api/tasks/e33bea752bda51ff/images/8d360a7b341cd4d08b477e7c",
+        "material:photo_middle": "/api/tasks/e33bea752bda51ff/images/40e26223ae153f0671a7e0b6",
+        "material:photo_bottom": "/api/tasks/e33bea752bda51ff/images/a19d790ea8fba972f2a69a7d",
+        "material:stars_paper_cluster": "/api/tasks/e33bea752bda51ff/images/c440cedc13ec4d9a5614903f",
+        "processed:stars_paper_cluster": "/api/tasks/e33bea752bda51ff/images/7e8e95f994473673e12a7cab",
+        "raw:stars_paper_cluster": "/api/tasks/e33bea752bda51ff/images/1dbf9f460edbc957a646992a",
+        "material:white_firework_doodle": "/api/tasks/e33bea752bda51ff/images/a875fb0d07bf9bd5471c899e",
+        "processed:white_firework_doodle": "/api/tasks/e33bea752bda51ff/images/3741819bf32801720de8037a",
+        "raw:white_firework_doodle": "/api/tasks/e33bea752bda51ff/images/ab5f3ad39164800365949a04",
+        "material:journal_paragraph_art": "/api/tasks/e33bea752bda51ff/images/d90d02d2476d2181de8e86bb",
+        "processed:journal_paragraph_art": "/api/tasks/e33bea752bda51ff/images/8745d10e3b564b1e3fa25f40",
+        "raw:journal_paragraph_art": "/api/tasks/e33bea752bda51ff/images/79835cfc4315b46b01731212",
+        "material:pink_star_trail": "/api/tasks/e33bea752bda51ff/images/a7ff1f3a6d8e4e4087ae7fc2",
+        "processed:pink_star_trail": "/api/tasks/e33bea752bda51ff/images/7add63ad6b2715f06aaf8385",
+        "raw:pink_star_trail": "/api/tasks/e33bea752bda51ff/images/26ddaf017da43c882702a0b6",
+        "material:gingham_tape": "/api/tasks/e33bea752bda51ff/images/be81e03ba5aa79fe2b79a985",
+        "processed:gingham_tape": "/api/tasks/e33bea752bda51ff/images/3adde0dbb695c5dca1be1cb7",
+        "raw:gingham_tape": "/api/tasks/e33bea752bda51ff/images/a6f8af91c4270635606e147b",
+        "material:fish_bubble_doodle": "/api/tasks/e33bea752bda51ff/images/b2621174d8e7dd29544e835d",
+        "processed:fish_bubble_doodle": "/api/tasks/e33bea752bda51ff/images/75132adc84a4dbf4ebfa5c45",
+        "raw:fish_bubble_doodle": "/api/tasks/e33bea752bda51ff/images/d1e91e005e4d0bbac8fdbca4",
+        "material:island_sticker": "/api/tasks/e33bea752bda51ff/images/cfea0c9585121abd99ce4b74",
+        "processed:island_sticker": "/api/tasks/e33bea752bda51ff/images/3dd2981c5c199cdf45a4c29b",
+        "raw:island_sticker": "/api/tasks/e33bea752bda51ff/images/d05d630d411c0e4e9e49bc2e",
+        "material:blue_note_art": "/api/tasks/e33bea752bda51ff/images/43ebc76d93ef3dd47264b071",
+        "processed:blue_note_art": "/api/tasks/e33bea752bda51ff/images/165990830e9dadb78e6c64a2",
+        "raw:blue_note_art": "/api/tasks/e33bea752bda51ff/images/a465a72f6d7a7606f421ab7c",
+        "sheet:0": "/api/tasks/e33bea752bda51ff/images/2f2cb4deccb3da444ccc265b",
+        "sheet:1": "/api/tasks/e33bea752bda51ff/images/34e3d143e9c0c114fa328c97",
+        "previews/review-detail-1.png": "/api/tasks/e33bea752bda51ff/images/07aed6d6f6dddd7d7f331edc",
+        "previews/review-detail-2.png": "/api/tasks/e33bea752bda51ff/images/50d024fbd593ca5299828806",
+        "previews/review-detail-3.png": "/api/tasks/e33bea752bda51ff/images/3ea9361e3ccf6f697a95d0d7",
+        "previews/review-detail-4.png": "/api/tasks/e33bea752bda51ff/images/6f54f74805c32d5b6e3b72d9"
+      },
+      "changes": [],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "68591e7ef0d54c0a",
+        "checked_entire_composition": true,
+        "verdict": "pass",
+        "summary": "已查看完整对照图、两张提取检查表和四处指定交叉局部；三张客户照片填满窗口，装饰层级与遮挡关系正确，无旧照片残留、重复文字或关键缺失。整页海面摄影质感按首版范围以蓝色颗粒底近似。",
+        "items": [
+          {
+            "id": "background",
+            "action": "keep",
+            "reason": "蓝色颗粒底保留海洋色调与轻微质感；与参考摄影海浪的细节差异属于已确认的首版背景近似，不影响照片、文字或关键遮挡。"
+          }
+        ],
+        "scene_sha256": "d2142a4513487398b846048e27c5bd5fbbef90bf8adfa0054794589255812a97",
+        "final_sha256": "faf08aa7e01af80e5d58917fcb299cba89c1cc9c2bb70af22ddb23964232da8d"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1440,
+            1920
+          ],
+          "label": "蓝色海面质感底",
+          "description": "覆盖整页的深浅蓝海面氛围底；作为弱纹理以蓝色颗粒近似，不复制参考整图或其中人物照片",
+          "style": {
+            "fill": "#087A9A",
+            "texture": "grain",
+            "seed": 27
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "photo_top",
+          "kind": "photo",
+          "bbox": [
+            148,
+            143,
+            809,
+            583
+          ],
+          "label": "上方横向照片",
+          "description": "左上较大的横向旅行照片窗口，直角裁切，无独立相框",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_top",
+            "asset_id": "asset_314880705d0e7976",
+            "reason": "横向湖岸人物画面同时保留旅行人物与水景，适合上方主照片的宽幅构图",
+            "crop_center": [
+              0.5,
+              0.48
+            ]
+          }
+        },
+        {
+          "id": "photo_middle",
+          "kind": "photo",
+          "bbox": [
+            410,
+            698,
+            1099,
+            1160
+          ],
+          "label": "中部横向照片",
+          "description": "页面中部横向水景照片窗口，直角裁切，上缘被方格胶带压住",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_middle",
+            "asset_id": "asset_0001e71335621e1c",
+            "reason": "超宽盐湖沙洲画面适合中部横向水景窗口，可保留清晰地平线",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "photo_bottom",
+          "kind": "photo",
+          "bbox": [
+            631,
+            1288,
+            1302,
+            1769
+          ],
+          "label": "下方横向照片",
+          "description": "右下横向旅行照片窗口，直角裁切，左上角被海岛贴纸轻微遮挡",
+          "mode": "cover",
+          "style": {},
+          "text_unresolved": false,
+          "binding": {
+            "slot_id": "photo_bottom",
+            "asset_id": "asset_fce89c38adda66d5",
+            "reason": "横向湖面与建筑风景适合右下旅行照片，色彩与海洋主题协调",
+            "crop_center": [
+              0.5,
+              0.5
+            ]
+          }
+        },
+        {
+          "id": "stars_paper_cluster",
+          "kind": "overlay",
+          "bbox": [
+            84,
+            67,
+            232,
+            232
+          ],
+          "label": "三张手绘星星纸片",
+          "description": "左上三张错落的小纸片及黑色手绘实心星、线框星与交叉星，作为完整叠贴组合",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "968d836770e604a9b004cc75b094b234ce843e5eb7ee3f050c7a0fba64bf8f5c"
+          },
+          "recovered": {
+            "sha256": "5a06d6a80c026a68350c55a3c807ec413da38a6c7b23356bb27385ed8b0d2ceb",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "white_firework_doodle",
+          "kind": "overlay",
+          "bbox": [
+            620,
+            287,
+            808,
+            508
+          ],
+          "label": "白色烟花手绘",
+          "description": "上方照片右侧的白色弧线烟花及周围小星点，保留不规则手绘笔触",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "5ee12f6755ccd8284ee8fc5eb9fb7ef4346a1595ef34b5fe71259ec3a8967c60"
+          },
+          "recovered": {
+            "sha256": "9e6babf03a97347c53b0cb006bb3ee15106503ccc96b869bb7cccd199c6e3a04",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "journal_paragraph_art",
+          "kind": "overlay",
+          "bbox": [
+            842,
+            224,
+            1400,
+            522
+          ],
+          "label": "右上白色手写旅行段落",
+          "description": "固定白色手写艺术字：When we arrived at the southernmost tip of the African continent, Cape Town was right in front of us an unforgettable journey!；整体提取且不再另绘文字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "2d88005d06560e040451dabe0e601e666124f81a1d6ad21d143253ed0987e487"
+          },
+          "recovered": {
+            "sha256": "6236d16d643cacbb9253e4144bde1e47035915f5f8aacd7d03e6d3de338f100a",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "pink_star_trail",
+          "kind": "overlay",
+          "bbox": [
+            252,
+            541,
+            528,
+            837
+          ],
+          "label": "粉色星星轨迹涂鸦",
+          "description": "粉色线框大星、圆点、十字与小星组成的弯曲下落轨迹，跨越上方照片下缘并延伸到中部照片左侧",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4b1ecdaed469c094a572b56f7e049f7f832e1615ea6fb8f7c93a748bcd7541b3"
+          },
+          "recovered": {
+            "sha256": "a08d4e8f2b8cdb0690f5c3eba5b0c5c127e986bfec3f6887e5725dc85a34cd60",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "gingham_tape",
+          "kind": "overlay",
+          "bbox": [
+            685,
+            643,
+            836,
+            759
+          ],
+          "label": "蓝白方格胶带",
+          "description": "压在中部照片上缘的半透明蓝白格纹方形胶带，保留织物格纹与轻微歪斜轮廓",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "f15a5c33036db5a7db1cd9e3d598550dfb1615d79ca50a269c5e74388635af25"
+          },
+          "recovered": {
+            "sha256": "6b8fb1af41f70477000ad89162788797d1f8c2cb7a7b3cf5adf8f278f740b1b7",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "fish_bubble_doodle",
+          "kind": "overlay",
+          "bbox": [
+            1127,
+            1095,
+            1299,
+            1256
+          ],
+          "label": "白色小鱼气泡涂鸦",
+          "description": "页面右侧的白色线描圆鱼、鳍尾、眼睛及上方三个气泡，作为完整手绘单元",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "c8685e50244e485739aae10abf58bfea8c6e63418aea892f57f2380c077d1ef8"
+          },
+          "recovered": {
+            "sha256": "d06abaae23622a033e8788af8f09f37e025bc14b1431b5abf4ecfd79f2850b6f",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "island_sticker",
+          "kind": "overlay",
+          "bbox": [
+            550,
+            1230,
+            725,
+            1405
+          ],
+          "label": "黄色海岛椰树贴纸",
+          "description": "淡黄色不规则底的海岛、三棵黑色线描椰树及沙滩轮廓，压住下方照片左上角",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "62f427dca20cf0a934fc170e6d4c7eff84e3cb82ec5538616d13a8a093ee303b"
+          },
+          "recovered": {
+            "sha256": "c702f83e78421692ebfd3f1cf591d7b4d015089f1c4af678a6a8c344445b939a",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "blue_note_art",
+          "kind": "overlay",
+          "bbox": [
+            146,
+            1461,
+            561,
+            1671
+          ],
+          "label": "蓝色手写夏日便签",
+          "description": "浅蓝矩形便签及固定黑色手写艺术字：Summer is ~ blue sea / ~ free breeze / ~ passionate and romantic sunshine；整体提取且不再另绘文字",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "6862ef3e759ddf44e756d585797aad69f56ded10761da9fe6f448183db504f53"
+          },
+          "recovered": {
+            "sha256": "b6c1d9c796904ce8e7eaa3990673b5f45825ce7a283ba71b1e46182fad40b5c1",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Local primitive; visual similarity requires review"
+        },
+        {
+          "id": "stars_paper_cluster",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "white_firework_doodle",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "journal_paragraph_art",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "pink_star_trail",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "gingham_tape",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "fish_bubble_doodle",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "island_sticker",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "blue_note_art",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "蓝色海面质感底",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1440,
+        1920
+      ],
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/9941382eb1284af1836c994c",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/f318505e15c1c7390fa8c796"
+      },
+      "decision": {},
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "photo_top",
+      "label": "上方横向照片",
+      "kind": "photo",
+      "bbox": [
+        148,
+        143,
+        809,
+        583
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/1594f3fc61ee0a81766df637",
+        "customer": "/api/tasks/e33bea752bda51ff/images/8e8963920cc6f78d3c1da8e7",
+        "final": "/api/tasks/e33bea752bda51ff/images/d907b04e0c6aff0d88d12be4"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_middle",
+      "label": "中部横向照片",
+      "kind": "photo",
+      "bbox": [
+        410,
+        698,
+        1099,
+        1160
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/a50e6e14cdaba1d76872486c",
+        "customer": "/api/tasks/e33bea752bda51ff/images/622849541ebb9e1a28085aa5",
+        "final": "/api/tasks/e33bea752bda51ff/images/90f8f4dec27b98291b8bc25f"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "photo_bottom",
+      "label": "下方横向照片",
+      "kind": "photo",
+      "bbox": [
+        631,
+        1288,
+        1302,
+        1769
+      ],
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/c2375c76d9ffb77e30d6bba4",
+        "customer": "/api/tasks/e33bea752bda51ff/images/dffea84e7262884cfa8abfa9",
+        "final": "/api/tasks/e33bea752bda51ff/images/4cbc7ff64fbebc5dee4b52dc"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "stars_paper_cluster",
+      "label": "三张手绘星星纸片",
+      "kind": "overlay",
+      "bbox": [
+        84,
+        67,
+        232,
+        232
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/6a7266203f312bdfb0f63ca4",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/7c69c3f7edc0b17ff2e36b93",
+        "raw": "/api/tasks/e33bea752bda51ff/images/1aea987b49e1363f091e3c2c",
+        "processed": "/api/tasks/e33bea752bda51ff/images/98de4bde76e652c150ef1674"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "968d836770e604a9b004cc75b094b234ce843e5eb7ee3f050c7a0fba64bf8f5c"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "white_firework_doodle",
+      "label": "白色烟花手绘",
+      "kind": "overlay",
+      "bbox": [
+        620,
+        287,
+        808,
+        508
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/4b189e81a2fcb1f91d75d487",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/3b87e007dbb78f0fc1d1629d",
+        "raw": "/api/tasks/e33bea752bda51ff/images/bd6732e38307aad1e7402326",
+        "processed": "/api/tasks/e33bea752bda51ff/images/81f4b7e4eee6c04ad0727321"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5ee12f6755ccd8284ee8fc5eb9fb7ef4346a1595ef34b5fe71259ec3a8967c60"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "journal_paragraph_art",
+      "label": "右上白色手写旅行段落",
+      "kind": "overlay",
+      "bbox": [
+        842,
+        224,
+        1400,
+        522
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/278a70e289d75dfc8c32ce40",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/380f09bb5ef2b01a18fac02f",
+        "raw": "/api/tasks/e33bea752bda51ff/images/f19c52e8891110124f85da95",
+        "processed": "/api/tasks/e33bea752bda51ff/images/8340915d030e3272fcdf978b"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2d88005d06560e040451dabe0e601e666124f81a1d6ad21d143253ed0987e487"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "pink_star_trail",
+      "label": "粉色星星轨迹涂鸦",
+      "kind": "overlay",
+      "bbox": [
+        252,
+        541,
+        528,
+        837
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/b5aac5358b8d82974c9583cd",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/2b2d64b2faa92857b94943b4",
+        "raw": "/api/tasks/e33bea752bda51ff/images/802ea897bf92d2c29d43be18",
+        "processed": "/api/tasks/e33bea752bda51ff/images/2347fda44a763cf358b908a2"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "4b1ecdaed469c094a572b56f7e049f7f832e1615ea6fb8f7c93a748bcd7541b3"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "gingham_tape",
+      "label": "蓝白方格胶带",
+      "kind": "overlay",
+      "bbox": [
+        685,
+        643,
+        836,
+        759
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/bb762b80bd240e2d3ac63dea",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/7d672ea37f04f09d1a77774b",
+        "raw": "/api/tasks/e33bea752bda51ff/images/f4de1c0f36a286d56b8fce6e",
+        "processed": "/api/tasks/e33bea752bda51ff/images/4f236b571c58553721cd8e81"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f15a5c33036db5a7db1cd9e3d598550dfb1615d79ca50a269c5e74388635af25"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "fish_bubble_doodle",
+      "label": "白色小鱼气泡涂鸦",
+      "kind": "overlay",
+      "bbox": [
+        1127,
+        1095,
+        1299,
+        1256
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/a4188c4c0475a53d671c91bb",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/1668f46900e5f93ee988716c",
+        "raw": "/api/tasks/e33bea752bda51ff/images/8d3a62d763fcd85240811a6f",
+        "processed": "/api/tasks/e33bea752bda51ff/images/ee061143de971159811eb41f"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c8685e50244e485739aae10abf58bfea8c6e63418aea892f57f2380c077d1ef8"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "island_sticker",
+      "label": "黄色海岛椰树贴纸",
+      "kind": "overlay",
+      "bbox": [
+        550,
+        1230,
+        725,
+        1405
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/195832ccee1807d45be4ed9c",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/db66a68f99ed807261211b80",
+        "raw": "/api/tasks/e33bea752bda51ff/images/eb2e17e20e6e9751ce3a9b1b",
+        "processed": "/api/tasks/e33bea752bda51ff/images/da08f058d1c3eaeaaeb568a8"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "62f427dca20cf0a934fc170e6d4c7eff84e3cb82ec5538616d13a8a093ee303b"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "blue_note_art",
+      "label": "蓝色手写夏日便签",
+      "kind": "overlay",
+      "bbox": [
+        146,
+        1461,
+        561,
+        1671
+      ],
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/e33bea752bda51ff/images/da86f024b2bb277fbf193d6c",
+        "customer": null,
+        "final": "/api/tasks/e33bea752bda51ff/images/97ca5356ecab61589d51df71",
+        "raw": "/api/tasks/e33bea752bda51ff/images/617ebd2d8aeb1a8e57b62b8d",
+        "processed": "/api/tasks/e33bea752bda51ff/images/e156f0afc7bc1c8e7fba0576"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6862ef3e759ddf44e756d585797aad69f56ded10761da9fe6f448183db504f53"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "fish_bubble_doodle",
+        "journal_paragraph_art"
+      ],
+      "at": "2026-10-16T03:39:04.561966+00:00",
+      "error": "",
+      "available_ids": [
+        "fish_bubble_doodle",
+        "journal_paragraph_art"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 40.543,
+      "cache_hit": false
+    },
+    {
+      "status": "complete",
+      "ids": [
+        "gingham_tape",
+        "pink_star_trail",
+        "stars_paper_cluster",
+        "white_firework_doodle"
+      ],
+      "at": "2026-10-16T03:39:14.211490+00:00",
+      "error": "",
+      "available_ids": [
+        "gingham_tape",
+        "pink_star_trail",
+        "stars_paper_cluster",
+        "white_firework_doodle"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 50.193,
+      "cache_hit": false
+    },
+    {
+      "status": "complete",
+      "ids": [
+        "blue_note_art",
+        "island_sticker"
+      ],
+      "at": "2026-10-16T03:39:33.612598+00:00",
+      "error": "",
+      "available_ids": [
+        "blue_note_art",
+        "island_sticker"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 29.049,
+      "cache_hit": false
+    }
+  ],
+  "quality": "verified",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Local primitive; visual similarity requires review"
+    },
+    {
+      "id": "stars_paper_cluster",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "white_firework_doodle",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "journal_paragraph_art",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "pink_star_trail",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "gingham_tape",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "fish_bubble_doodle",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "island_sticker",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "blue_note_art",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "68591e7ef0d54c0a",
+    "checked_entire_composition": true,
+    "verdict": "pass",
+    "summary": "已查看完整对照图、两张提取检查表和四处指定交叉局部；三张客户照片填满窗口，装饰层级与遮挡关系正确，无旧照片残留、重复文字或关键缺失。整页海面摄影质感按首版范围以蓝色颗粒底近似。",
+    "items": [
+      {
+        "id": "background",
+        "action": "keep",
+        "reason": "蓝色颗粒底保留海洋色调与轻微质感；与参考摄影海浪的细节差异属于已确认的首版背景近似，不影响照片、文字或关键遮挡。"
+      }
+    ],
+    "scene_sha256": "d2142a4513487398b846048e27c5bd5fbbef90bf8adfa0054794589255812a97",
+    "final_sha256": "faf08aa7e01af80e5d58917fcb299cba89c1cc9c2bb70af22ddb23964232da8d"
+  },
+  "recording_incomplete": false
+}

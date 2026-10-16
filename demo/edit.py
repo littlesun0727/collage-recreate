@@ -34,7 +34,10 @@ def main():
     workspace = args.workspace.resolve()
     state_path = workspace/'.editor-state.json'
     identity = hashlib.sha256(str(workspace).encode()).hexdigest()
-    suffix = '/?task=b85eec1d0ef5933e'
+    catalog_path = ROOT/'task-catalog.json'
+    catalog = read(catalog_path) if catalog_path.is_file() else {}
+    default_task = catalog.get('default_task', 'b85eec1d0ef5933e')
+    suffix = '/?task='+default_task
     if state_path.exists():
         previous = read(state_path)
         url = 'http://127.0.0.1:'+str(int(previous['port']))
@@ -67,7 +70,8 @@ def main():
     token = secrets.token_urlsafe(32)
     kwargs = dict(chat_path=workspace/'chat.sqlite' if args.enable_chat else None,
                   enable_editor=True, enable_motion=True, enable_create=args.enable_create,
-                  media_root=workspace/'service', cutout_model=workspace/'models'/manifest['model']['name'])
+                  media_root=workspace/'service', cutout_model=workspace/'models'/manifest['model']['name'],
+                  task_catalog=catalog)
     port = args.port
     if port == 8795:
         with socket.socket() as probe:
