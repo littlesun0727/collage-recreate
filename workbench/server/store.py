@@ -72,8 +72,9 @@ def events(run):
 
 
 class Store:
-    def __init__(self, roots):
+    def __init__(self, roots, media_root=None):
         self.roots = [Path(p).resolve() for p in roots]
+        self.media_root = Path(media_root) if media_root else self.roots[0]/'.workbench/live'
         self._artifacts = {}
         self._lock = threading.RLock()
 
@@ -129,12 +130,22 @@ class Store:
 
     def listing(self):
         result = []
+        creations = {job.get('task'):job for path in (self.media_root/'jobs').glob('create-*.json')
+                     if (job:=read(path))}
         for key, run in self.tasks().items():
             inp = read(run/'input.json'); outcome = read(run/'result.json')
+            metadata = read(run/'workbench-task.json')
+            creation = creations.get(key,{})
             result.append({'id': key, 'name': run.name, 'created_at': inp.get('created_at'),
+                           'category': metadata.get('category'),
+                           'reference_name': metadata.get('reference_name'),
+                           'production_order': metadata.get('production_order'),
+                           'creation_status': creation.get('status'),
                            'quality': outcome.get('status', 'pending'),
                            'thumbnail': self.image(key, run, run/'final.png') or self.image(key, run, run/'prepared/reference.png')})
-        return sorted(result, key=lambda r: r.get('created_at') or '', reverse=True)
+        result.sort(key=lambda r:r.get('created_at') or '',reverse=True)
+        return sorted(result,key=lambda r:({'collage':0,'creative':1}.get(r.get('category'),2),
+                                          r.get('production_order') or float('inf')))
 
     def document(self, key):
         run = self.tasks().get(key)

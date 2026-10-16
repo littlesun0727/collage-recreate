@@ -30,6 +30,41 @@ class OfflineCreation(Creation):
     def preflight(self):pass
 
 
+def test_restart_keeps_paused_jobs_and_honors_production_order(run,tmp_path):
+    class RecordingCreation(OfflineCreation):
+        def __init__(self):self.started=[]
+        def work(self,service,path,job):
+            self.started.append(job['id'])
+            job['status']='completed';save(path,job)
+            with service.guard:service.active.discard(job['id'])
+    root=tmp_path/'ordered-service'
+    store=Store([run]);task=next(iter(store.tasks()))
+    for suffix,order,status in [('aaaaaaaa',2,'queued'),('bbbbbbbb',1,'queued'),('cccccccc',0,'paused')]:
+        save(root/'jobs'/f'create-{suffix}.json',{'id':f'create-{suffix}','kind':'create',
+             'task':task,'run':str(run),'status':status,'production_order':order,'created_at':suffix})
+    # Automatic-import recovery must not resume an explicitly paused task.
+    save(root/'jobs'/'import-cccccccc.json',{'id':'import-cccccccc','kind':'import',
+         'task_id':task,'run':str(run),'status':'completed','auto_create':True})
+    creator=RecordingCreation();service=Motion(store,root,creator=creator)
+    service.close()
+    assert creator.started==['create-bbbbbbbb','create-aaaaaaaa']
+    assert read(root/'jobs'/'create-cccccccc.json')['status']=='paused'
+
+
+def test_task_listing_matches_batch_order_and_exposes_pause_state(tmp_path):
+    root=tmp_path/'tasks';media=tmp_path/'service'
+    for name,category,order in [('newer','collage',2),('older','collage',1),('creative','creative',1)]:
+        save(root/name/'input.json',{'created_at':'2026-10-16T12:00:00' if name=='newer' else '2026-10-15T12:00:00'})
+        save(root/name/'workbench-task.json',{'category':category,'production_order':order,'reference_name':name+'.jpg'})
+    store=Store([root],media)
+    creative=next(key for key,path in store.tasks().items() if path.name=='creative')
+    save(media/'jobs'/'create-cccccccc.json',{'task':creative,'status':'paused'})
+    listing=store.listing()
+    assert [t['name'] for t in listing]==['older','newer','creative']
+    assert listing[-1]['creation_status']=='paused'
+    assert listing[0]['reference_name']=='older.jpg'
+
+
 def wait_job(service, identifier):
     for _ in range(200):
         job=service.job(identifier)

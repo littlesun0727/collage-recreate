@@ -8,9 +8,9 @@ from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 from common import read, sha, verify_source
 from motion_io import save
+from media_formats import VIDEO_EXTENSIONS
 
 MICROSECOND = Fraction(1, 1_000_000)
-VIDEO_EXTENSIONS = {'.mp4', '.mov'}
 
 
 def av_module():
@@ -101,11 +101,15 @@ def prepare_live(reference, materials, run, width=1200, instructions='', cutout_
     roots = [Path(p).resolve() for p in materials]
     if any(run.is_relative_to(p) for p in roots):
         raise ValueError('Task outputs must be outside source directories')
+    from media_formats import normalize_inputs
+    reference, materials, imports = normalize_inputs(reference, materials, run, publish)
+    roots = [Path(p).resolve() for p in materials]
     videos = sorted({p.resolve() for root in roots for p in root.rglob('*')
                      if p.is_file() and p.suffix.lower() in VIDEO_EXTENSIONS})
     if not videos:
         publish('contact_sheets')
         result=prepare(reference, materials, run, width, instructions, cutout_model)
+        save(run/'media/imports.json', {'files': imports})
         publish('complete',assets=result['asset_count']);return result
     # Sibling cache is outside the not-yet-created run; original prepare stays intact.
     cache = run.parent / '.live-media' / (run.name+'-'+uuid.uuid4().hex[:12])
@@ -127,6 +131,7 @@ def prepare_live(reference, materials, run, width=1200, instructions='', cutout_
         raise ValueError('Different videos have identical posters; choose distinct cover frames first')
     publish('contact_sheets',done=len(videos),total=len(videos))
     result = prepare(reference, [*materials, str(cache)], run, width, instructions, cutout_model)
+    save(run/'media/imports.json', {'files': imports})
     save(run/'media/manifest.json', {'schema_version': 'collage-live-v1', 'videos': records,
                                     'audio': 'muted', 'poster_policy': 'first_native_frame'})
     result['live_count'] = len(records)

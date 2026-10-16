@@ -201,6 +201,9 @@ def test_http_denies_arbitrary_files_and_writes_and_restores_saved_state(run):
         serialized=json.dumps(d)
         assert str(run).replace('\\','\\\\') not in serialized
         with urllib.request.urlopen(base+d['current_image']) as r:assert r.headers['Content-Type']=='image/png'
+        for name in ['architecture','data']:
+            with urllib.request.urlopen(base+'/reveal-'+name+'.png') as r:
+                assert r.headers['Content-Type']=='image/png' and r.read(8)==b'\x89PNG\r\n\x1a\n'
         for path in ['/api/tasks/'+tasks[0]['id']+'/images/../../input.json','/../skill/SKILL.md']:
             with pytest.raises(urllib.error.HTTPError) as exc:urllib.request.urlopen(base+path)
             assert exc.value.code==404

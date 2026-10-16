@@ -94,20 +94,39 @@ function selectedVersion() {
     );
   return d.versions.at(-1) || null;
 }
-function taskList() {
+function visibleTasks() {
   const term = $("#search").value.toLowerCase();
+  const category = $("#taskCategory").value;
+  const categorized = state.tasks.some((t) => t.category);
+  const isUpload = (t) => !t.category && !!t.creation_status;
+  return state.tasks.filter((t) =>
+    (!categorized || category === "all" || t.category === category ||
+      (category === "collage" && isUpload(t))) &&
+    `${t.name} ${t.reference_name || ""}`.toLowerCase().includes(term))
+    .sort((a, b) => Number(isUpload(b)) - Number(isUpload(a)));
+}
+function taskList() {
+  const visible = visibleTasks();
+  const creationLabels = {queued:"排队中",running:"制作中",completed:"封面完成",failed:"制作失败",paused:"已暂停"};
+  const taskLabel = (t) => t.reference_name
+    ? t.reference_name.replace(/\.[^.]+$/, "").replace(/^REF-[a-f0-9]+__/i, "")
+    : t.name;
   setHTML(
     $("#tasks"),
-    state.tasks
-      .filter((t) => t.name.toLowerCase().includes(term))
+    visible
       .map(
         (t) =>
-          `<button class="task ${t.id === state.id ? "active" : ""}" data-task="${t.id}">${t.thumbnail ? `<img src="${t.thumbnail}" alt="">` : ""}<span><strong>${escapeHTML(t.name)}</strong><small>${t.created_at ? new Date(t.created_at).toLocaleDateString("zh-CN") : ""}</small></span></button>`,
+          `<button class="task ${t.id === state.id ? "active" : ""}" data-task="${t.id}" title="${escapeHTML(t.reference_name || t.name)}">${t.thumbnail ? `<img src="${t.thumbnail}" alt="">` : ""}<span><strong>${t.production_order ? `${String(t.production_order).padStart(2,"0")} · ` : ""}${escapeHTML(taskLabel(t))}</strong><small>${!t.category && t.creation_status ? "新上传 · " : ""}${escapeHTML(creationLabels[t.creation_status] || (t.created_at ? new Date(t.created_at).toLocaleDateString("zh-CN") : ""))}</small></span></button>`,
       )
       .join(""),
   );
-  $("#taskCount").textContent = state.tasks.length;
+  $("#taskCount").textContent = visible.length;
 }
+$("#taskCategory").onchange = () => {
+  taskList();
+  const first = $("#tasks [data-task]");
+  if (first && !$("#tasks .active")) selectTask(first.dataset.task);
+};
 function selectTask(id) {
   state.page = "workbench";
   state.techObject = null;
@@ -610,8 +629,16 @@ async function refresh() {
   const id = state.id;
   try {
     state.tasks = await api("/api/tasks");
-    if (!state.id && state.tasks.length) {
-      state.id = state.tasks[0].id;
+    if (!state.id || !state.tasks.some((t) => t.id === state.id)) {
+      const visible = visibleTasks();
+      state.id = visible.find((t) => t.creation_status === "running")?.id || visible[0]?.id || null;
+      state.data = null;
+      state.stage = null;
+      state.version = null;
+      const url = new URL(location.href);
+      if (state.id) url.searchParams.set("task", state.id);
+      else url.searchParams.delete("task");
+      history.replaceState({}, "", url);
     }
     taskList();
     if (state.id) {

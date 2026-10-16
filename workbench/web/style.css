@@ -148,7 +148,11 @@ h2 {
   background: var(--light);
   border-color: #cdded1;
 }
+.task-filter { display:block; margin:0 0 12px; color:var(--muted,#68706b); font-size:12px; }
+.task-filter select { display:block; width:100%; margin-top:6px; padding:9px 8px; border:1px solid #dce2dc; border-radius:8px; background:#fff; color:#26362c; }
+.task > span { min-width:0; }
 .task img {
+  flex-shrink: 0;
   width: 36px;
   height: 44px;
   object-fit: cover;
@@ -1047,6 +1051,20 @@ button:disabled { opacity:.5; cursor:not-allowed; }
 #uploadForm label { display:block; margin:16px 0; }
 #uploadForm input,#uploadForm textarea,#uploadHandoffText { display:block; width:100%; margin-top:8px; }
 #uploadProgress { width:100%; }
+#uploadMaterialPicker,#uploadReferencePicker { min-width:0; margin:16px 0; padding:12px; border:1px solid #ccd8cc; border-radius:10px; }
+#uploadForm .upload-file-button { position:relative; display:flex; align-items:center; justify-content:center; min-height:48px; margin:8px 0; padding:0 16px; border:1px solid #aebfae; border-radius:8px; background:#edf3e9; color:#285941; cursor:pointer; }
+#uploadForm .upload-file-button input[type=file] { position:absolute; inset:0; display:block; width:100%; height:100%; margin:0; padding:0; opacity:0; cursor:pointer; }
+#uploadForm .upload-file-button:focus-within { outline:2px solid #285941; outline-offset:2px; }
+#uploadForm fieldset:disabled .upload-file-button { opacity:.55; }
+#uploadReferenceName { overflow-wrap:anywhere; }
+.upload-selection-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+#uploadSelection { list-style:none; margin:8px 0; padding:0; max-height:220px; overflow:auto; }
+#uploadSelection li { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:6px 0; border-bottom:1px solid #e5e9e5; }
+#uploadSelection li span { min-width:0; overflow-wrap:anywhere; }
+#uploadSelection li button { flex-shrink:0; }
+#uploadSelection small { color:#52715b; }
+#uploadSelectionMessage { white-space:pre-line; }
+#uploadForm input[hidden] { display:none; }
 @media(max-width:850px) { .motion-stages { grid-template-columns:1fr 1fr; } .live-materials { grid-template-columns:1fr 1fr; } }
 
 /* Two presentation views; styles stay scoped to the technical page. */

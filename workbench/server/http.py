@@ -13,7 +13,7 @@ WEB = Path(__file__).resolve().parents[1]/'web'
 
 
 def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=False, enable_motion=False, media_root=None, cutout_model=None, enable_create=False, creator=None):
-    store = Store(roots)
+    store = Store(roots,media_root)
     from .chat import ChatQueue, Conflict
     queue=ChatQueue(store,chat_path,agent=agent) if chat_path else None
     from .editor import Editor,EditorError
@@ -57,7 +57,7 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                     return self.send(b'', 'video/mp4',416,{'Content-Range':f'bytes */{size}'})
                 code=206
             self.send_response(code)
-            self.send_header('Content-Type','video/quicktime' if path.suffix.lower()=='.mov' else 'video/mp4')
+            self.send_header('Content-Type',{'.mov':'video/quicktime','.webm':'video/webm'}.get(path.suffix.lower(),'video/mp4'))
             self.send_header('Accept-Ranges','bytes');self.send_header('Content-Length',str(end-start+1))
             self.send_header('X-Content-Type-Options','nosniff');self.send_header('Cache-Control','no-store')
             if code==206:self.send_header('Content-Range',f'bytes {start}-{end}/{size}')
@@ -81,9 +81,9 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                 return self.send(b'Invalid origin', 'text/plain', 403)
             path = urlsplit(self.path).path
             try:
-                if path in {'/', '/app.js', '/chat.js', '/editor.js', '/editor-crop.js', '/motion.js', '/style.css'}:
+                if path in {'/', '/app.js', '/chat.js', '/editor.js', '/editor-crop.js', '/motion.js', '/style.css', '/reveal-architecture.png', '/reveal-data.png'}:
                     name = 'index.html' if path == '/' else path[1:]
-                    mime = {'index.html': 'text/html; charset=utf-8', 'app.js': 'text/javascript; charset=utf-8', 'motion.js':'text/javascript; charset=utf-8','editor.js':'text/javascript; charset=utf-8','editor-crop.js':'text/javascript; charset=utf-8','chat.js':'text/javascript; charset=utf-8','style.css': 'text/css; charset=utf-8'}[name]
+                    mime = 'image/png' if name in {'reveal-architecture.png','reveal-data.png'} else {'index.html': 'text/html; charset=utf-8', 'app.js': 'text/javascript; charset=utf-8', 'motion.js':'text/javascript; charset=utf-8','editor.js':'text/javascript; charset=utf-8','editor-crop.js':'text/javascript; charset=utf-8','chat.js':'text/javascript; charset=utf-8','style.css': 'text/css; charset=utf-8'}[name]
                     return self.send((WEB/name).read_bytes(), mime)
                 parts = path.strip('/').split('/')
                 if path == '/api/chat-config':

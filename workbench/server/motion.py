@@ -14,6 +14,7 @@ import uuid
 from urllib.parse import unquote
 from .store import clean
 from .chat import now, Conflict, process_alive
+from skill.scripts.media_formats import UPLOAD_EXTENSIONS, IMAGE_EXTENSIONS
 
 REPO = Path(__file__).resolve().parents[2]
 IDENTIFIER = re.compile(r'(?:motion|import|batch|create)-[a-zA-Z0-9_-]{8,72}')
@@ -115,7 +116,8 @@ class Motion:
 
     @staticmethod
     def queue_key(job):
-        return (job.get('queued_at') or job.get('created_at',''),job.get('id',''))
+        return (job.get('production_order',float('inf')),
+                job.get('queued_at') or job.get('created_at',''),job.get('id',''))
 
     def render_blocker(self, run, result=None, base_render_id=None):
         result=read(run/'result.json') if result is None else result
@@ -165,9 +167,9 @@ class Motion:
             raise ValueError('素材文件名无效')
         suffix = Path(name).suffix.lower()
         role = headers.get('X-Media-Role', 'material')
-        if role not in {'reference', 'material'} or suffix not in {'.png','.jpg','.jpeg','.webp','.bmp','.mp4','.mov'}:
-            raise ValueError('仅支持图片与 MP4/MOV 视频')
-        if role == 'reference' and suffix in {'.mp4', '.mov'}:
+        if role not in {'reference', 'material'} or suffix not in UPLOAD_EXTENSIONS:
+            raise ValueError(f'{name}：不支持此格式；支持 HEIC/HEIF、JPG/PNG、WebP、AVIF、TIFF、GIF、LIVP 及 MP4/MOV/M4V/WebM')
+        if role == 'reference' and suffix not in IMAGE_EXTENSIONS:
             raise ValueError('参考图需要是静态图片')
         with self.guard:
             path, batch = self.batch(identifier)
@@ -284,8 +286,9 @@ class Motion:
             else:
                 _, batch = self.batch(job['batch_id'])
                 if run.exists():
-                    has_video=any(Path(f['file']).suffix.lower() in {'.mp4','.mov'} for f in batch['files'])
-                    if job.get('auto_create') and (run/'input.json').is_file() and (run/'prepared/catalog.json').is_file() and (not has_video or (run/'media/manifest.json').is_file()):
+                    has_video=any(Path(f['file']).suffix.lower() not in {'.png','.jpg','.jpeg','.bmp','.tif','.tiff'} for f in batch['files'])
+                    normalized_done=read(path.with_suffix('.progress.json')).get('stage')=='complete'
+                    if job.get('auto_create') and (run/'input.json').is_file() and (run/'prepared/catalog.json').is_file() and (normalized_done or not has_video or (run/'media/manifest.json').is_file()):
                         job['task_id']=next(key for key,value in self.store.tasks().items() if value==run)
                         job.update(status='completed')
                         self.creator.submit(self,job)
@@ -309,13 +312,28 @@ class Motion:
                 except subprocess.TimeoutExpired:
                     child.kill(); child.wait(); raise ValueError('动态任务超过两小时，已停止；已完成的帧缓存保留')
             if code:
-                raise ValueError(path.with_suffix('.log').read_text(encoding='utf8', errors='replace')[-1500:])
+                log=path.with_suffix('.log').read_text(encoding='utf8', errors='replace')
+                message=log[-1500:]
+                for line in reversed(log.splitlines()):
+                    try:
+                        result=json.loads(line)
+                    except ValueError:
+                        continue
+                    if isinstance(result,dict) and result.get('error'):
+                        message=str(result['error']);break
+                raise ValueError(message)
             job.update(status='completed')
             if job['kind']=='import':
+                names={f['file']:f['name'] for f in batch['files']}
+                imports=read(run/'media/imports.json').get('files',[])
+                job['notes']=[names.get(i['source'],Path(i['source']).name)+'：'+i['note'] for i in imports if i.get('note')]
+                for item in imports:
+                    names[item['file']]=names.get(item['source'],Path(item['source']).name)
+                    item['name']=names[item['file']]
+                save(run/'media/imports.json',{'files':imports})
                 manifest_path=run/'media/manifest.json'
                 manifest=read(manifest_path)
                 if manifest:
-                    names={f['file']:f['name'] for f in batch['files']}
                     for video in manifest['videos']:
                         video['name']=names.get(video['file'],video['name'])
                     save(manifest_path,manifest)
@@ -324,7 +342,12 @@ class Motion:
                 if job.get('auto_create') and self.creator:
                     self.creator.submit(self,job)
         except Exception as exc:
-            job.update(status='failed', error=clean(str(exc))[:700])
+            message=str(exc)
+            if job['kind']=='import':
+                _, failed_batch=self.batch(job['batch_id'])
+                for item in failed_batch['files']:
+                    message=message.replace(Path(item['file']).name,item['name'])
+            job.update(status='failed', error=clean(message)[-700:])
         finally:
             job.update(finished_at=now(), elapsed_seconds=round(time.monotonic()-start, 3), pid=None)
             save(path, job)
@@ -339,7 +362,7 @@ class Motion:
             raise KeyError('Job')
         if task is not None and row.get('task')!=task:
             raise KeyError('Job')
-        value = {key: row[key] for key in ('id','kind','status','created_at','queued_at','started_at','finished_at','elapsed_seconds','error','task_id','handoff','auto_create','visual_verdict','attempts') if key in row}
+        value = {key: row[key] for key in ('id','kind','status','created_at','queued_at','started_at','finished_at','elapsed_seconds','error','task_id','handoff','auto_create','visual_verdict','attempts','notes') if key in row}
         if row['status']=='queued':
             ahead=[j for p in (self.root/'jobs').glob('*.json') if (j:=read(p)).get('kind') in {'import','create','render'} and
                 j.get('status') in {'queued','running'} and j.get('id')!=row['id'] and
@@ -402,6 +425,7 @@ class Motion:
                          'progress':clean(progress),'error':clean(progress.get('error')),'started_at':progress.get('started_at')})
         jobs.sort(key=lambda job:job.get('created_at') or job.get('started_at') or '')
         return {'enabled': True, 'videos': videos, 'versions': sorted(versions,key=lambda v:v['at']), 'jobs': jobs,
+                'import_notes':[i.get('name',Path(i['source']).name)+'：'+i['note'] for i in read(run/'media/imports.json').get('files',[]) if i.get('note')],
                 'base_render_id': current.get('render_id'),'eligible_slots':eligible,
                 'render_blocker': self.render_blocker(run,current),
                 'cover_warning': self.cover_warning(run,current),
