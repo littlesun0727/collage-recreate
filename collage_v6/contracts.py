@@ -128,7 +128,7 @@ REVIEW = obj({'verdict': {'enum': ['pass', 'needs_changes']}, 'summary': STRING,
 FINAL_REVIEW = obj({'verdict': {'enum': ['pass', 'needs_changes']}, 'summary': STRING, 'issues': array(ISSUE)})
 SCREEN = obj({'decisions': array(obj({'id': STRING, 'action': {'enum': ['keep', 'drop', 'backing']},
                                     'reason': STRING, 'photo_content': {'enum': ['present', 'absent', 'uncertain']},
-                                    'style': STYLE, 'embedded_ids': array(STRING)},
+                                    'embedded_ids': array(STRING)},
                                    ['id', 'action', 'reason', 'photo_content']))})
 EDIT = obj({'decision': {'enum': ['edit', 'clarify', 'unsupported']}, 'summary': STRING, 'question': STRING,
             'changes': array(ADJUSTMENT), 'remove_ids': array(STRING), 'layer_order': array(STRING)})
@@ -245,14 +245,32 @@ def validate_box_decision(value, current, run, geometry_warnings=None):
         _preserve_box_records(current['text_units'], value['text_units'], 'id', {'bbox'}, 'text unit')
         validate_reference(value, run, geometry_warnings=geometry_warnings)
         if 'photo_windows' in current or 'photo_windows' in value:
-            from photo_windows import check
+            from photo_windows import resolve_seams
             if 'photo_windows' not in value:
                 raise ValueError('replace must include the complete photo_windows plan')
             if 'photo_windows' not in current:
                 raise ValueError('boxes cannot create a photo_windows plan when none was supplied')
-            _preserve_box_records(current['photo_windows']['photos'], value['photo_windows']['photos'],
+            # Geometry can reduce the overlap supporting an existing fade. The
+            # program owns that adjustment; the model still cannot redesign a
+            # window. Build the expected plan from original windows plus new slots.
+            original = {p['photo_id']: p for p in current['photo_windows']['photos']}
+            baseline = deepcopy(value['photo_windows'])
+            baseline['photos'] = [deepcopy(original.get(p['photo_id'], p)) for p in baseline['photos']]
+            resolved, notes = resolve_seams(baseline, after)
+            expected = {p['photo_id']: p for p in resolved['photos']}
+            echoed = deepcopy(value['photo_windows']['photos'])
+            for spec in echoed:
+                oid = spec['photo_id']
+                # Cached accepted replies and apply/replay already contain the
+                # deterministic adjustment. Accept that exact result as well.
+                if oid in original and spec == expected[oid]:
+                    spec.clear()
+                    spec.update(deepcopy(original[oid]))
+            _preserve_box_records(current['photo_windows']['photos'], echoed,
                                   'photo_id', set(), 'photo window')
-            check(value['photo_windows'], value['analysis'])
+            value['photo_windows'] = resolved
+            if geometry_warnings is not None:
+                geometry_warnings.extend({'code': 'boxes_seam_adjusted', 'message': note} for note in notes)
     elif any(key in value and value[key] != current.get(key) for key in ['analysis', 'bindings', 'text_units', 'photo_windows']):
         raise ValueError('keep cannot change analysis, bindings, text_units or photo_windows; use replace for a correction')
     # Some providers echo unchanged optional fields. Exact echoes authorize no mutation.

@@ -96,9 +96,6 @@ def layer_zero(task, expected_size):
                 im.load()
                 if abs(im.width/im.height - expected_size[0]/expected_size[1]) > .02 * expected_size[0]/expected_size[1]:
                     raise ValueError('Layer 0 aspect ratio changed')
-                # Service PNGs occasionally contain isolated 253/254 alpha samples on an opaque base.
-                if 'A' in im.getbands() and im.getchannel('A').getextrema()[0] < 250:
-                    raise ValueError('Layer 0 is not an opaque residual canvas')
             return path
         except (OSError, ValueError) as exc:
             errors.append(str(exc))
@@ -147,6 +144,7 @@ def acquire(run, scene, targets, config):
         number = len(report['rounds']) + 1
         started = time.monotonic()
         with Image.open(current) as im:
+            # Chain the residual RGB pixels directly; service alpha must not block continuation.
             rgb = im.convert('RGB')
         objects = input_objects(objects, size, rgb.size)
         identity = {'version': CACHE_VERSION, 'reference_sha256': scene['reference']['sha256'],

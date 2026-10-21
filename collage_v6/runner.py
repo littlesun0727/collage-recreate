@@ -330,7 +330,8 @@ class Runner:
                   'text_units': read(self.run/'text-units.json', [])}
         images = self.analysis_images()+[('分析叠框', self.run/'previews/analysis-boxes.png')]
         if (self.run/'photo-windows.json').exists():
-            # Window settings are carried through unchanged; boxes reviews geometry.
+            # The VLM carries windows through unchanged; validation reconciles
+            # fade coverage deterministically after its geometry corrections.
             bundle['photo_windows'] = read(self.run/'photo-windows.json')
         def validate(answer):
             notes.clear()
@@ -354,6 +355,9 @@ class Runner:
                 current['photo_windows'] = read(self.run/'photo-windows.json')
             contracts.validate_box_decision(answer, current, self.run, geometry_warnings=[])
             self.write_reference(answer)
+            if 'photo_windows' in answer:
+                from photo_windows import previews
+                previews(self.run, answer['analysis'], answer['photo_windows'])
         self.progress(2, 'running', '参考分析及叠框已完成，准备理解客户素材')
 
     def understand_materials(self):

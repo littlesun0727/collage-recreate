@@ -96,7 +96,7 @@ BOXES = REFERENCE_BASE + '''\n你负责在已有 analysis.json 上改框、补�
 4. frame 的框覆盖完整框体外沿，关联 photo 的框覆盖照片内口，允许重叠，不能为分离对象裁掉框边。补遗漏的可提取单窗相框时使用 kind=frame、method=extract、有效 photo_id，并放在照片之上；简单几何单色轮廓归照片，不补成 frame。已有分类或关联错误只报告，不越权改写。
 
 不手动加 padding。bbox 是旋转前的制作框，在原图像素空间绕中心旋转，rotation 顺时针为正；贴纸之间允许重叠。新增对象按原有格式填写完整字段，并插入 layer_order 的正确位置，不重排旧对象。
-text_units 保留已有记录，只同步受影响的 bbox；漏掉整个文字单元时补对应记录。输入若有 photo_windows，原样保留已有窗口参数；补 photo 时仅补对应新窗口项。没有该计划就不创建它。
+text_units 保留已有记录，只同步受影响的 bbox；漏掉整个文字单元时补对应记录。输入若有 photo_windows，原样保留已有窗口参数；补 photo 时仅补对应新窗口项。没有该计划就不创建它。改框后若重叠范围不足以支撑原渐隐，程序会按新几何缩小 fade 并同步 seams.width；本节点仍照原值返回，不自行修改窗口效果，也不为保住渐隐而保留错误的框。
 
 无须改框或补框：decision=keep，返回 summary 和本次坐标标记。有修正：decision=replace，返回基于输入修改后的完整 analysis、text_units，以及输入中已有的 photo_windows 和本次坐标标记；其他内容原样复制。summary 简短列出改了哪个框、坐标前后值或新增了什么，不能声称修正却不改坐标。
 若 context.verify_only=true，只报告问题，不返回 replace。
@@ -111,7 +111,7 @@ photo_content 必须明确填写 present（看到了原摄影内容）、absent�
 drop：仅在 photo_content=present，明确仍有原人物/环境照片内容时选择。没有候选或候选为空由程序直接兜底；可用但不能确定的候选先保留。拒绝的是提取像素，程序将按原外框和照片内口绘制替代相框，不删除照片槽。
 occupied/opaque/window_unverified 等程序提示仅供参考，不是必须 drop 的依据；它们不能区分纸底与旧照片。
 区分印刷插画、纸张纹理和原摄影内容。框边上的印字随框保留，轻微污点不能整框删除。若大面积原照片残留，不能用 keep 隐藏问题。
-只输出 keep/drop/backing，不重画非相框、不调整客户照片、不创建对象。reason 写明是否存在原照片、纸底或轻微残留。
+只输出 keep/drop/backing，不输出 style；替代框的样式由程序沿用已有分析及默认值。不重画非相框、不调整客户照片、不创建对象。reason 写明是否存在原照片、纸底或轻微残留。
 embedded_ids 只确认已有显式归属，默认省略。无相框时 decisions=[]。
 '''
 

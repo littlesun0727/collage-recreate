@@ -155,7 +155,7 @@ yibu GPT 使用流式传输并请求用量统计，减少长时间非流式等�
 
 背景来源在原 analyze 调用中选择：`photographic` 绑定客户照片；`simple_design` 本地绘制；`reference_clean` 使用 `kind=background, method=extract`，通过 Reveal 素材清底保留固定模板。无需独立编辑、也不参与前后穿插的固定底板可以整体保留，包括实拍材质与结构。旧 `complex_design` 继续按本地近似读取，不自动改写历史任务。
 
-full 模式保持原素材选择及关联分组，每次最多 20 个框（含照片上下文）。超限批次串行读取上一轮 `layer_0`，素材逐批累计；素材漏提单独记录，只要底板有效就继续后续轮次。仅 reference_clean 背景继续清除 analysis 中未被返回映射覆盖的 photo、独立 text、overlay 和 frame，包括前一轮漏提的前景。已嵌入完整载体的内容不重复清除，parent_id 或框相交不代表像素归属。没有素材提取时从原参考开始清底；没有剩余清底目标时直接使用最后底板。不新增 VLM 调用，不自动识别像素残留。映射和文件检查不等于视觉审核。
+full 模式保持原素材选择及关联分组，每次最多 20 个框（含照片上下文）。超限批次串行读取上一轮 `layer_0`，直接转为 RGB 后继续提取，不检查底板透明度，素材逐批累计；素材漏提单独记录，只要底板有效就继续后续轮次。仅 reference_clean 背景继续清除 analysis 中未被返回映射覆盖的 photo、独立 text、overlay 和 frame，包括前一轮漏提的前景。已嵌入完整载体的内容不重复清除，parent_id 或框相交不代表像素归属。没有素材提取时从原参考开始清底；没有剩余清底目标时直接使用最后底板。不新增 VLM 调用，不自动识别像素残留。映射和文件检查不等于视觉审核。
 
 `assets/reveal/chain-report.json` 记录各轮输入、映射、素材缺失、清底 ID 和最终底板。新批次缓存绑定实际输入底板哈希，坐标按输入尺寸从原分析映射。清底失败时，背景转为本地近似绘制：优先使用已有 style，缺少底色时按 analysis 框排除前景后取背景颜色中位数；没有足够样本则使用中性底色。兜底不会复制原图照片或文字，结果标记为 approximate/local_background，并保留失败原因，不冒充清底成功。full 模式默认总提交上限 16，可用 `--reveal-max-requests` 或 `COLLAGE_REVEAL_MAX_REQUESTS` 调整，HTTP 重试也计数；执行前检查素材与清底计划是否超限。grouped/legacy 保留原路径及限制。
 

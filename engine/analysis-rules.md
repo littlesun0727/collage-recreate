@@ -25,12 +25,21 @@ analysis 输出参考内容、对象 ID、原图 bbox、rotation、layer_order �
 ```json
 {
   "schema_version":"collage-bindings-v1",
-  "photos":[{"slot_id":"photo_main","asset_id":"asset_012345abcdef","reason":"景别适合主槽"}],
+  "photos":[{
+    "slot_id":"photo_main",
+    "asset_id":"asset_012345abcdef",
+    "crop_center":[0.5,0.5],
+    "source_crop":[0,0,1,1],
+    "mirror_x":false,
+    "reason":"按完整源图居中适配照片槽，不镜像"
+  }],
   "texts":[]
 }
 ```
 
-示例asset ID必须替换为catalog的真实值。crop_center默认[0.5,0.5]，范围0..1；可选source_crop=[0,0,1,1]、mirror_x=true。cutout的source_crop相对于已抠出主体的透明边界。
+示例asset ID必须替换为catalog的真实值。每个绑定必须显式填写crop_center、source_crop、mirror_x，不得省略；不调整时也必须分别写出[0.5,0.5]、[0,0,1,1]、false。示例展示未指定额外裁切且不镜像的完整绑定，实际值须根据客户素材与照片槽决定，不能直接照抄。
+
+crop_center和source_crop使用0..1的局部坐标；source_crop按[左,上,右,下]填写，只有确需水平镜像时mirror_x才为true。reason描述的裁切与镜像必须落实到这些字段，不能只写文字理由。cutout的source_crop相对于已抠出主体的透明边界；本阶段尚未看到实际抠图边界时，遵守绑定提示词中的完整保留主体及linked_to规则。
 
 不可辨文字可在texts中补`{"object_id":"caption","text":"新创作短句","origin":"generated","reason":"替代不可辨内容"}`；origin为user/generated，不能冒充识别原文或猜事实姓名日期。已知文字不由bindings覆盖。
 
