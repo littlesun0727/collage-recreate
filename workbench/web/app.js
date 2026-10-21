@@ -35,6 +35,9 @@ const state = {
   focus: null,
   busy: false,
   tasks: [],
+  batches: [],
+  batch: new URLSearchParams(location.search).get("batch") || "",
+  expandedBatches: new Map(),
   canvasKey: "",
   materialKeys: new Map(),
 };
@@ -104,20 +107,73 @@ function selectedVersion() {
   return d.versions.at(-1) || null;
 }
 function taskList() {
-  const term = $("#search").value.toLowerCase();
-  setHTML(
-    $("#tasks"),
-    state.tasks
-      .filter((t) => t.name.toLowerCase().includes(term))
-      .map(
-        (t) =>
-          `<button class="task ${t.id === state.id ? "active" : ""}" data-task="${t.id}">${t.thumbnail ? `<img src="${t.thumbnail}" alt="">` : ""}<span><strong>${escapeHTML(t.name)}</strong><small>${t.created_at ? new Date(t.created_at).toLocaleDateString("zh-CN") : ""}</small></span></button>`,
-      )
-      .join(""),
-  );
-  $("#taskCount").textContent = state.tasks.length;
+  const term = $("#search").value.toLowerCase().trim();
+  const statuses = {queued:"排队中",running:"执行中",completed:"已完成",failed:"未完成"};
+  const byId = new Map(state.tasks.map(t => [t.id, t]));
+  const groups = state.batches.map(batch => ({...batch, tasks:batch.items.map(item => ({
+    ...(byId.get(item.task_id) || {}), id:item.task_id, name:item.name, index:item.index,
+    status:item.status, phase:item.phase, error:item.error,
+  }))}));
+  const ungrouped = state.tasks.filter(t => !t.batch);
+  groups.push({id:"ungrouped",name:"单独任务 / 历史任务",tasks:ungrouped,total:ungrouped.length});
+  setHTML($("#batchFilter"), '<option value="">全部批次</option>'+groups.map(g =>
+    `<option value="${escapeHTML(g.id)}">${escapeHTML(g.name)} (${g.total})</option>`).join(''));
+  // A deep link can arrive while its first input is still being prepared.
+  if (state.batch && !groups.some(g => g.id === state.batch)) {
+    $("#batchFilter").insertAdjacentHTML('beforeend', `<option value="${escapeHTML(state.batch)}">批次暂不可用</option>`);
+  }
+  $("#batchFilter").value = state.batch;
+  const selected = groups.find(g => g.id === state.batch);
+  const summary = $("#batchSummary");
+  summary.hidden = !selected?.model_policy;
+  if (selected?.model_policy) {
+    const c = selected.counts;
+    summary.textContent = `${modelPolicyLabel(selected.model_policy)} · 完成 ${c.completed}/${selected.total} · 未完成 ${c.failed} · 执行中 ${c.running} · 排队 ${c.queued} · 固定客户素材 ${selected.materials.length} 个`;
+    summary.title = `输入指纹 ${selected.dataset_sha256}\n${new Date(selected.created_at).toLocaleString("zh-CN")}`;
+  }
+  let count = 0;
+  const html = groups.filter(g => !state.batch || state.batch === g.id).map((g, position) => {
+    const matchGroup = `${g.name} ${g.model_policy ? modelPolicyLabel(g.model_policy) : ''}`.toLowerCase().includes(term);
+    const tasks = g.tasks.filter(t => matchGroup || t.name.toLowerCase().includes(term));
+    if (!tasks.length && (term || !g.total)) return '';
+    count += tasks.length;
+    const open = term || state.batch || (state.expandedBatches.has(g.id) ? state.expandedBatches.get(g.id) :
+      position === 0 || tasks.some(t => t.id && t.id === state.id));
+    const progress = g.counts ? `完成 ${g.counts.completed}/${g.total} · 未完成 ${g.counts.failed}` : `${tasks.length} 个任务`;
+    const cards = tasks.map(t => `<button class="task ${t.id && t.id === state.id ? 'active' : ''}" ${t.id ? `data-task="${escapeHTML(t.id)}"` : 'disabled'} ${t.error ? `title="${escapeHTML(t.error)}"` : ''}>
+      ${t.thumbnail ? `<img src="${escapeHTML(t.thumbnail)}" alt="" loading="lazy">` : '<span class="task-placeholder">▧</span>'}
+      <span><strong>${t.index ? String(t.index).padStart(2,'0')+' · ' : ''}${escapeHTML(t.name)}</strong>
+      <small class="batch-task-${escapeHTML(t.status || 'saved')}">${escapeHTML(statuses[t.status] || (t.created_at ? new Date(t.created_at).toLocaleDateString('zh-CN') : ''))}${t.phase === 'import' ? ' · 准备素材' : ''}</small></span></button>`).join('');
+    const description = g.model_policy ? `${modelPolicyLabel(g.model_policy)} · ${new Date(g.created_at).toLocaleString('zh-CN')}` : '';
+    return `<details class="task-group" data-batch-group="${escapeHTML(g.id)}" ${open ? 'open' : ''}>
+      <summary title="${escapeHTML(description)}"><strong>${escapeHTML(g.name)}</strong>${!state.batch && description ? `<small>${escapeHTML(description)}</small>` : ''}<small>${escapeHTML(progress)}</small></summary>${cards}</details>`;
+  }).join('');
+  setHTML($("#tasks"), html || '<p class="batch-empty">当前分组没有匹配的任务</p>');
+  $("#taskCount").textContent = count;
 }
+function availableTasks() {
+  const tasks = state.tasks.filter(t => !state.batch || (t.batch?.id || 'ungrouped') === state.batch);
+  return state.batch && state.batch !== 'ungrouped' ? tasks.sort((a,b) => a.batch.index-b.batch.index) : tasks;
+}
+$("#batchFilter").onchange = () => {
+  state.batch = $("#batchFilter").value;
+  const u = new URL(location.href);
+  if (state.batch) u.searchParams.set('batch', state.batch);
+  else u.searchParams.delete('batch');
+  history.replaceState({}, '', u);
+  taskList();
+  refresh();
+};
+$("#tasks").addEventListener('toggle', e => {
+  if (e.target.matches('details[data-batch-group]')) {
+    state.expandedBatches.set(e.target.dataset.batchGroup, e.target.open);
+  }
+}, true);
 function selectTask(id) {
+  const selected = state.tasks.find(t => t.id === id);
+  if (state.batch && selected && (selected.batch?.id || 'ungrouped') !== state.batch) {
+    state.batch = selected.batch?.id || 'ungrouped';
+  }
   state.page = "workbench";
   state.techObject = null;
   state.revealObject = null;
@@ -131,6 +187,8 @@ function selectTask(id) {
   state.zoom = 1;
   state.pan = [0, 0];
   const u = new URL(location.href);
+  if (state.batch) u.searchParams.set('batch', state.batch);
+  else u.searchParams.delete('batch');
   u.searchParams.set("task", id);
   u.searchParams.delete("view");
   u.searchParams.delete("slide");
@@ -621,9 +679,14 @@ async function refresh() {
   state.busy = true;
   const id = state.id;
   try {
-    state.tasks = await api("/api/tasks");
-    if (!state.tasks.some((task) => task.id === state.id)) {
-      state.id = state.tasks[0]?.id || null;
+    [state.tasks, state.batches] = await Promise.all([api("/api/tasks"), api("/api/batches").catch(error => {
+      // Static files can update while a previous server is still finishing jobs.
+      if (error.message.startsWith('HTTP 404')) return [];
+      throw error;
+    })]);
+    const available = availableTasks();
+    if (!available.some((task) => task.id === state.id)) {
+      state.id = available[0]?.id || null;
       state.data = null;
       state.stage = null;
       state.version = null;

@@ -29,6 +29,8 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
     if creator:creator.settings=models
     if creator:creator.preflight()
     motion=Motion(store,media_root or Path(roots[0])/'.workbench/live',cutout_model,creator=creator) if enable_motion or enable_create else None
+    from .batches import Batches
+    batches = Batches(motion) if creator else None
     token=secrets.token_urlsafe(32)
     mutation_guard=threading.RLock()
     class Handler(BaseHTTPRequestHandler):
@@ -103,7 +105,11 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                     data=capabilities(provider,query.get('model',[''])[0])
                 elif path == '/api/chat-config':
                     data={'enabled':bool(queue),'editor_enabled':bool(editor),'motion_enabled':bool(motion),
-                          'create_enabled':bool(creator),'controller':'workflow-v6','token':token if queue or editor or motion else None}
+                          'create_enabled':bool(creator),'batch_enabled':bool(batches),'controller':'workflow-v6','token':token if queue or editor or motion else None}
+                elif path == '/api/batches':
+                    data=batches.listing() if batches else []
+                elif batches and len(parts)==3 and parts[:2]==['api','batches']:
+                    data=batches.get(parts[2])
                 elif creator and len(parts)==4 and parts[:2]==['api','tasks'] and parts[3]=='creation':
                     if parts[2] not in store.tasks():raise KeyError('Task')
                     data=creator.public(motion,parts[2])
@@ -169,7 +175,11 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                     result=models.update(payload['policy'])
                     return self.send(json.dumps(result,ensure_ascii=False).encode('utf8'),'application/json; charset=utf-8')
                 if motion and parts==['api','uploads']:
-                    result=motion.create_batch()
+                    if set(payload)-{'multiple_references'}:raise ValueError('未知上传参数')
+                    result=motion.create_batch(payload.get('multiple_references',False))
+                elif batches and parts==['api','batches']:
+                    result=batches.submit(payload)
+                    return self.send(json.dumps(result,ensure_ascii=False).encode('utf8'),'application/json; charset=utf-8',202)
                 elif motion and len(parts)==4 and parts[:2]==['api','uploads'] and parts[3]=='prepare':
                     result=motion.submit_import(parts[2],payload)
                 elif creator and len(parts)==5 and parts[:2]==['api','tasks'] and parts[3:]==['creation','retry']:

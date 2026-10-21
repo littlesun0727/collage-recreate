@@ -154,9 +154,12 @@ class Motion:
             raise KeyError('Upload batch')
         return path, value
 
-    def create_batch(self):
+    def create_batch(self, multiple_references=False):
+        if type(multiple_references) is not bool:
+            raise ValueError('multiple_references 必须为布尔值')
         identifier = 'batch-'+uuid.uuid4().hex
-        save(self.root/'uploads'/identifier/'batch.json', {'id': identifier, 'files': [], 'sealed': False})
+        save(self.root/'uploads'/identifier/'batch.json', {'id': identifier, 'files': [], 'sealed': False,
+                                                         'multiple_references': multiple_references})
         return {'id': identifier, 'status': 'ready'}
 
     def upload(self, identifier, headers, stream):
@@ -178,11 +181,12 @@ class Motion:
                 raise Conflict('素材批次已提交，请新建一批素材')
             if len(batch['files']) >= 100 or sum(f['bytes'] for f in batch['files'])+length > 1024**3:
                 raise ValueError('一批最多 100 个素材、总计 1 GB')
-            if role == 'reference' and any(f['role']=='reference' for f in batch['files']):
+            if role == 'reference' and not batch.get('multiple_references') and any(f['role']=='reference' for f in batch['files']):
                 raise ValueError('一批只接受一张参考图')
             folder = path.parent/('reference' if role=='reference' else 'materials')
             folder.mkdir(exist_ok=True)
-            destination = folder/(uuid.uuid4().hex+suffix)
+            order = f"{sum(f['role']==role for f in batch['files'])+1:03d}-" if batch.get('multiple_references') else ''
+            destination = folder/(order+uuid.uuid4().hex+suffix)
             temporary = destination.with_suffix('.upload')
             digest = hashlib.sha256()
             try:
@@ -206,6 +210,8 @@ class Motion:
             path, batch = self.batch(identifier)
             if batch.get('job_id'):
                 return self.job(batch['job_id'])
+            if batch.get('multiple_references'):
+                raise ValueError('多参考图上传请通过批跑入口提交')
             if set(payload)-{'width','instructions','model_policy'}:
                 raise ValueError('未知导入参数')
             width = payload.get('width', 1200)
@@ -297,12 +303,13 @@ class Motion:
                     has_video=any(Path(f['file']).suffix.lower() in {'.mp4','.mov'} for f in batch['files'])
                     if job.get('auto_create') and (run/'input.json').is_file() and (run/'prepared/catalog.json').is_file() and (not has_video or (run/'media/manifest.json').is_file()):
                         job['task_id']=next(key for key,value in self.store.tasks().items() if value==run)
+                        if job.get('batch_run'):save(run/'batch-run.json', job['batch_run'])
                         job.update(status='completed')
                         self.creator.submit(self,job)
                         return
                     raise ValueError('上次素材准备已中断；请新建素材批次，旧记录保留供检查')
                 reference = next(f['file'] for f in batch['files'] if f['role']=='reference')
-                materials = self.root/'uploads'/job['batch_id']/'materials'
+                materials = Path(job['materials_dir']) if job.get('batch_run') else self.root/'uploads'/job['batch_id']/'materials'
                 command = [sys.executable, '-B', str(REPO/'engine/scripts/workflow.py'), 'prepare-live',
                            '--run', str(run), '--reference', reference, '--materials', str(materials),
                            '--width', str(job['width']), '--instructions', job['instructions']]
@@ -330,12 +337,15 @@ class Motion:
                         video['name']=names.get(video['file'],video['name'])
                     save(manifest_path,manifest)
                 job['task_id'] = next(key for key, value in self.store.tasks().items() if value==run)
+                if job.get('batch_run'):save(run/'batch-run.json', job['batch_run'])
                 job['handoff'] = '素材准备完成。可继续固定制作流程，完成布局分析与静态封面制作；封面完成后可制作动态成片。'
                 if job.get('auto_create') and self.creator:
                     self.creator.submit(self,job)
         except Exception as exc:
             job.update(status='failed', error=clean(str(exc))[:700])
         finally:
+            if job['kind']=='import' and job.get('batch_run') and (Path(job['run'])/'input.json').is_file():
+                save(Path(job['run'])/'batch-run.json', job['batch_run'])
             job.update(finished_at=now(), elapsed_seconds=round(time.monotonic()-start, 3), pid=None)
             save(path, job)
             with self.guard:

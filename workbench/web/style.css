@@ -149,6 +149,17 @@ h2 {
   overflow: auto;
   flex: 1;
 }
+.batch-label { color:var(--muted); font-size:11px; margin:12px 0 6px; }
+#batchFilter { width:100%; min-height:36px; border:1px solid var(--line); border-radius:7px; background:var(--paper); color:var(--ink); padding:7px; margin-bottom:10px; font-size:11px; }
+.batch-summary { margin:0 0 12px; padding:9px; background:var(--light); border-radius:7px; font-size:10px; line-height:1.7; overflow-wrap:anywhere; max-height:145px; overflow:auto; }
+.task-group { border-bottom:1px solid var(--line); margin-bottom:8px; padding-bottom:5px; }
+.task-group > summary { cursor:pointer; padding:10px 4px; font-size:11px; color:var(--green); overflow-wrap:anywhere; }
+.task-group > summary small { display:block; padding:5px 0 0 14px; font-weight:normal; color:var(--muted); font-size:9px; }
+.task-placeholder { width:36px; flex-shrink:0; text-align:center; color:var(--muted); }
+.task:disabled { opacity:.75; cursor:default; }
+.task .batch-task-failed { color:#a04b35; }
+.task .batch-task-running { color:var(--green); }
+.batch-empty { font-size:11px; padding:12px 4px; color:var(--muted); }
 .task {
   display: flex;
   align-items: center;

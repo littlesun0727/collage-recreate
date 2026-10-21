@@ -14,6 +14,40 @@
 
 `start-local.ps1` 提供 Python、端口、凭证文件、抠图模型和数据目录的显式参数。
 
+## 按模型批跑与分组
+
+`batch_run.py` 将多张参考图提交到工作台的持久化队列。每次启动生成一个独立批次，前端可按批次筛选、折叠和搜索；单独上传和旧任务归入“单独任务 / 历史任务”。批次记录保存在服务数据目录的 `service/batches/`，任务仍放在 `tasks/`，每个任务含有 `batch-run.json`，刷新或重启不会丢失归属。
+
+复制 `batch.example.json` 到自己的配置文件，填写 `references` 参考图列表和固定的 `materials` 客户素材列表。两者均可指定文件或目录；目录递归按路径排序，显式列表保持顺序；配置内相对路径以配置文件所在目录为准。支持 PNG/JPG/WebP/BMP，客户素材也支持 MP4/MOV。每批合计最多 100 个输入文件、1 GB，单文件最多 128 MB。
+
+```powershell
+$batchPython = 'D:\codes\visual-recreate-validation\clean-env\Scripts\python.exe'
+
+# 仅校验模型参数与本地输入，输出实际文件清单，不上传或发起模型调用。
+& $batchPython -B batch_run.py --config D:\my-batches\comparison.json --dry-run
+
+# 按配置提交；服务未启动时自动启动，--open 打开该批次页面。
+& $batchPython -B batch_run.py --config D:\my-batches\comparison.json --open
+
+# 固定同一份输入，只更换模型与推理强度；每次提交都是新批次。
+& $batchPython -B batch_run.py --config D:\my-batches\comparison.json --provider yibu --model gpt-6.1-sol --reasoning medium --name 'GPT medium' --open
+& $batchPython -B batch_run.py --config D:\my-batches\comparison.json --provider yibu --model qwen3.8-flash --reasoning high --name 'Qwen high' --open
+```
+
+模型 ID 使用供应商实际提供的名称。`--model` 和 `--reasoning` 统一应用于首次分析和后续全部 VLM 步骤，并固定到每个任务；不会改写前端的全局默认模型。推理可选 `default/off/on/minimal/low/medium/high/xhigh`；不受现有供应商适配支持的组合会在提交前报错。预算模式使用 `--reasoning-budget 4096`，不能同时指定推理档位。`max_tokens`、`coordinate_mode`、`response_format` 通过配置固定；图片提取、抠图与合成仍使用现有实现。高级对比可在配置中用完整 `model_policy` 指定 `analyze` / `subsequent`，此时不要同时传单模型命令行参数。
+
+客户素材只上传一次，整批共用上传后的快照；参考图顺序、素材顺序和 SHA-256 保存到批次记录。相同输入会产生相同的输入指纹，便于核对模型之间是否使用同一批数据；输入指纹不代表流程参数或代码版本相同。关闭前端或脚本不会停止已入队的制作。单张失败仍保留在该分组，队列继续处理其余任务；批次“已完成”表示制作结束，视觉是否通过仍看任务自己的复核结果。
+
+提交前会保存回执到 `collage-recreate-v6-output/batch-receipts/`。提交响应中断时，使用 `--resume <回执.json>` 续接同一个批次；已有失败任务不会因此重跑。`--wait` 持续报告进度，整批结束时有失败则返回非零退出码。需要重做整批时使用原配置再次启动，生成新分组。
+
+若旧工作台仍在执行任务，使用独立端口及数据目录启动新版，保留旧队列继续执行：
+
+```powershell
+& $batchPython -B batch_run.py --config D:\my-batches\comparison.json --server http://127.0.0.1:8797 --data D:\codes\collage-recreate-v6-output\batch-runtime --open
+```
+
+`--data` 仅在自动启动服务时生效。同一个服务数据目录只能由一个工作台占用。恢复默认端口前，请等旧任务结束再重启旧服务。
+
 ## 目录
 
 | 路径 | 用途 |
