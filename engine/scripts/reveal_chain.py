@@ -185,7 +185,7 @@ def acquire(run, scene, targets, config):
                     raise ValueError('No complete matching chain cache; remote Reveal is disabled')
                 reserve_submission(task, folder, limit)
                 event(run, 'reveal_request_started', task=str(task), targets=receipt['requested_ids'], phase=phase)
-                fetch_batch(task, ip, objects, api_key(config.get('key_file', 'D:/codes/.env')),
+                fetch_batch(task, ip, objects, api_key(config.get('key_file')),
                             config.get('timeout', 360))
             meta = read(source_task/'request_meta.json')
             if (meta['reference_sha256'] != sha(ip) or meta['objects'] != objects or

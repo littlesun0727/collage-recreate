@@ -11,6 +11,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 from common import read, save, sha, fingerprint, event, now
+from collage_v6.config import Config, env_value
 
 BASE = 'https://api.research.360.cn/v1'
 _submission_budget_lock=threading.Lock()
@@ -135,13 +136,10 @@ def load_cache(folder, reference, expected=None, allow_partial=False):
     return found, receipts
 
 
-def api_key(path):
-    key = os.environ.get('360_API_KEY')
-    if not key and Path(path).is_file():
-        for line in Path(path).read_text(encoding='utf-8-sig').splitlines():
-            if line.strip().startswith('360_API_KEY='):
-                key=line.split('=',1)[1].strip().strip('"').strip("'");break
-    if not key: raise ValueError('360_API_KEY missing in environment or configured key file')
+def api_key(path=None):
+    path = path or os.getenv('COLLAGE_REVEAL_ENV', Config.reveal_key_file)
+    key = os.environ.get('360_API_KEY') or env_value(path, '360_API_KEY')
+    if not key: raise ValueError(f'360_API_KEY missing; configure {path} or the 360_API_KEY environment variable')
     return key
 
 
@@ -290,7 +288,7 @@ def acquire(run, scene, targets, config):
         start=time.monotonic();event(run,'reveal_request_started',task=str(task),targets=[o['id'] for o in objects])
         try:
             reserve_submission(task,run/'assets/reveal')
-            fetch_batch(task,root/'input.png',objects,api_key(config.get('key_file','D:/codes/.env')),config.get('timeout',360))
+            fetch_batch(task,root/'input.png',objects,api_key(config.get('key_file')),config.get('timeout',360))
             event(run,'reveal_request_finished',task=str(task),elapsed_seconds=round(time.monotonic()-start,3));return True
         except Exception as exc:
             error=type(exc).__name__+(' HTTP '+str(exc.code) if hasattr(exc,'code') else '')

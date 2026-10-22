@@ -2,8 +2,10 @@
 import fs from 'node:fs/promises';
 import http from 'node:http';
 import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import {extname} from 'node:path';
 export const BASE_URL = 'http://127.0.0.1:17860';
-export const CREDENTIALS = 'D:/codes/yibu_credentials.local.json';
+export const CREDENTIALS = process.env.COLLAGE_YIBU_CREDENTIALS || fileURLToPath(new URL('../../../.env', import.meta.url));
 export const hash = value => createHash('sha256').update(value).digest('hex');
 export const readJSON = async file => JSON.parse((await fs.readFile(file,'utf8')).replace(/^\uFEFF/,''));
 export const saveJSON = async (file,value) => fs.writeFile(file,JSON.stringify(value,null,2)+'\n');
@@ -12,9 +14,26 @@ export function auditBase(value=process.env.YIBU_BASE_URL || BASE_URL) {
   return BASE_URL;
 }
 export async function credential(file=CREDENTIALS) {
-  const cfg=await readJSON(file);
-  const key=cfg.api_keys?.find(k=>typeof k==='string' && k.trim())?.trim();
-  if (!key) throw new Error('Expected yibu credentials with a nonempty api_keys array (not OpenClaw config)');
+  if(process.env.YIBU_API_KEY) return process.env.YIBU_API_KEY;
+  let key;
+  if(extname(file).toLowerCase()==='.json') {
+    const cfg=await readJSON(file);
+    key=cfg.api_keys?.find(k=>typeof k==='string' && k.trim())?.trim();
+  } else {
+    const content=(await fs.readFile(file,'utf8')).replace(/^\uFEFF/,'');
+    for(const line of content.split(/\r?\n/)) {
+      const match=line.match(/^\s*(?:export\s+)?YIBU_API_KEY\s*=\s*(.*?)\s*$/);
+      if(!match) continue;
+      const value=match[1];
+      if(value.startsWith('"') || value.startsWith("'")) {
+        const end=value.indexOf(value[0],1);
+        if(end<1) throw new Error('Unclosed quote for YIBU_API_KEY');
+        key=value.slice(1,end);
+      } else key=value.split(' #',1)[0].trim();
+      break;
+    }
+  }
+  if (!key) throw new Error('YIBU_API_KEY missing in environment or configured credential file');
   return key;
 }
 export const redact = (value,key) => String(value).replaceAll(key || '\u0000','[REDACTED]');

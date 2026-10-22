@@ -74,7 +74,7 @@ def acquire(run,scene,targets,config):
                     event(run,'reveal_request_started',task=str(task),targets=batch['primary_ids'])
                     reserve_submission(task,run/'assets/reveal')
                     try:
-                        fetch_batch(task,ip,batch['objects'],api_key(config.get('key_file','D:/codes/.env')),config.get('timeout',360))
+                        fetch_batch(task,ip,batch['objects'],api_key(config.get('key_file')),config.get('timeout',360))
                     except Exception as exc:
                         receipt['error']=type(exc).__name__+': '+str(exc)
                 qp=task/'query_response.json'

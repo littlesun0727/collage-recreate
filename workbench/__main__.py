@@ -19,7 +19,7 @@ def main():
     parser.add_argument('--vlm-env',help='dotenv file containing OPENROUTER_API_KEY')
     parser.add_argument('--vlm-model',default=os.environ.get('COLLAGE_VLM_MODEL'))
     parser.add_argument('--vlm-provider',choices=['openrouter','yibu'])
-    parser.add_argument('--yibu-credentials',help='Local JSON file with api_keys; never sent to the browser')
+    parser.add_argument('--yibu-credentials',help='dotenv file containing YIBU_API_KEY (legacy JSON api_keys also accepted); never sent to the browser')
     parser.add_argument('--reveal-env',help='Existing 360 credential file')
     args = parser.parse_args()
     if args.vlm_env:os.environ['COLLAGE_VLM_ENV']=str(Path(args.vlm_env).resolve())

@@ -31,8 +31,8 @@ def env_value(path, name):
 @dataclass(frozen=True)
 class Config:
     model: str = 'qwen/qwen3.8-flash'
-    env_file: str = 'D:/codes/ming-workflow-v2/.env'
-    reveal_key_file: str = 'D:/codes/.env'
+    env_file: str = str(ROOT / '.env')
+    reveal_key_file: str = str(ROOT / '.env')
     timeout: int = 180
     max_requests: int = 16
     max_tokens: int = 16000
@@ -44,7 +44,7 @@ class Config:
     analysis_model: str | None = None
     http_retry_delay: float = 30
     provider: str = 'openrouter'
-    yibu_credentials: str = 'D:/codes/yibu_credentials.local.json'
+    yibu_credentials: str = str(ROOT / '.env')
     reasoning_effort: str | None = None
     response_format: str = 'json_schema'
     stage_overrides: dict | None = None
@@ -157,18 +157,28 @@ class Config:
 
     def api_key(self):
         if self.provider == 'yibu':
+            key = os.getenv('YIBU_API_KEY')
+            if key:
+                return key
+            path = Path(self.yibu_credentials)
+            if path.suffix.lower() != '.json':
+                key = env_value(path, 'YIBU_API_KEY')
+                if not key:
+                    raise ValueError(f'YIBU_API_KEY 缺失，请填写 {path}，或设置 YIBU_API_KEY 环境变量')
+                return key
+            # Explicit legacy JSON paths remain supported for existing callers.
             try:
-                data = json.loads(Path(self.yibu_credentials).read_text(encoding='utf-8-sig'))
+                data = json.loads(path.read_text(encoding='utf-8-sig'))
                 keys = data.get('api_keys', [])
                 if not isinstance(keys, list):
                     raise ValueError('api_keys must be an array')
                 key = next((k.strip() for k in keys if isinstance(k, str) and k.strip()), '')
             except (OSError, ValueError, AttributeError):
-                raise ValueError('yibu 凭证文件无法读取，请检查 COLLAGE_YIBU_CREDENTIALS') from None
+                raise ValueError(f'yibu JSON 凭证文件无法读取：{path}；请检查 COLLAGE_YIBU_CREDENTIALS，默认凭证为工程目录 .env 中的 YIBU_API_KEY') from None
             if not key:
                 raise ValueError('yibu 凭证文件缺少非空 api_keys')
             return key
         key = os.getenv('OPENROUTER_API_KEY') or env_value(self.env_file, 'OPENROUTER_API_KEY')
         if not key:
-            raise ValueError('OPENROUTER_API_KEY 缺失，请配置 COLLAGE_VLM_ENV 或环境变量')
+            raise ValueError(f'OPENROUTER_API_KEY 缺失，请填写 {self.env_file}，或设置 OPENROUTER_API_KEY 环境变量')
         return key

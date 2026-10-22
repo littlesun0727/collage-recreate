@@ -5,6 +5,7 @@ import os
 import sys
 from pathlib import Path
 from common import read, timed, locked, save
+from collage_v6.config import Config
 
 
 def main():
@@ -30,7 +31,7 @@ def main():
         if name in ['build','reveal-plan']:
             a.add_argument('--reveal',action='store_true',help='Enable remote Reveal requests for missing complex assets')
             a.add_argument('--reveal-cache',help='Existing downloaded Reveal sample folder; offline unless --reveal is also set')
-            a.add_argument('--reveal-key-file',default='D:/codes/.env')
+            a.add_argument('--reveal-key-file',default=os.getenv('COLLAGE_REVEAL_ENV',Config.reveal_key_file))
             a.add_argument('--reveal-timeout',type=int,default=360)
             a.add_argument('--reveal-max-requests',type=int,default=int(os.getenv('COLLAGE_REVEAL_MAX_REQUESTS','16')),
                            help='Total submission limit for full-image material and background-cleaning batches')
@@ -39,7 +40,7 @@ def main():
             a.add_argument('--no-reveal',action='store_true')
             a.add_argument('--reveal-layout',choices=['full','grouped','legacy'],default='grouped',help='Spatial crops (default, at most 3 groups), full image, or historical requests')
         if name=='generate':
-            a.add_argument('--ids',nargs='+',required=True);a.add_argument('--credentials',default='D:/codes/yibu_credentials.local.json');a.add_argument('--allow-remote',action='store_true');a.add_argument('--timeout',type=int,default=300);a.add_argument('--workers',type=int,default=2);a.add_argument('--dry-run',action='store_true');a.add_argument('--group',action='store_true',help='Generate selected overlay/text members as one fused unit')
+            a.add_argument('--ids',nargs='+',required=True);a.add_argument('--credentials',default=os.getenv('COLLAGE_YIBU_CREDENTIALS',Config.yibu_credentials));a.add_argument('--allow-remote',action='store_true');a.add_argument('--timeout',type=int,default=300);a.add_argument('--workers',type=int,default=2);a.add_argument('--dry-run',action='store_true');a.add_argument('--group',action='store_true',help='Generate selected overlay/text members as one fused unit')
     args=p.parse_args()
     try:
         if args.command=='prepare-live':

@@ -132,6 +132,9 @@ def plan(args):
         if any(getattr(args, k, None) is not None for k in ('model', 'provider', 'reasoning', 'reasoning_budget')):
             raise ValueError('分阶段 model_policy 不能与命令行单模型参数混用')
         policy = Config.load().with_policy(settings['model_policy']).model_policy()
+        if args.coordinate_mode is not None:
+            for entry in policy.values():
+                entry['coordinate_mode'] = args.coordinate_mode
     else:
         model = option('model')
         if not model:
@@ -172,6 +175,8 @@ def parser():
     p.add_argument('--provider', choices=['openrouter', 'yibu'])
     p.add_argument('--reasoning', choices=EFFORTS)
     p.add_argument('--reasoning-budget', type=int, help='thinking token 预算，不能与推理档位同时设置')
+    p.add_argument('--coordinate-mode', choices=['normalized_1000', 'pixel', 'auto'],
+                   help='bbox 坐标模式：0～1000 归一化 / 原图像素 / 按模型自动；覆盖配置中的首次分析与后续 VLM 坐标模式，未配置时默认 normalized_1000')
     p.add_argument('--references', nargs='+', help='参考图文件或目录列表，按给定顺序制作')
     p.add_argument('--materials', nargs='+', help='每张参考图共用的客户素材文件或目录列表')
     p.add_argument('--name', help='前端批次名称')
@@ -192,7 +197,7 @@ def main(argv=None):
     receipt_path = None
     try:
         if args.resume:
-            if args.dry_run or args.config or args.model or args.provider or args.reasoning or args.reasoning_budget is not None or args.references or args.materials or args.name or args.width or args.instructions:
+            if args.dry_run or args.config or args.model or args.provider or args.reasoning or args.reasoning_budget is not None or args.coordinate_mode is not None or args.references or args.materials or args.name or args.width or args.instructions:
                 raise ValueError('--resume 不接受新的模型、输入或制作参数')
             receipt_path = Path(args.resume).resolve()
             receipt = json.loads(receipt_path.read_text(encoding='utf-8-sig'))

@@ -2,6 +2,16 @@
 
 这是固定步骤的 VLM 工作流。模型返回结构化 JSON，本地程序负责校验、抠图、图层合成、编辑和动图制作。
 
+## 离线工作流报告
+
+双击根目录的 [workflow-report.html](workflow-report.html)，默认打开论文式流程图总览。报告包含整体步骤、各次 VLM 调用的输入输出、提示词、Schema、真实样例，以及调用次数和训练数据整理说明；支持点击节点查看详情、全屏展示和下载总览图。
+
+换电脑展示时，复制整个工程即可；也可以只复制 `reports/workflow-atlas/` 文件夹，在新电脑用浏览器打开其中的 `index.html`。该 HTML 已内嵌图片和脚本，也可单独复制。查看报告无需安装 Python、启动服务、配置 API Key 或联网。报告是 2026-10-22 整理的静态快照，不会随运行结果自动更新。
+
+- `reports/workflow-atlas/workflow-overview.png`：高清总览图，适合放入汇报 PPT。
+- `reports/workflow-atlas/workflow-overview.svg`：矢量总览图，可独立打开和缩放。
+- `reports/workflow-atlas/workflow-data.json`：报告的结构化数据。
+
 ## 启动
 
 双击 `start.vbs`，打开 <http://127.0.0.1:8796/>。
@@ -13,6 +23,20 @@
 ```
 
 `start-local.ps1` 提供 Python、端口、凭证文件、抠图模型和数据目录的显式参数。
+
+## 工程内凭证
+
+三个服务的 Key 统一放在工程根目录的 `.env` 中。路径按脚本所在位置定位，不依赖盘符、工程目录名或终端当前目录。换机器时，将这个文件随工程一起迁移：
+
+| 服务 | 工程根目录中的文件 | 读取字段 |
+| --- | --- | --- |
+| OpenRouter | `.env` | `OPENROUTER_API_KEY` |
+| 360 Reveal | `.env` | `360_API_KEY` |
+| yibuapi | `.env` | `YIBU_API_KEY` |
+
+首次配置可将 `.env.example` 复制为 `.env`，再填入自己的三个 Key。`.env` 已被 Git 忽略，因此仅拉取代码不会得到该文件；不要把真实 Key 填入示例文件。
+
+三个服务均优先读取同名进程环境变量，没有时读取 `.env`。如需另指定文件，仍可使用 `COLLAGE_VLM_ENV`（OpenRouter）、`COLLAGE_REVEAL_ENV`（360）、`COLLAGE_YIBU_CREDENTIALS`（yibu）或对应启动参数；这些显式设置会覆盖工程内默认路径。yibu 显式指定 `.json` 文件时仍兼容原有 `api_keys` 数组格式，但默认无需 JSON 文件。换机器时应清除指向旧机器目录的覆盖设置。修改路径配置后重启工作台服务。
 
 ## 按模型批跑与分组
 
@@ -32,9 +56,12 @@ $batchPython = 'D:\codes\visual-recreate-validation\clean-env\Scripts\python.exe
 # 固定同一份输入，只更换模型与推理强度；每次提交都是新批次。
 & $batchPython -B batch_run.py --config D:\my-batches\comparison.json --provider yibu --model gpt-6.1-sol --reasoning medium --name 'GPT medium' --open
 & $batchPython -B batch_run.py --config D:\my-batches\comparison.json --provider yibu --model qwen3.8-flash --reasoning high --name 'Qwen high' --open
+
+# 使用原图像素坐标；改为 normalized_1000 可使用 0～1000 归一化坐标。
+& $batchPython -B batch_run.py --config D:\my-batches\comparison.json --coordinate-mode pixel --name '原图像素对比' --open
 ```
 
-模型 ID 使用供应商实际提供的名称。`--model` 和 `--reasoning` 统一应用于首次分析和后续全部 VLM 步骤，并固定到每个任务；不会改写前端的全局默认模型。推理可选 `default/off/on/minimal/low/medium/high/xhigh`；不受现有供应商适配支持的组合会在提交前报错。预算模式使用 `--reasoning-budget 4096`，不能同时指定推理档位。`max_tokens`、`coordinate_mode`、`response_format` 通过配置固定；图片提取、抠图与合成仍使用现有实现。高级对比可在配置中用完整 `model_policy` 指定 `analyze` / `subsequent`，此时不要同时传单模型命令行参数。
+模型 ID 使用供应商实际提供的名称。`--model` 和 `--reasoning` 统一应用于首次分析和后续全部 VLM 步骤，并固定到每个任务；不会改写前端的全局默认模型。推理可选 `default/off/on/minimal/low/medium/high/xhigh`；不受现有供应商适配支持的组合会在提交前报错。预算模式使用 `--reasoning-budget 4096`，不能同时指定推理档位。坐标模式可用 `--coordinate-mode normalized_1000/pixel/auto` 指定，分别表示 0～1000 归一化、原图像素和按模型自动选择；命令行优先于配置文件中的 `coordinate_mode`，两者均未指定时默认归一化。`max_tokens`、`response_format` 通过配置固定；图片提取、抠图与合成仍使用现有实现。高级对比可在配置中用完整 `model_policy` 指定 `analyze` / `subsequent`，此时不要同时传单模型命令行参数；仍可用 `--coordinate-mode` 统一覆盖这两个阶段的坐标模式。已有批次保留提交时的设置，`--resume` 不能同时传 `--coordinate-mode`。
 
 客户素材只上传一次，整批共用上传后的快照；参考图顺序、素材顺序和 SHA-256 保存到批次记录。相同输入会产生相同的输入指纹，便于核对模型之间是否使用同一批数据；输入指纹不代表流程参数或代码版本相同。关闭前端或脚本不会停止已入队的制作。单张失败仍保留在该分组，队列继续处理其余任务；批次“已完成”表示制作结束，视觉是否通过仍看任务自己的复核结果。
 
@@ -112,7 +139,7 @@ collage-recreate-v6-output/
 
 VLM 使用 Chat Completions 兼容接口。OpenRouter 使用其 `reasoning` 参数；yibu 按 Qwen、GPT、Gemini、Claude 分别适配推理参数，未知模型仅开放“模型默认”。模型目录不能证明所有参数被执行，具体兼容性以实际接口响应为准。所有输出仍经过本地严格 JSON Schema / 业务校验；不支持远端 Schema 的模型可选择 JSON 对象或提示词约束 JSON。不会自动切换供应商或模型。
 
-yibu 从 `D:\codes\yibu_credentials.local.json` 的 `api_keys` 数组读取第一个非空 key，通过现有 `http://127.0.0.1:17860` 审计网关访问上游，不会将 key 放进前端或任务快照。网关须保持运行。`COLLAGE_YIBU_CREDENTIALS` 可以覆盖凭证文件位置。响应中未提供费用时，`usage.cost_complete=false`，不能把已报告费用的汇总零值理解为免费。
+yibu 默认从工程根目录 `.env` 的 `YIBU_API_KEY` 读取凭证，通过现有 `http://127.0.0.1:17860` 审计网关访问上游，不会将 key 放进前端或任务快照。网关须保持运行；另一台机器也需要部署该网关，复制凭证不会启动或安装网关。`COLLAGE_YIBU_CREDENTIALS` 可以覆盖凭证文件位置。响应中未提供费用时，`usage.cost_complete=false`，不能把已报告费用的汇总零值理解为免费。
 
 CLI 可传 `--model-config <JSON文件>`，格式与前端保存的 `model-settings.json` 相同，例如：
 
@@ -164,12 +191,10 @@ full 模式保持原素材选择及关联分组，每次最多 20 个框（含�
 ## 本机外部依赖
 
 - Python：`D:\codes\visual-recreate-validation\clean-env\Scripts\python.exe`
-- VLM 凭证：`D:\codes\ming-workflow-v2\.env`
-- 360 凭证：`D:\codes\.env`
 - 抠图模型：`D:\codes\visual-recreate-validation\models\birefnet-lite-fp32.onnx`
 - 动图需要可用的 FFmpeg。
 
-通过启动参数或 `COLLAGE_VLM_ENV`、`COLLAGE_REVEAL_ENV`、`COLLAGE_CUTOUT_MODEL` 等环境变量覆盖本机配置。凭证和模型不放入源码目录。
+通过启动参数或 `COLLAGE_CUTOUT_MODEL` 等环境变量覆盖本机依赖配置。凭证默认放在工程目录内，按上面的“工程内凭证”配置；抠图模型仍单独配置。
 
 离线配置检查：
 

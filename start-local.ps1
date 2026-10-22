@@ -1,13 +1,19 @@
 param(
     [int]$Port = 8796,
     [string]$Python = 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe',
-    [string]$VlmEnv = 'D:/codes/ming-workflow-v2/.env',
-    [string]$RevealEnv = 'D:/codes/.env',
+    [string]$VlmEnv = '',
+    [string]$RevealEnv = '',
     [string]$CutoutModel = 'D:/codes/visual-recreate-validation/models/birefnet-lite-fp32.onnx',
     [string]$Data = ''
 )
 $ErrorActionPreference = 'Stop'
 $repoPath = $PSScriptRoot
+if (-not $VlmEnv) {
+    $VlmEnv = if ($env:COLLAGE_VLM_ENV) { $env:COLLAGE_VLM_ENV } else { Join-Path $repoPath '.env' }
+}
+if (-not $RevealEnv) {
+    $RevealEnv = if ($env:COLLAGE_REVEAL_ENV) { $env:COLLAGE_REVEAL_ENV } else { Join-Path $repoPath '.env' }
+}
 if (-not $Data) {
     $outputPath = if ($env:COLLAGE_OUTPUT_ROOT) { $env:COLLAGE_OUTPUT_ROOT } else { "$repoPath-output" }
     $Data = Join-Path $outputPath 'runtime'
