@@ -1,0 +1,226 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1202
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1202
+      ],
+      "description": "浅粉色底上均匀排列白色圆点，保留整幅底纹。",
+      "label": "浅粉色底上均匀排列白色圆点，保留整幅底纹。",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "top_lace",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        16,
+        900,
+        82
+      ],
+      "description": "横贯顶部的黑色爱心镂空蕾丝花边，包含圆点孔洞、波浪边缘和粉白色心形内口，作为完整装饰保留。",
+      "label": "横贯顶部的黑色爱心镂空蕾丝花边，包含圆点孔洞、波浪边缘和粉白",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        87,
+        219,
+        585,
+        581
+      ],
+      "description": "一名长发齐刘海女性的正面近景自拍，双侧长发垂落，佩戴闪亮项链和耳麦，面向镜头微笑。保留人物及浅色摄影环境，四边按照片窗口裁切，没有沿主体去背景。",
+      "label": "一名长发齐刘海女性的正面近景自拍，双侧长发垂落，佩戴闪亮项链",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_top",
+      "kind": "frame",
+      "bbox": [
+        50,
+        185,
+        620,
+        614
+      ],
+      "description": "上方横向照片的黑色宽纸框，表面散布浅粉色圆点，保留框体完整外缘及圆点图案，中央照片独立替换。",
+      "photo_id": "photo_top",
+      "label": "上方横向照片的黑色宽纸框，表面散布浅粉色圆点，保留框体完整外",
+      "method": "extract"
+    },
+    {
+      "id": "hanging_doodles",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        220,
+        249,
+        325
+      ],
+      "description": "叠在上方照片左上角的白色手绘悬挂装饰，包含竖向虚线、星星、蝴蝶结、螺旋和小十字，作为一个完整图案保留。",
+      "label": "叠在上方照片左上角的白色手绘悬挂装饰，包含竖向虚线、星星、蝴",
+      "method": "extract"
+    },
+    {
+      "id": "rhinestone_decoration",
+      "kind": "overlay",
+      "bbox": [
+        446,
+        159,
+        654,
+        329
+      ],
+      "description": "上方照片右上角的透明银白水钻串饰，多个大小不同的圆形水钻组成相连弯曲环形，跨越照片、黑框和粉色背景，保留透明质感与亮光。",
+      "label": "上方照片右上角的透明银白水钻串饰，多个大小不同的圆形水钻组成",
+      "method": "extract"
+    },
+    {
+      "id": "lamb",
+      "kind": "overlay",
+      "bbox": [
+        31,
+        451,
+        257,
+        644
+      ],
+      "description": "覆盖上方照片左下角的白色绒球小羊贴饰，包含伸展双耳、黑眼睛、粉鼻子、粉色脚掌与浅蓝色颈部丝带，整体保留。",
+      "label": "覆盖上方照片左下角的白色绒球小羊贴饰，包含伸展双耳、黑眼睛、",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        315,
+        713,
+        808,
+        1072
+      ],
+      "description": "一名齐刘海深色长发女性的胸部以上自拍，穿白色衣服，微微侧头看向镜头，一根手指抵近下巴，长发集中垂在画面左侧。保留白色室内摄影背景，人物与衣服在窗口边缘裁切，不沿主体去背景。",
+      "label": "一名齐刘海深色长发女性的胸部以上自拍，穿白色衣服，微微侧头看",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_bottom",
+      "kind": "frame",
+      "bbox": [
+        278,
+        678,
+        845,
+        1105
+      ],
+      "description": "下方横向照片的黑色宽纸框，印有浅粉色圆点，保留完整框体轮廓和图案，内口照片独立替换。",
+      "photo_id": "photo_bottom",
+      "label": "下方横向照片的黑色宽纸框，印有浅粉色圆点，保留完整框体轮廓和",
+      "method": "extract"
+    },
+    {
+      "id": "pink_bow",
+      "kind": "overlay",
+      "bbox": [
+        516,
+        649,
+        634,
+        760
+      ],
+      "description": "叠在下方照片上边中央的浅粉色缎面蝴蝶结，包含两侧折叠结翼、中央结和下垂飘带，保留高光及阴影。",
+      "label": "叠在下方照片上边中央的浅粉色缎面蝴蝶结，包含两侧折叠结翼、中",
+      "method": "extract"
+    },
+    {
+      "id": "white_bear",
+      "kind": "overlay",
+      "bbox": [
+        723,
+        594,
+        897,
+        803
+      ],
+      "description": "下方照片右上角的白色绒球小熊贴饰，黑色眼鼻，颈部系粉色蝴蝶结与长飘带；身体覆盖照片和框沿，完整保留绒球边缘及丝带。",
+      "label": "下方照片右上角的白色绒球小熊贴饰，黑色眼鼻，颈部系粉色蝴蝶结",
+      "method": "extract"
+    },
+    {
+      "id": "princess_label",
+      "kind": "overlay",
+      "bbox": [
+        173,
+        763,
+        394,
+        810
+      ],
+      "description": "粉色圆角对话标签，带浅色边缘、灰色阴影及右下尖角，内部黑字为“I am a princess”，文字与底板整体保留。",
+      "label": "粉色圆角对话标签，带浅色边缘、灰色阴影及右下尖角，内部黑字为",
+      "method": "extract"
+    },
+    {
+      "id": "prince_label",
+      "kind": "overlay",
+      "bbox": [
+        53,
+        819,
+        392,
+        867
+      ],
+      "description": "粉色长条圆角对话标签，带浅色边缘、灰色阴影及右侧尖角，内部黑字为“But you're not my prince”，整体覆盖下方照片左侧框沿。",
+      "label": "粉色长条圆角对话标签，带浅色边缘、灰色阴影及右侧尖角，内部黑",
+      "method": "extract"
+    },
+    {
+      "id": "angel_wings",
+      "kind": "overlay",
+      "bbox": [
+        187,
+        1002,
+        514,
+        1137
+      ],
+      "description": "下方照片左下角的一对白色立体天使翅膀，左右镜像展开，中间留有空隙，具有圆润羽毛浮雕、珠光高光和灰色阴影，作为完整成对装饰保留。",
+      "label": "下方照片左下角的一对白色立体天使翅膀，左右镜像展开，中间留有",
+      "method": "extract"
+    },
+    {
+      "id": "pearl_star",
+      "kind": "overlay",
+      "bbox": [
+        708,
+        975,
+        844,
+        1109
+      ],
+      "description": "下方照片右下角的空心五角星珍珠串饰，白色圆珠沿星形轮廓排列，跨越照片与黑色框沿，保留珠粒高光和阴影。",
+      "label": "下方照片右下角的空心五角星珍珠串饰，白色圆珠沿星形轮廓排列，",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "top_lace",
+    "photo_top",
+    "frame_top",
+    "hanging_doodles",
+    "rhinestone_decoration",
+    "lamb",
+    "photo_bottom",
+    "frame_bottom",
+    "pink_bow",
+    "white_bear",
+    "princess_label",
+    "prince_label",
+    "angel_wings",
+    "pearl_star"
+  ]
+}
