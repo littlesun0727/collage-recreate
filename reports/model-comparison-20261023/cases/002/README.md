@@ -6,7 +6,7 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-运行中
+运行中 · photo_windows
 
 ## Codex gpt-6-luna / medium
 
