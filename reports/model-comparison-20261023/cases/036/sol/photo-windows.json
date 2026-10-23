@@ -1,0 +1,83 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_main",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "主照片保留人物、窗户及墙面摄影环境，以整幅矩形裁切；无主体描边，画布四边没有透明渐变。"
+    },
+    {
+      "photo_id": "photo_inset",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": true,
+        "direction": "inside",
+        "top": 0.12,
+        "bottom": 0.24,
+        "left": 0.18,
+        "right": 0.18
+      },
+      "reason": "小照片保留浅色摄影背景，不沿人物轮廓抠图；矩形窗口上缘轻柔过渡，左右及肩部下沿渐隐至底层主照片墙面，下沿更明显。周围手绘云线是独立装饰，不作为主体或窗口描边；浅色背景使渐隐宽度存在一定不确定性。"
+    }
+  ]
+}
