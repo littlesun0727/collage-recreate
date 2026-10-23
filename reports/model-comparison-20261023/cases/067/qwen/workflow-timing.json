@@ -1,0 +1,42 @@
+{
+  "model": "qwen3.8-flash",
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "controller": "workflow-v9",
+  "status": "completed",
+  "started_at": "2026-10-23T14:36:26.210936+00:00",
+  "updated_at": "2026-10-23T14:41:10.878345+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 30896,
+    "completion_tokens": 2625,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "elapsed_seconds": 284.672,
+  "finished_at": "2026-10-23T14:41:10.981230+00:00"
+}
