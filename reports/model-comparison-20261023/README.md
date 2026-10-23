@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-24T01:45:54+08:00。共 348 个任务。
+最后更新：2026-10-24T01:47:02+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -21,7 +21,7 @@
 | [001 · 20260908-192922.jpg](cases/001/README.md)<br>![参考](cases/001/reference-thumb.jpg) | 已交付<br>[![成图](cases/001/qwen/thumb.jpg)](cases/001/qwen/final.png) | 已交付<br>[![成图](cases/001/luna/thumb.jpg)](cases/001/luna/final.png) | 已交付<br>[![成图](cases/001/sol/thumb.jpg)](cases/001/sol/final.png) |
 | [002 · 20260908-192946.jpg](cases/002/README.md)<br>![参考](cases/002/reference-thumb.jpg) | 已交付<br>[![成图](cases/002/qwen/thumb.jpg)](cases/002/qwen/final.png) | 已交付<br>[![成图](cases/002/luna/thumb.jpg)](cases/002/luna/final.png) | 已交付<br>[![成图](cases/002/sol/thumb.jpg)](cases/002/sol/final.png) |
 | [003 · 20260915-170355_封面样图.png](cases/003/README.md)<br>![参考](cases/003/reference-thumb.jpg) | 已交付<br>[![成图](cases/003/qwen/thumb.jpg)](cases/003/qwen/final.png) | 已交付<br>[![成图](cases/003/luna/thumb.jpg)](cases/003/luna/final.png) | 已交付<br>[![成图](cases/003/sol/thumb.jpg)](cases/003/sol/final.png) |
-| [004 · 20260915-170441_封面样图.png](cases/004/README.md)<br>![参考](cases/004/reference-thumb.jpg) | 已交付<br>[![成图](cases/004/qwen/thumb.jpg)](cases/004/qwen/final.png) | 已交付<br>[![成图](cases/004/luna/thumb.jpg)](cases/004/luna/final.png) | 运行中 · bind |
+| [004 · 20260915-170441_封面样图.png](cases/004/README.md)<br>![参考](cases/004/reference-thumb.jpg) | 已交付<br>[![成图](cases/004/qwen/thumb.jpg)](cases/004/qwen/final.png) | 已交付<br>[![成图](cases/004/luna/thumb.jpg)](cases/004/luna/final.png) | 运行中 · build |
 | [005 · 20260915-170446_封面样图.png](cases/005/README.md)<br>![参考](cases/005/reference-thumb.jpg) | 已交付<br>[![成图](cases/005/qwen/thumb.jpg)](cases/005/qwen/final.png) | 已交付<br>[![成图](cases/005/luna/thumb.jpg)](cases/005/luna/final.png) | 排队 |
 | [006 · 20260915-170457_封面样图.png](cases/006/README.md)<br>![参考](cases/006/reference-thumb.jpg) | 已交付<br>[![成图](cases/006/qwen/thumb.jpg)](cases/006/qwen/final.png) | 已交付<br>[![成图](cases/006/luna/thumb.jpg)](cases/006/luna/final.png) | 排队 |
 | [007 · 20260915-170502_封面样图.png](cases/007/README.md)<br>![参考](cases/007/reference-thumb.jpg) | 已交付<br>[![成图](cases/007/qwen/thumb.jpg)](cases/007/qwen/final.png) | 已交付<br>[![成图](cases/007/luna/thumb.jpg)](cases/007/luna/final.png) | 排队 |
