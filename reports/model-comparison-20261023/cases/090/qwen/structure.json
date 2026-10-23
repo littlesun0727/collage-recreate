@@ -1,0 +1,195 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "整体背景由两部分组成：左侧为户外树林和石墙的自然摄影场景，右侧为深棕色粗糙纹理材质。"
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        590,
+        1000
+      ],
+      "description": "主图区域，展示一位身穿拼布连衣裙、背着棕色挎包的短发女性站在树林中。画面包含人物及周围完整的自然摄影环境（树木、石墙）。"
+    },
+    {
+      "id": "overlay_text_deco",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        30,
+        600,
+        880
+      ],
+      "description": "散布在左侧主图上的装饰性文字符号，包括白色的'<3'和橙色的'<333'，作为独立贴纸元素保留。"
+    },
+    {
+      "id": "frame_divider",
+      "kind": "frame",
+      "bbox": [
+        580,
+        0,
+        620,
+        1000
+      ],
+      "description": "垂直分隔左右画面的白色蕾丝花边条带，具有镂空图案细节。",
+      "photo_id": "photo_main"
+    },
+    {
+      "id": "photo_side_1",
+      "kind": "photo",
+      "bbox": [
+        700,
+        45,
+        955,
+        315
+      ],
+      "description": "右上角照片，内容为室内书架一角，摆放着书籍和画框。"
+    },
+    {
+      "id": "frame_side_1",
+      "kind": "frame",
+      "bbox": [
+        690,
+        35,
+        965,
+        325
+      ],
+      "description": "承载右上角照片的白色细线边框。",
+      "photo_id": "photo_side_1"
+    },
+    {
+      "id": "text_label_1",
+      "kind": "text",
+      "bbox": [
+        965,
+        285,
+        995,
+        315
+      ],
+      "text": "(1)",
+      "color": "#FFFFFF",
+      "font": "sans",
+      "align": "right",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "photo_side_2",
+      "kind": "photo",
+      "bbox": [
+        700,
+        365,
+        955,
+        630
+      ],
+      "description": "右中照片，内容与主图相同的女性坐在户外草地上的全身照。"
+    },
+    {
+      "id": "frame_side_2",
+      "kind": "frame",
+      "bbox": [
+        690,
+        355,
+        965,
+        640
+      ],
+      "description": "承载右中照片的白色细线边框。",
+      "photo_id": "photo_side_2"
+    },
+    {
+      "id": "text_label_2",
+      "kind": "text",
+      "bbox": [
+        650,
+        600,
+        690,
+        630
+      ],
+      "text": "(2)",
+      "color": "#FFFFFF",
+      "font": "sans",
+      "align": "left",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "photo_side_3",
+      "kind": "photo",
+      "bbox": [
+        700,
+        680,
+        955,
+        945
+      ],
+      "description": "右下角照片，特写镜头，展示手臂佩戴手链并手持棕色印花手包。"
+    },
+    {
+      "id": "frame_side_3",
+      "kind": "frame",
+      "bbox": [
+        690,
+        670,
+        965,
+        955
+      ],
+      "description": "承载右下角照片的白色细线边框。",
+      "photo_id": "photo_side_3"
+    },
+    {
+      "id": "text_label_3",
+      "kind": "text",
+      "bbox": [
+        965,
+        920,
+        995,
+        950
+      ],
+      "text": "(3)",
+      "color": "#FFFFFF",
+      "font": "sans",
+      "align": "right",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "overlay_stars",
+      "kind": "overlay",
+      "bbox": [
+        600,
+        0,
+        1000,
+        1000
+      ],
+      "description": "散布在右侧深色背景区域的装饰性星星图案，颜色包括蓝色、黄色、粉色和白色，大小不一。"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_main",
+    "overlay_text_deco",
+    "frame_divider",
+    "frame_side_1",
+    "photo_side_1",
+    "text_label_1",
+    "frame_side_2",
+    "photo_side_2",
+    "text_label_2",
+    "frame_side_3",
+    "photo_side_3",
+    "text_label_3",
+    "overlay_stars"
+  ]
+}
