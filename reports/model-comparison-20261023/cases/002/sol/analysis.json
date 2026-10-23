@@ -1,0 +1,136 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    1320,
+    1767
+  ],
+  "objects": [
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1320,
+        1767
+      ],
+      "description": "铺满画布的傍晚街景照片，上部为灰蓝天空，下部有金色晚霞、草坡、道路、车辆、骑车行人、气球摊及右侧店铺，右下是一名背向镜头的黑发浅蓝衣女子。完整保留摄影环境，人物不去背景，无透明渐隐；部分场景被叠放照片遮挡。",
+      "label": "铺满画布的傍晚街景照片，上部为灰蓝天空，下部有金色晚霞、草坡",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_small",
+      "kind": "photo",
+      "bbox": [
+        71,
+        210,
+        409,
+        466
+      ],
+      "description": "左上横幅街景照片，逆光太阳位于棕榈树之间，两侧建筑夹着向远处延伸的人行道，地面有长条树影。保留完整摄影环境，四周沿照片窗口附有白色短虚线描边，无去背景或渐隐。",
+      "label": "左上横幅街景照片，逆光太阳位于棕榈树之间，两侧建筑夹着向远处",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_upper_right",
+      "kind": "photo",
+      "bbox": [
+        598,
+        97,
+        1200,
+        901
+      ],
+      "description": "右上大幅竖向日落街景，左侧为深暗商铺及行人，右侧有道路车辆与远处楼群，上方保留大片灰紫云层，夕阳位于中部偏右。摄影环境完整保留，沿窗口四边有白色粗短虚线描边，无去背景或渐隐；左下角局部被下方照片覆盖。",
+      "label": "右上大幅竖向日落街景，左侧为深暗商铺及行人，右侧有道路车辆与",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_lower_left",
+      "kind": "photo",
+      "bbox": [
+        106,
+        861,
+        671,
+        1617
+      ],
+      "description": "左下大幅竖向城市远景照片，暖黄色天空下是远处高楼与吊机，近处有树木和低层住宅，画面上方及底部有深色斜向窗框或栏杆。保留摄影环境，沿完整窗口四边有白色粗短虚线描边，无去背景或渐隐，叠压右上照片左下边缘。",
+      "label": "左下大幅竖向城市远景照片，暖黄色天空下是远处高楼与吊机，近处",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_quote",
+      "kind": "text",
+      "bbox": [
+        70,
+        90,
+        541,
+        166
+      ],
+      "description": "Sunset sells tenderness,\nand the world is full of romance.",
+      "label": "Sunset sells tenderness,\nand t",
+      "method": "local",
+      "text": "Sunset sells tenderness,\nand the world is full of romance.",
+      "text_status": "known",
+      "style": {
+        "fill": "#E2E5E5",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": true
+      }
+    },
+    {
+      "id": "overlay_paperclip",
+      "kind": "overlay",
+      "bbox": [
+        855,
+        19,
+        956,
+        150
+      ],
+      "description": "倾斜的白色粉笔线回形针装饰，保留双层弯折线条与颗粒边缘，跨压右上照片顶部虚线及照片画面。",
+      "label": "倾斜的白色粉笔线回形针装饰，保留双层弯折线条与颗粒边缘，跨压",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_rays",
+      "kind": "overlay",
+      "bbox": [
+        102,
+        606,
+        430,
+        841
+      ],
+      "description": "左侧中部白色粉笔涂鸦组合，包含向上放射的空心及排线填充长短楔形、细短射线、菱形闪光和小圆点，作为完整装饰保留，位于左下照片上方。",
+      "label": "左侧中部白色粉笔涂鸦组合，包含向上放射的空心及排线填充长短楔",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_bottom_lettering",
+      "kind": "overlay",
+      "bbox": [
+        1092,
+        1613,
+        1288,
+        1730
+      ],
+      "description": "右下角白色手绘中文艺术字装饰，笔画为空心复线并带不规则排线与小点缀，整体略有错落倾斜，叠在背景照片女子衣服及道路之上，保留原有字形。",
+      "label": "右下角白色手绘中文艺术字装饰，笔画为空心复线并带不规则排线与",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "photo_background",
+    "photo_small",
+    "photo_upper_right",
+    "photo_lower_left",
+    "text_quote",
+    "overlay_paperclip",
+    "overlay_rays",
+    "overlay_bottom_lettering"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_background",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "整幅街景铺满画布，保留人物及摄影环境；画布边界为矩形窗口，无主体描边。叠放照片之外的天空、道路与人物属于同一摄影背景，无连续出框或透明渐变依据。"
+    },
+    {
+      "photo_id": "photo_small",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.03,
+            0.038
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.004
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "棕榈树、建筑和人行道完整保留在水平矩形窗口内，不去背景、不描主体。白色圆头短虚线围绕照片几何边界，略位于窗口外侧；四边清晰，无渐变。制作框按摄影内口确定，不包含外侧虚线。"
+    },
+    {
+      "photo_id": "photo_upper_right",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.021,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.036,
+            0.053
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.004
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "完整保留商铺、行人、天空和道路摄影环境，使用无旋转矩形窗口。白色粗圆头虚线沿窗口外侧排列，不属于人物描边；左下被下方照片硬边遮挡，没有接缝渐隐。暗部属于原摄影内容，不作透明处理。"
+    },
+    {
+      "photo_id": "photo_lower_left",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.021,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.036,
+            0.055
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.003
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "城市、树木、住宅及上下斜向栏杆均为照片内容，完整保留摄影背景，无主体描边。照片采用水平放置的竖向矩形窗口，外围白色圆头短虚线属于窗口描边；与右上照片及底图均为清晰覆盖关系，无边缘渐变。"
+    }
+  ]
+}
