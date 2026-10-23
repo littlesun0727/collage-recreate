@@ -1,0 +1,730 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\prepared\\reference.png",
+    "sha256": "f4c74eb68ac111112af0f658b32e4a729e4f9fb6af7aebd924263a2b35119817"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "黑色粗糙纸面底，布满白色细小斑点；左侧及照片后方可见橙褐色撕纸边和碎片，作为固定底层保留。",
+      "label": "黑色粗糙纸面底，布满白色细小斑点；左侧及照片后方可见橙褐色撕",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2fc537b43814257ab1b4606d6d77e4ec8c59bc0e37b9071d3937915f83b7a9ef"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\background.png",
+        "sha256": "732b11b9c4492544354e73c3f87b6de50c42413b46a412573ad9dd8b1df69e67",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\background-background-source.png",
+          "sha256": "732b11b9c4492544354e73c3f87b6de50c42413b46a412573ad9dd8b1df69e67",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "6633b44ab039f423becd6d9b0bc45eba6883597643e41a4ef1a0bea176ceaf4c",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\background-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_window",
+      "kind": "photo",
+      "bbox": [
+        77,
+        581,
+        378,
+        890
+      ],
+      "description": "雨夜窗外的摄影画面，雨水覆盖玻璃，远处有微弱灯光；显示在窗框的玻璃区域内。",
+      "label": "雨夜窗外的摄影画面，雨水覆盖玻璃，远处有微弱灯光；显示在窗框",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_window",
+        "reason": "保留雨夜玻璃外的摄影环境，照片显示在固定窗框玻璃内；窗框自身承托并覆盖照片边缘，不另画窗口描边。没有证据表明窗口边缘需要渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_window",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中有水面与远处微弱建筑，但为白天盐湖景观，缺少雨夜玻璃和灯光氛围；保留全幅。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-165-d6037743151f\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "photo_upper_left",
+      "kind": "photo",
+      "bbox": [
+        138,
+        101,
+        451,
+        518
+      ],
+      "description": "夜间街景照片：路灯、无叶树、路边车辆及建筑，树干在左侧，黑色轿车位于下方偏右；保留摄影环境，矩形边缘清晰。",
+      "label": "夜间街景照片：路灯、无叶树、路边车辆及建筑，树干在左侧，黑色",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_upper_left",
+        "reason": "保留街景摄影环境，清晰矩形照片边界形成固定窗口；可见浅色横带属于照片内容而非描边。未见窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_upper_left",
+        "asset_id": "material_11",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有水岸与树木，但并非夜间街景，缺少路灯、车辆及建筑街道场景；保留全幅。"
+      },
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-165-d6037743151f\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\prepared\\material_11.jpg"
+      }
+    },
+    {
+      "id": "photo_upper_right",
+      "kind": "photo",
+      "bbox": [
+        501,
+        281,
+        803,
+        583
+      ],
+      "description": "夜雨街景照片：画面上方有透明雨棚边缘，树叶垂在左上方，中央路灯照亮雨丝，右下可见楼房；保留摄影环境，矩形边缘清晰。",
+      "label": "夜雨街景照片：画面上方有透明雨棚边缘，树叶垂在左上方，中央路",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_upper_right",
+        "reason": "保留夜雨街景及雨棚、树叶等摄影环境；照片边缘为清晰矩形窗口，未见独立窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_upper_right",
+        "asset_id": "material_08",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材为开阔水面与远山，缺少雨棚、树叶、路灯和楼房等夜雨街景要素；保留全幅。"
+      },
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-165-d6037743151f\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\prepared\\material_08.jpg"
+      }
+    },
+    {
+      "id": "photo_lower_right",
+      "kind": "photo",
+      "bbox": [
+        450,
+        643,
+        781,
+        1090
+      ],
+      "description": "雨天临街道路照片：左侧有白色车辆，路面反射灯光，远处沿湖树木与水岸；上方可见树冠和明亮路灯，保留摄影环境，矩形边缘清晰。",
+      "label": "雨天临街道路照片：左侧有白色车辆，路面反射灯光，远处沿湖树木",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_lower_right",
+        "reason": "保留雨天道路及车、水岸、树木和灯光等完整摄影环境；可见边界清晰为矩形，没有窗口描边或渐变证据。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_lower_right",
+        "asset_id": "material_04",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有岸边道路与水岸环境，但为晴天湖岸，缺少雨天反光路面、白车和明亮路灯；保留全幅。"
+      },
+      "source": {
+        "id": "material_04",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-165-d6037743151f\\2efd9b0d29e4ccd4978a5784a56d2a3675d0e8305662818e13635059475ff521.png",
+        "sha256": "92fb06c23be73dc11beeb590f127d79d4e376579cb33074a9fc013c9f52a6f97",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\prepared\\material_04.jpg"
+      }
+    },
+    {
+      "id": "frame_window",
+      "kind": "frame",
+      "bbox": [
+        76,
+        581,
+        378,
+        896
+      ],
+      "description": "白色窗框造型，包含左侧大玻璃窗、右侧上下两格窄窗、窗台及立框，边缘有浅色木质纹理和阴影；承托雨夜照片，框体覆盖照片边缘。",
+      "photo_id": "photo_window",
+      "label": "白色窗框造型，包含左侧大玻璃窗、右侧上下两格窄窗、窗台及立框",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e334f04edd5ec408ab1306fdf8b4fc4d89b95137d74db6b8391a6ce1418c271a"
+      }
+    },
+    {
+      "id": "doodle_loops",
+      "kind": "overlay",
+      "bbox": [
+        49,
+        373,
+        611,
+        754
+      ],
+      "description": "白色手绘线条组成的环绕弧线与卷曲路径，跨越照片之间并部分压在照片边缘上；附带的小型星状笔触作为同一连续涂鸦保留。",
+      "label": "白色手绘线条组成的环绕弧线与卷曲路径，跨越照片之间并部分压在",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "954da683b7e6b26b5d6897c2184f26a60e90091fcef6d8663c9364145096a187"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\doodle_loops.png",
+        "sha256": "d7eac4b9f52f010fb8b090ad8d9b411220abcc4d4e1e203df8deab72673b5597",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\doodle_loops-restored.png",
+          "sha256": "d7eac4b9f52f010fb8b090ad8d9b411220abcc4d4e1e203df8deab72673b5597",
+          "bbox": [
+            41,
+            365,
+            619,
+            762
+          ],
+          "original_bbox": [
+            49,
+            373,
+            611,
+            754
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "8240886c66b9821b1a43dd135f20d506582e708cebd7f5d64590a1bc9bf39c36",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "f4c74eb68ac111112af0f658b32e4a729e4f9fb6af7aebd924263a2b35119817"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\doodle_loops-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\doodle_loops-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "star_top_left",
+      "kind": "overlay",
+      "bbox": [
+        106,
+        68,
+        169,
+        128
+      ],
+      "description": "白色不规则手绘星形贴饰，位于左上照片外侧。",
+      "label": "白色不规则手绘星形贴饰，位于左上照片外侧。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "486715ee75f08115544b26c99a933ff30b4233d0c1f508f5e08dce5b9d7b3e34"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_top_left.png",
+        "sha256": "ba0ea2b397f3e306b94e81e8aecba5cefa24c02261acd1f9e232e10f0928ba0c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\star_top_left-restored.png",
+          "sha256": "ba0ea2b397f3e306b94e81e8aecba5cefa24c02261acd1f9e232e10f0928ba0c",
+          "bbox": [
+            100,
+            62,
+            175,
+            134
+          ],
+          "original_bbox": [
+            106,
+            68,
+            169,
+            128
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "fa14a1cc7135f4de9011544dd4348de690bda3227061681e783c3ed141f1cc32",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "f4c74eb68ac111112af0f658b32e4a729e4f9fb6af7aebd924263a2b35119817"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_top_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_top_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "star_top_right",
+      "kind": "overlay",
+      "bbox": [
+        784,
+        246,
+        850,
+        313
+      ],
+      "description": "白色不规则手绘星形贴饰，位于右上照片右上方。",
+      "label": "白色不规则手绘星形贴饰，位于右上照片右上方。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1129e1401c545ef68b4db93946e4e40a8017dffc8b1bbbbd552a62af6046d1e2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_top_right.png",
+        "sha256": "0d2e84d00b1ac77b110d870d2da4133e2541420aec9370f660effac0c940e08d",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\star_top_right-restored.png",
+          "sha256": "0d2e84d00b1ac77b110d870d2da4133e2541420aec9370f660effac0c940e08d",
+          "bbox": [
+            777,
+            239,
+            857,
+            320
+          ],
+          "original_bbox": [
+            784,
+            246,
+            850,
+            313
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "518117a05eec272a02cc705a40d9bfb9e250116aae90c586da1c070e01564eb6",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "f4c74eb68ac111112af0f658b32e4a729e4f9fb6af7aebd924263a2b35119817"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_top_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_top_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "star_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        737,
+        1021,
+        834,
+        1124
+      ],
+      "description": "白色不规则手绘星形贴饰，压在右下照片的右下边缘外侧。",
+      "label": "白色不规则手绘星形贴饰，压在右下照片的右下边缘外侧。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c2529937cbb275c1682ddd145a04c5694d3a16aca8a0a1e16ee8be50390a4905"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_bottom_right.png",
+        "sha256": "5642f6c3796af9afe3c3a595f6a1343d4fcf520e8875dd9fd3157d07dbd5f512",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\star_bottom_right-restored.png",
+          "sha256": "5642f6c3796af9afe3c3a595f6a1343d4fcf520e8875dd9fd3157d07dbd5f512",
+          "bbox": [
+            729,
+            1013,
+            842,
+            1132
+          ],
+          "original_bbox": [
+            737,
+            1021,
+            834,
+            1124
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "2979a6b549d20bb1ab50643e1f53761c4dc15c90d4d6e2ed9cd1381173b03a75",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "f4c74eb68ac111112af0f658b32e4a729e4f9fb6af7aebd924263a2b35119817"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_bottom_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\star_bottom_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "handwritten_lyrics",
+      "kind": "overlay",
+      "bbox": [
+        53,
+        794,
+        526,
+        1196
+      ],
+      "description": "左下方白色手写艺术字与涂画组成的完整装饰，包含带下划线的标题及多行英文歌词；保留原有手写笔画、行距与划线，不拆分为通用文字。",
+      "label": "左下方白色手写艺术字与涂画组成的完整装饰，包含带下划线的标题",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b7bb35ccab921ecbbec32136a28c967f9acaf1ce802ca4660ceb429768522f8c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\handwritten_lyrics.png",
+        "sha256": "8c8366c9a229638ac4aee98f9cd08fd87c81dbb51489d854d085fcdca393c2e3",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\handwritten_lyrics-restored.png",
+          "sha256": "8c8366c9a229638ac4aee98f9cd08fd87c81dbb51489d854d085fcdca393c2e3",
+          "bbox": [
+            45,
+            786,
+            534,
+            1200
+          ],
+          "original_bbox": [
+            53,
+            794,
+            526,
+            1196
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "03ea60872bdb0a928e8fc1e7e2dfe0a38ecaa284f3b71d7af90a2e7289781610",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "f4c74eb68ac111112af0f658b32e4a729e4f9fb6af7aebd924263a2b35119817"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\handwritten_lyrics-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\handwritten_lyrics-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_window",
+    "photo_upper_left",
+    "photo_upper_right",
+    "photo_lower_right",
+    "frame_window",
+    "doodle_loops",
+    "star_top_left",
+    "star_top_right",
+    "star_bottom_right",
+    "handwritten_lyrics"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "9fdccb870a5db2377137e3285ca8b7b2b414a334227a11a58e1a40da274c7de4",
+    "bindings": "8995f818a916f8379efefbcdbe8ecd64a22fd716e9a344f19242e0b62a554c35",
+    "input": "4ed6d52f36916a57b608203e8cad6ddf575e430e3aed61dd64c8436b7b3b9068",
+    "catalog": "35ae7f291d529f42fb2f3bd8f0ee260bef6ecacaecf5cba2da8163ed9c9632f3",
+    "photo_windows": "626a74f87eb5ac211f9dc7d3efd6ef6f2a9067deb2fe8099d45e1f7cbe34669d"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\reveal\\index.json",
+    "sha256": "2080ff4db1bf797554ef952b0c3fdd0ab3d3f8fbfde656f7c2642e84dbea0319"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-165\\assets\\gate\\report.json",
+    "sha256": "a899952c02218695d4cf77ce52cce1221c1da8abce8b30d770a5144d44881d9f",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 6,
+    "pending": 0,
+    "rejected": 1,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

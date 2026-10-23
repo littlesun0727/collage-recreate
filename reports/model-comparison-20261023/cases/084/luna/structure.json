@@ -1,0 +1,141 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "黑色粗糙纸面底，布满白色细小斑点；左侧及照片后方可见橙褐色撕纸边和碎片，作为固定底层保留。"
+    },
+    {
+      "id": "photo_window",
+      "kind": "photo",
+      "bbox": [
+        86,
+        484,
+        420,
+        742
+      ],
+      "description": "雨夜窗外的摄影画面，雨水覆盖玻璃，远处有微弱灯光；显示在窗框的玻璃区域内。"
+    },
+    {
+      "id": "photo_upper_left",
+      "kind": "photo",
+      "bbox": [
+        153,
+        84,
+        501,
+        432
+      ],
+      "description": "夜间街景照片：路灯、无叶树、路边车辆及建筑，树干在左侧，黑色轿车位于下方偏右；保留摄影环境，矩形边缘清晰。"
+    },
+    {
+      "id": "photo_upper_right",
+      "kind": "photo",
+      "bbox": [
+        557,
+        234,
+        892,
+        486
+      ],
+      "description": "夜雨街景照片：画面上方有透明雨棚边缘，树叶垂在左上方，中央路灯照亮雨丝，右下可见楼房；保留摄影环境，矩形边缘清晰。"
+    },
+    {
+      "id": "photo_lower_right",
+      "kind": "photo",
+      "bbox": [
+        500,
+        536,
+        868,
+        908
+      ],
+      "description": "雨天临街道路照片：左侧有白色车辆，路面反射灯光，远处沿湖树木与水岸；上方可见树冠和明亮路灯，保留摄影环境，矩形边缘清晰。"
+    },
+    {
+      "id": "frame_window",
+      "kind": "frame",
+      "bbox": [
+        85,
+        484,
+        420,
+        747
+      ],
+      "description": "白色窗框造型，包含左侧大玻璃窗、右侧上下两格窄窗、窗台及立框，边缘有浅色木质纹理和阴影；承托雨夜照片，框体覆盖照片边缘。",
+      "photo_id": "photo_window"
+    },
+    {
+      "id": "doodle_loops",
+      "kind": "overlay",
+      "bbox": [
+        54,
+        311,
+        679,
+        628
+      ],
+      "description": "白色手绘线条组成的环绕弧线与卷曲路径，跨越照片之间并部分压在照片边缘上；附带的小型星状笔触作为同一连续涂鸦保留。"
+    },
+    {
+      "id": "star_top_left",
+      "kind": "overlay",
+      "bbox": [
+        118,
+        57,
+        188,
+        107
+      ],
+      "description": "白色不规则手绘星形贴饰，位于左上照片外侧。"
+    },
+    {
+      "id": "star_top_right",
+      "kind": "overlay",
+      "bbox": [
+        871,
+        205,
+        945,
+        261
+      ],
+      "description": "白色不规则手绘星形贴饰，位于右上照片右上方。"
+    },
+    {
+      "id": "star_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        819,
+        851,
+        927,
+        937
+      ],
+      "description": "白色不规则手绘星形贴饰，压在右下照片的右下边缘外侧。"
+    },
+    {
+      "id": "handwritten_lyrics",
+      "kind": "overlay",
+      "bbox": [
+        59,
+        662,
+        584,
+        997
+      ],
+      "description": "左下方白色手写艺术字与涂画组成的完整装饰，包含带下划线的标题及多行英文歌词；保留原有手写笔画、行距与划线，不拆分为通用文字。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_window",
+    "photo_upper_left",
+    "photo_upper_right",
+    "photo_lower_right",
+    "frame_window",
+    "doodle_loops",
+    "star_top_left",
+    "star_top_right",
+    "star_bottom_right",
+    "handwritten_lyrics"
+  ]
+}
