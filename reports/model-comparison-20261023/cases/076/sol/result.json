@@ -1,0 +1,908 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "preview",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_heart": 0.99569,
+    "photo_circle": 0.989,
+    "photo_selfie": 0.84965,
+    "photo_main": 0.94808
+  },
+  "incomplete_objects": [],
+  "issues": [
+    {
+      "id": "background",
+      "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+    },
+    {
+      "id": "overlay_star",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "overlay_face_left",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "overlay_face_right",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "overlay_heart_pin",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "overlay_caption",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "scene_sha256": "5d6030ac34de97bfb6765b550687c62e60e0228f1c0c7bc4cfbc18af3986a7fc",
+  "final_sha256": "80326d520071ad49553a9505602c39f4164ea007f659694493b0ef7df37cfb9c",
+  "resources": [
+    {
+      "id": "background",
+      "kind": "background",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\overlays\\background.png",
+      "sha256": "e73e9cef7dbc5c18fcdd64038a6a80f34fbaaf63570cbd136d601890a84981e5",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\background-background-source.png",
+        "sha256": "809d42ffd8a87d7ece1298adc1ca745aed326f2c778b7e8ca1a54731528e4ea6",
+        "bbox": [
+          0,
+          0,
+          337,
+          1200
+        ],
+        "original_bbox": [
+          0,
+          0,
+          337,
+          1200
+        ],
+        "padding": 0,
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+        "raw_sha256": "c3b5388c586b870d7e0b2317845c78a5b45fa56e4cac01ce0e582ded3f5f0945",
+        "background_clean": true,
+        "semantic_verified": false
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\background-background-source.png",
+          "sha256": "809d42ffd8a87d7ece1298adc1ca745aed326f2c778b7e8ca1a54731528e4ea6",
+          "bbox": [
+            0,
+            0,
+            337,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            337,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "c3b5388c586b870d7e0b2317845c78a5b45fa56e4cac01ce0e582ded3f5f0945",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\background-preview.png",
+        "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_main.png",
+      "sha256": "65cef2209905d72b1681790415699b29ecd0f8fad2a0713c96f34a0f7b6b18b8",
+      "quality": "ready",
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_16.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_16",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+          "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_16.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_main",
+          "asset_id": "material_16",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "单人全身直立，保留帽顶、双脚及湖岸环境，居中适配竖幅；不足是侧身而非正面，未抬手，服装与室内背景不同。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_main-content-mask.png",
+        "content_mask_sha256": "16c7abf0bb1842482fa964aff33485226cf0b4465f00f4d50bb77775fe3348eb",
+        "photo_window_spec": {
+          "photo_id": "photo_main",
+          "reason": "保留人物及墙面、地面和木桶等完整摄影环境；显示窗口为竖直矩形，左侧部分被其他照片遮挡，无连续出框、独立描边或透明渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_selfie",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_selfie.png",
+      "sha256": "f09ce41605ceb3dd371925726e528d95c67663fd2e309be1b00ced33d0a249d6",
+      "quality": "ready",
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_09.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_09",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+          "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_09.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_selfie",
+          "asset_id": "material_09",
+          "source_crop": [
+            0.18,
+            0.27,
+            0.77,
+            0.75
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "女子俯身、歪头看向镜头，与自拍姿态最接近；裁至帽顶到上身，保留脸和手势。背景为户外湖岸，且戴帽。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_selfie-content-mask.png",
+        "content_mask_sha256": "fd8a7ded1500622aefa21829e2db77c60d7d11249db1a1a662f3ef4a5ea94175",
+        "photo_window_spec": {
+          "photo_id": "photo_selfie",
+          "reason": "人物与室内瓷砖背景共同保留，照片外边界为无旋转矩形；下部被圆形照片及贴纸遮挡，边缘为清晰裁切，没有主体描边或窗口渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_circle",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_circle.png",
+      "sha256": "b859370d8b290db926996acbcee67aa26757a7647e2322d8fefb7acf1383d2d4",
+      "quality": "ready",
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_00.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_00",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+          "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_00.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_circle",
+          "asset_id": "material_00",
+          "source_crop": [
+            0.19,
+            0.27,
+            0.96,
+            0.85
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "正面近景人像适合胸像圆窗，裁去多余天空和下身，保留帽顶、面部及湖水背景；戴墨镜并抬手，与参考服饰及视线不同。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_circle-content-mask.png",
+        "content_mask_sha256": "18ef12fa94dd467f9084026b5e33360ce8bde8cf3cfed1893e39321ae695dd75",
+        "photo_window_spec": {
+          "photo_id": "photo_circle",
+          "reason": "人物、蓝白墙面、红心与瓷砖一起被固定圆形窗口裁切；圆周外直接显露下层照片或波点底纹，无圆形边框、主体描边及渐变。",
+          "shape": {
+            "type": "circle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_heart",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_heart.png",
+      "sha256": "054505cb6262e95dcc314ce03180830e0734035a47cdff0139778bbb3a4ea71f",
+      "quality": "ready",
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_06.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_06",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-106-133b70eba5c8\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+          "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\prepared\\material_06.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_heart",
+          "asset_id": "material_06",
+          "source_crop": [
+            0.16,
+            0.25,
+            0.85,
+            0.78
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": true,
+          "reason": "侧面半身人像，镜像使面朝右；裁取帽顶至上身并保留山地背景。没有袖口靠嘴的动作，红帽和户外环境也与参考不同。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\photos\\photo_heart-content-mask.png",
+        "content_mask_sha256": "cfaa2442dfa6b245a729af05300f3567128bc03ec3c9d67c4db27ae456acf150",
+        "photo_window_spec": {
+          "photo_id": "photo_heart",
+          "reason": "保留人物及其瓷砖、蓝白墙面和红心背景，整体按双圆瓣、下端收尖的固定心形窗口裁切；边缘清晰，无主体描边、窗口描边或透明渐变。",
+          "shape": {
+            "type": "heart"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_star",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\overlays\\overlay_star.png",
+      "sha256": "a7a222e29b2a665aa92920a85d51da311a153de6643e7b5b242baace74dbfbd7",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_star-restored.png",
+        "sha256": "8369ce3cfe963d0fe48b9d499959295f90cc898ef482edb9f9b64161ad811bcb",
+        "bbox": [
+          146,
+          177,
+          239,
+          268
+        ],
+        "original_bbox": [
+          154,
+          185,
+          231,
+          260
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+        "raw_sha256": "93856c13ba51006d3d042be7b836e2bcba7e51e9e74d00c1089eba2243413d64",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_star-restored.png",
+          "sha256": "8369ce3cfe963d0fe48b9d499959295f90cc898ef482edb9f9b64161ad811bcb",
+          "bbox": [
+            146,
+            177,
+            239,
+            268
+          ],
+          "original_bbox": [
+            154,
+            185,
+            231,
+            260
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "93856c13ba51006d3d042be7b836e2bcba7e51e9e74d00c1089eba2243413d64",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_star-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_star-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_face_left",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\overlays\\overlay_face_left.png",
+      "sha256": "85b202671ddc864d821ee0f0f2c2859cf77d747d3c13e1ae1dc0923e6c57a872",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_face_left-restored.png",
+        "sha256": "1c21d844d4eae06ce367d36a0fbe1e0d132e165567b5d27e526dde3e83edc59b",
+        "bbox": [
+          6,
+          605,
+          180,
+          670
+        ],
+        "original_bbox": [
+          12,
+          611,
+          174,
+          664
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+        "raw_sha256": "63dee715228a0c2e6c614e86aaa19bf75a521df13e8d7c32927d449dc190e648",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_face_left-restored.png",
+          "sha256": "1c21d844d4eae06ce367d36a0fbe1e0d132e165567b5d27e526dde3e83edc59b",
+          "bbox": [
+            6,
+            605,
+            180,
+            670
+          ],
+          "original_bbox": [
+            12,
+            611,
+            174,
+            664
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "63dee715228a0c2e6c614e86aaa19bf75a521df13e8d7c32927d449dc190e648",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_face_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_face_left-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_face_right",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\overlays\\overlay_face_right.png",
+      "sha256": "2eb76ab326c4609b2b144ae871946edc1bfab1564d860b02135f54b4fe4ef97e",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_face_right-restored.png",
+        "sha256": "c8ee925d703a39f4a8f9c28be36573de6934a0ffbf1356a8d374516435990879",
+        "bbox": [
+          759,
+          146,
+          867,
+          197
+        ],
+        "original_bbox": [
+          764,
+          151,
+          862,
+          192
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+        "raw_sha256": "2c4d8a43a344ce27071cf21126bf4c9d1b9fd66ad3c1b8e5077c79f27b30b0f8",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_face_right-restored.png",
+          "sha256": "c8ee925d703a39f4a8f9c28be36573de6934a0ffbf1356a8d374516435990879",
+          "bbox": [
+            759,
+            146,
+            867,
+            197
+          ],
+          "original_bbox": [
+            764,
+            151,
+            862,
+            192
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "2c4d8a43a344ce27071cf21126bf4c9d1b9fd66ad3c1b8e5077c79f27b30b0f8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_face_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_face_right-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_heart_pin",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\overlays\\overlay_heart_pin.png",
+      "sha256": "3fb3f2ed4fced6202e0686276f641b5adb098e4243a32c0b001f3172ddb48ca9",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_heart_pin-restored.png",
+        "sha256": "84b46b593feabf74e4cbd7d651a4758e68fd243f9c2318164057ae998f6e5ad0",
+        "bbox": [
+          9,
+          744,
+          106,
+          872
+        ],
+        "original_bbox": [
+          17,
+          752,
+          98,
+          864
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+        "raw_sha256": "f4e92b845e13a4c12788d4697ad92f9f15996bec609c17789ac0b1ed4d6625f0",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_heart_pin-restored.png",
+          "sha256": "84b46b593feabf74e4cbd7d651a4758e68fd243f9c2318164057ae998f6e5ad0",
+          "bbox": [
+            9,
+            744,
+            106,
+            872
+          ],
+          "original_bbox": [
+            17,
+            752,
+            98,
+            864
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "f4e92b845e13a4c12788d4697ad92f9f15996bec609c17789ac0b1ed4d6625f0",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_heart_pin-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_heart_pin-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_caption",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\overlays\\overlay_caption.png",
+      "sha256": "9ed320035004333066fc0b4a87c1c7d73d381d45ce75dc8daf6f85bb75f642eb",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_caption-restored.png",
+        "sha256": "45d1e1b5335384b1eedb4491b6333383cbaee2583a226ce4c951698ccc285cef",
+        "bbox": [
+          27,
+          1111,
+          222,
+          1150
+        ],
+        "original_bbox": [
+          31,
+          1115,
+          218,
+          1146
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+        "raw_sha256": "634ec9f82af282154a7116841b30085aa95873072db85a28039e5ad5b9c690d5",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\overlay_caption-restored.png",
+          "sha256": "45d1e1b5335384b1eedb4491b6333383cbaee2583a226ce4c951698ccc285cef",
+          "bbox": [
+            27,
+            1111,
+            222,
+            1150
+          ],
+          "original_bbox": [
+            31,
+            1115,
+            218,
+            1146
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "634ec9f82af282154a7116841b30085aa95873072db85a28039e5ad5b9c690d5",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "fe81f8c9cce11c78732fa9bec7254ecdf7995be52d9d702fd83a3e85248ee54a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_caption-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\overlay_caption-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "3f653ee0afe949f8",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。",
+    "items": [],
+    "scene_sha256": "5d6030ac34de97bfb6765b550687c62e60e0228f1c0c7bc4cfbc18af3986a7fc",
+    "final_sha256": "80326d520071ad49553a9505602c39f4164ea007f659694493b0ef7df37cfb9c"
+  },
+  "at": "2026-10-23T22:26:10.356219+00:00",
+  "extraction_sheets": [
+    "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\previews\\extractions-1.jpg"
+  ],
+  "review_regions": [
+    {
+      "ids": [
+        "photo_main",
+        "overlay_face_right"
+      ],
+      "bbox": [
+        720,
+        75,
+        900,
+        268
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\previews\\review-detail-1.png"
+    },
+    {
+      "ids": [
+        "photo_selfie",
+        "overlay_star"
+      ],
+      "bbox": [
+        102,
+        142,
+        283,
+        335
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\previews\\review-detail-2.png"
+    },
+    {
+      "ids": [
+        "photo_heart",
+        "overlay_heart_pin"
+      ],
+      "bbox": [
+        0,
+        749,
+        180,
+        941
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\previews\\review-detail-3.png"
+    },
+    {
+      "ids": [
+        "photo_circle",
+        "overlay_face_left"
+      ],
+      "bbox": [
+        75,
+        541,
+        255,
+        734
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\previews\\review-detail-4.png"
+    }
+  ],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\gate\\report.json",
+    "sha256": "085e511e155ca97d9abf2cf729366e0d7eade473176707ec2cc6b5d309ff9d12",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 6,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-106\\assets\\reveal\\index.json",
+    "sha256": "b379f8f5331d234275676b1e56f0dc9a9ab331a6fbde5272992e9e47cf9dcc96"
+  },
+  "render_id": "3f653ee0afe949f8",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "3f653ee0afe949f8",
+    "category": "unreviewed",
+    "review_status": "skipped",
+    "warnings": [],
+    "draft_kind": null
+  }
+}

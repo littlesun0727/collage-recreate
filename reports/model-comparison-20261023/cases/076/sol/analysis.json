@@ -1,0 +1,156 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        337,
+        1200
+      ],
+      "description": "左侧白底黑色波点图案，黑点错列重复分布，作为固定底层整体保留。",
+      "label": "左侧白底黑色波点图案，黑点错列重复分布，作为固定底层整体保留",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        337,
+        0,
+        900,
+        1200
+      ],
+      "description": "右侧竖幅照片，一名长发女子正面全身站立，穿黑色长毛衣、白袜和黑鞋，一手抬到额前。保留墙面文字、瓷砖、地面及右侧木桶等完整摄影环境；画面延伸至画布上下及右边缘，左侧局部被其他照片覆盖。",
+      "label": "右侧竖幅照片，一名长发女子正面全身站立，穿黑色长毛衣、白袜和",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_selfie",
+      "kind": "photo",
+      "bbox": [
+        51,
+        217,
+        370,
+        612
+      ],
+      "description": "左上矩形自拍照片，一名长发女子近景俯身看向镜头，头部略倾斜，黑色上衣及浅色外衣局部可见。保留身后的室内瓷砖等摄影环境，底部右侧被圆形照片遮挡，顶部被星星贴纸覆盖。",
+      "label": "左上矩形自拍照片，一名长发女子近景俯身看向镜头，头部略倾斜，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_circle",
+      "kind": "photo",
+      "bbox": [
+        156,
+        517,
+        441,
+        803
+      ],
+      "description": "中左圆形照片，一名长发女子正面胸像，穿黑色红字毛衣，视线略偏侧。摄影背景中的蓝白墙面、红心和瓷砖仍然可见，全部内容按圆形窗口裁切，边缘清晰。",
+      "label": "中左圆形照片，一名长发女子正面胸像，穿黑色红字毛衣，视线略偏",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_heart",
+      "kind": "photo",
+      "bbox": [
+        7,
+        826,
+        330,
+        1115
+      ],
+      "description": "左下心形照片，一名长发女子半身近景，面朝右侧，抬起的黑色袖口靠近嘴边。保留身后的瓷砖、蓝白墙面与红心图案，照片整体按心形窗口裁切，下端收尖，未沿人物轮廓去除背景。",
+      "label": "左下心形照片，一名长发女子半身近景，面朝右侧，抬起的黑色袖口",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_star",
+      "kind": "overlay",
+      "bbox": [
+        154,
+        185,
+        231,
+        260
+      ],
+      "description": "黑色方形星星贴纸，中央白色大五角星及周围细小白色星点作为完整装饰保留，叠在自拍照片上边缘。",
+      "label": "黑色方形星星贴纸，中央白色大五角星及周围细小白色星点作为完整",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_face_left",
+      "kind": "overlay",
+      "bbox": [
+        12,
+        611,
+        174,
+        664
+      ],
+      "description": "黑色横条表情标签，包含白色符号组成的猫脸、两侧加号及短横线，文字造型和黑色底板整体保留，右端压住圆形照片左缘。",
+      "label": "黑色横条表情标签，包含白色符号组成的猫脸、两侧加号及短横线，",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_face_right",
+      "kind": "overlay",
+      "bbox": [
+        764,
+        151,
+        862,
+        192
+      ],
+      "description": "右上白色横向标签，包含黑色表情符号与空心五角星，符号的独立位置和底板整体保留，覆盖在主照片上。",
+      "label": "右上白色横向标签，包含黑色表情符号与空心五角星，符号的独立位",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_heart_pin",
+      "kind": "overlay",
+      "bbox": [
+        17,
+        752,
+        98,
+        864
+      ],
+      "description": "黑白格纹心形别针装饰，保留心形外缘的柔软模糊质感及下方细长针脚，作为同一完整单元；针脚向下叠在心形照片左上区域。",
+      "label": "黑白格纹心形别针装饰，保留心形外缘的柔软模糊质感及下方细长针",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_caption",
+      "kind": "overlay",
+      "bbox": [
+        31,
+        1115,
+        218,
+        1146
+      ],
+      "description": "深灰色手写日文短句「一緒に頑張ろうね」及开头短横笔画，保留不规则字形、笔触和排列，位于心形照片下方。",
+      "label": "深灰色手写日文短句「一緒に頑張ろうね」及开头短横笔画，保留不",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_main",
+    "photo_selfie",
+    "photo_circle",
+    "photo_heart",
+    "overlay_star",
+    "overlay_face_left",
+    "overlay_face_right",
+    "overlay_heart_pin",
+    "overlay_caption"
+  ]
+}
