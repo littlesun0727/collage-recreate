@@ -1,0 +1,156 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1349
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1349
+      ],
+      "description": "整幅固定的虚化实拍背景，呈暖棕色桌面与横向浅色区域，保留原有明暗和失焦层次。",
+      "label": "整幅固定的虚化实拍背景，呈暖棕色桌面与横向浅色区域，保留原有",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "top_left_doodles",
+      "kind": "overlay",
+      "bbox": [
+        47,
+        152,
+        196,
+        320
+      ],
+      "description": "左上方白色手绘装饰组：两颗不规则空心星、周围小闪光与圆点，作为完整线稿装饰保留。",
+      "label": "左上方白色手绘装饰组：两颗不规则空心星、周围小闪光与圆点，作",
+      "method": "extract"
+    },
+    {
+      "id": "top_exclamations",
+      "kind": "overlay",
+      "bbox": [
+        328,
+        86,
+        636,
+        287
+      ],
+      "description": "顶部三枚白色手绘感空心感叹号及下方圆点，整体作为一组装饰保留。",
+      "label": "顶部三枚白色手绘感空心感叹号及下方圆点，整体作为一组装饰保留",
+      "method": "extract"
+    },
+    {
+      "id": "lower_left_plate",
+      "kind": "photo",
+      "bbox": [
+        52,
+        623,
+        493,
+        1013
+      ],
+      "description": "一盘早餐拼盘的完整抠图主体，含虾、牛油果、鸡蛋、肉类、莓果及盘中食物；摄影背景去除，外缘有白色手绘虚线轮廓。",
+      "label": "一盘早餐拼盘的完整抠图主体，含虾、牛油果、鸡蛋、肉类、莓果及",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "fork_doodle",
+      "kind": "overlay",
+      "bbox": [
+        615,
+        252,
+        824,
+        505
+      ],
+      "description": "右上方白色手绘叉子线稿与旁边短线，完整保留；叉柄延伸在背景上，叉齿区域被前方黑盘遮挡。",
+      "label": "右上方白色手绘叉子线稿与旁边短线，完整保留；叉柄延伸在背景上",
+      "method": "extract"
+    },
+    {
+      "id": "top_left_food",
+      "kind": "photo",
+      "bbox": [
+        81,
+        256,
+        527,
+        631
+      ],
+      "description": "左上早餐拼盘抠图，包含白盘上的三明治、煎蛋、虾及水果酸奶碗等完整食物组合；摄影背景去除，外围有连续白色手绘轮廓。",
+      "label": "左上早餐拼盘抠图，包含白盘上的三明治、煎蛋、虾及水果酸奶碗等",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "skillet_food",
+      "kind": "photo",
+      "bbox": [
+        386,
+        451,
+        822,
+        813
+      ],
+      "description": "右侧黑色圆盘及其早餐组合抠图，包含贝果夹馅、蓝莓、炒蛋和蘑菇等；摄影背景去除，盘缘外有连续白色手绘轮廓。",
+      "label": "右侧黑色圆盘及其早餐组合抠图，包含贝果夹馅、蓝莓、炒蛋和蘑菇",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "bento_food",
+      "kind": "photo",
+      "bbox": [
+        350,
+        805,
+        798,
+        1225
+      ],
+      "description": "底部卡通造型蛋包饭便当的完整抠图主体，包含两只动物造型饭团、蛋包饭、蔬菜和配料；摄影背景去除，外围保留黑色细边及白色宽轮廓。",
+      "label": "底部卡通造型蛋包饭便当的完整抠图主体，包含两只动物造型饭团、",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "yummy_doodles",
+      "kind": "overlay",
+      "bbox": [
+        45,
+        1077,
+        368,
+        1268
+      ],
+      "description": "左下方白色手绘装饰组，含艺术字“YUMMY”、小食物与餐具涂鸦、弯月和爱心；字形及各点缀作为整体保留。",
+      "label": "左下方白色手绘装饰组，含艺术字“YUMMY”、小食物与餐具涂",
+      "method": "extract"
+    },
+    {
+      "id": "lower_right_star",
+      "kind": "overlay",
+      "bbox": [
+        750,
+        1180,
+        864,
+        1295
+      ],
+      "description": "右下角白色斜线填充的手绘五角星装饰。",
+      "label": "右下角白色斜线填充的手绘五角星装饰。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "top_left_doodles",
+    "top_exclamations",
+    "lower_left_plate",
+    "fork_doodle",
+    "top_left_food",
+    "skillet_food",
+    "bento_food",
+    "yummy_doodles",
+    "lower_right_star"
+  ]
+}

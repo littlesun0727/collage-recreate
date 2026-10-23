@@ -10,7 +10,7 @@
 
 ## Codex gpt-6-luna / medium
 
-排队
+运行中 · photo_windows
 
 ## Codex gpt-6.1-sol / medium
 
