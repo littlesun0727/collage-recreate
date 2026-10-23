@@ -1,0 +1,371 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整张图的底色，由参考图中的摄影内容（台灯、书架等）经过高斯模糊处理形成的虚化背景。",
+      "label": "整张图的底色，由参考图中的摄影内容（台灯、书架等）经过高斯模",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        440,
+        80,
+        773,
+        292
+      ],
+      "description": "一张展示打开的书本内页的照片，可见密集的中文印刷文字。",
+      "label": "一张展示打开的书本内页的照片，可见密集的中文印刷文字。",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        500,
+        306,
+        809,
+        336
+      ],
+      "description": "About the Universe",
+      "label": "About the Universe",
+      "method": "local",
+      "text": "About the Universe",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        472,
+        352,
+        837,
+        630
+      ],
+      "description": "一张展示木质书架的照片，架子上摆满了各种书籍，右侧有一个黑色相机。",
+      "label": "一张展示木质书架的照片，架子上摆满了各种书籍，右侧有一个黑色",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        73,
+        222,
+        409,
+        666
+      ],
+      "description": "一张静物照片，包含一盏亮着的复古台灯、一杯冰拿铁饮品以及散落在蕾丝桌布上的多个绿色和白色毛绒玩具。",
+      "label": "一张静物照片，包含一盏亮着的复古台灯、一杯冰拿铁饮品以及散落",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        286,
+        178,
+        374,
+        271
+      ],
+      "description": "一个白色的手绘风格装饰图案，形似带有锯齿状线条的标签或对话框尾巴。",
+      "label": "一个白色的手绘风格装饰图案，形似带有锯齿状线条的标签或对话框",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        443,
+        562,
+        508,
+        642
+      ],
+      "description": "一个白色的手绘风格装饰图案，形似带有条纹的票据或标签。",
+      "label": "一个白色的手绘风格装饰图案，形似带有条纹的票据或标签。",
+      "method": "extract"
+    },
+    {
+      "id": "text_2",
+      "kind": "text",
+      "bbox": [
+        51,
+        702,
+        513,
+        738
+      ],
+      "description": "Pistachio Ice Cream Latte",
+      "label": "Pistachio Ice Cream Latte",
+      "method": "local",
+      "text": "Pistachio Ice Cream Latte",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        176,
+        790,
+        474,
+        1094
+      ],
+      "description": "一张室内场景照片，展示了窗边的角落，有透光的窗帘、红色的墙面装饰画和一盏流苏台灯。",
+      "label": "一张室内场景照片，展示了窗边的角落，有透光的窗帘、红色的墙面",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        151,
+        804,
+        184,
+        1092
+      ],
+      "description": "一列垂直排列的白色手绘符号，形状类似字母“G”或螺旋线。",
+      "label": "一列垂直排列的白色手绘符号，形状类似字母“G”或螺旋线。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        63,
+        802,
+        104,
+        846
+      ],
+      "description": "一个白色的四角星轮廓装饰。",
+      "label": "一个白色的四角星轮廓装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        862,
+        144,
+        906
+      ],
+      "description": "一个白色的四角星轮廓装饰。",
+      "label": "一个白色的四角星轮廓装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "photo_5",
+      "kind": "photo",
+      "bbox": [
+        502,
+        694,
+        752,
+        996
+      ],
+      "description": "一张俯拍照片，显示一个绿白花纹的圆盘上摆放着四个戴眼镜的小鸡造型毛绒公仔。",
+      "label": "一张俯拍照片，显示一个绿白花纹的圆盘上摆放着四个戴眼镜的小鸡",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        760,
+        846,
+        832,
+        942
+      ],
+      "description": "一组白色的手绘线条装饰，形似抽象的植物或涂鸦。",
+      "label": "一组白色的手绘线条装饰，形似抽象的植物或涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_7",
+      "kind": "overlay",
+      "bbox": [
+        166,
+        108,
+        202,
+        144
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_8",
+      "kind": "overlay",
+      "bbox": [
+        86,
+        166,
+        122,
+        198
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_9",
+      "kind": "overlay",
+      "bbox": [
+        207,
+        180,
+        238,
+        214
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_10",
+      "kind": "overlay",
+      "bbox": [
+        423,
+        426,
+        454,
+        462
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_11",
+      "kind": "overlay",
+      "bbox": [
+        626,
+        42,
+        662,
+        72
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_12",
+      "kind": "overlay",
+      "bbox": [
+        706,
+        24,
+        734,
+        54
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_13",
+      "kind": "overlay",
+      "bbox": [
+        778,
+        198,
+        810,
+        234
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_14",
+      "kind": "overlay",
+      "bbox": [
+        783,
+        670,
+        814,
+        702
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_15",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        882,
+        513,
+        912
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_16",
+      "kind": "overlay",
+      "bbox": [
+        742,
+        990,
+        774,
+        1026
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "photo_3",
+    "photo_4",
+    "photo_5",
+    "text_1",
+    "text_2",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "overlay_4",
+    "overlay_5",
+    "overlay_6",
+    "overlay_7",
+    "overlay_8",
+    "overlay_9",
+    "overlay_10",
+    "overlay_11",
+    "overlay_12",
+    "overlay_13",
+    "overlay_14",
+    "overlay_15",
+    "overlay_16"
+  ]
+}

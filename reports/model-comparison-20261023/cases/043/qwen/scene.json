@@ -1,0 +1,1462 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\prepared\\reference.png",
+    "sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整张图的底色，由参考图中的摄影内容（台灯、书架等）经过高斯模糊处理形成的虚化背景。",
+      "label": "整张图的底色，由参考图中的摄影内容（台灯、书架等）经过高斯模",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5cd44c7ea20f9773c303313bec387256f354222ebc4d5b13e64b9bb577033b9d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\background_1.png",
+        "sha256": "983e7b9bdbe8bd102b693613b46d8944470582585547e749e8718a4ecaa7aa5e",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "983e7b9bdbe8bd102b693613b46d8944470582585547e749e8718a4ecaa7aa5e",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "5714723dc8268f7b4306b1c1e77008d880d5994cf9f7dfe6d1a46c7688a8acea",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        440,
+        80,
+        773,
+        292
+      ],
+      "description": "一张展示打开的书本内页的照片，可见密集的中文印刷文字。",
+      "label": "一张展示打开的书本内页的照片，可见密集的中文印刷文字。",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "展示书本内页的摄影照片，保留背景。有清晰的矩形边界，无独立描边或渐变效果。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_03",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "原图为书本内页，素材库无对应内容。选用横向风景图填充，其密集的纹理与文字排版的视觉密度有一定相似性，且比例接近。"
+      },
+      "source": {
+        "id": "material_03",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-104-19312d28b354\\2bcfdb727b916f4eebf230f31a2cebc50164c3c09a648beb58274579a4ecaddb.png",
+        "sha256": "87ae8cd18b29841f2ca0a5a686645c02f358a85995090a2e901955cbd278009d",
+        "size": [
+          1308,
+          736
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\prepared\\material_03.jpg"
+      }
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        500,
+        306,
+        809,
+        336
+      ],
+      "description": "About the Universe",
+      "label": "About the Universe",
+      "method": "local",
+      "text": "About the Universe",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        472,
+        352,
+        837,
+        630
+      ],
+      "description": "一张展示木质书架的照片，架子上摆满了各种书籍，右侧有一个黑色相机。",
+      "label": "一张展示木质书架的照片，架子上摆满了各种书籍，右侧有一个黑色",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "展示书架场景的摄影照片，保留背景。具有明确的矩形显示窗口，无额外装饰线或边缘羽化。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_01",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "原图为书架，素材库无对应内容。选用航拍盐湖图，其复杂的线条和色块在视觉上能模拟书架的丰富感，比例适配。"
+      },
+      "source": {
+        "id": "material_01",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-104-19312d28b354\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+        "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\prepared\\material_01.jpg"
+      }
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        73,
+        222,
+        409,
+        666
+      ],
+      "description": "一张静物照片，包含一盏亮着的复古台灯、一杯冰拿铁饮品以及散落在蕾丝桌布上的多个绿色和白色毛绒玩具。",
+      "label": "一张静物照片，包含一盏亮着的复古台灯、一杯冰拿铁饮品以及散落",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "静物摄影照片，包含台灯与毛绒玩具等完整环境，保留背景。矩形裁切窗口清晰可见，无特殊边缘处理。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_06",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "原图为静物特写，素材库无对应内容。选用竖构图人物照，红色帽子作为视觉重心，呼应原图中台灯的色彩点缀，且符合竖向槽位。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-104-19312d28b354\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        286,
+        178,
+        374,
+        271
+      ],
+      "description": "一个白色的手绘风格装饰图案，形似带有锯齿状线条的标签或对话框尾巴。",
+      "label": "一个白色的手绘风格装饰图案，形似带有锯齿状线条的标签或对话框",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5cc2dada95e4976609e364d1a53041aebfb7797bbd5f66a5fda58db9d9f1c470"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_1.png",
+        "sha256": "05ed1a42b2e4eaadeb70f561679c3610cd62c8c508e120c21332dd85e20bf682",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "05ed1a42b2e4eaadeb70f561679c3610cd62c8c508e120c21332dd85e20bf682",
+          "bbox": [
+            278,
+            170,
+            382,
+            279
+          ],
+          "original_bbox": [
+            286,
+            178,
+            374,
+            271
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "80cf70755d537e1f4dfee091796fa4eaeee2a005f8f11c5e74327e85601327d4",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        443,
+        562,
+        508,
+        642
+      ],
+      "description": "一个白色的手绘风格装饰图案，形似带有条纹的票据或标签。",
+      "label": "一个白色的手绘风格装饰图案，形似带有条纹的票据或标签。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "0a695d3bca4a23d502305a8e8da4da5745eb203edbf1e0b18e49ccad65dedadc"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_2.png",
+        "sha256": "41a2f3ee3bef2d72a467692093d6c407fd749a49aa126940cbe3ee3fa321a5f5",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "41a2f3ee3bef2d72a467692093d6c407fd749a49aa126940cbe3ee3fa321a5f5",
+          "bbox": [
+            436,
+            555,
+            515,
+            649
+          ],
+          "original_bbox": [
+            443,
+            562,
+            508,
+            642
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "64c6accfe8559d1ce2dd9be5c038f1d45b44b14e1a59308bf310474736e0d6a5",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_2",
+      "kind": "text",
+      "bbox": [
+        51,
+        702,
+        513,
+        738
+      ],
+      "description": "Pistachio Ice Cream Latte",
+      "label": "Pistachio Ice Cream Latte",
+      "method": "local",
+      "text": "Pistachio Ice Cream Latte",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        176,
+        790,
+        474,
+        1094
+      ],
+      "description": "一张室内场景照片，展示了窗边的角落，有透光的窗帘、红色的墙面装饰画和一盏流苏台灯。",
+      "label": "一张室内场景照片，展示了窗边的角落，有透光的窗帘、红色的墙面",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_4",
+        "reason": "室内角落场景照片，保留背景。矩形窗口边界明确，周围虽有手绘涂鸦但不属于照片本身的几何描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_4",
+        "asset_id": "material_17",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "原图为室内一角，素材库无对应内容。选用包含建筑主体的风景照，画面中的房屋元素与原图的窗边场景有结构上的相似性，色调较为柔和。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-104-19312d28b354\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        151,
+        804,
+        184,
+        1092
+      ],
+      "description": "一列垂直排列的白色手绘符号，形状类似字母“G”或螺旋线。",
+      "label": "一列垂直排列的白色手绘符号，形状类似字母“G”或螺旋线。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c9201c295e3d95f8768928cfb8db14a77e8535c815e297a0ff7a5b18c296fea0"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_3.png",
+        "sha256": "5b026576c0686d1e4e352d20fefdb7ab44cb69b183f77cf462f9bdc43ed28d74",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_3-restored.png",
+          "sha256": "5b026576c0686d1e4e352d20fefdb7ab44cb69b183f77cf462f9bdc43ed28d74",
+          "bbox": [
+            147,
+            800,
+            188,
+            1096
+          ],
+          "original_bbox": [
+            151,
+            804,
+            184,
+            1092
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "07a49ed35f77b798cc7d2b7fb54ee349ad7e44d18213e90f13e2c21dfea60129",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        63,
+        802,
+        104,
+        846
+      ],
+      "description": "一个白色的四角星轮廓装饰。",
+      "label": "一个白色的四角星轮廓装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f91ae16c46e16b695d186ff3233f16f5b308f464f0dfae0848936a4ddcbc46da"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_4.png",
+        "sha256": "a01b5f21eb8fe627e1474c4a55418e4c716d509d50fae5195fbc24bbbef03228",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_4-restored.png",
+          "sha256": "a01b5f21eb8fe627e1474c4a55418e4c716d509d50fae5195fbc24bbbef03228",
+          "bbox": [
+            58,
+            797,
+            109,
+            851
+          ],
+          "original_bbox": [
+            63,
+            802,
+            104,
+            846
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "cd4405418f460b25cb2874433ecf1b3e0de97af85176bf24ed55f57568cafb93",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_4-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_4-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        862,
+        144,
+        906
+      ],
+      "description": "一个白色的四角星轮廓装饰。",
+      "label": "一个白色的四角星轮廓装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "beabc912deb0c090ea9a36c77c703beb0371afe95386799388f3cb3ec000058d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_5.png",
+        "sha256": "ef0fbed994dfd77e37bfbcc99b2917459bd7c4542a0aa41f198ebe947a375cd4",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_5-restored.png",
+          "sha256": "ef0fbed994dfd77e37bfbcc99b2917459bd7c4542a0aa41f198ebe947a375cd4",
+          "bbox": [
+            100,
+            858,
+            148,
+            910
+          ],
+          "original_bbox": [
+            104,
+            862,
+            144,
+            906
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "e0001903fe6a87a37b69678e1c1b24743072789539e746de7d0c9d939324cefe",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_5-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_5-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_5",
+      "kind": "photo",
+      "bbox": [
+        502,
+        694,
+        752,
+        996
+      ],
+      "description": "一张俯拍照片，显示一个绿白花纹的圆盘上摆放着四个戴眼镜的小鸡造型毛绒公仔。",
+      "label": "一张俯拍照片，显示一个绿白花纹的圆盘上摆放着四个戴眼镜的小鸡",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_5",
+        "reason": "俯拍圆盘上的公仔，画面呈现明显的圆形裁切窗口。保留盘子和桌面的摄影背景，圆形边界清晰且无额外描边。",
+        "shape": {
+          "type": "circle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_5",
+        "asset_id": "material_11",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "原图为俯拍玩具盘，素材库无对应内容。选用俯拍大地景观图，其中的绿色树形图案与白色地面构成类似“盘中物”的视觉效果，且为俯视视角。"
+      },
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-104-19312d28b354\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\prepared\\material_11.jpg"
+      }
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        760,
+        846,
+        832,
+        942
+      ],
+      "description": "一组白色的手绘线条装饰，形似抽象的植物或涂鸦。",
+      "label": "一组白色的手绘线条装饰，形似抽象的植物或涂鸦。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "32cad0896922a94cebf47f41deffd5b85dc513195b9a03732c7f4603b940e32d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_6.png",
+        "sha256": "6ce159ceb6866d5fe2b2891d31e0315f0cdf9e938a7510ba8374fb9cd87c1d14",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_6-restored.png",
+          "sha256": "6ce159ceb6866d5fe2b2891d31e0315f0cdf9e938a7510ba8374fb9cd87c1d14",
+          "bbox": [
+            752,
+            838,
+            840,
+            950
+          ],
+          "original_bbox": [
+            760,
+            846,
+            832,
+            942
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_13.png",
+          "raw_sha256": "20755457d11d421996025e48e98bd5d2290f05d65c98f90dd6bc02470eca97c7",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_6-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_6-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_7",
+      "kind": "overlay",
+      "bbox": [
+        166,
+        108,
+        202,
+        144
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "575d4a14efd7ee779d5d248ce157638c1b03094b58d05320f9386be10808cecc"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_7.png",
+        "sha256": "cba83d3bbe826f9791b83eca52a7e902e37d6fa22743b90474ea23cef860266f",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_7-restored.png",
+          "sha256": "cba83d3bbe826f9791b83eca52a7e902e37d6fa22743b90474ea23cef860266f",
+          "bbox": [
+            162,
+            104,
+            206,
+            148
+          ],
+          "original_bbox": [
+            166,
+            108,
+            202,
+            144
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_14.png",
+          "raw_sha256": "fd06af728768ba210bd21764b4e4017ec72a50632f293c39d24d3d791be443d3",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_7-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_7-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_8",
+      "kind": "overlay",
+      "bbox": [
+        86,
+        166,
+        122,
+        198
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "31d7004b0bbb405fcbd67d5c0668bc86ecbd390d3bfa19a8d8c114295d37f1ed"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_8.png",
+        "sha256": "bbba656909bfb6a5727759a22b8d182e34ab2612d610934fb61cbc6f4fafbc12",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_8-restored.png",
+          "sha256": "bbba656909bfb6a5727759a22b8d182e34ab2612d610934fb61cbc6f4fafbc12",
+          "bbox": [
+            82,
+            162,
+            126,
+            202
+          ],
+          "original_bbox": [
+            86,
+            166,
+            122,
+            198
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_15.png",
+          "raw_sha256": "32a9c8d796de084c70df547230809b7fd1dd05babe0870be8c916c7f6fdc2441",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_8-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_8-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_9",
+      "kind": "overlay",
+      "bbox": [
+        207,
+        180,
+        238,
+        214
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9d76c25f4572fc51ff406c4e7b3a874c520c00e4e49f8cfc706ca07f3886637b"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_9.png",
+        "sha256": "41e4f0507500605dd18d5ea0c64ce6377c7f6ac562c086fcd1e08d128b9eab22",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_9-restored.png",
+          "sha256": "41e4f0507500605dd18d5ea0c64ce6377c7f6ac562c086fcd1e08d128b9eab22",
+          "bbox": [
+            203,
+            176,
+            242,
+            218
+          ],
+          "original_bbox": [
+            207,
+            180,
+            238,
+            214
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_16.png",
+          "raw_sha256": "0ce630695e2eba4c24713ac3c419a4b9dbc6f0be2e05c6d6e674a27568846387",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_9-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_9-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_10",
+      "kind": "overlay",
+      "bbox": [
+        423,
+        426,
+        454,
+        462
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9a249b827b0ca5fd642ce8bb5eb97beaf93e84f79e784605dcf70089538591df"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_10.png",
+        "sha256": "fec36de8ad48b4f9a2173d21371bd63d85540b9e6507f10386561b6148960dfa",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_10-restored.png",
+          "sha256": "fec36de8ad48b4f9a2173d21371bd63d85540b9e6507f10386561b6148960dfa",
+          "bbox": [
+            419,
+            422,
+            458,
+            466
+          ],
+          "original_bbox": [
+            423,
+            426,
+            454,
+            462
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "4ca67ab188c27fdb9fe20f557956ac4df06d9fdc47789d7d5470fe3de362dc81",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_10-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_10-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_11",
+      "kind": "overlay",
+      "bbox": [
+        626,
+        42,
+        662,
+        72
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2360969e2b2e9713f3d683633f414e7b7971020586b54e57966697e46d345f2c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_11.png",
+        "sha256": "580c2c06ea27235ac51f9be2a792742a11db8cc940b3af664f4f1f0475fba011",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_11-restored.png",
+          "sha256": "580c2c06ea27235ac51f9be2a792742a11db8cc940b3af664f4f1f0475fba011",
+          "bbox": [
+            623,
+            39,
+            665,
+            75
+          ],
+          "original_bbox": [
+            626,
+            42,
+            662,
+            72
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "7497f028ffa48bc8fe290a9adfff54cfa50cd052347ddace6b0ad28246b313e5",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_11-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_11-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_12",
+      "kind": "overlay",
+      "bbox": [
+        706,
+        24,
+        734,
+        54
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "a8814e728f340a5b96c18cbc5494f462f3a15d00e3951c2ac7b92734b75fc745"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_12.png",
+        "sha256": "bb3633cc7d345e09dea706eeb4c9689752a09c3a16ed80529626460a3d34a5de",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_12-restored.png",
+          "sha256": "bb3633cc7d345e09dea706eeb4c9689752a09c3a16ed80529626460a3d34a5de",
+          "bbox": [
+            703,
+            21,
+            737,
+            57
+          ],
+          "original_bbox": [
+            706,
+            24,
+            734,
+            54
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "5db2d2d6cb50dc5933285fe881f99b7fb228d8e26321bec1a570d89d6e5bb209",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_12-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_12-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_13",
+      "kind": "overlay",
+      "bbox": [
+        778,
+        198,
+        810,
+        234
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "def79e9ed2ed2531b949165e70001b74a8b56a915608f38e7a0a1b46d2d6cdeb"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_13.png",
+        "sha256": "6473c7d58e7b9d474ea5404d15b8bc2dddeaae1c7f0afd2626eb22765adaa408",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_13-restored.png",
+          "sha256": "6473c7d58e7b9d474ea5404d15b8bc2dddeaae1c7f0afd2626eb22765adaa408",
+          "bbox": [
+            774,
+            194,
+            814,
+            238
+          ],
+          "original_bbox": [
+            778,
+            198,
+            810,
+            234
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "03cb10a669086de68fae85adb227026a3abbff261988ddbb0954f0fb75aa2029",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_13-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_13-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_14",
+      "kind": "overlay",
+      "bbox": [
+        783,
+        670,
+        814,
+        702
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "af1412c87cc5ef54a0cd8d95d0a6327dacb0828e8194a9badd531a9931e38277"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_14.png",
+        "sha256": "18ebf3ccea9ffef1537d48cfa77af21884f581edc74836e8737043b76deb3d54",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_14-restored.png",
+          "sha256": "18ebf3ccea9ffef1537d48cfa77af21884f581edc74836e8737043b76deb3d54",
+          "bbox": [
+            779,
+            666,
+            818,
+            706
+          ],
+          "original_bbox": [
+            783,
+            670,
+            814,
+            702
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "ec4c17ff11ff96e2b92d2b98572c49f5845bda5cc3c8cb05443779be84f7b5b2",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_14-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_14-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_15",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        882,
+        513,
+        912
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "0c18b09a2dbd816af5e215072c4049886d320f1cb80bab6dcfc002dd3d0640a2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_15.png",
+        "sha256": "a4db747399802399a2b0dc18bec34737339a322aa2b570df6191df2dafb71248",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_15-restored.png",
+          "sha256": "a4db747399802399a2b0dc18bec34737339a322aa2b570df6191df2dafb71248",
+          "bbox": [
+            479,
+            879,
+            516,
+            915
+          ],
+          "original_bbox": [
+            482,
+            882,
+            513,
+            912
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "10c65519752a52b708b9b6f1d4207564ca912853e69b9957583aa828ae682b3d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_15-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_15-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_16",
+      "kind": "overlay",
+      "bbox": [
+        742,
+        990,
+        774,
+        1026
+      ],
+      "description": "一颗白色的实心五角星装饰。",
+      "label": "一颗白色的实心五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "392efbdbad4ba09013b5171f95897954f8176a923ac2ed94366404c7084f5c24"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_16.png",
+        "sha256": "148e253137ea3c2c09be6ae6b7819e21d566ec8e0d1d8223b16ebc3fc8a1c726",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\overlay_16-restored.png",
+          "sha256": "148e253137ea3c2c09be6ae6b7819e21d566ec8e0d1d8223b16ebc3fc8a1c726",
+          "bbox": [
+            738,
+            986,
+            778,
+            1030
+          ],
+          "original_bbox": [
+            742,
+            990,
+            774,
+            1026
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "21b263a892d28629639570aaafe099784bd81e7adaeac26d7020927e5ffe8cd5",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "66b0ac29dc3b2d1aa793f8ef2893f0fc11636c78eb11f85801419a3cdea3dc85"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_16-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\overlay_16-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "photo_3",
+    "photo_4",
+    "photo_5",
+    "text_1",
+    "text_2",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "overlay_4",
+    "overlay_5",
+    "overlay_6",
+    "overlay_7",
+    "overlay_8",
+    "overlay_9",
+    "overlay_10",
+    "overlay_11",
+    "overlay_12",
+    "overlay_13",
+    "overlay_14",
+    "overlay_15",
+    "overlay_16"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "e64e617cc8ad15ae90375fb6fc8222bd1d97ba138bf03b4288a4b1b63a9d7ae9",
+    "bindings": "a35c0954a0e105ee735ac02368d0b2fd5d1a221ffc7211014ea1a8f774e53164",
+    "input": "51bc05cc33f29a09f332eaeaa1bd64d7c78c8e677b18f11957189130073463c0",
+    "catalog": "2388d44833e4880940ae7bf6bc37d337541489a88aafc3930d2e2df0a96c89f4",
+    "photo_windows": "58c117799f6f8f35dc98e56da6758222b32398ac7c97c3fb202382da38a95d64"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\reveal\\index.json",
+    "sha256": "f2019744eb611c424f0dca3b178e3efc814101e6d943541fe6eeb6c78ef2bebf"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-104\\assets\\gate\\report.json",
+    "sha256": "bec69c68ab6c09f579f6ef9660af06a27d96947ad90e96e5722859518a68f172",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 17,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
