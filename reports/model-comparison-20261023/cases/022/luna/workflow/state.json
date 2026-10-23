@@ -1,0 +1,102 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T11:53:48.640461+00:00",
+      "finished_at": "2026-10-23T11:54:19.593416+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T11:54:19.615088+00:00",
+      "finished_at": "2026-10-23T11:54:49.707427+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T11:54:49.730208+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T11:54:49.730225+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "complete",
+      "started_at": "2026-10-23T11:54:49.735783+00:00",
+      "finished_at": "2026-10-23T11:55:20.177653+00:00",
+      "value": null
+    },
+    "build": {
+      "status": "complete",
+      "started_at": "2026-10-23T11:55:20.183567+00:00",
+      "finished_at": "2026-10-23T11:56:17.618048+00:00",
+      "value": null
+    },
+    "screen": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T11:56:17.624929+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "screen_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T11:56:17.624946+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "register": {
+      "status": "complete",
+      "started_at": "2026-10-23T11:56:17.875797+00:00",
+      "finished_at": "2026-10-23T11:56:19.449292+00:00",
+      "value": null
+    }
+  },
+  "started_at": "2026-10-23T11:53:48.395714+00:00",
+  "identity": "3a0d925e5b5e0ad629b4a9500eb80d629d3c135d3a53fcb37b5c9c19b22023ca",
+  "status": "finished",
+  "error": null,
+  "binding_contract": "photo-binding-v9-1",
+  "model": "gpt-6-luna",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "gpt-6-luna",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "gpt-6-luna",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T11:56:19.456295+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 56412,
+    "completion_tokens": 3582,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 9756,
+  "current_step": "register",
+  "last_render_id": "8c95a2586da8a13f",
+  "finished_at": "2026-10-23T11:56:19.456202+00:00"
+}
