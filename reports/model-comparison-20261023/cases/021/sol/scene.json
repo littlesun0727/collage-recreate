@@ -1,0 +1,490 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\prepared\\reference.png",
+    "sha256": "77e39d97969f5740bdcdb945b00004bc1b1a845666cfb2c66a416c1c0a5354cf"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定实拍底景，包含灰白砖墙、左上暗色门洞与台阶、中部横向石质花槽及其中的绿色枝叶和白黄小雏菊、下方粗糙灰墙。保留原有颗粒、明暗与材质，照片覆盖处不补造细节。",
+      "label": "固定实拍底景，包含灰白砖墙、左上暗色门洞与台阶、中部横向石质",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f68342fec4d923626431b72cc7649087a3ad6af964d2cee2064dbbd4cbefc25a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\background_1.png",
+        "sha256": "b0defd70df825d18eda7b1a3cd75b94620467466194cb2ccd05551710766445c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "b0defd70df825d18eda7b1a3cd75b94620467466194cb2ccd05551710766445c",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "0cae07c0871ea6ee78ddc52e4857eface336428be868a6bf36d24669b13e5bb9",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        69,
+        156,
+        681,
+        539
+      ],
+      "description": "上方横向照片，一名黑发女子穿浅色无袖上衣，侧身坐着，以手托脸望向右侧；呈上半身景别，保留棕榈叶、白色栏杆和立柱等摄影环境。照片四周呈浅白柔化边缘，下缘与花槽背景衔接，无沿人物轮廓去背景。",
+      "label": "上方横向照片，一名黑发女子穿浅色无袖上衣，侧身坐着，以手托脸",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "保留女子及棕榈叶、栏杆、立柱的完整摄影背景，未见主体描边或连续出框。照片内口为水平矩形，四周浅白柔化区域不作为独立线条；采用窄幅外渐变，上边与墙面、下边与花槽、左右与墙面混合。浅色环境与光晕叠加，渐变宽度为近似值，网点装饰不属于照片边缘。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0.04,
+          "bottom": 0.045,
+          "left": 0.025,
+          "right": 0.025
+        },
+        "fade_direction": "outside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0.27,
+          1,
+          0.7415
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": true,
+        "reason": "单人侧身肖像最接近参考朝向，水平镜像后面向右侧；裁取帽顶至上半身并保留沙丘及栏索环境。原片为站姿、戴帽穿外套，无托脸动作及棕榈背景。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-036-59d12d01f362\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        275,
+        703,
+        810,
+        1060
+      ],
+      "description": "下方横向照片，一名长黑发女子穿白色背心坐在交通工具座椅上，正面朝向镜头，显示头部至腰部附近；保留深色椅背、浅色舱壁等摄影环境。四周有浅白发光般的柔化边缘，与底层墙面及花草衔接；左下与右下分别被独立网点装饰覆盖。",
+      "label": "下方横向照片，一名长黑发女子穿白色背心坐在交通工具座椅上，正",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "保留女子、深色椅背及浅色舱壁，无主体轮廓描边或连续出框。以清晰摄影内口确定水平矩形窗口，不将外围光晕计入制作框；四边窄幅向外柔化，上边衔接花草，其余边衔接墙面。白色柔光并非清晰等宽描边，渐变范围近似处理；下方网点为独立覆盖装饰。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0.045,
+          "bottom": 0.04,
+          "left": 0.03,
+          "right": 0.03
+        },
+        "fade_direction": "outside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0.3,
+          1,
+          0.8083
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "单人正面朝向镜头，裁取帽顶至腰部附近，保留脸部、双手及湖岸环境；不镜像以保持帽上文字。与参考的坐姿白背心及交通工具内景不同。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-036-59d12d01f362\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        78,
+        156,
+        245
+      ],
+      "description": "左上角不规则白色网点印刷装饰，由倾斜排列的细短条和点阵组成，保留断续轮廓与透明间隙，局部叠在上方照片左上区域。",
+      "label": "左上角不规则白色网点印刷装饰，由倾斜排列的细短条和点阵组成，",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "a19800d3b3f8bea6b414e6256372ae4dd3d756b4b50fc73e34a41139e95ff8c5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_1.png",
+        "sha256": "610f5fd5a0f66970b341d033a03ca72985e92a2e4d0213ab1c6ff9d0bac2c52a",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "610f5fd5a0f66970b341d033a03ca72985e92a2e4d0213ab1c6ff9d0bac2c52a",
+          "bbox": [
+            0,
+            70,
+            164,
+            253
+          ],
+          "original_bbox": [
+            0,
+            78,
+            156,
+            245
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "cfb8542dacf65c44729366df3eae6aa712cb4af336861d725d62d4bbc829709f",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "77e39d97969f5740bdcdb945b00004bc1b1a845666cfb2c66a416c1c0a5354cf"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        587,
+        406,
+        791,
+        608
+      ],
+      "description": "上方照片右下侧的近圆形白色网格点阵装饰，细小矩形网点及疏密变化整体保留，跨越照片边界并覆盖部分花草底景。",
+      "label": "上方照片右下侧的近圆形白色网格点阵装饰，细小矩形网点及疏密变",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "bcb5e8b180a0c6cd339abacb0a4a4178e07acbc6a821e76121e521f9e3b2e9e9"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_2.png",
+        "sha256": "8dc8186c6f06b2677dc876c126b7877ba88f3bad99a64d29dcd5928d0229627d",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "8dc8186c6f06b2677dc876c126b7877ba88f3bad99a64d29dcd5928d0229627d",
+          "bbox": [
+            579,
+            398,
+            799,
+            616
+          ],
+          "original_bbox": [
+            587,
+            406,
+            791,
+            608
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "3846666b374458cdc5b6e370823aedc7de130f35190b28082074aef5385eb624",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "77e39d97969f5740bdcdb945b00004bc1b1a845666cfb2c66a416c1c0a5354cf"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        144,
+        890,
+        338,
+        1104
+      ],
+      "description": "左下薄荷绿色方形网格贴饰，内部有深绿色线描花朵，方形点阵、花朵图案和透明间隙作为完整单元保留，覆盖下方照片左下角并延伸至灰墙。",
+      "label": "左下薄荷绿色方形网格贴饰，内部有深绿色线描花朵，方形点阵、花",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1269e6bdb52ba1068b31ede6502fa8100847293d325b8790b659c21a94801c1c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_3.png",
+        "sha256": "7baa7b52f37f12ac2e823fe6e21cd5eb8d5ad8c17b60651fa630518c481b426d",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\overlay_3-restored.png",
+          "sha256": "7baa7b52f37f12ac2e823fe6e21cd5eb8d5ad8c17b60651fa630518c481b426d",
+          "bbox": [
+            136,
+            882,
+            346,
+            1112
+          ],
+          "original_bbox": [
+            144,
+            890,
+            338,
+            1104
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "c4f582cca42387a07eca92929893da8dcec62d8bc95dff0b2f1d633572bbf05a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "77e39d97969f5740bdcdb945b00004bc1b1a845666cfb2c66a416c1c0a5354cf"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        583,
+        1004,
+        900,
+        1160
+      ],
+      "description": "右下角横向倾斜的不规则白色网点擦印装饰，包含断续细条、交叉网纹和破碎边缘，覆盖下方照片右下边缘并延伸至画布右侧灰墙。",
+      "label": "右下角横向倾斜的不规则白色网点擦印装饰，包含断续细条、交叉网",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "caabe72ff451db23daf0ab273b1dbb5128017a73aef24360b6673b9893282d7c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_4.png",
+        "sha256": "3bdd8ec624699edbfc1d963c1e100b8e2faf6eec6bb3f323e322a5daf33071ff",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\overlay_4-restored.png",
+          "sha256": "3bdd8ec624699edbfc1d963c1e100b8e2faf6eec6bb3f323e322a5daf33071ff",
+          "bbox": [
+            575,
+            996,
+            900,
+            1168
+          ],
+          "original_bbox": [
+            583,
+            1004,
+            900,
+            1160
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "e624eac02fea083361c4db77b23d7afba1bcdb3620e4ea0f2a7e1afe609d8b37",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "77e39d97969f5740bdcdb945b00004bc1b1a845666cfb2c66a416c1c0a5354cf"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_4-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\overlay_4-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "overlay_4"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "5feadadd7cf39e50c31975788045c7dc3a1df086f883eb2492de3a54f9f045d6",
+    "bindings": "43578069b8f120bfba48feab838882a4416475610d1ec1f077856c79d317e648",
+    "input": "58929a09482705aaf7c64c07594e17d71465e58e598fe8281bf87954c24da1ad",
+    "catalog": "eb782dd42d502ce57610c7bd0372132c5152871caae6d34855f02a4ff7f08533",
+    "photo_windows": "195afe59b6a379d518fcd3d89e04348683ddad79bd537c73c45d92999a1146db"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\reveal\\index.json",
+    "sha256": "4b0b919361acef762bd21056ced66f180846ddc302a5366e79b1f716fabb7260"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-036\\assets\\gate\\report.json",
+    "sha256": "255e6fa25c32c8664128eefff2d34a0326f6b128a9c83be28dabb4ff4ec5aece",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 5,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
