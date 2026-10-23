@@ -1,0 +1,126 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整体背景由粗糙的灰色水泥墙面纹理构成，包含砖块缝隙和斑驳的痕迹。",
+      "label": "整体背景由粗糙的灰色水泥墙面纹理构成，包含砖块缝隙和斑驳的痕",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        68,
+        154,
+        678,
+        540
+      ],
+      "description": "位于上方的矩形照片窗口，显示一名长发女子身穿白色上衣，手托下巴望向右侧，背景为户外绿植和白色栏杆。",
+      "label": "位于上方的矩形照片窗口，显示一名长发女子身穿白色上衣，手托下",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        78,
+        144,
+        240
+      ],
+      "description": "左上角的半透明白色网格状花朵图案装饰。",
+      "label": "左上角的半透明白色网格状花朵图案装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        585,
+        408,
+        788,
+        594
+      ],
+      "description": "右侧中部的半透明白色网格状花朵图案装饰，部分覆盖在上方照片边缘。",
+      "label": "右侧中部的半透明白色网格状花朵图案装饰，部分覆盖在上方照片边",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        540,
+        900,
+        780
+      ],
+      "description": "横跨画面中部的花丛装饰条，包含雏菊、绿叶和粉色小花，作为上下两张照片的分隔层。",
+      "label": "横跨画面中部的花丛装饰条，包含雏菊、绿叶和粉色小花，作为上下",
+      "method": "extract"
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        270,
+        696,
+        810,
+        1062
+      ],
+      "description": "位于下方的矩形照片窗口，显示一名长发女子身穿白色背心坐在车内，正视镜头。",
+      "label": "位于下方的矩形照片窗口，显示一名长发女子身穿白色背心坐在车内",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        144,
+        894,
+        338,
+        1104
+      ],
+      "description": "左下角的绿色网格状四叶草图案装饰，叠加在下方照片左侧。",
+      "label": "左下角的绿色网格状四叶草图案装饰，叠加在下方照片左侧。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        594,
+        1008,
+        864,
+        1152
+      ],
+      "description": "右下角的半透明白色网格状花朵图案装饰。",
+      "label": "右下角的半透明白色网格状花朵图案装饰。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "photo_2",
+    "overlay_4",
+    "overlay_5"
+  ]
+}
