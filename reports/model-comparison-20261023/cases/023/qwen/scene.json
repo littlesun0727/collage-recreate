@@ -1,0 +1,296 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\prepared\\reference.png",
+    "sha256": "afed673be20aeccc878222bc551b048debb06d8f9e76ad0d715c858aaf88ce69"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画面的热带海滩摄影背景，包含上方的椰子树叶、中部的沙滩岩石以及下方的海浪水面。",
+      "label": "铺满画面的热带海滩摄影背景，包含上方的椰子树叶、中部的沙滩岩",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "958b5cd04ffd293661e548eda55edb0a0b03933fc6c7f9fea4d7cf726eda583e"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\background_1.png",
+        "sha256": "08fee820612ac22d83bae77c75cd85aefa10dab5209029caddeff3ee1caba4d6",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "08fee820612ac22d83bae77c75cd85aefa10dab5209029caddeff3ee1caba4d6",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "b620319e1786fb68c295be2c09114e83d772c1912354c49b57dbd788dcda71a6",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        130,
+        194,
+        770,
+        1002
+      ],
+      "description": "位于画面中央的矩形照片窗口，显示一名长发女子坐在沙滩上的半身照，背景为天空和大海，边缘清晰无特殊效果。",
+      "label": "位于画面中央的矩形照片窗口，显示一名长发女子坐在沙滩上的半身",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "照片为矩形窗口，保留完整摄影背景（天空、大海、沙滩），主体未抠出。边缘清晰锐利，无描边或渐变效果。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_09",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图要求为一名长发女子坐在沙滩上的半身照，背景为天空和大海。素材库中无完全一致的场景（如泳装、椰树），但 material_09 提供了最接近的构图：竖幅人像，主体为年轻女性，背景包含蓝天、水面和沙滩，且人物姿态自然。虽然服装不同（戴帽外套 vs 泳装）且姿势为蹲姿而非坐姿，但在现有素材中最为匹配。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-064-4250ac1c4b50\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        248,
+        102,
+        644,
+        150
+      ],
+      "description": "顶部装饰文字与图案组合，包含白色手写体英文 'Island diary'，右侧跟随星星线条、椰子图标及空心五角星装饰。",
+      "label": "顶部装饰文字与图案组合，包含白色手写体英文 'Island ",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6ea173f8bac73808b540eb703ce9b2e0607a50430a0e63d547b0191a3f0aa39d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\overlay_1.png",
+        "sha256": "c8bd5e3c088877c4b304e1fc64fa792837951b05d04db32ecec954cc4051d983",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "c8bd5e3c088877c4b304e1fc64fa792837951b05d04db32ecec954cc4051d983",
+          "bbox": [
+            243,
+            97,
+            649,
+            155
+          ],
+          "original_bbox": [
+            248,
+            102,
+            644,
+            150
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "303e47181d60cf38d74c500595443eb2f35a616333ce00c940a502f0feb53650",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "afed673be20aeccc878222bc551b048debb06d8f9e76ad0d715c858aaf88ce69"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\overlay_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        171,
+        1032,
+        702,
+        1080
+      ],
+      "description": "底部装饰文字与图案组合，包含白色衬线体英文 'The melody of summer'，两侧点缀有花朵、音符及十字星符号。",
+      "label": "底部装饰文字与图案组合，包含白色衬线体英文 'The mel",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6d9553ef6b2afbeec6c30b3a90413878ae10f12235a66994ba3912d31fc238b3"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\overlay_2.png",
+        "sha256": "cf18d4cdc9225b4aa4fb44506171a667daaabd55ec894d8892c7f4b02f07c36c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "cf18d4cdc9225b4aa4fb44506171a667daaabd55ec894d8892c7f4b02f07c36c",
+          "bbox": [
+            166,
+            1027,
+            707,
+            1085
+          ],
+          "original_bbox": [
+            171,
+            1032,
+            702,
+            1080
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "c7b686702bc2fe1bab61059b7388d73056f31c52bc438760518c34bc02624547",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "afed673be20aeccc878222bc551b048debb06d8f9e76ad0d715c858aaf88ce69"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\overlay_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "overlay_1",
+    "overlay_2"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "1963e3779b638b5d87de526ff1b242e18fce86547a8525e1f587622bc1198f60",
+    "bindings": "306a4528fbddf4b3181b307d1338b34239c25451f49df47fc29d4a7c59534323",
+    "input": "43da72d58928d302f2b42dbececfc085be75d562f88d6ed7b6e022b49db06144",
+    "catalog": "37a0b92a92e62c59c7a3c70c4679f10e6e64b21880a2297531e1387b0f41de7e",
+    "photo_windows": "8bd70cd6fcd068616e0d4dd743ebed2c2a34d01a69055865029541f64871fca7"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\reveal\\index.json",
+    "sha256": "9cf3168c4e2758f3c17798f67d4f98336ea45442d876328a138dae5a960ded34"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-064\\assets\\gate\\report.json",
+    "sha256": "ec639d3cbacd96dd163829be7de216b4b18c29f3a0617f5558cef85f5c41dda1",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 3,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
