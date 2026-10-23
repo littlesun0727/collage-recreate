@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-24T01:22:52+08:00。共 348 个任务。
+最后更新：2026-10-24T01:24:02+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -112,7 +112,7 @@
 | [092 · 7665948685888539966.png](cases/092/README.md)<br>![参考](cases/092/reference-thumb.jpg) | 已交付<br>[![成图](cases/092/qwen/thumb.jpg)](cases/092/qwen/final.png) | 已交付<br>[![成图](cases/092/luna/thumb.jpg)](cases/092/luna/final.png) | 待提交 |
 | [093 · 7666084872900873497.png](cases/093/README.md)<br>![参考](cases/093/reference-thumb.jpg) | 已交付<br>[![成图](cases/093/qwen/thumb.jpg)](cases/093/qwen/final.png) | 已交付<br>[![成图](cases/093/luna/thumb.jpg)](cases/093/luna/final.png) | 待提交 |
 | [094 · 7668519416618847513.jpg](cases/094/README.md)<br>![参考](cases/094/reference-thumb.jpg) | 已交付<br>[![成图](cases/094/qwen/thumb.jpg)](cases/094/qwen/final.png) | 已交付<br>[![成图](cases/094/luna/thumb.jpg)](cases/094/luna/final.png) | 待提交 |
-| [095 · 7669705159856885017.jpg](cases/095/README.md)<br>![参考](cases/095/reference-thumb.jpg) | 运行中 · analyze | 已交付<br>[![成图](cases/095/luna/thumb.jpg)](cases/095/luna/final.png) | 待提交 |
+| [095 · 7669705159856885017.jpg](cases/095/README.md)<br>![参考](cases/095/reference-thumb.jpg) | 运行中 · build | 已交付<br>[![成图](cases/095/luna/thumb.jpg)](cases/095/luna/final.png) | 待提交 |
 | [096 · 7670227343935507774.jpg](cases/096/README.md)<br>![参考](cases/096/reference-thumb.jpg) | 排队 | 已交付<br>[![成图](cases/096/luna/thumb.jpg)](cases/096/luna/final.png) | 待提交 |
 | [097 · 7670715950710197566.jpg](cases/097/README.md)<br>![参考](cases/097/reference-thumb.jpg) | 排队 | 已交付<br>[![成图](cases/097/luna/thumb.jpg)](cases/097/luna/final.png) | 待提交 |
 | [098 · 7671186619956874521.jpg](cases/098/README.md)<br>![参考](cases/098/reference-thumb.jpg) | 排队 | 已交付<br>[![成图](cases/098/luna/thumb.jpg)](cases/098/luna/final.png) | 待提交 |
@@ -132,7 +132,7 @@
 | [112 · 拼贴4.jpg](cases/112/README.md)<br>![参考](cases/112/reference-thumb.jpg) | 待提交 | 已交付<br>[![成图](cases/112/luna/thumb.jpg)](cases/112/luna/final.png) | 待提交 |
 | [113 · 拼贴5.jpg](cases/113/README.md)<br>![参考](cases/113/reference-thumb.jpg) | 待提交 | 已交付<br>[![成图](cases/113/luna/thumb.jpg)](cases/113/luna/final.png) | 待提交 |
 | [114 · 拼贴6.jpg](cases/114/README.md)<br>![参考](cases/114/reference-thumb.jpg) | 待提交 | 已交付<br>[![成图](cases/114/luna/thumb.jpg)](cases/114/luna/final.png) | 待提交 |
-| [115 · 拼贴7.jpg](cases/115/README.md)<br>![参考](cases/115/reference-thumb.jpg) | 待提交 | 运行中 · photo_windows | 待提交 |
+| [115 · 拼贴7.jpg](cases/115/README.md)<br>![参考](cases/115/reference-thumb.jpg) | 待提交 | 运行中 · build | 待提交 |
 | [116 · 海边人像拼图.jpg](cases/116/README.md)<br>![参考](cases/116/reference-thumb.jpg) | 待提交 | 排队 | 待提交 |
 
 原尺寸成图和关键中间产物逐项同步。原始客户视频、凭证、请求图片载荷不进入报告。
