@@ -1,0 +1,264 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\prepared\\reference.png",
+    "sha256": "966011490e7593a316e88df8bbfd656b2e790bdce4d7b7467d51c402d8f8bfbe"
+  },
+  "reference_size": [
+    900,
+    1351
+  ],
+  "canvas_size": [
+    1200,
+    1801
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1351
+      ],
+      "description": "浅灰白色细密纸张颗粒纹理，贯穿画布的固定底层。",
+      "label": "浅灰白色细密纸张颗粒纹理，贯穿画布的固定底层。",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "278132c5be8ae27b22857b6663b4775b8272eaec737864c022f1816045f159b2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\assets\\reveal\\background.png",
+        "sha256": "3ba16a7dc927d61aac1479f0e1ae2583cd2367406b280f2edc7024bfdcb21b67",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\assets\\reveal\\background-background-source.png",
+          "sha256": "3ba16a7dc927d61aac1479f0e1ae2583cd2367406b280f2edc7024bfdcb21b67",
+          "bbox": [
+            0,
+            0,
+            900,
+            1351
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1351
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+          "raw_sha256": "c21d57d4457a31c634c0969dc5b724f6e5d66bca947a5d4c63c93082120ae028",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\assets\\reveal\\background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\assets\\reveal\\background-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        63,
+        193,
+        693,
+        605
+      ],
+      "description": "圆角横向照片窗口；一位长发年轻女性近景，面向镜头，头肩及上身入镜，位于画面中央偏右，长发垂落并遮住部分衣肩。左侧可见网格围栏、海面与栏台，保留摄影环境，无独立描边或渐隐。",
+      "label": "圆角横向照片窗口；一位长发年轻女性近景，面向镜头，头肩及上身",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top",
+        "reason": "保留人物、围栏、海面及栏台等完整摄影环境；照片显示为独立圆角矩形窗口，窗口边缘无独立描线。各边界清晰，没有与其他照片内容混合或渐隐的迹象。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.09
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有素材呈现描述中的长发女性正面近景及网格围栏海面环境；选 material_06 作为有人物的近似，人物戴红帽侧身，景别与背景均有明显差异。保留全幅避免裁掉头部和上身。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-013-b6f286334e7e\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        202,
+        784,
+        832,
+        1192
+      ],
+      "description": "圆角横向照片窗口；一位长发年轻女性中景，位于前景中央偏右，微笑并略转头看向画面左侧，头肩及上身入镜。背景中有海边网格围栏、栏台、数名远处人物及右侧建筑和栏杆；摄影环境完整保留，无独立描边或渐隐。",
+      "label": "圆角横向照片窗口；一位长发年轻女性中景，位于前景中央偏右，微",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom",
+        "reason": "保留人物及海边围栏、栏台、远处人物和建筑等摄影环境；照片边界为独立圆角矩形窗口，窗口自身无描线。边缘清晰且未与其他照片内容混合，无渐隐依据。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.09
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有素材呈现长发女性在网格围栏栏台旁微笑看向左侧的场景；material_00 至少包含近景女性、湖岸背景，但戴帽且看向镜头，环境也不符。保留全幅以留住人物及水岸环境。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-013-b6f286334e7e\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\prepared\\material_00.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_bottom"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "97763359d6d5a7ecb4b79d961a86e73a17d163e0ecfce83b16a0aa618ba23fdb",
+    "bindings": "ede23d2172633b92b6fcbe423d45d4ef1f875ca285b20a91a531493b8e924ed5",
+    "input": "4add746a7fe0a66642ee63e894ef0ae30e72a9060e2c11d110360e1f01c8fad3",
+    "catalog": "9e2546c153182e0568f26e32618553e8c1edbf3afa57df65421c3481d387a504",
+    "photo_windows": "52da245ca5c6958d4baeb0d51182535f1557b429626cfc23230326cb55dd80fa"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\assets\\reveal\\index.json",
+    "sha256": "f4bb372fb8c3f249f46728bd5af54423e4eadfeee9361bacd4067ae328b81b36"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-013\\assets\\gate\\report.json",
+    "sha256": "cae6be104deef30c4001901ccaf6adc8039a99158686151b0f3367defe4815ce",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 1,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
