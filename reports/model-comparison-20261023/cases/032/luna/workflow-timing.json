@@ -1,0 +1,44 @@
+{
+  "model": "gpt-6-luna",
+  "model_policy": {
+    "analyze": {
+      "model": "gpt-6-luna",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "gpt-6-luna",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "controller": "workflow-v9",
+  "status": "completed",
+  "started_at": "2026-10-23T12:26:54.742622+00:00",
+  "updated_at": "2026-10-23T12:30:31.299038+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 55171,
+    "completion_tokens": 2084,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "elapsed_seconds": 216.561,
+  "finished_at": "2026-10-23T12:30:31.384579+00:00"
+}

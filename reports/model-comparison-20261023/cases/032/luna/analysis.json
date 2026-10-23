@@ -1,0 +1,140 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1198
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1198
+      ],
+      "description": "整幅固定的深蓝牛仔布拼贴底层，包含不同深浅与纹理的矩形布片拼接，以及散布其上的小白点装饰；不包含两张照片和独立星形贴片。",
+      "label": "整幅固定的深蓝牛仔布拼贴底层，包含不同深浅与纹理的矩形布片拼",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        104,
+        89,
+        796,
+        549
+      ],
+      "description": "上方横向矩形照片，完整保留一位长黑发女性坐在窗边、手托脸颊看向镜头的场景；窗户、窗帘、座椅、书本和饮料等摄影环境均保留，无独立框体或沿窗口的描边。",
+      "label": "上方横向矩形照片，完整保留一位长黑发女性坐在窗边、手托脸颊看",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        100,
+        642,
+        800,
+        1114
+      ],
+      "description": "下方横向矩形照片，完整保留同一位长黑发女性坐在窗边、微微侧脸看向画面左上方并手持摊开的书本的场景；窗外绿植、窗帘、座椅和饮料等摄影环境均保留，无独立框体或沿窗口的描边。",
+      "label": "下方横向矩形照片，完整保留同一位长黑发女性坐在窗边、微微侧脸",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "star_top_left",
+      "kind": "overlay",
+      "bbox": [
+        19,
+        29,
+        202,
+        212
+      ],
+      "description": "左上方蓝色牛仔布星形贴片，带浅色小点和织物纹理，完整保留尖角轮廓；部分覆盖上方照片左上侧。",
+      "label": "左上方蓝色牛仔布星形贴片，带浅色小点和织物纹理，完整保留尖角",
+      "method": "extract"
+    },
+    {
+      "id": "star_left_small",
+      "kind": "overlay",
+      "bbox": [
+        32,
+        211,
+        102,
+        285
+      ],
+      "description": "左侧小型蓝色牛仔布星形贴片，带浅色小点和织物纹理，完整保留。",
+      "label": "左侧小型蓝色牛仔布星形贴片，带浅色小点和织物纹理，完整保留。",
+      "method": "extract"
+    },
+    {
+      "id": "star_right_upper",
+      "kind": "overlay",
+      "bbox": [
+        746,
+        186,
+        879,
+        346
+      ],
+      "description": "右上侧蓝色牛仔布星形贴片，带浅色小点和织物纹理，部分覆盖上方照片右侧。",
+      "label": "右上侧蓝色牛仔布星形贴片，带浅色小点和织物纹理，部分覆盖上方",
+      "method": "extract"
+    },
+    {
+      "id": "star_center",
+      "kind": "overlay",
+      "bbox": [
+        216,
+        549,
+        310,
+        642
+      ],
+      "description": "两张照片之间偏左的蓝色牛仔布星形贴片，带浅色小点和织物纹理，完整保留。",
+      "label": "两张照片之间偏左的蓝色牛仔布星形贴片，带浅色小点和织物纹理，",
+      "method": "extract"
+    },
+    {
+      "id": "star_right_middle",
+      "kind": "overlay",
+      "bbox": [
+        702,
+        573,
+        867,
+        734
+      ],
+      "description": "两张照片之间偏右的蓝色牛仔布星形贴片，带浅色小点和织物纹理，部分覆盖下方照片右上侧。",
+      "label": "两张照片之间偏右的蓝色牛仔布星形贴片，带浅色小点和织物纹理，",
+      "method": "extract"
+    },
+    {
+      "id": "star_bottom",
+      "kind": "overlay",
+      "bbox": [
+        228,
+        1073,
+        347,
+        1172
+      ],
+      "description": "下方照片左下侧的蓝色牛仔布星形贴片，带浅色小点和织物纹理，覆盖照片下缘。",
+      "label": "下方照片左下侧的蓝色牛仔布星形贴片，带浅色小点和织物纹理，覆",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_bottom",
+    "star_top_left",
+    "star_left_small",
+    "star_right_upper",
+    "star_center",
+    "star_right_middle",
+    "star_bottom"
+  ]
+}
