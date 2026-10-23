@@ -1,0 +1,128 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "浅灰色固定底层，包含画面中部偏左的一根黑色细竖分隔线；竖线从顶部日期下方延伸至底部日期附近。"
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        43,
+        95,
+        501,
+        905
+      ],
+      "description": "左侧大幅樱花河道照片，无人物，近景白粉色樱花枝占据上方及右侧，下方可见花簇，中央向远处延伸的河道及左岸建筑保留。照片四边呈连续邮票齿孔状裁切，摄影环境完整保留，边缘清晰。"
+    },
+    {
+      "id": "photo_right_back",
+      "kind": "photo",
+      "bbox": [
+        592,
+        193,
+        777,
+        518
+      ],
+      "description": "右上偏中的竖幅樱花照片，无人物，密集淡粉色花朵覆盖画面，底部可见分叉树干及枝条，保留摄影背景。右下部分被前方另一张樱花照片遮挡。"
+    },
+    {
+      "id": "photo_right_front",
+      "kind": "photo",
+      "bbox": [
+        733,
+        294,
+        944,
+        667
+      ],
+      "description": "右侧前方竖幅樱花照片，无人物，浅白粉色背景中横斜交错的深色细枝及零星花朵，上部枝条较清晰，下部花景柔焦。摄影背景保留，清晰矩形边界，覆盖后方照片右下区域。"
+    },
+    {
+      "id": "happy_label",
+      "kind": "overlay",
+      "bbox": [
+        393,
+        730,
+        524,
+        768
+      ],
+      "description": "叠在左侧照片右下部并伸出照片右边界的黑色窄标签，白色打字机风格字样“#Happy day”，文字和黑色底板整体保留。"
+    },
+    {
+      "id": "daily_label",
+      "kind": "overlay",
+      "bbox": [
+        771,
+        272,
+        902,
+        305
+      ],
+      "description": "位于右侧前方照片顶边的黑色窄标签，白色打字机风格字样“#Daily travel”，文字与黑色底板作为完整装饰保留。"
+    },
+    {
+      "id": "date_top",
+      "kind": "overlay",
+      "bbox": [
+        596,
+        89,
+        907,
+        138
+      ],
+      "description": "顶部横向排列的四个细线方框，框内依次为粗黑倾斜数字“5”、黑色圆点、“1”、“1”；保留各框之间的大间距及原有字形。"
+    },
+    {
+      "id": "date_bottom",
+      "kind": "overlay",
+      "bbox": [
+        596,
+        857,
+        729,
+        905
+      ],
+      "description": "底部横向排列的两个细线方框，分别带粗黑倾斜数字“2”和“5”，保留框线、字形及两框间距。"
+    },
+    {
+      "id": "handwritten_poem",
+      "kind": "overlay",
+      "bbox": [
+        578,
+        532,
+        784,
+        840
+      ],
+      "description": "右侧照片下方的黑色英文手写诗文装饰，标题“See me or not”带下划线，正文多行居中但行宽、字距与基线不规则，可辨“I’m right there”“with no emotions”等，底部有横线起笔的署名。保留整段手写笔迹及原有分行。"
+    },
+    {
+      "id": "circular_clock",
+      "kind": "overlay",
+      "bbox": [
+        787,
+        683,
+        957,
+        910
+      ],
+      "description": "右下角圆形文字时钟装饰，黑色字母沿圆周逐字旋转排列，可辨“forsake darkness for light”，中央为白色数码管造型“18:45”并带浅灰阴影；环形文字与中央时间整体保留。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_left",
+    "photo_right_back",
+    "photo_right_front",
+    "date_top",
+    "date_bottom",
+    "handwritten_poem",
+    "circular_clock",
+    "happy_label",
+    "daily_label"
+  ]
+}
