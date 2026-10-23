@@ -1,0 +1,153 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "主图照片，展示一位年轻女性站在白色墙壁前，身穿带有卡通图案的白色T恤。画面左侧可见窗框边缘，光线柔和明亮。",
+      "label": "主图照片，展示一位年轻女性站在白色墙壁前，身穿带有卡通图案的",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_cloud_frame",
+      "kind": "overlay",
+      "bbox": [
+        76,
+        90,
+        400,
+        360
+      ],
+      "description": "手绘风格的云朵轮廓线，线条为黑色虚线或细实线，作为装饰性边框叠加在背景上。",
+      "label": "手绘风格的云朵轮廓线，线条为黑色虚线或细实线，作为装饰性边框",
+      "method": "extract"
+    },
+    {
+      "id": "photo_inset_face",
+      "kind": "photo",
+      "bbox": [
+        171,
+        96,
+        324,
+        330
+      ],
+      "description": "位于云朵轮廓内的抠图人像，显示同一位女性做鬼脸（皱眉、撇嘴）的头部特写，无背景。",
+      "label": "位于云朵轮廓内的抠图人像，显示同一位女性做鬼脸（皱眉、撇嘴）",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_thought_bubbles",
+      "kind": "overlay",
+      "bbox": [
+        261,
+        354,
+        338,
+        450
+      ],
+      "description": "两个小的手绘气泡圈，位于云朵下方，模拟思考气泡的连接部分。",
+      "label": "两个小的手绘气泡圈，位于云朵下方，模拟思考气泡的连接部分。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_sticker_rabbit_top",
+      "kind": "overlay",
+      "bbox": [
+        670,
+        144,
+        832,
+        312
+      ],
+      "description": "方形贴纸素材，白底，印有简笔画风格的兔子头像，表情搞怪（一只眼大一只眼小），旁边有星星符号。",
+      "label": "方形贴纸素材，白底，印有简笔画风格的兔子头像，表情搞怪（一只",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_heart_left_mid",
+      "kind": "overlay",
+      "bbox": [
+        166,
+        450,
+        216,
+        516
+      ],
+      "description": "粉色手绘爱心，带黑色描边，位于左侧中部。",
+      "label": "粉色手绘爱心，带黑色描边，位于左侧中部。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_heart_right_mid",
+      "kind": "overlay",
+      "bbox": [
+        742,
+        450,
+        806,
+        522
+      ],
+      "description": "粉色手绘爱心，带黑色描边，位于右侧中部。",
+      "label": "粉色手绘爱心，带黑色描边，位于右侧中部。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_heart_left_low",
+      "kind": "overlay",
+      "bbox": [
+        112,
+        768,
+        171,
+        828
+      ],
+      "description": "粉色手绘爱心，带黑色描边，位于左下侧。",
+      "label": "粉色手绘爱心，带黑色描边，位于左下侧。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_sticker_rabbit_bottom",
+      "kind": "overlay",
+      "bbox": [
+        68,
+        978,
+        230,
+        1128
+      ],
+      "description": "方形贴纸素材，白底，印有双手合十祈祷状的可爱兔子简笔画，周围点缀粉色小爱心。",
+      "label": "方形贴纸素材，白底，印有双手合十祈祷状的可爱兔子简笔画，周围",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_heart_right_low",
+      "kind": "overlay",
+      "bbox": [
+        716,
+        1062,
+        756,
+        1110
+      ],
+      "description": "粉色手绘爱心，带黑色描边，位于右下角。",
+      "label": "粉色手绘爱心，带黑色描边，位于右下角。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "photo_main",
+    "overlay_cloud_frame",
+    "photo_inset_face",
+    "overlay_thought_bubbles",
+    "overlay_sticker_rabbit_top",
+    "overlay_heart_left_mid",
+    "overlay_heart_right_mid",
+    "overlay_heart_left_low",
+    "overlay_sticker_rabbit_bottom",
+    "overlay_heart_right_low"
+  ]
+}

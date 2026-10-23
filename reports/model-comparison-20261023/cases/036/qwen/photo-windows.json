@@ -1,0 +1,141 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_main",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "主图保留完整摄影环境，作为底图铺满画布；照片本身无独立描边或窗口渐变。"
+    },
+    {
+      "photo_id": "photo_inset_face",
+      "subject": {
+        "preserve_background": false,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.45,
+              0.05
+            ],
+            [
+              0.65,
+              0.0
+            ],
+            [
+              0.85,
+              0.1
+            ],
+            [
+              0.95,
+              0.3
+            ],
+            [
+              0.9,
+              0.5
+            ],
+            [
+              0.95,
+              0.7
+            ],
+            [
+              0.8,
+              0.9
+            ],
+            [
+              0.6,
+              0.95
+            ],
+            [
+              0.4,
+              0.9
+            ],
+            [
+              0.2,
+              0.95
+            ],
+            [
+              0.05,
+              0.8
+            ],
+            [
+              0.0,
+              0.6
+            ],
+            [
+              0.1,
+              0.4
+            ],
+            [
+              0.05,
+              0.2
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#000000",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": true,
+        "direction": "inside",
+        "top": 0.15,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "reason": "位于云朵气泡内的去背景人像贴纸，主体周围透出底图白墙；使用多边形蒙版模拟不规则云朵轮廓并添加黑色手绘描边；顶部边缘向内渐变淡出以融合进白色背景。"
+    }
+  ]
+}
