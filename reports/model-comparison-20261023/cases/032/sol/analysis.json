@@ -1,0 +1,140 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1198
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1198
+      ],
+      "description": "完整保留深蓝牛仔布纹理底层、散布的白色小圆点，以及右侧和左下方较浅蓝色牛仔布拼接块；各块可见织纹与接缝共同构成固定背景。",
+      "label": "完整保留深蓝牛仔布纹理底层、散布的白色小圆点，以及右侧和左下",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        103,
+        89,
+        796,
+        549
+      ],
+      "description": "上方横向照片，一名长黑发、穿浅粉色短袖的女性坐在窗边，单手托腮并面向镜头，呈半身景别。保留窗外景色、窗框、窗帘、座椅及桌上饮料和书本等摄影环境。照片按矩形边界显示，无主体去背景或透明渐隐，局部边缘被星形装饰遮挡。",
+      "label": "上方横向照片，一名长黑发、穿浅粉色短袖的女性坐在窗边，单手托",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        99,
+        642,
+        800,
+        1113
+      ],
+      "description": "下方横向照片，一名长黑发、穿浅粉色衣服的女性坐在窗边，头朝画面左上方，一手托着打开的书，手腕戴珠串。保留窗外绿植、窗框、窗帘、深色座椅与下方饮料等完整摄影环境。照片按矩形边界显示，无主体去背景或透明渐隐，右上和下边局部被星形装饰遮挡。",
+      "label": "下方横向照片，一名长黑发、穿浅粉色衣服的女性坐在窗边，头朝画",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "star_top_left",
+      "kind": "overlay",
+      "bbox": [
+        18,
+        28,
+        206,
+        212
+      ],
+      "description": "左上方较大的蓝色牛仔布五角星贴饰，表面散布浅色细小花点，保留织物纹理与完整不规则星形边缘，覆盖上方照片左上角。",
+      "label": "左上方较大的蓝色牛仔布五角星贴饰，表面散布浅色细小花点，保留",
+      "method": "extract"
+    },
+    {
+      "id": "star_left_small",
+      "kind": "overlay",
+      "bbox": [
+        30,
+        211,
+        104,
+        284
+      ],
+      "description": "左侧独立的小号蓝色牛仔布五角星，带浅色细小花点与布料纹理，位于大星下方，右端贴近上方照片左边缘。",
+      "label": "左侧独立的小号蓝色牛仔布五角星，带浅色细小花点与布料纹理，位",
+      "method": "extract"
+    },
+    {
+      "id": "star_top_right",
+      "kind": "overlay",
+      "bbox": [
+        745,
+        199,
+        891,
+        322
+      ],
+      "description": "右上方蓝色牛仔布五角星贴饰，带浅色细小花点，完整保留织纹和星形轮廓，跨在上方照片右边缘及浅蓝拼接背景之上。",
+      "label": "右上方蓝色牛仔布五角星贴饰，带浅色细小花点，完整保留织纹和星",
+      "method": "extract"
+    },
+    {
+      "id": "star_middle",
+      "kind": "overlay",
+      "bbox": [
+        218,
+        549,
+        312,
+        643
+      ],
+      "description": "两张照片之间偏左的独立蓝色牛仔布五角星，带浅色小花点与织物纹理，上下尖角分别邻接两张照片边缘。",
+      "label": "两张照片之间偏左的独立蓝色牛仔布五角星，带浅色小花点与织物纹",
+      "method": "extract"
+    },
+    {
+      "id": "star_middle_right",
+      "kind": "overlay",
+      "bbox": [
+        707,
+        571,
+        864,
+        732
+      ],
+      "description": "中部偏右的较大蓝色牛仔布五角星，表面带浅色细小花点，保留完整织物质感与轮廓，下部覆盖下方照片右上角。",
+      "label": "中部偏右的较大蓝色牛仔布五角星，表面带浅色细小花点，保留完整",
+      "method": "extract"
+    },
+    {
+      "id": "star_bottom",
+      "kind": "overlay",
+      "bbox": [
+        230,
+        1053,
+        343,
+        1174
+      ],
+      "description": "底部偏左的蓝色牛仔布五角星贴饰，带浅色细小花点和织物纹理，上半部覆盖下方照片底边，下半部延伸到深蓝背景上。",
+      "label": "底部偏左的蓝色牛仔布五角星贴饰，带浅色细小花点和织物纹理，上",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "star_top_left",
+    "star_left_small",
+    "star_top_right",
+    "star_middle",
+    "star_middle_right",
+    "star_bottom"
+  ]
+}
