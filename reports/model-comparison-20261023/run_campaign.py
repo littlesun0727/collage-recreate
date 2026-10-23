@@ -31,7 +31,7 @@ from PIL import Image, ImageOps
 LOCAL = ROOT.with_name(ROOT.name + '-output') / 'model-comparison-20261023'
 DATA = LOCAL / 'runtime'
 STATE = LOCAL / 'campaign.json'
-SERVER = 'http://127.0.0.1:8810'
+SERVER = 'http://127.0.0.1:18809'
 BRANCH = 'codex/collage-recreate-v9-20261023'
 REMOTE = 'https://github.com/littlesun0727/collage-recreate.git'
 MODELS = [
@@ -135,7 +135,7 @@ def connect():
     client.connect(start=True, data=DATA)
     # Refuse to attach to a different service's data on the same port.
     if not (DATA / 'server.pid').is_file():
-        raise RuntimeError('Port 8810 is in use by a different workbench')
+        raise RuntimeError('Port 18809 is in use by a different workbench')
     return client
 
 
@@ -316,7 +316,7 @@ def publish_report(campaign, current):
         lines.append('| ' + ' | '.join(cells) + ' |')
         write_text(REPORT / 'cases' / case / 'README.md', '\n'.join(detail))
     lines += ['', '原尺寸成图和关键中间产物逐项同步。原始客户视频、凭证、请求图片载荷不进入报告。', '',
-              '本机工作台：http://127.0.0.1:8810/ 。完整运行产物位于相邻输出目录的 `model-comparison-20261023/runtime/`。',
+              '本机工作台：http://127.0.0.1:18809/ 。完整运行产物位于相邻输出目录的 `model-comparison-20261023/runtime/`。',
               '后台进程每 60 秒检查进度并尝试 Git 推送；网络失败会保留本地提交并继续重试。',
               '恢复运行：在工程目录用已有 Python 环境执行 `python -B reports/model-comparison-20261023/run_campaign.py`。', '']
     write_text(REPORT / 'README.md', '\n'.join(lines))
@@ -352,6 +352,8 @@ def sync_git(snapshot):
 
 
 def main():
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser()
     parser.add_argument('--prepare-only', action='store_true')
     parser.add_argument('--snapshot-only', action='store_true')
