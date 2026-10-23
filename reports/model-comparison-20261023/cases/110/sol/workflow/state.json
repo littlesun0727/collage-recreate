@@ -1,0 +1,129 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T23:51:04.878976+00:00",
+      "finished_at": "2026-10-23T23:52:10.361073+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T23:52:10.383296+00:00",
+      "finished_at": "2026-10-23T23:52:45.148933+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T23:52:45.173920+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T23:52:45.173943+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "complete",
+      "started_at": "2026-10-23T23:52:45.179547+00:00",
+      "finished_at": "2026-10-23T23:53:10.317808+00:00",
+      "value": null
+    },
+    "build": {
+      "status": "complete",
+      "started_at": "2026-10-23T23:53:10.323733+00:00",
+      "finished_at": "2026-10-23T23:53:15.954193+00:00",
+      "value": null
+    },
+    "screen": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T23:53:15.960990+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "screen_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T23:53:15.961006+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "register": {
+      "status": "complete",
+      "started_at": "2026-10-23T23:53:16.197866+00:00",
+      "finished_at": "2026-10-23T23:53:17.730765+00:00",
+      "value": null
+    }
+  },
+  "started_at": "2026-10-23T23:51:04.631325+00:00",
+  "identity": "deba2a626d1c2b4c06e06541ebe4027f129148f30f935f7731bfa1b1dee55503",
+  "status": "finished",
+  "error": null,
+  "binding_contract": "photo-binding-v9-1",
+  "model": "gpt-6.1-sol",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T23:53:17.737661+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 58224,
+    "completion_tokens": 4802,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 26272,
+  "current_step": "register",
+  "warnings": [
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "background：背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_top_left：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_top_right：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_bottom_left：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_bottom_right：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    }
+  ],
+  "last_render_id": "2355b203b2cfebf6",
+  "finished_at": "2026-10-23T23:53:17.737573+00:00"
+}

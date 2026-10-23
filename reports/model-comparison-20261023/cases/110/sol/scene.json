@@ -1,0 +1,664 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-140\\prepared\\reference.png",
+    "sha256": "60f65b4db7ccc1398c1c20a0a3c83d9e5da392a65774a7f524b72535b059d35b"
+  },
+  "reference_size": [
+    1080,
+    1435
+  ],
+  "canvas_size": [
+    1200,
+    1594
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1435
+      ],
+      "description": "浅奶油色底上的浅蓝灰樱桃与斜向点线菱格图案，作为完整固定背景保留。",
+      "label": "浅奶油色底上的浅蓝灰樱桃与斜向点线菱格图案，作为完整固定背景",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "HTTPError: HTTP Error 402: Payment Required",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "78e41a2da8b60ec597f4dcc81d44ae128ae23dfc2bebcf30c998d63be27ab073"
+      }
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        89,
+        62,
+        492,
+        475
+      ],
+      "description": "一名黑长发女生坐在浅紫色矮墙前，穿浅粉开衫和白裙，一手举至头顶，另一手托紫色毛绒娃娃；左下有包和其他娃娃。保留绿植、墙面等摄影环境，照片四周按内口裁切，无主体去背景。",
+      "label": "一名黑长发女生坐在浅紫色矮墙前，穿浅粉开衫和白裙，一手举至头",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_left",
+        "reason": "保留女生、娃娃及绿植和紫墙摄影背景，主体没有独立描边或连续出框。矩形窗口对齐浅蓝灰纸框内口，纸框边缘与印花由frame_top_left保留，不重复描边；四边无透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_left",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.85
+        ],
+        "mirror_x": false,
+        "reason": "单人正面举手与参考动作较近；裁切靠下保留帽顶、举手及上身。实际为湖边站姿，无娃娃、紫墙及坐姿，不镜像以保留帽上文字。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-140-f2c3788c0b61\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-140\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "frame_top_left",
+      "kind": "frame",
+      "bbox": [
+        60,
+        34,
+        522,
+        590
+      ],
+      "description": "浅蓝灰色拍立得纸框，下沿较宽，保留纸面质感、蓝色圆点图案、笑脸、黑色星形及手写“アイスクリーム!!”字样，内口照片独立替换。",
+      "photo_id": "photo_top_left",
+      "label": "浅蓝灰色拍立得纸框，下沿较宽，保留纸面质感、蓝色圆点图案、笑",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "34bda651f85c7b35411944f137a828585ddc0caf6b3fe54ea557da25415c6f11"
+      }
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        588,
+        149,
+        994,
+        568
+      ],
+      "description": "黑长发女生近景自拍，面向镜头眨眼，右侧举着戴蓝黄帽子的粉色娃娃。保留水池、喷泉和远处建筑等摄影背景，画面由纸框内口裁切，无主体去背景。",
+      "label": "黑长发女生近景自拍，面向镜头眨眼，右侧举着戴蓝黄帽子的粉色娃",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_right",
+        "reason": "保留自拍人物、手持娃娃及喷泉和建筑背景，无主体描边或连续出框。照片按frame_top_right的矩形内口裁切，红色框体和蝴蝶结印花不是窗口描边；边界清晰，无渐变混合。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_right",
+        "asset_id": "material_09",
+        "source_crop": [
+          0.2,
+          0.28,
+          0.78,
+          0.72
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "面向镜头微笑、手靠脸侧，适合近景人像；裁至帽顶、面部和上身并保留部分湖水。非眨眼自拍，无娃娃与喷泉，不镜像。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-140-f2c3788c0b61\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-140\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "frame_top_right",
+      "kind": "frame",
+      "bbox": [
+        562,
+        125,
+        1020,
+        680
+      ],
+      "description": "暗粉红色拍立得纸框，四周印有深红蝴蝶结和圆点，下沿宽阔；框体的纹理与印花整体保留。",
+      "photo_id": "photo_top_right",
+      "label": "暗粉红色拍立得纸框，四周印有深红蝴蝶结和圆点，下沿宽阔；框体",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "cba0af041a652a62e46138ee32a4195c249964d97b0f48cfd0d8bc2eda3ec894"
+      }
+    },
+    {
+      "id": "photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        86,
+        715,
+        501,
+        1223
+      ],
+      "description": "一名穿浅粉开衫和白裙的黑长发女生站在绿篱与浅紫矮墙前，闭眼微笑，双手各举一个娃娃贴近脸侧，右侧挂着黑包及娃娃。保留摄影环境；下边缘及四周受黑色纸框不规则内缘遮挡。",
+      "label": "一名穿浅粉开衫和白裙的黑长发女生站在绿篱与浅紫矮墙前，闭眼微",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_left",
+        "reason": "保留女生、双手娃娃、挂包及绿篱紫墙背景，不抠主体、不描主体边。照片使用矩形底窗口，内口细小缺口及下缘不规则遮挡由frame_bottom_left原像素呈现，不另画多边形或黑色描边；未见独立连续出框或窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_left",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0.23,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.65,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "正面微笑、双手靠近脸侧且带黑包，姿态较接近；去除上方多余天空，横向对齐略靠右保留伸出的手。无双娃娃、粉色开衫及绿篱紫墙，不镜像。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-140-f2c3788c0b61\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-140\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "frame_bottom_left",
+      "kind": "frame",
+      "bbox": [
+        59,
+        693,
+        528,
+        1319
+      ],
+      "description": "黑色宽底拍立得纸框，带磨损划痕、不规则内缘和白色星形印花；底部有浅灰色动物表情气泡图案，作为框体完整设计保留。",
+      "photo_id": "photo_bottom_left",
+      "label": "黑色宽底拍立得纸框，带磨损划痕、不规则内缘和白色星形印花；底",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "83d5c80afc90170ef99c0b72d3072f374779aeb3a0ef360f9380f7e06f51ba77"
+      }
+    },
+    {
+      "id": "photo_bottom_right",
+      "kind": "photo",
+      "bbox": [
+        599,
+        795,
+        995,
+        1267
+      ],
+      "description": "黑长发女生穿浅粉开衫、白裙、白长袜和黑鞋，侧坐在水池边，双腿向右弯曲，一手举娃娃，左下放着黑包及两个娃娃。保留蓝绿色池水与石质池沿，整幅照片按内口裁切，无主体去背景。",
+      "label": "黑长发女生穿浅粉开衫、白裙、白长袜和黑鞋，侧坐在水池边，双腿",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_right",
+        "reason": "保留坐姿女生、娃娃和包，以及池水、池沿和地面摄影环境；人物及鞋袜均在照片内，无主体描边或连续出框。矩形窗口对齐frame_bottom_right内口，浅灰纸框不重复绘制；浅色地面仍为摄影内容，不作为透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_right",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0.25,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "水边侧身全身照，黑包与黑靴可见；裁去多余天空，保留帽顶至鞋底和湖岸环境。实际为侧身站立，并非池边侧坐或屈腿举娃娃，不镜像。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-140-f2c3788c0b61\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-140\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "frame_bottom_right",
+      "kind": "frame",
+      "bbox": [
+        570,
+        762,
+        1020,
+        1401
+      ],
+      "description": "浅灰白色宽底拍立得纸框，具有细腻纸面纹理，底部留白较宽；内口照片独立替换，右下唇印为另置装饰。",
+      "photo_id": "photo_bottom_right",
+      "label": "浅灰白色宽底拍立得纸框，具有细腻纸面纹理，底部留白较宽；内口",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "6124c1ed6ab1cb0e7b621d846c430b522bf444353d725b5f7e25870fdb2c42a8"
+      }
+    },
+    {
+      "id": "music_player",
+      "kind": "overlay",
+      "bbox": [
+        566,
+        24,
+        1011,
+        113
+      ],
+      "description": "浅粉色圆角音乐播放器装饰，包含点状底纹、暂停符号、“0:30/3:20”、进度线与圆点及扬声器图标，整体保留。",
+      "label": "浅粉色圆角音乐播放器装饰，包含点状底纹、暂停符号、“0:30",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "3378129bafaa54f57a3119170f05f1631f3a68d3ddfd34b14345bffb270d6a33"
+      }
+    },
+    {
+      "id": "pink_paws",
+      "kind": "overlay",
+      "bbox": [
+        16,
+        23,
+        191,
+        144
+      ],
+      "description": "左上角两枚相邻的粉红猫爪印组成的局部装饰，保留深色细轮廓和掌心浅粉爱心。",
+      "label": "左上角两枚相邻的粉红猫爪印组成的局部装饰，保留深色细轮廓和掌",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "90481db16103fcb8623ac7c74d4602272318dff008a7a25f0f95fdbd9e793af5"
+      }
+    },
+    {
+      "id": "blue_star_top",
+      "kind": "overlay",
+      "bbox": [
+        106,
+        0,
+        150,
+        40
+      ],
+      "description": "画布顶端浅蓝描线的空心五角星贴纸，保留内外多重轮廓。",
+      "label": "画布顶端浅蓝描线的空心五角星贴纸，保留内外多重轮廓。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "a9c0249fdb673ac5823dc6176156ddc8f96c6aa7fff50e668ab9d47b9308e23a"
+      }
+    },
+    {
+      "id": "blue_star_left",
+      "kind": "overlay",
+      "bbox": [
+        26,
+        110,
+        75,
+        158
+      ],
+      "description": "左侧浅蓝描线空心五角星装饰，保留不规则手绘轮廓与浅色内部。",
+      "label": "左侧浅蓝描线空心五角星装饰，保留不规则手绘轮廓与浅色内部。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e73e5dc553c9803fdfa7e41d83f0d2694a5735c0a524675826afe933160874fd"
+      }
+    },
+    {
+      "id": "shooting_stars",
+      "kind": "overlay",
+      "bbox": [
+        352,
+        514,
+        642,
+        806
+      ],
+      "description": "中央奶黄色与紫红色星星装饰组合，包含上下两颗带弧形尾迹的流星、两枚四角闪光及三个小圆环。保留星内笔画和整体轮廓，跨压上方纸框与左下黑框。",
+      "label": "中央奶黄色与紫红色星星装饰组合，包含上下两颗带弧形尾迹的流星",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "98d037bd4d4c7ebf4923fe35c69895bcee840ace0d6740a63fa627c09a0e9dee"
+      }
+    },
+    {
+      "id": "ice_bubbles",
+      "kind": "overlay",
+      "bbox": [
+        788,
+        650,
+        972,
+        828
+      ],
+      "description": "三颗大小不一的透明彩虹光泽泡泡，内部带蓝色冰块图案，作为同一局部装饰保留，叠在右上框下缘及右下框上缘。",
+      "label": "三颗大小不一的透明彩虹光泽泡泡，内部带蓝色冰块图案，作为同一",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "742495b392a5344be2532dd1b70f6631cf6576cf62ae97969f59f2a2680029cf"
+      }
+    },
+    {
+      "id": "lip_prints",
+      "kind": "overlay",
+      "bbox": [
+        798,
+        1269,
+        1010,
+        1391
+      ],
+      "description": "右下角两枚深红唇印组成的装饰，保留各自角度、唇纹和不规则印迹，叠于浅灰白纸框底部。",
+      "label": "右下角两枚深红唇印组成的装饰，保留各自角度、唇纹和不规则印迹",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "a31b9f3f31dffda47409b6d67a6b46ec3c8a700bf64432635e40707f04deda05"
+      }
+    },
+    {
+      "id": "yes_label",
+      "kind": "overlay",
+      "bbox": [
+        183,
+        1329,
+        430,
+        1392
+      ],
+      "description": "左下黑框下方的浅灰圆角标签，带轻微阴影，内有“Yes!!”、音符和颜文字，文字与标签作为完整装饰保留。",
+      "label": "左下黑框下方的浅灰圆角标签，带轻微阴影，内有“Yes!!”、",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "ad29b64e35e5fc202077bf534b2b12d8163d3b9a30831f0981141231cd9578e6"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_top_left",
+    "photo_top_left",
+    "frame_top_right",
+    "photo_top_right",
+    "photo_bottom_left",
+    "frame_bottom_left",
+    "frame_bottom_right",
+    "photo_bottom_right",
+    "music_player",
+    "pink_paws",
+    "blue_star_top",
+    "blue_star_left",
+    "shooting_stars",
+    "ice_bubbles",
+    "lip_prints",
+    "yes_label"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "70ffb419745bd0e0628ad15334a26b598901b339d4f334cd8f2fd77c36d82904",
+    "bindings": "00b5f47969417340cffc136fccc3eacc1ee1aeca253a817cca22dda5a53bd13d",
+    "input": "a79895fb4c93548759891166637f9549b31447ee86461356a42d72066b971b2f",
+    "catalog": "1f72c32dd07bcd5d43dbd8411ef5da73cc2645a826782788450dd64a2f9d294f",
+    "photo_windows": "7b15ccdbd2848a02655f43f46613a24236f2d22f8fe824d3866c77384720f403"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-140\\assets\\reveal\\index.json",
+    "sha256": "ae8f91ac1f2318cfdb7168657c3a5a14a73b21385d8899fb2666db0731e0012e"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-140\\assets\\gate\\report.json",
+    "sha256": "31668d942f1a358efd4dfd448ebe73c80a55135f77680881ee9aca6ecf92d687",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 13,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
