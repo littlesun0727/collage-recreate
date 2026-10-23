@@ -1,0 +1,467 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "needs_changes",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_bottom": 1.0,
+    "photo_middle": 1.0,
+    "photo_top": 1.0
+  },
+  "incomplete_objects": [
+    "bandage",
+    "cat_pouch",
+    "white_character"
+  ],
+  "issues": [
+    {
+      "id": "background",
+      "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+    },
+    {
+      "id": "cat_pouch",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "bandage",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "white_character",
+      "note": "Reveal target unavailable; local fallback requires review"
+    }
+  ],
+  "scene_sha256": "b97761cfadc280594e9d9cfde15793c5ed5e0737115ed968b4983d3ca62f938b",
+  "final_sha256": "715a75f39c6b7c06ebf4d5c95b6183402e53db20376e2dea57fb7cbf8e596920",
+  "resources": [
+    {
+      "id": "background",
+      "kind": "background",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\overlays\\background.png",
+      "sha256": "19a959793d6fde8a4f89753b022d200be39082a5edfb1da4cc438b086414934f",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "quality": "approximate",
+        "method": "local_background",
+        "fallback": true,
+        "background_clean": false,
+        "semantic_verified": false,
+        "fallback_reason": "HTTPError: HTTP Error 402: Payment Required",
+        "fill": "#BFBFBF",
+        "color_source": "uncovered_reference_median",
+        "sample_pixels": 38538,
+        "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\photos\\photo_top.png",
+      "sha256": "9840f4af3f1d33242906b1b3cd1cc904e541e735fa00d132a5cb78974ba6e7a6",
+      "quality": "ready",
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-116-afa141626993\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\prepared\\material_06.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_06",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-116-afa141626993\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+          "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\prepared\\material_06.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_top",
+          "asset_id": "material_06",
+          "source_crop": [
+            0,
+            0.25,
+            1,
+            0.8125
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "单人朝画面左侧的侧脸与上身构图较接近；裁去多余天空和下身，保留帽顶、面部及可见左侧手部。不镜像；实际为户外站姿，非靠脸嘟嘴，服装和背景均不同。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\photos\\photo_top-content-mask.png",
+        "content_mask_sha256": "88969f5b8f9921add231b51e08048e3828b88561fea15330d618fdbd4f684d49",
+        "photo_window_spec": {
+          "photo_id": "photo_top",
+          "reason": "人物、饮料及室内摄影背景完整保留，无主体描边。照片为水平矩形窗口，边缘清晰且无独立描边或渐变；右上猫脸为遮挡装饰，不构成主体出框。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\photos\\photo_middle.png",
+      "sha256": "b77ff44cb3b6e062ae4378b566b2680070e75f1601a762c2a8873212174b1058",
+      "quality": "ready",
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-116-afa141626993\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\prepared\\material_09.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_09",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-116-afa141626993\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+          "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\prepared\\material_09.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_middle",
+          "asset_id": "material_09",
+          "source_crop": [
+            0,
+            0.27,
+            1,
+            0.832
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "女生前倾、歪头面向镜头并在脸旁做手势，最接近参考的倾身互动姿态；横幅裁切保留帽顶、脸和双手。不镜像；实际为湖边站姿，无木桌、叉子和糕点。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\photos\\photo_middle-content-mask.png",
+        "content_mask_sha256": "d1a526a4e344e015de3cdf931d39648dac0d3fe896df9d81dccd7bbad10d8603",
+        "photo_window_spec": {
+          "photo_id": "photo_middle",
+          "reason": "保留人物、桌面糕点饮料及室内背景，无主体去背景或轮廓描边。水平矩形窗口四边硬切，无窗口描边或透明渐变；左上创可贴仅遮挡照片。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\photos\\photo_bottom.png",
+      "sha256": "dd546ebcacbbc2f286a3ad6b34bbbc74177441ccf99df8ef6ce15c0e20fec77c",
+      "quality": "ready",
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-116-afa141626993\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\prepared\\material_13.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_13",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-116-afa141626993\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+          "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\prepared\\material_13.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_bottom",
+          "asset_id": "material_13",
+          "source_crop": [
+            0,
+            0.29,
+            1,
+            0.854
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "单人微笑且双手抬至脸旁，接近参考的双手互动半身照；裁去上方天空及下身，保留帽顶、双手和手臂。不镜像以保持帽中文字；手势并非眼周比心，且为户外湖边环境。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\photos\\photo_bottom-content-mask.png",
+        "content_mask_sha256": "56bec4f83b7c108e663b545b4a498ccf48877974563e66b8cd9d933e66d874eb",
+        "photo_window_spec": {
+          "photo_id": "photo_bottom",
+          "reason": "人物与桌面、厨房摄影环境共同保留，无主体描边。照片为水平矩形窗口，可见边界清晰，无窗口描边或渐变；右下白色卡通为独立遮挡，不是照片主体的白边或连续出框。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "cat_pouch",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\overlays\\cat_pouch.png",
+      "sha256": "99e5beb8d259f9adfc5fe168fd804a81592850c012fdea8523e40078e6b20e4e",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "bandage",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\overlays\\bandage.png",
+      "sha256": "5d664119e3a7c0e5b76aba81cec3b80c545bfe2c817b0fe9394ae9eaeaa86940",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "white_character",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\overlays\\white_character.png",
+      "sha256": "7b74b720c4600a34ff336558900454d4e339e2533beee939f0907311a05a6fef",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "d7eddfe5535ada9d",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。；程序检测到 3 个未完成对象。；流程保留 1 项告警，待优化。",
+    "items": [
+      {
+        "id": "bandage",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "cat_pouch",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "white_character",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      }
+    ],
+    "scene_sha256": "b97761cfadc280594e9d9cfde15793c5ed5e0737115ed968b4983d3ca62f938b",
+    "final_sha256": "715a75f39c6b7c06ebf4d5c95b6183402e53db20376e2dea57fb7cbf8e596920"
+  },
+  "at": "2026-10-23T22:59:17.378573+00:00",
+  "extraction_sheets": [],
+  "review_regions": [
+    {
+      "ids": [
+        "photo_top",
+        "cat_pouch"
+      ],
+      "bbox": [
+        630,
+        0,
+        811,
+        291
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\previews\\review-detail-1.png"
+    },
+    {
+      "ids": [
+        "photo_bottom",
+        "white_character"
+      ],
+      "bbox": [
+        628,
+        1449,
+        808,
+        1740
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\previews\\review-detail-2.png"
+    },
+    {
+      "ids": [
+        "photo_middle",
+        "bandage"
+      ],
+      "bbox": [
+        88,
+        498,
+        269,
+        790
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\previews\\review-detail-3.png"
+    }
+  ],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\gate\\report.json",
+    "sha256": "30be24ae1a5a3ff8ff4ce4366f7bdec965319cee3a92a7faf90b385cda1b7f3c",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 4,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-116\\assets\\reveal\\index.json",
+    "sha256": "7a57af222f3989834348b8bad9aa21899b6d6e6db5cdd6fed9eaef41b302050f"
+  },
+  "render_id": "d7eddfe5535ada9d",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "d7eddfe5535ada9d",
+    "category": "with_issues",
+    "review_status": "skipped",
+    "warnings": [
+      {
+        "code": "asset_fallback",
+        "stage": "build",
+        "message": "background：背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+      }
+    ],
+    "draft_kind": null
+  }
+}
