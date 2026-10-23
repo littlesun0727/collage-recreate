@@ -1,0 +1,870 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\reference.png",
+    "sha256": "795b32c9098659487126946a3767f400d64c429e2bad54a3c539f4506213761e"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定的黑色与深绿色模糊纹理底图，中央白色手绘树干及向四周伸展的枝条、散布的发光星芒和细小彩色光点整体保留，位于照片与独立装饰后方。",
+      "label": "固定的黑色与深绿色模糊纹理底图，中央白色手绘树干及向四周伸展",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "HTTPError: HTTP Error 402: Payment Required",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "ab2456f57a468a05830cc2df7c32ffbe6d83953b422259adb2f1412c91db7ab2"
+      }
+    },
+    {
+      "id": "photo_coffee",
+      "kind": "photo",
+      "bbox": [
+        292,
+        38,
+        500,
+        247
+      ],
+      "description": "俯拍木质桌面上的一瓶黑色咖啡与一罐浅色饮品，两件饮料并排斜置，下方有方格织物。保留包装印字、桌面和织物摄影环境，矩形边界清晰，无主体去背景。",
+      "label": "俯拍木质桌面上的一瓶黑色咖啡与一罐浅色饮品，两件饮料并排斜置",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_coffee",
+        "reason": "饮料与木桌、方格织物同属摄影内容，保留背景；照片为水平矩形硬边，无主体描边、窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_coffee",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.75
+        ],
+        "mirror_x": false,
+        "reason": "无咖啡及罐装饮品素材，仅以建筑与湖面构成的环境照替代；靠下裁成近方形，保留建筑、湖中岩石和水面，不镜像。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "photo_tray",
+      "kind": "photo",
+      "bbox": [
+        14,
+        210,
+        291,
+        415
+      ],
+      "description": "俯拍深色椭圆木托盘，托盘中有一枚金色圆环及右侧直立的透明金色瓶子，周围保留灰色桌面。完整矩形照片显示，保留摄影阴影与背景。",
+      "label": "俯拍深色椭圆木托盘，托盘中有一枚金色圆环及右侧直立的透明金色",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_tray",
+        "reason": "保留托盘、圆环、瓶子及灰色桌面背景；椭圆是托盘外形而非窗口，实际显示为清晰矩形，无描边和渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_tray",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "俯视画面左侧椭圆水池、右侧建筑的布局可作构图近似，但没有托盘、圆环或瓶子；居中轻裁，保留两处主要景物，不镜像。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "photo_shrimp",
+      "kind": "photo",
+      "bbox": [
+        557,
+        113,
+        855,
+        342
+      ],
+      "description": "一只手从左下方拿着印有巨大橙色虾图案的食品包装，后方是摆满商品的货架。手、包装及货架环境均随照片替换，矩形裁切，边缘清晰。",
+      "label": "一只手从左下方拿着印有巨大橙色虾图案的食品包装，后方是摆满商",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_shrimp",
+        "reason": "手、食品包装和货架均保留在同一摄影环境内；四周为水平矩形硬裁切，没有连续出框、独立描边或边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_shrimp",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.55
+        ],
+        "mirror_x": false,
+        "reason": "选择手部动作清楚的人物近景作为替代，但没有虾包装与货架；横向裁切保留帽顶、脸和双手，舍去部分下身，不镜像以免反转帽上文字。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_drinks",
+      "kind": "photo",
+      "bbox": [
+        0,
+        455,
+        325,
+        702
+      ],
+      "description": "餐桌近景，左侧是一杯浅色高杯饮料，右上为带草莓的红色圆杯饮料，右下为带泡沫的矮杯，底部还有小碗食物。保留暗调室内摄影环境和完整矩形显示范围。",
+      "label": "餐桌近景，左侧是一杯浅色高杯饮料，右上为带草莓的红色圆杯饮料",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_drinks",
+        "reason": "保留饮品、食物和暗调餐桌环境；照片左侧贴画布，其他边界同样清晰，暗部并非透明渐变，无主体或窗口描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_drinks",
+        "asset_id": "material_08",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有餐桌饮料素材，以左侧船只群为视觉重心的环境照替代，主体和场景均与参考不同；居中轻裁，保留船只及湖面，不镜像。"
+      },
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_08.jpg"
+      }
+    },
+    {
+      "id": "photo_spices",
+      "kind": "photo",
+      "bbox": [
+        590,
+        391,
+        814,
+        562
+      ],
+      "description": "俯拍深灰色石质桌面，多把浅木色小勺交错摆放，分别盛有红、绿、白、黄及棕色粉末调料。保留全部勺子、调料及桌面背景，矩形边缘清晰。",
+      "label": "俯拍深灰色石质桌面，多把浅木色小勺交错摆放，分别盛有红、绿、",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_spices",
+        "reason": "木勺、各色调料与石质桌面完整保留；固定窗口为水平矩形，四边与外部背景直接切换，无描边或透明混合。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_spices",
+        "asset_id": "material_11",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "俯视的多块彩色盐池可近似多组色块分布，但没有木勺和粉末调料；居中轻裁，保留盐池群与地面图案，不镜像。"
+      },
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_11.jpg"
+      }
+    },
+    {
+      "id": "photo_cans",
+      "kind": "photo",
+      "bbox": [
+        584,
+        595,
+        900,
+        838
+      ],
+      "description": "木桌上并排摆放两罐饮料，左侧为高身深色金顶罐，右侧为较矮的橙红色金顶罐，后方是深蓝色座椅。保留包装文字、桌面及背景，矩形照片右侧贴画布边缘。",
+      "label": "木桌上并排摆放两罐饮料，左侧为高身深色金顶罐，右侧为较矮的橙",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_cans",
+        "reason": "保留两罐饮料、木桌及蓝色座椅背景；矩形窗口右侧贴画布，下边与邻图为硬接缝，无主体出框、描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_cans",
+        "asset_id": "material_05",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "未提供双罐饮料照片，选用左右山体形成双重视觉体量的风景替代，不能保留参考包装或桌椅环境；居中轻裁，不镜像。"
+      },
+      "source": {
+        "id": "material_05",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\3cdf61da6802362193ed1af16b6af31fb0a8d475c9d7b47d52fd9279ddb97da3.png",
+        "sha256": "4c5ccf7d473f090864ac3c513de4dee4eada9a031ca7a19476d048b088d75c07",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_05.jpg"
+      }
+    },
+    {
+      "id": "photo_fiboo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        721,
+        323,
+        964
+      ],
+      "description": "俯拍深色托盘上的粉色大罐、斜放的粉色透明瓶与左下方盛浅色饮品的玻璃杯，包装可见 fiboo 字样。保留托盘、桌面、器物阴影和摄影背景，完整矩形显示。",
+      "label": "俯拍深色托盘上的粉色大罐、斜放的粉色透明瓶与左下方盛浅色饮品",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_fiboo",
+        "reason": "粉色罐瓶、玻璃杯、托盘和摄影阴影一起保留；显示边界是贴左侧画布的水平矩形，没有沿器物抠图或描边，四边不渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_fiboo",
+        "asset_id": "material_01",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "俯视盐池与斜向道路提供多元素组合构图，但没有粉色罐瓶、玻璃杯及 fiboo 包装；槽比例接近原图，居中保留整体环境，不镜像。"
+      },
+      "source": {
+        "id": "material_01",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+        "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_01.jpg"
+      }
+    },
+    {
+      "id": "photo_meal",
+      "kind": "photo",
+      "bbox": [
+        672,
+        839,
+        894,
+        1062
+      ],
+      "description": "俯拍一份锅餐，右侧圆锅内有肉片与白菜，左侧排列小碟调料和餐具，周围可见桌垫图案。保留餐具、锅柄及整个用餐环境，矩形裁切，无去背景。",
+      "label": "俯拍一份锅餐，右侧圆锅内有肉片与白菜，左侧排列小碟调料和餐具",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_meal",
+        "reason": "锅餐、锅柄、小碟和桌垫均属于保留的摄影环境；窗口为近方形矩形而非圆锅轮廓，上方与饮料照片相接处及其余边缘均为硬边，无描边和渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_meal",
+        "asset_id": "material_12",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.8
+        ],
+        "mirror_x": false,
+        "reason": "俯视画面右侧圆形水池、左侧帐篷和道路可近似左右分区，但没有锅餐与餐具；靠下裁成近方形，保留圆池及左侧主要设施，不镜像。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "overlay_green_tree",
+      "kind": "overlay",
+      "bbox": [
+        69,
+        102,
+        152,
+        209
+      ],
+      "description": "左上角荧光绿涂鸦小树装饰，包含顶部粉色帽状笔画、黄色小点、眼睛、环绕线和底部黄色双脚，作为完整手绘单元保留。",
+      "label": "左上角荧光绿涂鸦小树装饰，包含顶部粉色帽状笔画、黄色小点、眼",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "2c04631f06cd771c46135179529bd16ba9de09c4fdd1e88b8a675b6f9b1b0d83"
+      }
+    },
+    {
+      "id": "overlay_cool",
+      "kind": "overlay",
+      "bbox": [
+        183,
+        85,
+        274,
+        152
+      ],
+      "description": "白色手绘云朵对话框，内部含两行 Cool 字样、手势及星形小图案，文字与不规则轮廓整体保留。",
+      "label": "白色手绘云朵对话框，内部含两行 Cool 字样、手势及星形小",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "7c436bfe1f1cddc71f5579e903ab502257cb61f4dfc7a11aace38c47dec93b65"
+      }
+    },
+    {
+      "id": "overlay_player",
+      "kind": "overlay",
+      "bbox": [
+        617,
+        53,
+        809,
+        107
+      ],
+      "description": "顶部发光音乐播放器装饰，包含“正在播放《Happy New Year》”字样、红色点缀、进度线、时间数字及播放控制图标，整体保留。",
+      "label": "顶部发光音乐播放器装饰，包含“正在播放《Happy New ",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "b9f7ca6741c4b72f71cce8e78ce45de8e64b9d1a9a74c32abb46062947878547"
+      }
+    },
+    {
+      "id": "overlay_orange_tree",
+      "kind": "overlay",
+      "bbox": [
+        841,
+        445,
+        900,
+        569
+      ],
+      "description": "右侧被画布截断的橙黄色涂鸦小树，带粉色顶部、白色眼睛、环绕线条和上方黄色手写字样，保留全部可见成员。",
+      "label": "右侧被画布截断的橙黄色涂鸦小树，带粉色顶部、白色眼睛、环绕线",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "8f8547605b39c2ece8ee4c260503570e5ac90d6608b070eb7b71999fdec95d36"
+      }
+    },
+    {
+      "id": "overlay_pink_tree",
+      "kind": "overlay",
+      "bbox": [
+        85,
+        960,
+        274,
+        1188
+      ],
+      "description": "左下角大型粉色涂鸦树形角色，包含黄色星形顶部、白色双眼、蓝色中央图案、黄色环绕线与双脚，以及右上方蓝色小字，整体保留原有笔触。",
+      "label": "左下角大型粉色涂鸦树形角色，包含黄色星形顶部、白色双眼、蓝色",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "22654ed2a43a23293c56658f62445b63c961355b2a8e83a79005f2c55d195964"
+      }
+    },
+    {
+      "id": "overlay_dog",
+      "kind": "overlay",
+      "bbox": [
+        508,
+        924,
+        670,
+        1031
+      ],
+      "description": "底部偏右的绿色线描小狗，包含两侧黄色小花团、周围零散黄色点线及右上方黄色手写字样，作为一组完整装饰保留。",
+      "label": "底部偏右的绿色线描小狗，包含两侧黄色小花团、周围零散黄色点线",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "bec41694d83f85c3eda894487cb37a68522756c821db038b96178993be943ae6"
+      }
+    },
+    {
+      "id": "overlay_nice_day",
+      "kind": "overlay",
+      "bbox": [
+        589,
+        1097,
+        791,
+        1130
+      ],
+      "description": "底部发光 NICE DAY 装饰字组，包含左侧云雨符号、小星点、红色饮品图标、右侧啤酒杯及白色速度线，文字和附属图案整体保留。",
+      "label": "底部发光 NICE DAY 装饰字组，包含左侧云雨符号、小星",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e0eb0003b4dc12a9aaa33e7845f17b5c063c8d050dc27b9d706128dceca88c5d"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_coffee",
+    "photo_tray",
+    "photo_shrimp",
+    "photo_drinks",
+    "photo_spices",
+    "photo_cans",
+    "photo_fiboo",
+    "photo_meal",
+    "overlay_green_tree",
+    "overlay_cool",
+    "overlay_player",
+    "overlay_orange_tree",
+    "overlay_pink_tree",
+    "overlay_dog",
+    "overlay_nice_day"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "955f3186c32ef3475c5d43040a680311628b6b0e501a9b389c845d47cf9fd07e",
+    "bindings": "25343ca1ea7771fa95e3c3068f8ef5c5f1e708c9797f5510b7260a55dd80a562",
+    "input": "75718637c749c844e00d620f981e38fb1b24060ccec658a5d9d1806cbae2d196",
+    "catalog": "9d4e2bfa501372dd733d530fa52a73fcbcba644eebade5ea2c66709e111f8f2a",
+    "photo_windows": "33e41613117333cf17b3f115a089142e9ce737a1c5c6cbf1f95d4be12ce3f0d5"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\reveal\\index.json",
+    "sha256": "aca0d543b8218560a698ea3a38eb0a087220603d95294dfc497abc4d44962b3c"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\gate\\report.json",
+    "sha256": "85f06c6487c14a30c311795c31938ec7aed92acedbfd5e41e392651964535929",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 8,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

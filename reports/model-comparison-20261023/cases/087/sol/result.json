@@ -1,0 +1,982 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "needs_changes",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_meal": 1.0,
+    "photo_fiboo": 1.0,
+    "photo_cans": 1.0,
+    "photo_spices": 1.0,
+    "photo_drinks": 1.0,
+    "photo_shrimp": 1.0,
+    "photo_tray": 1.0,
+    "photo_coffee": 1.0
+  },
+  "incomplete_objects": [
+    "overlay_cool",
+    "overlay_dog",
+    "overlay_green_tree",
+    "overlay_nice_day",
+    "overlay_orange_tree",
+    "overlay_pink_tree",
+    "overlay_player"
+  ],
+  "issues": [
+    {
+      "id": "background",
+      "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+    },
+    {
+      "id": "overlay_green_tree",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_cool",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_player",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_orange_tree",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_pink_tree",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_dog",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_nice_day",
+      "note": "Reveal target unavailable; local fallback requires review"
+    }
+  ],
+  "scene_sha256": "b555466ee9e3e9a8d0b4c6517e99ed958888c8a3de3f572a72a44bc2fdcfe28f",
+  "final_sha256": "5d38d267c83bc51d4c8cfe49b1ae58a10473a92fdde206e7bc5157d909a31683",
+  "resources": [
+    {
+      "id": "background",
+      "kind": "background",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\background.png",
+      "sha256": "7c0977e688b4c9bbd555db620158b4d85621f96454f4726af3074db8203c101d",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "quality": "approximate",
+        "method": "local_background",
+        "fallback": true,
+        "background_clean": false,
+        "semantic_verified": false,
+        "fallback_reason": "HTTPError: HTTP Error 402: Payment Required",
+        "fill": "#091B09",
+        "color_source": "uncovered_reference_median",
+        "sample_pixels": 77234,
+        "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_coffee",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_coffee.png",
+      "sha256": "2528c0a808249b94b300c9989c0e8025c88a05177fdbb2b4c05f81a8ce0670f8",
+      "quality": "ready",
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_17.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_17",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+          "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_17.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_coffee",
+          "asset_id": "material_17",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.75
+          ],
+          "mirror_x": false,
+          "reason": "无咖啡及罐装饮品素材，仅以建筑与湖面构成的环境照替代；靠下裁成近方形，保留建筑、湖中岩石和水面，不镜像。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_coffee-content-mask.png",
+        "content_mask_sha256": "032cd60eccb68f6364ed361ea70e96afff08d38560edfd87a8099281a730f071",
+        "photo_window_spec": {
+          "photo_id": "photo_coffee",
+          "reason": "饮料与木桌、方格织物同属摄影内容，保留背景；照片为水平矩形硬边，无主体描边、窗口描边或渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_tray",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_tray.png",
+      "sha256": "9830d8fab03fedb846c6dc411e2b5abf7255ef9a435b3b0c84d204b69c02e3ec",
+      "quality": "ready",
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_02.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_02",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+          "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_02.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_tray",
+          "asset_id": "material_02",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "俯视画面左侧椭圆水池、右侧建筑的布局可作构图近似，但没有托盘、圆环或瓶子；居中轻裁，保留两处主要景物，不镜像。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_tray-content-mask.png",
+        "content_mask_sha256": "9508fda098e5172f63f8ffb3c5ced57e05a4c0b91cb51ec5e667c31545d60157",
+        "photo_window_spec": {
+          "photo_id": "photo_tray",
+          "reason": "保留托盘、圆环、瓶子及灰色桌面背景；椭圆是托盘外形而非窗口，实际显示为清晰矩形，无描边和渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_shrimp",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_shrimp.png",
+      "sha256": "1c37419006c1ad8cfab10a15bd8c28eb0dddb0f12efe2be68fbc8caaa47b336f",
+      "quality": "ready",
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_13.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_13",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+          "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_13.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_shrimp",
+          "asset_id": "material_13",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.55
+          ],
+          "mirror_x": false,
+          "reason": "选择手部动作清楚的人物近景作为替代，但没有虾包装与货架；横向裁切保留帽顶、脸和双手，舍去部分下身，不镜像以免反转帽上文字。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_shrimp-content-mask.png",
+        "content_mask_sha256": "6304143d487b6c36bbe1779fa96966fb09c648d52be607d83f2057acf04ef165",
+        "photo_window_spec": {
+          "photo_id": "photo_shrimp",
+          "reason": "手、食品包装和货架均保留在同一摄影环境内；四周为水平矩形硬裁切，没有连续出框、独立描边或边缘渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_drinks",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_drinks.png",
+      "sha256": "b187a7f99302296cf907ce2f135abad91d37f1c49158293c2cbb7840a3b82bf2",
+      "quality": "ready",
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_08.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_08",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+          "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_08.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_drinks",
+          "asset_id": "material_08",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "没有餐桌饮料素材，以左侧船只群为视觉重心的环境照替代，主体和场景均与参考不同；居中轻裁，保留船只及湖面，不镜像。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_drinks-content-mask.png",
+        "content_mask_sha256": "b29ceb80c48709f6d8cfd7386ac52f09144711439e75c9876eb80576ae8a79f8",
+        "photo_window_spec": {
+          "photo_id": "photo_drinks",
+          "reason": "保留饮品、食物和暗调餐桌环境；照片左侧贴画布，其他边界同样清晰，暗部并非透明渐变，无主体或窗口描边。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_spices",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_spices.png",
+      "sha256": "168a415e10d2d211798b8980d52c555700cabe5bc8a026f9c9b3bbc8abe993ec",
+      "quality": "ready",
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_11.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_11",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+          "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_11.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_spices",
+          "asset_id": "material_11",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "俯视的多块彩色盐池可近似多组色块分布，但没有木勺和粉末调料；居中轻裁，保留盐池群与地面图案，不镜像。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_spices-content-mask.png",
+        "content_mask_sha256": "fbd65c5e09befce3c2c60d3d044c38aa32e74bafd681ef2ac9d4cfd18162d531",
+        "photo_window_spec": {
+          "photo_id": "photo_spices",
+          "reason": "木勺、各色调料与石质桌面完整保留；固定窗口为水平矩形，四边与外部背景直接切换，无描边或透明混合。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_cans",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_cans.png",
+      "sha256": "5e6ebe6cc64b05fede4dacb83ccadfea4db5aa2cb977a67d4a257fbadcf2de93",
+      "quality": "ready",
+      "source": {
+        "id": "material_05",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\3cdf61da6802362193ed1af16b6af31fb0a8d475c9d7b47d52fd9279ddb97da3.png",
+        "sha256": "4c5ccf7d473f090864ac3c513de4dee4eada9a031ca7a19476d048b088d75c07",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_05.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_05",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\3cdf61da6802362193ed1af16b6af31fb0a8d475c9d7b47d52fd9279ddb97da3.png",
+          "sha256": "4c5ccf7d473f090864ac3c513de4dee4eada9a031ca7a19476d048b088d75c07",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_05.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_cans",
+          "asset_id": "material_05",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "未提供双罐饮料照片，选用左右山体形成双重视觉体量的风景替代，不能保留参考包装或桌椅环境；居中轻裁，不镜像。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_cans-content-mask.png",
+        "content_mask_sha256": "b64d5c3364b9092a8ecaa4ab18b7f1314883e24fce9b92162d1c632a5a1cbb67",
+        "photo_window_spec": {
+          "photo_id": "photo_cans",
+          "reason": "保留两罐饮料、木桌及蓝色座椅背景；矩形窗口右侧贴画布，下边与邻图为硬接缝，无主体出框、描边或渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_fiboo",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_fiboo.png",
+      "sha256": "078085de1b4bd0c1a30a35e3ba75b662c2f330c3e4fa8dd4b1805c6ef8967c35",
+      "quality": "ready",
+      "source": {
+        "id": "material_01",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+        "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_01.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_01",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+          "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_01.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_fiboo",
+          "asset_id": "material_01",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "俯视盐池与斜向道路提供多元素组合构图，但没有粉色罐瓶、玻璃杯及 fiboo 包装；槽比例接近原图，居中保留整体环境，不镜像。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_fiboo-content-mask.png",
+        "content_mask_sha256": "40e551f928c8a384c03ba76ba9bdddcf1e8d4cd4bf3e0d91981e3b24058dfa4e",
+        "photo_window_spec": {
+          "photo_id": "photo_fiboo",
+          "reason": "粉色罐瓶、玻璃杯、托盘和摄影阴影一起保留；显示边界是贴左侧画布的水平矩形，没有沿器物抠图或描边，四边不渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_meal",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_meal.png",
+      "sha256": "66680296635a39157c936f2756570b547c7b6718ffdd89fcf8497b52c8976fe2",
+      "quality": "ready",
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_12.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_12",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-117-f641c2d4646e\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+          "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\prepared\\material_12.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_meal",
+          "asset_id": "material_12",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.8
+          ],
+          "mirror_x": false,
+          "reason": "俯视画面右侧圆形水池、左侧帐篷和道路可近似左右分区，但没有锅餐与餐具；靠下裁成近方形，保留圆池及左侧主要设施，不镜像。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\photos\\photo_meal-content-mask.png",
+        "content_mask_sha256": "6393f6c76694dd48e5b8b685dc3e3ee7a134e7c6c6c97fab21ec9a179565c100",
+        "photo_window_spec": {
+          "photo_id": "photo_meal",
+          "reason": "锅餐、锅柄、小碟和桌垫均属于保留的摄影环境；窗口为近方形矩形而非圆锅轮廓，上方与饮料照片相接处及其余边缘均为硬边，无描边和渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_green_tree",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\overlay_green_tree.png",
+      "sha256": "26c814fd56ce6d30c226cd73aa98926bf7d3362a4bb09243486424bc06a240ba",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_cool",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\overlay_cool.png",
+      "sha256": "5f2ec39527c293a6cc88780432dc7f8c2f4767e26ac08ec16a320a14a23417c6",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_player",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\overlay_player.png",
+      "sha256": "83e09aca75dbd7e80aa1af2e77fd6d8e047ad3a676d19ada83296ea8cdea7ac0",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_orange_tree",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\overlay_orange_tree.png",
+      "sha256": "935e5e0d26569ccac66e9e005b0fad7889d759986476d1d0bb07c016bdd5b645",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_pink_tree",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\overlay_pink_tree.png",
+      "sha256": "3daa90dc19447f04534817da1703cf4461f37872bbf1dd887417ed4dfa72c5fe",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_dog",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\overlay_dog.png",
+      "sha256": "b5f790f55073cca91b9c8a59d0be1573710d57230f33af919901ffabe75a20d8",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_nice_day",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\overlays\\overlay_nice_day.png",
+      "sha256": "a89d32d93aee201807cc4ab067e161534f27408188f0eed934907ce6613fa088",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "f83c088d5f49c9a9",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。；程序检测到 7 个未完成对象。；流程保留 1 项告警，待优化。",
+    "items": [
+      {
+        "id": "overlay_cool",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_dog",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_green_tree",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_nice_day",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_orange_tree",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_pink_tree",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_player",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      }
+    ],
+    "scene_sha256": "b555466ee9e3e9a8d0b4c6517e99ed958888c8a3de3f572a72a44bc2fdcfe28f",
+    "final_sha256": "5d38d267c83bc51d4c8cfe49b1ae58a10473a92fdde206e7bc5157d909a31683"
+  },
+  "at": "2026-10-23T23:01:31.272617+00:00",
+  "extraction_sheets": [],
+  "review_regions": [
+    {
+      "ids": [
+        "photo_fiboo",
+        "overlay_pink_tree"
+      ],
+      "bbox": [
+        56,
+        866,
+        303,
+        1058
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\previews\\review-detail-1.png"
+    }
+  ],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\gate\\report.json",
+    "sha256": "85f06c6487c14a30c311795c31938ec7aed92acedbfd5e41e392651964535929",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 8,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-117\\assets\\reveal\\index.json",
+    "sha256": "aca0d543b8218560a698ea3a38eb0a087220603d95294dfc497abc4d44962b3c"
+  },
+  "render_id": "f83c088d5f49c9a9",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "f83c088d5f49c9a9",
+    "category": "with_issues",
+    "review_status": "skipped",
+    "warnings": [
+      {
+        "code": "asset_fallback",
+        "stage": "build",
+        "message": "background：背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+      }
+    ],
+    "draft_kind": null
+  }
+}
