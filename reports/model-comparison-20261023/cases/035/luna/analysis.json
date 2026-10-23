@@ -1,0 +1,170 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        394
+      ],
+      "description": "上方横向雨景照片，保留雨滴覆盖的伞骨与伞柄、树枝和飞鸟的灰黑色摄影画面。",
+      "label": "上方横向雨景照片，保留雨滴覆盖的伞骨与伞柄、树枝和飞鸟的灰黑",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_leaf",
+      "kind": "photo",
+      "bbox": [
+        612,
+        80,
+        834,
+        302
+      ],
+      "description": "右上方矩形照片，仰拍茂密绿色叶片与交错枝条，保留摄影环境。",
+      "label": "右上方矩形照片，仰拍茂密绿色叶片与交错枝条，保留摄影环境。",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "tape_leaf",
+      "kind": "overlay",
+      "bbox": [
+        685,
+        44,
+        750,
+        121
+      ],
+      "description": "贴在右上照片上沿的半透明浅黄色斜贴纸，保留纸张质感与完整形状。",
+      "label": "贴在右上照片上沿的半透明浅黄色斜贴纸，保留纸张质感与完整形状",
+      "method": "extract"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        0,
+        394,
+        900,
+        802
+      ],
+      "description": "中部横向雨窗照片，保留玻璃雨滴、窗外绿色植物及虚化环境。",
+      "label": "中部横向雨窗照片，保留玻璃雨滴、窗外绿色植物及虚化环境。",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "quote_card",
+      "kind": "overlay",
+      "bbox": [
+        173,
+        438,
+        725,
+        749
+      ],
+      "description": "覆盖在中部雨窗照片上的半透明浅灰白矩形纸片，保留纸面质感、黑色枝状小涂鸦、兔子与爱心涂鸦，以及中文两行字“消失的下雨天，／我好想再淋一遍。”作为完整装饰单元。",
+      "label": "覆盖在中部雨窗照片上的半透明浅灰白矩形纸片，保留纸面质感、黑",
+      "method": "extract"
+    },
+    {
+      "id": "clover_sticker",
+      "kind": "overlay",
+      "bbox": [
+        667,
+        412,
+        781,
+        538
+      ],
+      "description": "中部照片右上方的绿色四叶草卡通贴纸，中心有白色小动物，带细绿色弯曲茎线，整体保留。",
+      "label": "中部照片右上方的绿色四叶草卡通贴纸，中心有白色小动物，带细绿",
+      "method": "extract"
+    },
+    {
+      "id": "subtitle",
+      "kind": "overlay",
+      "bbox": [
+        430,
+        713,
+        855,
+        776
+      ],
+      "description": "中部照片下方叠加的半透明深色字幕底条，保留白色两行英文“Disappearing rainy days,／I want to get wet for another day.”及底条。",
+      "label": "中部照片下方叠加的半透明深色字幕底条，保留白色两行英文“Di",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        802,
+        900,
+        1200
+      ],
+      "description": "下方横向雨天照片，保留湿润黑色路面、上方伞骨网格和画面底部穿浅色运动鞋的双脚及摄影环境。",
+      "label": "下方横向雨天照片，保留湿润黑色路面、上方伞骨网格和画面底部穿",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_rainy",
+      "kind": "photo",
+      "bbox": [
+        82,
+        887,
+        328,
+        1068
+      ],
+      "description": "左下方小幅矩形照片，雨滴覆盖的朦胧绿色户外景色；照片上叠有可辨英文“Rainy”。",
+      "label": "左下方小幅矩形照片，雨滴覆盖的朦胧绿色户外景色；照片上叠有可",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "tape_rainy",
+      "kind": "overlay",
+      "bbox": [
+        65,
+        869,
+        343,
+        1088
+      ],
+      "description": "贴住左下小照片四角的四段白色斜贴纸，作为同一组固定装饰整体保留。",
+      "label": "贴住左下小照片四角的四段白色斜贴纸，作为同一组固定装饰整体保",
+      "method": "extract"
+    },
+    {
+      "id": "raindrops",
+      "kind": "overlay",
+      "bbox": [
+        376,
+        886,
+        846,
+        1026
+      ],
+      "description": "下方照片上的四个白色手绘水滴符号，彼此分散，作为一组独立装饰保留。",
+      "label": "下方照片上的四个白色手绘水滴符号，彼此分散，作为一组独立装饰",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "photo_top",
+    "photo_leaf",
+    "tape_leaf",
+    "photo_middle",
+    "quote_card",
+    "clover_sticker",
+    "subtitle",
+    "photo_bottom",
+    "photo_rainy",
+    "tape_rainy",
+    "raindrops"
+  ]
+}

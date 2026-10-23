@@ -1,0 +1,937 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\reference.png",
+    "sha256": "5d9c891c52a98fbe7647fc980692b6798420c5e7223c4fddd5e3c7aa12b78291"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整张图的底层背景，画面为仰视视角的街道树木与天空，带有黄昏时的粉紫色晚霞和深绿色的树叶剪影。",
+      "label": "整张图的底层背景，画面为仰视视角的街道树木与天空，带有黄昏时",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "367781c255c364d9aff5b8f0e5acf7d830c5bd48e03fce87a82f60c2caf81426"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\background_1.png",
+        "sha256": "b5b27a38eccec480624ea4cb05677c870338084967acd955a5dd3d87a41c45ba",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "b5b27a38eccec480624ea4cb05677c870338084967acd955a5dd3d87a41c45ba",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "0515ba0aaf744e175156b4035b28d19e008051b75138d542213fe6ca60996c67",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        74,
+        102,
+        365,
+        476
+      ],
+      "description": "位于左上方的竖构图照片，内容为绿树掩映下的街道一角，可见米黄色的建筑墙体、路灯杆以及停在路边的车辆。照片边缘有白色细线描边。",
+      "label": "位于左上方的竖构图照片，内容为绿树掩映下的街道一角，可见米黄",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "保留摄影背景，照片有清晰的矩形边界和白色细线描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.008,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为竖构图，素材06也是竖图。虽然内容（沙漠与人物）与原图（街道建筑）不符，但在可用素材中，其色调和光影感相对独立，适合作为人物特写填充。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-074-487ef0828626\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        105,
+        222,
+        338,
+        342
+      ],
+      "description": "带着潮湿的绿意和清\n冽的木质香，\n给闷热的天气带来一\n丝大口呼吸的凉意。",
+      "label": "带着潮湿的绿意和清\n冽的木质香，\n给闷热的天气带来一\n丝大口",
+      "method": "local",
+      "text": "带着潮湿的绿意和清\n冽的木质香，\n给闷热的天气带来一\n丝大口呼吸的凉意。",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        421,
+        94,
+        806,
+        330
+      ],
+      "description": "位于右上方的横构图照片，展示了一条林荫道路，远处有红绿灯和黄色交通指示牌，阳光透过树叶洒在路面上。照片边缘有白色细线描边。",
+      "label": "位于右上方的横构图照片，展示了一条林荫道路，远处有红绿灯和黄",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "保留摄影背景，照片有清晰的矩形边界和白色细线描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.008,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_07",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为横构图风景，素材07是宽幅风景照，展示了蓝天、湖泊和道路延伸感，在构图形式上最接近原图的林荫道透视感。"
+      },
+      "source": {
+        "id": "material_07",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-074-487ef0828626\\5b814e66f15e545b144e7d425160e41a7e315747819e46f582a21cc0e725a864.png",
+        "sha256": "0001e71335621e1c05aeb22fcd837fa8a1bb08ce8c69b3f7e2cfbef9b8563991",
+        "size": [
+          3490,
+          1964
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\material_07.jpg"
+      }
+    },
+    {
+      "id": "text_2",
+      "kind": "text",
+      "bbox": [
+        441,
+        120,
+        774,
+        210
+      ],
+      "description": "每每到了夏天，我开始抓不住我自己。\n整个变成一团云，虚无的，\n没有确切的情绪。\n像是漫长的犯困，醒不过来。",
+      "label": "每每到了夏天，我开始抓不住我自己。\n整个变成一团云，虚无的，",
+      "method": "local",
+      "text": "每每到了夏天，我开始抓不住我自己。\n整个变成一团云，虚无的，\n没有确切的情绪。\n像是漫长的犯困，醒不过来。",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        464,
+        382,
+        698,
+        672
+      ],
+      "description": "位于中间偏右的照片，特写拍摄了一本摊开的书籍放置在绣球花丛中，绿叶和紫白色的花朵环绕着书页。照片边缘有白色细线描边。",
+      "label": "位于中间偏右的照片，特写拍摄了一本摊开的书籍放置在绣球花丛中",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "保留摄影背景，照片有清晰的矩形边界和白色细线描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.008,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为近正方形，素材14为竖图。原图是静物特写，这里选用人物背影剪影，利用其中心构图和留白来适配位置，虽无书籍但视觉重心一致。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-074-487ef0828626\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        747,
+        450,
+        842,
+        510
+      ],
+      "description": "位于右侧中部的半透明星星装饰图案，叠加在背景树叶上。",
+      "label": "位于右侧中部的半透明星星装饰图案，叠加在背景树叶上。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3c31fabcc8507f133219ba8f1647e1e3ee444005a641bcebcf9b936ef8faf6a5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\overlay_1.png",
+        "sha256": "8163cd0195f01e4459fd7dd72f8f300b7b2dfd63d5cf8b18963ee29c83992ef0",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "8163cd0195f01e4459fd7dd72f8f300b7b2dfd63d5cf8b18963ee29c83992ef0",
+          "bbox": [
+            741,
+            444,
+            848,
+            516
+          ],
+          "original_bbox": [
+            747,
+            450,
+            842,
+            510
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "0896184d9700bbf76f3bcde7be71632a662452f0a1d288617753b3607d27fa2a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "5d9c891c52a98fbe7647fc980692b6798420c5e7223c4fddd5e3c7aa12b78291"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\overlay_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        117,
+        522,
+        428,
+        810
+      ],
+      "description": "黑色的胶卷底片样式边框，左右两侧带有齿孔，包裹着内部的照片内容。",
+      "photo_id": "photo_4",
+      "label": "黑色的胶卷底片样式边框，左右两侧带有齿孔，包裹着内部的照片内",
+      "method": "extract",
+      "style": {
+        "fill": "#1A1A1A"
+      },
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "784deb37dedd09b609204c4d61fdda4c8f6e1a2eea9492f42314ed9bf44b6caf"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\frame_1.png",
+        "sha256": "9fbe143a6a77ec5dc7754ec03850e2af83c5f7f3eb22ff02fc671dc8903f126a",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01\\frame_1-restored.png",
+          "sha256": "9fbe143a6a77ec5dc7754ec03850e2af83c5f7f3eb22ff02fc671dc8903f126a",
+          "bbox": [
+            109,
+            514,
+            436,
+            818
+          ],
+          "original_bbox": [
+            117,
+            522,
+            428,
+            810
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "2f55efa06f108c4ab315414eb5c10df6ee557aa5ed2d5a98eac6720ffdbe2d7e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "5d9c891c52a98fbe7647fc980692b6798420c5e7223c4fddd5e3c7aa12b78291"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\frame_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\frame_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        148,
+        540,
+        396,
+        792
+      ],
+      "description": "位于左侧中部的照片，被黑色胶卷框包围。画面展示了蓝天背景下的高架轨道列车，前景有绿树枝叶遮挡。",
+      "label": "位于左侧中部的照片，被黑色胶卷框包围。画面展示了蓝天背景下的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_4",
+        "reason": "位于黑色胶卷框内部的照片，保留背景，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_4",
+        "asset_id": "material_10",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位描述提到“高架轨道列车”，素材10画面正中即为铁轨和类似车站的建筑，完美契合“轨道”这一关键视觉元素。"
+      },
+      "source": {
+        "id": "material_10",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-074-487ef0828626\\8a0a41a129153aca65bd0f78170e85b4a0ed3a636a67c907d54825afb48d672d.png",
+        "sha256": "32634a073776d1e381e379f42e854ec5c8f9af7ad58c4862de02f7cdb0c86d8b",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\material_10.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\frame_1-photo_4-window.png",
+        "sha256": "97f0db9d1d23c2bf77ffbc639b5b6100305bd48351353c366fe1bd221e74c481"
+      },
+      "reveal_frame_id": "frame_1"
+    },
+    {
+      "id": "photo_5",
+      "kind": "photo",
+      "bbox": [
+        634,
+        630,
+        824,
+        810
+      ],
+      "description": "位于右侧中下部的照片，透过深色的屋檐或窗框结构向外拍摄，可见远处的城市高楼天际线和傍晚的天空。",
+      "label": "位于右侧中下部的照片，透过深色的屋檐或窗框结构向外拍摄，可见",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_5",
+        "reason": "透过屋檐拍摄的城市风景，保留背景，无明显边框或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_5",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位描述提到“城市高楼天际线”，素材17展示了一座红顶白色建筑矗立在水边，作为远景主体，符合“透过框看远处地标”的意境。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-074-487ef0828626\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        742,
+        624,
+        846,
+        696
+      ],
+      "description": "一条倾斜粘贴的浅棕色胶带，位于右侧照片上方，作为装饰元素。",
+      "label": "一条倾斜粘贴的浅棕色胶带，位于右侧照片上方，作为装饰元素。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d03aa24ce47fe4380b2c6f0b60f657176f496010475ace0dba2e996eed127762"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\overlay_2.png",
+        "sha256": "0141127323fa7b49d20a02c65d88951351ec393ac88ff14f654aa63b55e7a36c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "0141127323fa7b49d20a02c65d88951351ec393ac88ff14f654aa63b55e7a36c",
+          "bbox": [
+            734,
+            616,
+            854,
+            704
+          ],
+          "original_bbox": [
+            742,
+            624,
+            846,
+            696
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "90816322358a7a31ab6dc1c004b13adc39347b60b42fbe8e3b03a2d0093746b8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "5d9c891c52a98fbe7647fc980692b6798420c5e7223c4fddd5e3c7aa12b78291"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\overlay_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_6",
+      "kind": "photo",
+      "bbox": [
+        130,
+        864,
+        423,
+        1146
+      ],
+      "description": "位于左下方的照片，俯拍深色地面（可能是沥青路面），上面散落着粉色的花瓣和一片绿叶。照片边缘有白色细线描边。",
+      "label": "位于左下方的照片，俯拍深色地面（可能是沥青路面），上面散落着",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_6",
+        "reason": "保留摄影背景，照片有清晰的矩形边界和白色细线描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.008,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_6",
+        "asset_id": "material_11",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为俯拍地面纹理，素材11是大面积的航拍地貌，具有复杂的线条和色块，能很好地模拟原图中“散落花瓣的地面”那种俯视纹理感。"
+      },
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-074-487ef0828626\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\material_11.jpg"
+      }
+    },
+    {
+      "id": "text_3",
+      "kind": "text",
+      "bbox": [
+        148,
+        1056,
+        396,
+        1110
+      ],
+      "description": "出生在夏至前后，\n于是总会赋予这个季节特殊的意义。\n要热烈，要浓郁，要拥有旺盛的生命力。",
+      "label": "出生在夏至前后，\n于是总会赋予这个季节特殊的意义。\n要热烈，",
+      "method": "local",
+      "text": "出生在夏至前后，\n于是总会赋予这个季节特殊的意义。\n要热烈，要浓郁，要拥有旺盛的生命力。",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_7",
+      "kind": "photo",
+      "bbox": [
+        441,
+        948,
+        760,
+        1134
+      ],
+      "description": "位于右下方的照片，展示了一张木桌上的饮品场景，有一杯橙黄色的饮料、玻璃杯和餐盘，背景是模糊的户外绿植。照片边缘有白色细线描边。",
+      "label": "位于右下方的照片，展示了一张木桌上的饮品场景，有一杯橙黄色的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_7",
+        "reason": "保留摄影背景，照片有清晰的矩形边界和白色细线描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.008,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_7",
+        "asset_id": "material_08",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为横构图生活场景，素材08是横向的水面和游船照片，色彩明快，作为底部收尾图片，其水平线条与桌面场景的平稳感相呼应。"
+      },
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-074-487ef0828626\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\prepared\\material_08.jpg"
+      }
+    },
+    {
+      "id": "text_4",
+      "kind": "text",
+      "bbox": [
+        468,
+        984,
+        738,
+        1068
+      ],
+      "description": "“时间好像是过不完的。”\n夏天可以心安理得地浪费时间。\n总有人手把走在街道上，\n能捧在怀里的半个西瓜，盛大辉煌的落日晚霞，\n声嘶力竭的蝉鸣，被衣物覆盖的细腻皮肤，\n所有一切又确又真实。",
+      "label": "“时间好像是过不完的。”\n夏天可以心安理得地浪费时间。\n总有",
+      "method": "local",
+      "text": "“时间好像是过不完的。”\n夏天可以心安理得地浪费时间。\n总有人手把走在街道上，\n能捧在怀里的半个西瓜，盛大辉煌的落日晚霞，\n声嘶力竭的蝉鸣，被衣物覆盖的细腻皮肤，\n所有一切又确又真实。",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "text_1",
+    "photo_2",
+    "text_2",
+    "photo_3",
+    "overlay_1",
+    "frame_1",
+    "photo_4",
+    "photo_5",
+    "overlay_2",
+    "photo_6",
+    "text_3",
+    "photo_7",
+    "text_4"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "83133547e865e76fe8c96c3111145147a69c5119d3def69d576f843cd08234c3",
+    "bindings": "b823038d53da1ce057e7369d20a30c06cc626f97d2f1fbca4e48e9c26ca3d5dc",
+    "input": "c6e7c0db2862a9ed62fe7aa40d93d66cd51aed9c6cae24b510830d926df363d9",
+    "catalog": "b4e41f6e4554bccb984bb3276ceb031d52a21ce47d3b9f86efab5660ab9cbb15",
+    "photo_windows": "4c24afa1fb067417ded34acab87cd87b93b745c76d806879559595051656a05e"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\reveal\\index.json",
+    "sha256": "dadd4aa0e723fc9a4eede2f15866c86139c53ed33de6883daa56f53c1ccc81c6"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-074\\assets\\gate\\report.json",
+    "sha256": "7341ec2f7acd110d7b371a0eb8a66c624577c9e9e36c4d5aaa3e9c88070908c6",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 4,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
