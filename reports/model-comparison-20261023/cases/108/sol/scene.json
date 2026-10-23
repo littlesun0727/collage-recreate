@@ -1,0 +1,632 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\prepared\\reference.png",
+    "sha256": "cf9e5d24cea11c1335b237b98b04f1287045eca084948575a7b3e4275e4fbb0a"
+  },
+  "reference_size": [
+    960,
+    1280
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "photo_landscape",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        960,
+        1280
+      ],
+      "description": "铺满画面的山地风景照片，上部为大片蓝色天空，下部为浅灰色连绵山峰、绿色山坡和暗色草地，右下有侧身站立的黑马及马具。保留完整摄影环境，底部画面较暗，无明显透明渐隐；其他照片、文字和装饰叠加其上。",
+      "label": "铺满画面的山地风景照片，上部为大片蓝色天空，下部为浅灰色连绵",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_landscape",
+        "reason": "保留天空、山地、草地与黑马的完整摄影环境，矩形窗口铺满画布；没有主体描边，底部暗色属于摄影内容，无透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_landscape",
+        "asset_id": "material_03",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "蓝天与连绵灰色山峰最接近；居中适配竖幅，保留天空和山地层次，但会舍去两侧山景，素材无绿色草坡及黑马。"
+      },
+      "source": {
+        "id": "material_03",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-138-5e86ad36d110\\2bcfdb727b916f4eebf230f31a2cebc50164c3c09a648beb58274579a4ecaddb.png",
+        "sha256": "87ae8cd18b29841f2ca0a5a686645c02f358a85995090a2e901955cbd278009d",
+        "size": [
+          1308,
+          736
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\prepared\\material_03.jpg"
+      }
+    },
+    {
+      "id": "blue_panel",
+      "kind": "overlay",
+      "bbox": [
+        182,
+        237,
+        777,
+        436
+      ],
+      "description": "横向半透明深蓝色矩形装饰色块，透出下层蓝色天空，边缘平直，无文字，位于月亮装饰后方。",
+      "label": "横向半透明深蓝色矩形装饰色块，透出下层蓝色天空，边缘平直，无",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "39e65761faf66ca5530f92372efc43221dd875a441bfaec720a9de20b50b40ec"
+      }
+    },
+    {
+      "id": "moon_mobile",
+      "kind": "overlay",
+      "bbox": [
+        130,
+        131,
+        852,
+        1204
+      ],
+      "description": "完整月亮悬挂主题手绘装饰：顶部蓝色蜡笔状“Moon”、两侧黄色短线、七枚带柔光的黄色圆月与弯月、向下延伸的蓝色绳线，以及中央带小表情的黄色蓝边大星星和周围大小黄色星芒。绳线分别垂向四季照片附近和中央大星星，保留手绘纹理及柔光。",
+      "label": "完整月亮悬挂主题手绘装饰：顶部蓝色蜡笔状“Moon”、两侧黄",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "461ebd906a6f47322fb04acf39dc29e3c73115586c71d29abf8daf3eff911131"
+      }
+    },
+    {
+      "id": "photo_summer",
+      "kind": "photo",
+      "bbox": [
+        229,
+        588,
+        372,
+        777
+      ],
+      "description": "左侧中部竖幅照片，一人背对镜头坐在水边，戴帽子，远处为落日天空、城市楼群与水面倒影，保留摄影环境。照片外围有依附矩形窗口的蓝色粗糙手绘轮廓，完整保留四边线条；顶部叠有独立Summer字样。",
+      "label": "左侧中部竖幅照片，一人背对镜头坐在水边，戴帽子，远处为落日天",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_summer",
+        "reason": "人物、落日、楼群及水面均保留，照片内口为水平矩形，无主体描边或连续出框。蓝线依附窗口外围并留有间隔，以外侧实线近似粗糙手绘边；文字与旁侧短线不计入描边。四边为明确硬边，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.035,
+          "color": "#234D9B",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.07
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_summer",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "戴帽人物背影、落日与水面倒影接近；全幅居中适配，保留双手和脚部。人物实际站立举臂，并非坐姿，远处无城市楼群。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-138-5e86ad36d110\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "summer_decoration",
+      "kind": "overlay",
+      "bbox": [
+        199,
+        557,
+        402,
+        778
+      ],
+      "description": "夏季照片的蓝色手写“Summer”及左右两侧短划点缀，作为同一局部装饰保留；字样位于照片上沿并略有起伏，侧边短划位于照片外侧，不包含照片和窗口轮廓。",
+      "label": "夏季照片的蓝色手写“Summer”及左右两侧短划点缀，作为同",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "08cff73e291435aa3850b56bc7c7a7202ca2027b23ad105c56ea59a40d5b13f5"
+      }
+    },
+    {
+      "id": "photo_autumn",
+      "kind": "photo",
+      "bbox": [
+        603,
+        512,
+        749,
+        708
+      ],
+      "description": "右侧中部竖幅照片，一名戴帽人物背对镜头站在临水栏杆前，双臂向两侧搭靠栏杆，远处为湖面、山地与蓝天白云，上方有垂落树枝。摄影背景完整保留，蓝色粗糙手绘线沿照片窗口四周围合，顶部有独立Autumn字样遮叠。",
+      "label": "右侧中部竖幅照片，一名戴帽人物背对镜头站在临水栏杆前，双臂向",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_autumn",
+        "reason": "保留人物、栏杆、湖山、天空及垂枝，使用独立矩形照片窗口；人物没有轮廓描边或出框。蓝色手绘边属于窗口，以留白外侧实线近似，其不规则断口无法精确表达；顶部文字另计，无窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.035,
+          "color": "#234D9B",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.065
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_autumn",
+        "asset_id": "material_15",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.55,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "戴帽人物背向镜头，水面、远山和蓝天白云接近；横图偏右对齐裁成竖幅，保留完整人物。实际为抬手扶帽，无栏杆及垂枝。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-138-5e86ad36d110\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\prepared\\material_15.jpg"
+      }
+    },
+    {
+      "id": "autumn_decoration",
+      "kind": "overlay",
+      "bbox": [
+        575,
+        484,
+        768,
+        643
+      ],
+      "description": "秋季照片上方蓝色手写“Autumn”和照片左右中段的蓝色短划装饰，保留不规则笔画及局部叠压关系，不包含照片和窗口轮廓。",
+      "label": "秋季照片上方蓝色手写“Autumn”和照片左右中段的蓝色短划",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "8c0438f08277322837d8377cf5564c33625fcfb3ccbccd84c870da8303638524"
+      }
+    },
+    {
+      "id": "photo_spring",
+      "kind": "photo",
+      "bbox": [
+        74,
+        869,
+        239,
+        1091
+      ],
+      "description": "左下竖幅照片，一名戴帽、穿黑白条纹上衣并携包的人物侧身站在木栏杆旁，背景为浓密红褐色植物。保留摄影环境，窗口外围有蓝色粗糙手绘矩形轮廓，顶部由独立Spring字样覆盖。",
+      "label": "左下竖幅照片，一名戴帽、穿黑白条纹上衣并携包的人物侧身站在木",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_spring",
+        "reason": "保留人物、包、木栏杆和红褐植物，矩形窗口边界清楚，无主体描边。外围蓝色粗糙线属于窗口描边，以外侧实线近似，文字及装饰短线不纳入；照片边缘没有与山地背景透明混合。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.035,
+          "color": "#234D9B",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.045
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_spring",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          1
+        ],
+        "mirror_x": false,
+        "reason": "戴帽携包人物侧身站立，姿态最接近；全幅底部对齐适配，保留帽顶和鞋。服装非黑白条纹，背景为湖岸而非红褐植物与木栏杆。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-138-5e86ad36d110\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "spring_decoration",
+      "kind": "overlay",
+      "bbox": [
+        41,
+        828,
+        270,
+        1073
+      ],
+      "description": "春季照片上沿蓝色手写“Spring”及左右外侧短划装饰，字母大小和基线不规则，保留完整笔画与点缀，不包含照片和窗口轮廓。",
+      "label": "春季照片上沿蓝色手写“Spring”及左右外侧短划装饰，字母",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "89085a775c4b9d57ce519bdd9c329aa8c26876014c8e1f0f4bf0adffccf823ce"
+      }
+    },
+    {
+      "id": "photo_winter",
+      "kind": "photo",
+      "bbox": [
+        795,
+        817,
+        926,
+        982
+      ],
+      "description": "右下竖幅照片，一名短发人物背对镜头坐在室内窗边，一只手臂向左伸展，窗外可见绿色树木，右侧有白色窗框与帘布。保留室内外摄影环境，窗口四周有蓝色粗糙手绘轮廓，顶部叠有独立Winter字样。",
+      "label": "右下竖幅照片，一名短发人物背对镜头坐在室内窗边，一只手臂向左",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_winter",
+        "reason": "保留人物、室内暗部、窗框、帘布及窗外树木；手臂没有连续跨出矩形照片窗口，无主体描边。蓝色手绘边以留白外侧实线近似，文字及旁侧装饰另计；底部暗色不是透明渐隐。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.035,
+          "color": "#234D9B",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.065
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_winter",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "单人上半身与伸展手臂可作近似；全幅居中适配，保留脸和手掌，不镜像以免反转帽上文字。实际为戴帽正面户外站姿，非短发背影窗边坐姿，伸臂方向亦不同。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-138-5e86ad36d110\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "winter_decoration",
+      "kind": "overlay",
+      "bbox": [
+        771,
+        782,
+        949,
+        946
+      ],
+      "description": "冬季照片上方蓝色手写“Winter”与左右外侧的蓝色短划点缀，保留不规则字形和分散笔画，不包含照片及窗口轮廓。",
+      "label": "冬季照片上方蓝色手写“Winter”与左右外侧的蓝色短划点缀",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "fdbda4acdc575d882cae60ad7445429d258572709cb69c0a371e24c7ba15d7b3"
+      }
+    },
+    {
+      "id": "text_top",
+      "kind": "text",
+      "bbox": [
+        247,
+        51,
+        713,
+        106
+      ],
+      "description": "月在自己周期里阴晴圆缺 无数个“圆缺”构成了Ta\n而我也在自己的序里汇成了“自己”",
+      "label": "月在自己周期里阴晴圆缺 无数个“圆缺”构成了Ta\n而我也在自",
+      "method": "local",
+      "text": "月在自己周期里阴晴圆缺 无数个“圆缺”构成了Ta\n而我也在自己的序里汇成了“自己”",
+      "text_status": "known",
+      "style": {
+        "fill": "#D4E4EC",
+        "font": "cjk",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_bottom",
+      "kind": "text",
+      "bbox": [
+        320,
+        1190,
+        638,
+        1222
+      ],
+      "description": "在无数个瞬间里感受自己",
+      "label": "在无数个瞬间里感受自己",
+      "method": "local",
+      "text": "在无数个瞬间里感受自己",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "photo_landscape",
+    "blue_panel",
+    "moon_mobile",
+    "photo_summer",
+    "photo_autumn",
+    "photo_spring",
+    "photo_winter",
+    "summer_decoration",
+    "autumn_decoration",
+    "spring_decoration",
+    "winter_decoration",
+    "text_top",
+    "text_bottom"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "7a57b1c6084cae44395127f42d4ee6b8c2e3236597ebb5060bbab3761ab51452",
+    "bindings": "a11eb8df1f5b2d478d4683b136a973875f60b3b21ab47cd76eaa94568371853c",
+    "input": "7db75fc4075a7a144b3234fbb1c57add53e95dc590635850dd3138de02846b63",
+    "catalog": "1fd3fabca211785494b866620e65ea7c1ae41b2c08edcad128ba6740bc972455",
+    "photo_windows": "cdf50e981e50991732c5a8dc2eb87b6dc7ab5447d351bcffab1496d87e6582fc"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\assets\\reveal\\index.json",
+    "sha256": "ba4dd615ca6f966e43e92f526f040e49baae98c3b47723d57cf1b11929e0151b"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-138\\assets\\gate\\report.json",
+    "sha256": "6dad7041994ad47a026a56dd9458979639527d66e41951ca263747e8ffe2ea0e",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 6,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
