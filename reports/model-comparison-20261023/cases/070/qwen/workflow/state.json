@@ -1,0 +1,100 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:48:15.100209+00:00",
+      "finished_at": "2026-10-23T14:48:32.453423+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:48:32.476166+00:00",
+      "finished_at": "2026-10-23T14:48:44.299767+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:48:44.323375+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:48:44.323391+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:48:44.329432+00:00",
+      "finished_at": "2026-10-23T14:49:04.657992+00:00",
+      "value": null
+    },
+    "build": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:49:04.663854+00:00",
+      "finished_at": "2026-10-23T14:51:06.291098+00:00",
+      "value": null
+    },
+    "screen": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:51:06.298587+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "screen_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:51:06.298605+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "register": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:51:06.532252+00:00",
+      "finished_at": "2026-10-23T14:51:08.053846+00:00",
+      "value": null
+    }
+  },
+  "started_at": "2026-10-23T14:48:14.860093+00:00",
+  "identity": "31e2a5c30bf84bf9589451270e1f1633998dc37e7996cbb1337eac4d843e436b",
+  "status": "finished",
+  "error": null,
+  "binding_contract": "photo-binding-v9-1",
+  "model": "qwen3.8-flash",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T14:51:08.060718+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 29535,
+    "completion_tokens": 836,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 26156,
+  "current_step": "register",
+  "last_render_id": "d03f643aa91997a4",
+  "finished_at": "2026-10-23T14:51:08.060575+00:00"
+}

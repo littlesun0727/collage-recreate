@@ -1,0 +1,78 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "蓝色天空背景，带有几条黑色的电线斜穿过画面。",
+      "label": "蓝色天空背景，带有几条黑色的电线斜穿过画面。",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        40,
+        24,
+        477,
+        1152
+      ],
+      "description": "My\nLife\nis\nOrdinary\nbut Shining\nLive\na Slow\nand\nConcrete\nLife",
+      "label": "My\nLife\nis\nOrdinary\nbut Shinin",
+      "method": "local",
+      "text": "My\nLife\nis\nOrdinary\nbut Shining\nLive\na Slow\nand\nConcrete\nLife",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        477,
+        420,
+        819,
+        894
+      ],
+      "description": "一张矩形照片，内容是一只手拿着一个粉色带黄色星星的气球，背景是黄白蓝三色拼接的墙面。",
+      "label": "一张矩形照片，内容是一只手拿着一个粉色带黄色星星的气球，背景",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        549,
+        390,
+        765,
+        462
+      ],
+      "description": "一条透明胶带，粘贴在照片顶部边缘，具有反光质感。",
+      "label": "一条透明胶带，粘贴在照片顶部边缘，具有反光质感。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "text_1",
+    "photo_1",
+    "overlay_1"
+  ]
+}
