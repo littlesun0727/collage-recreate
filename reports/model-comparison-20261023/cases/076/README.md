@@ -6,7 +6,7 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-运行中
+排队
 
 ## Codex gpt-6-luna / medium
 
