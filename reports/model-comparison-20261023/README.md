@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-24T05:41:17+08:00。共 348 个任务。
+最后更新：2026-10-24T05:44:24+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -12,7 +12,7 @@
 | --- | ---: | ---: | ---: | ---: | ---: |
 | yibuapi Qwen3.8-flash / thinking off | 100 | 16 | 0 | 0 | 0 |
 | Codex gpt-6-luna / medium | 116 | 0 | 0 | 0 | 0 |
-| Codex gpt-6.1-sol / medium | 65 | 0 | 1 | 15 | 35 |
+| Codex gpt-6.1-sol / medium | 66 | 0 | 1 | 14 | 35 |
 
 点击参考图编号打开该案例；点击成图缩略图打开原尺寸 PNG。刷新本页可查看新结果。
 
@@ -83,8 +83,8 @@
 | [063 · 7541432873266695448.png](cases/063/README.md)<br>![参考](cases/063/reference-thumb.jpg) | 已交付<br>[![成图](cases/063/qwen/thumb.jpg)](cases/063/qwen/final.png) | 已交付<br>[![成图](cases/063/luna/thumb.jpg)](cases/063/luna/final.png) | 已交付<br>[![成图](cases/063/sol/thumb.jpg)](cases/063/sol/final.png) |
 | [064 · 7543564599996452120.png](cases/064/README.md)<br>![参考](cases/064/reference-thumb.jpg) | 已交付<br>[![成图](cases/064/qwen/thumb.jpg)](cases/064/qwen/final.png) | 已交付<br>[![成图](cases/064/luna/thumb.jpg)](cases/064/luna/final.png) | 已交付<br>[![成图](cases/064/sol/thumb.jpg)](cases/064/sol/final.png) |
 | [065 · 7545411368267042072.png](cases/065/README.md)<br>![参考](cases/065/reference-thumb.jpg) | 已交付<br>[![成图](cases/065/qwen/thumb.jpg)](cases/065/qwen/final.png) | 已交付<br>[![成图](cases/065/luna/thumb.jpg)](cases/065/luna/final.png) | 已交付<br>[![成图](cases/065/sol/thumb.jpg)](cases/065/sol/final.png) |
-| [066 · 7548076039906282777.png](cases/066/README.md)<br>![参考](cases/066/reference-thumb.jpg) | 已交付<br>[![成图](cases/066/qwen/thumb.jpg)](cases/066/qwen/final.png) | 已交付<br>[![成图](cases/066/luna/thumb.jpg)](cases/066/luna/final.png) | 运行中 · build |
-| [067 · 7548808621631540504.png](cases/067/README.md)<br>![参考](cases/067/reference-thumb.jpg) | 已交付<br>[![成图](cases/067/qwen/thumb.jpg)](cases/067/qwen/final.png) | 已交付<br>[![成图](cases/067/luna/thumb.jpg)](cases/067/luna/final.png) | 排队 |
+| [066 · 7548076039906282777.png](cases/066/README.md)<br>![参考](cases/066/reference-thumb.jpg) | 已交付<br>[![成图](cases/066/qwen/thumb.jpg)](cases/066/qwen/final.png) | 已交付<br>[![成图](cases/066/luna/thumb.jpg)](cases/066/luna/final.png) | 已交付<br>[![成图](cases/066/sol/thumb.jpg)](cases/066/sol/final.png) |
+| [067 · 7548808621631540504.png](cases/067/README.md)<br>![参考](cases/067/reference-thumb.jpg) | 已交付<br>[![成图](cases/067/qwen/thumb.jpg)](cases/067/qwen/final.png) | 已交付<br>[![成图](cases/067/luna/thumb.jpg)](cases/067/luna/final.png) | 运行中 · analyze |
 | [068 · 7550206233802886462.png](cases/068/README.md)<br>![参考](cases/068/reference-thumb.jpg) | 已交付<br>[![成图](cases/068/qwen/thumb.jpg)](cases/068/qwen/final.png) | 已交付<br>[![成图](cases/068/luna/thumb.jpg)](cases/068/luna/final.png) | 排队 |
 | [069 · 7551019784301727038.png](cases/069/README.md)<br>![参考](cases/069/reference-thumb.jpg) | 已交付<br>[![成图](cases/069/qwen/thumb.jpg)](cases/069/qwen/final.png) | 已交付<br>[![成图](cases/069/luna/thumb.jpg)](cases/069/luna/final.png) | 排队 |
 | [070 · 7552163107628469566.png](cases/070/README.md)<br>![参考](cases/070/reference-thumb.jpg) | 已交付<br>[![成图](cases/070/qwen/thumb.jpg)](cases/070/qwen/final.png) | 已交付<br>[![成图](cases/070/luna/thumb.jpg)](cases/070/luna/final.png) | 排队 |

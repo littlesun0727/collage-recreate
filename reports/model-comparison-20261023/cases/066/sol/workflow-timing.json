@@ -1,0 +1,44 @@
+{
+  "model": "gpt-6.1-sol",
+  "model_policy": {
+    "analyze": {
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "controller": "workflow-v9",
+  "status": "completed",
+  "started_at": "2026-10-23T21:36:14.189922+00:00",
+  "updated_at": "2026-10-23T21:44:05.924184+00:00",
+  "usage": {
+    "requests": 4,
+    "prompt_tokens": 68516,
+    "completion_tokens": 12576,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "elapsed_seconds": 471.739,
+  "finished_at": "2026-10-23T21:44:06.035120+00:00"
+}

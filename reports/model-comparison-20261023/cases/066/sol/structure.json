@@ -1,0 +1,492 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "纯白色底。",
+      "color": "#FFFFFF"
+    },
+    {
+      "id": "clouds",
+      "kind": "overlay",
+      "bbox": [
+        43,
+        26,
+        284,
+        113
+      ],
+      "description": "左上两朵相邻的蓝色笑脸云组成一个装饰，保留黑色手绘轮廓、蓝色涂画纹理和脸部。"
+    },
+    {
+      "id": "title",
+      "kind": "overlay",
+      "bbox": [
+        319,
+        27,
+        683,
+        145
+      ],
+      "description": "顶部黑色书法标题“去旅行”及下方手写英文“Go on a journey”组成的标题设计，保留不规则笔画和原有字词位置。"
+    },
+    {
+      "id": "mint_camera",
+      "kind": "overlay",
+      "bbox": [
+        722,
+        41,
+        901,
+        144
+      ],
+      "description": "右上薄荷绿色小相机及向上绕出的黑色背带，整体保留手绘线条、镜头和涂色。"
+    },
+    {
+      "id": "left_sparkles",
+      "kind": "overlay",
+      "bbox": [
+        29,
+        131,
+        109,
+        198
+      ],
+      "description": "左侧一大一小的黄色四角闪光装饰，保留黑色轮廓和延长线。"
+    },
+    {
+      "id": "right_sparkles",
+      "kind": "overlay",
+      "bbox": [
+        901,
+        99,
+        956,
+        199
+      ],
+      "description": "右上竖向排列的一大一小黄色四角闪光装饰。"
+    },
+    {
+      "id": "instant_camera",
+      "kind": "overlay",
+      "bbox": [
+        55,
+        146,
+        372,
+        414
+      ],
+      "description": "左侧大型红白黑手绘即拍相机，包含顶部弹出的粉色相纸造型、黑色区域、机身按钮、镜头及轮廓阴影；它是固定相机插画，不把这些绘制区域识别为替换照片。"
+    },
+    {
+      "id": "green_arrow",
+      "kind": "overlay",
+      "bbox": [
+        12,
+        320,
+        57,
+        364
+      ],
+      "description": "左侧绿色向上箭头，保留黑色粗轮廓。"
+    },
+    {
+      "id": "strip_carrier",
+      "kind": "overlay",
+      "bbox": [
+        47,
+        353,
+        453,
+        948
+      ],
+      "description": "左侧连续承载三张照片的弯折白色长相纸，保留三个窗口周围的白色纸边、窗间隔条、黑色手绘轮廓和底部阴影。作为连续多窗口固定载体整体保留，三个照片内容分别替换。"
+    },
+    {
+      "id": "strip_photo_top",
+      "kind": "photo",
+      "bbox": [
+        84,
+        365,
+        381,
+        553
+      ],
+      "description": "长相纸上方照片，两名长发女生在蓝天下近距离合影，面对镜头抬手，空中可见秋叶，右侧人物部分身体被窗口裁切。保留蓝天、树叶等摄影环境，按倾斜窗口显示，无主体出框。"
+    },
+    {
+      "id": "strip_photo_middle",
+      "kind": "photo",
+      "bbox": [
+        81,
+        548,
+        390,
+        746
+      ],
+      "description": "长相纸中间照片，两名穿棕色校服外套的女生在秋日树木前合影，双手伸向画面中间做手势，呈半身景。保留树木、草地和秋叶等摄影环境，人物及环境均限制在窗口内。"
+    },
+    {
+      "id": "strip_photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        112,
+        728,
+        422,
+        920
+      ],
+      "description": "长相纸底部照片，两名长发女生在蓝天下用大片秋叶遮挡脸部，显示上半身与拿树叶的手。保留蓝天摄影背景，按相纸窗口裁切，不沿人物去背景。"
+    },
+    {
+      "id": "central_photo",
+      "kind": "photo",
+      "bbox": [
+        401,
+        179,
+        750,
+        500
+      ],
+      "description": "中央大照片，两名穿棕色校服外套的女生在草地上前后排列，后方女生双手靠近头部，前方女生面对镜头抬起双手做爪形手势，头发和肩部附近有秋叶。保留草地、树木及逆光摄影环境，四周由框口裁切，右上被花朵装饰局部遮挡。"
+    },
+    {
+      "id": "central_stamp",
+      "kind": "frame",
+      "bbox": [
+        356,
+        147,
+        797,
+        582
+      ],
+      "photo_id": "central_photo",
+      "description": "中央白色大邮票相框，包含外侧波浪齿孔轮廓、内口多重黑色手绘框线、下方红色“20g”和黑色“FRANCE”印字。保留整体纸框和线条，内口照片独立替换。"
+    },
+    {
+      "id": "central_flowers",
+      "kind": "overlay",
+      "bbox": [
+        599,
+        158,
+        793,
+        352
+      ],
+      "description": "中央邮票右上叠加的粉色樱花枝装饰，包含大小花朵、花苞、细枝和黑色轮廓；跨越照片内口和邮票右侧边缘，整体保留。"
+    },
+    {
+      "id": "right_photo",
+      "kind": "photo",
+      "bbox": [
+        758,
+        193,
+        912,
+        434
+      ],
+      "description": "右侧后方倾斜的窄幅照片，一名长发女生侧身仰头，伸手朝向上方秋叶，背景是蓝天和树木。保留摄影环境，人物、手臂和树叶均由窄幅照片窗口裁切，下部被前方装饰遮挡。"
+    },
+    {
+      "id": "right_card",
+      "kind": "frame",
+      "bbox": [
+        750,
+        187,
+        999,
+        526
+      ],
+      "photo_id": "right_photo",
+      "description": "右侧倾斜的白色照片卡，左部承载窄幅照片，右部为黑白棋盘格印刷区域，保留外缘黑色线框、纸面和棋盘格；左侧部分被中央邮票遮挡，下方被牛奶盒覆盖。"
+    },
+    {
+      "id": "milk_carton",
+      "kind": "overlay",
+      "bbox": [
+        723,
+        452,
+        916,
+        642
+      ],
+      "description": "右侧粉白色草莓牛奶盒插画，包含顶部提手式折口、日文“ミルク”、草莓图案、侧面标签、黑色轮廓与白色外边，作为完整贴纸保留。"
+    },
+    {
+      "id": "orange_flourish",
+      "kind": "overlay",
+      "bbox": [
+        887,
+        548,
+        971,
+        650
+      ],
+      "description": "牛奶盒右侧橙黄色手绘卷曲线条及下方分离的小点，作为同一笔迹装饰保留。"
+    },
+    {
+      "id": "pink_flower",
+      "kind": "overlay",
+      "bbox": [
+        14,
+        629,
+        79,
+        679
+      ],
+      "description": "左侧独立粉红色五瓣小花，带黑色粗轮廓和黄色花心。"
+    },
+    {
+      "id": "lower_photo",
+      "kind": "photo",
+      "bbox": [
+        472,
+        613,
+        766,
+        856
+      ],
+      "description": "下方倾斜邮票内的双人合影，两名穿棕色校服的长发女生并肩靠近，朝镜头微笑，手持或身旁可见橙色秋叶，下部可见格裙。保留草地和橙色地面等摄影环境，按倾斜窗口裁切，无人物出框。"
+    },
+    {
+      "id": "lower_stamp",
+      "kind": "frame",
+      "bbox": [
+        410,
+        593,
+        781,
+        873
+      ],
+      "photo_id": "lower_photo",
+      "description": "下方向右倾斜的白色邮票照片框，保留四周波浪齿孔式纸边和黑色手绘内外轮廓，内口照片独立替换；左边部分被花枝装饰覆盖。"
+    },
+    {
+      "id": "lower_flowers",
+      "kind": "overlay",
+      "bbox": [
+        344,
+        599,
+        545,
+        809
+      ],
+      "description": "下方邮票左侧的粉白色花枝装饰，包含多朵粉色与乳白色花、叶片及黑色手绘轮廓，跨压左侧长相纸与下方邮票边缘，整枝保留。"
+    },
+    {
+      "id": "blue_note",
+      "kind": "overlay",
+      "bbox": [
+        815,
+        656,
+        849,
+        705
+      ],
+      "description": "右侧独立蓝色单音符，保留黑色轮廓。"
+    },
+    {
+      "id": "yellow_notes",
+      "kind": "overlay",
+      "bbox": [
+        938,
+        710,
+        989,
+        751
+      ],
+      "description": "右侧独立黄色双音符装饰，保留相连音杆和黑色轮廓。"
+    },
+    {
+      "id": "girl_umbrella",
+      "kind": "overlay",
+      "bbox": [
+        725,
+        713,
+        935,
+        990
+      ],
+      "description": "右下穿黄色白点雨衣的小女孩举着银杏叶形黄色伞的完整插画，包含伞面、伞柄、棕色头发、面部、双臂、裙摆、双腿和鞋，保留全部线条与涂色。"
+    },
+    {
+      "id": "suitcase",
+      "kind": "overlay",
+      "bbox": [
+        508,
+        865,
+        618,
+        944
+      ],
+      "description": "底部橙黄色拉杆行李箱插画，包含伸出的拉杆、箱体黑色轮廓、白色“TRIP”字样和底部小轮。"
+    },
+    {
+      "id": "rabbit",
+      "kind": "overlay",
+      "bbox": [
+        61,
+        820,
+        162,
+        946
+      ],
+      "description": "左下白色长耳兔贴纸，包含长耳、脸部、坐姿身体及底部灰黑色涂画阴影，覆盖长相纸左下边缘。"
+    },
+    {
+      "id": "leaf_left",
+      "kind": "overlay",
+      "bbox": [
+        6,
+        843,
+        56,
+        868
+      ],
+      "description": "画面左下边缘独立的浅黄色小落叶，保留灰黑色手绘轮廓。"
+    },
+    {
+      "id": "leaf_under_rabbit",
+      "kind": "overlay",
+      "bbox": [
+        221,
+        942,
+        248,
+        962
+      ],
+      "description": "兔子右下方的黄色小银杏落叶。"
+    },
+    {
+      "id": "leaf_bottom_left",
+      "kind": "overlay",
+      "bbox": [
+        314,
+        961,
+        350,
+        985
+      ],
+      "description": "底部偏左的浅黄色小银杏落叶，带灰色轮廓。"
+    },
+    {
+      "id": "leaf_bottom_middle",
+      "kind": "overlay",
+      "bbox": [
+        423,
+        932,
+        467,
+        961
+      ],
+      "description": "底部中央偏左的黄色小银杏落叶，带黑色轮廓。"
+    },
+    {
+      "id": "leaf_below_stamp",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        851,
+        517,
+        875
+      ],
+      "description": "下方邮票左下附近的浅黄色小银杏落叶。"
+    },
+    {
+      "id": "leaf_bottom_low",
+      "kind": "overlay",
+      "bbox": [
+        522,
+        967,
+        558,
+        991
+      ],
+      "description": "画面底边附近的浅黄色小银杏落叶。"
+    },
+    {
+      "id": "leaf_beside_case",
+      "kind": "overlay",
+      "bbox": [
+        645,
+        908,
+        687,
+        933
+      ],
+      "description": "行李箱右侧的黄色小银杏落叶，带黑色轮廓。"
+    },
+    {
+      "id": "leaf_left_of_girl",
+      "kind": "overlay",
+      "bbox": [
+        712,
+        915,
+        740,
+        935
+      ],
+      "description": "女孩左下侧的黄色小落叶。"
+    },
+    {
+      "id": "leaf_above_case",
+      "kind": "overlay",
+      "bbox": [
+        697,
+        846,
+        734,
+        872
+      ],
+      "description": "下方邮票右下角附近的黄色小银杏落叶。"
+    },
+    {
+      "id": "leaf_right_upper",
+      "kind": "overlay",
+      "bbox": [
+        884,
+        807,
+        924,
+        835
+      ],
+      "description": "女孩右上方独立的黄色小银杏落叶。"
+    },
+    {
+      "id": "leaf_right_lower",
+      "kind": "overlay",
+      "bbox": [
+        892,
+        917,
+        933,
+        945
+      ],
+      "description": "女孩右侧偏下的黄色小银杏落叶。"
+    },
+    {
+      "id": "leaf_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        874,
+        968,
+        906,
+        991
+      ],
+      "description": "右下角靠近底边的黄色小银杏落叶。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "clouds",
+    "title",
+    "mint_camera",
+    "left_sparkles",
+    "right_sparkles",
+    "green_arrow",
+    "right_card",
+    "right_photo",
+    "instant_camera",
+    "strip_carrier",
+    "strip_photo_top",
+    "strip_photo_middle",
+    "strip_photo_bottom",
+    "central_photo",
+    "central_stamp",
+    "central_flowers",
+    "milk_carton",
+    "orange_flourish",
+    "pink_flower",
+    "lower_photo",
+    "lower_stamp",
+    "lower_flowers",
+    "blue_note",
+    "yellow_notes",
+    "girl_umbrella",
+    "suitcase",
+    "rabbit",
+    "leaf_left",
+    "leaf_under_rabbit",
+    "leaf_bottom_left",
+    "leaf_bottom_middle",
+    "leaf_below_stamp",
+    "leaf_bottom_low",
+    "leaf_beside_case",
+    "leaf_left_of_girl",
+    "leaf_above_case",
+    "leaf_right_upper",
+    "leaf_right_lower",
+    "leaf_bottom_right"
+  ]
+}
