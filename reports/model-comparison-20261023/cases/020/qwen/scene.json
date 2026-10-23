@@ -1,0 +1,407 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\prepared\\reference.png",
+    "sha256": "72ecb00d8c3dacbe90148f4171348978f5063db38605da2c6d2c9a8c56603a2c"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "全屏铺底摄影内容。画面主体为一名戴黑色贝雷帽、身穿白色上衣的长发年轻女性，位于左侧前景，身体微侧面向镜头。背景为地铁站通道，可见灰白色砖墙、右侧向上的楼梯及金属扶手。墙面右上方有绿色指示牌，上书“出”及“西湖大道（西→东）”。",
+      "label": "全屏铺底摄影内容。画面主体为一名戴黑色贝雷帽、身穿白色上衣的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_main",
+        "reason": "全屏铺底摄影内容，保留背景。画面中无独立窗口描边或边缘渐变效果。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_main",
+        "asset_id": "material_09",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图描述为戴帽女性，素材库中无完全一致场景。选择 material_09 作为近似替代，该图为竖构图，人物戴蓝色帽子且身体微侧面向镜头，符合“左侧前景、身体微侧”的姿态要求，能较好填充全屏铺底槽位。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-041-f8c75307bd35\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "photo_inset",
+      "kind": "photo",
+      "bbox": [
+        522,
+        264,
+        864,
+        672
+      ],
+      "description": "位于右上方的心形窗口照片。内容为同一位女性的半身照，她手持手机展示屏幕，表情惊讶张嘴。该照片沿心形轮廓裁剪，边缘带有手绘风格的白色描边效果。",
+      "label": "位于右上方的心形窗口照片。内容为同一位女性的半身照，她手持手",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_inset",
+        "reason": "心形固定窗口照片，保留窗口内的摄影环境（非抠图贴纸）。窗口边缘具有明显的白色手绘风格描边，属于蒙版几何描边。",
+        "shape": {
+          "type": "heart"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_inset",
+        "asset_id": "material_00",
+        "source_crop": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图心形窗口内为半身照。选择 material_00，该图为同一模特的近景半身照，人物位于画面中心，表情生动，适合裁剪为心形或方形小窗展示，与主图的全身/大半身形成景别互补。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-041-f8c75307bd35\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "overlay_stars_1",
+      "kind": "overlay",
+      "bbox": [
+        81,
+        204,
+        207,
+        300
+      ],
+      "description": "左上角的手绘风格装饰图案，包含两颗空心五角星和若干小十字星点缀，线条为白色。",
+      "label": "左上角的手绘风格装饰图案，包含两颗空心五角星和若干小十字星点",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3441ead1dffa1ec8e79e2e3975ed28eaf6936c7113e13482830fd89d79c7e8bc"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_1.png",
+        "sha256": "5a0f80ffd830ad8d72e8d3b0c6c94bec6e8a4e486e4548800f27be3686560a1a",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01\\overlay_stars_1-restored.png",
+          "sha256": "5a0f80ffd830ad8d72e8d3b0c6c94bec6e8a4e486e4548800f27be3686560a1a",
+          "bbox": [
+            73,
+            196,
+            215,
+            308
+          ],
+          "original_bbox": [
+            81,
+            204,
+            207,
+            300
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "5872ab313e9709afe343421b1ff75e4910c729311e34d88676da9c09fdf1858a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "72ecb00d8c3dacbe90148f4171348978f5063db38605da2c6d2c9a8c56603a2c"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_stars_2",
+      "kind": "overlay",
+      "bbox": [
+        180,
+        984,
+        288,
+        1080
+      ],
+      "description": "左下角的手绘风格装饰图案，包含一颗较大的空心五角星和几颗小星星，线条为白色。",
+      "label": "左下角的手绘风格装饰图案，包含一颗较大的空心五角星和几颗小星",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "69f74f3874d091861e7fa0476cd13c403aa2126ac3ba8d7708be313f327f9128"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_2.png",
+        "sha256": "5cb6da325046d18f449d18fc0a84026dc79396561041fc9bcd9d95032add0ec9",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01\\overlay_stars_2-restored.png",
+          "sha256": "5cb6da325046d18f449d18fc0a84026dc79396561041fc9bcd9d95032add0ec9",
+          "bbox": [
+            172,
+            976,
+            296,
+            1088
+          ],
+          "original_bbox": [
+            180,
+            984,
+            288,
+            1080
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "d572ccb0094ad4c5a315d4a8ae1312d068bec0c08edd767952d848701115c7cd",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "72ecb00d8c3dacbe90148f4171348978f5063db38605da2c6d2c9a8c56603a2c"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_stars_3",
+      "kind": "overlay",
+      "bbox": [
+        666,
+        756,
+        774,
+        864
+      ],
+      "description": "右下角楼梯处的手绘风格装饰图案，包含一颗大星星和几颗小星星，线条为白色。",
+      "label": "右下角楼梯处的手绘风格装饰图案，包含一颗大星星和几颗小星星，",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d4a3fea366c2ef046d5ab3f75006365859686d48c16fe30d9a5d3cd30a48b491"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_3.png",
+        "sha256": "a014c8d2f007b1225915020a316a73b629de92f9f4786d0328d07a195bda44af",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01\\overlay_stars_3-restored.png",
+          "sha256": "a014c8d2f007b1225915020a316a73b629de92f9f4786d0328d07a195bda44af",
+          "bbox": [
+            658,
+            748,
+            782,
+            872
+          ],
+          "original_bbox": [
+            666,
+            756,
+            774,
+            864
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "de8271df6c5796841d760739f38eb1815a7f3f4fa621fe744bc191e7b6e5edfe",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "72ecb00d8c3dacbe90148f4171348978f5063db38605da2c6d2c9a8c56603a2c"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\overlay_stars_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_korean",
+      "kind": "text",
+      "bbox": [
+        468,
+        984,
+        657,
+        1056
+      ],
+      "description": "좋은 날",
+      "label": "좋은 날",
+      "method": "local",
+      "text": "좋은 날",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "photo_main",
+    "photo_inset",
+    "overlay_stars_1",
+    "overlay_stars_2",
+    "overlay_stars_3",
+    "text_korean"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "5b0e4e0d45a39e51b2b5d3d3c80ccc656a3ad4eb760a5a9950d70e2e6457d174",
+    "bindings": "8e66d8bbfa9eec7d8c08f50ea6676401b787e1855994895c2dc8f19540a5ea1b",
+    "input": "b7929d746a0ca6f29a406fb17293e8410345b44736a8dcbc87ee827ae7914d0a",
+    "catalog": "ed136bf410977d691c574086646d11700fdb5af41263b964d11a09d2bdfe45b7",
+    "photo_windows": "166949b8bcaed8c79057ab544bf3cfe5657f79e5eaf8c0bc46740c2998969c10"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\reveal\\index.json",
+    "sha256": "eb61445ea2a4ca581ffefa469b5866fde1ea0a0ff9ecaf24e278c8c933f6dc7b"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-041\\assets\\gate\\report.json",
+    "sha256": "28783ec4b54f2ebb5d5fc14e172d26c6509ceb4a54fb1e819b5a3748688a2a1f",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 3,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
