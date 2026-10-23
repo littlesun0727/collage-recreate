@@ -1,0 +1,123 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_base",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "完整保留桌面、盆栽、地面及衣裙等摄影环境，无主体描边；矩形窗口覆盖画布，四周直接裁切，不渐隐。叠图接缝由上层处理，底图保持不透明。"
+    },
+    {
+      "photo_id": "photo_top",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.025
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.012,
+          "color": "#E9C875",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": true,
+        "direction": "inside",
+        "top": 0.01,
+        "bottom": 0.015,
+        "left": 0.01,
+        "right": 0.01
+      },
+      "reason": "保留饮料、盘中食物及桌面背景，主体没有抠出或独立描边。窗口为轻微圆角的水平矩形，暖黄色线条沿窗口而非食物轮廓；颗粒状柔边以细实线近似。四边窄幅柔化接入底图，下缘略明显，渐隐宽度为目测近似。"
+    },
+    {
+      "photo_id": "photo_bottom",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "ellipse"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.012,
+          "color": "#B79B6F",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": true,
+        "direction": "inside",
+        "top": 0.012,
+        "bottom": 0.012,
+        "left": 0.012,
+        "right": 0.012
+      },
+      "reason": "玻璃杯与兔子玩偶连同桌椅、地面背景保留，均受固定椭圆窗口裁切，没有连续出框或主体描边。暖棕色细边属于窗口，原有颗粒纹理以实线近似；周缘窄幅柔化与底图混合，不将摄影失焦作为渐变，具体宽度为目测近似。"
+    }
+  ]
+}
