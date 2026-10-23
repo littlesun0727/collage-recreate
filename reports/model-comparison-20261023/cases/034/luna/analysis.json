@@ -1,0 +1,212 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1198
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1198
+      ],
+      "description": "整幅浅白、淡青色的纸张背景，带有柔和水彩晕染、零星浅色斑点与轻微纸张质感。",
+      "label": "整幅浅白、淡青色的纸张背景，带有柔和水彩晕染、零星浅色斑点与",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "main_paper_frame",
+      "kind": "frame",
+      "bbox": [
+        14,
+        162,
+        595,
+        918
+      ],
+      "description": "不规则撕边的白色纸质相片底板，承载竖幅主照片；保留纸张纹理、破碎边缘和阴影。",
+      "photo_id": "main_photo",
+      "label": "不规则撕边的白色纸质相片底板，承载竖幅主照片；保留纸张纹理、",
+      "method": "extract"
+    },
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        51,
+        205,
+        503,
+        882
+      ],
+      "description": "竖幅照片，画面中一位穿白色条纹外套的年轻女性坐在台阶前，双腿屈起、双手交叠在膝前，身体朝向画面右侧并侧头看向右上方；身后是浓密绿叶，周围地面和台阶均保留为摄影环境。照片为矩形显示区域，无主体抠图或独立描边。",
+      "label": "竖幅照片，画面中一位穿白色条纹外套的年轻女性坐在台阶前，双腿",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "clip",
+      "kind": "overlay",
+      "bbox": [
+        254,
+        146,
+        352,
+        222
+      ],
+      "description": "夹在主照片上沿中央的灰银色金属夹，带圆形压纹和短夹臂，连同高光、阴影作为一个装饰单元保留。",
+      "label": "夹在主照片上沿中央的灰银色金属夹，带圆形压纹和短夹臂，连同高",
+      "method": "extract"
+    },
+    {
+      "id": "flower_frame",
+      "kind": "frame",
+      "bbox": [
+        387,
+        364,
+        700,
+        580
+      ],
+      "description": "横向白色相片卡框，具有厚白边、浅灰阴影和细小的缝线状边缘细节；承载独立花朵照片。",
+      "photo_id": "flower_photo",
+      "label": "横向白色相片卡框，具有厚白边、浅灰阴影和细小的缝线状边缘细节",
+      "method": "extract"
+    },
+    {
+      "id": "flower_photo",
+      "kind": "photo",
+      "bbox": [
+        414,
+        399,
+        670,
+        553
+      ],
+      "description": "横向照片，拍摄绿色植物间成簇盛开的白色花朵，保留枝叶、暗色背景和摄影环境；画面按照片窗口裁切，无抠图或独立描边。",
+      "label": "横向照片，拍摄绿色植物间成簇盛开的白色花朵，保留枝叶、暗色背",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "summer_label",
+      "kind": "overlay",
+      "bbox": [
+        705,
+        289,
+        844,
+        388
+      ],
+      "description": "右上区域的白色对话框式标签，带细灰边框和向下的小尾角，内有“♪ summer ♫”字样；底板、文字和阴影整体保留。",
+      "label": "右上区域的白色对话框式标签，带细灰边框和向下的小尾角，内有“",
+      "method": "extract"
+    },
+    {
+      "id": "large_star",
+      "kind": "overlay",
+      "bbox": [
+        706,
+        0,
+        892,
+        186
+      ],
+      "description": "右上方的大型细灰色空心五角星线稿装饰。",
+      "label": "右上方的大型细灰色空心五角星线稿装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "small_star",
+      "kind": "overlay",
+      "bbox": [
+        639,
+        216,
+        696,
+        268
+      ],
+      "description": "照片右上方附近的小型细灰色空心五角星线稿装饰。",
+      "label": "照片右上方附近的小型细灰色空心五角星线稿装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "right_edge_star",
+      "kind": "overlay",
+      "bbox": [
+        866,
+        492,
+        900,
+        552
+      ],
+      "description": "画面右边缘露出的部分细灰色空心星形线稿装饰，保留可见部分。",
+      "label": "画面右边缘露出的部分细灰色空心星形线稿装饰，保留可见部分。",
+      "method": "extract"
+    },
+    {
+      "id": "caption_card",
+      "kind": "overlay",
+      "bbox": [
+        395,
+        795,
+        807,
+        973
+      ],
+      "description": "右下方白色圆角文字卡片，带双层细灰边和柔和阴影；卡片上有两行日文“駆け抜けた恋、戻らない夏、／綺麗な花火だった。”及右下角两个空心爱心，整体作为一体装饰保留。",
+      "label": "右下方白色圆角文字卡片，带双层细灰边和柔和阴影；卡片上有两行",
+      "method": "extract"
+    },
+    {
+      "id": "wing_motif",
+      "kind": "overlay",
+      "bbox": [
+        656,
+        646,
+        900,
+        756
+      ],
+      "description": "右侧中下部的白色云翼状线描装饰，带浅灰轮廓、淡淡阴影和小星点，保留其完整可见造型。",
+      "label": "右侧中下部的白色云翼状线描装饰，带浅灰轮廓、淡淡阴影和小星点",
+      "method": "extract"
+    },
+    {
+      "id": "lower_star_cluster",
+      "kind": "overlay",
+      "bbox": [
+        43,
+        937,
+        389,
+        1154
+      ],
+      "description": "主照片下方偏左的一组散落灰色星形装饰，包含大小不一的实心星、细小星点和浅色星形，作为同一组装饰整体保留。",
+      "label": "主照片下方偏左的一组散落灰色星形装饰，包含大小不一的实心星、",
+      "method": "extract"
+    },
+    {
+      "id": "left_edge_star",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        939,
+        30,
+        1005
+      ],
+      "description": "画面左下边缘露出的部分空心星形线稿装饰，保留可见部分。",
+      "label": "画面左下边缘露出的部分空心星形线稿装饰，保留可见部分。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "main_paper_frame",
+    "main_photo",
+    "clip",
+    "flower_photo",
+    "flower_frame",
+    "large_star",
+    "small_star",
+    "right_edge_star",
+    "summer_label",
+    "wing_motif",
+    "lower_star_cluster",
+    "left_edge_star",
+    "caption_card"
+  ]
+}
