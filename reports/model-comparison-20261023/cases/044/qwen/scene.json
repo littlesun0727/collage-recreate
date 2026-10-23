@@ -1,0 +1,182 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\prepared\\reference.png",
+    "sha256": "3d4a1d765ee88837c561ab9b2458eb15bd90c59e5253d5570e786e73970711d3"
+  },
+  "reference_size": [
+    900,
+    836
+  ],
+  "canvas_size": [
+    1200,
+    1115
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        836
+      ],
+      "description": "一张写实风格的人眼特写照片，包含眉毛、皮肤纹理、睫毛以及虹膜区域。作为整体背景保留，其中虹膜部分被设计为可替换的照片窗口。",
+      "label": "一张写实风格的人眼特写照片，包含眉毛、皮肤纹理、睫毛以及虹膜",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "47247151ca46bbacea2482b9d94093277c963980ed09bcd82239adce08df2084"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1.png",
+        "sha256": "47d29affeae3bed76f2a83c39180f2d4d7c11100dd1ef14c3f435e9113823505",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "47d29affeae3bed76f2a83c39180f2d4d7c11100dd1ef14c3f435e9113823505",
+          "bbox": [
+            0,
+            0,
+            900,
+            836
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            836
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+          "raw_sha256": "7d40d104d637b08f5d4cf6974a6ed3a290470201959bdbb6d1d7d234b9af1819",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        306,
+        376,
+        558,
+        502
+      ],
+      "description": "位于眼睛虹膜区域的圆形照片内容。画面中是一名年轻男子的半身像，背景为深邃的星空宇宙，男子身前环绕着一道发光的蓝色光环（类似土星环）。该区域需要替换为客户素材，需保留人物主体及星空背景，并沿圆形边缘裁剪以贴合虹膜形状。",
+      "label": "位于眼睛虹膜区域的圆形照片内容。画面中是一名年轻男子的半身像",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "照片位于虹膜区域，需保留星空背景与人物主体。根据参考图可见范围及描述“沿圆形边缘裁剪”，该照片被限制在椭圆形的虹膜窗口内显示，因此启用固定窗口裁切（形状为椭圆）。窗口边界清晰，无独立描边或渐变效果。",
+        "shape": {
+          "type": "ellipse"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_06",
+        "source_crop": [
+          0.0,
+          0.25,
+          1.0,
+          0.75
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "原图要求人物半身像，素材库中无完全匹配场景。选择material_06是因为其包含清晰的人物主体（戴红帽女子），且背景为山脉与天空，符合“人像+风景”的构图逻辑。通过裁切聚焦于人物上半身及头部，去除了腿部，以适配虹膜区域的圆形窗口，同时保留了类似原图的深邃感。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-105-4f3e75915b06\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\prepared\\material_06.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "518f76ff944e24a244ab073454bc8a7d7f19a68b7b9ddee0dc12455ef022f79d",
+    "bindings": "2bb45691442c7a7f6aec4f30e296b86ae909b4952fb84f76afc92c55e5b5f12e",
+    "input": "b5131980a09dd91d0022be1cbf8f8028392427b85919c4a4c8b91ea2c7297341",
+    "catalog": "e7f1db5c3f849c2c3ab34f27bc78fb9cffbd7eee757ce68f7e854f0ec346a5aa",
+    "photo_windows": "fc7e38052a8c4edf346b5baf15d345048f327ce712e7b3f6fcf263d0378a4ec3"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\index.json",
+    "sha256": "b612ea7774cc35eec885a4dae2169b878116326819ab5fd5eb5d459b3b119818"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\gate\\report.json",
+    "sha256": "8110543937b501f83e534b355e2e9c027e69d2fadd8768dfb7903dad284369b0",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 1,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

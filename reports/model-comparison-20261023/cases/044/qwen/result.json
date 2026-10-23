@@ -1,0 +1,208 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "preview",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_1": 1.0
+  },
+  "incomplete_objects": [],
+  "issues": [
+    {
+      "id": "background_1",
+      "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+    }
+  ],
+  "scene_sha256": "92e35e7f8926e1715510be68e3d7a749cd624e6b94a253bc1aa3ceac4bf561ab",
+  "final_sha256": "e4bd03158bd11daa2fa0db3089e5dd41e5dfcbc34aa06175971fd48024191d37",
+  "resources": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\overlays\\background_1.png",
+      "sha256": "0bb64562b7a03a02b577b9ee8b7a635e1f6268354c2d3f09eb68dbaf74b6cef4",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1-background-source.png",
+        "sha256": "47d29affeae3bed76f2a83c39180f2d4d7c11100dd1ef14c3f435e9113823505",
+        "bbox": [
+          0,
+          0,
+          900,
+          836
+        ],
+        "original_bbox": [
+          0,
+          0,
+          900,
+          836
+        ],
+        "padding": 0,
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+        "raw_sha256": "7d40d104d637b08f5d4cf6974a6ed3a290470201959bdbb6d1d7d234b9af1819",
+        "background_clean": true,
+        "semantic_verified": false
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "47d29affeae3bed76f2a83c39180f2d4d7c11100dd1ef14c3f435e9113823505",
+          "bbox": [
+            0,
+            0,
+            900,
+            836
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            836
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+          "raw_sha256": "7d40d104d637b08f5d4cf6974a6ed3a290470201959bdbb6d1d7d234b9af1819",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\background_1-preview.png",
+        "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\photos\\photo_1.png",
+      "sha256": "2edfd1856c44f0f2109100d52f77e6c1412ca7a3ded5ea49c5dc833f1bfe6865",
+      "quality": "ready",
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-105-4f3e75915b06\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\prepared\\material_06.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_06",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-105-4f3e75915b06\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+          "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\prepared\\material_06.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_1",
+          "asset_id": "material_06",
+          "source_crop": [
+            0.0,
+            0.25,
+            1.0,
+            0.75
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "原图要求人物半身像，素材库中无完全匹配场景。选择material_06是因为其包含清晰的人物主体（戴红帽女子），且背景为山脉与天空，符合“人像+风景”的构图逻辑。通过裁切聚焦于人物上半身及头部，去除了腿部，以适配虹膜区域的圆形窗口，同时保留了类似原图的深邃感。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\photos\\photo_1-content-mask.png",
+        "content_mask_sha256": "5f5830898fba4ea69766074bafbb038f4877deaf3fc7e48a2a1470712ab70497",
+        "photo_window_spec": {
+          "photo_id": "photo_1",
+          "reason": "照片位于虹膜区域，需保留星空背景与人物主体。根据参考图可见范围及描述“沿圆形边缘裁剪”，该照片被限制在椭圆形的虹膜窗口内显示，因此启用固定窗口裁切（形状为椭圆）。窗口边界清晰，无独立描边或渐变效果。",
+          "shape": {
+            "type": "ellipse"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "2809fcaa82fada98",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。",
+    "items": [],
+    "scene_sha256": "92e35e7f8926e1715510be68e3d7a749cd624e6b94a253bc1aa3ceac4bf561ab",
+    "final_sha256": "e4bd03158bd11daa2fa0db3089e5dd41e5dfcbc34aa06175971fd48024191d37"
+  },
+  "at": "2026-10-23T13:18:09.829085+00:00",
+  "extraction_sheets": [
+    "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\previews\\extractions-1.jpg"
+  ],
+  "review_regions": [],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\gate\\report.json",
+    "sha256": "8110543937b501f83e534b355e2e9c027e69d2fadd8768dfb7903dad284369b0",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 1,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-105\\assets\\reveal\\index.json",
+    "sha256": "b612ea7774cc35eec885a4dae2169b878116326819ab5fd5eb5d459b3b119818"
+  },
+  "render_id": "2809fcaa82fada98",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "2809fcaa82fada98",
+    "category": "unreviewed",
+    "review_status": "skipped",
+    "warnings": [],
+    "draft_kind": null
+  }
+}

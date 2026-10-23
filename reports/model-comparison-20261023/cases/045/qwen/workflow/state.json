@@ -1,0 +1,84 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T13:18:12.813686+00:00",
+      "finished_at": "2026-10-23T13:18:32.522195+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T13:18:32.544732+00:00",
+      "finished_at": "2026-10-23T13:18:43.034735+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T13:18:43.041248+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T13:18:43.041266+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "failed",
+      "started_at": "2026-10-23T13:18:43.047581+00:00",
+      "finished_at": "2026-10-23T13:18:52.648124+00:00",
+      "error": "yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况"
+    }
+  },
+  "started_at": "2026-10-23T13:18:12.578913+00:00",
+  "identity": "63eea116e2dccf0751a1821cd28189da917aebff73ae0512331ea3c0c79e3b5e",
+  "status": "failed",
+  "error": "yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况",
+  "binding_contract": "photo-binding-v9-1",
+  "model": "qwen3.8-flash",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T13:18:52.896187+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 4762,
+    "completion_tokens": 371,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 28172,
+  "current_step": "bind",
+  "warnings": [
+    {
+      "code": "window_geometry_unresolved",
+      "stage": "photo_windows",
+      "message": "窗口绘制参数未确认，临时保留第一步水平范围与明确关联；描边和渐变不猜参数：yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况"
+    }
+  ],
+  "finished_at": "2026-10-23T13:18:52.896097+00:00"
+}
