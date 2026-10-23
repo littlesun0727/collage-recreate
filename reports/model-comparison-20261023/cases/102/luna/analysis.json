@@ -1,0 +1,187 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    675
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        675
+      ],
+      "description": "深色、近黑的模糊户外摄影背景，带有暗绿植被质感与散景光斑。",
+      "label": "深色、近黑的模糊户外摄影背景，带有暗绿植被质感与散景光斑。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#11140A"
+      }
+    },
+    {
+      "id": "left_photo",
+      "kind": "photo",
+      "bbox": [
+        166,
+        231,
+        443,
+        555
+      ],
+      "description": "倾斜的车内照片窗口，金发人物坐在车中，低头托腮并看向下方，白衣上身，车窗与棕色座椅环境保留。窗口边缘清晰。",
+      "label": "倾斜的车内照片窗口，金发人物坐在车中，低头托腮并看向下方，白",
+      "method": "local",
+      "rotation": -12
+    },
+    {
+      "id": "left_frame",
+      "kind": "frame",
+      "bbox": [
+        66,
+        178,
+        447,
+        520
+      ],
+      "description": "承载左侧照片的倾斜白色相纸框，边缘有轻微旧纸纹理及细小折痕，底部边带较宽，完整保留。",
+      "photo_id": "left_photo",
+      "label": "承载左侧照片的倾斜白色相纸框，边缘有轻微旧纸纹理及细小折痕，",
+      "method": "extract"
+    },
+    {
+      "id": "right_photo",
+      "kind": "photo",
+      "bbox": [
+        461,
+        153,
+        760,
+        323
+      ],
+      "description": "倾斜的车内照片窗口，金发人物坐在车中，侧脸张口，手掌贴近脸颊，穿白衣；车窗、道路及车内环境保留。窗口边缘清晰。",
+      "label": "倾斜的车内照片窗口，金发人物坐在车中，侧脸张口，手掌贴近脸颊",
+      "method": "local",
+      "rotation": 8
+    },
+    {
+      "id": "right_frame",
+      "kind": "frame",
+      "bbox": [
+        444,
+        101,
+        852,
+        308
+      ],
+      "description": "承载右侧照片的倾斜白色相纸框，边缘有轻微纸张纹理与细痕，完整保留。",
+      "photo_id": "right_photo",
+      "label": "承载右侧照片的倾斜白色相纸框，边缘有轻微纸张纹理与细痕，完整",
+      "method": "extract"
+    },
+    {
+      "id": "angel_title",
+      "kind": "overlay",
+      "bbox": [
+        18,
+        96,
+        434,
+        173
+      ],
+      "description": "白色优雅连笔艺术字“Angel Energy”，字母带有长卷曲笔画，作为整体文字装饰保留。",
+      "label": "白色优雅连笔艺术字“Angel Energy”，字母带有长卷",
+      "method": "extract"
+    },
+    {
+      "id": "sparkle_top",
+      "kind": "overlay",
+      "bbox": [
+        16,
+        28,
+        70,
+        80
+      ],
+      "description": "左上角白色四尖星形闪光装饰。",
+      "label": "左上角白色四尖星形闪光装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "flower",
+      "kind": "overlay",
+      "bbox": [
+        367,
+        286,
+        684,
+        533
+      ],
+      "description": "画面下方偏中的大型浅蓝白百合花，带黄色花蕊与绿色中心，完整花瓣轮廓作为独立装饰保留。",
+      "label": "画面下方偏中的大型浅蓝白百合花，带黄色花蕊与绿色中心，完整花",
+      "method": "extract"
+    },
+    {
+      "id": "small_caption",
+      "kind": "overlay",
+      "bbox": [
+        498,
+        279,
+        680,
+        356
+      ],
+      "description": "百合花上方叠加的白色细体连笔字样，内容似为“fallen angel”，配有宽大的卷曲装饰笔画，作为整体艺术字装饰保留。",
+      "label": "百合花上方叠加的白色细体连笔字样，内容似为“fallen a",
+      "method": "extract"
+    },
+    {
+      "id": "sparkle_right",
+      "kind": "overlay",
+      "bbox": [
+        712,
+        374,
+        777,
+        425
+      ],
+      "description": "右下侧较大的白色四尖星形闪光装饰。",
+      "label": "右下侧较大的白色四尖星形闪光装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "sparkle_small",
+      "kind": "overlay",
+      "bbox": [
+        752,
+        446,
+        796,
+        477
+      ],
+      "description": "右下偏中的小型白色四尖星形闪光装饰。",
+      "label": "右下偏中的小型白色四尖星形闪光装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "sparkle_corner",
+      "kind": "overlay",
+      "bbox": [
+        810,
+        479,
+        873,
+        533
+      ],
+      "description": "右下角白色四尖星形闪光装饰。",
+      "label": "右下角白色四尖星形闪光装饰。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "left_frame",
+    "left_photo",
+    "right_frame",
+    "right_photo",
+    "sparkle_top",
+    "angel_title",
+    "small_caption",
+    "flower",
+    "sparkle_right",
+    "sparkle_small",
+    "sparkle_corner"
+  ]
+}
