@@ -1,0 +1,164 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "main_photo",
+      "subject": {
+        "preserve_background": false,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": true,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0.14,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "去除摄影背景，保留人物、双手、发饰首饰及两手所持物的组合主体，轮廓外可见星纹底图，无独立主体描边。矩形窗口仅用于限制显示范围及底部渐隐，身体、手臂和辫子下端与红粉底纹混合，其余方向不渐隐；底部红色覆盖与透明渐隐的贡献难以完全区分，以底边向内渐隐近似。"
+    },
+    {
+      "photo_id": "eyes_photo",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.1
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.06,
+          "color": "#D93650",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "双眼、刘海及鼻梁作为完整摄影内容保留，沿顺时针倾斜的横向圆角矩形裁切。红线贴合窗口而非人物轮廓，边界清晰，无透明渐变；圆角及线宽为视觉近似。"
+    },
+    {
+      "photo_id": "left_upper_photo",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.045
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.03,
+          "color": "#D93650",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "保留人物及浅色摄影背景，使用逆时针倾斜的小圆角矩形窗口。红色边线围绕完整照片窗口，不沿人物和手持物描边；四边清晰，无渐隐，与主照片姿态不同，不构成连续出框。"
+    },
+    {
+      "photo_id": "left_lower_photo",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.045
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.03,
+          "color": "#D93650",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "保留嘟嘴人物、手持物及浅色摄影背景，使用逆时针倾斜的小圆角矩形窗口。红边属于完整窗口，未见主体描边或窗口透明渐变；这是独立姿态照片，不与主照片建立出框关联。"
+    }
+  ]
+}
