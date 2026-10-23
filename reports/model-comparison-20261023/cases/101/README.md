@@ -26,4 +26,10 @@
 
 ## Codex gpt-6.1-sol / medium
 
-运行中 · photo_windows
+已交付
+
+耗时：102.7 秒；交付类别：with_issues。
+
+![成图](sol/final.png)
+
+[查看参数、中间 JSON、告警及对照图](sol/)
