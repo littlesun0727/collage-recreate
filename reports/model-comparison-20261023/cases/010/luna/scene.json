@@ -1,0 +1,950 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\prepared\\reference.png",
+    "sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+  },
+  "reference_size": [
+    900,
+    1199
+  ],
+  "canvas_size": [
+    1200,
+    1599
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1199
+      ],
+      "description": "浅白色、带细颗粒纸纹的固定底纸，沿画面边缘及拼贴间隙可见。",
+      "label": "浅白色、带细颗粒纸纹的固定底纸，沿画面边缘及拼贴间隙可见。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#F4F4F1"
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "base_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        86,
+        900,
+        1182
+      ],
+      "description": "大幅沙滩摄影画面，包含粗砂、海浪痕迹及一名趴卧在沙上的人物；人物黑发头部在画面中央偏上，身体斜向右下，右下可见双脚。摄影环境保留，画面以不规则撕纸边缘呈现，无主体去背景。",
+      "label": "大幅沙滩摄影画面，包含粗砂、海浪痕迹及一名趴卧在沙上的人物；",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "base_photo",
+        "reason": "保留沙滩摄影环境，趴卧人物与沙地属于同一底图而非独立去背景主体。可见的不规则撕纸外缘不是主体分割描边；固定窗口边界近似用矩形，未见窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "base_photo",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中可见一名弯身女性、沙地与水岸，较接近沙滩人物环境；姿势并非趴卧，且没有完整呈现双脚朝右下的构图，保留全幅以减少主体裁切。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-011-edddf8cb24d1\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        62,
+        143,
+        359,
+        323
+      ],
+      "description": "小幅矩形照片窗口，白色不规则撕纸边缘；一名戴白色口罩、穿浅蓝色彩点上衣的女性站在木栏杆旁，身体朝向镜头，背景为绿树与木结构。保留摄影环境，边缘无独立框体。",
+      "label": "小幅矩形照片窗口，白色不规则撕纸边缘；一名戴白色口罩、穿浅蓝",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_left",
+        "reason": "人物、木栏杆与绿树均为本张摄影环境，保留背景且不描主体。照片窗口边界呈白色不规则撕纸，几何窗口近似用矩形；撕纸质感由原图保留，不重复绘制窗口描边，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_left",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.4
+        ],
+        "mirror_x": false,
+        "reason": "正面女性与水岸背景最接近人物窗口；没有口罩、彩点上衣或木栏杆，横向取景会突出上半身，尽量保留头部。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-011-edddf8cb24d1\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        440,
+        230,
+        839,
+        468
+      ],
+      "description": "横向撕纸照片窗口，白色不规则纸边；海滩与海浪中一名穿蓝色彩点上衣的女性背对镜头坐着，黑发，位于画面中央偏下。保留摄影环境，窗口边缘无独立框体。",
+      "label": "横向撕纸照片窗口，白色不规则纸边；海滩与海浪中一名穿蓝色彩点",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_right",
+        "reason": "保留海滩、海浪与坐着的人物的完整摄影环境；人物不是独立抠图主体。可见撕纸窗口近似以矩形裁切，边缘无额外独立描线，也没有透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_right",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.4
+        ],
+        "mirror_x": false,
+        "reason": "可见女性侧背身立于海边，具备人物与海岸元素；与坐姿、蓝色彩点上衣不同，保留全幅并向上对齐以照顾头部。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-011-edddf8cb24d1\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        28,
+        538,
+        340,
+        936
+      ],
+      "description": "竖向撕纸照片窗口，白色不规则纸边；海边的高大棕榈树占据画面中央，远处可见海岸、海水与天空。保留完整摄影环境，无独立框体。",
+      "label": "竖向撕纸照片窗口，白色不规则纸边；海边的高大棕榈树占据画面中",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_left",
+        "reason": "棕榈树、海岸、海水和天空共同构成照片背景，应整体保留且不描主体。固定照片窗口以矩形近似不规则撕纸内口，撕纸边缘本身不作为独立描线；未见渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_left",
+        "asset_id": "material_04",
+        "source_crop": [
+          0.2,
+          0,
+          0.72,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "海岸、海水与天空相符，画面有中央凉亭但没有棕榈树；缩窄横向范围以突出海岸主体，保留天空和水面。"
+      },
+      "source": {
+        "id": "material_04",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-011-edddf8cb24d1\\2efd9b0d29e4ccd4978a5784a56d2a3675d0e8305662818e13635059475ff521.png",
+        "sha256": "92fb06c23be73dc11beeb590f127d79d4e376579cb33074a9fc013c9f52a6f97",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\prepared\\material_04.jpg"
+      }
+    },
+    {
+      "id": "photo_sand_star",
+      "kind": "photo",
+      "bbox": [
+        598,
+        466,
+        837,
+        731
+      ],
+      "description": "竖向撕纸照片窗口，白色不规则纸边；近景为沙地上刻出的星形图案，四周可见沙粒与浅色纹理。保留摄影环境，无独立框体。",
+      "label": "竖向撕纸照片窗口，白色不规则纸边；近景为沙地上刻出的星形图案",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_sand_star",
+        "reason": "星形是刻在沙地上的图案，不是替换后沿其轮廓处理的独立主体；保留沙地摄影背景。固定窗口为撕纸矩形近似，未见额外窗口描线或边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_sand_star",
+        "asset_id": "material_03",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有大片沙土地貌，可近似表现沙地纹理，但没有刻出的星形图案；保留全幅以呈现自然地表。"
+      },
+      "source": {
+        "id": "material_03",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-011-edddf8cb24d1\\2bcfdb727b916f4eebf230f31a2cebc50164c3c09a648beb58274579a4ecaddb.png",
+        "sha256": "87ae8cd18b29841f2ca0a5a686645c02f358a85995090a2e901955cbd278009d",
+        "size": [
+          1308,
+          736
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\prepared\\material_03.jpg"
+      }
+    },
+    {
+      "id": "photo_bottom_center",
+      "kind": "photo",
+      "bbox": [
+        434,
+        868,
+        690,
+        1128
+      ],
+      "description": "小幅横向照片窗口，白色不规则边缘；室内床铺与枕头在前景，窗外可见蓝绿色海景和岸边。保留摄影环境，无独立框体。",
+      "label": "小幅横向照片窗口，白色不规则边缘；室内床铺与枕头在前景，窗外",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_center",
+        "reason": "床铺、窗框与窗外海景属于同一室内摄影画面，应保留背景，不描绘床铺等主体轮廓。照片有独立矩形撕纸窗口，矩形近似其内口；无额外窗口描线或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_center",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "蓝绿色水景与岸边可对应窗外海景，但素材没有室内床铺或枕头；保留全幅呈现水岸与远景。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-011-edddf8cb24d1\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "paint_marks",
+      "kind": "overlay",
+      "bbox": [
+        314,
+        61,
+        482,
+        337
+      ],
+      "description": "两枚独立的青蓝色手绘颜料笔触，一枚较大且竖向椭圆，位于上方偏中；另一枚较小，位于其右下方并部分压住右上照片左边缘。",
+      "label": "两枚独立的青蓝色手绘颜料笔触，一枚较大且竖向椭圆，位于上方偏",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b660694b6cb060653fdad062a7c78be42fbb016d981491ea52dac7b2cfd5c1e3"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\paint_marks.png",
+        "sha256": "6a48be65a29ae96617b9df1d210507da41866d65ea61c62b4fa6a6cb5c404dcd",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\paint_marks-restored.png",
+          "sha256": "6a48be65a29ae96617b9df1d210507da41866d65ea61c62b4fa6a6cb5c404dcd",
+          "bbox": [
+            306,
+            53,
+            490,
+            345
+          ],
+          "original_bbox": [
+            314,
+            61,
+            482,
+            337
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "ffd13e1acfdddc9315f989af37c6f68520d0b1f61b8e11be11dc40fb0e035bdd",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\paint_marks-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\paint_marks-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "star_sticker",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        477,
+        125,
+        608
+      ],
+      "description": "浅蓝色五角星贴纸，白色外沿与细蓝色内线，压住左下棕榈照片的左上边缘。",
+      "label": "浅蓝色五角星贴纸，白色外沿与细蓝色内线，压住左下棕榈照片的左",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "06085a90dcd7c489551ec08ed1278f4b1da133a9ee877c93360a55398b7f46e9"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\star_sticker.png",
+        "sha256": "14600aecd596298c3f1c039b187e4e7ecef8c3506f7f9fa5b77e0b1c5ebe20b4",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\star_sticker-restored.png",
+          "sha256": "14600aecd596298c3f1c039b187e4e7ecef8c3506f7f9fa5b77e0b1c5ebe20b4",
+          "bbox": [
+            0,
+            469,
+            133,
+            616
+          ],
+          "original_bbox": [
+            0,
+            477,
+            125,
+            608
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "e90d71edac968bdfeda3ed6d2cfcb78a60896a1eebbda15bd2e3426be253463d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\star_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\star_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "sun_doodle",
+      "kind": "overlay",
+      "bbox": [
+        247,
+        472,
+        393,
+        628
+      ],
+      "description": "黄色手绘太阳涂鸦，包含旋涡状圆心和短放射线，跨在沙滩底图与左下照片交界处。",
+      "label": "黄色手绘太阳涂鸦，包含旋涡状圆心和短放射线，跨在沙滩底图与左",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "954809ee4b1445bc735dd422b8541841396869201e50286194d62f64ca40f60f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\sun_doodle.png",
+        "sha256": "653b4a1dd4ee093c94a2d6e52aa9a11c3e7205d4453408ed5e31e32e339e83f4",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\sun_doodle-restored.png",
+          "sha256": "653b4a1dd4ee093c94a2d6e52aa9a11c3e7205d4453408ed5e31e32e339e83f4",
+          "bbox": [
+            239,
+            464,
+            401,
+            636
+          ],
+          "original_bbox": [
+            247,
+            472,
+            393,
+            628
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "6018da91608cfbd7cd1de13fb303f1fb0deb0fb1801f68ab649c4ef405e287e6",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\sun_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\sun_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "flower_sticker",
+      "kind": "overlay",
+      "bbox": [
+        551,
+        422,
+        665,
+        534
+      ],
+      "description": "白色不规则小贴纸，上有蓝色线描花朵图案，叠在右上照片下缘并覆盖沙地照片的上部。",
+      "label": "白色不规则小贴纸，上有蓝色线描花朵图案，叠在右上照片下缘并覆",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f091e00464e3addea27dd5a665019e5b2499d42983078a38626bcdf7d83fdad7"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\flower_sticker.png",
+        "sha256": "78a9d3030cd3aa88b24d0457e2fcbcccc3c5c7b23b59106b3365b73513550c75",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\flower_sticker-restored.png",
+          "sha256": "78a9d3030cd3aa88b24d0457e2fcbcccc3c5c7b23b59106b3365b73513550c75",
+          "bbox": [
+            543,
+            414,
+            673,
+            542
+          ],
+          "original_bbox": [
+            551,
+            422,
+            665,
+            534
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "29ddbec4043b27db8093450ed4e097513cf10f3e5e63c0b807326db89c82d853",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\flower_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\flower_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "heart_sticker",
+      "kind": "overlay",
+      "bbox": [
+        548,
+        717,
+        652,
+        814
+      ],
+      "description": "蓝色填色、白色描边的心形贴纸，位于沙地照片下部，靠近人物脚部上方。",
+      "label": "蓝色填色、白色描边的心形贴纸，位于沙地照片下部，靠近人物脚部",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "72b2b95971847d9a6ee4577627c7b73100f45c068f0dfddb4f9b03002c77a2c9"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\heart_sticker.png",
+        "sha256": "7f880ee26be9871793bc0dc7624f3500d11cb70ac7e4915748f4bfd69387ba4f",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\heart_sticker-restored.png",
+          "sha256": "7f880ee26be9871793bc0dc7624f3500d11cb70ac7e4915748f4bfd69387ba4f",
+          "bbox": [
+            540,
+            709,
+            660,
+            822
+          ],
+          "original_bbox": [
+            548,
+            717,
+            652,
+            814
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "e21147c9ece8819ada4f09034223fa93a7dd172d8a0d0e938f2a4f0423bb1d99",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\heart_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\heart_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "blue_label",
+      "kind": "overlay",
+      "bbox": [
+        288,
+        899,
+        444,
+        1012
+      ],
+      "description": "浅蓝色细格纹长方形纸标签，白色不规则边缘与阴影，叠在左下照片右侧及底部照片左侧交界处。",
+      "label": "浅蓝色细格纹长方形纸标签，白色不规则边缘与阴影，叠在左下照片",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b28999781b921d6032dd2fc2a4abc88a44502caa28bc14bfdbd8d6b9162590f3"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\blue_label.png",
+        "sha256": "7c98892080366a6be49419b8e1836c129bfa3ad4886c635330a5ea895c74af93",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\blue_label-restored.png",
+          "sha256": "7c98892080366a6be49419b8e1836c129bfa3ad4886c635330a5ea895c74af93",
+          "bbox": [
+            280,
+            891,
+            452,
+            1020
+          ],
+          "original_bbox": [
+            288,
+            899,
+            444,
+            1012
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "8e3316aa83383f3a6fb1d2f484cae0920d1e20bb4fffe852f2ccd82c344e33b6",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\blue_label-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\blue_label-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "glasses_doodles",
+      "kind": "overlay",
+      "bbox": [
+        702,
+        892,
+        882,
+        1024
+      ],
+      "description": "两组青蓝色手绘眼镜涂鸦，位于右下白色纸面区域，轮廓为粗糙颗粒状线条。",
+      "label": "两组青蓝色手绘眼镜涂鸦，位于右下白色纸面区域，轮廓为粗糙颗粒",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e03c40b3675b92291ce19daef3a7e7076ddde69e80ac7c008162255db688f7ce"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\glasses_doodles.png",
+        "sha256": "a8c5ed3f8d90a2d5a8685521d10f9842b651140d3b55cce0799dcb243fe67df6",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\glasses_doodles-restored.png",
+          "sha256": "a8c5ed3f8d90a2d5a8685521d10f9842b651140d3b55cce0799dcb243fe67df6",
+          "bbox": [
+            694,
+            884,
+            890,
+            1032
+          ],
+          "original_bbox": [
+            702,
+            892,
+            882,
+            1024
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "b121a4407927f62b22c71e308c30176065523b9541b945dfe8e2c0ca864755b4",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "bfacac30f6db3269f7ef55d2bee2060fd9a48bc85a50bf246988adbb5f3528a7"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\glasses_doodles-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\glasses_doodles-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background",
+    "base_photo",
+    "photo_top_left",
+    "photo_top_right",
+    "photo_bottom_left",
+    "photo_sand_star",
+    "photo_bottom_center",
+    "paint_marks",
+    "star_sticker",
+    "sun_doodle",
+    "flower_sticker",
+    "heart_sticker",
+    "blue_label",
+    "glasses_doodles"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "7f89818f698fc26c59dc1a85d79125c1873cc145f5eafe8c215d681da26cd695",
+    "bindings": "8b406ad6ee0e5c2efadf0f6afdcce7739fd632eeefab6cf0e370bde2e35c8b8e",
+    "input": "1178fd834dd19d3ade0d1b1f1948a2180110b8bc22f6125be0c9c26da700d88e",
+    "catalog": "ea7a656915f2d1d41ef531ddb3ac0513929b85d7a56c2616fe77a119eb5a0a57",
+    "photo_windows": "20b9b6627ac6d483d45522c2728d1266bb2fc61bf36cc35db738ec3272895edb"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\reveal\\index.json",
+    "sha256": "6c4611e76b8d5f2f38ae924d1442d8ff5eebc2ba0ea1fc0b95b7572cbf34453f"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-011\\assets\\gate\\report.json",
+    "sha256": "60d76bce551236ffe4b20d9847e5e988cf5786b2f0a80c0c1a78b01412a3f29e",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 7,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
