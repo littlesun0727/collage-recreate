@@ -1,0 +1,200 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1603
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1603
+      ],
+      "description": "铺满画布的蓝白水波纹与冰透质感底图，带有重复的法语“je t’aime”字样和水滴细节，作为固定背景保留。",
+      "label": "铺满画布的蓝白水波纹与冰透质感底图，带有重复的法语“je t",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "frame_top",
+      "kind": "frame",
+      "bbox": [
+        123,
+        151,
+        733,
+        579
+      ],
+      "description": "上方照片的白色邮票齿孔边框及其与下方照片相接的白色分隔边，作为承载照片的固定框体保留。",
+      "photo_id": "photo_top",
+      "label": "上方照片的白色邮票齿孔边框及其与下方照片相接的白色分隔边，作",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        278,
+        245,
+        700,
+        531
+      ],
+      "description": "上方横向照片内口：年轻女性近景，黑发侧垂、面向镜头微笑，头部偏向画面右侧；保留照片中的室内背景，边缘按窗口裁切。",
+      "label": "上方横向照片内口：年轻女性近景，黑发侧垂、面向镜头微笑，头部",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_middle",
+      "kind": "frame",
+      "bbox": [
+        123,
+        561,
+        733,
+        896
+      ],
+      "description": "中间照片的白色邮票齿孔边框及上下分隔边，作为承载照片的固定框体保留。",
+      "photo_id": "photo_middle",
+      "label": "中间照片的白色邮票齿孔边框及上下分隔边，作为承载照片的固定框",
+      "method": "extract"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        275,
+        580,
+        693,
+        862
+      ],
+      "description": "中间横向照片内口：黑发女性面部极近景，眼睛朝向镜头，头发垂在脸侧，保留照片环境，边缘按窗口裁切。",
+      "label": "中间横向照片内口：黑发女性面部极近景，眼睛朝向镜头，头发垂在",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_bottom",
+      "kind": "frame",
+      "bbox": [
+        123,
+        886,
+        733,
+        1239
+      ],
+      "description": "下方照片的白色邮票齿孔边框及底部白边，作为承载照片的固定框体保留。",
+      "photo_id": "photo_bottom",
+      "label": "下方照片的白色邮票齿孔边框及底部白边，作为承载照片的固定框体",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        276,
+        911,
+        693,
+        1204
+      ],
+      "description": "下方横向照片内口：年轻女性坐在室外台阶旁，双手托脸，长黑发，穿浅色长袖上衣；保留台阶与栏杆背景，边缘按窗口裁切。",
+      "label": "下方横向照片内口：年轻女性坐在室外台阶旁，双手托脸，长黑发，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "decorative_left_marks",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        463,
+        229,
+        1002
+      ],
+      "description": "左侧跨越背景与照片边缘的黑色手绘式弯曲笔画和局部点状装饰，作为一组独立固定装饰保留。",
+      "label": "左侧跨越背景与照片边缘的黑色手绘式弯曲笔画和局部点状装饰，作",
+      "method": "extract"
+    },
+    {
+      "id": "ivy_flower",
+      "kind": "overlay",
+      "bbox": [
+        115,
+        353,
+        312,
+        1010
+      ],
+      "description": "沿左侧垂落的绿叶藤蔓与白色小花，包含叶片、花朵及连接枝条，整体作为固定装饰保留。",
+      "label": "沿左侧垂落的绿叶藤蔓与白色小花，包含叶片、花朵及连接枝条，整",
+      "method": "extract"
+    },
+    {
+      "id": "top_bow",
+      "kind": "overlay",
+      "bbox": [
+        123,
+        154,
+        408,
+        457
+      ],
+      "description": "左上方大型白色蝴蝶结装饰，包含褶皱布面、深色卷曲线条及珠状点缀，整体保留。",
+      "label": "左上方大型白色蝴蝶结装饰，包含褶皱布面、深色卷曲线条及珠状点",
+      "method": "extract"
+    },
+    {
+      "id": "butterfly",
+      "kind": "overlay",
+      "bbox": [
+        204,
+        789,
+        339,
+        936
+      ],
+      "description": "叠在中间照片左下边缘的蓝色蝴蝶贴饰，保留翅膀纹理与轮廓。",
+      "label": "叠在中间照片左下边缘的蓝色蝴蝶贴饰，保留翅膀纹理与轮廓。",
+      "method": "extract"
+    },
+    {
+      "id": "decorative_right_marks",
+      "kind": "overlay",
+      "bbox": [
+        699,
+        569,
+        900,
+        1032
+      ],
+      "description": "右侧跨越背景的黑色手绘式弯曲笔画与点状装饰，作为一组独立固定装饰保留。",
+      "label": "右侧跨越背景的黑色手绘式弯曲笔画与点状装饰，作为一组独立固定",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_bow",
+      "kind": "overlay",
+      "bbox": [
+        589,
+        1117,
+        825,
+        1310
+      ],
+      "description": "右下方白色蝴蝶结装饰，包含褶皱布面和完整轮廓，整体保留。",
+      "label": "右下方白色蝴蝶结装饰，包含褶皱布面和完整轮廓，整体保留。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_top",
+    "photo_top",
+    "frame_middle",
+    "photo_middle",
+    "frame_bottom",
+    "photo_bottom",
+    "decorative_left_marks",
+    "ivy_flower",
+    "top_bow",
+    "butterfly",
+    "decorative_right_marks",
+    "bottom_bow"
+  ]
+}
