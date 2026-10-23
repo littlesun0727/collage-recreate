@@ -1,0 +1,529 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\prepared\\reference.png",
+    "sha256": "9b73a430225ad62233442f54323b1020e5c4b7e7135814c525c6ed8d04dbc16a"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "浅灰白纸张质感底图，保留细密斑驳纹理、散落的灰色圆点和星星图案；左上方被窗口遮住的星星及底部星星均属于底层图案。",
+      "label": "浅灰白纸张质感底图，保留细密斑驳纹理、散落的灰色圆点和星星图",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1bc1c6ed6bbd96fc73519761479cae3d49a6586206bdcb3a334aa6dfce1b5355"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\background.png",
+        "sha256": "f1a936cbe7390d1dbaf9a74aa525c8e7b3f3414da644d7f2e6f228c4b07e7b7b",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\background-background-source.png",
+          "sha256": "f1a936cbe7390d1dbaf9a74aa525c8e7b3f3414da644d7f2e6f228c4b07e7b7b",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "68739d8a9986203767d1b587755422bbc740f1ebb9eb26424a6cf3b97c41b491",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\background-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        358,
+        516,
+        778,
+        805
+      ],
+      "description": "一名戴黑框眼镜、穿浅米色羽绒服并戴蕾丝帽的短发女性近景自拍，人物居中偏右，仰视镜头，右臂向右下方伸出并被窗口裁切。保留身后的深色长椅及周围摄影环境，照片在矩形内口中显示，无主体抠图或透明渐隐。",
+      "label": "一名戴黑框眼镜、穿浅米色羽绒服并戴蕾丝帽的短发女性近景自拍，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "main_photo",
+        "reason": "保留人物、长椅及地面的摄影背景；人物与手臂均由水平矩形内口截断，无连续出框或主体描边。内口周围白灰边属于dialog_frame，不重复绘制窗口描边；四边清晰，无透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "main_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0.25,
+          1,
+          0.766
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "最接近高机位女性近景自拍，人物偏右、戴眼镜并穿浅色外套。裁去上方天空和下身，保留帽顶、脸及举手；不镜像以免反转帽中文字。实际为蓝帽墨镜、湖边背景，无蕾丝帽和长椅。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-112-69373055fe97\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\prepared\\material_00.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\dialog_frame-main_photo-window.png",
+        "sha256": "ce5c1999c3972d6a970321b5845a294aabb0f90bee3364f565b85d2e78e56214"
+      },
+      "reveal_frame_id": "dialog_frame"
+    },
+    {
+      "id": "dialog_frame",
+      "kind": "frame",
+      "bbox": [
+        130,
+        356,
+        800,
+        868
+      ],
+      "description": "银灰色拟物文件打开窗口框体，保留圆角外壳、立体高光、阴影、照片内口边沿、左侧导航栏和底部按钮。Open、Documents、Files、Calendar、Document、Network、Links、Pictures、Desktop、Name、Date、Cancel等界面文字与箭头、文件夹、日历、网络等图标均随框体整体保留。左下部分被邮票照片卡遮挡。",
+      "photo_id": "main_photo",
+      "label": "银灰色拟物文件打开窗口框体，保留圆角外壳、立体高光、阴影、照",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f8c13a913350e40204475166c17cc593048e5305671c546bc7a064fc2596319e"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\dialog_frame.png",
+        "sha256": "ad148e314130fe173a7919344d0e7eb11149768f358032f267dbd17586998e06",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\dialog_frame-restored.png",
+          "sha256": "ad148e314130fe173a7919344d0e7eb11149768f358032f267dbd17586998e06",
+          "bbox": [
+            122,
+            348,
+            808,
+            876
+          ],
+          "original_bbox": [
+            130,
+            356,
+            800,
+            868
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "fc71ce28de77737d13eec7731af62563ca79bf171a8d4f3fe195dc46db64c1d1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "9b73a430225ad62233442f54323b1020e5c4b7e7135814c525c6ed8d04dbc16a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\dialog_frame-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\dialog_frame-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "stamp_photo",
+      "kind": "photo",
+      "bbox": [
+        91,
+        770,
+        261,
+        971
+      ],
+      "description": "一名戴眼镜、蕾丝帽并穿浅米色羽绒服的女性站立全身照片，从较高视角拍摄，人物抬头看向镜头，双手靠近衣袋，下身延伸至照片底边。保留木质墙面、玻璃门及地面等摄影环境，按竖向矩形窗口裁切，无抠图或渐隐。",
+      "label": "一名戴眼镜、蕾丝帽并穿浅米色羽绒服的女性站立全身照片，从较高",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "stamp_photo",
+        "reason": "保留人物及木墙、玻璃门和地面，使用未旋转的竖向矩形照片窗口；人物没有独立轮廓描边或出框。邮票齿边、白色纸边与内口细边属于stamp_frame，不重复描边；照片边缘为硬裁切，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "stamp_photo",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          1
+        ],
+        "mirror_x": false,
+        "reason": "最接近高视角下女性抬头看镜头的全身构图。原图全幅输入，窗口裁切靠下对齐，保留帽顶与双脚并减少天空；不镜像。人物实际俯身比手势，服装及湖岸环境与参考不同。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-112-69373055fe97\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\prepared\\material_09.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\stamp_frame-stamp_photo-window.png",
+        "sha256": "81298bab200580d1978d516db31ed87ef6bdb430d640ef4a39b9dfd32598180e"
+      },
+      "reveal_frame_id": "stamp_frame"
+    },
+    {
+      "id": "stamp_frame",
+      "kind": "frame",
+      "bbox": [
+        74,
+        756,
+        275,
+        1015
+      ],
+      "description": "白色邮票式照片纸框，四周连续齿孔状波浪轮廓配灰色细线，照片内口有细边，下方留有较宽白边；保留纸边、内口及轻微阴影，整体叠在主窗口左下角。",
+      "photo_id": "stamp_photo",
+      "label": "白色邮票式照片纸框，四周连续齿孔状波浪轮廓配灰色细线，照片内",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9668fab792f38908a1cb23e14d904d2eb39f482ef1544d02e1a7989c8bf239c2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\stamp_frame.png",
+        "sha256": "49814fe05289506b0625944336f3767b9a5d5d9b6528745025b6fd747b56a597",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\stamp_frame-restored.png",
+          "sha256": "49814fe05289506b0625944336f3767b9a5d5d9b6528745025b6fd747b56a597",
+          "bbox": [
+            66,
+            748,
+            283,
+            1023
+          ],
+          "original_bbox": [
+            74,
+            756,
+            275,
+            1015
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "dfbde04070c4f051417870e37d0ff801ca53374e096540cb0d65f4616269705e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "9b73a430225ad62233442f54323b1020e5c4b7e7135814c525c6ed8d04dbc16a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\stamp_frame-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\stamp_frame-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "top_caption",
+      "kind": "overlay",
+      "bbox": [
+        559,
+        313,
+        868,
+        342
+      ],
+      "description": "黑色五角星与“shine cute beautiful ~”组成的横向装饰字样，保留星形、打字机风格字形及原有大小和间距关系。",
+      "label": "黑色五角星与“shine cute beautiful ~”",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7579c086b9241adbd1c1b7ce065e033811304ca8905e8cf8c42726bda1007dbc"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\top_caption.png",
+        "sha256": "d28135eb3a83310c1da110d8899efaf1e0da3b3cb90ff015c6de112bb2c33561",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\top_caption-restored.png",
+          "sha256": "d28135eb3a83310c1da110d8899efaf1e0da3b3cb90ff015c6de112bb2c33561",
+          "bbox": [
+            556,
+            310,
+            871,
+            345
+          ],
+          "original_bbox": [
+            559,
+            313,
+            868,
+            342
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "500480ac6f61026cb63085a8f25e04ca0e6243ea7b75e8e58ee32c1d9507501f",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "9b73a430225ad62233442f54323b1020e5c4b7e7135814c525c6ed8d04dbc16a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\top_caption-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\top_caption-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "happiness_text",
+      "kind": "text",
+      "bbox": [
+        300,
+        894,
+        455,
+        919
+      ],
+      "description": "happiness! ♥",
+      "label": "happiness! ♥",
+      "method": "local",
+      "text": "happiness! ♥",
+      "text_status": "known",
+      "style": {
+        "fill": "#080808",
+        "font": "mono",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "audio_sticker",
+      "kind": "overlay",
+      "bbox": [
+        676,
+        874,
+        872,
+        943
+      ],
+      "description": "白色圆角音频播放标签，浅灰细边和轻微阴影内含黑色向右播放三角及高低变化的竖线声波，作为完整固定装饰保留。",
+      "label": "白色圆角音频播放标签，浅灰细边和轻微阴影内含黑色向右播放三角",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f065393b394adc54cb2c9dd87c4e06a44d083b6c1b585f7a1430d85f19dc7725"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\audio_sticker.png",
+        "sha256": "7fea5c87a25f3d5efb574fb6e467dac39c5b630a3860ed62a6cb77deb48a7ddc",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\audio_sticker-restored.png",
+          "sha256": "7fea5c87a25f3d5efb574fb6e467dac39c5b630a3860ed62a6cb77deb48a7ddc",
+          "bbox": [
+            669,
+            867,
+            879,
+            950
+          ],
+          "original_bbox": [
+            676,
+            874,
+            872,
+            943
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "f0c6969a0e49b7d46622b11fad337854f0947ef7976259ed0ce73e2947aa784e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "9b73a430225ad62233442f54323b1020e5c4b7e7135814c525c6ed8d04dbc16a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\audio_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\audio_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background",
+    "dialog_frame",
+    "main_photo",
+    "stamp_frame",
+    "stamp_photo",
+    "top_caption",
+    "happiness_text",
+    "audio_sticker"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "0a3603436e4efe6c12d2a7fa22b1959ded9feb8cae2369a15f6b907ca5cb3a18",
+    "bindings": "e4962c566daf698334adc9489220cb7f62fb0843e985ed0fdf75887bb66306f4",
+    "input": "34e8bce7fd67f3d5333b9265263f3cae6cbbb8bc66e88252c98109bd1c8f5491",
+    "catalog": "50219dd33466f25c6f6e0083e96d0031c0957625e66c8c33f08329f3fb710c5c",
+    "photo_windows": "8ad453b720fc36ee0d79054c24871ea25fe4f0464d367c196cefdbbac98416c0"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\reveal\\index.json",
+    "sha256": "cf6f440bf74640ea23992ef122442b1c63d731eaf808b6eba5fdd9a6e85ee2dc"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-112\\assets\\gate\\report.json",
+    "sha256": "89344097fc5ba411149485ab3673c51e184d73e0b3c5fb3f71521d58ca0878b2",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 5,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

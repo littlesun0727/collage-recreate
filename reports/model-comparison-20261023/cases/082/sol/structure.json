@@ -1,0 +1,111 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "浅灰白纸张质感底图，保留细密斑驳纹理、散落的灰色圆点和星星图案；左上方被窗口遮住的星星及底部星星均属于底层图案。"
+    },
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        398,
+        430,
+        865,
+        671
+      ],
+      "description": "一名戴黑框眼镜、穿浅米色羽绒服并戴蕾丝帽的短发女性近景自拍，人物居中偏右，仰视镜头，右臂向右下方伸出并被窗口裁切。保留身后的深色长椅及周围摄影环境，照片在矩形内口中显示，无主体抠图或透明渐隐。"
+    },
+    {
+      "id": "dialog_frame",
+      "kind": "frame",
+      "bbox": [
+        144,
+        297,
+        889,
+        723
+      ],
+      "photo_id": "main_photo",
+      "description": "银灰色拟物文件打开窗口框体，保留圆角外壳、立体高光、阴影、照片内口边沿、左侧导航栏和底部按钮。Open、Documents、Files、Calendar、Document、Network、Links、Pictures、Desktop、Name、Date、Cancel等界面文字与箭头、文件夹、日历、网络等图标均随框体整体保留。左下部分被邮票照片卡遮挡。"
+    },
+    {
+      "id": "stamp_photo",
+      "kind": "photo",
+      "bbox": [
+        101,
+        642,
+        290,
+        809
+      ],
+      "description": "一名戴眼镜、蕾丝帽并穿浅米色羽绒服的女性站立全身照片，从较高视角拍摄，人物抬头看向镜头，双手靠近衣袋，下身延伸至照片底边。保留木质墙面、玻璃门及地面等摄影环境，按竖向矩形窗口裁切，无抠图或渐隐。"
+    },
+    {
+      "id": "stamp_frame",
+      "kind": "frame",
+      "bbox": [
+        82,
+        630,
+        306,
+        846
+      ],
+      "photo_id": "stamp_photo",
+      "description": "白色邮票式照片纸框，四周连续齿孔状波浪轮廓配灰色细线，照片内口有细边，下方留有较宽白边；保留纸边、内口及轻微阴影，整体叠在主窗口左下角。"
+    },
+    {
+      "id": "top_caption",
+      "kind": "overlay",
+      "bbox": [
+        621,
+        261,
+        965,
+        285
+      ],
+      "description": "黑色五角星与“shine cute beautiful ~”组成的横向装饰字样，保留星形、打字机风格字形及原有大小和间距关系。"
+    },
+    {
+      "id": "happiness_text",
+      "kind": "text",
+      "bbox": [
+        333,
+        745,
+        506,
+        766
+      ],
+      "text": "happiness! ♥",
+      "color": "#080808",
+      "font": "mono",
+      "align": "left",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "audio_sticker",
+      "kind": "overlay",
+      "bbox": [
+        751,
+        728,
+        969,
+        786
+      ],
+      "description": "白色圆角音频播放标签，浅灰细边和轻微阴影内含黑色向右播放三角及高低变化的竖线声波，作为完整固定装饰保留。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "dialog_frame",
+    "main_photo",
+    "stamp_frame",
+    "stamp_photo",
+    "top_caption",
+    "happiness_text",
+    "audio_sticker"
+  ]
+}
