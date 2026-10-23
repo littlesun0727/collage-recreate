@@ -1,0 +1,264 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\prepared\\reference.png",
+    "sha256": "966011490e7593a316e88df8bbfd656b2e790bdce4d7b7467d51c402d8f8bfbe"
+  },
+  "reference_size": [
+    900,
+    1351
+  ],
+  "canvas_size": [
+    1200,
+    1801
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1351
+      ],
+      "description": "覆盖整张画布的近白色纸质底纹，带细密灰色颗粒与轻微明暗变化，整体保留。",
+      "label": "覆盖整张画布的近白色纸质底纹，带细密灰色颗粒与轻微明暗变化，",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "bc69ce6fd4dbf7ad6a484a001781165e78cb236e8eec5a6bdf99bfcbbe9a0db3"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\assets\\reveal\\background_1.png",
+        "sha256": "3ba16a7dc927d61aac1479f0e1ae2583cd2367406b280f2edc7024bfdcb21b67",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "3ba16a7dc927d61aac1479f0e1ae2583cd2367406b280f2edc7024bfdcb21b67",
+          "bbox": [
+            0,
+            0,
+            900,
+            1351
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1351
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+          "raw_sha256": "c21d57d4457a31c634c0969dc5b724f6e5d66bca947a5d4c63c93082120ae028",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        63,
+        192,
+        694,
+        607
+      ],
+      "description": "上方横向照片，一名长发女性位于中右侧，围着围巾、身体侧向而脸转向镜头，呈胸部以上近景；左侧保留金属网栏、远景和夕阳光照。摄影环境完整保留，画面带暖色逆光与颗粒感；四角圆润，边缘清晰，无主体去背景或透明渐隐。",
+      "label": "上方横向照片，一名长发女性位于中右侧，围着围巾、身体侧向而脸",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "女性与网栏、远景及逆光摄影背景完整保留，无主体描边或连续出框。照片为水平圆角矩形窗口，边界清晰，无独立边线；光晕属于摄影内容，四边无透明渐变。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.095
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0.25,
+          1,
+          0.7431
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "女性面向镜头、位于中右侧，近景构图最接近；横裁保留帽顶、脸部、抬手及左侧湖景。不镜像以免反转帽中文字；与参考相比多了帽子、墨镜，缺少围巾、网栏和夕阳逆光。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-027-e4e03471c3a2\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        202,
+        782,
+        832,
+        1193
+      ],
+      "description": "下方横向照片，一名长发女性位于中右侧，围着围巾、微笑并转头望向左侧，呈上半身景别；后方可见数名行人、网状围栏、走道及右侧受夕阳照亮的墙面，栏杆上的白色图案属于摄影环境。保留全部摄影背景及暖色颗粒感，四角圆润、边缘清晰，无主体去背景或透明渐隐。",
+      "label": "下方横向照片，一名长发女性位于中右侧，围着围巾、微笑并转头望",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "保留女性、后方行人、围栏和墙面的完整摄影环境，栏杆白色图案不是主体描边。照片具有独立水平圆角矩形窗口，无窗口描边；四边清晰，与纸张背景没有渐隐混合，也无连续出框关联。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.095
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0.23,
+          1,
+          0.7182
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "女性侧身望向左侧，围巾、栏杆及后方行人较接近描述；横裁保留完整帽顶、脸部和上半身及部分环境，不镜像。实际戴红帽与墨镜、未微笑，背景为山地而非网栏走道和墙面。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-027-e4e03471c3a2\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\prepared\\material_06.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "e64b636f0b542792bf87dd2b1a3c51df97612bb2524e022867725a2890f71379",
+    "bindings": "3a40aa87c5dd38bb7102a34bef750981f7ab8e25759a2cda6b4c270ea2325521",
+    "input": "e82562aa81514025e7eb39d6b640c151713ede81ca68a5f5b65d81deee3eb592",
+    "catalog": "fe68b70191252c59127987f2a21b647cfd6a6033d0fa699aaee03875ca2bbe7d",
+    "photo_windows": "f246a1968c257af8dc4ff8678c2f4d1ddb9aa1e75da6d3ea28b1f6094fd7864d"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\assets\\reveal\\index.json",
+    "sha256": "db65a94128d3852abd6f72508ee85d84840ae017d087d30dfbdfb70e8b5ea079"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-027\\assets\\gate\\report.json",
+    "sha256": "5673b227f6b672fb6054ebcf089970ebc02e79c3e72b2dacdead7b7e61c3789c",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 1,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
