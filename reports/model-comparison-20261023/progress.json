@@ -1,15 +1,15 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-24T03:26:49+08:00",
+  "updated_at": "2026-10-24T03:27:55+08:00",
   "references": 116,
   "total": 348,
   "counts": {
     "qwen": {
-      "completed": 92,
+      "completed": 93,
       "failed": 15,
       "running": 1,
-      "queued": 8
+      "queued": 7
     },
     "luna": {
       "completed": 116
@@ -1311,20 +1311,20 @@
       "case": "108",
       "model": "qwen",
       "batch": "run-a24a40662d4b48b3b470722b5639ab26",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "ee600f1490fbd985",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 464.099,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "109",
       "model": "qwen",
       "batch": "run-a24a40662d4b48b3b470722b5639ab26",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "b63d0c8a78b64dc1",
       "elapsed_seconds": null,
@@ -3172,7 +3172,7 @@
       "model": "sol",
       "batch": "run-0b4384b59f7e4bfe89919f910accd5c6",
       "status": "running",
-      "step": "bind",
+      "step": "build",
       "error": null,
       "task_id": "c367a51f49080125",
       "elapsed_seconds": null,
