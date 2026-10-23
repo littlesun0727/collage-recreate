@@ -1,0 +1,86 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1199
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1199
+      ],
+      "description": "全幅固定的蓝灰色渐变背景与细密划痕、灰尘纹理；左侧露出的备忘录列表界面和顶部应用图标、标题也属于后方固定界面。",
+      "label": "全幅固定的蓝灰色渐变背景与细密划痕、灰尘纹理；左侧露出的备忘",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        185,
+        276,
+        712,
+        681
+      ],
+      "description": "上方矩形照片内口：一位戴浅蓝色大框眼镜、长深棕发的年轻女性面部近景，视线略向上，嘴唇微嘟；下缘可见手持的浅色烙饼。保留原照片环境，无主体抠图或沿主体描边。",
+      "label": "上方矩形照片内口：一位戴浅蓝色大框眼镜、长深棕发的年轻女性面",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        189,
+        734,
+        709,
+        1150
+      ],
+      "description": "下方矩形照片内口：同一位戴浅色眼镜、长深色头发的年轻女性正面面部近景，直视前方，下缘露出蓝白色毛绒物。保留原照片环境，无主体抠图或沿主体描边。",
+      "label": "下方矩形照片内口：同一位戴浅色眼镜、长深色头发的年轻女性正面",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_top",
+      "kind": "frame",
+      "bbox": [
+        136,
+        82,
+        763,
+        1199
+      ],
+      "description": "前景白色圆角备忘录界面纸面，承载上方照片；包含顶部返回箭头、黄色“备忘录”字样、撤销/重做/分享/更多图标，以及照片周围白色留白。纸面在画面底部延出画布。",
+      "photo_id": "photo_top",
+      "label": "前景白色圆角备忘录界面纸面，承载上方照片；包含顶部返回箭头、",
+      "method": "extract"
+    },
+    {
+      "id": "frame_bottom",
+      "kind": "frame",
+      "bbox": [
+        136,
+        82,
+        763,
+        1199
+      ],
+      "description": "与上方照片共用的前景白色圆角备忘录纸面，承载下方照片；包含照片周围白色留白，纸面在画面底部延出画布。",
+      "photo_id": "photo_bottom",
+      "label": "与上方照片共用的前景白色圆角备忘录纸面，承载下方照片；包含照",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_top",
+    "frame_bottom",
+    "photo_top",
+    "photo_bottom"
+  ]
+}
