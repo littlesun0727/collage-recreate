@@ -1,15 +1,14 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-23T21:03:19+08:00",
+  "updated_at": "2026-10-23T21:04:24+08:00",
   "references": 116,
   "total": 348,
   "counts": {
     "qwen": {
-      "completed": 34,
+      "completed": 35,
       "failed": 5,
       "running": 1,
-      "queued": 1,
       "pending": 75
     },
     "luna": {
@@ -496,20 +495,20 @@
       "case": "040",
       "model": "qwen",
       "batch": "run-9ed3de3b21fb442da4695bbbbeabd1d5",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "d9e4ab774a4c0499",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 271.706,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "041",
       "model": "qwen",
       "batch": "run-9ed3de3b21fb442da4695bbbbeabd1d5",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "bind",
       "error": null,
       "task_id": "8b2502b768f9fb01",
       "elapsed_seconds": null,
@@ -1613,7 +1612,7 @@
       "model": "luna",
       "batch": "run-f311ad577947454097dbe0cd35f03f45",
       "status": "running",
-      "step": "photo_windows",
+      "step": "build",
       "error": null,
       "task_id": "7aa8ce5cb46c90de",
       "elapsed_seconds": null,
@@ -1648,10 +1647,10 @@
       "case": "045",
       "model": "luna",
       "batch": "run-f311ad577947454097dbe0cd35f03f45",
-      "status": "running",
+      "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "c5aecf354ced5497",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -1663,7 +1662,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "8e8e27ab33348cd5",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -1675,7 +1674,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "fa6409e0387fd5d9",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -1687,7 +1686,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "340afc7b49032c7d",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -1696,7 +1695,7 @@
       "case": "049",
       "model": "luna",
       "batch": "run-f311ad577947454097dbe0cd35f03f45",
-      "status": "queued",
+      "status": "running",
       "step": null,
       "error": null,
       "task_id": null,
