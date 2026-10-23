@@ -1,0 +1,212 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "深黑色粗糙路面材质铺满画布，带有细密浅色颗粒、水迹及左上方斜向延伸的灰白路缘结构，整体保留真实纹理。",
+      "label": "深黑色粗糙路面材质铺满画布，带有细密浅色颗粒、水迹及左上方斜",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "leaf_top",
+      "kind": "overlay",
+      "bbox": [
+        339,
+        36,
+        537,
+        242
+      ],
+      "description": "上方照片后露出的橙褐色枫叶，保留尖角、叶脉和自然斑驳质感，被照片遮住的部分不补画。",
+      "label": "上方照片后露出的橙褐色枫叶，保留尖角、叶脉和自然斑驳质感，被",
+      "method": "extract"
+    },
+    {
+      "id": "leaf_left",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        749,
+        123,
+        954
+      ],
+      "description": "左下方橙褐色枫叶装饰，左侧被画布截断，部分叶片被窗户照片和白色标题遮挡，保留可见锯齿轮廓及叶脉。",
+      "label": "左下方橙褐色枫叶装饰，左侧被画布截断，部分叶片被窗户照片和白",
+      "method": "extract"
+    },
+    {
+      "id": "leaf_middle",
+      "kind": "overlay",
+      "bbox": [
+        625,
+        600,
+        660,
+        644
+      ],
+      "description": "下方街景照片上缘后方露出的黄褐色尖叶局部，保留可见尖角与叶面纹理。",
+      "label": "下方街景照片上缘后方露出的黄褐色尖叶局部，保留可见尖角与叶面",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        138,
+        101,
+        452,
+        518
+      ],
+      "description": "竖幅雨天街景，无人物主体；前景有树干、亮着的路灯、消防栓和黑色轿车，后方可见公交车、道路及树木。顶部保留半透明雨伞般的模糊遮挡和暗色伞骨，摄影环境完整保留，四边清晰裁切。",
+      "label": "竖幅雨天街景，无人物主体；前景有树干、亮着的路灯、消防栓和黑",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        501,
+        281,
+        802,
+        583
+      ],
+      "description": "夜间仰拍雨景，无人物；上方可见透明雨伞边缘与雨滴，中央路灯明亮，左侧垂落绿叶，下方有树冠、招牌和远处楼房。保留完整摄影背景及雨丝，边缘直接裁切。",
+      "label": "夜间仰拍雨景，无人物；上方可见透明雨伞边缘与雨滴，中央路灯明",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_window",
+      "kind": "photo",
+      "bbox": [
+        77,
+        580,
+        379,
+        882
+      ],
+      "description": "夜间室内窗边照片，白色窗框分隔深暗雨夜，玻璃前可见雨丝，右侧窄窗向内开启，窗台摆有杯子。窗框、窗台和杯子均属于摄影内容，整体替换；保留摄影环境，矩形边缘清晰。",
+      "label": "夜间室内窗边照片，白色窗框分隔深暗雨夜，玻璃前可见雨丝，右侧",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom_right",
+      "kind": "photo",
+      "bbox": [
+        450,
+        643,
+        782,
+        1085
+      ],
+      "description": "竖幅雨天道路照片，无人物；透明雨伞及密集水珠占据上半部，伞面上有两片棕色落叶，右上方灯光泛黄，下方可见白色车辆、湿路面、路旁树木和远处水面。全部属于摄影内容，保留背景及原有光影，四边清晰裁切。",
+      "label": "竖幅雨天道路照片，无人物；透明雨伞及密集水珠占据上半部，伞面",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "star_top_left",
+      "kind": "overlay",
+      "bbox": [
+        109,
+        68,
+        172,
+        133
+      ],
+      "description": "左上方独立白色五角星贴纸，具有不规则尖角和粉笔颗粒边缘，压在上方照片角部。",
+      "label": "左上方独立白色五角星贴纸，具有不规则尖角和粉笔颗粒边缘，压在",
+      "method": "extract"
+    },
+    {
+      "id": "star_top_right",
+      "kind": "overlay",
+      "bbox": [
+        781,
+        245,
+        852,
+        320
+      ],
+      "description": "右上方独立白色五角星，保留粗糙粉笔质感与不对称尖角，覆盖右上照片的右上角。",
+      "label": "右上方独立白色五角星，保留粗糙粉笔质感与不对称尖角，覆盖右上",
+      "method": "extract"
+    },
+    {
+      "id": "orbit_drawing",
+      "kind": "overlay",
+      "bbox": [
+        186,
+        374,
+        595,
+        746
+      ],
+      "description": "画面中央完整的白色粉笔涂鸦组合，包括交叠的大弧线、内侧卷曲线、三颗线描星形及零散小圆圈。作为连续装饰整体保留，跨越两张上方照片及两张下方照片的边缘。",
+      "label": "画面中央完整的白色粉笔涂鸦组合，包括交叠的大弧线、内侧卷曲线",
+      "method": "extract"
+    },
+    {
+      "id": "star_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        742,
+        1024,
+        841,
+        1121
+      ],
+      "description": "右下角独立白色五角星，带颗粒状粗糙边缘，叠压在下方街景照片右下角。",
+      "label": "右下角独立白色五角星，带颗粒状粗糙边缘，叠压在下方街景照片右",
+      "method": "extract"
+    },
+    {
+      "id": "happiness_title",
+      "kind": "overlay",
+      "bbox": [
+        46,
+        793,
+        327,
+        912
+      ],
+      "description": "白色手写艺术标题“Happiness”，包含高挑夸张的首字母、连写笔画、长下划线和延伸线条；字形与线条整体保留，叠在左下照片及枫叶前方。",
+      "label": "白色手写艺术标题“Happiness”，包含高挑夸张的首字母",
+      "method": "extract"
+    },
+    {
+      "id": "handwritten_poem",
+      "kind": "overlay",
+      "bbox": [
+        68,
+        918,
+        544,
+        1186
+      ],
+      "description": "底部白色手写诗句整体，保留不规则字形、连笔和六行排布。可辨内容为“It may come and go / Like autumn rain / Be sure to / Treasure the time spent / Because you'll never know / the next time you'll feel it again.”，各行宽度和基线略有变化。",
+      "label": "底部白色手写诗句整体，保留不规则字形、连笔和六行排布。可辨内",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "leaf_top",
+    "leaf_left",
+    "leaf_middle",
+    "photo_top_left",
+    "photo_top_right",
+    "photo_window",
+    "photo_bottom_right",
+    "star_top_left",
+    "star_top_right",
+    "orbit_drawing",
+    "star_bottom_right",
+    "happiness_title",
+    "handwritten_poem"
+  ]
+}
