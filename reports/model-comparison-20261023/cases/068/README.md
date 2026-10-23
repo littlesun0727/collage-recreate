@@ -26,4 +26,4 @@
 
 ## Codex gpt-6.1-sol / medium
 
-运行中 · build
+运行中 · register
