@@ -1,0 +1,185 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1601
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1601
+      ],
+      "description": "深色模糊背景，带有柔和的光影渐变效果。",
+      "label": "深色模糊背景，带有柔和的光影渐变效果。",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "overlay_love_top",
+      "kind": "overlay",
+      "bbox": [
+        274,
+        77,
+        414,
+        192
+      ],
+      "description": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "label": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_love_left",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        312,
+        112,
+        432
+      ],
+      "description": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "label": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_love_right",
+      "kind": "overlay",
+      "bbox": [
+        792,
+        224,
+        900,
+        328
+      ],
+      "description": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "label": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "method": "extract"
+    },
+    {
+      "id": "text_love_art",
+      "kind": "text",
+      "bbox": [
+        540,
+        392,
+        693,
+        456
+      ],
+      "description": "LOVE",
+      "label": "LOVE",
+      "method": "local",
+      "text": "LOVE",
+      "text_status": "known",
+      "style": {
+        "fill": "#D8A0B0",
+        "font": "serif",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_grid_main",
+      "kind": "photo",
+      "bbox": [
+        27,
+        456,
+        873,
+        1185
+      ],
+      "description": "多张情侣合照拼贴成的网格布局，中心为一张较大的特写照片，周围环绕着较小的生活照（如吃饭、牵手、自拍等）。",
+      "label": "多张情侣合照拼贴成的网格布局，中心为一张较大的特写照片，周围",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_hearts_text",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        961,
+        248,
+        1017
+      ],
+      "description": "两个粉色线框爱心图案，中间穿插文字 'Happy Chinese Valentine's Day'。",
+      "label": "两个粉色线框爱心图案，中间穿插文字 'Happy Chine",
+      "method": "extract"
+    },
+    {
+      "id": "text_valentines_day",
+      "kind": "text",
+      "bbox": [
+        562,
+        1089,
+        680,
+        1193
+      ],
+      "description": "Chinese\nValentine's\nDay",
+      "label": "Chinese\nValentine's\nDay",
+      "method": "local",
+      "text": "Chinese\nValentine's\nDay",
+      "text_status": "known",
+      "style": {
+        "fill": "#D8A0B0",
+        "font": "mono",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "overlay_love_bottom_left",
+      "kind": "overlay",
+      "bbox": [
+        9,
+        1241,
+        117,
+        1353
+      ],
+      "description": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "label": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_love_bottom_center",
+      "kind": "overlay",
+      "bbox": [
+        364,
+        1433,
+        482,
+        1537
+      ],
+      "description": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "label": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_love_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        783,
+        1329,
+        900,
+        1449
+      ],
+      "description": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "label": "由粉色线条构成的爱心图案，内部包含 LOVE 字样。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_grid_main",
+    "overlay_love_top",
+    "overlay_love_left",
+    "overlay_love_right",
+    "text_love_art",
+    "overlay_hearts_text",
+    "text_valentines_day",
+    "overlay_love_bottom_left",
+    "overlay_love_bottom_center",
+    "overlay_love_bottom_right"
+  ]
+}
