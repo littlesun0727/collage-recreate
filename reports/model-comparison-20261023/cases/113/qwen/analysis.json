@@ -1,0 +1,329 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    1080,
+    1440
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "description": "铺满画面的背景照片，展示了一个杂货店或咖啡馆的室内场景。上方悬挂着多个藤编篮子，下方有装满水果（如西瓜、苹果）的篮筐和木质家具。整体色调偏暖，具有复古质感。",
+      "label": "铺满画面的背景照片，展示了一个杂货店或咖啡馆的室内场景。上方",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        103,
+        190,
+        922,
+        1241
+      ],
+      "description": "位于画面中央的大块牛皮纸底板，作为拼贴画的主要载体。表面有明显的折痕纹理，顶部和底部各夹有一个金属长尾夹用于固定。",
+      "photo_id": "photo_1",
+      "label": "位于画面中央的大块牛皮纸底板，作为拼贴画的主要载体。表面有明",
+      "method": "extract"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        186,
+        278,
+        428,
+        468
+      ],
+      "description": "一张矩形照片，显示一只手拿着一张更小的拍立得照片（照片中是两个人），背景是深色的木地板。",
+      "label": "一张矩形照片，显示一只手拿着一张更小的拍立得照片（照片中是两",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        157,
+        248,
+        265,
+        338
+      ],
+      "description": "带有“summer paradise”字样的装饰标签，由两个浅蓝色的小方块组成，通过细绳连接，贴在主底板的左上角。",
+      "label": "带有“summer paradise”字样的装饰标签，由两个",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        146,
+        425,
+        232,
+        497
+      ],
+      "description": "一个白色的海星形状贴纸，位于左侧照片的左下角，部分遮挡了照片边缘。",
+      "label": "一个白色的海星形状贴纸，位于左侧照片的左下角，部分遮挡了照片",
+      "method": "extract"
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        167,
+        530,
+        340,
+        662
+      ],
+      "description": "The best\njourneys Start\nwith a one-way\nticket in hand\nand no plan\nin mind",
+      "label": "The best\njourneys Start\nwith a",
+      "method": "local",
+      "text": "The best\njourneys Start\nwith a one-way\nticket in hand\nand no plan\nin mind",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        346,
+        510,
+        508,
+        674
+      ],
+      "description": "一张正方形照片，特写一只戴着米色鸭舌帽的卷毛狗（泰迪/贵宾犬），被人抱在怀里。",
+      "label": "一张正方形照片，特写一只戴着米色鸭舌帽的卷毛狗（泰迪/贵宾犬",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        475,
+        490,
+        540,
+        526
+      ],
+      "description": "一个小巧的白色标签，上面印有黑色文字“LITTLE THINGS make big days”，贴在两张照片之间的缝隙处。",
+      "label": "一个小巧的白色标签，上面印有黑色文字“LITTLE THIN",
+      "method": "extract"
+    },
+    {
+      "id": "frame_2",
+      "kind": "frame",
+      "bbox": [
+        464,
+        259,
+        886,
+        602
+      ],
+      "description": "一个牛皮纸材质的信封，开口朝上，作为右侧照片的衬底。信封表面有压印的线条细节。",
+      "photo_id": "photo_3",
+      "label": "一个牛皮纸材质的信封，开口朝上，作为右侧照片的衬底。信封表面",
+      "method": "extract"
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        551,
+        274,
+        837,
+        511
+      ],
+      "description": "一张风景照，展示了充满生活气息的店铺内部一角，有架子、瓶罐和温暖的灯光。",
+      "parent_id": "frame_2",
+      "label": "一张风景照，展示了充满生活气息的店铺内部一角，有架子、瓶罐和",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        783,
+        245,
+        907,
+        310
+      ],
+      "description": "一张白色的小纸条，略微倾斜地贴在右上角，上面手写着“focus on the good”。",
+      "label": "一张白色的小纸条，略微倾斜地贴在右上角，上面手写着“focu",
+      "method": "extract"
+    },
+    {
+      "id": "frame_3",
+      "kind": "frame",
+      "bbox": [
+        178,
+        766,
+        497,
+        1159
+      ],
+      "description": "一张白色的拍立得相纸框，位于左下方，承载着一张美食照片。",
+      "photo_id": "photo_4",
+      "label": "一张白色的拍立得相纸框，位于左下方，承载着一张美食照片。",
+      "method": "extract"
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        200,
+        798,
+        475,
+        1063
+      ],
+      "description": "一张俯拍的美食照片，木桌上摆放着切块的蛋糕、两杯饮料和一个玻璃碗装的甜点。",
+      "parent_id": "frame_3",
+      "label": "一张俯拍的美食照片，木桌上摆放着切块的蛋糕、两杯饮料和一个玻",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_2",
+      "kind": "text",
+      "bbox": [
+        200,
+        1077,
+        308,
+        1102
+      ],
+      "description": "Arrebol☆",
+      "label": "Arrebol☆",
+      "method": "local",
+      "text": "Arrebol☆",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_5",
+      "kind": "photo",
+      "bbox": [
+        569,
+        779,
+        819,
+        985
+      ],
+      "description": "一张户外照片，展示了一个穿着针织衫的玩偶站在木质长椅上，背景是模糊的绿色植物。",
+      "label": "一张户外照片，展示了一个穿着针织衫的玩偶站在木质长椅上，背景",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        786,
+        749,
+        913,
+        838
+      ],
+      "description": "一张带有横线的便签纸，上面手写着“joy has a habit of returning.”，贴在右侧中部。",
+      "label": "一张带有横线的便签纸，上面手写着“joy has a hab",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        756,
+        965,
+        923,
+        1001
+      ],
+      "description": "一组类似剪报的装饰元素，包含粉色和白色的色块，上面分别写着“To be continued”。",
+      "label": "一组类似剪报的装饰元素，包含粉色和白色的色块，上面分别写着“",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_7",
+      "kind": "overlay",
+      "bbox": [
+        545,
+        1015,
+        761,
+        1102
+      ],
+      "description": "一张黄色的便利贴，上面密密麻麻地写着手写英文段落，内容关于旅行和回忆。",
+      "label": "一张黄色的便利贴，上面密密麻麻地写着手写英文段落，内容关于旅",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_8",
+      "kind": "overlay",
+      "bbox": [
+        799,
+        1015,
+        886,
+        1109
+      ],
+      "description": "一个蓝色的鸡尾酒调酒器插画贴纸，周围点缀着星星图案。",
+      "label": "一个蓝色的鸡尾酒调酒器插画贴纸，周围点缀着星星图案。",
+      "method": "extract"
+    },
+    {
+      "id": "text_3",
+      "kind": "text",
+      "bbox": [
+        616,
+        1123,
+        896,
+        1195
+      ],
+      "description": "The best Souvenir is the\nperson you became while\nno one was watching",
+      "label": "The best Souvenir is the\nperso",
+      "method": "local",
+      "text": "The best Souvenir is the\nperson you became while\nno one was watching",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "frame_1",
+    "photo_1",
+    "overlay_1",
+    "overlay_2",
+    "text_1",
+    "photo_2",
+    "overlay_3",
+    "frame_2",
+    "photo_3",
+    "overlay_4",
+    "frame_3",
+    "photo_4",
+    "text_2",
+    "photo_5",
+    "overlay_5",
+    "overlay_6",
+    "overlay_7",
+    "overlay_8",
+    "text_3"
+  ]
+}
