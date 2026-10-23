@@ -1,0 +1,704 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "preview",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_4": 0.95905,
+    "photo_2": 0.9957,
+    "photo_1": 0.9631,
+    "photo_3": 0.80259
+  },
+  "incomplete_objects": [],
+  "issues": [
+    {
+      "id": "background_1",
+      "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+    },
+    {
+      "id": "overlay_1",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "overlay_2",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "scene_sha256": "1c8be83c2a4ba5a77ff279a186ea95770c55999e0b39f95e9b1ef4bc4e2c898f",
+  "final_sha256": "65fc24a8515c832f0fb54390a267aec27432f2e83d85d67680ae0279fac439db",
+  "resources": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\overlays\\background_1.png",
+      "sha256": "6bfefa0fed5912e151df0a2d6abad818140f90f9b725399f6804d29c507f93aa",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\background_1-background-source.png",
+        "sha256": "af4b857919d4586631d1209fb34d266e6018dcf8a408194b4a000f1aeb4e6748",
+        "bbox": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "original_bbox": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "padding": 0,
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+        "raw_sha256": "32e2be6b56a705cf87d8a170582c945da7213fd8981b185c4090ef435dfd6b63",
+        "background_clean": true,
+        "semantic_verified": false
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "af4b857919d4586631d1209fb34d266e6018dcf8a408194b4a000f1aeb4e6748",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "32e2be6b56a705cf87d8a170582c945da7213fd8981b185c4090ef435dfd6b63",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\background_1-preview.png",
+        "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_3.png",
+      "sha256": "f3b18de6242dde5421e08332020996036f463838f823462580862b515ab96313",
+      "quality": "ready",
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_08.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_08",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+          "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_08.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_3",
+          "asset_id": "material_08",
+          "source_crop": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "参考图为透过树叶看到的绿色公交车。素材库中无此特定场景，选择 material_08（游船）作为“交通工具+风景”的近似匹配。由于原图是横图而槽位是竖图，需进行大幅度的中心裁切以适配比例。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_3-content-mask.png",
+        "content_mask_sha256": "da006caeb41edfde145286a726852699e35ad39ae29901477d40e48cd629d12e",
+        "photo_window_spec": {
+          "photo_id": "photo_3",
+          "reason": "照片保留完整摄影背景，边缘带有白色手绘风格的不规则描边。该白边依附于矩形窗口轮廓而非主体分割轮廓，故开启固定窗口并设置窗口描边。参考图为近似效果，实际绘制为实线。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": true,
+            "width": 0.015,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "round",
+            "placement": "outside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_1.png",
+      "sha256": "7e2a4454fae551725774bd996013c588e2c061af5436a3d499d02ad5e32e04fc",
+      "quality": "ready",
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_09.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_09",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+          "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_09.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_1",
+          "asset_id": "material_09",
+          "source_crop": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "参考图为竖构图人物特写，素材库中无完全一致场景。选择 material_09 作为近似替代，因其同为竖构图且包含清晰的人物半身主体，符合照片槽的宽高比要求。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_1-content-mask.png",
+        "content_mask_sha256": "2eaa7bfabd3643209234de3654527cfba4a65344ce7b3567a33f91b228338637",
+        "photo_window_spec": {
+          "photo_id": "photo_1",
+          "reason": "照片保留完整摄影背景，边缘带有白色手绘风格的不规则描边。该白边依附于矩形窗口轮廓而非主体分割轮廓，故开启固定窗口并设置窗口描边。参考图为近似效果，实际绘制为实线。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": true,
+            "width": 0.015,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "round",
+            "placement": "outside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_2.png",
+      "sha256": "5728da2530c28ba7df81aa52c41f89f64571454adfe31af2bd442844702df80e",
+      "quality": "ready",
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_15.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_15",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+          "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_15.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_2",
+          "asset_id": "material_15",
+          "source_crop": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "参考图为宠物猫，素材库中无动物图片。选择 material_15 作为风景类补充，其横向构图与参考图比例（约1:1）相对接近，画面中有行走的人物背影，虽非猫但能保持画面的动态感。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_2-content-mask.png",
+        "content_mask_sha256": "19476550f14dc7ff0824a5c326b39144b6f3c9c6829dd1458a229faab60f35e6",
+        "photo_window_spec": {
+          "photo_id": "photo_2",
+          "reason": "照片保留完整摄影背景，边缘带有白色手绘风格的不规则描边。该白边依附于矩形窗口轮廓而非主体分割轮廓，故开启固定窗口并设置窗口描边。参考图为近似效果，实际绘制为实线。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": true,
+            "width": 0.015,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "round",
+            "placement": "outside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_4.png",
+      "sha256": "a509bb0bf7a9f05a9ee9adaadad16cf1090aa73860b30066b2a6aea04dcf5942",
+      "quality": "ready",
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_16.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_16",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-198-a13a3804da49\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+          "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\prepared\\material_16.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_4",
+          "asset_id": "material_16",
+          "source_crop": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "参考图为女子背着米色包的半身照。选择 material_16 作为近似替代，该素材同样展示了背着包的人物形象，虽然姿态为侧身且背景不同，但在元素构成上最为接近。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\photos\\photo_4-content-mask.png",
+        "content_mask_sha256": "3662fde138ef9db5f7c6d655e980663f01a76d36b83db411e3f844f66b9583d7",
+        "photo_window_spec": {
+          "photo_id": "photo_4",
+          "reason": "照片保留完整摄影背景，边缘带有白色手绘风格的不规则描边。该白边依附于矩形窗口轮廓而非主体分割轮廓，故开启固定窗口并设置窗口描边。参考图为近似效果，实际绘制为实线。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": true,
+            "width": 0.015,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "round",
+            "placement": "outside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\overlays\\overlay_1.png",
+      "sha256": "07789792299c76982e2dfde8345943a07ee23a4df87133feffe68760b72ad93f",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+        "sha256": "d1d75c421f58d1ef322aa7cff26409397dc02ef3ada96010db499b77da8a4d58",
+        "bbox": [
+          672,
+          292,
+          764,
+          458
+        ],
+        "original_bbox": [
+          680,
+          300,
+          756,
+          450
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+        "raw_sha256": "174e16e3c695a10d5ee4b2aafe38aa34cba53aa5dffb85ff3ef00a41bef930be",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "input_sha256": "f74c464480defaa30fcc2b8f570924f5d9e4160237fdbc91841ff12873f588cc"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "d1d75c421f58d1ef322aa7cff26409397dc02ef3ada96010db499b77da8a4d58",
+          "bbox": [
+            672,
+            292,
+            764,
+            458
+          ],
+          "original_bbox": [
+            680,
+            300,
+            756,
+            450
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "174e16e3c695a10d5ee4b2aafe38aa34cba53aa5dffb85ff3ef00a41bef930be",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "f74c464480defaa30fcc2b8f570924f5d9e4160237fdbc91841ff12873f588cc"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\overlay_1-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\overlays\\overlay_2.png",
+      "sha256": "973be78089fbf9aa58706b4559cd9cbbbb11d078ea2e14fd9c1e5ea308b734f2",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+        "sha256": "bc2272c7557f99078a188bbb07a4de35d348b683c67e6e302978c2b16ac8c8c3",
+        "bbox": [
+          582,
+          628,
+          760,
+          1118
+        ],
+        "original_bbox": [
+          590,
+          636,
+          752,
+          1110
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+        "raw_sha256": "fec1d2af0ab101ef36c580f5fb3cd2032a76d07e5ceeb8f39b65017ce089b988",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          900,
+          1200
+        ],
+        "input_sha256": "f74c464480defaa30fcc2b8f570924f5d9e4160237fdbc91841ff12873f588cc"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "bc2272c7557f99078a188bbb07a4de35d348b683c67e6e302978c2b16ac8c8c3",
+          "bbox": [
+            582,
+            628,
+            760,
+            1118
+          ],
+          "original_bbox": [
+            590,
+            636,
+            752,
+            1110
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "fec1d2af0ab101ef36c580f5fb3cd2032a76d07e5ceeb8f39b65017ce089b988",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "f74c464480defaa30fcc2b8f570924f5d9e4160237fdbc91841ff12873f588cc"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\overlay_2-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\text\\text_1.png",
+      "sha256": "dee96dc918f4347c8856b6c2207897096f6ec532762ba20d48592acd7c3636de",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\msyh.ttc",
+        "font_size_px": 48,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 64,
+        "align": "left",
+        "fit_scale": null,
+        "text": "好天气！",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "1c87381a45807a3b",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。",
+    "items": [],
+    "scene_sha256": "1c8be83c2a4ba5a77ff279a186ea95770c55999e0b39f95e9b1ef4bc4e2c898f",
+    "final_sha256": "65fc24a8515c832f0fb54390a267aec27432f2e83d85d67680ae0279fac439db"
+  },
+  "at": "2026-10-23T17:35:05.092936+00:00",
+  "extraction_sheets": [
+    "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\previews\\extractions-1.jpg"
+  ],
+  "review_regions": [
+    {
+      "ids": [
+        "photo_4",
+        "overlay_2"
+      ],
+      "bbox": [
+        554,
+        622,
+        734,
+        1052
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\previews\\review-detail-1.png"
+    },
+    {
+      "ids": [
+        "photo_2",
+        "overlay_1"
+      ],
+      "bbox": [
+        603,
+        312,
+        783,
+        504
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\previews\\review-detail-2.png"
+    },
+    {
+      "ids": [
+        "photo_3",
+        "photo_4"
+      ],
+      "bbox": [
+        231,
+        636,
+        412,
+        828
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\previews\\review-detail-3.png"
+    },
+    {
+      "ids": [
+        "photo_1",
+        "photo_3"
+      ],
+      "bbox": [
+        189,
+        363,
+        387,
+        555
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\previews\\review-detail-4.png"
+    }
+  ],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\gate\\report.json",
+    "sha256": "562f0293df86a5525fb2e633f2c91106b728dc1afe618a246f1e08d9394b9cfd",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 3,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-198\\assets\\reveal\\index.json",
+    "sha256": "7fd06a7274686c5dc22b931923953daa516730aaf7f01a1328ba7ac1c669fee3"
+  },
+  "render_id": "1c87381a45807a3b",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "1c87381a45807a3b",
+    "category": "unreviewed",
+    "review_status": "skipped",
+    "warnings": [],
+    "draft_kind": null
+  }
+}
