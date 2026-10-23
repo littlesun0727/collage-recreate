@@ -1,0 +1,178 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1188
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1188
+      ],
+      "description": "整张图底层的摄影背景，包含深色木质桌面、模糊的咖啡杯和蛋糕等环境元素。作为整体保留，供上层素材叠加。",
+      "label": "整张图底层的摄影背景，包含深色木质桌面、模糊的咖啡杯和蛋糕等",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_book",
+      "kind": "photo",
+      "bbox": [
+        146,
+        139,
+        536,
+        525
+      ],
+      "description": "一本翻开的书，页面上有韩文文字和一只黑白花猫抱着东西的插画，左下角可见一只手拿着书页。矩形显示区域，边缘清晰。",
+      "label": "一本翻开的书，页面上有韩文文字和一只黑白花猫抱着东西的插画，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_column",
+      "kind": "photo",
+      "bbox": [
+        464,
+        412,
+        788,
+        753
+      ],
+      "description": "一根灰白色的石柱或墙面特写，上面画着简笔画的小动物头像和爱心图案。矩形显示区域。",
+      "label": "一根灰白色的石柱或墙面特写，上面画着简笔画的小动物头像和爱心",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_girl",
+      "kind": "photo",
+      "bbox": [
+        164,
+        687,
+        518,
+        1048
+      ],
+      "description": "一位年轻女性的自拍照片，嘴里叼着一小块食物，眼神看向镜头。矩形显示区域。",
+      "label": "一位年轻女性的自拍照片，嘴里叼着一小块食物，眼神看向镜头。矩",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_atom",
+      "kind": "overlay",
+      "bbox": [
+        94,
+        95,
+        220,
+        220
+      ],
+      "description": "左上角的蓝色手绘风格原子结构涂鸦，带有星星点缀。",
+      "label": "左上角的蓝色手绘风格原子结构涂鸦，带有星星点缀。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_cloud_left",
+      "kind": "overlay",
+      "bbox": [
+        52,
+        276,
+        137,
+        374
+      ],
+      "description": "左侧中部的白色云朵线条涂鸦。",
+      "label": "左侧中部的白色云朵线条涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_bubbles",
+      "kind": "overlay",
+      "bbox": [
+        549,
+        160,
+        652,
+        386
+      ],
+      "description": "右上方的青色气泡组涂鸦，包含大小不一的圆圈和方形装饰。",
+      "label": "右上方的青色气泡组涂鸦，包含大小不一的圆圈和方形装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_rabbit",
+      "kind": "overlay",
+      "bbox": [
+        688,
+        321,
+        824,
+        457
+      ],
+      "description": "右侧中部的白色兔子线条涂鸦，旁边有小花朵装饰。",
+      "label": "右侧中部的白色兔子线条涂鸦，旁边有小花朵装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_music",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        956,
+        216,
+        1075
+      ],
+      "description": "左下角的白色高音谱号涂鸦，伴有爱心和星星装饰。",
+      "label": "左下角的白色高音谱号涂鸦，伴有爱心和星星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_cloud_right",
+      "kind": "overlay",
+      "bbox": [
+        536,
+        814,
+        612,
+        897
+      ],
+      "description": "右下方的白色云朵线条涂鸦。",
+      "label": "右下方的白色云朵线条涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "text_poem",
+      "kind": "text",
+      "bbox": [
+        32,
+        552,
+        374,
+        659
+      ],
+      "description": "The light slowly softens, the sky\nfading from orange to lilac. Doing\nnothing but watching this gentle fade,\nas if everything can be forgiven,\neverything embraced.",
+      "label": "The light slowly softens, the ",
+      "method": "local",
+      "text": "The light slowly softens, the sky\nfading from orange to lilac. Doing\nnothing but watching this gentle fade,\nas if everything can be forgiven,\neverything embraced.",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_book",
+    "photo_column",
+    "photo_girl",
+    "overlay_atom",
+    "overlay_cloud_left",
+    "overlay_bubbles",
+    "overlay_rabbit",
+    "overlay_music",
+    "overlay_cloud_right",
+    "text_poem"
+  ]
+}
