@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-24T07:11:21+08:00。共 348 个任务。
+最后更新：2026-10-24T07:12:30+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -109,7 +109,7 @@
 | [089 · 7664149953434111256.jpg](cases/089/README.md)<br>![参考](cases/089/reference-thumb.jpg) | 失败 | 已交付<br>[![成图](cases/089/luna/thumb.jpg)](cases/089/luna/final.png) | 已交付<br>[![成图](cases/089/sol/thumb.jpg)](cases/089/sol/final.png) |
 | [090 · 7664468308615384344.jpg](cases/090/README.md)<br>![参考](cases/090/reference-thumb.jpg) | 已交付<br>[![成图](cases/090/qwen/thumb.jpg)](cases/090/qwen/final.png) | 已交付<br>[![成图](cases/090/luna/thumb.jpg)](cases/090/luna/final.png) | 已交付<br>[![成图](cases/090/sol/thumb.jpg)](cases/090/sol/final.png) |
 | [091 · 7665644059188399384.jpg](cases/091/README.md)<br>![参考](cases/091/reference-thumb.jpg) | 已交付<br>[![成图](cases/091/qwen/thumb.jpg)](cases/091/qwen/final.png) | 已交付<br>[![成图](cases/091/luna/thumb.jpg)](cases/091/luna/final.png) | 已交付<br>[![成图](cases/091/sol/thumb.jpg)](cases/091/sol/final.png) |
-| [092 · 7665948685888539966.png](cases/092/README.md)<br>![参考](cases/092/reference-thumb.jpg) | 已交付<br>[![成图](cases/092/qwen/thumb.jpg)](cases/092/qwen/final.png) | 已交付<br>[![成图](cases/092/luna/thumb.jpg)](cases/092/luna/final.png) | 运行中 · photo_windows |
+| [092 · 7665948685888539966.png](cases/092/README.md)<br>![参考](cases/092/reference-thumb.jpg) | 已交付<br>[![成图](cases/092/qwen/thumb.jpg)](cases/092/qwen/final.png) | 已交付<br>[![成图](cases/092/luna/thumb.jpg)](cases/092/luna/final.png) | 运行中 · build |
 | [093 · 7666084872900873497.png](cases/093/README.md)<br>![参考](cases/093/reference-thumb.jpg) | 已交付<br>[![成图](cases/093/qwen/thumb.jpg)](cases/093/qwen/final.png) | 已交付<br>[![成图](cases/093/luna/thumb.jpg)](cases/093/luna/final.png) | 排队 |
 | [094 · 7668519416618847513.jpg](cases/094/README.md)<br>![参考](cases/094/reference-thumb.jpg) | 已交付<br>[![成图](cases/094/qwen/thumb.jpg)](cases/094/qwen/final.png) | 已交付<br>[![成图](cases/094/luna/thumb.jpg)](cases/094/luna/final.png) | 排队 |
 | [095 · 7669705159856885017.jpg](cases/095/README.md)<br>![参考](cases/095/reference-thumb.jpg) | 已交付<br>[![成图](cases/095/qwen/thumb.jpg)](cases/095/qwen/final.png) | 已交付<br>[![成图](cases/095/luna/thumb.jpg)](cases/095/luna/final.png) | 排队 |
