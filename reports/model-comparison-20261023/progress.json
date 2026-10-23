@@ -1,7 +1,7 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-23T22:20:45+08:00",
+  "updated_at": "2026-10-23T22:21:54+08:00",
   "references": 116,
   "total": 348,
   "counts": {
@@ -13,9 +13,9 @@
       "pending": 35
     },
     "luna": {
-      "completed": 63,
+      "completed": 64,
       "running": 1,
-      "queued": 17,
+      "queued": 16,
       "pending": 35
     },
     "sol": {
@@ -773,7 +773,7 @@
       "model": "qwen",
       "batch": "run-ce916d934f684ec4ac99004550fe182c",
       "status": "running",
-      "step": "analyze",
+      "step": "bind",
       "error": null,
       "task_id": "51af3b2e1c93b7e6",
       "elapsed_seconds": null,
@@ -880,10 +880,10 @@
       "case": "072",
       "model": "qwen",
       "batch": "run-ce916d934f684ec4ac99004550fe182c",
-      "status": "running",
+      "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "edd27ae8623f20bd",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -895,7 +895,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "af0290d93fb84740",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -907,7 +907,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "70a9aa46e32bf398",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -919,7 +919,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "65c20979c9cc02ea",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -928,7 +928,7 @@
       "case": "076",
       "model": "qwen",
       "batch": "run-ce916d934f684ec4ac99004550fe182c",
-      "status": "queued",
+      "status": "running",
       "step": null,
       "error": null,
       "task_id": null,
@@ -2036,20 +2036,20 @@
       "case": "064",
       "model": "luna",
       "batch": "run-136b623b8c5b46c48483427306f8605e",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "238ee302f42032ad",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 177.462,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "065",
       "model": "luna",
       "batch": "run-136b623b8c5b46c48483427306f8605e",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "3ec35b0551d5d1b2",
       "elapsed_seconds": null,
