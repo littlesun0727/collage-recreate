@@ -65,7 +65,7 @@ function modelPolicyLabel(policy, fallback) {
   if (!policy?.analyze || !policy?.subsequent) return fallback || 'qwen/qwen3.8-flash';
   const name = (entry) => {
     const r=entry.reasoning||{}, mode=r.max_tokens?`thinking ≤ ${r.max_tokens}`:r.effort?`thinking ${r.effort}`:r.enabled===true?'thinking':r.enabled===false?'thinking 关闭':'推理默认';
-    return `${entry.provider==='yibu'?'yibuapi':'OpenRouter'} / ${entry.model}（${mode}）`;
+    return `${({yibu:'yibuapi',openrouter:'OpenRouter',codex:'Codex SDK'})[entry.provider]||'OpenRouter'} / ${entry.model}（${mode}）`;
   };
   if (JSON.stringify(policy.analyze) === JSON.stringify(policy.subsequent)) return name(policy.subsequent);
   return `分析 ${name(policy.analyze)} · 后续 ${name(policy.subsequent)}`;
@@ -79,7 +79,7 @@ function renderTiming() {
     ? timing.elapsed_seconds
     : (Date.now() - Date.parse(timing.started_at)) / 1000;
   const n = Math.max(0, Math.floor(seconds));
-  el.textContent = `自动制作 · ${modelPolicyLabel(timing.model_policy, timing.model)}${timing.effort ? ' / '+timing.effort : ''} · ${timing.finished_at ? "总耗时" : "已用时"} ${Math.floor(n / 60)}分${n % 60}秒 · 包含分析、制作与交付检查`;
+  el.textContent = `自动制作 · ${modelPolicyLabel(timing.model_policy, timing.model)}${timing.effort ? ' / '+timing.effort : ''} · ${timing.finished_at ? "总耗时" : "已用时"} ${Math.floor(n / 60)}分${n % 60}秒`;
 }
 async function api(url) {
   const r = await fetch(url, { cache: "no-store" });
@@ -97,13 +97,7 @@ function selectedVersion() {
   if (!d) return null;
   if (state.version)
     return d.versions.find((v) => v.id === state.version) || null;
-  if (state.stage === 3) return d.versions[0] || null;
-  if (state.stage === 4)
-    return (
-      [...d.versions].reverse().find((v) => v.command === "screen") ||
-      d.versions[0] ||
-      null
-    );
+  if (state.stage === 5) return d.versions[0] || null;
   return d.versions.at(-1) || null;
 }
 function taskList() {
@@ -114,7 +108,24 @@ function taskList() {
     ...(byId.get(item.task_id) || {}), id:item.task_id, name:item.name, index:item.index,
     status:item.status, phase:item.phase, error:item.error,
   }))}));
-  const ungrouped = state.tasks.filter(t => !t.batch);
+  // Offline runs and imported tasks carry batch metadata without a web queue record.
+  // Keep those tasks visible, including tasks missing from a partial queue listing.
+  const grouped = new Set(groups.flatMap(g => g.tasks.map(t => t.id)).filter(Boolean));
+  for (const task of state.tasks) {
+    if (!task.batch?.id || grouped.has(task.id)) continue;
+    let group = groups.find(g => g.id === task.batch.id);
+    if (!group) {
+      group = {id:task.batch.id, name:task.batch.name || task.batch.id,
+        created_at:task.batch.created_at, model_policy:task.batch.model_policy,
+        tasks:[], total:task.batch.total || 0};
+      groups.push(group);
+    }
+    group.tasks.push({...task, index:task.batch.index});
+    group.total = Math.max(group.total, group.tasks.length);
+    grouped.add(task.id);
+  }
+  for (const group of groups) group.tasks.sort((a,b) => (a.index || 0) - (b.index || 0));
+  const ungrouped = state.tasks.filter(t => !t.batch?.id);
   groups.push({id:"ungrouped",name:"单独任务 / 历史任务",tasks:ungrouped,total:ungrouped.length});
   setHTML($("#batchFilter"), '<option value="">全部批次</option>'+groups.map(g =>
     `<option value="${escapeHTML(g.id)}">${escapeHTML(g.name)} (${g.total})</option>`).join(''));
@@ -128,8 +139,11 @@ function taskList() {
   summary.hidden = !selected?.model_policy;
   if (selected?.model_policy) {
     const c = selected.counts;
-    summary.textContent = `${modelPolicyLabel(selected.model_policy)} · 完成 ${c.completed}/${selected.total} · 未完成 ${c.failed} · 执行中 ${c.running} · 排队 ${c.queued} · 固定客户素材 ${selected.materials.length} 个`;
-    summary.title = `输入指纹 ${selected.dataset_sha256}\n${new Date(selected.created_at).toLocaleString("zh-CN")}`;
+    const progress = c ? `完成 ${c.completed}/${selected.total} · 未完成 ${c.failed} · 执行中 ${c.running} · 排队 ${c.queued}` : `已载入 ${selected.tasks.length}/${selected.total} 个样本`;
+    summary.textContent = `${modelPolicyLabel(selected.model_policy)} · ${progress}` +
+      (selected.materials ? ` · 固定客户素材 ${selected.materials.length} 个` : '');
+    summary.title = (selected.dataset_sha256 ? `输入指纹 ${selected.dataset_sha256}\n` : '') +
+      new Date(selected.created_at).toLocaleString("zh-CN");
   }
   let count = 0;
   const html = groups.filter(g => !state.batch || state.batch === g.id).map((g, position) => {
@@ -139,7 +153,7 @@ function taskList() {
     count += tasks.length;
     const open = term || state.batch || (state.expandedBatches.has(g.id) ? state.expandedBatches.get(g.id) :
       position === 0 || tasks.some(t => t.id && t.id === state.id));
-    const progress = g.counts ? `完成 ${g.counts.completed}/${g.total} · 未完成 ${g.counts.failed}` : `${tasks.length} 个任务`;
+    const progress = g.counts ? `完成 ${g.counts.completed}/${g.total} · 未完成 ${g.counts.failed}` : `已载入 ${g.tasks.length}/${g.total} 个样本`;
     const cards = tasks.map(t => `<button class="task ${t.id && t.id === state.id ? 'active' : ''}" ${t.id ? `data-task="${escapeHTML(t.id)}"` : 'disabled'} ${t.error ? `title="${escapeHTML(t.error)}"` : ''}>
       ${t.thumbnail ? `<img src="${escapeHTML(t.thumbnail)}" alt="" loading="lazy">` : '<span class="task-placeholder">▧</span>'}
       <span><strong>${t.index ? String(t.index).padStart(2,'0')+' · ' : ''}${escapeHTML(t.name)}</strong>
@@ -345,6 +359,25 @@ function openImage(url, title = "原图") {
 function thumb(url, label) {
   return `<figure class="thumb">${url ? `<img src="${url}" data-enlarge="${url}" data-title="${escapeHTML(label)}" alt="${escapeHTML(label)}" loading="lazy">` : '<div class="placeholder">尚无可用结果</div>'}<figcaption>${escapeHTML(label)}</figcaption></figure>`;
 }
+function renderProducts(stage) {
+  setHTML($('#stageProducts'), stage.artifacts.map(a => a.url
+    ? `<button class="product-link" ${a.kind === 'json' ? `data-document="${escapeHTML(a.url)}"` : `data-enlarge="${escapeHTML(a.url)}"`} data-title="${escapeHTML(a.name)}"><span>${a.kind === 'json' ? '{ }' : '▧'}</span> ${escapeHTML(a.name)} ↗</button>`
+    : `<span class="product-link missing">${escapeHTML(a.name)} · 未生成</span>`).join(''));
+}
+async function openDocument(url, name) {
+  const dialog = $('#documentDialog');
+  $('#documentTitle').textContent = name;
+  $('#documentContent').textContent = '正在读取…';
+  $('#documentDownload').href = url+'?download=1';
+  dialog.dataset.url = url;
+  dialog.showModal();
+  try {
+    const value = await api(url);
+    if (dialog.dataset.url === url) $('#documentContent').textContent = JSON.stringify(value, null, 2);
+  } catch (error) {
+    if (dialog.dataset.url === url) $('#documentContent').textContent = error.message;
+  }
+}
 function transform() {
   document
     .querySelectorAll(".image-world")
@@ -441,16 +474,30 @@ function renderCanvas() {
     right = $("#boxes").checked ? d.boxes : d.reference;
     rl = $("#boxes").checked ? "分析叠框" : "参考原图";
   }
-  if (state.mode === "before" && step > 2) {
+  if (step === 3) {
+    right = d.windows;
+    rl = 'photo-windows.png · 窗口蒙版';
+  }
+  if (step === 5 && !state.version && state.stage === 5) {
+    right = d.first_image || v?.image;
+    rl = '首版成图';
+  }
+  if (state.mode === "before" && step === 5) {
     left = before?.image || null;
     ll = "修改前";
     rl = "修改后";
   }
   $("#boxesControl").hidden = step !== 2;
+  $('#modes').hidden = step === 1 || step === 4;
+  document.querySelectorAll('[data-mode]').forEach(b => b.classList.toggle('active', b.dataset.mode === state.mode));
+  $('[data-mode="before"]').hidden = step !== 5;
+  $('.zoom-tools').hidden = step === 1 || step === 4;
   $("#canvasTitle").textContent =
-    step === 1 ? "参考与客户素材" : step === 2 ? "布局分析" : "成图对照";
+    ['参考与客户素材', '分析素材', '判断窗口蒙版', '照片绑定', '首版成图'][step-1];
   $("#versionBadge").textContent =
-    v && step > 2 ? `${v.label} · ${shortTime(v.at)}` : "";
+    v && step === 5 ? `${v.label} · ${shortTime(v.at)}` : "";
+  $('#canvasHint').textContent = step === 1 || step === 4 ? '点击缩略图查看原图' :
+    step === 3 ? '预览展示窗口位置与透明变化；主体轮廓在绑定客户照片后生成。' : '滚轮缩放 · 拖动画面同步移动 · 点击素材定位';
   $("#dimensions").textContent = d.reference_size
     ? d.reference_size.join(" × ") + " px 参考"
     : "";
@@ -462,6 +509,7 @@ function renderCanvas() {
     right,
     $("#boxes").checked,
     step === 1 ? d.catalog : null,
+    step === 4 ? d.materials : null,
   ]);
   if (key === state.canvasKey) {
     highlight();
@@ -474,46 +522,53 @@ function renderCanvas() {
     c.innerHTML = `<div class="catalog-grid"><p class="subtle">参考图与 ${d.catalog.length} 张客户照片</p>${thumb(d.reference, "原始参考")}${d.catalog.map((a, i) => thumb(a.image, `客户照片 ${i + 1}`)).join("")}</div>`;
     return;
   }
+  if (step === 4) {
+    const photos = d.materials.filter(m => m.kind === 'photo');
+    c.innerHTML = `<div class="binding-grid">${photos.length ? photos.map(m =>
+      `<article><h3>${escapeHTML(m.id)} → ${escapeHTML(m.binding?.asset_id || '尚未绑定')}</h3><div class="material-pair">${thumb(m.images.reference, '参考位置')}${thumb(m.images.customer, '绑定的客户素材')}</div></article>`
+    ).join('') : '<p class="subtle">当前没有需要绑定的照片对象。</p>'}</div>`;
+    return;
+  }
   const aspect = (d.reference_size || [3, 4]).join("/");
   if (state.mode === "wipe" && left && right) {
     c.classList.add("wipe");
-    c.innerHTML = `<div class="pane-label"><span>${ll} / ${rl}</span><span>拖动滑块对照</span></div><div class="wipe-container viewport"><div class="image-world" data-role="${step === 2 ? "reference" : "wipe"}" style="aspect-ratio:${aspect}"><img src="${left}" alt="${ll}"><div class="wipe-top"><img src="${right}" alt="${rl}"></div><div class="wipe-line"></div></div></div><input class="wipe-slider" type="range" min="0" max="100" value="50" aria-label="对比位置">`;
+    c.innerHTML = `<div class="pane-label"><span>${ll} / ${rl}</span><span>拖动滑块对照</span></div><div class="wipe-container viewport"><div class="image-world" data-role="${step <= 3 ? "reference" : "wipe"}" style="aspect-ratio:${aspect}"><img src="${left}" alt="${ll}"><div class="wipe-top"><img src="${right}" alt="${rl}"></div><div class="wipe-line"></div></div></div><input class="wipe-slider" type="range" min="0" max="100" value="50" aria-label="对比位置">`;
   } else {
     c.innerHTML =
       pane(
         left,
         ll,
         aspect,
-        state.mode === "before" && step > 2 ? "before" : "reference",
-      ) + pane(right, rl, aspect, step === 2 ? "reference" : "after");
+        state.mode === "before" && step === 5 ? "before" : "reference",
+      ) + pane(right, rl, aspect, step <= 3 ? "reference" : "after");
   }
-  if (state.mode === "before" && !before)
+  if (step === 5 && state.mode === "before" && !before)
     $("#canvasHint").textContent =
       "此版本没有已留存的上一版，不能还原修改前图片";
-  else
-    $("#canvasHint").textContent = "滚轮缩放 · 拖动画面同步移动 · 点击素材定位";
   transform();
   highlight();
 }
-function materialCard(m) {
+function materialCard(m, extraction = false) {
   if (m.method === "程序相框" && m.decision?.status) {
     m = { ...m, decision: { ...m.decision, status: "原提取未采用，已用程序相框补位" } };
   }
-  return `<div class="material-title"><button data-focus="${escapeHTML(m.id)}">${escapeHTML(m.label)}</button>${badge(m.status)}</div><div class="material-pair">${thumb(m.images.reference, "参考局部")}${thumb(m.images.final, m.method === "客户照片" ? "照片处理结果" : "采用素材")}</div><details><summary>${escapeHTML(m.method)}${m.cache_hit ? " · 缓存复用" : ""} · 查看过程</summary>${m.images.customer ? thumb(m.images.customer, "客户原照片缩略图") : ""}${m.images.raw ? thumb(m.images.raw, "原始返回") : ""}${m.images.processed ? thumb(m.images.processed, "透明处理结果") : ""}<p>${escapeHTML(m.note || "可对照参考图检查处理结果。")}</p>${m.decision?.status ? `<p>素材检查：${escapeHTML({ accepted: "采用", rejected: "隔离", pending: "待筛选" }[m.decision.status] || m.decision.status)}</p>` : ""}</details>`;
+  return `<div class="material-title"><button data-focus="${escapeHTML(m.id)}">${escapeHTML(m.label)}</button>${badge(m.status)}</div><div class="material-pair">${thumb(m.images.reference, "参考局部")}${thumb(extraction ? m.images.processed || m.images.raw || m.images.final : m.images.final, extraction ? '360 提取结果' : m.method === "客户照片" ? "照片处理结果" : "采用素材")}</div><details><summary>${escapeHTML(m.method)}${m.cache_hit ? " · 缓存复用" : ""} · 查看过程</summary>${m.images.customer ? thumb(m.images.customer, "客户原照片缩略图") : ""}${m.images.raw ? thumb(m.images.raw, "原始返回") : ""}${m.images.processed ? thumb(m.images.processed, "透明处理结果") : ""}<p>${escapeHTML(m.note || "可对照参考图检查处理结果。")}</p></details>`;
 }
 function renderMaterials() {
   const d = state.data,
     v = selectedVersion();
-  const historical = state.version !== null || state.stage !== null;
-  const cards =
-    historical && v && state.stage !== 1 && state.stage !== 2
+  const step = state.stage || d.current_stage;
+  const historical = step === 5 && (state.version !== null || state.stage !== null);
+  const available =
+    historical && v
       ? v.materials
       : d.materials;
+  const cards = step === 4 ? available.filter(m => m.method === '参考提取') : available;
   const completed = cards.filter((m) => m.status === "complete").length,
     unresolved = cards.filter((m) => m.status === "unresolved").length,
     failed = cards.filter((m) => m.status === "failed").length;
   $("#materialHeading").textContent =
-    historical && v ? "该版本的素材" : "素材制作过程";
+    step === 4 ? '360 提取结果' : historical && v ? "该版本的素材" : "素材制作过程";
   $("#materialCount").textContent = `${cards.length} 件`;
   setHTML(
     $("#materialProgress"),
@@ -525,6 +580,7 @@ function renderMaterials() {
       ? `<div class="groups">提取请求 ${d.groups.length} 组 · 已返回 ${d.groups.filter((g) => g.status === "complete").length} 组 · 等待 ${d.groups.filter((g) => g.status === "waiting").length} 组${d.groups.filter((g) => g.status === "failed").map((g) => `<p>提取或下载异常：${escapeHTML(g.error || "未获得完整结果")} · 已恢复 ${g.available_ids?.length || 0} 件，缺失 ${g.missing_ids?.length || 0} 件</p>`).join("")}</div>`
       : "",
   );
+  if (step === 4 && !cards.length) setHTML($('#groups'), '<p class="subtle">当前没有需要单独提取的固定装饰。</p>');
   const grid = $("#materials"),
     seen = new Set();
   for (const m of cards) {
@@ -536,10 +592,10 @@ function renderMaterials() {
       el.dataset.id = m.id;
       grid.append(el);
     }
-    const sig = JSON.stringify(m);
+    const sig = JSON.stringify([m, step]);
     if (el._sig !== sig) {
       const opened = el.querySelector("details")?.open;
-      el.innerHTML = materialCard(m);
+      el.innerHTML = materialCard(m, step === 4);
       el.querySelector("details").open = !!opened;
       el._sig = sig;
     }
@@ -558,6 +614,10 @@ function render() {
   const step = state.stage || d.current_stage,
     s = d.stages[step - 1],
     v = selectedVersion();
+  $('#workspace').dataset.stage = step;
+  $('#openEditor').disabled = !d.current_image;
+  $('#openEditor').title = d.current_image ? '编辑当前成图' : '生成首版后可编辑';
+  renderProducts(s);
   $("#title").textContent = d.name;
   $("#taskKind").textContent = d.historical ? "历史导入" : "实时任务";
   $("#subtitle").textContent =
@@ -574,13 +634,13 @@ function render() {
       : "";
   $("#historyBanner").hidden = state.stage === null && state.version === null;
   $("#viewing").textContent =
-    `正在回看：${s.label}${state.version && v ? " / " + v.label : ""} · 后台执行继续`;
+    `正在查看：${s.label}${state.version && v ? " / " + v.label : ""}`;
   setHTML(
     $("#stages"),
     d.stages
       .map(
         (x) =>
-          `<button class="stage ${x.status} ${x.id === step ? "selected" : ""}" data-stage="${x.id}"><span class="number">${x.status === "complete" ? "✓" : String(x.id).padStart(2, "0")}</span><span><strong>${x.label}</strong><small>${statusText[x.status] || x.status}</small></span></button>`,
+          `<button class="stage ${x.status} ${x.id === step ? "selected" : ""}" data-stage="${x.id}" aria-current="${x.id === step ? 'step' : 'false'}"><span class="number">${x.status === "complete" ? "✓" : String(x.id).padStart(2, "0")}</span><span><strong>${x.label}</strong><small>${escapeHTML(x.description)}</small><small>${statusText[x.status] || x.status}</small></span></button>`,
       )
       .join(""),
   );
@@ -592,18 +652,13 @@ function render() {
     $("#stepFacts"),
     `<div class="fact"><span>最近记录</span><span>${shortTime(s.at) || "—"}</span></div>${s.status === "running" && s.started_at ? `<div class="fact"><span>距开始记录</span><span>${duration(s.started_at)}</span></div>` : ""}`,
   );
-  const review = v?.review || (!v ? d.review : null);
-  setHTML(
-    $("#quality"),
-    `<div class="quality ${review?.verdict === "pass" ? "" : "warn"}">${review?.checked_entire_composition === false ? "当前查看版本已生成，未做整图视觉复核" : review?.verdict === "pass" ? "✓ 当前查看版本已通过复核" : review ? "当前查看版本仍有待改问题" : "当前查看版本尚未登记复核"}</div>`,
-  );
   setHTML(
     $("#versions"),
     d.versions.length
       ? d.versions
           .map(
             (x, i) =>
-              `<button class="version ${v?.id === x.id ? "active" : ""}" data-version="${x.id}"><img src="${x.image}" alt="${x.label}"><strong>${String(i + 1).padStart(2, "0")} ${x.label}</strong><small>${shortTime(x.at)} · ${x.review?.checked_entire_composition === false ? "未做整图复核" : x.review?.verdict === "pass" ? "复核通过" : x.review ? "仍有问题" : "未做整图复核"}</small></button>`,
+              `<button class="version ${v?.id === x.id ? "active" : ""}" data-version="${x.id}"><img src="${x.image}" alt="${x.label}"><strong>${String(i + 1).padStart(2, "0")} ${x.label}</strong><small>${shortTime(x.at)}</small></button>`,
           )
           .join("")
       : '<p class="subtle">尚无完整版本快照。已有历史成图可在上方查看。</p>',
@@ -651,12 +706,6 @@ function render() {
           "</p>",
   );
   setHTML(
-    $("#review"),
-    review
-      ? `<p class="review-summary">${escapeHTML(review.summary)}</p>${(review.items || []).map((i) => `<div class="issue">${escapeHTML(i.reason)}${i.id ? ` <button class="text-button" data-focus="${escapeHTML(i.id)}">定位 ↗</button>` : ""}</div>`).join("")}`
-      : '<p class="review-summary">尚无整图视觉复核记录。</p>',
-  );
-  setHTML(
     $("#timeline"),
     [...d.history]
       .reverse()
@@ -665,7 +714,7 @@ function render() {
         (h) =>
           `<li><time>${shortTime(h.at)}</time>${escapeHTML(h.summary)}</li>`,
       )
-      .join(""),
+      .join("") || '<li class="subtle">未留存阶段执行记录，可查看已保存产物。</li>',
   );
   $("#updated").textContent =
     "最近同步 " + new Date().toLocaleTimeString("zh-CN");
@@ -765,11 +814,12 @@ document.addEventListener("click", (e) => {
   }
   const task = e.target.closest("[data-task]");
   if (task) return selectTask(task.dataset.task);
-  const step = e.target.closest("[data-stage]");
+  const step = e.target.closest("button[data-stage]");
   if (step) {
     state.stage = Number(step.dataset.stage);
     state.version = null;
     state.focus = null;
+    if (state.mode === 'before') state.mode = 'side';
     return render();
   }
   const version = e.target.closest("[data-version]");
@@ -791,7 +841,10 @@ document.addEventListener("click", (e) => {
   if (focus) return focusObject(focus.dataset.focus);
   const enlarge = e.target.closest("[data-enlarge]");
   if (enlarge) return openImage(enlarge.dataset.enlarge, enlarge.dataset.title);
+  const doc = e.target.closest('[data-document]');
+  if (doc) return openDocument(doc.dataset.document, doc.dataset.title);
 });
+$('#closeDocument').onclick = () => $('#documentDialog').close();
 $("#openTechnical").onclick = () => showPage("technical");
 function selectRevealTopic(topic) {
   document.querySelectorAll("[data-reveal-topic]").forEach(button => {
@@ -901,12 +954,11 @@ $("#resetZoom").onclick = () => {
   transform();
   highlight();
 };
-$("#original").onclick = () =>
-  openImage(
-    (state.stage === 2 ? state.data.boxes : selectedVersion()?.image) ||
-      state.data?.current_image ||
-      state.data?.reference,
-  );
+$("#original").onclick = () => {
+  const d = state.data, step = state.stage || d.current_stage;
+  const url = step === 2 ? ($('#boxes').checked ? d.boxes : d.reference) : step === 3 ? d.windows : step === 5 ? selectedVersion()?.image || d.first_image || d.current_image : d.reference;
+  if (url) openImage(url, d.stages[step-1].label);
+};
 $("#closeImage").onclick = () => $("#imageDialog").close();
 $("#canvas").addEventListener("input", (e) => {
   if (e.target.matches(".wipe-slider")) {

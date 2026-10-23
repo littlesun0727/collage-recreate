@@ -13,7 +13,7 @@ WEB = Path(__file__).resolve().parents[1]/'web'
 
 
 def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=False, enable_motion=False, media_root=None, cutout_model=None, enable_create=False, creator=None):
-    from collage_v6.paths import RUNTIME_ROOT
+    from collage.paths import RUNTIME_ROOT
     service_root = Path(media_root) if media_root else RUNTIME_ROOT/'service'
     store = Store(roots, listing_filter=service_root/'visible-tasks.json')
     from .chat import ChatQueue, Conflict
@@ -23,7 +23,7 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
     from .motion import Motion
     from .creation import Creation
     from .models import ModelSettings
-    from collage_v6.providers import capabilities, ENDPOINTS
+    from collage.vlm.providers import capabilities, ENDPOINTS
     models = ModelSettings(service_root)
     creator=(creator or Creation()) if enable_create else None
     if creator:creator.settings=models
@@ -105,7 +105,7 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                     data=capabilities(provider,query.get('model',[''])[0])
                 elif path == '/api/chat-config':
                     data={'enabled':bool(queue),'editor_enabled':bool(editor),'motion_enabled':bool(motion),
-                          'create_enabled':bool(creator),'batch_enabled':bool(batches),'controller':'workflow-v6','token':token if queue or editor or motion else None}
+                          'create_enabled':bool(creator),'batch_enabled':bool(batches),'controller':'workflow-v9','token':token if queue or editor or motion else None}
                 elif path == '/api/batches':
                     data=batches.listing() if batches else []
                 elif batches and len(parts)==3 and parts[:2]==['api','batches']:
@@ -127,6 +127,10 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                     data = store.listing()
                 elif len(parts) == 3 and parts[:2] == ['api', 'tasks']:
                     data = store.document(parts[2])
+                elif len(parts) == 5 and parts[:2] == ['api', 'tasks'] and parts[3] == 'documents':
+                    body = store.product_document(parts[2], parts[4])
+                    extra = {'Content-Disposition': f'attachment; filename="{parts[4]}"'} if 'download=1' in self.path else {}
+                    return self.send(body, 'application/json; charset=utf-8', extra=extra)
                 elif len(parts)==4 and parts[:2]==['api','tasks'] and parts[3]=='chat':
                     if parts[2] not in store.tasks():raise KeyError('Task')
                     data=queue.public(parts[2]) if queue else {'enabled':False,'requests':[]}

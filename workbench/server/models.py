@@ -7,10 +7,10 @@ import time
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, build_opener, ProxyHandler
 
-from collage_v6.client import NoRedirect
-from collage_v6.config import Config
-from collage_v6.providers import ENDPOINTS, capabilities
-from collage_v6.storage import read, save
+from collage.vlm.client import NoRedirect
+from collage.config import Config
+from collage.vlm.providers import ENDPOINTS, capabilities
+from collage.storage import read, save
 
 
 class ModelSettings:
@@ -34,12 +34,13 @@ class ModelSettings:
         credentials = {}
         for provider in ENDPOINTS:
             try:
-                replace(Config.load(), provider=provider).api_key()
+                replace(Config.load(), provider=provider).check_ready()
                 credentials[provider] = True
             except ValueError:
                 credentials[provider] = False
         return {'policy': self.config().model_policy(), 'credentials': credentials,
-                'providers': [{'id': 'openrouter', 'name': 'OpenRouter'}, {'id': 'yibu', 'name': 'yibuapi'}]}
+                'providers': [{'id': 'openrouter', 'name': 'OpenRouter'}, {'id': 'yibu', 'name': 'yibuapi'},
+                              {'id': 'codex', 'name': 'Codex SDK'}]}
 
     def update(self, policy):
         config = Config.load().with_policy(policy)
@@ -51,6 +52,11 @@ class ModelSettings:
     def catalog(self, provider):
         if provider not in ENDPOINTS:
             raise ValueError('未知供应商')
+        if provider == 'codex':
+            return {'provider': provider, 'models': [
+                {'id': model, 'vision': True, 'capabilities': capabilities(provider, model)}
+                for model in ('gpt-6.1-sol', 'gpt-6-luna')],
+                'note': '内置推荐模型；账号是否有权限以实际调用为准，可手动输入其他 Codex GPT 模型 ID。'}
         with self.lock:
             cached = self.cache.get(provider)
             if cached and time.monotonic()-cached[0] < 300:

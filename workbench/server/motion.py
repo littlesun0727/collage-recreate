@@ -1,4 +1,4 @@
-"""Persisted jobs with independent serial import, creation and render workers."""
+"""Persisted jobs: serial import/render and two concurrent creation batches."""
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import hashlib
@@ -14,7 +14,8 @@ import uuid
 from urllib.parse import unquote
 from .store import clean
 from .chat import now, Conflict, process_alive
-from collage_v6.paths import relocated_path, relocated_values
+from .batch_executor import BatchExecutor
+from collage.paths import relocated_path, relocated_values
 
 REPO = Path(__file__).resolve().parents[2]
 IDENTIFIER = re.compile(r'(?:motion|import|batch|create)-[a-zA-Z0-9_-]{8,72}')
@@ -51,6 +52,25 @@ def save(path,value):
         temporary.unlink(missing_ok=True)
 
 
+def reserve_task_paths(root, count=1):
+    """Reserve readable names before queuing; prepare still needs an absent directory."""
+    from collage.storage import exclusive
+
+    root = Path(root)
+    with exclusive(root/'.task-names.lock'):
+        counter = root/'.task-names.json'
+        counts = json.loads(counter.read_text(encoding='utf8')) if counter.exists() else {}
+        day = datetime.now().astimezone().strftime('%Y%m%d')
+        prefix = 'task-'+day+'-'
+        occupied = [int(p.name[len(prefix):]) for p in root.glob(prefix+'*')
+                    if p.name[len(prefix):].isdigit()]
+        last = max([counts.get(day, 0), *occupied])
+        paths = [root/(prefix+f'{n:03d}') for n in range(last+1, last+count+1)]
+        counts[day] = last+count
+        save(counter, counts)
+        return paths
+
+
 class Motion:
     def __init__(self, store, media_root, cutout_model=None, creator=None):
         self.store = store
@@ -73,7 +93,7 @@ class Motion:
             self.queue_lock.close(); raise
         self.cutout_model = cutout_model
         self.guard = threading.RLock()
-        self.executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='live-create')
+        self.executor = BatchExecutor(max_workers=2)
         self.render_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='live-motion')
         self.import_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='live-import')
         self.active = set()
@@ -93,7 +113,7 @@ class Motion:
                         save(path,job)
                         continue
                 self.active.add(job['id'])
-                self.worker(job).submit(self.work, path, job)
+                self.schedule(path, job)
         # Recover an import saved just before its automatic creation was enqueued.
         if self.creator:
             for path in sorted((self.root/'jobs').glob('import-*.json')):
@@ -113,6 +133,12 @@ class Motion:
         if job['kind']=='render':
             return self.render_executor
         return self.executor
+
+    def schedule(self, path, job):
+        if job['kind'] == 'create':
+            group = job.get('batch_run_id') or read(Path(job['run'])/'batch-run.json').get('id') or 'single-tasks'
+            return self.executor.submit(group, self.work, path, job)
+        return self.worker(job).submit(self.work, path, job)
 
     @staticmethod
     def queue_key(job):
@@ -212,8 +238,11 @@ class Motion:
                 return self.job(batch['job_id'])
             if batch.get('multiple_references'):
                 raise ValueError('多参考图上传请通过批跑入口提交')
-            if set(payload)-{'width','instructions','model_policy'}:
+            if set(payload)-{'width','instructions','model_policy','bbox_refinement','screen'}:
                 raise ValueError('未知导入参数')
+            from collage.workflow.options import normalize_options
+            options = normalize_options({'bbox_refinement': payload.get('bbox_refinement', False),
+                                         'screen': payload.get('screen', False)})
             width = payload.get('width', 1200)
             instructions = payload.get('instructions', '')
             if type(width) is not int or not 128<=width<=4096 or not isinstance(instructions,str) or len(instructions)>4000:
@@ -232,9 +261,9 @@ class Motion:
             if not roots:
                 raise ValueError('工作台需要一个任务父目录才能创建任务')
             job = {'id': 'import-'+uuid.uuid4().hex, 'kind': 'import', 'batch_id': identifier,
-                   'run': str(roots[0]/('Live-'+uuid.uuid4().hex[:12])), 'payload': payload,
+                   'run': str(reserve_task_paths(roots[0])[0]), 'payload': payload,
                    'width': width, 'instructions': instructions, 'status': 'queued', 'created_at': now(),
-                   'auto_create': bool(self.creator)}
+                   'auto_create': bool(self.creator), 'workflow_options': options}
             if policy:job['model_policy'] = policy
             batch.update(sealed=True, job_id=job['id']); save(path, batch)
             return self.enqueue(job)
@@ -273,7 +302,7 @@ class Motion:
             job.pop(key,None)
         save(path, job)
         if job['id'] not in self.active:
-            self.active.add(job['id']); self.worker(job).submit(self.work, path, job)
+            self.active.add(job['id']); self.schedule(path, job)
         return {'id': job['id'], 'status': 'queued'}
 
     def work(self, path, job):
@@ -337,6 +366,8 @@ class Motion:
                         video['name']=names.get(video['file'],video['name'])
                     save(manifest_path,manifest)
                 job['task_id'] = next(key for key, value in self.store.tasks().items() if value==run)
+                from collage.workflow.options import normalize_options
+                save(run/'workflow-options.json', normalize_options(job.get('workflow_options')))
                 if job.get('batch_run'):save(run/'batch-run.json', job['batch_run'])
                 job['handoff'] = '素材准备完成。可继续固定制作流程，完成布局分析与静态封面制作；封面完成后可制作动态成片。'
                 if job.get('auto_create') and self.creator:
@@ -359,7 +390,7 @@ class Motion:
             raise KeyError('Job')
         if task is not None and row.get('task')!=task:
             raise KeyError('Job')
-        value = {key: row[key] for key in ('id','kind','status','created_at','queued_at','started_at','finished_at','elapsed_seconds','error','task_id','handoff','auto_create','visual_verdict','review_status','delivery_category','attempts') if key in row}
+        value = {key: row[key] for key in ('id','kind','status','created_at','queued_at','started_at','finished_at','elapsed_seconds','error','task_id','handoff','auto_create','visual_verdict','review_status','delivery_category','attempts','workflow_options') if key in row}
         if row['status']=='queued':
             ahead=[j for p in (self.root/'jobs').glob('*.json') if (j:=read(p)).get('kind') in {'import','create','render'} and
                 j.get('status') in {'queued','running'} and j.get('id')!=row['id'] and
@@ -370,11 +401,11 @@ class Motion:
             blocker=next((j for j in ahead if j['status']=='running'),None)
             if blocker:value['blocked_by']={'id':blocker['id'],'kind':blocker['kind'],'task_name':Path(blocker['run']).name}
         if row['kind']=='create':
-            from collage_v6.config import Config
+            from collage.config import Config
             config = Config.load()
             stored = read(self.root/'creation'/value['id']/'state.json')
             policy = stored.get('model_policy') or row.get('model_policy') or config.model_policy()
-            value.update(model=policy['subsequent']['model'],model_policy=policy,controller='workflow-v6')
+            value.update(model=policy['subsequent']['model'],model_policy=policy,controller='workflow-v9')
             value.setdefault('queue_position',0)
         if row['kind']=='render':
             progress=read(Path(row['run'])/'chat/motion/versions'/identifier/'progress.json')
@@ -389,7 +420,7 @@ class Motion:
                 value['progress']['current']=next((f['name'] for f in batch['files'] if Path(f['file']).name==current),current)
         if row['kind']=='import' and row.get('status')=='completed' and not row.get('auto_create'):
             # Intentional operator handoff, not an arbitrary filesystem argument accepted by an API.
-            value['codex_handoff'] = f'python -m collage_v6 run --run "{row["run"]}"'
+            value['codex_handoff'] = f'python -m collage run --run "{row["run"]}"'
         if value.get('error'):value['error']=clean(value['error'])
         return value
 

@@ -25,7 +25,8 @@ def prepare(reference, materials, run, width=1200, instructions='', cutout_model
                 digest=sha(path)
                 if digest in seen: continue
                 with Image.open(path) as raw: im=ImageOps.exif_transpose(raw).convert('RGB')
-                aid='asset_'+digest[:16];thumb=im.copy();thumb.thumbnail((260,220))
+                # Compact task-local IDs; full hashes still handle deduplication and integrity.
+                aid=f'material_{len(assets):02d}';thumb=im.copy();thumb.thumbnail((260,220))
                 thumb.save(prepared/(aid+'.jpg'))
                 assets.append({'id':aid,'file':str(path),'sha256':digest,'size':list(im.size),'thumbnail':str(prepared/(aid+'.jpg'))})
                 seen.add(digest)
@@ -55,7 +56,15 @@ def boxes(run, analysis):
     colors={'background':'#964b00','photo':'#00bb00','frame':'#aa33cc','text':'#ff2222','overlay':'#0077ff'}
     for o in analysis['objects']:
         box=o['bbox'];color=colors[o['kind']]
-        d.rectangle(box,outline=color,width=max(2,im.width//500))
+        if o.get('rotation',0):
+            import math
+            l,t,r,b=box;cx,cy=(l+r)/2,(t+b)/2
+            angle=math.radians(o['rotation']);c,s=math.cos(angle),math.sin(angle)
+            points=[(cx+(x-cx)*c-(y-cy)*s,cy+(x-cx)*s+(y-cy)*c)
+                    for x,y in [(l,t),(r,t),(r,b),(l,b)]]
+            d.line(points+[points[0]],fill=color,width=max(2,im.width//500))
+        else:
+            d.rectangle(box,outline=color,width=max(2,im.width//500))
         d.text((box[0]+2,box[1]+2),o['id'],fill=color,font=font,stroke_width=1,stroke_fill='white')
     path=run/'previews/analysis-boxes.png';path.parent.mkdir(exist_ok=True);im.save(path)
     return str(path)

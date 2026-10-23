@@ -109,6 +109,7 @@ $('#motionPanel').onclick=e=>{
   if(selected)showMotionVideo(live.data.versions.find(v=>v.id===selected.dataset.motionVersion));
 };
 $('#openUpload').onclick=()=>{
+  if(!live.upload)$('#uploadBboxRefinement').checked=false;
   $('#uploadDialog').showModal();
   if(typeof loadModelSettings==='function')loadModelSettings().catch(e=>{$('#uploadStatus').textContent=e.message;});
 };
@@ -164,6 +165,7 @@ $('#uploadForm').onsubmit=async e=>{
   $('#uploadSubmit').disabled=true;$('#uploadHandoff').hidden=true;$('#uploadProgress').hidden=false;
   try{
     const modelPolicy=await window.snapshotModelPolicy();
+    const bboxRefinement=$('#uploadBboxRefinement').checked;
     const files=[{file:$('#uploadReference').files[0],role:'reference'},...Array.from($('#uploadMaterials').files).map(file=>({file,role:'material'}))];
     if(files.some(v=>!v.file||v.file.size>128*1024*1024)||files.length>100)throw Error('请检查素材数量和单个文件大小');
     const batch=await livePost('/api/uploads',{});
@@ -171,7 +173,7 @@ $('#uploadForm').onsubmit=async e=>{
       $('#uploadStatus').textContent=`上传 ${index+1} / ${files.length}：${files[index].file.name}`;
       await uploadFile(batch.id,files[index].file,files[index].role,index,files.length);
     }
-    const job=await livePost(`/api/uploads/${batch.id}/prepare`,{width:1200,instructions:$('#uploadInstructions').value,model_policy:modelPolicy});
+    const job=await livePost(`/api/uploads/${batch.id}/prepare`,{width:1200,instructions:$('#uploadInstructions').value,model_policy:modelPolicy,bbox_refinement:bboxRefinement});
     localStorage.setItem('collage-live-import',job.id);await pollImport(job.id);
   }catch(error){$('#uploadStatus').textContent=error.message;}
   finally{live.upload=false;$('#uploadSubmit').disabled=false;}

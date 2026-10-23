@@ -42,13 +42,13 @@
         </header>
 
         <article id="techOverview" role="tabpanel" aria-labelledby="techTabOverview" class="tech-slide">
-          <div class="tech-title"><span class="eyebrow">COLLAGE RECREATE V5 / ARCHITECTURE</span><h1>从一张参考图，<br>到可编辑的动态拼贴。</h1><p>多模态模型理解设计，专用模型制作素材，本地渲染器重建画面。</p><span class="tech-page-number" aria-hidden="true">01 / 02</span></div>
+          <div class="tech-title"><span class="eyebrow">COLLAGE / WORKFLOW</span><h1>从一张参考图，<br>到可编辑的动态拼贴。</h1><p>多模态模型理解设计，专用模型制作素材，本地渲染器重建画面。</p><span class="tech-page-number" aria-hidden="true">01 / 02</span></div>
           <section class="tech-flow" aria-label="静态封面制作流程">
             <div><span class="tech-step">01 · INPUT</span><h2>准备素材</h2><p>参考图 + 客户照片 / 视频<br>Live 首个有效帧 → 素材联系表</p></div>
-            <div><span class="tech-step">02 · UNDERSTAND</span><h2>分析与绑定</h2><p>对象、位置、层级、素材选择<br>JSON 校验 + 叠框看图纠偏</p></div>
-            <div><span class="tech-step">03 · BUILD</span><h2>分路制作素材</h2><p>照片裁剪 / 人物抠图<br>复杂装饰提取 / 简单元素绘制</p></div>
-            <div><span class="tech-step">04 · COMPOSE</span><h2>本地图层合成</h2><p>按 layer_order 从底到顶<br>保留窗口、旋转、描边与遮挡</p></div>
-            <div><span class="tech-step">05 · DELIVER</span><h2>素材筛选与首版交付</h2><p>按需筛选提取素材，程序检查后交付<br>首版未做整图视觉复核</p></div>
+            <div><span class="tech-step">02 · ANALYZE</span><h2>分析素材</h2><p>识别对象、范围、归属和层级<br>structure.json · analysis-boxes.png</p></div>
+            <div><span class="tech-step">03 · WINDOWS</span><h2>判断窗口蒙版</h2><p>照片窗口、透明变化与描边参数<br>photo-windows.png</p></div>
+            <div><span class="tech-step">04 · MATERIALS</span><h2>素材绑定与提取</h2><p>选择客户照片，提取固定装饰<br>bindings.json · 360 提取结果</p></div>
+            <div><span class="tech-step">05 · COMPOSE</span><h2>首版成图</h2><p>处理客户照片并按层级合成<br>首版预览与参考图对照</p></div>
           </section>
           <div class="tech-section-label"><h2>模型与工具，各自负责什么</h2><span>单 Agent 主控 · 按元素类型调用</span></div>
           <section class="tech-models" aria-label="模型与工具分工">
@@ -217,7 +217,11 @@
             >
           </div>
         </header>
-        <nav id="stages" class="stages" aria-label="六步进度"></nav>
+        <dialog id="documentDialog" class="document-dialog">
+          <div class="panel-head"><h2 id="documentTitle"></h2><div><a id="documentDownload" class="button" download>下载 JSON</a> <button id="closeDocument" class="button" autofocus>关闭</button></div></div>
+          <pre><code id="documentContent"></code></pre>
+        </dialog>
+        <nav id="stages" class="stages" aria-label="首版制作五步进度"></nav>
         <p id="sdkTiming" class="subtle" hidden></p>
         <section id="creationPanel" class="notice" hidden aria-live="polite">
           <strong id="creationStatus"></strong>
@@ -239,6 +243,7 @@
                 </div>
                 <span id="versionBadge" class="subtle"></span>
               </div>
+              <div id="stageProducts" class="stage-products" aria-label="本步骤产物"></div>
               <div class="canvas-toolbar">
                 <div class="segmented" id="modes">
                   <button data-mode="side" class="active">并排对照</button
@@ -316,7 +321,6 @@
               <h2 id="stepTitle"></h2>
               <span id="stepStatus" class="badge"></span>
               <p id="stepSummary"></p>
-              <div id="quality"></div>
               <div id="stepFacts"></div>
             </section>
             <section class="panel changes-panel">
@@ -325,10 +329,6 @@
                 <span id="changeCount" class="counter"></span>
               </div>
               <div id="changes"></div>
-            </section>
-            <section class="panel">
-              <h2>复核记录</h2>
-              <div id="review"></div>
             </section>
             <section class="panel timeline-panel">
               <h2>制作动态</h2>
@@ -477,6 +477,7 @@
       <p id="uploadAutoHint" hidden>上传后自动开始首版制作，完成后可查看、下载成图和继续修改。关闭页面不影响后台制作。</p>
       <form id="uploadForm">
         <div class="upload-model-summary"><span id="uploadModelSummary">正在读取模型设置…</span><button id="uploadModelSettings" type="button" class="text-button">更换模型</button></div>
+        <label class="workflow-option"><input id="uploadBboxRefinement" type="checkbox"> 开启第二步 bbox 校准（默认关闭）<small>关闭时直接使用首次分析的定位框；开启后增加一次模型校准。</small></label>
         <label>参考图<input id="uploadReference" type="file" accept="image/png,image/jpeg,image/webp,image/bmp" required></label>
         <label>客户素材<input id="uploadMaterials" type="file" accept="image/png,image/jpeg,image/webp,image/bmp,video/mp4,video/quicktime,.mov" multiple required></label>
         <label>制作要求<textarea id="uploadInstructions" maxlength="4000" rows="3" placeholder="可填写希望保留的文字和其他要求"></textarea></label>

@@ -9,7 +9,16 @@ from effects import clip_round, expanded_outline, photo_layout, photo_card
 from photo_windows import apply_window, subject_stroke
 
 
-def fit_image(im, size, center=(.5,.5), contain=False):
+def fit_image(im, size, center=(.5,.5), contain=False, margin=0):
+    if margin:
+        if contain:
+            tile = fit_image(im, size, center, contain=True)
+            return ImageOps.expand(tile, margin, fill=0)
+        ratio = max(size[0]/im.width, size[1]/im.height)
+        x = (im.width-size[0]/ratio)*center[0]-margin/ratio
+        y = (im.height-size[1]/ratio)*center[1]-margin/ratio
+        return im.transform((size[0]+2*margin, size[1]+2*margin), Image.Transform.AFFINE,
+                            (1/ratio, 0, x, 0, 1/ratio, y), Image.Resampling.BICUBIC)
     if contain:
         tile=ImageOps.contain(im,size,Image.Resampling.LANCZOS)
         result=Image.new('RGBA',size);result.alpha_composite(tile,((size[0]-tile.width)//2,(size[1]-tile.height)//2));return result
@@ -23,14 +32,14 @@ def feather_alpha(size, amount):
     return Image.fromarray(np.rint(v*255).astype('uint8'))
 
 
-def fit_subject_mask(alpha, binding, size):
+def fit_subject_mask(alpha, binding, size, margin=0):
     """Use the same source coordinates and cover transform as the retained RGB."""
     crop = binding.get('source_crop', [0,0,1,1]); w,h = alpha.size
     alpha = alpha.crop((int(crop[0]*w),int(crop[1]*h),
                         max(1,int(crop[2]*w)),max(1,int(crop[3]*h))))
     if binding.get('mirror_x'):
         alpha = ImageOps.mirror(alpha)
-    return fit_image(alpha, size, binding.get('crop_center',[.5,.5]))
+    return fit_image(alpha, size, binding.get('crop_center',[.5,.5]), margin=margin)
 
 
 @lru_cache(maxsize=2)
@@ -99,14 +108,27 @@ def make_photo(obj, source, binding, size, run, model):
     style=obj.get('style',{})
     left,top,right,bottom=(0,0,*size) if obj.get('photo_window_spec') else photo_layout(size,style)
     window=(right-left,bottom-top)
+    placement_size=window
+    # Linked subjects share the base photo's source transform. Their analysis
+    # bbox describes the reference silhouette, not a clip for a new customer's
+    # silhouette. Sample the visible canvas when no fixed window was requested.
+    canvas_aligned=bool(shared and obj['mode']=='cutout' and spec and
+                        not spec['window_enabled'] and obj.get('_render_canvas_size'))
+    sample_obj=obj
+    if canvas_aligned:
+        window=tuple(obj['_render_canvas_size']);scale=obj['_render_scale']
+        sample_obj={**obj,'bbox':[0,0,window[0]/scale,window[1]/scale],'rotation':0}
+    from window_drawing import sampling_margin
+    margin = sampling_margin(window, spec)
     if shared:
         from photo_links import shared_tile
-        im=shared_tile(obj,im,window,obj['_render_scale'])
-    else:im=fit_image(im,window,binding.get('crop_center',[.5,.5]),obj['mode']=='cutout')
+        im=shared_tile(sample_obj,im,window,obj['_render_scale'], margin=margin)
+    else:im=fit_image(im,window,binding.get('crop_center',[.5,.5]),obj['mode']=='cutout', margin=margin)
     if obj.get('photo_window_spec'):
         if subject_alpha is not None:
-            subject_alpha = shared_tile(obj,subject_alpha,window,obj['_render_scale']) if shared else fit_subject_mask(subject_alpha, binding, window)
-        im,content_alpha=apply_window(im,obj['photo_window_spec'],subject_alpha)
+            subject_alpha = shared_tile(obj,subject_alpha,window,obj['_render_scale'], margin=margin) if shared else fit_subject_mask(subject_alpha, binding, window, margin=margin)
+        im,content_alpha=apply_window(im,obj['photo_window_spec'],subject_alpha, source_margin=margin,
+                                      placement_size=placement_size if canvas_aligned else None)
     else:
         if style.get('corner_radius',0):im=clip_round(im,style['corner_radius'])
         if obj['mode']=='feather':
@@ -122,4 +144,5 @@ def make_photo(obj, source, binding, size, run, model):
     content_file=Path(run)/'assets/photos'/(obj['id']+'-content-mask.png');content_file.parent.mkdir(parents=True,exist_ok=True);content_alpha.save(content_file)
     metadata={'resource_type':'customer_photo','source':source,'mode':obj['mode'],'binding':binding,'pixel_operation':'bound-source-resize-crop-mask; no generated RGB','content_mask':str(content_file),'content_mask_sha256':sha(content_file)}
     if obj.get('photo_window_spec'):metadata['photo_window_spec']=obj['photo_window_spec']
+    if canvas_aligned:metadata['canvas_aligned']=True
     return im,metadata

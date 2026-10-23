@@ -10,8 +10,8 @@ from urllib.error import HTTPError, URLError
 from pathlib import Path
 import numpy as np
 from PIL import Image
-from common import read, save, sha, fingerprint, event, now
-from collage_v6.config import Config, env_value
+from common import cache_directory, read, save, sha, fingerprint, event, now
+from collage.config import Config, env_value
 
 BASE = 'https://api.research.360.cn/v1'
 _submission_budget_lock=threading.Lock()
@@ -297,7 +297,10 @@ def acquire(run, scene, targets, config):
     if root.exists():
         if not same_image(root/'input.png',reference):raise ValueError('Reveal internal cache reference mismatch')
         for task in sorted(root.glob('batch_*')):
-            objects=read(task/'request_meta.json')['objects']
+            meta=task/'request_meta.json'
+            if not meta.exists():meta=task/'batch-input.json'
+            if not meta.exists():continue
+            objects=read(meta)['objects']
             relevant=[o for o in objects if o['id'] in expected and matches_request(o,expected[o['id']])]
             if not relevant:continue
             attempted.update(o['id'] for o in relevant)
@@ -311,7 +314,8 @@ def acquire(run, scene, targets, config):
         if not (root/'input.png').exists():
             with Image.open(reference) as im:im.convert('RGB').save(root/'input.png')
         for start in range(0,len(missing),20):
-            chunk=missing[start:start+20];task=root/('batch_'+fingerprint([sha(reference),chunk])[:16])
+            chunk=missing[start:start+20]
+            task=cache_directory(root,'batch',{'reference_sha256':sha(reference),'objects':chunk},'batch-input.json')
             if not dispatch(task,chunk):break
             ingest(root)
     return found,receipts+errors

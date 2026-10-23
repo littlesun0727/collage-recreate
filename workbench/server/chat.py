@@ -1,5 +1,5 @@
 """Durable, single-worker revision queue; the browser never runs a production command."""
-from collage_v6.paths import relocated_values
+from collage.paths import relocated_values
 import json
 import os
 from pathlib import Path
@@ -167,9 +167,9 @@ class ChatQueue:
             raise RuntimeError(output)
 
     def run_agent(self,mode,root,context,images):
-        from collage_v6.revision import infer
+        from collage.editing.revision import infer
         answer=infer(mode,root,context,images)
-        save(root/(mode+'-output.json'),{'answer':answer,'controller':'workflow-v6'})
+        save(root/(mode+'-output.json'),{'answer':answer,'controller':'workflow-v9'})
         return answer
 
     def process(self,job):

@@ -1,5 +1,6 @@
 """Submit a reproducible model batch to the local workbench."""
 import argparse
+from copy import deepcopy
 from datetime import datetime
 import hashlib
 import json
@@ -13,8 +14,8 @@ from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHand
 import uuid
 import webbrowser
 
-from collage_v6.config import Config
-from collage_v6.paths import OUTPUT_ROOT
+from collage.config import Config
+from collage.paths import OUTPUT_ROOT
 
 IMAGES = {'.png', '.jpg', '.jpeg', '.webp', '.bmp'}
 MEDIA = IMAGES | {'.mp4', '.mov'}
@@ -77,7 +78,7 @@ class Workbench:
             if result.returncode:
                 raise ValueError('工作台启动失败：'+(result.stderr or result.stdout)[-700:])
             config = self.request('/api/chat-config')
-        if config.get('controller') != 'workflow-v6' or not config.get('batch_enabled'):
+        if config.get('controller') != 'workflow-v9' or not config.get('batch_enabled'):
             raise ValueError('当前工作台尚未启用批跑，请结束旧服务后重新运行 launch.py')
         self.token = config['token']
 
@@ -122,16 +123,33 @@ def plan(args):
         base = config_path.parent
         allowed = {'name', 'provider', 'model', 'reasoning', 'reasoning_budget', 'max_tokens',
                    'coordinate_mode', 'response_format', 'references', 'materials', 'width',
-                   'instructions', 'model_policy'}
+                   'instructions', 'model_policy', 'bbox_refinement', 'screen', 'json_schema'}
         if not isinstance(settings, dict) or set(settings)-allowed:
             raise ValueError('批跑配置包含未知字段')
     def option(key, default=None):
         value = getattr(args, key, None)
         return value if value is not None else settings.get(key, default)
+    schema_enabled = option('json_schema')
+    if (schema_enabled is not None or 'json_schema' in settings) and type(schema_enabled) is not bool:
+        raise ValueError('json_schema 必须为 true 或 false')
+    output_override = ('json_schema' if schema_enabled else 'json_object') if schema_enabled is not None else None
+    from collage.workflow.options import normalize_options
+    workflow_options = normalize_options({'bbox_refinement': option('bbox_refinement', False),
+                                          'screen': option('screen', False)})
     if 'model_policy' in settings:
         if any(getattr(args, k, None) is not None for k in ('model', 'provider', 'reasoning', 'reasoning_budget')):
             raise ValueError('分阶段 model_policy 不能与命令行单模型参数混用')
-        policy = Config.load().with_policy(settings['model_policy']).model_policy()
+        policy = deepcopy(settings['model_policy'])
+        if not isinstance(policy, dict) or set(policy) != {'analyze', 'subsequent'}:
+            raise ValueError('模型配置必须包含 analyze 和 subsequent')
+        for entry in policy.values():
+            if not isinstance(entry, dict):
+                raise ValueError('阶段模型配置字段无效')
+            if output_override is not None:
+                entry['response_format'] = output_override
+            else:
+                entry.setdefault('response_format', settings.get('response_format', Config.response_format))
+        policy = Config.load().with_policy(policy).model_policy()
         if args.coordinate_mode is not None:
             for entry in policy.values():
                 entry['coordinate_mode'] = args.coordinate_mode
@@ -150,7 +168,7 @@ def plan(args):
                         reasoning_effort=effort if effort not in {'default', 'off', 'on'} else None,
                         reasoning_max_tokens=budget, max_tokens=option('max_tokens', 16000),
                         coordinate_mode=option('coordinate_mode', 'normalized_1000'),
-                        response_format=option('response_format', 'json_schema'))
+                        response_format=output_override if output_override is not None else option('response_format', Config.response_format))
         policy = config.with_policy(config.model_policy()).model_policy()
     references = source_files(option('references'), Path.cwd() if args.references else base, IMAGES, '参考图')
     materials = source_files(option('materials'), Path.cwd() if args.materials else base, MEDIA, '客户素材')
@@ -165,24 +183,30 @@ def plan(args):
     if not isinstance(name, str) or not name.strip() or len(name) > 120:
         raise ValueError('批跑名称须为 1～120 个字符，请用 --name 指定短名称')
     return {'name': name, 'model_policy': policy, 'references': references, 'materials': materials,
-            'width': width, 'instructions': instructions}
+            'width': width, 'instructions': instructions, **workflow_options}
 
 
 def parser():
     p = argparse.ArgumentParser(description='多参考图 + 固定客户素材 + 指定模型的工作台批跑')
     p.add_argument('--config', help='JSON 配置文件；文件内相对路径以配置所在目录为准')
     p.add_argument('--model', help='供应商的准确 VLM 模型 ID；应用于全部 VLM 阶段')
-    p.add_argument('--provider', choices=['openrouter', 'yibu'])
+    p.add_argument('--provider', choices=['openrouter', 'yibu', 'codex'])
     p.add_argument('--reasoning', choices=EFFORTS)
     p.add_argument('--reasoning-budget', type=int, help='thinking token 预算，不能与推理档位同时设置')
     p.add_argument('--coordinate-mode', choices=['normalized_1000', 'pixel', 'auto'],
                    help='bbox 坐标模式：0～1000 归一化 / 原图像素 / 按模型自动；覆盖配置中的首次分析与后续 VLM 坐标模式，未配置时默认 normalized_1000')
+    p.add_argument('--bbox-refinement', action=argparse.BooleanOptionalAction, default=None,
+                   help='开启第二步 bbox 校准；默认关闭；--no-bbox-refinement 覆盖配置为关闭')
+    p.add_argument('--screen', action=argparse.BooleanOptionalAction, default=None,
+                   help='开启提取相框审核；默认关闭；--no-screen 覆盖配置为关闭')
+    p.add_argument('--json-schema', action=argparse.BooleanOptionalAction, default=None,
+                   help='显式开启接口 JSON Schema；默认使用 json_object，Schema 仅放在提示词中；统一覆盖首次分析与后续 VLM，保留本地校验')
     p.add_argument('--references', nargs='+', help='参考图文件或目录列表，按给定顺序制作')
     p.add_argument('--materials', nargs='+', help='每张参考图共用的客户素材文件或目录列表')
     p.add_argument('--name', help='前端批次名称')
     p.add_argument('--width', type=int)
     p.add_argument('--instructions')
-    p.add_argument('--server', default='http://127.0.0.1:8796')
+    p.add_argument('--server', default='http://127.0.0.1:8809')
     p.add_argument('--data', help='自动启动工作台时使用的独立数据目录；切换端口时同时指定')
     p.add_argument('--dry-run', action='store_true', help='仅检查输入和模型参数，输出清单，不提交制作')
     p.add_argument('--no-start', action='store_true', help='工作台未启动时直接报错')
@@ -197,7 +221,7 @@ def main(argv=None):
     receipt_path = None
     try:
         if args.resume:
-            if args.dry_run or args.config or args.model or args.provider or args.reasoning or args.reasoning_budget is not None or args.coordinate_mode is not None or args.references or args.materials or args.name or args.width or args.instructions:
+            if args.dry_run or args.config or args.model or args.provider or args.reasoning or args.reasoning_budget is not None or args.coordinate_mode is not None or args.bbox_refinement is not None or args.screen is not None or args.json_schema is not None or args.references or args.materials or args.name or args.width or args.instructions:
                 raise ValueError('--resume 不接受新的模型、输入或制作参数')
             receipt_path = Path(args.resume).resolve()
             receipt = json.loads(receipt_path.read_text(encoding='utf-8-sig'))
@@ -219,7 +243,7 @@ def main(argv=None):
                     raise ValueError('上传期间输入发生变化，未提交制作：'+item['name'])
                 print(f"已冻结输入 {index}/{len(inputs)}：{item['name']}", flush=True)
             identifier = 'run-'+uuid.uuid4().hex
-            payload = {k: batch[k] for k in ('name', 'model_policy', 'width', 'instructions')}
+            payload = {k: batch[k] for k in ('name', 'model_policy', 'width', 'instructions', 'bbox_refinement', 'screen')}
             payload.update(id=identifier, upload_id=upload['id'])
             receipt = {'server': client.base, 'data': str(Path(args.data).resolve()) if args.data else None,
                        'payload': payload, 'inputs': batch,

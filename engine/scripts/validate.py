@@ -69,14 +69,16 @@ def analysis_check(value, inputs=None):
             raise ValueError(f'{o["id"]}: polygon requires at least three points')
     parents = {o['id']: o.get('parent_id') for o in objects}
     by_id={o['id']:o for o in objects}
+    from photo_links import inventory_issues
+    link_issues = inventory_issues(objects, value['layer_order'])
+    if link_issues:
+        raise ValueError('; '.join(issue['id'] + ': ' + issue['message'] for issue in link_issues))
     for o in objects:
         if 'photo_id' in o:
             if o['kind'] not in ['overlay','frame'] or by_id.get(o['photo_id'],{}).get('kind')!='photo':
                 raise ValueError('photo_id must link an overlay/frame to a photo')
         if o['kind']=='frame':
             photo=by_id[o['photo_id']]
-            if value['layer_order'].index(o['id'])<=value['layer_order'].index(photo['id']):
-                raise ValueError(o['id']+': frame must be above its linked photo; opaque backings use overlay')
             if any(p['kind']=='photo' and p.get('parent_id')==o['id'] and p['id']!=photo['id'] for p in objects):
                 raise ValueError(o['id']+': frame has one photo_id; continuous multi-window carriers use overlay')
             if o.get('embedded_in'):

@@ -6,6 +6,7 @@ from common import read, save, sha, fingerprint, verify_source
 from validate import analysis_check, bindings_check, review_check
 from prepare import boxes
 from effects import resolve_style
+from collage.workflow.options import load_options
 
 
 def compile_scene(run, reveal_config=None):
@@ -34,6 +35,7 @@ def compile_scene(run, reveal_config=None):
     from photo_links import attach as attach_photo_links
     attach_photo_links(objects)
     scene={'schema_version':'collage-scene-v1','reference':inputs['reference'],'reference_size':analysis['reference_size'],'canvas_size':[inputs['output_width'],round(analysis['reference_size'][1]*scale)],'objects':objects,'layer_order':analysis['layer_order'],'cutout_model':inputs.get('cutout_model'),'sources':{'analysis':sha(run/'analysis.json'),'bindings':sha(run/'bindings.json'),'input':sha(run/'input.json'),'catalog':sha(run/'prepared/catalog.json')},'revision':0}
+    scene['workflow_options']=load_options(run)
     if window_plan is not None:scene['sources']['photo_windows']=sha(run/'photo-windows.json')
     config_file=run/'reveal-config.json'
     if os.getenv('COLLAGE_BEST_EFFORT') == '1':

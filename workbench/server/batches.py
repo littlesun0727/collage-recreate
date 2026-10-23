@@ -6,9 +6,10 @@ from pathlib import Path
 import re
 import uuid
 
-from collage_v6.config import Config
+from collage.config import Config
+from collage.workflow.options import normalize_options
 from .chat import Conflict, now
-from .motion import read, save
+from .motion import read, reserve_task_paths, save
 from .store import clean
 
 
@@ -27,10 +28,12 @@ class Batches:
         return self.root/(identifier+'.json')
 
     def submit(self, payload):
-        allowed = {'id', 'upload_id', 'name', 'model_policy', 'width', 'instructions'}
+        allowed = {'id', 'upload_id', 'name', 'model_policy', 'width', 'instructions', 'bbox_refinement', 'screen'}
         if set(payload) - allowed or not {'id', 'upload_id', 'model_policy'} <= set(payload):
             raise ValueError('批跑需要 id、upload_id 和 model_policy')
         path = self.path(payload['id'])
+        options = normalize_options({'bbox_refinement': payload.get('bbox_refinement', False),
+                                     'screen': payload.get('screen', False)})
         signature = hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
         service = self.service
         with service.guard:
@@ -73,17 +76,20 @@ class Batches:
             record = {'id': payload['id'], 'name': name.strip(), 'created_at': now(),
                       'request_sha256': signature, 'upload_id': upload['id'],
                       'model_policy': policy, 'width': width, 'instructions': instructions,
+                      'workflow_options': options,
                       'dataset_sha256': fingerprint, 'references': references, 'materials': materials,
                       'jobs': []}
-            for index, reference in enumerate(references, 1):
+            runs = reserve_task_paths(roots[0], len(references))
+            for index, (reference, run) in enumerate(zip(references, runs, strict=True), 1):
                 suffix = uuid.uuid5(uuid.NAMESPACE_URL, payload['id']+'/'+str(index)).hex
                 group = {k: deepcopy(record[k]) for k in ('id', 'name', 'created_at', 'model_policy', 'dataset_sha256')}
                 group.update(index=index, total=len(references), reference_name=reference['name'])
-                run = roots[0]/(payload['id']+f'-{index:03d}')
+                group['workflow_options'] = deepcopy(options)
                 record['jobs'].append({'id': 'import-'+suffix, 'kind': 'import',
                     'batch_id': 'batch-'+suffix, 'run': str(run), 'width': width,
                     'instructions': instructions, 'created_at': record['created_at'],
                     'auto_create': True, 'model_policy': deepcopy(policy), 'batch_run': group,
+                    'workflow_options': deepcopy(options),
                     'materials_dir': str(upload_path.parent/'materials')})
             # Commit the entire plan before starting any task. Request IDs make a
             # lost HTTP response safe to resume without another paid batch.
@@ -125,6 +131,7 @@ class Batches:
         status = 'running' if counts['running'] else 'queued' if counts['queued'] else 'failed' if counts['failed'] else 'completed'
         public = {k: deepcopy(record[k]) for k in ('id', 'name', 'created_at', 'model_policy', 'dataset_sha256', 'width', 'instructions')}
         public.update(status=status, counts=counts, total=len(items), items=items,
+                      workflow_options=normalize_options(record.get('workflow_options')),
                       materials=[{k: f[k] for k in ('name', 'sha256', 'bytes')} for f in record['materials']])
         return public
 

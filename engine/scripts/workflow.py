@@ -5,7 +5,7 @@ import os
 import sys
 from pathlib import Path
 from common import read, timed, locked, save
-from collage_v6.config import Config
+from collage.config import Config
 
 
 def main():

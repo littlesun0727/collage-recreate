@@ -1,4 +1,4 @@
-"""Start the local v6 service hidden, without changing PowerShell execution policy."""
+"""Start the local service hidden, without changing PowerShell execution policy."""
 import argparse
 import json
 import os
@@ -9,13 +9,13 @@ import time
 from urllib.request import urlopen
 
 sys.dont_write_bytecode = True
-from collage_v6.paths import RUNTIME_ROOT
+from collage.paths import RUNTIME_ROOT
 
 
 def main():
     root = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int, default=8796)
+    parser.add_argument('--port', type=int, default=8809)
     parser.add_argument('--data', type=Path, default=RUNTIME_ROOT)
     args = parser.parse_args()
     base = f'http://127.0.0.1:{args.port}'
@@ -27,12 +27,16 @@ def main():
             return None
     existing = ready()
     if existing:
-        if existing.get('controller') != 'workflow-v6':
+        if existing.get('controller') != 'workflow-v9':
             raise ValueError('Port is occupied by another application')
         print('Workbench ready: '+base)
         return
     data = args.data.resolve(); (data/'tasks').mkdir(parents=True, exist_ok=True)
     runs = [str(data/'tasks')]
+    registry = data/'task-roots.json'
+    if registry.is_file():
+        runs += [str(Path(p).resolve()) for p in json.loads(registry.read_text(encoding='utf-8'))
+                 if Path(p).is_dir() and str(Path(p).resolve()) not in runs]
     command = [sys.executable, '-B', '-m', 'workbench', '--runs', *runs, '--port', str(args.port),
                '--enable-create', '--enable-chat', '--enable-editor', '--enable-motion',
                '--media-root', str(data/'service'), '--chat-state', str(data/'chat.sqlite')]

@@ -108,10 +108,8 @@ def screen(run, path, dry_run=False, rescreen=False):
         if action in ['keep','backing']:
             o['recovered']=deepcopy(r['candidate']);o['gate_embedded_ids']=r['embedded_ids']
             for child in r['embedded_ids']:objects[child]['embedded_owner']=oid
-            # Paper carriers are intentionally opaque and belong behind their photo.
+            # The decision describes the pixels; preserve the supplied layer order.
             if o['kind']=='frame':
-                order=scene['layer_order'];order.remove(oid)
-                order.insert(order.index(o['photo_id'])+(action=='keep'),oid)
                 o['frame_role']='backing' if action=='backing' else 'border'
         elif action=='draw':
             o.update(method='local',style=deepcopy(analysis_objects[oid]['style']),gate_local=True)

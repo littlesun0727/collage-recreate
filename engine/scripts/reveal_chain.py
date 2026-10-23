@@ -6,7 +6,7 @@ import time
 
 from PIL import Image, ImageChops
 
-from common import event, fingerprint, read, save, sha
+from common import cache_directory, event, fingerprint, read, save, sha
 from reveal_plan import CHAIN_MAX_REQUESTS, HARD_LIMIT, plan, preview
 
 
@@ -56,9 +56,13 @@ def visible_bbox(obj, size):
     l, t, r, b = obj['bbox']
     style = obj.get('style', {})
     spread = style.get('stroke_width', 0)
-    stroke = obj.get('photo_window_spec', {}).get('stroke', {})
-    if stroke.get('enabled') and stroke.get('placement', 'inside') != 'inside':
-        spread = max(spread, min(r-l, b-t) * (stroke.get('width', 0) + stroke.get('offset', 0)))
+    spec = obj.get('photo_window_spec', {})
+    for stroke in (spec.get('stroke', {}), spec.get('subject_stroke', {})):
+        if stroke.get('enabled') and stroke.get('placement', 'inside') != 'inside':
+            spread = max(spread, min(r-l, b-t) * (stroke.get('width', 0) + stroke.get('offset', 0)))
+    if spec.get('fade_direction') == 'outside':
+        from window_drawing import sampling_margin
+        spread = max(spread, sampling_margin((r-l, b-t), spec))
     shadow = style.get('shadow') or {}
     spread += 3 * shadow.get('blur', 0) + max(abs(v) for v in shadow.get('offset', [0, 0]))
     angle = math.radians(obj.get('rotation', 0))
@@ -150,8 +154,7 @@ def acquire(run, scene, targets, config):
         identity = {'version': CACHE_VERSION, 'reference_sha256': scene['reference']['sha256'],
                     'input_source_sha256': sha(current), 'phase': phase, 'objects': objects,
                     'parent_round': previous}
-        task = root/('round_'+fingerprint(identity)[:20])
-        task.mkdir(parents=True, exist_ok=True)
+        task = cache_directory(root, 'round', identity, 'chain-input.json')
         ip = task/'input.png'
         if ip.exists():
             with Image.open(ip) as im:
@@ -159,7 +162,6 @@ def acquire(run, scene, targets, config):
                     raise ValueError('Cached chain input changed')
         else:
             rgb.save(ip)
-        save(task/'chain-input.json', identity)
         source_task = task
         # Reuse historical first-round extraction only when its exact input and object list match.
         external = Path(config['cache']) if config.get('cache') else None

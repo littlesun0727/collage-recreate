@@ -11,7 +11,7 @@ End If
 shell.CurrentDirectory = root
 command = Chr(34) & python & Chr(34) & " -B " & Chr(34) & root & "\launch.py" & Chr(34)
 If shell.Run(command, 0, True) = 0 Then
-    shell.Run "http://127.0.0.1:8796", 1, False
+    shell.Run "http://127.0.0.1:8809", 1, False
 Else
-    MsgBox "Startup failed. Check the sibling collage-recreate-v6-output\runtime\server-error.log.", 48, "Collage v6"
+    MsgBox "Startup failed. Check the sibling collage-recreate-v9-output\runtime\server-error.log.", 48, "Collage v8"
 End If

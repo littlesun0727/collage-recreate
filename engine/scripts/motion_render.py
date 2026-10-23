@@ -88,12 +88,14 @@ def fixed_photo_layer(obj, image, anchor, scene, subject_alpha=None):
     crop = binding.get('source_crop', [0, 0, 1, 1])
     left, top, right, bottom = (0,0,*size) if obj.get('photo_window_spec') else photo_layout(size, style)
     window = (right-left, bottom-top)
+    from window_drawing import sampling_margin
+    margin = sampling_margin(window, obj.get('photo_window_spec'))
     pad = 0
     if obj.get('shared_photo'):
         from photo_links import shared_tile
-        im=shared_tile(obj,image,window,scale)
-        if subject_alpha is not None:subject_alpha=shared_tile(obj,subject_alpha,window,scale)
-        tile,_=apply_window(im,obj['photo_window_spec'],subject_alpha)
+        im=shared_tile(obj,image,window,scale,margin=margin)
+        if subject_alpha is not None:subject_alpha=shared_tile(obj,subject_alpha,window,scale,margin=margin)
+        tile,_=apply_window(im,obj['photo_window_spec'],subject_alpha,source_margin=margin)
     elif obj.get('photo_window_spec'):
         if obj['mode'] == 'cutout':
             x0,y0,x1,y1 = anchor; width,height = x1-x0,y1-y0
@@ -102,13 +104,13 @@ def fixed_photo_layer(obj, image, anchor, scene, subject_alpha=None):
         im = image.crop((x0+int(crop[0]*width), y0+int(crop[1]*height),
                          x0+max(1,int(crop[2]*width)), y0+max(1,int(crop[3]*height))))
         if binding.get('mirror_x'):im = ImageOps.mirror(im)
-        im = fit_image(im, window, binding.get('crop_center',[.5,.5]),obj['mode']=='cutout')
+        im = fit_image(im, window, binding.get('crop_center',[.5,.5]),obj['mode']=='cutout', margin=margin)
         spec = obj['photo_window_spec']
         if spec['subject']['mode'] == 'preserve' and subject_stroke(spec):
             if subject_alpha is None or subject_alpha.size != image.size:
                 raise ValueError('Live subject stroke requires a source-aligned subject mask')
-            subject_alpha = fit_subject_mask(subject_alpha, binding, window)
-        tile,_ = apply_window(im,spec,subject_alpha)
+            subject_alpha = fit_subject_mask(subject_alpha, binding, window, margin=margin)
+        tile,_ = apply_window(im,spec,subject_alpha,source_margin=margin)
     elif obj['mode'] == 'cutout':
         x0, y0, x1, y1 = anchor
         width, height = x1-x0, y1-y0

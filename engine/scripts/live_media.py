@@ -120,13 +120,15 @@ def prepare_live(reference, materials, run, width=1200, instructions='', cutout_
         record = inspect_video(video, poster,progress=lambda done,total:publish('video',**details,frames_decoded=done,frames_total=total))
         record.update(id='live_'+digest[:24], name=video.name,
                       poster={'file': str(poster), 'sha256': sha(poster)}, poster_at_us=0)
-        record['asset_id'] = 'asset_'+record['poster']['sha256'][:16]
         records.append(record)
-    ids = [r['asset_id'] for r in records]
-    if len(set(ids)) != len(ids):
+    poster_hashes = [r['poster']['sha256'] for r in records]
+    if len(set(poster_hashes)) != len(poster_hashes):
         raise ValueError('Different videos have identical posters; choose distinct cover frames first')
     publish('contact_sheets',done=len(videos),total=len(videos))
     result = prepare(reference, [*materials, str(cache)], run, width, instructions, cutout_model)
+    assets_by_hash = {asset['sha256']: asset['id'] for asset in read(run/'prepared/catalog.json')['assets']}
+    for record in records:
+        record['asset_id'] = assets_by_hash[record['poster']['sha256']]
     save(run/'media/manifest.json', {'schema_version': 'collage-live-v1', 'videos': records,
                                     'audio': 'muted', 'poster_policy': 'first_native_frame'})
     result['live_count'] = len(records)

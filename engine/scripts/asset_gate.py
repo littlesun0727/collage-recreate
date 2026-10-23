@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 from common import read, save, sha, fingerprint, verify_source
 
-VERSION = 'asset-gate-v3-frame-only'
+VERSION = 'asset-gate-v4-screen-switch'
 HARD_ISSUES = {'empty_layer','repair_failed','explicitly_omitted',
                }
 
@@ -62,9 +62,10 @@ def check_extensions(plan, scene):
 
 def inspect(image, target, scene, source, repair, checks, text_candidates, repair_errors):
     """No pixel changes here. Decisions bind to the current candidate and context."""
+    screen_enabled=scene.get('workflow_options',{}).get('screen',False)
     a=np.asarray(image.getchannel('A'));visible=a>16;count=int(visible.sum())
     key=fingerprint({'version':VERSION,'code':sha(__file__),'pixels':hashlib.sha256(image.tobytes()).hexdigest(),
-        'source':source,'target':target,'sources':scene['sources'],
+        'source':source,'target':target,'sources':scene['sources'],'screen':screen_enabled,
         'edits':[e for e in repair.get('edits',[]) if e['id']==target['id']],
         'windows':[e for e in repair.get('windows',[]) if e['overlay_id']==target['id']],
         'checks':checks,'text_candidates':text_candidates,'repair_errors':repair_errors})
@@ -99,9 +100,10 @@ def inspect(image, target, scene, source, repair, checks, text_candidates, repai
     decision=next((d for d in repair.get('decisions',[]) if d['id']==target['id']),None)
     valid=decision and decision['input_key']==key
     if decision and not valid:issues.append('stale_visual_decision')
-    # Opacity cannot distinguish paper backing from an old photograph. Only
-    # frames receive semantic screening; imperfect decoration pixels survive.
-    if target.get('kind') != 'frame':
+    # A disabled screen accepts recovered pixels at build time too. Heuristics
+    # remain diagnostic warnings, so skipping the later VLM cannot strand frames
+    # in pending status and replace them with local approximations.
+    if target.get('kind') != 'frame' or not screen_enabled:
         warnings.extend(issues);issues=[]
     status='rejected' if hard else 'pending' if issues else 'accepted';basis='program';embedded=[];use_local=False
     if target.get('kind')!='frame' and status=='accepted':

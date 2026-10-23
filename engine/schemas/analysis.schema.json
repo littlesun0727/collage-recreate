@@ -74,6 +74,11 @@
               }
             ]
           },
+          "linked_to": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,63}$",
+            "description": "Continuous cutout foreground linked to an independent photo base; shares source and transform."
+          },
           "mode": {
             "description": "照片主要效果初筛：cover 普通裁剪，cutout 去背景，feather 边缘渐隐，stroke 保留照片并描边；组合效果和最终参数由 photo-windows 决定。",
             "enum": [

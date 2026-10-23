@@ -16,11 +16,11 @@ ACTIVE = {'queued', 'running'}
 class Creation:
     def configuration(self, policy=None):
         from .models import ModelSettings
-        from collage_v6.paths import RUNTIME_ROOT
+        from collage.paths import RUNTIME_ROOT
         return (getattr(self, 'settings', None) or ModelSettings(RUNTIME_ROOT/'service')).config(policy)
 
     def preflight(self, config=None):
-        from collage_v6.config import Config
+        from collage.config import Config
         if config is not None:config.check_keys()
         if time.monotonic()-getattr(self,'checked_at',-1000)<60:return
         config=config or Config.load()
@@ -37,6 +37,7 @@ class Creation:
 
     def submit(self, service, imported):
         from .motion import read, save
+        from collage.workflow.options import load_options, normalize_options
         identifier = 'create-'+imported['id'].removeprefix('import-')
         with service.guard:
             old = read(service.root/'jobs'/(identifier+'.json'))
@@ -45,9 +46,14 @@ class Creation:
             run = Path(imported['run'])
             policy = imported.get('model_policy') or read(run/'workflow-models.json') or self.configuration().model_policy()
             save(run/'workflow-models.json', policy)
+            options = (normalize_options(imported['workflow_options']) if 'workflow_options' in imported
+                       else load_options(run))
+            save(run/'workflow-options.json', options)
             job = {'id':identifier, 'kind':'create', 'task':imported['task_id'],
                    'task_id':imported['task_id'], 'run':imported['run'], 'created_at':now(), 'attempts':0}
             job['model_policy'] = policy
+            job['workflow_options'] = options
+            job['batch_run_id'] = imported.get('batch_run', {}).get('id')
             return service.enqueue(job)
 
     def retry(self, service, task):
@@ -115,7 +121,7 @@ class Creation:
                 save(control/'input.json',request)
                 env=dict(os.environ);env['COLLAGE_REQUEST_ID']=job['id'];env['PYTHONDONTWRITEBYTECODE']='1'
                 with (control/'agent.log').open('ab') as output:
-                    child=subprocess.Popen([sys.executable,'-B','-m','collage_v6','run','--run',str(run),
+                    child=subprocess.Popen([sys.executable,'-B','-m','collage','run','--run',str(run),
                                              '--control',str(control),'--attempt',str(job['attempts'])],
                         cwd=REPO,stdout=output,stderr=subprocess.STDOUT,env=env,
                         creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))

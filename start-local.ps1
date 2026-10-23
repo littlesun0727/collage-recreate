@@ -1,5 +1,5 @@
 param(
-    [int]$Port = 8796,
+    [int]$Port = 8809,
     [string]$Python = 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe',
     [string]$VlmEnv = '',
     [string]$RevealEnv = '',
@@ -25,12 +25,15 @@ $url = "http://127.0.0.1:$Port"
 $existing = $null
 try { $existing = Invoke-RestMethod -Uri "$url/api/chat-config" -TimeoutSec 2 } catch {}
 if ($existing) {
-    if ($existing.controller -ne 'workflow-v6') { throw "Port $Port hosts another application. Choose another port." }
+    if ($existing.controller -ne 'workflow-v9') { throw "Port $Port hosts another application. Choose another port." }
     Write-Output "Workbench ready: $url"
     return
 }
 New-Item -ItemType Directory -Path (Join-Path $Data 'tasks') -Force | Out-Null
-$arguments = @('-B','-m','workbench','--runs',(Join-Path $Data 'tasks'),'--port',"$Port",
+$taskRoots = @((Join-Path $Data 'tasks'))
+$registry = Join-Path $Data 'task-roots.json'
+if (Test-Path -LiteralPath $registry) { $taskRoots += @(Get-Content -LiteralPath $registry -Raw -Encoding UTF8 | ConvertFrom-Json) }
+$arguments = @('-B','-m','workbench','--runs') + $taskRoots + @('--port',"$Port",
     '--enable-create','--enable-chat','--enable-editor','--enable-motion',
     '--media-root',(Join-Path $Data 'service'),'--chat-state',(Join-Path $Data 'chat.sqlite'),
     '--vlm-env',$VlmEnv,'--reveal-env',$RevealEnv)
@@ -44,7 +47,7 @@ for ($attempt=0; $attempt -lt 40; $attempt++) {
     if ($server.HasExited) { throw "Workbench failed. Inspect $Data/server-error.log" }
     try {
         $ready = Invoke-RestMethod -Uri "$url/api/chat-config" -TimeoutSec 2
-        if ($ready.controller -eq 'workflow-v6') { Write-Output "Workbench ready: $url"; return }
+        if ($ready.controller -eq 'workflow-v9') { Write-Output "Workbench ready: $url"; return }
     } catch {}
 }
 throw "Startup pending; inspect $Data/server-error.log"

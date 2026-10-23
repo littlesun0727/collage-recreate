@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Collage v9 · VLM 工作流详解</title>
+  <style>/* INLINE_STYLE */</style>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳至正文</a>
+  <div class="page">
+    <header class="brandrow">
+      <a class="brand" href="#overview" aria-label="返回工作流总览"><span class="mark">◫</span><span><b>COLLAGE RECREATE</b><small>V9 / WORKFLOW ATLAS</small></span></a>
+      <div class="actions"><span class="offline"><i></i>离线报告</span><button id="exportData">导出数据 ↓</button><button id="print">打印 / PDF</button></div>
+    </header>
+    <nav class="nav" aria-label="报告章节">
+      <a href="#overview" data-page="overview"><small>00</small>流程总览</a>
+      <a href="#analyze" data-page="analyze"><small>01</small>Analysis</a>
+      <a href="#photo_windows" data-page="photo_windows"><small>02</small>Photo-window</a>
+      <a href="#bind" data-page="bind"><small>03</small>Binding</a>
+    </nav>
+    <main id="content"></main>
+    <footer><span>基于 v9 源码与已有请求记录的静态快照</span><span id="snapshot"></span></footer>
+  </div>
+  <div id="printReport"></div>
+  <dialog id="imageDialog" aria-label="查看输入图片"><div class="dialoghead"><span id="imageTitle"></span><button id="closeImage">关闭 ×</button></div><img id="largeImage" alt=""><p id="imageMeta"></p></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script id="atlasData" type="application/json">/* INLINE_DATA */</script>
+  <script>/* INLINE_SCRIPT */</script>
+</body>
+</html>

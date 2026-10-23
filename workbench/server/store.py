@@ -9,11 +9,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from PIL import Image
-from collage_v6.paths import relocated_path, relocated_values
+from collage.paths import relocated_path, relocated_values
+from .workflow_view import DOCUMENTS, project
 
-LABELS = ['准备素材', '分析布局', '构建首版', '筛选素材', '检查结果', '交付结果']
-COMMAND_STAGE = {'revision-recover':5,'revision-prepare':5,'revision-commit':5,'prepare': 1, 'validate': 2, 'reveal-plan': 2, 'build': 3, 'render': 3,
-                 'screen': 4, 'apply': 5, 'review': 5, 'recover': 5, 'generate': 5}
 COMMAND_LABEL = {'manual-edit':'手动编辑','revision-commit':'对话修改','revision-prepare':'制作修改预览','build': '构建首版', 'render': '合成成图', 'screen': '筛选素材',
                  'apply': '调整排版', 'generate': '素材精修', 'recover': '局部恢复'}
 
@@ -129,6 +127,21 @@ class Store:
                 return buffer.getvalue(), 'image/png'
         return p.read_bytes(), {'.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp'}.get(p.suffix.lower(), 'image/png')
 
+    def product_document(self, task, name):
+        run = self.tasks().get(task)
+        if run is None or name not in DOCUMENTS:
+            raise KeyError('Unknown document')
+        path = (run/name).resolve()
+        if not path.is_relative_to(run):
+            raise KeyError('Document outside task')
+        return path.read_bytes()
+
+    def customer_image(self, key, run, asset):
+        # Binding requests also keep a task-local copy when the catalog shares
+        # thumbnails with another task. Image access stays inside this task.
+        return (self.image(key, run, asset.get('thumbnail')) or
+                self.image(key, run, run/'prepared/vlm-materials'/f"{asset.get('id')}.jpg"))
+
     def listing(self):
         result = []
         visible = None
@@ -157,52 +170,35 @@ class Store:
             raise KeyError('Unknown task')
         inp = read(run/'input.json'); result = read(run/'result.json')
         analysis = read(run/'analysis.json'); scene = read(run/'scene.json')
+        if not analysis:
+            # Stage-only evaluations can retain the public structure without an
+            # engine scene. Convert coordinates for display, without compiling it.
+            structure = read(run/'structure.json')
+            mode = structure.get('coordinate_mode') or read(run/'workflow-models.json').get('analyze', {}).get('coordinate_mode')
+            width, height = inp.get('reference_size', [1000, 1000])
+            objects = []
+            for obj in structure.get('objects', []):
+                box = obj.get('bbox')
+                if box and mode == 'normalized_1000':
+                    box = [round(v * (width if i % 2 == 0 else height) / 1000) for i, v in enumerate(box)]
+                objects.append({**obj, 'bbox': box, 'label': obj.get('label') or obj['id'],
+                                'method': 'extract' if obj['kind'] in {'overlay', 'frame'} or
+                                (obj['kind'] == 'background' and not obj.get('color')) else 'local'})
+            analysis = {'objects': objects}
         catalog = read(run/'prepared/catalog.json'); rows, broken = events(run)
         observed = any(r.get('schema_version') == 'collage-events/1' for r in rows)
-        stages = [{'id': i+1, 'label': label, 'status': 'pending', 'summary': '', 'at': None}
-                  for i, label in enumerate(LABELS)]
-        current = 1; history = []; current_version = None; reviews = {}; latest_checkpoint = {}
+        current_version = None; reviews = {}; latest_checkpoint = {}
         material_round = None; materials = {}; groups = {}; extracted = {}; last_command = None
         for row in rows:
             event = row.get('event', ''); at = row.get('at')
-            command = next((c for c in COMMAND_STAGE if event in {c+'_started', c+'_finished', c+'_failed'}), None)
-            if command and row.get('schema_version'):
-                stage = COMMAND_STAGE[command]; current = stage
-                suffix = event.rsplit('_', 1)[-1]
-                state = {'started': 'running', 'finished': 'complete', 'failed': 'failed'}[suffix]
-                if command in {'validate', 'reveal-plan'} and suffix == 'finished':
-                    state = 'waiting'
-                if command == 'apply' and suffix == 'finished':
-                    state = 'waiting'
-                summary = {'started': '正在执行', 'finished': '执行完成', 'failed': '执行失败'}[suffix]
-                if command == 'validate' and suffix == 'finished':
-                    summary = '数据校验完成，等待叠框看图检查'
-                if command == 'apply' and suffix == 'finished':
-                    summary = '排版调整完成，等待复核新图'
-                stages[stage-1].update(status=state, at=at, summary=clean(row.get('error', summary)))
-                if suffix == 'started':
-                    stages[stage-1]['started_at'] = at
-                    last_command = row
-                    if command == 'build':
-                        groups = {}; extracted = {}; materials = {}; material_round = None
-                history.append({'at': at, 'stage': stage, 'status': state,
-                                'summary': COMMAND_LABEL.get(command, LABELS[stage-1])+' · '+stages[stage-1]['summary']})
+            if event == 'build_started':
+                last_command = row
+                groups = {}; extracted = {}; materials = {}; material_round = None
+            if event in {'build_finished', 'build_failed'} and last_command:
+                last_command = {**last_command, 'status': event.removeprefix('build_')}
             if event in {'agent_stage', 'workflow_stage'}:
-                stage = row.get('stage', 0)
-                if not isinstance(stage, int) or not 1 <= stage <= 6:
-                    continue
-                current = stage
-                stages[stage-1].update(status=row['status'], summary=clean(row.get('summary', '')), at=at)
-                if row['status'] == 'running':
-                    stages[stage-1]['started_at'] = at
-                history.append({k: row.get(k) for k in ('at', 'stage', 'status', 'summary')})
-                if stage == 2 and row.get('artifacts'):
+                if row.get('stage') == 2 and row.get('artifacts'):
                     latest_checkpoint = row['artifacts']
-                if row.get('analysis_only') and row['status'] == 'complete':
-                    for s in stages[2:5]:
-                        s.update(status='skipped', summary='仅分析任务，不适用')
-                    if stage == 2:
-                        stages[5].update(status='complete', summary='分析产物已交付', at=at); current = 6
             if event == 'materials_started':
                 material_round = row.get('material_attempt'); materials = {}
             if event == 'material_extracted':
@@ -222,18 +218,9 @@ class Store:
                 current_version = row.get('version_id'); reviews.pop(current_version, None)
             if event == 'review_registered' and current_version:
                 reviews[current_version] = clean(row.get('review', {}))
-        if not observed:
-            stages[0].update(status='complete', summary='历史任务，已有输入')
-            for i, exists in [(1, bool(analysis)), (2, bool(result.get('exported')))]:
-                if exists:
-                    stages[i].update(status='saved', summary='已有产物，未留存完整阶段记录'); current = i+1
         heartbeat = read(run/'observability/heartbeat.json')
         age = elapsed(heartbeat.get('at'))
         live = bool(heartbeat.get('active') and age is not None and age < 15)
-        active_stage = stages[current-1]
-        execution = '正在执行' if live else '已结束' if current == 6 and active_stage['status'] == 'complete' else '等待下一步'
-        if not live and active_stage['status'] in {'running', 'waiting'}:
-            execution = '状态待确认' if heartbeat.get('active') else '等待执行端更新'
         versions = []
         for path in sorted((run/'observability/versions').glob('*/manifest.json')):
             if path.parent.name.startswith('.'):
@@ -266,7 +253,7 @@ class Store:
         assets = {a['id']: a for a in catalog.get('assets', [])}
         resources = {a['id']: a for a in result.get('resources', [])}
         cards = []
-        rebuilding = bool(last_command and last_command.get('command') == 'build' and stages[2]['status'] in {'running', 'failed'})
+        rebuilding = bool(last_command and last_command.get('status') != 'finished')
         for obj in objects:
             oid = obj['id']; row = materials.get(oid, {})
             state = 'pending'; quality = row.get('quality'); output = None
@@ -285,7 +272,7 @@ class Store:
             metadata = resources.get(oid, {}).get('metadata', {})
             if metadata.get('method')=='local_frame':method='程序相框'
             images = {'reference': self.image(key, run, run/'prepared/reference.png', obj.get('bbox')),
-                      'customer': self.image(key, run, source.get('thumbnail')), 'final': output}
+                      'customer': self.customer_image(key, run, source), 'final': output}
             if oid in extracted:
                 images['raw'] = self.image(key, run, extracted[oid].get('raw_file'))
                 images['processed'] = self.image(key, run, extracted[oid].get('processed_file'))
@@ -301,6 +288,7 @@ class Store:
                 state = 'failed'
                 note = failure['error'] or '提取或下载失败，未采用该素材'
             cards.append({'id': oid, 'label': obj.get('label', oid), 'kind': obj['kind'], 'bbox': obj.get('bbox'),
+                          'binding': bindings.get(oid),
                           'method': method, 'status': state, 'quality': quality, 'cache_hit': row.get('cache_hit', False),
                           'images': images, 'decision': clean(obj.get('gate', {})), 'note': clean(note)})
         if rebuilding:
@@ -308,6 +296,22 @@ class Store:
         reference = self.image(key, run, run/'prepared/reference.png')
         boxes = self.image(key, run, latest_checkpoint.get('previews/analysis-boxes.png') or run/'previews/analysis-boxes.png')
         reference_analysis = read(run/latest_checkpoint['analysis.json']) if latest_checkpoint.get('analysis.json') else analysis
+        stages, current, history, workflow = project(run, read, rows, cards, list(groups.values()))
+        for stage in stages:
+            for artifact in stage['artifacts']:
+                path = artifact.pop('path')
+                artifact['url'] = (self.image(key, run, path) if artifact['kind'] == 'image'
+                                   else f'/api/tasks/{key}/documents/{path}' if artifact['exists'] else None)
+        active = stages[current-1]
+        workflow_age = elapsed(workflow.get('updated_at'))
+        live = live or (workflow.get('status') == 'running' and workflow_age is not None and workflow_age < 15)
+        if workflow.get('status') == 'running' and workflow.get('worker_pid'):
+            from .chat import process_alive
+            live = process_alive(workflow['worker_pid'])
+        execution = ('正在执行' if live else '执行未完成' if active['status'] == 'failed'
+                     else '首版已生成' if stages[4]['status'] == 'complete' else '等待下一步')
+        if not live and active['status'] == 'running':
+            execution = '等待执行端更新'
         timing = read(run/'workflow-timing.json') or read(run/'sdk-timing.json')
         timing = {k: timing[k] for k in ('model','model_policy','effort','controller','usage','started_at','finished_at','elapsed_seconds','status') if k in timing}
         batch = read(run/'batch-run.json')
@@ -318,7 +322,8 @@ class Store:
                       'instructions': inp.get('instructions', ''), 'historical': not observed, 'current_stage': current,
                       'stages': stages, 'execution': execution, 'live': live, 'heartbeat_at': heartbeat.get('at'),
                       'history': history[-160:], 'reference': reference, 'boxes': boxes,
-                      'catalog': [{'id': a['id'], 'image': self.image(key, run, a.get('thumbnail'))} for a in catalog.get('assets', [])],
+                      'windows': self.image(key, run, run/'previews/photo-windows.png'),
+                      'catalog': [{'id': a['id'], 'image': self.customer_image(key, run, a)} for a in catalog.get('assets', [])],
                       'current_image': latest['image'] if latest else self.image(key, run, run/'final.png'),
                       'first_image': self.image(key, run, run/'previews/first.png'),
                       'versions': versions, 'materials': cards, 'groups': list(groups.values()),

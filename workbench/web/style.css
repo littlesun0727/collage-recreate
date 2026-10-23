@@ -273,7 +273,7 @@ main {
 }
 .stages {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0;
   background: var(--paper);
   border: 1px solid var(--line);
@@ -336,6 +336,21 @@ main {
   font-size: 11px;
   font-weight: 500;
 }
+.stage-products { display:flex; flex-wrap:wrap; gap:8px; padding:0 18px 16px; }
+.product-link { border:1px solid var(--line); border-radius:6px; background:var(--paper); padding:8px 10px; color:var(--green); font:12px monospace; overflow-wrap:anywhere; }
+.product-link.missing { color:var(--muted); background:transparent; }
+.document-dialog { width:min(900px,92vw); max-height:85vh; border:1px solid var(--line); border-radius:12px; padding:24px; }
+.document-dialog::backdrop { background:#17251a80; }
+.document-dialog pre { padding:18px; background:#f5f7f3; overflow:auto; max-height:65vh; font-size:12px; white-space:pre-wrap; overflow-wrap:anywhere; }
+.binding-grid { grid-column:1 / -1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; width:100%; padding:16px; }
+.binding-grid article { min-width:0; border:1px solid var(--line); border-radius:8px; padding:12px; }
+.binding-grid h3 { font-size:12px; overflow-wrap:anywhere; }
+#workspace[data-stage="4"] .canvas { height:auto; max-height:700px; overflow:auto; touch-action:pan-y; }
+#workspace[data-stage="1"] .canvas { touch-action:pan-y; }
+#workspace:not([data-stage="5"]) :is(.versions-panel,.changes-panel,.chat-panel,.motion-panel) { display:none; }
+#workspace:is([data-stage="1"],[data-stage="2"],[data-stage="3"]) .materials-panel { display:none; }
+.step-panel { order:-1; }
+@media(max-width:680px) { .binding-grid { grid-template-columns:1fr; } .stage small { overflow-wrap:anywhere; } }
 .workspace-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 270px;
@@ -1056,7 +1071,7 @@ button:disabled { opacity:.5; cursor:not-allowed; }
 #editorCropDialog{width:min(760px,96vw);max-height:95vh;padding:0;border:1px solid #c5d2c7;border-radius:12px;background:#f6f8f3}
 #editorCropSvg{overflow:visible}
 #editorCropDialog p{margin:12px 20px;font-size:13px}#editorCropSvg{display:block;margin:10px auto;width:auto;height:55vh;max-width:90%;background:#dfe6dc;touch-action:none;user-select:none;cursor:crosshair}#editorCropSvg [data-crop=move]{cursor:move}#editorCropSvg circle{cursor:nwse-resize}
-/* Live production stays separate from the six static-cover stages. */
+/* Live production stays separate from the five first-image stages. */
 .motion-panel video { display:block; width:100%; max-height:620px; background:#ebe8e1; border-radius:10px; }
 .motion-stages { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; margin:14px 0; }
 .motion-stages>div { border:1px solid #e5e0d6; padding:10px; border-radius:8px; }
@@ -1073,6 +1088,8 @@ button:disabled { opacity:.5; cursor:not-allowed; }
 #uploadDialog { width:min(620px,90vw); padding:26px; border:0; border-radius:16px; }
 #uploadForm label { display:block; margin:16px 0; }
 #uploadForm input,#uploadForm textarea,#uploadHandoffText { display:block; width:100%; margin-top:8px; }
+#uploadForm .workflow-option input { display:inline-block; width:auto; margin:0 6px 0 0; }
+#uploadForm .workflow-option small { display:block; margin-top:6px; color:var(--muted); }
 #uploadProgress { width:100%; }
 @media(max-width:850px) { .motion-stages { grid-template-columns:1fr 1fr; } .live-materials { grid-template-columns:1fr 1fr; } }
 

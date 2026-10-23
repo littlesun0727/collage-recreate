@@ -4,7 +4,7 @@ from pathlib import Path
 import math
 import time
 from PIL import Image
-from common import read,save,sha,fingerprint,event
+from common import cache_directory,read,save,sha,fingerprint,event
 from reveal_plan import plan,preview
 
 
@@ -51,8 +51,9 @@ def acquire(run,scene,targets,config):
         raise ValueError('Grouped cache requires request-plan.json; use layout legacy for old caches')
     def work(batch):
         start=time.monotonic();identity={'reference_sha256':reference_hash,'planner':p['version'],'batch':batch}
-        identity_hash=fingerprint(identity);name='batch_'+identity_hash[:20];task=root/name
-        if external and (external/'grouped'/name/'request_meta.json').exists():task=external/'grouped'/name
+        local=cache_directory(root,'batch',identity,'group.json');task=local
+        if external:
+            task=cache_directory(external/'grouped','batch',identity,'group.json',create=False) or local
         readonly=not task.is_relative_to(root);task.mkdir(parents=True,exist_ok=True)
         receipt={'task':str(task),'batch_id':batch['id'],'requested_ids':batch['primary_ids'],
                  'count':batch['count'],'crop_box':batch['crop_box'],'estimated_sampling_gain':batch['estimated_sampling_gain']}
@@ -88,7 +89,7 @@ def acquire(run,scene,targets,config):
             if out.get('image_boxes') not in [None,boxes,[boxes[i] for i in indices]]:raise ValueError('Service box echo differs')
             receipt.update(task_id=q.get('task_id') or read(task/'submit_response.json').get('task_id'),
                            status=q['status'],returned=len(indices),timings=read(task/'timing.json') if (task/'timing.json').exists() else {})
-            restored=root/name/'restored';restored.mkdir(parents=True,exist_ok=True)
+            restored=local/'restored';restored.mkdir(parents=True,exist_ok=True)
             for j,i in enumerate(indices,1):
                 o=batch['objects'][i]
                 if o['role']!='asset':continue

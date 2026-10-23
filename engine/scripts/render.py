@@ -62,8 +62,7 @@ def best_effort_material(o, size, reference, photos, run, scene):
             plain.update(mode='cover', style={})
             if plain.get('photo_window_spec'):
                 plain['photo_window_spec']['subject']['mode']='preserve'
-                if plain['photo_window_spec']['stroke']['target']=='subject':
-                    plain['photo_window_spec']['stroke'].update(enabled=False,width=0)
+                plain['photo_window_spec']['subject_stroke'].update(enabled=False,width=0)
             tile, metadata = make_photo(plain, o['source'], o['binding'], size, run, None)
             metadata.update(quality='needs_review', fallback=True,
                             note='照片特效失败，保留同一客户素材的普通裁剪：' + str(exc)[:300])
@@ -112,6 +111,7 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
         box=[round(n*scale) for n in o['bbox']];size=(max(1,box[2]-box[0]),max(1,box[3]-box[1]))
         o['style']=scale_style(o['style'],scale)
         o['_render_scale']=scale
+        if o['kind']=='photo':o['_render_canvas_size']=[w,h]
         group='photos' if o['kind']=='photo' else 'text' if o['kind']=='text' else 'overlays'
         folder=run/'assets'/group;folder.mkdir(parents=True,exist_ok=True)
         path=folder/(oid+'.png');receipt_path=folder/(oid+'.json')
@@ -148,10 +148,12 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
         if o['kind']=='photo':
             with Image.open(metadata['content_mask']) as raw:content_alpha=raw.convert('L')
             if o['style'].get('opacity',1)!=1:content_alpha=content_alpha.point(lambda v:round(v*o['style']['opacity']))
-        if o.get('rotation',0):
-            tile=tile.rotate(-o['rotation'],Image.Resampling.BICUBIC,expand=True)
-            if content_alpha is not None:content_alpha=content_alpha.rotate(-o['rotation'],Image.Resampling.BICUBIC,expand=True)
-        x=round((box[0]+box[2]-tile.width)/2);y=round((box[1]+box[3]-tile.height)/2)
+        placement_box=[0,0,w,h] if metadata.get('canvas_aligned') else box
+        rotation=0 if metadata.get('canvas_aligned') else o.get('rotation',0)
+        if rotation:
+            tile=tile.rotate(-rotation,Image.Resampling.BICUBIC,expand=True)
+            if content_alpha is not None:content_alpha=content_alpha.rotate(-rotation,Image.Resampling.BICUBIC,expand=True)
+        x=round((placement_box[0]+placement_box[2]-tile.width)/2);y=round((placement_box[1]+placement_box[3]-tile.height)/2)
         layer=Image.new('RGBA',(w,h));layer.alpha_composite(tile,(x,y))
         if (metadata.get('method')=='local_frame' or (o['kind']=='overlay' and o.get('method','local')=='local' and not o.get('recovered') and not o.get('generated') and not o['style'].get('window'))):
             # Newly drawn carriers use the existing customer-photo geometry for holes.

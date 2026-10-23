@@ -5,6 +5,7 @@ import os
 import time
 import uuid
 import sys
+from threading import Lock
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,7 +13,33 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT.parent) not in sys.path:
     sys.path.insert(0, str(ROOT.parent))
-from collage_v6.paths import relocated_path, relocated_values
+from collage.paths import relocated_path, relocated_values
+
+_cache_names_lock = Lock()
+
+
+def cache_directory(root, prefix, identity, manifest, *, create=True):
+    """Use short serial names; full request metadata determines cache reuse."""
+    root = Path(root)
+    with _cache_names_lock:
+        # Include old hash-named directories so an upgrade cannot resubmit a request.
+        for folder in sorted(root.glob(prefix+'_*')):
+            record = folder/manifest
+            if record.is_file() and read(record) == identity:
+                return folder
+        if not create:
+            return None
+        root.mkdir(parents=True, exist_ok=True)
+        number = 1
+        while True:
+            folder = root/f'{prefix}_{number:02d}'
+            try:
+                folder.mkdir()
+            except FileExistsError:
+                number += 1
+                continue
+            save(folder/manifest, identity)
+            return folder
 
 
 def read(path):
