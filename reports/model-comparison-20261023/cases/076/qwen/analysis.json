@@ -1,0 +1,165 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        338,
+        1200
+      ],
+      "description": "左侧白色背景区域，分布有黑色圆点图案。",
+      "label": "左侧白色背景区域，分布有黑色圆点图案。",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        338,
+        0,
+        900,
+        1200
+      ],
+      "description": "右侧主图，展示一位身穿黑色长款毛衣、白袜和乐福鞋的长发女性全身照，背景为带有TOMMY JEANS标志的墙面和木桶。",
+      "label": "右侧主图，展示一位身穿黑色长款毛衣、白袜和乐福鞋的长发女性全",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_star_label",
+      "kind": "overlay",
+      "bbox": [
+        758,
+        151,
+        860,
+        190
+      ],
+      "description": "位于右上角的白色矩形标签，印有颜文字“^_-☆”。",
+      "label": "位于右上角的白色矩形标签，印有颜文字“^_-☆”。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_black_star",
+      "kind": "overlay",
+      "bbox": [
+        153,
+        182,
+        270,
+        250
+      ],
+      "description": "位于左上方的黑色正方形贴纸，中心有一个白色五角星图案。",
+      "label": "位于左上方的黑色正方形贴纸，中心有一个白色五角星图案。",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        50,
+        214,
+        369,
+        612
+      ],
+      "description": "左上方倾斜放置的照片，内容为同一位女性的面部特写自拍，穿着深色上衣。",
+      "label": "左上方倾斜放置的照片，内容为同一位女性的面部特写自拍，穿着深",
+      "method": "local",
+      "rotation": -5
+    },
+    {
+      "id": "overlay_text_label",
+      "kind": "overlay",
+      "bbox": [
+        9,
+        618,
+        180,
+        660
+      ],
+      "description": "位于中部的黑色矩形标签，印有白色颜文字“+=^_.-_^=+”。",
+      "label": "位于中部的黑色矩形标签，印有白色颜文字“+=^_.-_^=+",
+      "method": "extract"
+    },
+    {
+      "id": "photo_circle",
+      "kind": "photo",
+      "bbox": [
+        166,
+        522,
+        405,
+        798
+      ],
+      "description": "圆形裁剪的照片，内容为该女性正面半身照，穿着黑色毛衣。",
+      "label": "圆形裁剪的照片，内容为该女性正面半身照，穿着黑色毛衣。",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_heart_balloon",
+      "kind": "overlay",
+      "bbox": [
+        22,
+        750,
+        104,
+        900
+      ],
+      "description": "黑白格纹的心形气球装饰，下方带有细线。",
+      "label": "黑白格纹的心形气球装饰，下方带有细线。",
+      "method": "extract"
+    },
+    {
+      "id": "photo_heart",
+      "kind": "photo",
+      "bbox": [
+        9,
+        828,
+        328,
+        1098
+      ],
+      "description": "心形裁剪的照片，内容为该女性手托下巴的特写照。",
+      "label": "心形裁剪的照片，内容为该女性手托下巴的特写照。",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_japanese",
+      "kind": "text",
+      "bbox": [
+        45,
+        1104,
+        234,
+        1134
+      ],
+      "description": "一緒に頑張ろうね",
+      "label": "一緒に頑張ろうね",
+      "method": "local",
+      "text": "一緒に頑張ろうね",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_main",
+    "overlay_star_label",
+    "overlay_black_star",
+    "photo_top_left",
+    "overlay_text_label",
+    "photo_circle",
+    "overlay_heart_balloon",
+    "photo_heart",
+    "text_japanese"
+  ]
+}

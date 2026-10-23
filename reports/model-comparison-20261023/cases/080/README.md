@@ -10,7 +10,13 @@
 
 ## Codex gpt-6-luna / medium
 
-运行中 · build
+已交付
+
+耗时：159.7 秒；交付类别：unreviewed。
+
+![成图](luna/final.png)
+
+[查看参数、中间 JSON、告警及对照图](luna/)
 
 ## Codex gpt-6.1-sol / medium
 

@@ -1,0 +1,172 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画面的虚化摄影背景，可见室内桌面、餐饮物品和人物等环境轮廓；整体保持虚化并作为可替换摄影内容。",
+      "label": "铺满画面的虚化摄影背景，可见室内桌面、餐饮物品和人物等环境轮",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "heart_photo",
+      "kind": "photo",
+      "bbox": [
+        390,
+        109,
+        831,
+        539
+      ],
+      "description": "心形照片窗口内，一名坐在室内桌旁的人低头靠着双臂，头戴棕色玩偶帽，前方有浅色毛绒包；后方玻璃窗外可见夜间城市灯光与室内环境。摄影背景保留，心形窗口边缘有沿轮廓的白色手绘描边。",
+      "label": "心形照片窗口内，一名坐在室内桌旁的人低头靠着双臂，头戴棕色玩",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "star_photo",
+      "kind": "photo",
+      "bbox": [
+        31,
+        596,
+        504,
+        1070
+      ],
+      "description": "星形照片窗口内的桌面静物：平板屏幕显示室内餐桌画面，旁有饮品和甜点；下方是装有小点心的彩绘圆盘，右侧有草莓奶油饮品。保留照片内摄影环境，星形窗口边缘有沿轮廓的白色手绘描边。",
+      "label": "星形照片窗口内的桌面静物：平板屏幕显示室内餐桌画面，旁有饮品",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_left",
+      "kind": "text",
+      "bbox": [
+        41,
+        133,
+        392,
+        526
+      ],
+      "description": "我从此感到幸福\n轻易 松脆的幸福\n如同围炉火烤\n你伸手揉碎了茶饼\n芬芳溢溢的 却萦绕不去\n我的幸福\n只需要我伸出手享心",
+      "label": "我从此感到幸福\n轻易 松脆的幸福\n如同围炉火烤\n你伸手揉碎了",
+      "method": "local",
+      "text": "我从此感到幸福\n轻易 松脆的幸福\n如同围炉火烤\n你伸手揉碎了茶饼\n芬芳溢溢的 却萦绕不去\n我的幸福\n只需要我伸出手享心",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "text_right",
+      "kind": "text",
+      "bbox": [
+        496,
+        630,
+        870,
+        1074
+      ],
+      "description": "在这个世界上\n幸福从来就没有标准答案\n有的人吃路边摊\n但也要拍照记录\n有人看到了日落\n也要感叹生活的美好\n只要是你自己喜欢的日子\n就是最好的日子",
+      "label": "在这个世界上\n幸福从来就没有标准答案\n有的人吃路边摊\n但也要",
+      "method": "local",
+      "text": "在这个世界上\n幸福从来就没有标准答案\n有的人吃路边摊\n但也要拍照记录\n有人看到了日落\n也要感叹生活的美好\n只要是你自己喜欢的日子\n就是最好的日子",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "doodle_top",
+      "kind": "overlay",
+      "bbox": [
+        636,
+        54,
+        844,
+        97
+      ],
+      "description": "右上方一组白色手绘装饰，包含星星、音符、弯月、爱心和花朵线稿。",
+      "label": "右上方一组白色手绘装饰，包含星星、音符、弯月、爱心和花朵线稿",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_face",
+      "kind": "overlay",
+      "bbox": [
+        733,
+        467,
+        850,
+        528
+      ],
+      "description": "心形照片右侧的白色手绘表情符号，包含两道竖弧眼睛和点状弯曲嘴部。",
+      "label": "心形照片右侧的白色手绘表情符号，包含两道竖弧眼睛和点状弯曲嘴",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_sparkles",
+      "kind": "overlay",
+      "bbox": [
+        61,
+        586,
+        137,
+        685
+      ],
+      "description": "星形照片左上侧一簇白色手绘闪光星星与小点装饰。",
+      "label": "星形照片左上侧一簇白色手绘闪光星星与小点装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_bow",
+      "kind": "overlay",
+      "bbox": [
+        349,
+        563,
+        549,
+        695
+      ],
+      "description": "星形照片上方偏右的白色手绘蝴蝶结，周围点缀黄色小圆点、浅色小星星和白色闪光符号，作为一组装饰保留。",
+      "label": "星形照片上方偏右的白色手绘蝴蝶结，周围点缀黄色小圆点、浅色小",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_stars_row",
+      "kind": "overlay",
+      "bbox": [
+        120,
+        1102,
+        337,
+        1142
+      ],
+      "description": "画面底部一排五个白色手绘空心星星装饰。",
+      "label": "画面底部一排五个白色手绘空心星星装饰。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_photo",
+    "heart_photo",
+    "star_photo",
+    "text_left",
+    "text_right",
+    "doodle_top",
+    "doodle_face",
+    "doodle_sparkles",
+    "doodle_bow",
+    "doodle_stars_row"
+  ]
+}
