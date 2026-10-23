@@ -1,0 +1,542 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\prepared\\reference.png",
+    "sha256": "7d725b167674f0154e3dd64845bb44a880c9dedde4d8687bcea75abb70d69589"
+  },
+  "reference_size": [
+    900,
+    1198
+  ],
+  "canvas_size": [
+    1200,
+    1597
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1198
+      ],
+      "description": "固定的户外俯拍草地场景，密布黄花、白色小花与绿草；上方及右侧可见深色溪流和岩石，底部有拍摄者的裤腿与衣物。作为连续的摄影背景保留。",
+      "label": "固定的户外俯拍草地场景，密布黄花、白色小花与绿草；上方及右侧",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b30b8d9e06ab14ec4e9efcc356b77de501cea495768672687c184150b521ec7d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\background_1.png",
+        "sha256": "c72a64694fc1646dbf65fcef263cf1d262f00642c04f4a3a9ac4cb9862ef3347",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "c72a64694fc1646dbf65fcef263cf1d262f00642c04f4a3a9ac4cb9862ef3347",
+          "bbox": [
+            0,
+            0,
+            900,
+            1198
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1198
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+          "raw_sha256": "c2a7e49aa74996019706526cd9e4f6a95eef5d0b7a4bb4eed4e0ee7df4c13a47",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        273,
+        114,
+        615,
+        375
+      ],
+      "description": "上方黄色纸框内的横向照片窗口；草原远景中有三匹马，前景可见一双手举着横向手机拍摄，手机屏幕呈粉紫色，左边缘另有局部手臂。照片内摄影环境保留，按矩形窗口裁切。",
+      "label": "上方黄色纸框内的横向照片窗口；草原远景中有三匹马，前景可见一",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "保留草原与马匹的摄影环境；举手机的手、手机及左侧局部手臂都属于照片内容，无需沿主体描边。黄色纸框形成明确矩形照片内口，按矩形窗口裁切；无窗口描边或边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_05",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有开阔山坡与草地，较接近草原远景；但没有三匹马、举手机的手或粉紫色屏幕。保留全幅居中裁切。"
+      },
+      "source": {
+        "id": "material_05",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-093-91a6f45c3231\\3cdf61da6802362193ed1af16b6af31fb0a8d475c9d7b47d52fd9279ddb97da3.png",
+        "sha256": "4c5ccf7d473f090864ac3c513de4dee4eada9a031ca7a19476d048b088d75c07",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\prepared\\material_05.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_1-photo_1-window.png",
+        "sha256": "396c7fd50f5aad308aac8ada3a486ce0d566000c39c168eab5e5b7bcfc02dc15"
+      },
+      "reveal_frame_id": "frame_1"
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        230,
+        92,
+        699,
+        395
+      ],
+      "description": "承载上方照片的亮黄色厚纸框，宽边矩形内口，纸面有细微纹理与阴影；框体本身完整保留。",
+      "photo_id": "photo_1",
+      "label": "承载上方照片的亮黄色厚纸框，宽边矩形内口，纸面有细微纹理与阴",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_1 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ebfec87912772c9689a0fc91b5cf4d9e46ebe373408cee71277050f86bb6a33f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_1.png",
+        "sha256": "1d7c41fa13a9f2a31d7da7852d60cfe486f4b423c720d83ad6b136dfcd71c318",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01\\frame_1-restored.png",
+          "sha256": "1d7c41fa13a9f2a31d7da7852d60cfe486f4b423c720d83ad6b136dfcd71c318",
+          "bbox": [
+            222,
+            84,
+            707,
+            403
+          ],
+          "original_bbox": [
+            230,
+            92,
+            699,
+            395
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "3ac62c80f9088e5469e3a1df2cd1fa6a0380313beff4e7ff902920ba12c77b5c",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1198
+          ],
+          "input_sha256": "7d725b167674f0154e3dd64845bb44a880c9dedde4d8687bcea75abb70d69589"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        276,
+        488,
+        617,
+        746
+      ],
+      "description": "中间照片窗口内，一只手从左下方举着一束紫、黄、白、蓝色野花，背景是绿色草原和远处山坡天空；摄影背景保留，矩形窗口裁切。",
+      "label": "中间照片窗口内，一只手从左下方举着一束紫、黄、白、蓝色野花，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "保留花束、手与草原山坡天空的完整摄影环境，不对手或花束描边。白色彩点纸框的矩形内口限定照片边界，框体装饰不是照片描边；无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "前景可见人物举起的手，背景有水面、远山与天空；与手持野花及绿色草原场景差异明显。保留全幅居中裁切。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-093-91a6f45c3231\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\prepared\\material_00.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_2-photo_2-window.png",
+        "sha256": "65d9ab897897cc0a812f5423bb676e89b8f2f29bba42b4cc8c23ba45c6b867df"
+      },
+      "reveal_frame_id": "frame_2"
+    },
+    {
+      "id": "frame_2",
+      "kind": "frame",
+      "bbox": [
+        234,
+        464,
+        704,
+        768
+      ],
+      "description": "承载中间照片的白色横向纸框，框面布满彩色圆点装饰并带细微纸纹，整体作为完整框体保留。",
+      "photo_id": "photo_2",
+      "label": "承载中间照片的白色横向纸框，框面布满彩色圆点装饰并带细微纸纹",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_2 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d1f9daa03eed5b0c6fc7da7c404cbacc91deed31aec26a2b319ef0d0d5718863"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_2.png",
+        "sha256": "297fd82a4bc31130aca136bafee265220989d99e8d2e3da9213bdb02c724bf25",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01\\frame_2-restored.png",
+          "sha256": "297fd82a4bc31130aca136bafee265220989d99e8d2e3da9213bdb02c724bf25",
+          "bbox": [
+            226,
+            456,
+            712,
+            776
+          ],
+          "original_bbox": [
+            234,
+            464,
+            704,
+            768
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "803aa796e47642ec9b5a7aabb75100303e64693eadb1d19de05cd418d909113f",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1198
+          ],
+          "input_sha256": "7d725b167674f0154e3dd64845bb44a880c9dedde4d8687bcea75abb70d69589"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        276,
+        843,
+        616,
+        1105
+      ],
+      "description": "下方照片窗口内，俯拍草编篮中的多颗橙黄及红色水果；保留篮子和水果的摄影细节，按矩形窗口裁切。",
+      "label": "下方照片窗口内，俯拍草编篮中的多颗橙黄及红色水果；保留篮子和",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "保留草编篮与水果的摄影细节，不进行主体分割或描边。紫色纸框内口为明确矩形照片窗口，框面纹理与阴影属于固定框体；没有额外窗口线条或边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材是俯视感较强的开阔地貌与水池，可保留完整摄影细节；但不含草编篮或水果，与描述不符。保留全幅居中裁切。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-093-91a6f45c3231\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\prepared\\material_02.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_3-photo_3-window.png",
+        "sha256": "54c67dc648c7c58f22d9e0089b9a30594d0ca375b9e735a1ffb7c91980b3ab3e"
+      },
+      "reveal_frame_id": "frame_3"
+    },
+    {
+      "id": "frame_3",
+      "kind": "frame",
+      "bbox": [
+        234,
+        823,
+        705,
+        1131
+      ],
+      "description": "承载下方照片的紫色横向厚纸框，宽边矩形内口，表面略有纹理和阴影，作为完整固定框体保留。",
+      "photo_id": "photo_3",
+      "label": "承载下方照片的紫色横向厚纸框，宽边矩形内口，表面略有纹理和阴",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_3 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "33e4c56d385f53d6b640162289701f56cb475cef0d8162425dec7c1c739c2d06"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_3.png",
+        "sha256": "bf2ae98cc9d74175ae0250cdccfb936d5008bbe4ae204cc70b11a05be4b37236",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01\\frame_3-restored.png",
+          "sha256": "bf2ae98cc9d74175ae0250cdccfb936d5008bbe4ae204cc70b11a05be4b37236",
+          "bbox": [
+            226,
+            815,
+            713,
+            1139
+          ],
+          "original_bbox": [
+            234,
+            823,
+            705,
+            1131
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "49b48eb89a812fc422c2bc0317d898b72cd941fbb3e0e6eebf4a2c4f7da6d04d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1198
+          ],
+          "input_sha256": "7d725b167674f0154e3dd64845bb44a880c9dedde4d8687bcea75abb70d69589"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\frame_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "frame_1",
+    "photo_1",
+    "frame_2",
+    "photo_2",
+    "frame_3",
+    "photo_3"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "8722bd6bc66f154aad0d1abec2f8a8c634a0f58eeca154f29cf08110838ae529",
+    "bindings": "684d58f4cd7f828e6b42d4454a76b5fe134d49d175a9e602950884c75d208b0b",
+    "input": "548b3f45fefd32d3f8b200e9d5523b291f3f2eb3855a22501ea70bcaec88a6f7",
+    "catalog": "ad476016733a261d289c46468ce694c9434d6e5fbeca1f9b5a9b1aaf371d744c",
+    "photo_windows": "1f829f6c4c8669f90da86b60d264c88a10174743f43341b37012b1bf8f09cfe2"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\reveal\\index.json",
+    "sha256": "e908f0b65d940a136b2aef13854e37c6eb8568d8003b40e54ba1b2c0d5924c3a"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\assets\\gate\\report.json",
+    "sha256": "5341e5e701a199daf1ea65acb7189fa808f14d72e3cd4d24324737781e4a7673",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 4,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 3,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-093\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

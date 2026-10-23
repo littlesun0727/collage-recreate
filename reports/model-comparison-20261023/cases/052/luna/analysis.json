@@ -1,0 +1,116 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1198
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1198
+      ],
+      "description": "固定的户外俯拍草地场景，密布黄花、白色小花与绿草；上方及右侧可见深色溪流和岩石，底部有拍摄者的裤腿与衣物。作为连续的摄影背景保留。",
+      "label": "固定的户外俯拍草地场景，密布黄花、白色小花与绿草；上方及右侧",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        273,
+        114,
+        615,
+        375
+      ],
+      "description": "上方黄色纸框内的横向照片窗口；草原远景中有三匹马，前景可见一双手举着横向手机拍摄，手机屏幕呈粉紫色，左边缘另有局部手臂。照片内摄影环境保留，按矩形窗口裁切。",
+      "label": "上方黄色纸框内的横向照片窗口；草原远景中有三匹马，前景可见一",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        230,
+        92,
+        699,
+        395
+      ],
+      "description": "承载上方照片的亮黄色厚纸框，宽边矩形内口，纸面有细微纹理与阴影；框体本身完整保留。",
+      "photo_id": "photo_1",
+      "label": "承载上方照片的亮黄色厚纸框，宽边矩形内口，纸面有细微纹理与阴",
+      "method": "extract"
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        276,
+        488,
+        617,
+        746
+      ],
+      "description": "中间照片窗口内，一只手从左下方举着一束紫、黄、白、蓝色野花，背景是绿色草原和远处山坡天空；摄影背景保留，矩形窗口裁切。",
+      "label": "中间照片窗口内，一只手从左下方举着一束紫、黄、白、蓝色野花，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_2",
+      "kind": "frame",
+      "bbox": [
+        234,
+        464,
+        704,
+        768
+      ],
+      "description": "承载中间照片的白色横向纸框，框面布满彩色圆点装饰并带细微纸纹，整体作为完整框体保留。",
+      "photo_id": "photo_2",
+      "label": "承载中间照片的白色横向纸框，框面布满彩色圆点装饰并带细微纸纹",
+      "method": "extract"
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        276,
+        843,
+        616,
+        1105
+      ],
+      "description": "下方照片窗口内，俯拍草编篮中的多颗橙黄及红色水果；保留篮子和水果的摄影细节，按矩形窗口裁切。",
+      "label": "下方照片窗口内，俯拍草编篮中的多颗橙黄及红色水果；保留篮子和",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_3",
+      "kind": "frame",
+      "bbox": [
+        234,
+        823,
+        705,
+        1131
+      ],
+      "description": "承载下方照片的紫色横向厚纸框，宽边矩形内口，表面略有纹理和阴影，作为完整固定框体保留。",
+      "photo_id": "photo_3",
+      "label": "承载下方照片的紫色横向厚纸框，宽边矩形内口，表面略有纹理和阴",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "frame_1",
+    "photo_1",
+    "frame_2",
+    "photo_2",
+    "frame_3",
+    "photo_3"
+  ]
+}
