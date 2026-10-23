@@ -1,0 +1,495 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-124\\prepared\\reference.png",
+    "sha256": "8cd3963bd3a2161269b01a7a1cf488d5c63640fb3c45a000ebe6c8510c7e8c85"
+  },
+  "reference_size": [
+    900,
+    1198
+  ],
+  "canvas_size": [
+    1200,
+    1597
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1198
+      ],
+      "description": "深棕色底面，满布规则排列、边缘柔虚的白色圆点，作为完整固定背景保留。",
+      "label": "深棕色底面，满布规则排列、边缘柔虚的白色圆点，作为完整固定背",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "HTTPError: HTTP Error 402: Payment Required",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "7ad8e92d6598e77a3c6e98425d891fc53d998417abf59ad3467ba33b0c67ab31"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        421,
+        137,
+        802,
+        640
+      ],
+      "description": "俯拍咖啡馆圆木桌，桌上有外带咖啡杯、手机及卡通手机壳、两个人偶挂件、纸片和右下方局部平板；周围可见地砖、绿色座椅与下方黑色笑脸图案包，无人物。保留完整摄影环境，四周沿照片窗口带浅粉色粗糙毛边描边，上缘左侧被圆点胶带覆盖，左侧局部被对话框遮挡，右下角被樱桃贴纸遮挡。",
+      "label": "俯拍咖啡馆圆木桌，桌上有外带咖啡杯、手机及卡通手机壳、两个人",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top",
+        "reason": "保留桌面、地砖、座椅及包等完整摄影环境，不描主体。照片为近直角的轻微圆角矩形窗口，浅粉色毛边沿窗口而非物体轮廓，使用实线近似其粗糙纹理。胶带、对话框和樱桃仅遮挡窗口，未见透明渐变或连续出框。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.018
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.028,
+          "color": "#E4B09A",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top",
+        "asset_id": "material_12",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中无咖啡馆桌面，选高位俯拍、包含多处设施的盐湖环境作近似；保留全幅并居中适配，不镜像。缺少咖啡杯、手机及挂件，场景差异明显。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-124-e9fcafec9ec8\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-124\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        58,
+        435,
+        371,
+        848
+      ],
+      "description": "商店内近景，一只戴手链的手从左下方伸入，举着透明包装中的粉色兔子玩偶，后方陈列大量玩偶和挂件。保留货架及店内摄影背景，不沿手或玩偶去背景；照片四周有浅粉色粗糙毛边描边，左上被蛋糕贴纸遮挡，右上被灰色对话框遮挡。",
+      "label": "商店内近景，一只戴手链的手从左下方伸入，举着透明包装中的粉色",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_left",
+        "reason": "手、包装与兔子玩偶连同店内货架背景保留，不抠图、不描主体。固定窗口为轻微圆角矩形，浅粉色粗糙边线归属窗口，以实线近似。上方贴纸和对话框形成遮挡，不是窗口渐隐，也无主体连续出框。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.018
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.028,
+          "color": "#E4B09A",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_left",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无商店或兔子玩偶素材，选近景人物托掌展示的姿态作有限近似；全幅居中保留脸部、双手和环境，不镜像以免反转帽中文字。实际为户外人像，并非手持玩偶。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-124-e9fcafec9ec8\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-124\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        409,
+        757,
+        850,
+        1090
+      ],
+      "description": "俯拍桌面饮食近景，左侧白色杯中是绿色拉花饮品，右侧彩色圆点盘中放着带奶油与草莓的蛋糕；下方可见格纹垫布、纸张与餐具。保留完整桌面摄影环境，四周带浅粉色粗糙毛边描边，左下边缘被音符装饰覆盖。",
+      "label": "俯拍桌面饮食近景，左侧白色杯中是绿色拉花饮品，右侧彩色圆点盘",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom",
+        "reason": "保留饮品、蛋糕、盘子及桌面摄影环境，不沿杯盘或食物描边。横向轻微圆角矩形窗口具有浅粉色毛边，用居中实线近似，无法精确复现毛糙纹理。左下音符为独立遮挡；四边未见与底色透明混合的渐变。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.025
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.028,
+          "color": "#E4B09A",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "center",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无饮品蛋糕素材，选俯拍环境中左侧圆形水池、右侧建筑的双重点构图作有限近似；全幅居中适配，仅轻微裁去左右边缘，不镜像。实际为盐湖远景，非桌面饮食近景。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-124-e9fcafec9ec8\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-124\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "tape",
+      "kind": "overlay",
+      "bbox": [
+        315,
+        41,
+        584,
+        249
+      ],
+      "description": "向右上倾斜的半透明灰褐色胶带，带规则浅青色圆点，横跨顶部照片左上边缘；保留完整胶带轮廓、透明质感与圆点。",
+      "label": "向右上倾斜的半透明灰褐色胶带，带规则浅青色圆点，横跨顶部照片",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "9b1c1796321680496a0baa4bd3d0bf6523120992b0a03f519c5861fede7525a8"
+      }
+    },
+    {
+      "id": "title_label",
+      "kind": "overlay",
+      "bbox": [
+        58,
+        196,
+        304,
+        277
+      ],
+      "description": "灰色矩形圆点标签，内部为粉色“Love theme”字样，文字具有特定装饰字形与浅色边缘；底板、细密白点和文字整体保留。",
+      "label": "灰色矩形圆点标签，内部为粉色“Love theme”字样，文",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "f347e37ddd78d74edea14f2fa1bf8c8fec2ea99e892c408c270673cb6aad2bb9"
+      }
+    },
+    {
+      "id": "speech_label",
+      "kind": "overlay",
+      "bbox": [
+        301,
+        301,
+        514,
+        497
+      ],
+      "description": "浅灰白色圆点对话框，外轮廓呈像素阶梯状，左下带尾部；内有黑色星形与“보고 싶어요...ㅠㅠ”字样。底板、圆点、星形和文字作为完整贴纸保留，覆盖两张照片的相邻区域。",
+      "label": "浅灰白色圆点对话框，外轮廓呈像素阶梯状，左下带尾部；内有黑色",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "7ac33fd99a402ac4a72795a3f8ec50f1c90232f151700dff91f0d2cf204d10da"
+      }
+    },
+    {
+      "id": "cake_sticker",
+      "kind": "overlay",
+      "bbox": [
+        13,
+        350,
+        148,
+        486
+      ],
+      "description": "白底红色密集圆点方形贴纸，内含草莓奶油夹层蛋糕图像与黑色“TvT”字样；作为完整固定装饰保留，压住左侧照片上缘。",
+      "label": "白底红色密集圆点方形贴纸，内含草莓奶油夹层蛋糕图像与黑色“T",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "f8fa0194c4186c999618d73ff32860e2d63286d8f079318d4e01cb6283371afb"
+      }
+    },
+    {
+      "id": "cherry_sticker",
+      "kind": "overlay",
+      "bbox": [
+        729,
+        562,
+        842,
+        682
+      ],
+      "description": "红色像素风樱桃贴纸，带绿色果梗、白色高光和粗白色外边，整体覆盖顶部照片右下边缘。",
+      "label": "红色像素风樱桃贴纸，带绿色果梗、白色高光和粗白色外边，整体覆",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "84ba63975244e6eb034d07dc255f7393554accd3566a34a3f85df137cf801e7c"
+      }
+    },
+    {
+      "id": "emoticon_bubble",
+      "kind": "overlay",
+      "bbox": [
+        445,
+        664,
+        613,
+        745
+      ],
+      "description": "带柔和白色光晕的白色小对话气泡，上下有短小凸起，内部为浅绿色颜文字；保留气泡轮廓、发光边缘与特定字符造型。",
+      "label": "带柔和白色光晕的白色小对话气泡，上下有短小凸起，内部为浅绿色",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "9a13d1796cc1d44ae4c51a78a23105b3ed40d6c5a582db800c2192e82955c521"
+      }
+    },
+    {
+      "id": "pink_label",
+      "kind": "overlay",
+      "bbox": [
+        40,
+        888,
+        374,
+        957
+      ],
+      "description": "粉色长圆角标签，带细密浅色圆点；左端白色圆形内有黑色勾号，中间为黑色星号、中文“等待幸福的来临”及细小表情符号。完整保留底板、图案与文字。",
+      "label": "粉色长圆角标签，带细密浅色圆点；左端白色圆形内有黑色勾号，中",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "935bfd2de6aa374446b48e8f1db92403a6757afa25d0fed53c3f5b00998c7eb3"
+      }
+    },
+    {
+      "id": "music_note",
+      "kind": "overlay",
+      "bbox": [
+        328,
+        1018,
+        495,
+        1144
+      ],
+      "description": "酒红色双音符装饰，内部布满白色小圆点，斜置并跨过底部照片左下边缘；两个音符头和连接笔画整体保留。",
+      "label": "酒红色双音符装饰，内部布满白色小圆点，斜置并跨过底部照片左下",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "692f0790b3d36a2d240bb5345e29487a52426ba4d8f6e65d3d6ab7ac2d79eb3d"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_left",
+    "photo_bottom",
+    "tape",
+    "title_label",
+    "speech_label",
+    "cake_sticker",
+    "cherry_sticker",
+    "emoticon_bubble",
+    "pink_label",
+    "music_note"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "20712c195a401c8ba5a2ea19e911e93e9da22cad139efce23b545d9abddb78b2",
+    "bindings": "79d8c1377bb2d12f8084bfcdc087a44aaf29c8668c847f79f2cb2146082b3661",
+    "input": "c0fd1821a01a5d0accbb413d0338538510622c8f85f4ec238f8a156bec239c48",
+    "catalog": "cdf980c3228347060ae008ee67512e072aa16dac98b2fcf1de1c344111a68803",
+    "photo_windows": "3a9b384a492265f2a0582bd56c178fa04d384fb33572bf0203e18ae144a39647"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-124\\assets\\reveal\\index.json",
+    "sha256": "ae511159fe74e2140c7b410f6dd5bdcdf25526851ea95947ed56fa21975c074e"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-124\\assets\\gate\\report.json",
+    "sha256": "6d15589e81d19f8b099017d28cca062b30354eb3cbe996bddacf555e72c72a46",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 9,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
