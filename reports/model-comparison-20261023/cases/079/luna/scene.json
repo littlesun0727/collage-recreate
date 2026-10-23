@@ -1,0 +1,922 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\prepared\\reference.png",
+    "sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "base_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画布的咖啡桌场景底图：浅米色墙面、木桌、左侧绿叶盆栽、纸袋与桌面上的餐具和小物，以及下方地面和人物腿部均属于摄影内容并随照片替换。",
+      "label": "铺满画布的咖啡桌场景底图：浅米色墙面、木桌、左侧绿叶盆栽、纸",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "base_photo",
+        "reason": "铺满画布的摄影环境需完整保留；底图无额外可见窗口边缘、主体描边或渐变，前景照片叠置在其上。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "base_photo",
+        "asset_id": "material_12",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "竖幅盐湖、远山与天空构成完整风景底图；素材不含描述中的咖啡桌、盆栽和人物腿部，场景差异明显，保留全幅。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-140-6eb3d54af515\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "snack_photo",
+      "kind": "photo",
+      "bbox": [
+        175,
+        180,
+        568,
+        540
+      ],
+      "description": "上方横向矩形照片窗口，展示木桌上的饼干、香草奶酪和冰饮，保留照片内的木桌及周围摄影环境；窗口边缘柔和圆角，无独立承载框体。",
+      "label": "上方横向矩形照片窗口，展示木桌上的饼干、香草奶酪和冰饮，保留",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "snack_photo",
+        "reason": "保留饼干、奶酪、饮料及其摄影木桌环境；可见照片边界为柔和圆角矩形，浅色边缘来自照片窗口效果而无独立框线；边缘清晰，没有与底图渐隐混合。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.035
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "snack_photo",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材展示盐湖地貌与建筑，不含木桌、饼干、奶酪或冰饮；在现有素材中无对应餐桌内容，保留全幅以呈现环境。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-140-6eb3d54af515\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "drink_photo",
+      "kind": "photo",
+      "bbox": [
+        412,
+        656,
+        802,
+        1075
+      ],
+      "description": "右下方圆形照片窗口，展示木桌上的冰饮和白色兔子玩偶，保留照片内木桌及周围摄影环境；窗口边缘柔和，无独立承载框体。",
+      "label": "右下方圆形照片窗口，展示木桌上的冰饮和白色兔子玩偶，保留照片",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "drink_photo",
+        "reason": "保留饮料、兔子玩偶及照片内木桌环境；照片边界是独立椭圆窗口而非主体轮廓，边缘清楚并压在底图上，没有可见窗口描边或渐变。",
+        "shape": {
+          "type": "ellipse"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "drink_photo",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "竖幅湖景有水面和岸边建筑，但不含冰饮或白兔玩偶；没有符合描述的近似物件素材，保留全幅场景。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-140-6eb3d54af515\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "top_check_tape",
+      "kind": "overlay",
+      "bbox": [
+        249,
+        127,
+        375,
+        236
+      ],
+      "description": "压在上方照片左上边缘的黄色白色格纹斜贴纸，保留完整胶带形状与格纹。",
+      "label": "压在上方照片左上边缘的黄色白色格纹斜贴纸，保留完整胶带形状与",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "76b6a50cd19969b07ad0068338d2e647051c8524b8d73149a88e18f0fbe9d4c8"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\top_check_tape.png",
+        "sha256": "aa1e94ca36d87f7bdce69bf69dd93adf5040d112093df1fdc34e81cb9c7da0be",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\top_check_tape-restored.png",
+          "sha256": "aa1e94ca36d87f7bdce69bf69dd93adf5040d112093df1fdc34e81cb9c7da0be",
+          "bbox": [
+            241,
+            119,
+            383,
+            244
+          ],
+          "original_bbox": [
+            249,
+            127,
+            375,
+            236
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "160d86544762f828078af819ffa179d7e7b7fc91787bafb344edd9de6809b838",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\top_check_tape-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\top_check_tape-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "house_doodle",
+      "kind": "overlay",
+      "bbox": [
+        619,
+        124,
+        816,
+        287
+      ],
+      "description": "右上方房屋涂鸦装饰，包含椭圆浅黄色底、彩色小屋及其上方白色烟花线条和星点，作为完整单元保留。",
+      "label": "右上方房屋涂鸦装饰，包含椭圆浅黄色底、彩色小屋及其上方白色烟",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "75fef707c58437473835ee1fa65cd664da22c4f73cd69d1d711209fb7ebf46eb"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\house_doodle.png",
+        "sha256": "04c92077d20fd6ac98b485f04f40a89234f1ee7672576ca6945bfda1200bc78e",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\house_doodle-restored.png",
+          "sha256": "04c92077d20fd6ac98b485f04f40a89234f1ee7672576ca6945bfda1200bc78e",
+          "bbox": [
+            611,
+            116,
+            824,
+            295
+          ],
+          "original_bbox": [
+            619,
+            124,
+            816,
+            287
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "ed90be572a4559b405d565c1ff3fa1be38eb01d6fec7054f5057efd9690d13be",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\house_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\house_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "handwriting_right",
+      "kind": "overlay",
+      "bbox": [
+        618,
+        506,
+        693,
+        538
+      ],
+      "description": "木桌右侧的白色手写日文短句“（辛かったれ）”，保留原有手写字形与弧形括号。",
+      "label": "木桌右侧的白色手写日文短句“（辛かったれ）”，保留原有手写字",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "db6fc6383e35de25109098ffb4d8ea777f47ffe5893f71c546e6bacebf354138"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\handwriting_right.png",
+        "sha256": "839a63823d749c6f0dfc7c52b91a904dd0cb844fbf3a003d6aa7d00e759b8e42",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\handwriting_right-restored.png",
+          "sha256": "839a63823d749c6f0dfc7c52b91a904dd0cb844fbf3a003d6aa7d00e759b8e42",
+          "bbox": [
+            614,
+            502,
+            697,
+            542
+          ],
+          "original_bbox": [
+            618,
+            506,
+            693,
+            538
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "f06d6c9345a8303389531a4dc76b7f7d8a62279fb0612b9e8405d9e519b22f3a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\handwriting_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\handwriting_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "flower_sticker",
+      "kind": "overlay",
+      "bbox": [
+        238,
+        596,
+        320,
+        666
+      ],
+      "description": "桌面上的橙色花朵贴纸，包含花瓣、花心及旁侧小点缀。",
+      "label": "桌面上的橙色花朵贴纸，包含花瓣、花心及旁侧小点缀。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f96880e114ac793bda022e53b224957dbd5a32b0101d30fa682a2563703b33d0"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\flower_sticker.png",
+        "sha256": "5524b22ebe984493545d197da5bcbbae68e5755affcee11d9a7a774c57a154d9",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\flower_sticker-restored.png",
+          "sha256": "5524b22ebe984493545d197da5bcbbae68e5755affcee11d9a7a774c57a154d9",
+          "bbox": [
+            231,
+            589,
+            327,
+            673
+          ],
+          "original_bbox": [
+            238,
+            596,
+            320,
+            666
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "b9a909007421f90d798f48db1511e0a0687d9d882d3fcc1f6dae3a80e57f5521",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\flower_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\flower_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "cat_strip",
+      "kind": "overlay",
+      "bbox": [
+        223,
+        727,
+        369,
+        769
+      ],
+      "description": "桌面上的粉色圆角长条贴纸，内含重复的白色猫脸和粉色小花图案，整体保留。",
+      "label": "桌面上的粉色圆角长条贴纸，内含重复的白色猫脸和粉色小花图案，",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "22e052b116cdb75fb4ad7d3524e5cc885d5171d2e45e7626f7702cc422fa26c9"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\cat_strip.png",
+        "sha256": "51591a24b00af00d1bad9a457e3e3903b7a4a63f3abb461cd3138f7549ecd279",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\cat_strip-restored.png",
+          "sha256": "51591a24b00af00d1bad9a457e3e3903b7a4a63f3abb461cd3138f7549ecd279",
+          "bbox": [
+            218,
+            722,
+            374,
+            774
+          ],
+          "original_bbox": [
+            223,
+            727,
+            369,
+            769
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "1ee88c00e6f1ec7e637662302d0e25b1a60d13bcd7de12951ccfe13abb41123d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\cat_strip-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\cat_strip-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bottom_grid_tape",
+      "kind": "overlay",
+      "bbox": [
+        692,
+        677,
+        783,
+        754
+      ],
+      "description": "压在右下方圆形照片右上边缘的蓝白格纹斜贴纸，保留完整胶带形状与格纹。",
+      "label": "压在右下方圆形照片右上边缘的蓝白格纹斜贴纸，保留完整胶带形状",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "39d30c3320ae94078d1a21f353418ffbe3749dc3fe617f830860481e056d84cb"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\bottom_grid_tape.png",
+        "sha256": "9858862ad4843f26618004133ad8b113a0a553fe3c2738934ded5b523181ce23",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\bottom_grid_tape-restored.png",
+          "sha256": "9858862ad4843f26618004133ad8b113a0a553fe3c2738934ded5b523181ce23",
+          "bbox": [
+            684,
+            669,
+            791,
+            762
+          ],
+          "original_bbox": [
+            692,
+            677,
+            783,
+            754
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "7443a9aeadc11f9bb7a396e1d9abc77f51aefdb04471226fbeacdff75b4c4461",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\bottom_grid_tape-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\bottom_grid_tape-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "leaf_sticker",
+      "kind": "overlay",
+      "bbox": [
+        54,
+        858,
+        126,
+        948
+      ],
+      "description": "左下方橙色秋叶贴纸，保留完整叶片轮廓、叶脉和短茎。",
+      "label": "左下方橙色秋叶贴纸，保留完整叶片轮廓、叶脉和短茎。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "38e90cb4fed99bd948c377b7aa60f7ec9ebda6acd270445aacbe90a33cfacceb"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\leaf_sticker.png",
+        "sha256": "f8df3beeba1d52d6599eba9b1fec5f5b784482e84bb016d31e62f5d827926f3c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\leaf_sticker-restored.png",
+          "sha256": "f8df3beeba1d52d6599eba9b1fec5f5b784482e84bb016d31e62f5d827926f3c",
+          "bbox": [
+            46,
+            850,
+            134,
+            956
+          ],
+          "original_bbox": [
+            54,
+            858,
+            126,
+            948
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "23684b4c480e5ecc2832a340ab44b295d3c9baedb3739ee41a3dffc6a841f549",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\leaf_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\leaf_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "handwriting_left",
+      "kind": "overlay",
+      "bbox": [
+        148,
+        848,
+        355,
+        900
+      ],
+      "description": "左下方白色手写日文装饰字样“現実と夢の境目。”，保留原有笔画造型与排布。",
+      "label": "左下方白色手写日文装饰字样“現実と夢の境目。”，保留原有笔画",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "83033c618c9bf3fe66172b8f32a60966b4281e3f7ccab32251935ded22833762"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\handwriting_left.png",
+        "sha256": "85de74077b3ba3770f69a9d6edae6d1a7f33fe73922d6732de284ada51b334cc",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\handwriting_left-restored.png",
+          "sha256": "85de74077b3ba3770f69a9d6edae6d1a7f33fe73922d6732de284ada51b334cc",
+          "bbox": [
+            142,
+            842,
+            361,
+            906
+          ],
+          "original_bbox": [
+            148,
+            848,
+            355,
+            900
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "d48757891aadc2927639b98961010c3758811de172860d6fb005c353e226c849",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\handwriting_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\handwriting_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "star_doodles",
+      "kind": "overlay",
+      "bbox": [
+        105,
+        946,
+        210,
+        1048
+      ],
+      "description": "左下区域的三颗不规则手绘星星装饰，包含各自的星形轮廓和内部线条。",
+      "label": "左下区域的三颗不规则手绘星星装饰，包含各自的星形轮廓和内部线",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "daa051bb267cbf5cf715e10df435e56633cc3a54306e29931ccb47bde3cdb79f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\star_doodles.png",
+        "sha256": "ad0c3c6f90ea53edad07bd87216c8facebc1493d50b0ad25637153ba96292df5",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\star_doodles-restored.png",
+          "sha256": "ad0c3c6f90ea53edad07bd87216c8facebc1493d50b0ad25637153ba96292df5",
+          "bbox": [
+            97,
+            938,
+            218,
+            1056
+          ],
+          "original_bbox": [
+            105,
+            946,
+            210,
+            1048
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "e669ba4b335525c6f69bb89075ae317e989d897f843504a16f6adf5bb14eb3c9",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\star_doodles-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\star_doodles-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "cat_cake_sticker",
+      "kind": "overlay",
+      "bbox": [
+        234,
+        943,
+        339,
+        1040
+      ],
+      "description": "左下方猫咪蛋糕贴纸，包含猫脸蛋糕、粉色盘形底座及周围彩色小装饰，整体保留。",
+      "label": "左下方猫咪蛋糕贴纸，包含猫脸蛋糕、粉色盘形底座及周围彩色小装",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6fb8d70e004cc4f9542cf54cdefe99b1247d494fd831acff2d44fea7074f7b12"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\cat_cake_sticker.png",
+        "sha256": "18200eefbeb4f28393cb38a191200d705a6bee4cbc6af7be257a058870a8c022",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\cat_cake_sticker-restored.png",
+          "sha256": "18200eefbeb4f28393cb38a191200d705a6bee4cbc6af7be257a058870a8c022",
+          "bbox": [
+            226,
+            935,
+            347,
+            1048
+          ],
+          "original_bbox": [
+            234,
+            943,
+            339,
+            1040
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "13c511b36cdf3bf7e90af9afb5273e628c188c31d7406b7297afc44607c8a419",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\cat_cake_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\cat_cake_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "sparkle_doodles",
+      "kind": "overlay",
+      "bbox": [
+        738,
+        1022,
+        840,
+        1140
+      ],
+      "description": "右下方白色手绘闪光与星星装饰，包含多组放射线、小星点和星形轮廓。",
+      "label": "右下方白色手绘闪光与星星装饰，包含多组放射线、小星点和星形轮",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ebdb63561407d439b89477eaf3534bca327fc6b76063abfa43da9eb1227c0bfa"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\sparkle_doodles.png",
+        "sha256": "2878fed0202e823db44b91e1ebdb7e300a6feceeaeab6570577b27c3c03ce770",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\sparkle_doodles-restored.png",
+          "sha256": "2878fed0202e823db44b91e1ebdb7e300a6feceeaeab6570577b27c3c03ce770",
+          "bbox": [
+            730,
+            1014,
+            848,
+            1148
+          ],
+          "original_bbox": [
+            738,
+            1022,
+            840,
+            1140
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "fcebcb21ee81d49cc84c84bd8a888854316a44823ab91308eae05c2b1d767f3e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "ac2232143314f334a6ed159a1cc4edb4faf04d39098c84828016c2e73077de0d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\sparkle_doodles-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\sparkle_doodles-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "base_photo",
+    "snack_photo",
+    "drink_photo",
+    "top_check_tape",
+    "house_doodle",
+    "handwriting_right",
+    "flower_sticker",
+    "cat_strip",
+    "bottom_grid_tape",
+    "leaf_sticker",
+    "handwriting_left",
+    "star_doodles",
+    "cat_cake_sticker",
+    "sparkle_doodles"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "d2ab098ba04b60e7e0aee8d1596fe727504733192d364b7d0aaf8490c4c2b576",
+    "bindings": "b1f674b82e603d17803f7eb1236831c725e74f1b3edaafb51c6739064ab0a1d3",
+    "input": "6bdc9f9b532402cd965276afc8c25992c433b69348bab8e2812b583169848c88",
+    "catalog": "65ea22daa924521226b5bf641ca908299616658e04cde96094698eb2cff0b1fe",
+    "photo_windows": "0f65b28259a5d7a4e82fbd28489cf4165c4891804950d76cf75aad900e8cd275"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\reveal\\index.json",
+    "sha256": "4b98a7d76e9f5a174c59fcd42c90251f2c4aa7b1684898153b7c5f23d795952f"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\assets\\gate\\report.json",
+    "sha256": "0530d8e5eb2beb569491105cc734ea7a9c531b54ce9b8f7eb680cc1e7cdf73fa",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 11,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 1,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-140\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

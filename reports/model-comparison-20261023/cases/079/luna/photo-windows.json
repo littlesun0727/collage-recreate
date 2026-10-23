@@ -1,0 +1,123 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "base_photo",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "铺满画布的摄影环境需完整保留；底图无额外可见窗口边缘、主体描边或渐变，前景照片叠置在其上。"
+    },
+    {
+      "photo_id": "snack_photo",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.035
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "保留饼干、奶酪、饮料及其摄影木桌环境；可见照片边界为柔和圆角矩形，浅色边缘来自照片窗口效果而无独立框线；边缘清晰，没有与底图渐隐混合。"
+    },
+    {
+      "photo_id": "drink_photo",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "ellipse"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "保留饮料、兔子玩偶及照片内木桌环境；照片边界是独立椭圆窗口而非主体轮廓，边缘清楚并压在底图上，没有可见窗口描边或渐变。"
+    }
+  ]
+}
