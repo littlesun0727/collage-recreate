@@ -1,0 +1,156 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画布的虚化户外摄影背景，保留浅蓝天空、深色栅栏、草地及散布的彩色光斑；这是可替换的摄影环境，前景照片和涂鸦位于其上。",
+      "label": "铺满画布的虚化户外摄影背景，保留浅蓝天空、深色栅栏、草地及散",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "portrait_photo_top",
+      "kind": "photo",
+      "bbox": [
+        208,
+        98,
+        500,
+        484
+      ],
+      "description": "竖幅户外半身人像：一名年轻女性穿深色无袖上衣，肩挎浅色包，低头看向画面下方；树木和告示牌等摄影环境保留。四边有细白色手绘轮廓线，随照片窗口重建。",
+      "label": "竖幅户外半身人像：一名年轻女性穿深色无袖上衣，肩挎浅色包，低",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "cat_photo",
+      "kind": "photo",
+      "bbox": [
+        468,
+        368,
+        704,
+        600
+      ],
+      "description": "横幅户外照片，一只橘猫在灰色砖路上向右行走，右侧有路缘和植物；摄影环境保留，边缘有细白色手绘轮廓线，随照片窗口重建。",
+      "label": "横幅户外照片，一只橘猫在灰色砖路上向右行走，右侧有路缘和植物",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "tree_photo",
+      "kind": "photo",
+      "bbox": [
+        104,
+        445,
+        364,
+        791
+      ],
+      "description": "竖幅街景照片，以浓密树冠和树干为主体，下方可见道路及车辆；保留完整摄影环境，四周有细白色手绘轮廓线，随照片窗口重建。",
+      "label": "竖幅街景照片，以浓密树冠和树干为主体，下方可见道路及车辆；保",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "portrait_photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        278,
+        678,
+        704,
+        998
+      ],
+      "description": "横幅户外全身偏中景人像，一名年轻女性穿深色无袖上衣、肩挎浅色包，站在树丛和树根前看向镜头；保留周围摄影环境。照片边缘有细白色手绘轮廓线，随照片窗口重建。",
+      "label": "横幅户外全身偏中景人像，一名年轻女性穿深色无袖上衣、肩挎浅色",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "handwritten_title",
+      "kind": "overlay",
+      "bbox": [
+        532,
+        178,
+        714,
+        229
+      ],
+      "description": "白色手写艺术字“好天气!”横向排列，笔画不规则，作为完整字样装饰保留。",
+      "label": "白色手写艺术字“好天气!”横向排列，笔画不规则，作为完整字样",
+      "method": "extract"
+    },
+    {
+      "id": "left_doodles",
+      "kind": "overlay",
+      "bbox": [
+        17,
+        191,
+        274,
+        679
+      ],
+      "description": "左侧一组白色手绘涂鸦，包括大小不一的圆圈、弯曲线条、箭头状笔画及小花形记号；保留原有松散布局和线条。",
+      "label": "左侧一组白色手绘涂鸦，包括大小不一的圆圈、弯曲线条、箭头状笔",
+      "method": "extract"
+    },
+    {
+      "id": "heart_doodle",
+      "kind": "overlay",
+      "bbox": [
+        678,
+        300,
+        751,
+        451
+      ],
+      "description": "青蓝色手绘心形轮廓，内部有白色点状装饰，整体作为独立涂鸦保留。",
+      "label": "青蓝色手绘心形轮廓，内部有白色点状装饰，整体作为独立涂鸦保留",
+      "method": "extract"
+    },
+    {
+      "id": "tape_bow",
+      "kind": "overlay",
+      "bbox": [
+        589,
+        644,
+        759,
+        1110
+      ],
+      "description": "贴在下方照片右上方的棕色横向胶带状装饰，带白色点纹；白色手绘蝴蝶结和长细线从胶带处垂下，均属于同一完整装饰。",
+      "label": "贴在下方照片右上方的棕色横向胶带状装饰，带白色点纹；白色手绘",
+      "method": "extract"
+    },
+    {
+      "id": "lower_sparkles",
+      "kind": "overlay",
+      "bbox": [
+        256,
+        814,
+        313,
+        883
+      ],
+      "description": "下方照片左侧边缘附近的白色手绘小星光和弯曲笔画，作为独立的线描装饰保留。",
+      "label": "下方照片左侧边缘附近的白色手绘小星光和弯曲笔画，作为独立的线",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_photo",
+    "portrait_photo_top",
+    "tree_photo",
+    "cat_photo",
+    "portrait_photo_bottom",
+    "left_doodles",
+    "handwritten_title",
+    "heart_doodle",
+    "tape_bow",
+    "lower_sparkles"
+  ]
+}
