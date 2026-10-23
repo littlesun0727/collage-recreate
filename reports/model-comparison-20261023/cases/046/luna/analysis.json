@@ -1,0 +1,192 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1600
+      ],
+      "description": "整张夜间街景照片作为固定背景，保留蓝色暮色天空、路灯、右侧建筑与护栏、底部道路及被遮挡车辆等可见内容。",
+      "label": "整张夜间街景照片作为固定背景，保留蓝色暮色天空、路灯、右侧建",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        280,
+        259,
+        680,
+        754
+      ],
+      "description": "夜间街边店铺与人行道的横向照片窗口；店面灯箱、行人及前景经过的红色出租车均属于摄影内容，保留摄影环境，窗口边缘有白色手绘线条描边。",
+      "label": "夜间街边店铺与人行道的横向照片窗口；店面灯箱、行人及前景经过",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        67,
+        766,
+        410,
+        1045
+      ],
+      "description": "街边卷帘门与手写涂鸦、前景枯花的横向照片窗口，保留完整摄影环境，四周有白色手绘线条描边。",
+      "label": "街边卷帘门与手写涂鸦、前景枯花的横向照片窗口，保留完整摄影环",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        451,
+        874,
+        841,
+        1386
+      ],
+      "description": "甜品店内的竖向照片窗口，前景碗中绿色与白色甜品及黑色勺子，后方木托盘上有小动物摆件；保留室内摄影环境，四周有白色手绘线条描边。",
+      "label": "甜品店内的竖向照片窗口，前景碗中绿色与白色甜品及黑色勺子，后",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        70,
+        211,
+        210,
+        475
+      ],
+      "description": "白色手绘对话气泡，内部有分行英文“The / begining / of / my / trip”，保留气泡轮廓与手写字样。",
+      "label": "白色手绘对话气泡，内部有分行英文“The / beginin",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        66,
+        491,
+        200,
+        619
+      ],
+      "description": "白色手绘猫脸涂鸦，含耳朵、五官与胡须，右耳有填纹装饰。",
+      "label": "白色手绘猫脸涂鸦，含耳朵、五官与胡须，右耳有填纹装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        716,
+        662,
+        846,
+        742
+      ],
+      "description": "白色手绘小汽车图案及右侧“=3”符号，作为一个完整涂鸦装饰。",
+      "label": "白色手绘小汽车图案及右侧“=3”符号，作为一个完整涂鸦装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        93,
+        763,
+        340,
+        813
+      ],
+      "description": "照片上方附近的黑色手绘装饰字样与锯齿线条，连同青色小笔画作为完整装饰保留。",
+      "label": "照片上方附近的黑色手绘装饰字样与锯齿线条，连同青色小笔画作为",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        451,
+        774,
+        675,
+        874
+      ],
+      "description": "两条横向小标签，分别为浅灰和蓝灰底板，含难以辨认的黑色字样，整体作为固定标签装饰保留。",
+      "label": "两条横向小标签，分别为浅灰和蓝灰底板，含难以辨认的黑色字样，",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        631,
+        862,
+        689,
+        912
+      ],
+      "description": "照片上方偏右的小型浅色矩形标签，带有难以辨认的黑色字样。",
+      "label": "照片上方偏右的小型浅色矩形标签，带有难以辨认的黑色字样。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_7",
+      "kind": "overlay",
+      "bbox": [
+        50,
+        1141,
+        76,
+        1235
+      ],
+      "description": "左侧手写段落旁的白色小手绘斜向标记。",
+      "label": "左侧手写段落旁的白色小手绘斜向标记。",
+      "method": "extract"
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        127,
+        1141,
+        411,
+        1499
+      ],
+      "description": "It's a lovely\nthing to know\na place well\nenough that\nyou know\nwhen the sun\nwill be there",
+      "label": "It's a lovely\nthing to know\na ",
+      "method": "local",
+      "text": "It's a lovely\nthing to know\na place well\nenough that\nyou know\nwhen the sun\nwill be there",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "photo_3",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "overlay_4",
+    "overlay_5",
+    "overlay_6",
+    "overlay_7",
+    "text_1"
+  ]
+}
