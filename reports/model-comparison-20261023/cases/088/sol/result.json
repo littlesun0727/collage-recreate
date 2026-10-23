@@ -1,0 +1,700 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "needs_changes",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_woman": 1.0,
+    "photo_boats": 1.0,
+    "photo_icecream": 1.0,
+    "photo_beach": 0.88288
+  },
+  "incomplete_objects": [
+    "overlay_dot_grid",
+    "overlay_music_note",
+    "overlay_music_trails",
+    "overlay_rainy_day",
+    "overlay_spotted_star",
+    "overlay_yellow_star"
+  ],
+  "issues": [
+    {
+      "id": "overlay_rainy_day",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_spotted_star",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_music_trails",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "frame_icecream",
+      "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "id": "frame_boats",
+      "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "id": "overlay_dot_grid",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_yellow_star",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "overlay_music_note",
+      "note": "Reveal target unavailable; local fallback requires review"
+    },
+    {
+      "id": "frame_woman",
+      "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    }
+  ],
+  "scene_sha256": "31d93184a4f9b596567dce84ffb8249ac20bcc9e159183ae1d20ba89e3723999",
+  "final_sha256": "b325502f115ab7f9d566e52d26e1f4f433d6f5e45b16941daf4753830673b4fc",
+  "resources": [
+    {
+      "id": "photo_beach",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_beach.png",
+      "sha256": "8278c32cb3064d2aeebf7f5d4e21c57060cd5c92d46364d6d2a0eb34c35679ec",
+      "quality": "ready",
+      "source": {
+        "id": "material_04",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\2efd9b0d29e4ccd4978a5784a56d2a3675d0e8305662818e13635059475ff521.png",
+        "sha256": "92fb06c23be73dc11beeb590f127d79d4e376579cb33074a9fc013c9f52a6f97",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_04.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_04",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\2efd9b0d29e4ccd4978a5784a56d2a3675d0e8305662818e13635059475ff521.png",
+          "sha256": "92fb06c23be73dc11beeb590f127d79d4e376579cb33074a9fc013c9f52a6f97",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_04.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_beach",
+          "asset_id": "material_04",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "沙滩、蓝天、水面及岸边小人最接近；居中适配竖幅，保留弧形岸线与凉亭。缺少参考中的茅草棚和远船。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_beach-content-mask.png",
+        "content_mask_sha256": "8b46e570941dee9ea96b76462c9db74f246908ec96002cde7d58c16008312533",
+        "photo_window_spec": {
+          "photo_id": "photo_beach",
+          "reason": "完整保留海滩、天空、海面和遮阳棚等摄影环境，矩形窗口与画布重合；无主体描边，画布边缘无透明渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_rainy_day",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\overlay_rainy_day.png",
+      "sha256": "365ce8878a173de64bc707c975585512c53ee29e29d8f5285fe589b558f5dccb",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_spotted_star",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\overlay_spotted_star.png",
+      "sha256": "537daa7291aea98402c2b53fa1fb8be47cd1a7fc0a95a8ee1045ad868fe52a56",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_music_trails",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\overlay_music_trails.png",
+      "sha256": "8f970ee796ca248e709b630f6c2a3dd688c4ab68bc4330ce3a7cdfd2a1507697",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "frame_icecream",
+      "kind": "frame",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\frame_icecream.png",
+      "sha256": "4c3768ccadcc9bf72c5a9c9d116c25267267ff0a6a750ab8825969f6471d7ca9",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "quality": "approximate",
+        "method": "local_frame",
+        "fallback": true,
+        "photo_id": "photo_icecream",
+        "fill": "#F5F3EF",
+        "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_icecream",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_icecream.png",
+      "sha256": "0fe224c16de9064959702fbf3248f101b3386b86b65dfd67796c76ab2e866ce2",
+      "quality": "ready",
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_12.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_12",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+          "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_12.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_icecream",
+          "asset_id": "material_12",
+          "source_crop": [
+            0.015,
+            0.425,
+            0.405,
+            0.689
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "素材中没有冰淇淋，选白色锥形帐篷作形态上的近似替代；局部裁切突出帐篷并保留周围环境，但并非冰淇淋或蛋筒，背景也不同。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_icecream-content-mask.png",
+        "content_mask_sha256": "d83e27f7d350d11d31d4e44227bb970c79732095811084ff85ac89417fcca5f5",
+        "photo_window_spec": {
+          "photo_id": "photo_icecream",
+          "reason": "冰淇淋球与蛋筒保留蓝天和海面背景，均限制在倾斜矩形内口中，无连续出框或主体描边。制作框旋转后对齐内口；白色纸边属于frame_icecream，不重复描边，内口边缘无渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "frame_boats",
+      "kind": "frame",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\frame_boats.png",
+      "sha256": "1d3ce5772d3ca429d37eb1bd024d84a66e921c784f25c9f026ef0153e0327581",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "quality": "approximate",
+        "method": "local_frame",
+        "fallback": true,
+        "photo_id": "photo_boats",
+        "fill": "#F5F3EF",
+        "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_boats",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_boats.png",
+      "sha256": "c9e779a6df9f4c0d871faaa3634ee9c8aa0e50f3a35601db8925d6dda627218d",
+      "quality": "ready",
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_08.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_08",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+          "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_08.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_boats",
+          "asset_id": "material_08",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.65
+          ],
+          "mirror_x": false,
+          "reason": "实际可见多艘船与蓝色水面，最接近船只场景；略靠下裁切减少天空，保留船体。船型较大，缺少左侧棕黄色建筑边缘。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_boats-content-mask.png",
+        "content_mask_sha256": "5f7aef97a728f40d6ffd8e49e99a15567014044f60a2f08c2e319199e4bdf98e",
+        "photo_window_spec": {
+          "photo_id": "photo_boats",
+          "reason": "保留船只、海面及左侧建筑，沿近乎水平的矩形摄影内口裁切，无主体描边或出框。白色框体属于frame_boats，窗口不重复描边，四边无透明混合。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_dot_grid",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\overlay_dot_grid.png",
+      "sha256": "9c725bb99f49808e3397790308d8717162a01247a11ce83aab6d00f4ff10a673",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "text_poem",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\text\\text_poem.png",
+      "sha256": "22d9800c56baefb10d997734f4d751d5d7262eae2d5597e6f870f628fe874485",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\comic.ttf",
+        "font_size_px": 25,
+        "requested_font_size_px": null,
+        "line_count": 12,
+        "line_spacing": 1.0025,
+        "line_spacing_mode": "fit_bbox",
+        "line_advance_px": 36.091,
+        "align": "left",
+        "fit_scale": null,
+        "text": "Summer\nSunSets\nnever\ndisappoint\nthey dye the\nWhole Sky\nwarm\nOrange and\nleave sweet\nSoftness to\nevery\nPasserby.",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_yellow_star",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\overlay_yellow_star.png",
+      "sha256": "9ec43c7a4345c5d7a21010fc7f746d5f1532b3e1f2fd070d43bee0ca088e8149",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_music_note",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\overlay_music_note.png",
+      "sha256": "4cd9b0230a6a4c208f03f25ae594a33b84f0647d21d009697e762c77b11d6a05",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "frame_woman",
+      "kind": "frame",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\overlays\\frame_woman.png",
+      "sha256": "e4c6a224992b3c7d63349eac2918368ad9b4c8f60581e55d452f519e15feeeb1",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "quality": "approximate",
+        "method": "local_frame",
+        "fallback": true,
+        "photo_id": "photo_woman",
+        "fill": "#F5F3EF",
+        "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_woman",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_woman.png",
+      "sha256": "63cec89371da69213d1c40376b4535624d114767ee6472bdbdd7c7e2bbbe2510",
+      "quality": "ready",
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_13.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_13",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-118-e227677d320c\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+          "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\prepared\\material_13.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_woman",
+          "asset_id": "material_13",
+          "source_crop": [
+            0,
+            0.3,
+            1,
+            0.7816
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "女子正面微笑、双手抬起，裁至头顶以上及腰部附近，保留双手和水岸背景；并非双臂向两侧上方展开，衣着与街景也不一致。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\photos\\photo_woman-content-mask.png",
+        "content_mask_sha256": "f8854ed73609ae7fb502ad50200fb174dd1f8f3f4eb850ea537844f3cd87de5b",
+        "photo_window_spec": {
+          "photo_id": "photo_woman",
+          "reason": "女子及张开的双臂均在矩形内口中，保留汽车、建筑和棕榈树背景，不抠图、不描主体边。白色纸框属于frame_woman，不作为窗口描边；摄影边界清晰，无窗口渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "07d1ccf3af132fb3",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。；程序检测到 6 个未完成对象。；流程保留 3 项告警，待优化。",
+    "items": [
+      {
+        "id": "overlay_dot_grid",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_music_note",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_music_trails",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_rainy_day",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_spotted_star",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      },
+      {
+        "id": "overlay_yellow_star",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      }
+    ],
+    "scene_sha256": "31d93184a4f9b596567dce84ffb8249ac20bcc9e159183ae1d20ba89e3723999",
+    "final_sha256": "b325502f115ab7f9d566e52d26e1f4f433d6f5e45b16941daf4753830673b4fc"
+  },
+  "at": "2026-10-23T23:03:37.999839+00:00",
+  "extraction_sheets": [],
+  "review_regions": [
+    {
+      "ids": [
+        "photo_woman",
+        "frame_woman"
+      ],
+      "bbox": [
+        403,
+        776,
+        722,
+        979
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\previews\\review-detail-1.png"
+    },
+    {
+      "ids": [
+        "photo_icecream",
+        "frame_icecream"
+      ],
+      "bbox": [
+        182,
+        312,
+        413,
+        517
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\previews\\review-detail-2.png"
+    },
+    {
+      "ids": [
+        "photo_boats",
+        "frame_boats"
+      ],
+      "bbox": [
+        485,
+        362,
+        681,
+        554
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\previews\\review-detail-3.png"
+    }
+  ],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\gate\\report.json",
+    "sha256": "a6d1a715f60e7fe65135ef0992193c82b34a5cdc7faa87c4139aa29cccd2e773",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 9,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-118\\assets\\reveal\\index.json",
+    "sha256": "8f891ff4b75250c2501c0860f0a64fa2c1913824e57d09d8ca4f4ad7a26012ce"
+  },
+  "render_id": "07d1ccf3af132fb3",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "07d1ccf3af132fb3",
+    "category": "with_issues",
+    "review_status": "skipped",
+    "warnings": [
+      {
+        "code": "asset_fallback",
+        "stage": "build",
+        "message": "frame_icecream：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+      },
+      {
+        "code": "asset_fallback",
+        "stage": "build",
+        "message": "frame_boats：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+      },
+      {
+        "code": "asset_fallback",
+        "stage": "build",
+        "message": "frame_woman：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+      }
+    ],
+    "draft_kind": null
+  }
+}
