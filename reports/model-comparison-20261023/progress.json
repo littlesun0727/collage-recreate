@@ -1,15 +1,15 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-24T02:23:25+08:00",
+  "updated_at": "2026-10-24T02:24:31+08:00",
   "references": 116,
   "total": 348,
   "counts": {
     "qwen": {
       "completed": 89,
-      "failed": 12,
+      "failed": 13,
       "running": 1,
-      "queued": 14
+      "queued": 13
     },
     "luna": {
       "completed": 116
@@ -1239,11 +1239,11 @@
       "case": "102",
       "model": "qwen",
       "batch": "run-a24a40662d4b48b3b470722b5639ab26",
-      "status": "running",
+      "status": "failed",
       "step": "analyze",
-      "error": null,
+      "error": "yibu / qwen3.8-flash HTTP 502：上游网关错误",
       "task_id": "cc890f603a36c8a4",
-      "elapsed_seconds": null,
+      "elapsed_seconds": 422.432,
       "delivery_category": null,
       "review_status": null
     },
@@ -1251,8 +1251,8 @@
       "case": "103",
       "model": "qwen",
       "batch": "run-a24a40662d4b48b3b470722b5639ab26",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "8647bbfb50760505",
       "elapsed_seconds": null,
