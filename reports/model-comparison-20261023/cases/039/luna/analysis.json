@@ -1,0 +1,173 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "满幅公园草地与树木的摄影背景，保留原有环境；其上叠放三张独立矩形照片。",
+      "label": "满幅公园草地与树木的摄影背景，保留原有环境；其上叠放三张独立",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "fish_photo",
+      "kind": "photo",
+      "bbox": [
+        284,
+        156,
+        644,
+        636
+      ],
+      "description": "竖幅照片中，透明塑料袋里的橙色金鱼朝右游动，袋中有水，背景可见阳光照亮的绿叶；矩形窗口清晰，无独立描边或渐隐。",
+      "label": "竖幅照片中，透明塑料袋里的橙色金鱼朝右游动，袋中有水，背景可",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "cat_photo",
+      "kind": "photo",
+      "bbox": [
+        115,
+        568,
+        477,
+        931
+      ],
+      "description": "横幅照片中，一只虎斑猫沿公园人行道朝镜头走来，猫在画面下部偏中，右侧为草丛；摄影背景保留，矩形窗口清晰，无独立描边或渐隐。",
+      "label": "横幅照片中，一只虎斑猫沿公园人行道朝镜头走来，猫在画面下部偏",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "people_photo",
+      "kind": "photo",
+      "bbox": [
+        514,
+        673,
+        818,
+        1080
+      ],
+      "description": "竖幅公园照片中，数人在远处树间草地活动，树干占据前景并遮挡部分人物；保留摄影环境，矩形窗口清晰，无独立描边或渐隐。",
+      "label": "竖幅公园照片中，数人在远处树间草地活动，树干占据前景并遮挡部",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "fish_tape",
+      "kind": "overlay",
+      "bbox": [
+        221,
+        100,
+        355,
+        214
+      ],
+      "description": "斜贴在金鱼照片左上边缘的金黄色半透明胶带，带有纸面褶皱与边缘质感，整体保留。",
+      "label": "斜贴在金鱼照片左上边缘的金黄色半透明胶带，带有纸面褶皱与边缘",
+      "method": "extract"
+    },
+    {
+      "id": "cat_tape",
+      "kind": "overlay",
+      "bbox": [
+        86,
+        884,
+        171,
+        956
+      ],
+      "description": "斜贴在猫照片左下角外沿的金黄色胶带，保留纸面纹理、褶皱与完整轮廓。",
+      "label": "斜贴在猫照片左下角外沿的金黄色胶带，保留纸面纹理、褶皱与完整",
+      "method": "extract"
+    },
+    {
+      "id": "people_tape",
+      "kind": "overlay",
+      "bbox": [
+        626,
+        653,
+        708,
+        692
+      ],
+      "description": "横贴在右侧公园照片上边缘的金黄色胶带，保留纸面纹理与褶皱。",
+      "label": "横贴在右侧公园照片上边缘的金黄色胶带，保留纸面纹理与褶皱。",
+      "method": "extract"
+    },
+    {
+      "id": "summer_text",
+      "kind": "text",
+      "bbox": [
+        668,
+        576,
+        845,
+        626
+      ],
+      "description": "Meet summer.",
+      "label": "Meet summer.",
+      "method": "local",
+      "text": "Meet summer.",
+      "text_status": "known",
+      "style": {
+        "fill": "#202827",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "caption_text",
+      "kind": "text",
+      "bbox": [
+        122,
+        978,
+        487,
+        1068
+      ],
+      "description": "Collect today's lush greenery\nand gentle breeze",
+      "label": "Collect today's lush greenery\n",
+      "method": "local",
+      "text": "Collect today's lush greenery\nand gentle breeze",
+      "text_status": "known",
+      "style": {
+        "fill": "#252D2C",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "sparkles",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        858,
+        535,
+        1109
+      ],
+      "description": "散布在照片周围及下方草地上的细小白色闪光星芒装饰，包含多处十字形亮点与微小光点，作为一组固定点缀保留。",
+      "label": "散布在照片周围及下方草地上的细小白色闪光星芒装饰，包含多处十",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_photo",
+    "fish_photo",
+    "cat_photo",
+    "people_photo",
+    "fish_tape",
+    "cat_tape",
+    "people_tape",
+    "sparkles",
+    "summer_text",
+    "caption_text"
+  ]
+}

@@ -1,0 +1,648 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\prepared\\reference.png",
+    "sha256": "8c3da50d205b3b739b0d8f0b53586f8ae3ed961870b6b89768aa853c0e319b04"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "满幅公园草地与树木的摄影背景，保留原有环境；其上叠放三张独立矩形照片。",
+      "label": "满幅公园草地与树木的摄影背景，保留原有环境；其上叠放三张独立",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "background_photo",
+        "reason": "保留整幅公园摄影环境作为底图，没有沿主体描边；画面铺满画布，边界为画布矩形，不见窗口自身线条或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "background_photo",
+        "asset_id": "material_03",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中是开阔山地荒漠而非公园草地树木；目录未见符合描述的公园背景，选用较完整的户外环境近似替代。"
+      },
+      "source": {
+        "id": "material_03",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-060-f5edb255cf19\\2bcfdb727b916f4eebf230f31a2cebc50164c3c09a648beb58274579a4ecaddb.png",
+        "sha256": "87ae8cd18b29841f2ca0a5a686645c02f358a85995090a2e901955cbd278009d",
+        "size": [
+          1308,
+          736
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\prepared\\material_03.jpg"
+      }
+    },
+    {
+      "id": "fish_photo",
+      "kind": "photo",
+      "bbox": [
+        284,
+        156,
+        644,
+        636
+      ],
+      "description": "竖幅照片中，透明塑料袋里的橙色金鱼朝右游动，袋中有水，背景可见阳光照亮的绿叶；矩形窗口清晰，无独立描边或渐隐。",
+      "label": "竖幅照片中，透明塑料袋里的橙色金鱼朝右游动，袋中有水，背景可",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "fish_photo",
+        "reason": "保留金鱼、塑料袋及袋后绿叶等摄影环境；照片边界为清晰的独立矩形窗口，无主体描边、窗口线条或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "fish_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "目录中没有金鱼或塑料袋场景；素材为人物临水照片，无法匹配主体，作为最接近的水边户外场景替代。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-060-f5edb255cf19\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "cat_photo",
+      "kind": "photo",
+      "bbox": [
+        115,
+        568,
+        477,
+        931
+      ],
+      "description": "横幅照片中，一只虎斑猫沿公园人行道朝镜头走来，猫在画面下部偏中，右侧为草丛；摄影背景保留，矩形窗口清晰，无独立描边或渐隐。",
+      "label": "横幅照片中，一只虎斑猫沿公园人行道朝镜头走来，猫在画面下部偏",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "cat_photo",
+        "reason": "保留猫、步道和草丛的完整摄影环境；可见边界是清晰的独立矩形窗口，猫没有单独描边，窗口无描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "cat_photo",
+        "asset_id": "material_04",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "未见猫或公园人行道素材；该图有岸边步道及户外环境，但无猫，作为环境近似替代。"
+      },
+      "source": {
+        "id": "material_04",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-060-f5edb255cf19\\2efd9b0d29e4ccd4978a5784a56d2a3675d0e8305662818e13635059475ff521.png",
+        "sha256": "92fb06c23be73dc11beeb590f127d79d4e376579cb33074a9fc013c9f52a6f97",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\prepared\\material_04.jpg"
+      }
+    },
+    {
+      "id": "people_photo",
+      "kind": "photo",
+      "bbox": [
+        514,
+        673,
+        818,
+        1080
+      ],
+      "description": "竖幅公园照片中，数人在远处树间草地活动，树干占据前景并遮挡部分人物；保留摄影环境，矩形窗口清晰，无独立描边或渐隐。",
+      "label": "竖幅公园照片中，数人在远处树间草地活动，树干占据前景并遮挡部",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "people_photo",
+        "reason": "保留远处人物、前景树干及草地等摄影环境；画面边缘为清晰矩形窗口，树干遮挡是照片内容，不构成主体描边或渐变依据。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "people_photo",
+        "asset_id": "material_12",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有远景多人活动及草地样的绿色地貌，构图为远景；但没有公园树干前景遮挡，环境差异明显。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-060-f5edb255cf19\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "fish_tape",
+      "kind": "overlay",
+      "bbox": [
+        221,
+        100,
+        355,
+        214
+      ],
+      "description": "斜贴在金鱼照片左上边缘的金黄色半透明胶带，带有纸面褶皱与边缘质感，整体保留。",
+      "label": "斜贴在金鱼照片左上边缘的金黄色半透明胶带，带有纸面褶皱与边缘",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "27c403ac4e2fe93cf18f09eb05f39a85af21775afff8bcdbb63dd2a4506b1c48"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\fish_tape.png",
+        "sha256": "df9c743489412369a08c5fb83f39ea073c1956f0a84758c84dc8f95a20a09d62",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\fish_tape-restored.png",
+          "sha256": "df9c743489412369a08c5fb83f39ea073c1956f0a84758c84dc8f95a20a09d62",
+          "bbox": [
+            213,
+            92,
+            363,
+            222
+          ],
+          "original_bbox": [
+            221,
+            100,
+            355,
+            214
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "154f85909f341048edd63d47876745ce2867b7df28e1fbe6b461b05d018151bc",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "8c3da50d205b3b739b0d8f0b53586f8ae3ed961870b6b89768aa853c0e319b04"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\fish_tape-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\fish_tape-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "cat_tape",
+      "kind": "overlay",
+      "bbox": [
+        86,
+        884,
+        171,
+        956
+      ],
+      "description": "斜贴在猫照片左下角外沿的金黄色胶带，保留纸面纹理、褶皱与完整轮廓。",
+      "label": "斜贴在猫照片左下角外沿的金黄色胶带，保留纸面纹理、褶皱与完整",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "0ab2c4433ab5075562b98aff531ba8ee23072153012d309cce0ac345dd6eae72"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\cat_tape.png",
+        "sha256": "f4ee65ae29be0887d300506ca32f0a49ddc62d2207c8f6e3b942d0ea15390d13",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\cat_tape-restored.png",
+          "sha256": "f4ee65ae29be0887d300506ca32f0a49ddc62d2207c8f6e3b942d0ea15390d13",
+          "bbox": [
+            78,
+            876,
+            179,
+            964
+          ],
+          "original_bbox": [
+            86,
+            884,
+            171,
+            956
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "6b9ff4806f866aa6d5fdea0a8744ef99f17c2a038ba94009a7546c16631fdb0e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "8c3da50d205b3b739b0d8f0b53586f8ae3ed961870b6b89768aa853c0e319b04"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\cat_tape-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\cat_tape-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "people_tape",
+      "kind": "overlay",
+      "bbox": [
+        626,
+        653,
+        708,
+        692
+      ],
+      "description": "横贴在右侧公园照片上边缘的金黄色胶带，保留纸面纹理与褶皱。",
+      "label": "横贴在右侧公园照片上边缘的金黄色胶带，保留纸面纹理与褶皱。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "26b48ca98a868524c8ae34fba9ebf982b3ecbc3ae9d5fb16cefcc9599cf644bb"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\people_tape.png",
+        "sha256": "db5a54abf63069d8b27b673124f3f2845c1d42ddf8747bf677ca8a70d04fb890",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\people_tape-restored.png",
+          "sha256": "db5a54abf63069d8b27b673124f3f2845c1d42ddf8747bf677ca8a70d04fb890",
+          "bbox": [
+            622,
+            649,
+            712,
+            696
+          ],
+          "original_bbox": [
+            626,
+            653,
+            708,
+            692
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "d928c7471d0ce49d5b30fa18cd78b1d39fbd095c3f54fd48298b4f3e359ddb01",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "8c3da50d205b3b739b0d8f0b53586f8ae3ed961870b6b89768aa853c0e319b04"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\people_tape-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\people_tape-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "summer_text",
+      "kind": "text",
+      "bbox": [
+        668,
+        576,
+        845,
+        626
+      ],
+      "description": "Meet summer.",
+      "label": "Meet summer.",
+      "method": "local",
+      "text": "Meet summer.",
+      "text_status": "known",
+      "style": {
+        "fill": "#202827",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "caption_text",
+      "kind": "text",
+      "bbox": [
+        122,
+        978,
+        487,
+        1068
+      ],
+      "description": "Collect today's lush greenery\nand gentle breeze",
+      "label": "Collect today's lush greenery\n",
+      "method": "local",
+      "text": "Collect today's lush greenery\nand gentle breeze",
+      "text_status": "known",
+      "style": {
+        "fill": "#252D2C",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "sparkles",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        858,
+        535,
+        1109
+      ],
+      "description": "散布在照片周围及下方草地上的细小白色闪光星芒装饰，包含多处十字形亮点与微小光点，作为一组固定点缀保留。",
+      "label": "散布在照片周围及下方草地上的细小白色闪光星芒装饰，包含多处十",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "96abbbc69e0f6b888216ada6ac0ecc0e82af444c28884fa12933b5aa6f4457b7"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\sparkles.png",
+        "sha256": "8fd5c00591d340bfe977cd03a1d564e4bc6f372e91620a5ee644f7730100e883",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\sparkles-restored.png",
+          "sha256": "8fd5c00591d340bfe977cd03a1d564e4bc6f372e91620a5ee644f7730100e883",
+          "bbox": [
+            96,
+            850,
+            543,
+            1117
+          ],
+          "original_bbox": [
+            104,
+            858,
+            535,
+            1109
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "817c9c9be3b83eb004461e3cfc1ba725abed8003062d83d97e7cdc8cd96b7386",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "8c3da50d205b3b739b0d8f0b53586f8ae3ed961870b6b89768aa853c0e319b04"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\sparkles-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\sparkles-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_photo",
+    "fish_photo",
+    "cat_photo",
+    "people_photo",
+    "fish_tape",
+    "cat_tape",
+    "people_tape",
+    "sparkles",
+    "summer_text",
+    "caption_text"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "ef9e3f2444cc219626ffb4c1ce5bc75996e20c67c7d527c13f1fe759a60a3ecc",
+    "bindings": "9ad1d66c7ad7f3d96066c39097a0abb3741dc7ad85d7778779282d9cadc36fa5",
+    "input": "0206423b9a72710b090b729bf790551736132176fb89a54660840aea4d906ac9",
+    "catalog": "be00336cfaf4544f4235ad47bcc15083d01d786b69c8c39de350713b4c00b741",
+    "photo_windows": "9f20dd58c71ce530048ce4aad0fe4be502d6dc8701aa99b73e77627e8d2fbc0d"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\reveal\\index.json",
+    "sha256": "e103081f1120d7c012c788c9a83c3758812179894e30357f1b832b998b2e877a"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-060\\assets\\gate\\report.json",
+    "sha256": "de29b28a1e42040d3c4130ceaf35fe0a53eeb700b78cee2c28a26c5ccb03b895",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 4,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
