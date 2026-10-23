@@ -6,7 +6,17 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-运行中 · bind
+失败
+
+耗时：556.1 秒；交付类别：None。
+
+失败信息：
+
+```text
+yibu / qwen3.8-flash HTTP 502：上游网关错误
+```
+
+[查看参数、中间 JSON、告警及对照图](qwen/)
 
 ## Codex gpt-6-luna / medium
 

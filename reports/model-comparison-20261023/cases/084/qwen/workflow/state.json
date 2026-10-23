@@ -1,0 +1,77 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T16:01:29.633561+00:00",
+      "finished_at": "2026-10-23T16:02:25.724467+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T16:02:25.747629+00:00",
+      "finished_at": "2026-10-23T16:04:16.785997+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T16:04:16.809417+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T16:04:16.809436+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "failed",
+      "started_at": "2026-10-23T16:04:16.815006+00:00",
+      "finished_at": "2026-10-23T16:10:44.691436+00:00",
+      "error": "yibu / qwen3.8-flash HTTP 502：上游网关错误"
+    }
+  },
+  "started_at": "2026-10-23T16:01:29.395563+00:00",
+  "identity": "b6e677fe8e511774e739d095db38f87db0231e2cf2c71c633055cc60a412e853",
+  "status": "failed",
+  "error": "yibu / qwen3.8-flash HTTP 502：上游网关错误",
+  "binding_contract": "photo-binding-v9-1",
+  "model": "qwen3.8-flash",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T16:10:44.930281+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 12062,
+    "completion_tokens": 2745,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 25632,
+  "current_step": "bind",
+  "finished_at": "2026-10-23T16:10:44.930190+00:00"
+}

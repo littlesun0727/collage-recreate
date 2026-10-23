@@ -1,0 +1,93 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "固定黑色底层，露出两张故事画面之间及底部按钮区域的黑色间隙。",
+      "color": "#000000"
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        9,
+        500,
+        899
+      ],
+      "description": "左侧竖幅自拍：一名留黑色长发、刘海的年轻女性穿黑色上衣和条纹裙，手持黑白圆点手机对镜自拍，另一只手托腮；室内窗户与家具仍作为摄影环境可见，画面按圆角竖幅窗口裁切，无主体抠图。"
+    },
+    {
+      "id": "photo_right_top",
+      "kind": "photo",
+      "bbox": [
+        500,
+        9,
+        999,
+        305
+      ],
+      "description": "右上横幅自拍：一名留黑色长发的年轻女性戴灰色帽子、穿黑色上衣，近距离俯视镜头并伸手自拍；身后有带印字的浅色墙面及暗色环境，均保留为摄影内容，按横幅窗口裁切，无主体抠图。"
+    },
+    {
+      "id": "photo_right_middle",
+      "kind": "photo",
+      "bbox": [
+        500,
+        305,
+        999,
+        599
+      ],
+      "description": "右侧中部横幅照片：一名穿黑色上衣、浅色裙装和灰色长袜的年轻女性坐在灰色水泥楼梯上，身体斜向画面左侧，身旁有浅色图案手袋；楼梯环境保留，按横幅窗口裁切，无主体抠图。"
+    },
+    {
+      "id": "photo_right_bottom",
+      "kind": "photo",
+      "bbox": [
+        500,
+        599,
+        999,
+        899
+      ],
+      "description": "右下俯拍静物照片：木桌上有黑色铆钉手袋、圆点手机、印刷杂志、浅绿色饮料杯及小装饰，画面下方可见拍摄者的鞋和腿部；摄影环境完整保留，按横幅窗口裁切，无抠图或渐隐。"
+    },
+    {
+      "id": "ui_left",
+      "kind": "overlay",
+      "bbox": [
+        9,
+        22,
+        489,
+        976
+      ],
+      "description": "左侧故事编辑界面固定元素整体：画面上沿的关闭、Aa、贴纸、音乐、特效和下拉圆形按钮；左下角“Add a caption...”提示；底部头像、“Your story”“Close Friends”按钮及蓝色箭头按钮。图标、文字、底板和阴影按界面原样保留。"
+    },
+    {
+      "id": "ui_right",
+      "kind": "overlay",
+      "bbox": [
+        510,
+        22,
+        989,
+        976
+      ],
+      "description": "右侧故事编辑界面固定元素整体：画面上沿的关闭、Aa、贴纸、音乐、特效和下拉圆形按钮；右下照片上的“Add a caption...”提示；底部头像、“Your story”“Close Friends”按钮及蓝色箭头按钮。图标、文字、底板和阴影按界面原样保留。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_left",
+    "photo_right_top",
+    "photo_right_middle",
+    "photo_right_bottom",
+    "ui_left",
+    "ui_right"
+  ]
+}
