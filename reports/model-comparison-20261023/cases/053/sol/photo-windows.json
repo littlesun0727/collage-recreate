@@ -1,0 +1,124 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_main",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "整幅自拍保留人物、桌柜和地板等摄影环境，以画布矩形裁切；人物没有独立描边。小照片及装饰直接覆盖其上，没有连续出框或边缘渐变。"
+    },
+    {
+      "photo_id": "photo_upper",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.025
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.026,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "保留头肩人物及浅色墙面、木门背景，白边沿固定照片窗口而非人物轮廓。窗口近似微圆角矩形，毛糙手绘白边用实线近似；右下被下方照片遮挡，无渐变或连续出框。"
+    },
+    {
+      "photo_id": "photo_lower",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.035
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.022,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "保留蹲坐人物与室内桌柜、地板，人物未跨越自身照片边界。独立竖向窗口带微圆角及毛糙白边，白边用实线近似，不属于主体描边；与邻图及文字气泡均为直接遮挡，没有透明渐变。"
+    }
+  ]
+}
