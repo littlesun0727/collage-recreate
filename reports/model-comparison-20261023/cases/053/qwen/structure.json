@@ -1,0 +1,118 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "铺满画布的主摄影背景。画面中一位留着齐刘海长发的年轻女性坐在木地板上，身穿深灰色针织毛衣和带有彩色钩织方块的牛仔裤。她左手持手机对着镜子自拍（遮挡面部），右手举起比出剪刀手姿势。"
+    },
+    {
+      "id": "overlay_stars",
+      "kind": "overlay",
+      "bbox": [
+        60,
+        25,
+        970,
+        960
+      ],
+      "description": "散布在画面四周的黄色五角星装饰贴纸，具有白色描边，作为独立图层叠加在主照片之上。"
+    },
+    {
+      "id": "overlay_text_art",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        260,
+        280,
+        460
+      ],
+      "description": "位于左侧的白色艺术字设计，由密集的细小文字排列成“STAR”字样轮廓及星星图案，整体作为一个固定装饰单元保留。"
+    },
+    {
+      "id": "bubble_1",
+      "kind": "overlay",
+      "bbox": [
+        690,
+        145,
+        930,
+        250
+      ],
+      "description": "右上角的浅蓝色对话气泡，包含韩文文本，气泡形状、颜色及内部文字作为完整装饰保留。"
+    },
+    {
+      "id": "frame_photo_1",
+      "kind": "frame",
+      "bbox": [
+        485,
+        600,
+        745,
+        740
+      ],
+      "description": "位于主图下方的矩形拍立得风格相框，具有粗糙的白色手绘感边框，承载一张替换照片。",
+      "photo_id": "photo_inset_1"
+    },
+    {
+      "id": "photo_inset_1",
+      "kind": "photo",
+      "bbox": [
+        495,
+        610,
+        735,
+        730
+      ],
+      "description": "嵌入上方相框内的照片。显示同一位女性的正面半身照，穿着深色上衣，背景为室内白墙。"
+    },
+    {
+      "id": "frame_photo_2",
+      "kind": "frame",
+      "bbox": [
+        650,
+        670,
+        930,
+        925
+      ],
+      "description": "位于右下方的竖构图相框，同样具有粗糙的白色手绘感边框，与左侧相框部分重叠。",
+      "photo_id": "photo_inset_2"
+    },
+    {
+      "id": "photo_inset_2",
+      "kind": "photo",
+      "bbox": [
+        660,
+        680,
+        920,
+        915
+      ],
+      "description": "嵌入右侧相框内的照片。显示该女性坐在地上对着镜子自拍的全身/大半身视角，姿态与主图类似但构图不同。"
+    },
+    {
+      "id": "bubble_2",
+      "kind": "overlay",
+      "bbox": [
+        835,
+        820,
+        990,
+        885
+      ],
+      "description": "右下角的白色圆形对话气泡，包含两行黑色韩文文本，叠加在右侧相框之上。"
+    }
+  ],
+  "layer_order": [
+    "photo_main",
+    "overlay_text_art",
+    "overlay_stars",
+    "bubble_1",
+    "frame_photo_1",
+    "photo_inset_1",
+    "frame_photo_2",
+    "photo_inset_2",
+    "bubble_2"
+  ]
+}

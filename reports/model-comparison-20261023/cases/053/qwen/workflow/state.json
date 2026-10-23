@@ -1,0 +1,77 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T13:43:00.509913+00:00",
+      "finished_at": "2026-10-23T13:43:20.251148+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T13:43:20.272808+00:00",
+      "finished_at": "2026-10-23T13:43:41.426724+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T13:43:41.450399+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T13:43:41.450417+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "failed",
+      "started_at": "2026-10-23T13:43:41.455796+00:00",
+      "finished_at": "2026-10-23T13:43:57.691962+00:00",
+      "error": "yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况"
+    }
+  },
+  "started_at": "2026-10-23T13:43:00.278940+00:00",
+  "identity": "65e16aa188f10b269e03e60adab38baed746faaec6eb717c3eb9782f2b95d0e4",
+  "status": "failed",
+  "error": "yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况",
+  "binding_contract": "photo-binding-v9-1",
+  "model": "qwen3.8-flash",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T13:43:57.925476+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 11943,
+    "completion_tokens": 1653,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 28900,
+  "current_step": "bind",
+  "finished_at": "2026-10-23T13:43:57.925381+00:00"
+}

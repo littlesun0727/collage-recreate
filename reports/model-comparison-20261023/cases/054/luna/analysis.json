@@ -1,0 +1,121 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1350
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1350
+      ],
+      "description": "整幅固定的浅蓝至乳白渐变底纹，覆盖密集水滴，并散布半透明紫色花朵图案；作为连续底层保留。",
+      "label": "整幅固定的浅蓝至乳白渐变底纹，覆盖密集水滴，并散布半透明紫色",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_garden",
+      "kind": "photo",
+      "bbox": [
+        110,
+        225,
+        506,
+        755
+      ],
+      "description": "竖向矩形户外照片，年轻女性躺在草地上，面向镜头并伸手将一朵粉色小花靠近镜头；人物位于画面下半部，周围可见草叶、树木和阳光下的公园环境，保留摄影背景，边缘为清晰直线裁切，无独立描边或渐隐。",
+      "label": "竖向矩形户外照片，年轻女性躺在草地上，面向镜头并伸手将一朵粉",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_coast",
+      "kind": "photo",
+      "bbox": [
+        300,
+        807,
+        875,
+        1189
+      ],
+      "description": "横向矩形海岸黄昏照片，海浪与沙滩在前景，几个人背向镜头坐在左下方，远处山坡住宅灯火映在粉橙色暮色中；保留完整摄影环境，边缘为清晰直线裁切，无独立描边或渐隐。",
+      "label": "横向矩形海岸黄昏照片，海浪与沙滩在前景，几个人背向镜头坐在左",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "lily_sticker",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        570,
+        303,
+        926
+      ],
+      "description": "一朵红橙色百合贴纸，带水滴质感、绿色茎叶及不规则粗白色外描边；花朵、茎叶、描边和附属细节为一个完整装饰，贴在上方照片左侧并局部遮挡照片。",
+      "label": "一朵红橙色百合贴纸，带水滴质感、绿色茎叶及不规则粗白色外描边",
+      "method": "extract"
+    },
+    {
+      "id": "title_changes",
+      "kind": "overlay",
+      "bbox": [
+        547,
+        603,
+        839,
+        720
+      ],
+      "description": "白色手写风格的“CHANGES”艺术字，笔画不规则并带装饰性弧线，作为独立字形装饰置于背景花纹之上。",
+      "label": "白色手写风格的“CHANGES”艺术字，笔画不规则并带装饰性",
+      "method": "extract"
+    },
+    {
+      "id": "circle_doodle",
+      "kind": "overlay",
+      "bbox": [
+        226,
+        1107,
+        367,
+        1246
+      ],
+      "description": "靠近下方照片左下角的白色手绘双圈装饰，线条不规则并有淡淡阴影，局部叠在照片边缘与背景上。",
+      "label": "靠近下方照片左下角的白色手绘双圈装饰，线条不规则并有淡淡阴影",
+      "method": "extract"
+    },
+    {
+      "id": "top_caption",
+      "kind": "text",
+      "bbox": [
+        393,
+        39,
+        513,
+        63
+      ],
+      "description": "无法辨认的独立文字",
+      "label": "无法辨认的独立文字",
+      "method": "local",
+      "text": null,
+      "text_status": "unreadable",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "sans",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_garden",
+    "photo_coast",
+    "lily_sticker",
+    "title_changes",
+    "circle_doodle",
+    "top_caption"
+  ]
+}
