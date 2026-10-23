@@ -1,0 +1,150 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1600
+      ],
+      "description": "铺满画面的傍晚城市街景，保留蓝色天空、上方亮起的路灯、右侧建筑与栏杆、下方道路和多辆汽车。摄影环境完整保留，画面下部较暗，上方路灯光晕属于摄影内容，无透明渐隐。",
+      "label": "铺满画面的傍晚城市街景，保留蓝色天空、上方亮起的路灯、右侧建",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_street",
+      "kind": "photo",
+      "bbox": [
+        280,
+        250,
+        678,
+        706
+      ],
+      "description": "上部竖幅街头照片，前景红色出租车横向经过，后方有店铺灯箱、行人及夜间街道，摄影背景保留。照片窗口外围附有不规则白色手绘线，四边局部断开，完整描边随照片保留。",
+      "label": "上部竖幅街头照片，前景红色出租车横向经过，后方有店铺灯箱、行",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_flowers",
+      "kind": "photo",
+      "bbox": [
+        67,
+        738,
+        410,
+        982
+      ],
+      "description": "中部偏左的横幅照片，黄色花朵和细长花茎位于前景，后方为带黑色文字、数字与涂鸦的浅色卷帘及门框，保留全部摄影环境。外围有断续的白色手绘窗口线，右下方与右侧甜品照片区域相邻重叠。",
+      "label": "中部偏左的横幅照片，黄色花朵和细长花茎位于前景，后方为带黑色",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_icecream",
+      "kind": "photo",
+      "bbox": [
+        452,
+        837,
+        841,
+        1328
+      ],
+      "description": "右下竖幅甜品照片，前景黑碗盛绿色与白色冰淇淋，黑色勺柄斜向上伸；后方玻璃陈列区域有木质圆台、小动物摆件及数块带字标牌，均属摄影内容。保留摄影环境，左上部分被花朵照片遮挡，外围断续白色手绘线沿窗口延伸至底部，无主体出框。",
+      "label": "右下竖幅甜品照片，前景黑碗盛绿色与白色冰淇淋，黑色勺柄斜向上",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_trip",
+      "kind": "overlay",
+      "bbox": [
+        71,
+        203,
+        207,
+        456
+      ],
+      "description": "左上白色手绘细线气泡，底部带小尖角，内部手写文字分行为“The / beginning / of / my / trip”。文字与气泡轮廓组成完整装饰。",
+      "label": "左上白色手绘细线气泡，底部带小尖角，内部手写文字分行为“Th",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_cat",
+      "kind": "overlay",
+      "bbox": [
+        63,
+        475,
+        202,
+        595
+      ],
+      "description": "白色手绘猫脸装饰，包含双耳、眼睛、鼻嘴、两侧胡须及右耳附近斜叠的白色排线帽状点缀，整体保留。",
+      "label": "白色手绘猫脸装饰，包含双耳、眼睛、鼻嘴、两侧胡须及右耳附近斜",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_car",
+      "kind": "overlay",
+      "bbox": [
+        716,
+        635,
+        847,
+        698
+      ],
+      "description": "白色手绘小汽车及右侧短线、弯曲尾迹组成的完整装饰，保留车身轮廓、车窗和实心车轮。",
+      "label": "白色手绘小汽车及右侧短线、弯曲尾迹组成的完整装饰，保留车身轮",
+      "method": "extract"
+    },
+    {
+      "id": "text_quote",
+      "kind": "text",
+      "bbox": [
+        125,
+        1098,
+        410,
+        1402
+      ],
+      "description": "It's a lovely\nthing to know\na place well\nenough that\nyou know\nwhen the sun\nwill be there",
+      "label": "It's a lovely\nthing to know\na ",
+      "method": "local",
+      "text": "It's a lovely\nthing to know\na place well\nenough that\nyou know\nwhen the sun\nwill be there",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "overlay_pencil",
+      "kind": "overlay",
+      "bbox": [
+        49,
+        1101,
+        109,
+        1221
+      ],
+      "description": "引文左侧的白色手绘铅笔与下方弯曲卷线组成完整点缀，保留笔身斜线、笔尖及卷曲线条。",
+      "label": "引文左侧的白色手绘铅笔与下方弯曲卷线组成完整点缀，保留笔身斜",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "photo_background",
+    "photo_icecream",
+    "photo_street",
+    "photo_flowers",
+    "overlay_trip",
+    "overlay_cat",
+    "overlay_car",
+    "text_quote",
+    "overlay_pencil"
+  ]
+}
