@@ -1,7 +1,7 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-24T03:13:27+08:00",
+  "updated_at": "2026-10-24T03:14:33+08:00",
   "references": 116,
   "total": 348,
   "counts": {
@@ -15,9 +15,9 @@
       "completed": 116
     },
     "sol": {
-      "completed": 26,
+      "completed": 27,
       "running": 1,
-      "queued": 14,
+      "queued": 13,
       "pending": 75
     }
   },
@@ -1300,7 +1300,7 @@
       "model": "qwen",
       "batch": "run-a24a40662d4b48b3b470722b5639ab26",
       "status": "running",
-      "step": "photo_windows",
+      "step": "bind",
       "error": null,
       "task_id": "d1c977b271313900",
       "elapsed_seconds": null,
@@ -3123,20 +3123,20 @@
       "case": "027",
       "model": "sol",
       "batch": "run-0b4384b59f7e4bfe89919f910accd5c6",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "1adeb3074b970429",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 148.793,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "028",
       "model": "sol",
       "batch": "run-0b4384b59f7e4bfe89919f910accd5c6",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "photo_windows",
       "error": null,
       "task_id": "dd7e892c199605ba",
       "elapsed_seconds": null,
