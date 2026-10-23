@@ -1,0 +1,2043 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\reference.png",
+    "sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+  },
+  "reference_size": [
+    1080,
+    1437
+  ],
+  "canvas_size": [
+    1200,
+    1597
+  ],
+  "objects": [
+    {
+      "id": "kraft_background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1437
+      ],
+      "description": "整幅画面的棕色粗纹纸底，作为固定承托背景保留。",
+      "label": "整幅画面的棕色粗纹纸底，作为固定承托背景保留。",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "92108deb25edece6ed371c0e16b6c2e3fe721f73db13dc5c126456297778b630"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\kraft_background.png",
+        "sha256": "c3321578125168ec92692cbc22207e4bc6ca1f809ffe5020e855a737d66a8961",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\kraft_background-background-source.png",
+          "sha256": "c3321578125168ec92692cbc22207e4bc6ca1f809ffe5020e855a737d66a8961",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "original_bbox": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_03\\layers_aug_00.png",
+          "raw_sha256": "1ba58bf82e49fb66980de52f7ab00dafb091d3be4f10f06e3162e0f7167b2d12",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\kraft_background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\kraft_background-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "album_spread",
+      "kind": "overlay",
+      "bbox": [
+        36,
+        59,
+        1048,
+        822
+      ],
+      "description": "打开的白色点状活页册跨页，含中缝、金属活页环及纸张阴影，作为一体的固定页面结构保留。",
+      "label": "打开的白色点状活页册跨页，含中缝、金属活页环及纸张阴影，作为",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "40232b54f5df1bcd22ef2bd63740ffeb6a7c1f10c622c451ae21f97974c8ea03"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\album_spread.png",
+        "sha256": "de58a67980d60ddd9aea146cb3a9d3113f999c18cd89b0c1a80886ca47dd08fd",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\album_spread-restored.png",
+          "sha256": "de58a67980d60ddd9aea146cb3a9d3113f999c18cd89b0c1a80886ca47dd08fd",
+          "bbox": [
+            27,
+            50,
+            1057,
+            831
+          ],
+          "original_bbox": [
+            36,
+            59,
+            1048,
+            822
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "f81e0ec6e01447f4364fe3d010570b4796e81938c800e582153b6253d8511915",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\album_spread-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\album_spread-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_solo",
+      "kind": "photo",
+      "bbox": [
+        189,
+        111,
+        433,
+        274
+      ],
+      "description": "左页上方的单人室内照片，一名长发女子坐在窗帘旁，面向镜头；保留照片中的室内环境与闪光灯效果，矩形窗口无独立框体。",
+      "label": "左页上方的单人室内照片，一名长发女子坐在窗帘旁，面向镜头；保",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_solo",
+        "reason": "保留女子周围的窗帘及室内摄影环境；可见边界为普通矩形照片窗口，无独立窗口描边。贴图覆盖照片局部，不构成主体描边或窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_solo",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "单人女性近景与描述的单人肖像较接近；实际为户外侧面人像，保留完整人物与环境。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "photo_selfie",
+      "kind": "photo",
+      "bbox": [
+        91,
+        283,
+        273,
+        539
+      ],
+      "description": "左页中部竖幅近景自拍，两名女子靠近镜头，前方女子在左、另一人从右后方探出；保留暗色室内摄影环境。",
+      "label": "左页中部竖幅近景自拍，两名女子靠近镜头，前方女子在左、另一人",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_selfie",
+        "reason": "两名女子与暗色室内环境属于同一摄影画面，保留背景并按清晰矩形照片边界裁切；周边贴图不形成照片描边，未见窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_selfie",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "女性近镜头自拍姿态与自拍题材接近；素材仅一人且为户外场景，与双人暗室环境不同，保留全幅。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "photo_street",
+      "kind": "photo",
+      "bbox": [
+        297,
+        283,
+        486,
+        537
+      ],
+      "description": "左页中部竖幅街景照片，从后方拍摄骑乘者及道路，前景有白色头盔与人物肩背，远处可见树木、车辆和街道；摄影背景完整保留。",
+      "label": "左页中部竖幅街景照片，从后方拍摄骑乘者及道路，前景有白色头盔",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_street",
+        "reason": "头盔、骑乘者、道路及树木车辆均为同一街景摄影内容，应保留背景；照片有矩形窗口边界，白色相纸边缘属于固定载体而非额外线条，未见渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_street",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "人物背侧朝向与从后方拍摄的描述略有相似；素材是海边独立人像，没有骑乘者、道路或车辆，保留全幅以保留环境。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "photo_trio",
+      "kind": "photo",
+      "bbox": [
+        96,
+        539,
+        418,
+        790
+      ],
+      "description": "左页下方横幅合影，三名女子并肩站在室内；左侧人物脸部被表情贴图遮住，中间与右侧人物面向镜头，保留室内背景。",
+      "label": "左页下方横幅合影，三名女子并肩站在室内；左侧人物脸部被表情贴",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_trio",
+        "reason": "三人合影、室内背景及遮挡左侧人物脸部的表情贴图一并保留在矩形照片窗口内；无主体轮廓描边或窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_trio",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "正面人物肖像与合影人物面向镜头的特点相符；素材只有一人且为户外场景，不满足三人场景，保留全幅。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_postcard",
+      "kind": "photo",
+      "bbox": [
+        638,
+        138,
+        867,
+        292
+      ],
+      "description": "右页上方明信片内的横幅双人合影，两名女子坐在红色沙发上面向镜头，保留沙发及暗色室内摄影环境。",
+      "label": "右页上方明信片内的横幅双人合影，两名女子坐在红色沙发上面向镜",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_postcard",
+        "reason": "保留双人、红沙发及室内摄影环境；照片在明信片框内有独立矩形内口，卡片印刷和框体保留且不另描窗口边线，未见渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_postcard",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰女性主体和明亮户外环境，但不是沙发上的双人室内合影；保留全幅以免裁掉人物和景色。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_00.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\postcard_frame-photo_postcard-window.png",
+        "sha256": "efca24b3f4c8bf69450c337ac3580d2514e69b1057d35e0b81f5e3eaa52c7f8a"
+      },
+      "reveal_frame_id": "postcard_frame"
+    },
+    {
+      "id": "postcard_frame",
+      "kind": "frame",
+      "bbox": [
+        622,
+        93,
+        1003,
+        306
+      ],
+      "description": "棕色明信片式照片承载卡，印有红色邮票格、邮戳框及小字印记，照片窗口独立替换，卡片与印刷整体保留。",
+      "photo_id": "photo_postcard",
+      "label": "棕色明信片式照片承载卡，印有红色邮票格、邮戳框及小字印记，照",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_postcard contains visible pixels; inspect for old photos or intentional decoration",
+        "Foreground carrier window photo_postcard still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "da0032f850cc30327804688c58335c60c5436fca85a0b5020bd599d3725e5fc7"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\postcard_frame.png",
+        "sha256": "e61ab876127c8298f9281b23a467e9be41b3731951566c803a1e835dc09d3a51",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\postcard_frame-restored.png",
+          "sha256": "e61ab876127c8298f9281b23a467e9be41b3731951566c803a1e835dc09d3a51",
+          "bbox": [
+            613,
+            84,
+            1012,
+            315
+          ],
+          "original_bbox": [
+            622,
+            93,
+            1003,
+            306
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_14.png",
+          "raw_sha256": "ce557bb21559e396d7ad471f4f799a22813c744e072749a465012f8d5391c333",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\postcard_frame-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\postcard_frame-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_peace",
+      "kind": "photo",
+      "bbox": [
+        602,
+        322,
+        989,
+        530
+      ],
+      "description": "右页中部横幅双人合影，两名女子在红色沙发前并肩摆出手势，保留人物周围的室内环境与闪光摄影效果。",
+      "label": "右页中部横幅双人合影，两名女子在红色沙发前并肩摆出手势，保留",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_peace",
+        "reason": "人物、红沙发及暗色室内均属于保留的摄影画面；照片边界为清晰矩形，邻近装饰贴纸不构成窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_peace",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "人物举起双臂的姿态呼应手势主题；素材为单人在日落环境中的背影，非双人室内合影，保留全幅。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "photo_pair_pose",
+      "kind": "photo",
+      "bbox": [
+        603,
+        576,
+        882,
+        763
+      ],
+      "description": "右页下方横幅双人合影，两名女子坐在红色沙发上，双手举至头部附近摆姿势；保留沙发及室内背景。",
+      "label": "右页下方横幅双人合影，两名女子坐在红色沙发上，双手举至头部附",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_pair_pose",
+        "reason": "双人、沙发及室内背景共同保留在矩形照片窗口中；旁侧手写纸张和便签不属于照片窗口，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_pair_pose",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "近镜头女性摆手势与姿势主题较接近；素材只有一人且为海边户外照，保留全幅。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "photo_prints",
+      "kind": "photo",
+      "bbox": [
+        53,
+        928,
+        406,
+        1382
+      ],
+      "description": "左下方俯拍桌面照片，木桌上散放多张带白边的小合影照片；整个桌面场景和照片堆均属于待替换摄影内容。",
+      "label": "左下方俯拍桌面照片，木桌上散放多张带白边的小合影照片；整个桌",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_prints",
+        "reason": "木桌、桌面散放的小照片及其阴影整体属于待替换摄影内容，应一并保留；外层显示为矩形照片窗口，白色载体边缘不重复描绘，无窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_prints",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材为完整俯视感较强的开阔场景，但没有木桌或散放照片，与桌面照片堆差异明显；保留全幅。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "polaroid_group_left",
+      "kind": "photo",
+      "bbox": [
+        287,
+        796,
+        551,
+        925
+      ],
+      "description": "画面下方倾斜的横幅多人合影，数名女子在室内合照；保留摄影环境，照片显示在青蓝色拍立得式相纸窗口内。",
+      "label": "画面下方倾斜的横幅多人合影，数名女子在室内合照；保留摄影环境",
+      "method": "local",
+      "rotation": -13,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "polaroid_group_left",
+        "reason": "合影及室内摄影环境保留在倾斜拍立得相纸的矩形照片内口；制作框按内口倾斜方向设置，青蓝色相纸与白边属于固定框体，不另描窗口线条或添加渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "polaroid_group_left",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "清晰人物主体可用于拍立得窗口；素材仅一人且为户外照，并非室内多人合影，保留全幅。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_13.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_left-polaroid_group_left-window.png",
+        "sha256": "dd84c715a25f37e486449102fd32084bbac73bfa92c6decca6565b73bcc1637f"
+      },
+      "reveal_frame_id": "polaroid_frame_left"
+    },
+    {
+      "id": "polaroid_frame_left",
+      "kind": "frame",
+      "bbox": [
+        256,
+        786,
+        563,
+        990
+      ],
+      "description": "倾斜的青蓝色拍立得式相纸框，带白色照片边及宽下沿，作为固定照片载体保留。",
+      "photo_id": "polaroid_group_left",
+      "label": "倾斜的青蓝色拍立得式相纸框，带白色照片边及宽下沿，作为固定照",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window polaroid_group_left contains visible pixels; inspect for old photos or intentional decoration",
+        "Foreground carrier window polaroid_group_left still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d3e5d3443e82a508289d04ec54d09e23446fc5eeb3aefa5b6ab9c55aac364a32"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_left.png",
+        "sha256": "42dc18e3273ff655912dc1c66976d3cc72303b93718a2d51f58fed959d9c222f",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\polaroid_frame_left-restored.png",
+          "sha256": "42dc18e3273ff655912dc1c66976d3cc72303b93718a2d51f58fed959d9c222f",
+          "bbox": [
+            247,
+            777,
+            572,
+            999
+          ],
+          "original_bbox": [
+            256,
+            786,
+            563,
+            990
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\layers_aug_03.png",
+          "raw_sha256": "28a26f914ce7af553ac67b73fba72467f5a7b163708b81476396c12c9a336af4",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "7e9e5e65ad235c62de7cc06ad06adb87d64e1f65b4b2484f35fdc72ce8f73fe0"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "polaroid_group_right",
+      "kind": "photo",
+      "bbox": [
+        564,
+        835,
+        772,
+        951
+      ],
+      "description": "画面下方右侧倾斜的横幅多人合影，数名女子在室内合照；保留摄影环境，照片显示在白色拍立得式相纸窗口内。",
+      "label": "画面下方右侧倾斜的横幅多人合影，数名女子在室内合照；保留摄影",
+      "method": "local",
+      "rotation": 9,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "polaroid_group_right",
+        "reason": "多人合影及室内背景保留在白色拍立得相纸的倾斜矩形内口；制作框按内口倾斜摆放，白色相纸边与宽下沿是固定载体，不另加窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "polaroid_group_right",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有完整可辨的单人主体；但不是室内多人合影，保留全幅以呈现人物与环境。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_06.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_right-polaroid_group_right-window.png",
+        "sha256": "d3201a0eb3744fe80f044e8371da3257c6ebeb10870b9c44ab32f7c229f9961e"
+      },
+      "reveal_frame_id": "polaroid_frame_right"
+    },
+    {
+      "id": "polaroid_frame_right",
+      "kind": "frame",
+      "bbox": [
+        535,
+        816,
+        825,
+        1009
+      ],
+      "description": "倾斜的白色拍立得式相纸框，具有宽白边和下沿，整体作为固定照片载体保留。",
+      "photo_id": "polaroid_group_right",
+      "label": "倾斜的白色拍立得式相纸框，具有宽白边和下沿，整体作为固定照片",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window polaroid_group_right contains visible pixels; inspect for old photos or intentional decoration",
+        "Foreground carrier window polaroid_group_right still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "801db7afbabbbf6373e8f9607a387759c9b99aca41d386176e3ee59fcea82daf"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_right.png",
+        "sha256": "fa2aa024c6583c6240d7a43de2d238907ef2c8c4bffff7b47967587c80a5b7a7",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\polaroid_frame_right-restored.png",
+          "sha256": "fa2aa024c6583c6240d7a43de2d238907ef2c8c4bffff7b47967587c80a5b7a7",
+          "bbox": [
+            526,
+            807,
+            834,
+            1018
+          ],
+          "original_bbox": [
+            535,
+            816,
+            825,
+            1009
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\layers_aug_04.png",
+          "raw_sha256": "7e1e2908e63ca3a429d8e18f27f17423e8edac33009329f4c2ce1bbf512910c8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "7e9e5e65ad235c62de7cc06ad06adb87d64e1f65b4b2484f35fdc72ce8f73fe0"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\polaroid_frame_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_close_pair",
+      "kind": "photo",
+      "bbox": [
+        445,
+        984,
+        1023,
+        1371
+      ],
+      "description": "右下方大型横幅近景合影，两名长发女子靠在一起，右侧女子搂住左侧女子；保留红色沙发和暗色室内摄影背景，照片上的手写文字与人物同处画面。",
+      "label": "右下方大型横幅近景合影，两名长发女子靠在一起，右侧女子搂住左",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_close_pair",
+        "reason": "两名女子、红沙发、手写文字及暗色室内环境均在同一矩形摄影画面内，整体保留；画面边界清晰，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_close_pair",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰女性近景，人物尺度较接近大型近景合影；仅一人且为户外环境，无拥抱双人、沙发或手写字，保留全幅。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-010-f8e6235da359\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "sticker_hat",
+      "kind": "overlay",
+      "bbox": [
+        85,
+        244,
+        171,
+        335
+      ],
+      "description": "左页自拍上方的手绘白色帽子贴纸，黑色线稿配黄色帽檐与阴影，整体作为独立贴纸保留。",
+      "label": "左页自拍上方的手绘白色帽子贴纸，黑色线稿配黄色帽檐与阴影，整",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8225b571838d03f29e0637e09261c92405756537f29ce11a225896df2409d41a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_hat.png",
+        "sha256": "b560d252899fc133a2444a50298bb934a74b36d4c6b5b4f5e4d23ea2ad1be335",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\sticker_hat-restored.png",
+          "sha256": "b560d252899fc133a2444a50298bb934a74b36d4c6b5b4f5e4d23ea2ad1be335",
+          "bbox": [
+            76,
+            235,
+            180,
+            344
+          ],
+          "original_bbox": [
+            85,
+            244,
+            171,
+            335
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_16.png",
+          "raw_sha256": "156ad34bd8a64c4d556d308ce4391e1cfe20b55e8ea3b0cbe5a7e280cd5cce80",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_hat-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_hat-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "sticker_hearts",
+      "kind": "overlay",
+      "bbox": [
+        362,
+        78,
+        488,
+        172
+      ],
+      "description": "上方照片边缘的白色气泡形贴纸，内有一大一小灰色爱心及柔和阴影，整体保留。",
+      "label": "上方照片边缘的白色气泡形贴纸，内有一大一小灰色爱心及柔和阴影",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "954856cfc4dfda5b1f63b04e325bff767a9394576a61260895d22de82f556276"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_hearts.png",
+        "sha256": "9acf3fd432685a6fcf5a24149c92b7ffd56c719880ec6693362d4fc54763b715",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\sticker_hearts-restored.png",
+          "sha256": "9acf3fd432685a6fcf5a24149c92b7ffd56c719880ec6693362d4fc54763b715",
+          "bbox": [
+            353,
+            69,
+            497,
+            181
+          ],
+          "original_bbox": [
+            362,
+            78,
+            488,
+            172
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_17.png",
+          "raw_sha256": "3edc74ff092332e5795a4b36b827b46d67c6cdf0bf73080b2f9823f5cb535fe8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_hearts-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_hearts-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "doodle_animals",
+      "kind": "overlay",
+      "bbox": [
+        430,
+        200,
+        540,
+        289
+      ],
+      "description": "左页上方照片旁的猫与兔子手绘线稿组合，保留完整线条及两只动物的相邻布局。",
+      "label": "左页上方照片旁的猫与兔子手绘线稿组合，保留完整线条及两只动物",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "91ab930ec221379a0199450260369cecd598cd0e72a29f4fe4be07287267fa01"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\doodle_animals.png",
+        "sha256": "428e3fbebd56f074ea814d77cf056c60422ad9c9da34ce187adcdf20678b76b6",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\doodle_animals-restored.png",
+          "sha256": "428e3fbebd56f074ea814d77cf056c60422ad9c9da34ce187adcdf20678b76b6",
+          "bbox": [
+            421,
+            191,
+            549,
+            298
+          ],
+          "original_bbox": [
+            430,
+            200,
+            540,
+            289
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "2b9d9b55d0ec991afb70bb624cb6d63f0aee173daa903f869aa86e0baa503367",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\doodle_animals-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\doodle_animals-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "sticker_emoji",
+      "kind": "overlay",
+      "bbox": [
+        166,
+        593,
+        239,
+        658
+      ],
+      "description": "覆盖左下合影左侧人物脸部的太阳镜表情贴图，作为独立装饰保留。",
+      "label": "覆盖左下合影左侧人物脸部的太阳镜表情贴图，作为独立装饰保留。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "bdb67848c4857bbf569fdb384a7a575779a273fd0eb57fb6f05c056229f46f7a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_emoji.png",
+        "sha256": "2023c085e17f9edc0f17091477d2e8cd4dceebeed32b3dcbef97864feaec4c38",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\sticker_emoji-restored.png",
+          "sha256": "2023c085e17f9edc0f17091477d2e8cd4dceebeed32b3dcbef97864feaec4c38",
+          "bbox": [
+            159,
+            586,
+            246,
+            665
+          ],
+          "original_bbox": [
+            166,
+            593,
+            239,
+            658
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_15.png",
+          "raw_sha256": "58f01628d87dff3dabc0eb6fac33b4944e40438908d75f10419fffdc52284f30",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_emoji-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_emoji-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "sticker_stars",
+      "kind": "overlay",
+      "bbox": [
+        653,
+        309,
+        726,
+        376
+      ],
+      "description": "右页中部照片左上角附近的三枚倾斜星形贴纸，含黑色星形图案与浅色底片，整体保留。",
+      "label": "右页中部照片左上角附近的三枚倾斜星形贴纸，含黑色星形图案与浅",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2fb0ccf9fc874af5862dc6a93f245f3c6aec894d7bc89893a0751bc1c6547d89"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_stars.png",
+        "sha256": "3e509a9d567d43e6d1abb8cb1df3fff5590e49691bf22fad466e1b74edfed068",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\sticker_stars-restored.png",
+          "sha256": "3e509a9d567d43e6d1abb8cb1df3fff5590e49691bf22fad466e1b74edfed068",
+          "bbox": [
+            646,
+            302,
+            733,
+            383
+          ],
+          "original_bbox": [
+            653,
+            309,
+            726,
+            376
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_18.png",
+          "raw_sha256": "0e5975ba10629706240f1c5cecd22faa19afb43fa5690442b09d110e4e273e35",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_stars-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\sticker_stars-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "label_clock_quote",
+      "kind": "overlay",
+      "bbox": [
+        402,
+        612,
+        536,
+        730
+      ],
+      "description": "左页下方合影右侧由白色小纸条拼成的剪贴字标签，写有“Used bookstore's clock lags half a heartbeat”，保留各词块的错落位置、底纸与阴影。",
+      "label": "左页下方合影右侧由白色小纸条拼成的剪贴字标签，写有“Used",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8b6c335247b40589e01ea614d47422ad003c5123992670c16c0bdb169c44b358"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\label_clock_quote.png",
+        "sha256": "fc47fccfee25e48a5471312b1aaf0251d35214a0173f1780f0577d3a5c4fcb8f",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\label_clock_quote-restored.png",
+          "sha256": "fc47fccfee25e48a5471312b1aaf0251d35214a0173f1780f0577d3a5c4fcb8f",
+          "bbox": [
+            393,
+            603,
+            545,
+            739
+          ],
+          "original_bbox": [
+            402,
+            612,
+            536,
+            730
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "2c7f83be1456e98b1aa957953f377c7161d9f4b9dc82d08f684f0b546cf4905a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\label_clock_quote-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\label_clock_quote-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "label_gray",
+      "kind": "overlay",
+      "bbox": [
+        79,
+        499,
+        166,
+        546
+      ],
+      "description": "左页中部照片交界处的灰色白点纹纸片，带白色边缘与投影，作为独立装饰保留。",
+      "label": "左页中部照片交界处的灰色白点纹纸片，带白色边缘与投影，作为独",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b57af124dabb1a64817f89c5806d8f0f0cc41f4cd4fb48bb82d7d024d8f9a67c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\label_gray.png",
+        "sha256": "a0abebba88d68299178138acb3da02c76c05c8192db621a5fe58f48ea02436af",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\label_gray-restored.png",
+          "sha256": "a0abebba88d68299178138acb3da02c76c05c8192db621a5fe58f48ea02436af",
+          "bbox": [
+            74,
+            494,
+            171,
+            551
+          ],
+          "original_bbox": [
+            79,
+            499,
+            166,
+            546
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "a296345b4927357ac7270f578e3647dd0df1a1cf0ad1bbecc2acd7b23e812bda",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\label_gray-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\label_gray-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "note_yellow",
+      "kind": "overlay",
+      "bbox": [
+        897,
+        647,
+        1016,
+        798
+      ],
+      "description": "右页下方竖向黄色横线便签，写有手写英文短句并带纸张阴影；文字、纸张和线纹作为完整便签保留。",
+      "label": "右页下方竖向黄色横线便签，写有手写英文短句并带纸张阴影；文字",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d608cb492dc733912b1de6f512de4ac9cd3c9ac70456f6a987dd5f3f6b5849a9"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\note_yellow.png",
+        "sha256": "842a3fe5550dc3f2fbc3ff2d84d210e38a329da3a491efb6c0b21efd4b74e021",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\note_yellow-restored.png",
+          "sha256": "842a3fe5550dc3f2fbc3ff2d84d210e38a329da3a491efb6c0b21efd4b74e021",
+          "bbox": [
+            888,
+            638,
+            1025,
+            807
+          ],
+          "original_bbox": [
+            897,
+            647,
+            1016,
+            798
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_13.png",
+          "raw_sha256": "c0a1f0c906825a82b28ce47c583bd9a07aa00a49f55c4bfb396127e9d7f60c8a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\note_yellow-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\note_yellow-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "tape_quote",
+      "kind": "overlay",
+      "bbox": [
+        18,
+        802,
+        285,
+        851
+      ],
+      "description": "跨在活页册左下边缘的浅黄色横向纸胶带，带蓝色横线及手写英文句子，整体作为固定装饰保留。",
+      "label": "跨在活页册左下边缘的浅黄色横向纸胶带，带蓝色横线及手写英文句",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "4489b917a188386050e0e54a461940e2b07441891a78e769879a47dfe1f165e2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\tape_quote.png",
+        "sha256": "7b433780fe5a52460a772e74ba1e7a84473658f6a56f576a06f286cbf71a1d17",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\tape_quote-restored.png",
+          "sha256": "7b433780fe5a52460a772e74ba1e7a84473658f6a56f576a06f286cbf71a1d17",
+          "bbox": [
+            13,
+            797,
+            290,
+            856
+          ],
+          "original_bbox": [
+            18,
+            802,
+            285,
+            851
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\layers_aug_05.png",
+          "raw_sha256": "3473f11b8584922582a1714ad04343f3b7473083991d443f1c1d9fdcb137a78a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "7e9e5e65ad235c62de7cc06ad06adb87d64e1f65b4b2484f35fdc72ce8f73fe0"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\tape_quote-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\tape_quote-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "tape_right",
+      "kind": "overlay",
+      "bbox": [
+        878,
+        935,
+        1072,
+        1043
+      ],
+      "description": "画面右侧下方斜贴的浅黄色窄纸带，印有小号英文文字，连同纸张轮廓与阴影保留。",
+      "label": "画面右侧下方斜贴的浅黄色窄纸带，印有小号英文文字，连同纸张轮",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1bbc36064e3a9653f1785d1ed9c1a4f7943ab76b54922e73fb1f8938c2d8e753"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\tape_right.png",
+        "sha256": "d48307d8a86b12c046a72aa776112ff1d741ab6a61edb1f11cc7ccba19c5d069",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\tape_right-restored.png",
+          "sha256": "d48307d8a86b12c046a72aa776112ff1d741ab6a61edb1f11cc7ccba19c5d069",
+          "bbox": [
+            869,
+            926,
+            1080,
+            1052
+          ],
+          "original_bbox": [
+            878,
+            935,
+            1072,
+            1043
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\layers_aug_06.png",
+          "raw_sha256": "9b28d61a116d8fa159c9229bb2f36faf7bcba6ff9d7ddaecaae7fed710834824",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "7e9e5e65ad235c62de7cc06ad06adb87d64e1f65b4b2484f35fdc72ce8f73fe0"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\tape_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\tape_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_top_left",
+      "kind": "overlay",
+      "bbox": [
+        53,
+        83,
+        202,
+        171
+      ],
+      "description": "左页左上角黑色手写英文短句“Different from air / on their way to / better / places.”，分行书写的手绘字样整体保留。",
+      "label": "左页左上角黑色手写英文短句“Different from a",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3f8ebd782144da5aa2e50e83f49e42618fc83e573a68b856606cc557b5a171cd"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_top_left.png",
+        "sha256": "f8346102dbdf787d073663c5ca8619f8af7f37eab7ecf3e03fbf1a0c0b8e50ae",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\text_top_left-restored.png",
+          "sha256": "f8346102dbdf787d073663c5ca8619f8af7f37eab7ecf3e03fbf1a0c0b8e50ae",
+          "bbox": [
+            44,
+            74,
+            211,
+            180
+          ],
+          "original_bbox": [
+            53,
+            83,
+            202,
+            171
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_20.png",
+          "raw_sha256": "4dd08335038538f6f736a520fecb64a9255e79a28f512697e6b96e7ecc3af211",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_top_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_top_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_page_quote",
+      "kind": "overlay",
+      "bbox": [
+        583,
+        399,
+        719,
+        448
+      ],
+      "description": "右页中部照片下方的黑色手写英文句子“May the future be better than the past.”，以手绘字样整体保留。",
+      "label": "右页中部照片下方的黑色手写英文句子“May the futu",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6b33ecc308534f30950342304bacd3a0da0d0604a4baec7ae97802bd8d64182f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_page_quote.png",
+        "sha256": "bda9c4317dda6276bbc552111d85597cbfabbf5ef4a52139c534e61e6bb2ce89",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\text_page_quote-restored.png",
+          "sha256": "bda9c4317dda6276bbc552111d85597cbfabbf5ef4a52139c534e61e6bb2ce89",
+          "bbox": [
+            578,
+            394,
+            724,
+            453
+          ],
+          "original_bbox": [
+            583,
+            399,
+            719,
+            448
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_19.png",
+          "raw_sha256": "a27c90ae560575ed7d4a9ab981065d98842dd90ad552537ef9e108b7217874f7",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_page_quote-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_page_quote-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "newspaper_scrap",
+      "kind": "overlay",
+      "bbox": [
+        620,
+        466,
+        721,
+        566
+      ],
+      "description": "右页中部合影左下方的不规则撕边报纸剪贴，含密集印刷小字及局部较大字样，作为完整纸片装饰保留。",
+      "label": "右页中部合影左下方的不规则撕边报纸剪贴，含密集印刷小字及局部",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e9c74c522ca9063f1803e5d84dddfc67c09e00d3d51428b1d427b9bf68c7c57b"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\newspaper_scrap.png",
+        "sha256": "21a675b2f6c9f7f4dcce8b603a3ceb4866dce45e48e66f367e0e43bf0bd4304c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\newspaper_scrap-restored.png",
+          "sha256": "21a675b2f6c9f7f4dcce8b603a3ceb4866dce45e48e66f367e0e43bf0bd4304c",
+          "bbox": [
+            611,
+            457,
+            730,
+            575
+          ],
+          "original_bbox": [
+            620,
+            466,
+            721,
+            566
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "28269e4dfbb2f5d72fe6ac99627a017803250d8525bc6c77eb9e920cd109c882",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\newspaper_scrap-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\newspaper_scrap-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_photo_quote",
+      "kind": "overlay",
+      "bbox": [
+        463,
+        1052,
+        596,
+        1155
+      ],
+      "description": "右下照片左上区域的黑色手写英文短句“Wherever you go, no matter what the weather, always bring your own sunshine.”，作为叠加在照片上的固定字样保留。",
+      "label": "右下照片左上区域的黑色手写英文短句“Wherever you",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "04b28ed143daf4d71e14f4730f44123495e8e1cc36039f772401e619866a5edc"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_photo_quote.png",
+        "sha256": "679f665b6ccd4bd84417400ed964f05aaf602485803e2f8f38273d056da0c8d5",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\text_photo_quote-restored.png",
+          "sha256": "679f665b6ccd4bd84417400ed964f05aaf602485803e2f8f38273d056da0c8d5",
+          "bbox": [
+            454,
+            1043,
+            605,
+            1164
+          ],
+          "original_bbox": [
+            463,
+            1052,
+            596,
+            1155
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02\\layers_aug_07.png",
+          "raw_sha256": "fdd6f576fd0882091a31d007ad89787a743c23ef7511f79c6204002b67e36121",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\chain\\round_02",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1437
+          ],
+          "input_sha256": "7e9e5e65ad235c62de7cc06ad06adb87d64e1f65b4b2484f35fdc72ce8f73fe0"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_photo_quote-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\text_photo_quote-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "kraft_background",
+    "album_spread",
+    "photo_prints",
+    "photo_solo",
+    "photo_selfie",
+    "photo_street",
+    "photo_trio",
+    "photo_postcard",
+    "postcard_frame",
+    "photo_peace",
+    "photo_pair_pose",
+    "photo_close_pair",
+    "polaroid_group_left",
+    "polaroid_frame_left",
+    "polaroid_group_right",
+    "polaroid_frame_right",
+    "sticker_hat",
+    "sticker_hearts",
+    "doodle_animals",
+    "sticker_emoji",
+    "sticker_stars",
+    "label_gray",
+    "label_clock_quote",
+    "newspaper_scrap",
+    "text_top_left",
+    "text_page_quote",
+    "note_yellow",
+    "tape_quote",
+    "tape_right",
+    "text_photo_quote"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "c369212f992b9fb55cb91fd03f260bde7eb78aa7e05eeeac5386e94cd7ea7cef",
+    "bindings": "5e9910728f84d761e5c4e896dc2950a4755e08853234e7fb738e4dfd128cf9b9",
+    "input": "df13077a74e710452459127adde8f9e16c3871ef6dcc73ee839428963217a4ef",
+    "catalog": "d9fef82d8f3363604c5b53a0eb0120832f02cc17c62e72aab88aea9d1736803e",
+    "photo_windows": "2eb306412bc2c79e54b6b82ba47aa59baacb8f2e244ff8b8add73d6fa61bb6ca"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\reveal\\index.json",
+    "sha256": "2053a3dfe77703e419c96e07e64bcf6d1e979cbd7c571b24a328f4444be55612"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\assets\\gate\\report.json",
+    "sha256": "5863c556ce2f799af2fa66247239d62fecc96e437a9451da33a5b67367fe7a59",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 19,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 3,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-010\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
