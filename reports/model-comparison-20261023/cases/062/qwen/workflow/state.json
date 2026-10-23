@@ -1,0 +1,107 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:17:44.171282+00:00",
+      "finished_at": "2026-10-23T14:18:08.985937+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:18:09.006863+00:00",
+      "finished_at": "2026-10-23T14:18:17.578831+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:18:17.583809+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:18:17.583825+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:18:17.588358+00:00",
+      "finished_at": "2026-10-23T14:18:49.996766+00:00",
+      "value": null
+    },
+    "build": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:18:50.002967+00:00",
+      "finished_at": "2026-10-23T14:20:24.207334+00:00",
+      "value": null
+    },
+    "screen": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:20:24.214466+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "screen_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T14:20:24.214483+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "register": {
+      "status": "complete",
+      "started_at": "2026-10-23T14:20:24.447303+00:00",
+      "finished_at": "2026-10-23T14:20:26.073873+00:00",
+      "value": null
+    }
+  },
+  "started_at": "2026-10-23T14:17:43.926531+00:00",
+  "identity": "95b2d003d4b77adb9cabb6b60feff3704d25719f2ce7b76aa7d1e83acfb33789",
+  "status": "finished",
+  "error": null,
+  "binding_contract": "photo-binding-v9-1",
+  "model": "qwen3.8-flash",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T14:20:26.081146+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 23059,
+    "completion_tokens": 1769,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 28120,
+  "current_step": "register",
+  "warnings": [
+    {
+      "code": "window_geometry_unresolved",
+      "stage": "photo_windows",
+      "message": "窗口绘制参数未确认，临时保留第一步水平范围与明确关联；描边和渐变不猜参数：yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况"
+    }
+  ],
+  "last_render_id": "d5eaaeb86fd55712",
+  "finished_at": "2026-10-23T14:20:26.081057+00:00"
+}
