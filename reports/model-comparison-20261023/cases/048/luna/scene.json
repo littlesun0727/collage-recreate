@@ -1,0 +1,867 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\prepared\\reference.png",
+    "sha256": "e9e2a4c32e4434248b70f05cc3aeab88ed738aea8ba3b75540c989edbd3560a6"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "paper_bg",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "浅米白色、细密颗粒纹理的纸张底面，保留全幅纸纹。",
+      "label": "浅米白色、细密颗粒纹理的纸张底面，保留全幅纸纹。",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2f3655428de11507099fe6096d10cda813abc931d30dcd36fea05072d54a1aba"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\paper_bg.png",
+        "sha256": "609f0fedaf2b0a5b9460c8694dbbe5d51f8b42db28713752874bdbfc2beb3145",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\paper_bg-background-source.png",
+          "sha256": "609f0fedaf2b0a5b9460c8694dbbe5d51f8b42db28713752874bdbfc2beb3145",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "e2fb38b99b6b495093f1c3da882e5bea734a21cfa7052a35a04f493590201e01",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\paper_bg-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\paper_bg-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "food_photo_top",
+      "kind": "photo",
+      "bbox": [
+        320,
+        224,
+        574,
+        510
+      ],
+      "description": "上方竖向餐食拼贴照片窗口，包含桌布上的披萨、炸物、纸盒餐食和饮料等俯拍餐桌内容；窗口边缘整齐，无独立描边或渐隐。",
+      "label": "上方竖向餐食拼贴照片窗口，包含桌布上的披萨、炸物、纸盒餐食和",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "food_photo_top",
+        "reason": "保留整张餐桌摄影环境；照片为独立、整齐的矩形窗口，无主体描边、窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "food_photo_top",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有披萨、炸物或饮料；选俯拍感较强的盐湖全景作近似，保留完整环境，题材明显不符。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-089-6945f6f47527\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "food_photo_middle_left",
+      "kind": "photo",
+      "bbox": [
+        213,
+        450,
+        555,
+        785
+      ],
+      "description": "中部左侧倾斜照片窗口，展示木桌上的甜点、饮品及玩偶餐盘；保留摄影环境，边缘整齐，无独立描边或渐隐。",
+      "label": "中部左侧倾斜照片窗口，展示木桌上的甜点、饮品及玩偶餐盘；保留",
+      "method": "local",
+      "rotation": -8,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "food_photo_middle_left",
+        "reason": "保留甜点、饮品及桌面等摄影环境；窗口为倾斜的独立矩形照片边界，无描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "food_photo_middle_left",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有甜点、饮品或玩偶餐盘；此图有人物近景和湖岸环境，仍与餐桌场景不符，保留完整画面。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-089-6945f6f47527\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "food_photo_middle_right",
+      "kind": "photo",
+      "bbox": [
+        539,
+        514,
+        715,
+        823
+      ],
+      "description": "中部右侧倾斜照片窗口，展示餐桌上的牛排、薯条、饮料和餐具；保留摄影环境，边缘整齐，无独立描边或渐隐。",
+      "label": "中部右侧倾斜照片窗口，展示餐桌上的牛排、薯条、饮料和餐具；保",
+      "method": "local",
+      "rotation": 8,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "food_photo_middle_right",
+        "reason": "保留牛排餐桌摄影环境；倾斜的矩形照片边界构成固定窗口，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "food_photo_middle_right",
+        "asset_id": "material_01",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有牛排、薯条或餐具；选盐湖与天空的开阔景观作近似，场景差异明显，保留全幅。"
+      },
+      "source": {
+        "id": "material_01",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-089-6945f6f47527\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+        "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\prepared\\material_01.jpg"
+      }
+    },
+    {
+      "id": "food_photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        162,
+        785,
+        364,
+        1163
+      ],
+      "description": "下方左侧倾斜照片窗口，展示韩式拌饭与煎蛋及旁边餐盘；保留摄影环境，窗口底部被下方手绘标题碗沿遮挡。",
+      "label": "下方左侧倾斜照片窗口，展示韩式拌饭与煎蛋及旁边餐盘；保留摄影",
+      "method": "local",
+      "rotation": -7,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "food_photo_bottom_left",
+        "reason": "保留拌饭与餐盘的摄影环境；照片为倾斜矩形窗口，底部由手绘碗沿遮挡而非渐隐，无描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "food_photo_bottom_left",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有韩式拌饭或餐盘；此图有人物与沙地背景，但不是餐食照片，保留全幅以免裁切人物。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-089-6945f6f47527\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "food_photo_bottom_center",
+      "kind": "photo",
+      "bbox": [
+        340,
+        776,
+        554,
+        1164
+      ],
+      "description": "下方中央照片窗口，展示烤肉、蓝莓奶油甜点及沙拉等餐食；保留摄影环境，窗口底部被下方手绘标题碗沿遮挡。",
+      "label": "下方中央照片窗口，展示烤肉、蓝莓奶油甜点及沙拉等餐食；保留摄",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "food_photo_bottom_center",
+        "reason": "保留烤肉、甜点与沙拉的摄影环境；矩形照片下部被前景手绘碗沿遮住，边缘没有渐变或描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "food_photo_bottom_center",
+        "asset_id": "material_11",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有烤肉、甜点或沙拉；选色彩丰富的盐湖景观作近似，题材不符，保留完整环境。"
+      },
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-089-6945f6f47527\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\prepared\\material_11.jpg"
+      }
+    },
+    {
+      "id": "food_photo_bottom_right",
+      "kind": "photo",
+      "bbox": [
+        539,
+        787,
+        741,
+        1159
+      ],
+      "description": "下方右侧照片窗口，展示水果与冰淇淋甜品；保留摄影环境，窗口底部被下方手绘标题碗沿遮挡。",
+      "label": "下方右侧照片窗口，展示水果与冰淇淋甜品；保留摄影环境，窗口底",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "food_photo_bottom_right",
+        "reason": "保留水果甜品及木桌等摄影环境；矩形照片底部被手绘碗沿遮挡，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "food_photo_bottom_right",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有水果或冰淇淋；此图是湖面、建筑与山景，和甜品场景差异明显，保留全幅。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-089-6945f6f47527\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "doodle_cutlery",
+      "kind": "overlay",
+      "bbox": [
+        82,
+        169,
+        259,
+        506
+      ],
+      "description": "左上方黑色手绘餐叉与勺子图案，线条作为一个完整装饰单元保留。",
+      "label": "左上方黑色手绘餐叉与勺子图案，线条作为一个完整装饰单元保留。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "98fe49b60c4ea8593fbdedc2e7670187c6b02d7572b1003475cdc5c7e4cb4a4a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_cutlery.png",
+        "sha256": "361127e9dd474f21fc7b259f351caafead4d00f99dd72a720d073ad7ab664d20",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\doodle_cutlery-restored.png",
+          "sha256": "361127e9dd474f21fc7b259f351caafead4d00f99dd72a720d073ad7ab664d20",
+          "bbox": [
+            74,
+            161,
+            267,
+            514
+          ],
+          "original_bbox": [
+            82,
+            169,
+            259,
+            506
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "8b67893aef98ff6244554f46ae21363dd424f859030d53b0ab958b0ff404f074",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e9e2a4c32e4434248b70f05cc3aeab88ed738aea8ba3b75540c989edbd3560a6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_cutlery-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_cutlery-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "doodle_loop_top",
+      "kind": "overlay",
+      "bbox": [
+        682,
+        98,
+        788,
+        156
+      ],
+      "description": "右上方小型黑色手绘弯曲线圈装饰。",
+      "label": "右上方小型黑色手绘弯曲线圈装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "065943a52e91b9316d1156a402609b6c6ff1f56a1e063baaab097c69a839ac77"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_loop_top.png",
+        "sha256": "63250d193fbb3f7fef47f6c074ca83fcac64b5a4f472d1425bd1759b8a3a253b",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\doodle_loop_top-restored.png",
+          "sha256": "63250d193fbb3f7fef47f6c074ca83fcac64b5a4f472d1425bd1759b8a3a253b",
+          "bbox": [
+            676,
+            92,
+            794,
+            162
+          ],
+          "original_bbox": [
+            682,
+            98,
+            788,
+            156
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "ae8671b6d9a58152e69cdd11d805684e5e7911c9a28e88d3629713793ae930ad",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e9e2a4c32e4434248b70f05cc3aeab88ed738aea8ba3b75540c989edbd3560a6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_loop_top-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_loop_top-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "doodle_swirl_right",
+      "kind": "overlay",
+      "bbox": [
+        737,
+        468,
+        824,
+        624
+      ],
+      "description": "右侧黑色手绘螺旋卷曲线条装饰。",
+      "label": "右侧黑色手绘螺旋卷曲线条装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "958076cc24cfbfb9c11fedbb1cb1c62f2717111d40c59aaeaa0840e047cf3003"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_swirl_right.png",
+        "sha256": "cf68cb5f9de3850e70044659ec6fe47d2dca1bd82584330aba262ab15c9b574d",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\doodle_swirl_right-restored.png",
+          "sha256": "cf68cb5f9de3850e70044659ec6fe47d2dca1bd82584330aba262ab15c9b574d",
+          "bbox": [
+            729,
+            460,
+            832,
+            632
+          ],
+          "original_bbox": [
+            737,
+            468,
+            824,
+            624
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "bb2d6e28e826ec478ca8c0981dfb656befd130d8f42af08653a004705e4f1187",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e9e2a4c32e4434248b70f05cc3aeab88ed738aea8ba3b75540c989edbd3560a6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_swirl_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_swirl_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "doodle_swirl_left",
+      "kind": "overlay",
+      "bbox": [
+        56,
+        683,
+        123,
+        866
+      ],
+      "description": "左侧黑色手绘弯曲卷线装饰。",
+      "label": "左侧黑色手绘弯曲卷线装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "19954cf13de19514062ee3c247ba161fc5d539fa12cee03cf38892456b7b14f3"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_swirl_left.png",
+        "sha256": "e92611e2bae86da8cee35172f533a2e607c17c6cb65de6610d070bfc0667e5c3",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\doodle_swirl_left-restored.png",
+          "sha256": "e92611e2bae86da8cee35172f533a2e607c17c6cb65de6610d070bfc0667e5c3",
+          "bbox": [
+            49,
+            676,
+            130,
+            873
+          ],
+          "original_bbox": [
+            56,
+            683,
+            123,
+            866
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "e92d9e87ec750128cb7b50d6276a0380c3c062a673a3a1f529cfd985bb2975de",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e9e2a4c32e4434248b70f05cc3aeab88ed738aea8ba3b75540c989edbd3560a6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_swirl_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\doodle_swirl_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bowl_title",
+      "kind": "overlay",
+      "bbox": [
+        112,
+        952,
+        798,
+        1128
+      ],
+      "description": "照片拼贴下方的大型白色碗形手绘标题底板，粗糙黑色边线围成碗形并带底部小碗脚，内部手写字样“My Daily Plog”与线条造型一体保留。",
+      "label": "照片拼贴下方的大型白色碗形手绘标题底板，粗糙黑色边线围成碗形",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e87e60e56635c49b477ca087b66b0a2f884cae423713e28ce6c34259a8c0052a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\bowl_title.png",
+        "sha256": "944b40fba54b9098819e6367e787f8041fea7d097755d3c6619b543c153a52ac",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\bowl_title-restored.png",
+          "sha256": "944b40fba54b9098819e6367e787f8041fea7d097755d3c6619b543c153a52ac",
+          "bbox": [
+            104,
+            944,
+            806,
+            1136
+          ],
+          "original_bbox": [
+            112,
+            952,
+            798,
+            1128
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "c7996d692d2f20f734b7a696720cb8a8df65d5501e6e3931278e93c7cc9d0093",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e9e2a4c32e4434248b70f05cc3aeab88ed738aea8ba3b75540c989edbd3560a6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\bowl_title-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\bowl_title-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "paper_bg",
+    "food_photo_top",
+    "food_photo_middle_left",
+    "food_photo_middle_right",
+    "food_photo_bottom_left",
+    "food_photo_bottom_center",
+    "food_photo_bottom_right",
+    "doodle_cutlery",
+    "doodle_loop_top",
+    "doodle_swirl_right",
+    "doodle_swirl_left",
+    "bowl_title"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "5a50a58b7ee24c6eb59a7e6f7f63d537bcd984e672c33f9c224fe16d9027f462",
+    "bindings": "669525a9219e380eda69e816d6c23d226179dfc69b4b18fc66f478591e16895b",
+    "input": "6b2b112ebb3660bd2839ac0d6be727c668471205d96440de5496fcd3f83a3d41",
+    "catalog": "6761b044ccbd2d0a3ff80d2a64dd38ab1814bbce53fb7ff230b98c7a981dcafb",
+    "photo_windows": "46f014e188e9c86080600ad2fc356768998773099c177d3f18640d2613be26ed"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\reveal\\index.json",
+    "sha256": "d13722bd734e57e4da95f1ea2756e05efa1d4dec761d3884d7cd15eb1f53c4ba"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-089\\assets\\gate\\report.json",
+    "sha256": "796c82ace5b845631f5ae0c7170e5e1c47def609aca7c9d458589c970c82d9d7",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 6,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
