@@ -1,0 +1,1161 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\prepared\\reference.png",
+    "sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定场景底层：金黑色反光隧道，中央纵向强光与波纹状反射，下方为暗色草地和细碎发光植被。保留原有材质与明暗，不包含人物、电视框体及屏幕内容。",
+      "label": "固定场景底层：金黑色反光隧道，中央纵向强光与波纹状反射，下方",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "87b8102f38c50cf99df6f5dcbf973cdf08bac5f34c47b9c77b8b97590ae4944c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\background.png",
+        "sha256": "b7705b35fa4b1dda941d85e860957edc3d419abbc8c1156f55f2665fb64402a8",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\background-background-source.png",
+          "sha256": "b7705b35fa4b1dda941d85e860957edc3d419abbc8c1156f55f2665fb64402a8",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+          "raw_sha256": "6ffd8dacfc4bb619ba4d02e7324ad89ae50648c55a19ff71f84aaa73920be8ae",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\background-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        231,
+        155,
+        676,
+        942
+      ],
+      "description": "中央一名白色长发、黑色面部的游戏人物，身体略朝右，穿浅蓝金边斗篷与深色下装，显示至腿脚。沿人物及衣发轮廓去除环境，保留发丝亮边、衣服纹样和周围伴随的金色小鱼组成的完整主体组合；下部被前方电视局部遮挡。",
+      "label": "中央一名白色长发、黑色面部的游戏人物，身体略朝右，穿浅蓝金边",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "main_photo",
+        "reason": "中央人物与伴随金色小鱼作为完整主体组合去背景，轮廓外透出统一场景。发丝和衣缘亮光属于原有光照，未见独立等宽描边；没有固定窗口。下肢由前方电视自然遮挡，不构成连续出框关联。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "main_photo",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.6,
+          0.5
+        ],
+        "mirror_x": true,
+        "reason": "单人侧身站立，头部、手臂与鞋靴可见，轮廓清晰，适合作为分割候选。全幅取材并偏右对齐保留身体，镜像使人物朝右；并非白发斗篷角色，也无金鱼组合。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-088-1297542c9695\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "photo_upper_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        126,
+        202,
+        361
+      ],
+      "description": "左上倾斜屏幕中的游戏画面，两名戴花饰的角色，一名披橙红斗篷背向观众，另一名穿蓝色服装。保留暖色场景与画面内装饰，全部限制在屏幕显示区域内。",
+      "label": "左上倾斜屏幕中的游戏画面，两名戴花饰的角色，一名披橙红斗篷背",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_upper_left",
+        "reason": "保留两名角色及暖色游戏环境，无主体描边。固定窗口以多边形近似透视屏幕内口及圆弧转角，倾斜包含在窗口几何中；左侧被画布截断。黑色框沿和金色反光归 frame_upper_left，不重复描边，未见透明渐变。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              0.25,
+              0.06
+            ],
+            [
+              0.87,
+              0.33
+            ],
+            [
+              0.97,
+              0.42
+            ],
+            [
+              1,
+              0.52
+            ],
+            [
+              0.98,
+              0.87
+            ],
+            [
+              0.94,
+              0.98
+            ],
+            [
+              0.86,
+              1
+            ],
+            [
+              0,
+              0.65
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_upper_left",
+        "asset_id": "material_15",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.52,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "背向观众的站姿与参考中背身人物较接近，保留全身及暖色湖岸，横向居中收裁；仅一名真人，没有双人游戏场景。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-088-1297542c9695\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\prepared\\material_15.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_left-photo_upper_left-window.png",
+        "sha256": "c88e8a806d0f99901d2e87424bb419047e86657b24e50a04945e76ca6ea3113a"
+      },
+      "reveal_frame_id": "frame_upper_left"
+    },
+    {
+      "id": "frame_upper_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        92,
+        255,
+        468
+      ],
+      "description": "左上向内倾斜的厚重黑色电视框体，保留外壳、屏幕周围框沿、金色反光、细小磨损与暗部，左侧部分超出画布。",
+      "photo_id": "photo_upper_left",
+      "label": "左上向内倾斜的厚重黑色电视框体，保留外壳、屏幕周围框沿、金色",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_upper_left contains visible pixels; inspect for old photos or intentional decoration",
+        "Foreground carrier window photo_upper_left still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8b670671795dfc1917ac14b52891c1befce5bc06686d7761b950d1c4a690bd8f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_left.png",
+        "sha256": "4162efecebbb031ead2073bf4084d7df000ca2429a8acc3d7d193bac00277227",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\frame_upper_left-restored.png",
+          "sha256": "4162efecebbb031ead2073bf4084d7df000ca2429a8acc3d7d193bac00277227",
+          "bbox": [
+            0,
+            84,
+            263,
+            476
+          ],
+          "original_bbox": [
+            0,
+            92,
+            255,
+            468
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "eed3126975e08c19264bd2bec650fd876f2e9d1815bf7a1e2562ab1397e44843",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_upper_right",
+      "kind": "photo",
+      "bbox": [
+        668,
+        90,
+        900,
+        356
+      ],
+      "description": "右上倾斜屏幕中的明亮金黄色游戏场景，两名浅色头发、披浅黄与米白斗篷的角色相对站立，显示全身及周围地面；摄影环境保留，边缘由屏幕裁切。",
+      "label": "右上倾斜屏幕中的明亮金黄色游戏场景，两名浅色头发、披浅黄与米",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_upper_right",
+        "reason": "保留角色和明亮金黄色场景，无主体描边。多边形近似透视屏幕内口，右侧随画布截断；圆弧转角作分段近似。边缘金线属于 frame_upper_right，亮部不是透明渐变。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0.46
+            ],
+            [
+              0.03,
+              0.37
+            ],
+            [
+              0.12,
+              0.3
+            ],
+            [
+              0.4,
+              0.17
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0.64
+            ],
+            [
+              0.12,
+              0.96
+            ],
+            [
+              0.05,
+              1
+            ],
+            [
+              0.02,
+              0.93
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_upper_right",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.65
+        ],
+        "mirror_x": false,
+        "reason": "浅色衣服人物全身与金黄夕照环境可见，裁切偏下减少天空并保留双手和脚部；人物背身举臂，并非两人相对站立。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-088-1297542c9695\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\prepared\\material_14.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_right-photo_upper_right-window.png",
+        "sha256": "b2c8bfcb27883bc5e1fcade36c695dd000bf6637a33df4f0491e62764197c0a5"
+      },
+      "reveal_frame_id": "frame_upper_right"
+    },
+    {
+      "id": "frame_upper_right",
+      "kind": "frame",
+      "bbox": [
+        631,
+        34,
+        900,
+        479
+      ],
+      "description": "右上大型黑色电视外壳，带厚框沿、暖金反光及下方宽厚机身，顶部与右侧延伸出画布，完整保留可见结构。",
+      "photo_id": "photo_upper_right",
+      "label": "右上大型黑色电视外壳，带厚框沿、暖金反光及下方宽厚机身，顶部",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_upper_right contains visible pixels; inspect for old photos or intentional decoration",
+        "Foreground carrier window photo_upper_right still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "05f0ad2a9f4fd7cf721a18355efd93d5237718259e8eacae20cb4d80a5a69be5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_right.png",
+        "sha256": "0e1ce94fee42af04b1b1515011b25824b5531ea3dd1f0b1e3d86f7466e38fd01",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\frame_upper_right-restored.png",
+          "sha256": "0e1ce94fee42af04b1b1515011b25824b5531ea3dd1f0b1e3d86f7466e38fd01",
+          "bbox": [
+            623,
+            26,
+            900,
+            487
+          ],
+          "original_bbox": [
+            631,
+            34,
+            900,
+            479
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "a83e6ecb2baf91979a91b399a053ea58757a78425ff7a003f424cf4948e2d0b8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_upper_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_middle_right",
+      "kind": "photo",
+      "bbox": [
+        727,
+        474,
+        900,
+        665
+      ],
+      "description": "右侧中部屏幕内两名并肩靠近的白发游戏人物，均戴橙白花饰、穿蓝绿色服装，面向观众；保留绿色户外环境和下方花朵，人物及背景均在屏幕内裁切。",
+      "label": "右侧中部屏幕内两名并肩靠近的白发游戏人物，均戴橙白花饰、穿蓝",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_middle_right",
+        "reason": "两名人物、绿色户外环境和花朵均保留，没有独立主体描边。透视屏幕形成固定几何裁切，多边形近似内口弧角；右侧出画。外部厚框及反光归 frame_middle_right，无需窗口描边或渐变。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.02,
+              0.32
+            ],
+            [
+              0.06,
+              0.23
+            ],
+            [
+              0.17,
+              0.18
+            ],
+            [
+              0.9,
+              0.01
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0.73
+            ],
+            [
+              0.1,
+              0.98
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_middle_right",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.8
+        ],
+        "mirror_x": false,
+        "reason": "正面近景人物与蓝色帽子、浅色外套可近似参考的正面人物构图，偏下裁去部分天空，保留脸和抬手；只有一人，无花饰与花丛。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-088-1297542c9695\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\prepared\\material_00.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_middle_right-photo_middle_right-window.png",
+        "sha256": "fbb66e19afc307b2ddbbd8e4569ed24e785d9f83b1fc792602fe1c1c65a0edc3"
+      },
+      "reveal_frame_id": "frame_middle_right"
+    },
+    {
+      "id": "frame_middle_right",
+      "kind": "frame",
+      "bbox": [
+        699,
+        443,
+        900,
+        730
+      ],
+      "description": "右侧中部独立黑色电视框体，保留圆弧内角、厚重底沿、侧面结构及金色边缘反光，右侧超出画布。",
+      "photo_id": "photo_middle_right",
+      "label": "右侧中部独立黑色电视框体，保留圆弧内角、厚重底沿、侧面结构及",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_middle_right contains visible pixels; inspect for old photos or intentional decoration",
+        "Foreground carrier window photo_middle_right still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2b335048f0fda68a736a0e0542bf8654d909b9cb95a507a196e76374089680c0"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_middle_right.png",
+        "sha256": "286c5b4f11b08ca17d4c5ae04f8dd9d622467afcaa253e9f8e2c256233cb7398",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\frame_middle_right-restored.png",
+          "sha256": "286c5b4f11b08ca17d4c5ae04f8dd9d622467afcaa253e9f8e2c256233cb7398",
+          "bbox": [
+            691,
+            435,
+            900,
+            738
+          ],
+          "original_bbox": [
+            699,
+            443,
+            900,
+            730
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "379c744215d5666878dbdea8a77d311b4516542903c688515a3d34dff651351a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_middle_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_middle_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_lower_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        686,
+        153,
+        904
+      ],
+      "description": "左下屏幕中的两名浅色头发游戏角色，坐在紫粉色花丛之间，背景为暖橙色天空与绿色草地。保留完整游戏环境，左侧内容随屏幕延伸出画布。",
+      "label": "左下屏幕中的两名浅色头发游戏角色，坐在紫粉色花丛之间，背景为",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_lower_left",
+        "reason": "保留两名角色、天空、草地与紫粉花丛，无主体描边。固定窗口按屏幕内口裁切，多边形近似轻微透视和圆角，左侧由画布截断。右侧宽大黑色区域属于 frame_lower_left，不纳入照片；底部暗色不是透明渐变。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0.01
+            ],
+            [
+              0.79,
+              0
+            ],
+            [
+              0.94,
+              0.02
+            ],
+            [
+              1,
+              0.05
+            ],
+            [
+              0.97,
+              0.8
+            ],
+            [
+              0.94,
+              0.92
+            ],
+            [
+              0.86,
+              0.97
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_lower_left",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "人物前倾屈膝，较直立姿态更接近低位人物构图，居中轻裁两侧，保留帽顶、手势与双靴；并非双人坐姿，也没有紫粉花丛及暖橙天空。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-088-1297542c9695\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\prepared\\material_09.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_lower_left-photo_lower_left-window.png",
+        "sha256": "8295f5954f7935a4e36f479d1c28b992759deab9fe5c746d3e27018001625149"
+      },
+      "reveal_frame_id": "frame_lower_left"
+    },
+    {
+      "id": "frame_lower_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        637,
+        296,
+        1064
+      ],
+      "description": "左下大型黑色电视外壳，屏幕位于机身左部，右侧为宽厚暗色侧面，带金色边缘和表面反光；保留完整可见机身，左侧出画。",
+      "photo_id": "photo_lower_left",
+      "label": "左下大型黑色电视外壳，屏幕位于机身左部，右侧为宽厚暗色侧面，",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ac115c589d21fd300ac0e2bcf8a030497cf62a886ecacc34a9302f4946d36d5c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_lower_left.png",
+        "sha256": "94fc2f2bf0df2dbdb7ae2076c325b911e7484d1e6550b5038ff856a7a2a86e9d",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\frame_lower_left-restored.png",
+          "sha256": "94fc2f2bf0df2dbdb7ae2076c325b911e7484d1e6550b5038ff856a7a2a86e9d",
+          "bbox": [
+            0,
+            629,
+            304,
+            1072
+          ],
+          "original_bbox": [
+            0,
+            637,
+            296,
+            1064
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "51a92482f324a906dac2d28d1cfb691d8e42cd1f045c77be232ded14da7b58e1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_lower_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_lower_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        486,
+        865,
+        670,
+        1088
+      ],
+      "description": "底部屏幕内两名游戏角色面对面坐在草地上，左侧穿橙红衣服，右侧为白发浅色斗篷人物，四周有蓝白色发光花朵。保留场景背景，人物不越出显示区域。",
+      "label": "底部屏幕内两名游戏角色面对面坐在草地上，左侧穿橙红衣服，右侧",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom",
+        "reason": "保留相对而坐的角色、草地及蓝白花朵，无主体描边或连续出框。多边形近似透视屏幕内口与弧角，不扩展到右侧机身。框沿和阴影归 frame_bottom；底部草木遮挡与暗部不足以证明窗口渐变，故关闭。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.02,
+              0.3
+            ],
+            [
+              0.05,
+              0.2
+            ],
+            [
+              0.12,
+              0.15
+            ],
+            [
+              0.45,
+              0.06
+            ],
+            [
+              0.93,
+              0
+            ],
+            [
+              0.95,
+              0.36
+            ],
+            [
+              1,
+              0.94
+            ],
+            [
+              0.96,
+              0.99
+            ],
+            [
+              0.86,
+              1
+            ],
+            [
+              0.09,
+              0.83
+            ],
+            [
+              0,
+              0.77
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.8
+        ],
+        "mirror_x": false,
+        "reason": "正面人物带有横向手势互动感，保留湖岸背景，偏下裁减天空且不镜像帽中文字；实际为单人站立近景，不具备双人对坐和发光花朵。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-088-1297542c9695\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\prepared\\material_13.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_bottom-photo_bottom-window.png",
+        "sha256": "a00e3d4efac4045189b4a30767d7a331fd49d75b686d60c69f2e177937eddbdf"
+      },
+      "reveal_frame_id": "frame_bottom"
+    },
+    {
+      "id": "frame_bottom",
+      "kind": "frame",
+      "bbox": [
+        447,
+        806,
+        900,
+        1200
+      ],
+      "description": "前景底部的大型黑色电视框体，左部为弧角屏幕，右侧是向画布右下方延伸的宽大暗色机身，保留金色反光边、材质与阴影；框体遮住中央人物的部分下肢。",
+      "photo_id": "photo_bottom",
+      "label": "前景底部的大型黑色电视框体，左部为弧角屏幕，右侧是向画布右下",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "91205cf9e19f0a9a310da7578fcdc1c54e0e3a204f81431ee9734a401c88d3e5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_bottom.png",
+        "sha256": "461aa154cfbfcbff8d954879973790187ea368462e5308c1af2602f7dca9b51b",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\frame_bottom-restored.png",
+          "sha256": "461aa154cfbfcbff8d954879973790187ea368462e5308c1af2602f7dca9b51b",
+          "bbox": [
+            439,
+            798,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            447,
+            806,
+            900,
+            1200
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "f571756e4f99f616c12d820bd592691ec3c393c2a4b87e549cb2f5c44fd363ff",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_bottom-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\frame_bottom-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "light_overlay",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        53,
+        900,
+        1181
+      ],
+      "description": "覆盖场景的透明光学装饰：上方及左侧大小不一的金黄、橙色圆形光斑，以及左下电视前方的蓝白椭圆耀斑、斜向彩虹光带和下部弧形晕光。保留透光叠加效果，不包含下层场景内容。",
+      "label": "覆盖场景的透明光学装饰：上方及左侧大小不一的金黄、橙色圆形光",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "dc08cf370ba752f6a2d0704089e06c76e341f9e3c70366b569abde47653d05a7"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\light_overlay.png",
+        "sha256": "ae6593ff968a5ff9c2b4c89113034a7d57414ce06d12410bbb494234f7df93ab",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\light_overlay-restored.png",
+          "sha256": "ae6593ff968a5ff9c2b4c89113034a7d57414ce06d12410bbb494234f7df93ab",
+          "bbox": [
+            0,
+            45,
+            900,
+            1189
+          ],
+          "original_bbox": [
+            0,
+            53,
+            900,
+            1181
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "aeaa5bff32b6a2ad888e2d337b84e6c58a83ecdf2b08cc8268ccb1d547978305",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\light_overlay-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\light_overlay-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background",
+    "main_photo",
+    "photo_upper_left",
+    "frame_upper_left",
+    "photo_upper_right",
+    "frame_upper_right",
+    "photo_middle_right",
+    "frame_middle_right",
+    "photo_lower_left",
+    "frame_lower_left",
+    "photo_bottom",
+    "frame_bottom",
+    "light_overlay"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "ccfbc98d5b73f1f68f130dc5147121cdae8b449599555fa03fa186bb16e07e69",
+    "bindings": "8a44b7820672d9ca73b66bd7138be6252899756944d43f614a34a80c1929d5b9",
+    "input": "99f7c64a0465240c83ddda56505f651ce23f3af6dcac123461c3fb141d466825",
+    "catalog": "963f21e54f55346b6a8614c75b65d624816f957aa451e844a57d615df3a8b0bf",
+    "photo_windows": "bad3a52e057a43e4f3dfcf9da1e4b05872b40e2e56d6fbc3f423f292d6317b5b"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\reveal\\index.json",
+    "sha256": "4c0eef7615ce5e8c843c3d5b68173452d07906962a92cc072768cbb6b75f31bf"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\assets\\gate\\report.json",
+    "sha256": "26f6c813c9bf347790401cc1843e9e258a8d214d1c43310b52153e02d5694434",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 7,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 3,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-088\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定场景底层：金黑色反光隧道，中央纵向强光与波纹状反射，下方为暗色草地和细碎发光植被。保留原有材质与明暗，不包含人物、电视框体及屏幕内容。",
+      "label": "固定场景底层：金黑色反光隧道，中央纵向强光与波纹状反射，下方",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        231,
+        155,
+        676,
+        942
+      ],
+      "description": "中央一名白色长发、黑色面部的游戏人物，身体略朝右，穿浅蓝金边斗篷与深色下装，显示至腿脚。沿人物及衣发轮廓去除环境，保留发丝亮边、衣服纹样和周围伴随的金色小鱼组成的完整主体组合；下部被前方电视局部遮挡。",
+      "label": "中央一名白色长发、黑色面部的游戏人物，身体略朝右，穿浅蓝金边",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_upper_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        126,
+        202,
+        361
+      ],
+      "description": "左上倾斜屏幕中的游戏画面，两名戴花饰的角色，一名披橙红斗篷背向观众，另一名穿蓝色服装。保留暖色场景与画面内装饰，全部限制在屏幕显示区域内。",
+      "label": "左上倾斜屏幕中的游戏画面，两名戴花饰的角色，一名披橙红斗篷背",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_upper_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        92,
+        255,
+        468
+      ],
+      "description": "左上向内倾斜的厚重黑色电视框体，保留外壳、屏幕周围框沿、金色反光、细小磨损与暗部，左侧部分超出画布。",
+      "photo_id": "photo_upper_left",
+      "label": "左上向内倾斜的厚重黑色电视框体，保留外壳、屏幕周围框沿、金色",
+      "method": "extract"
+    },
+    {
+      "id": "photo_upper_right",
+      "kind": "photo",
+      "bbox": [
+        668,
+        90,
+        900,
+        356
+      ],
+      "description": "右上倾斜屏幕中的明亮金黄色游戏场景，两名浅色头发、披浅黄与米白斗篷的角色相对站立，显示全身及周围地面；摄影环境保留，边缘由屏幕裁切。",
+      "label": "右上倾斜屏幕中的明亮金黄色游戏场景，两名浅色头发、披浅黄与米",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_upper_right",
+      "kind": "frame",
+      "bbox": [
+        631,
+        34,
+        900,
+        479
+      ],
+      "description": "右上大型黑色电视外壳，带厚框沿、暖金反光及下方宽厚机身，顶部与右侧延伸出画布，完整保留可见结构。",
+      "photo_id": "photo_upper_right",
+      "label": "右上大型黑色电视外壳，带厚框沿、暖金反光及下方宽厚机身，顶部",
+      "method": "extract"
+    },
+    {
+      "id": "photo_middle_right",
+      "kind": "photo",
+      "bbox": [
+        727,
+        474,
+        900,
+        665
+      ],
+      "description": "右侧中部屏幕内两名并肩靠近的白发游戏人物，均戴橙白花饰、穿蓝绿色服装，面向观众；保留绿色户外环境和下方花朵，人物及背景均在屏幕内裁切。",
+      "label": "右侧中部屏幕内两名并肩靠近的白发游戏人物，均戴橙白花饰、穿蓝",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_middle_right",
+      "kind": "frame",
+      "bbox": [
+        699,
+        443,
+        900,
+        730
+      ],
+      "description": "右侧中部独立黑色电视框体，保留圆弧内角、厚重底沿、侧面结构及金色边缘反光，右侧超出画布。",
+      "photo_id": "photo_middle_right",
+      "label": "右侧中部独立黑色电视框体，保留圆弧内角、厚重底沿、侧面结构及",
+      "method": "extract"
+    },
+    {
+      "id": "photo_lower_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        686,
+        153,
+        904
+      ],
+      "description": "左下屏幕中的两名浅色头发游戏角色，坐在紫粉色花丛之间，背景为暖橙色天空与绿色草地。保留完整游戏环境，左侧内容随屏幕延伸出画布。",
+      "label": "左下屏幕中的两名浅色头发游戏角色，坐在紫粉色花丛之间，背景为",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_lower_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        637,
+        296,
+        1064
+      ],
+      "description": "左下大型黑色电视外壳，屏幕位于机身左部，右侧为宽厚暗色侧面，带金色边缘和表面反光；保留完整可见机身，左侧出画。",
+      "photo_id": "photo_lower_left",
+      "label": "左下大型黑色电视外壳，屏幕位于机身左部，右侧为宽厚暗色侧面，",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        486,
+        865,
+        670,
+        1088
+      ],
+      "description": "底部屏幕内两名游戏角色面对面坐在草地上，左侧穿橙红衣服，右侧为白发浅色斗篷人物，四周有蓝白色发光花朵。保留场景背景，人物不越出显示区域。",
+      "label": "底部屏幕内两名游戏角色面对面坐在草地上，左侧穿橙红衣服，右侧",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_bottom",
+      "kind": "frame",
+      "bbox": [
+        447,
+        806,
+        900,
+        1200
+      ],
+      "description": "前景底部的大型黑色电视框体，左部为弧角屏幕，右侧是向画布右下方延伸的宽大暗色机身，保留金色反光边、材质与阴影；框体遮住中央人物的部分下肢。",
+      "photo_id": "photo_bottom",
+      "label": "前景底部的大型黑色电视框体，左部为弧角屏幕，右侧是向画布右下",
+      "method": "extract"
+    },
+    {
+      "id": "light_overlay",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        53,
+        900,
+        1181
+      ],
+      "description": "覆盖场景的透明光学装饰：上方及左侧大小不一的金黄、橙色圆形光斑，以及左下电视前方的蓝白椭圆耀斑、斜向彩虹光带和下部弧形晕光。保留透光叠加效果，不包含下层场景内容。",
+      "label": "覆盖场景的透明光学装饰：上方及左侧大小不一的金黄、橙色圆形光",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "main_photo",
+    "photo_upper_left",
+    "frame_upper_left",
+    "photo_upper_right",
+    "frame_upper_right",
+    "photo_middle_right",
+    "frame_middle_right",
+    "photo_lower_left",
+    "frame_lower_left",
+    "photo_bottom",
+    "frame_bottom",
+    "light_overlay"
+  ]
+}
