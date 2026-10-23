@@ -1,0 +1,247 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    900
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        900
+      ],
+      "description": "固定背景：上半部为鲜亮蓝色天空，下半部为深绿色草地，交界为水平线。",
+      "label": "固定背景：上半部为鲜亮蓝色天空，下半部为深绿色草地，交界为水",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        133,
+        279,
+        472,
+        669
+      ],
+      "description": "左侧矩形照片，俯拍厨房工作台，画面中有多只锅具、碗和密集摆放的厨具，周围可见浅色方格地砖；保留完整摄影环境，边缘为直角裁切。",
+      "label": "左侧矩形照片，俯拍厨房工作台，画面中有多只锅具、碗和密集摆放",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        472,
+        279,
+        754,
+        669
+      ],
+      "description": "右侧矩形照片，一人手持浅色圆碗，碗内有黄色反向的“START”字样，人物身体及衣物在下方和右侧可见，背景为杂乱室内环境；保留摄影环境，边缘为直角裁切。",
+      "label": "右侧矩形照片，一人手持浅色圆碗，碗内有黄色反向的“START",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "computer_window",
+      "kind": "overlay",
+      "bbox": [
+        119,
+        166,
+        802,
+        730
+      ],
+      "description": "复古电脑窗口界面装饰：灰色外框与阴影、蓝色标题栏及“My Computer”标题、窗口控制按钮、File/Edit/View/Help菜单栏、底部状态栏和三颗心形图标；照片区域独立替换。",
+      "label": "复古电脑窗口界面装饰：灰色外框与阴影、蓝色标题栏及“My C",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_left",
+      "kind": "overlay",
+      "bbox": [
+        31,
+        16,
+        125,
+        94
+      ],
+      "description": "左上方一朵蓬松的白色云状心形装饰。",
+      "label": "左上方一朵蓬松的白色云状心形装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "cloud_small",
+      "kind": "overlay",
+      "bbox": [
+        144,
+        83,
+        208,
+        138
+      ],
+      "description": "上方偏左的小型白色蓬松心形装饰。",
+      "label": "上方偏左的小型白色蓬松心形装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "tiny_cat",
+      "kind": "overlay",
+      "bbox": [
+        488,
+        233,
+        547,
+        273
+      ],
+      "description": "电脑菜单栏附近的白色蓝紫描边像素猫头装饰。",
+      "label": "电脑菜单栏附近的白色蓝紫描边像素猫头装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "speech_bubble",
+      "kind": "overlay",
+      "bbox": [
+        446,
+        297,
+        545,
+        369
+      ],
+      "description": "覆盖右侧照片上方的白色像素对话气泡，蓝紫色像素描边，内部有粉色心形。",
+      "label": "覆盖右侧照片上方的白色像素对话气泡，蓝紫色像素描边，内部有粉",
+      "method": "extract"
+    },
+    {
+      "id": "chat_dialog",
+      "kind": "overlay",
+      "bbox": [
+        657,
+        239,
+        867,
+        323
+      ],
+      "description": "右上方复古系统对话框，蓝色标题栏写有“hey girl”，浅色内容区写有“he will not call”，下方有三个按钮，鼠标手形光标覆盖最右按钮。",
+      "label": "右上方复古系统对话框，蓝色标题栏写有“hey girl”，浅",
+      "method": "extract"
+    },
+    {
+      "id": "cursor_hand",
+      "kind": "overlay",
+      "bbox": [
+        802,
+        303,
+        860,
+        362
+      ],
+      "description": "指向右上对话框按钮的黑白像素手形鼠标光标。",
+      "label": "指向右上对话框按钮的黑白像素手形鼠标光标。",
+      "method": "extract"
+    },
+    {
+      "id": "star_upper",
+      "kind": "overlay",
+      "bbox": [
+        830,
+        492,
+        882,
+        544
+      ],
+      "description": "草地右侧的蓝色五角星装饰。",
+      "label": "草地右侧的蓝色五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "error_dialog",
+      "kind": "overlay",
+      "bbox": [
+        48,
+        643,
+        221,
+        780
+      ],
+      "description": "左下方复古系统错误对话框，标题为“Error”，正文为“ALONE”，包含关闭按钮和“OK”按钮，整体灰白像素边框与阴影保留。",
+      "label": "左下方复古系统错误对话框，标题为“Error”，正文为“AL",
+      "method": "extract"
+    },
+    {
+      "id": "pixel_cat",
+      "kind": "overlay",
+      "bbox": [
+        663,
+        595,
+        883,
+        766
+      ],
+      "description": "右下方大型白色像素猫，黑色像素轮廓，尾巴高举，整只猫作为独立装饰保留。",
+      "label": "右下方大型白色像素猫，黑色像素轮廓，尾巴高举，整只猫作为独立",
+      "method": "extract"
+    },
+    {
+      "id": "star_lower",
+      "kind": "overlay",
+      "bbox": [
+        234,
+        786,
+        301,
+        855
+      ],
+      "description": "左下草地上的蓝色五角星装饰。",
+      "label": "左下草地上的蓝色五角星装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "sparkle",
+      "kind": "overlay",
+      "bbox": [
+        606,
+        758,
+        669,
+        824
+      ],
+      "description": "草地中下部的黄色与白色像素闪光星形，带蓝紫色描边。",
+      "label": "草地中下部的黄色与白色像素闪光星形，带蓝紫色描边。",
+      "method": "extract"
+    },
+    {
+      "id": "timestamp",
+      "kind": "text",
+      "bbox": [
+        10,
+        851,
+        151,
+        892
+      ],
+      "description": "PM 10:25\nAUGUST. 07 1990",
+      "label": "PM 10:25\nAUGUST. 07 1990",
+      "method": "local",
+      "text": "PM 10:25\nAUGUST. 07 1990",
+      "text_status": "known",
+      "style": {
+        "fill": "#3974FF",
+        "font": "mono",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "computer_window",
+    "photo_left",
+    "photo_right",
+    "cloud_left",
+    "cloud_small",
+    "tiny_cat",
+    "speech_bubble",
+    "chat_dialog",
+    "cursor_hand",
+    "star_upper",
+    "error_dialog",
+    "pixel_cat",
+    "star_lower",
+    "sparkle",
+    "timestamp"
+  ]
+}
