@@ -1,0 +1,1130 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\reference.png",
+    "sha256": "6a43d6f2f75edb169d22608685005ebe6a663f8ed05958a3e8881016d9d5b13a"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整张画布的固定纯白底色。",
+      "label": "整张画布的固定纯白底色。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#FFFFFF"
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "film_top",
+      "kind": "frame",
+      "bbox": [
+        249,
+        121,
+        900,
+        419
+      ],
+      "description": "顶部横向连续胶片框，包含三个照片窗口、上下两排白色齿孔、灰黑色手绘边缘与分隔条，右侧延伸至画布外，左端被胶卷罐遮挡。整体保留粗糙蜡笔质感，三个内口的照片分别替换。",
+      "photo_id": "photo_top_left",
+      "label": "顶部横向连续胶片框，包含三个照片窗口、上下两排白色齿孔、灰黑",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection",
+        "Window photo_top_left contains visible pixels; inspect for old photos or intentional decoration",
+        "Foreground carrier window photo_top_left still contains visible pixels; inspect for occlusion or intentional decoration before clearing"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "53a613022c85167cefbcd5863f9328b19469d105d66ea1a52ad617733a3cf733"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_top.png",
+        "sha256": "319d24fa4e97dd7884b72bcbf76b1ef954e519d09ca31d5cc47a11fee7c98068",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\film_top-restored.png",
+          "sha256": "319d24fa4e97dd7884b72bcbf76b1ef954e519d09ca31d5cc47a11fee7c98068",
+          "bbox": [
+            241,
+            113,
+            900,
+            427
+          ],
+          "original_bbox": [
+            249,
+            121,
+            900,
+            419
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "424dc45e6b48d026f66c33fcc4f5d64cb7dd8ba2639359bb97046d32d5fd83a1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6a43d6f2f75edb169d22608685005ebe6a663f8ed05958a3e8881016d9d5b13a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_top-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_top-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        266,
+        174,
+        439,
+        373
+      ],
+      "description": "户外旅行照片，女子位于画面下方，侧身坐在石栏边，远处可见钟楼、建筑与蓝天。保留完整摄影环境，照片边缘由胶片框遮挡，无主体出框。",
+      "label": "户外旅行照片，女子位于画面下方，侧身坐在石栏边，远处可见钟楼",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_left",
+        "reason": "保留女子、石栏与钟楼街景，主体无描边或连续出框。矩形窗口对齐顶部胶片左侧内口，粗糙灰边属于固定框体，不重复描边；未见透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_left",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          1
+        ],
+        "mirror_x": false,
+        "reason": "侧身女子与远山构成户外旅行近似；靠下裁切保留帽顶和可见手部。人物为站姿，无石栏、钟楼。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_06.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_top-photo_top_left-window.png",
+        "sha256": "e62c273f278ca4f542201b17d25798994b287e17b23084c4bee6b401c20ed86f"
+      },
+      "reveal_frame_id": "film_top"
+    },
+    {
+      "id": "photo_top_center",
+      "kind": "photo",
+      "bbox": [
+        453,
+        173,
+        692,
+        374
+      ],
+      "description": "室内全身旅行照，一名长发女子站在中央偏右，侧身抬手，身后为大型喷泉与华丽建筑，脚下为黑白地面。保留室内环境，四周由胶片窗口裁切。",
+      "label": "室内全身旅行照，一名长发女子站在中央偏右，侧身抬手，身后为大",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_center",
+        "reason": "女子与喷泉、室内建筑及地面整体保留，无主体轮廓线。照片限于顶部中央矩形内口，边缘由胶片框遮挡，无独立窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_center",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.55
+        ],
+        "mirror_x": false,
+        "reason": "中央女子全身抬臂，裁去部分天空与近处水面，保留双手和靴子；实际为背向镜头的户外夕照，无室内喷泉。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        710,
+        172,
+        900,
+        373
+      ],
+      "description": "一名女子站在红色电话亭门口，人物位于右侧，背景包含石质建筑与黑色栏杆。保留电话亭和摄影环境，右侧画面被画布截断，无主体出框。",
+      "label": "一名女子站在红色电话亭门口，人物位于右侧，背景包含石质建筑与",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_right",
+        "reason": "保留女子、电话亭及建筑环境，无抠图或主体描边。固定矩形窗口受顶部胶片框遮挡，右侧在画布边缘截断，不作淡出；无额外窗口线条。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_right",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.9
+        ],
+        "mirror_x": false,
+        "reason": "女子位于右侧且抬手，靠下裁切保留帽子、脸和手指；为湖边近景，无电话亭及石质建筑，不镜像帽上文字。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "film_canister",
+      "kind": "overlay",
+      "bbox": [
+        31,
+        66,
+        270,
+        448
+      ],
+      "description": "覆盖顶部胶片左端的手绘胶卷罐装饰，包含灰黑色罐盖和外轮廓、蓝黄标签、白色大型E100字样，以及Kodak、EKTACHROME、Color Reversal Film、Professional和STAR等印字；全部笔触、磨损与字形整体保留。",
+      "label": "覆盖顶部胶片左端的手绘胶卷罐装饰，包含灰黑色罐盖和外轮廓、蓝",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5b76324e31b13814a9d00d52cf4a11141f6863234c6aac3c9f440960a14b8f88"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_canister.png",
+        "sha256": "390a82dbcf98fc728c81feff8d058103cb73f73b537dcb97d296a565fc4cee02",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\film_canister-restored.png",
+          "sha256": "390a82dbcf98fc728c81feff8d058103cb73f73b537dcb97d296a565fc4cee02",
+          "bbox": [
+            23,
+            58,
+            278,
+            456
+          ],
+          "original_bbox": [
+            31,
+            66,
+            270,
+            448
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "133ccf4a70d9fc8ca1b9067182da0a3253f5dd7e3713688722bc1722b0fa55f7",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6a43d6f2f75edb169d22608685005ebe6a663f8ed05958a3e8881016d9d5b13a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_canister-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_canister-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "film_middle",
+      "kind": "frame",
+      "bbox": [
+        26,
+        490,
+        900,
+        775
+      ],
+      "description": "中间横贯画布的连续四窗口胶片框，灰黑色手绘框沿、竖向分隔条和上下两排白色齿孔构成完整载体，右端被画布截断。四张内口照片独立替换。",
+      "photo_id": "photo_middle_left",
+      "label": "中间横贯画布的连续四窗口胶片框，灰黑色手绘框沿、竖向分隔条和",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "cb93348aafb5b8f0cdc66bec182eed726e0fe58d9d622db55cc4626748ffc3e1"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_middle.png",
+        "sha256": "60af47bb0bebec3aa37911b7b241d349beb02c12f026f3e612f3269851a8abfe",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\film_middle-restored.png",
+          "sha256": "60af47bb0bebec3aa37911b7b241d349beb02c12f026f3e612f3269851a8abfe",
+          "bbox": [
+            18,
+            482,
+            900,
+            783
+          ],
+          "original_bbox": [
+            26,
+            490,
+            900,
+            775
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "9164ee31cd53a56940b348ba982cdd34ec72502c6c071c1010985665af8e6de6",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6a43d6f2f75edb169d22608685005ebe6a663f8ed05958a3e8881016d9d5b13a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_middle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_middle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_middle_left",
+      "kind": "photo",
+      "bbox": [
+        39,
+        538,
+        273,
+        734
+      ],
+      "description": "户外全身照，一名穿黑白服装的女子站在前景黑色路桩旁，身后为拱形玻璃顶建筑、车辆及铺石道路。保留完整环境，四周受胶片窗口裁切。",
+      "label": "户外全身照，一名穿黑白服装的女子站在前景黑色路桩旁，身后为拱",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_middle_left",
+        "reason": "保留女子、路桩、车辆与玻璃顶建筑，人物没有出框或描边。照片对齐中部左侧矩形内口，灰色边沿属于胶片框，不重复绘制，也无边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_middle_left",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.8
+        ],
+        "mirror_x": false,
+        "reason": "以户外人物和岸边地面近似旅行全身照，靠下取景保留帽顶、手势和双靴；人物俯身，无路桩和玻璃顶建筑。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_09.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_middle-photo_middle_left-window.png",
+        "sha256": "0a655f467729962ced63e46546b1f0f1f7f30992eb15105e382577599ff99780"
+      },
+      "reveal_frame_id": "film_middle"
+    },
+    {
+      "id": "photo_middle_center",
+      "kind": "photo",
+      "bbox": [
+        290,
+        538,
+        526,
+        734
+      ],
+      "description": "商店内部全身照，一名长发女子背向镜头站在中央，面向摆满商品的柜台和货架。保留店铺陈列、地面及室内背景，无去背景或出框。",
+      "label": "商店内部全身照，一名长发女子背向镜头站在中央，面向摆满商品的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_middle_center",
+        "reason": "女子与商店货架、柜台及地面整体保留，无主体描边。矩形照片窗口与胶片内口一致，固定框体遮住边缘，无额外线条或透明混合。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_middle_center",
+        "asset_id": "material_15",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "背向镜头的女子全身位于中央，与原槽人物朝向相近；居中略裁两侧，保留头脚，实际为湖岸而非商店。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_15.jpg"
+      }
+    },
+    {
+      "id": "photo_middle_food",
+      "kind": "photo",
+      "bbox": [
+        541,
+        538,
+        777,
+        734
+      ],
+      "description": "食物近景，一只手托住圆形碗装黄色甜品，顶部有黄色果肉与绿色叶片，后方为绿色墙面及局部红色牌框。手、甜品和摄影背景一起替换，边缘由胶片窗口裁切。",
+      "label": "食物近景，一只手托住圆形碗装黄色甜品，顶部有黄色果肉与绿色叶",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_middle_food",
+        "reason": "手、甜品碗、果肉及叶片连同绿色摄影背景整体保留，不沿食物轮廓描边。固定矩形内口由胶片框围合，没有独立窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_middle_food",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.35,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有甜品或托碗照片，仅以左下圆形水池作形态近似；裁切略靠左保留水池，不能对应手、果肉与绿叶。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "photo_middle_right",
+      "kind": "photo",
+      "bbox": [
+        791,
+        538,
+        900,
+        734
+      ],
+      "description": "户外旅行照片，女子背向镜头坐在下方石栏上，远处可见埃菲尔铁塔造型建筑与蓝天。摄影环境保留，右侧随画布截断，无主体出框。",
+      "label": "户外旅行照片，女子背向镜头坐在下方石栏上，远处可见埃菲尔铁塔",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_middle_right",
+        "reason": "保留坐姿女子、石栏、铁塔及天空，主体不出框且无描边。使用中部最右矩形内口，右侧由画布截断；胶片灰边不重复描画，四边均无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_middle_right",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.65,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "侧背向女子与蓝天适合作户外人物近似；横向对齐偏右保留帽子、身体、手袋和靴子，实际为站在海边，无铁塔与石栏。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "film_bottom",
+      "kind": "frame",
+      "bbox": [
+        26,
+        833,
+        869,
+        1118
+      ],
+      "description": "底部连续胶片载体，左侧形成两个照片窗口，保留上下齿孔、竖向分隔条及灰黑色蜡笔纹理；右端连接大片弯曲卷起的灰色片尾，下沿向左弯收。片尾部分被前景女子遮挡，整体作为同一框体保留。",
+      "photo_id": "photo_bottom_left",
+      "label": "底部连续胶片载体，左侧形成两个照片窗口，保留上下齿孔、竖向分",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b020d3d5dc917e4c08567a57b0cc4ab468a69a80edb6146948a15b92ac2d53d5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_bottom.png",
+        "sha256": "44565d90ff9d80122ab9d62a9ec689e851aae286603c4a73c6902c5ae8f1811a",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\film_bottom-restored.png",
+          "sha256": "44565d90ff9d80122ab9d62a9ec689e851aae286603c4a73c6902c5ae8f1811a",
+          "bbox": [
+            18,
+            825,
+            877,
+            1126
+          ],
+          "original_bbox": [
+            26,
+            833,
+            869,
+            1118
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "c523771ae9c0a9abf2fd0e93509b14c31922707331514af05afd574ed0e57523",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6a43d6f2f75edb169d22608685005ebe6a663f8ed05958a3e8881016d9d5b13a"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_bottom-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_bottom-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        39,
+        880,
+        273,
+        1079
+      ],
+      "description": "户外全身旅行照，一名女子站在红色车辆左侧，抬起一只手臂，身后为欧式石质建筑、绿植和道路。红色车辆属于摄影内容，环境完整保留，四周由胶片窗口裁切。",
+      "label": "户外全身旅行照，一名女子站在红色车辆左侧，抬起一只手臂，身后",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_left",
+        "reason": "保留女子、红色车辆与街道建筑，车辆属于摄影内容，无主体描边。矩形窗口对齐底部左侧内口，粗糙边线由固定胶片框提供，无额外描边或淡出。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_left",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.8
+        ],
+        "mirror_x": false,
+        "reason": "女子抬手摆姿可近似原槽动作；靠下裁切保留帽顶、脸与双手，呈半身景别，无红色车辆及欧式街景。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_13.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\film_bottom-photo_bottom_left-window.png",
+        "sha256": "19abb9ebd7c1972a61fa94627895efeca63cdd6d3824eb3ae5f741cb5f1ce912"
+      },
+      "reveal_frame_id": "film_bottom"
+    },
+    {
+      "id": "photo_bottom_center",
+      "kind": "photo",
+      "bbox": [
+        289,
+        880,
+        526,
+        1079
+      ],
+      "description": "一名扎红色蝴蝶结的长发女子背向镜头坐在石栏边，抬手指向左上方，远处为钟楼、欧式建筑和街景。保留摄影环境，人物与石栏均限于胶片窗口内。",
+      "label": "一名扎红色蝴蝶结的长发女子背向镜头坐在石栏边，抬手指向左上方",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_center",
+        "reason": "保留背向女子、石栏和钟楼街景，抬起的手臂仍限于窗口内，不构成连续出框。矩形裁切对齐底部中央内口，胶片框边不重复描画，未见渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_center",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.55
+        ],
+        "mirror_x": false,
+        "reason": "复用背向镜头抬臂的全身照，姿势比其他候选更接近；裁去多余天空与前景保留四肢，实际双臂上举且无蝴蝶结、石栏和钟楼。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "photo_foreground",
+      "kind": "photo",
+      "bbox": [
+        631,
+        755,
+        869,
+        1200
+      ],
+      "description": "右下方独立抠图女子，长黑发，戴浅色宽檐草帽，穿浅粉色无袖裙，一手抬至帽沿，另一手提浅蓝色手袋，身体正面略侧向镜头。沿人物、帽子、手臂及手袋组合轮廓去除摄影背景，覆盖底部胶片右侧卷曲片尾；腿部在画布底边被截断，不与胶片内照片关联。",
+      "label": "右下方独立抠图女子，长黑发，戴浅色宽檐草帽，穿浅粉色无袖裙，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_foreground",
+        "reason": "沿女子、草帽、双臂、裙装及浅蓝手袋的组合轮廓去除摄影背景，轮廓外透出白色画布与胶片卷尾；未见明确独立描边。此为不同姿态的独立前景，不关联胶片内照片，无固定几何窗口或窗口渐变，腿部由画布底边截断。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_foreground",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "正面俯身女子的帽子、手势、双腿与靴子清楚完整，轮廓适合作分割候选；全幅取材居中对齐。与内框复用以保留正面完整主体，但服装、帽型及手袋姿态不同。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-068-dec14c21befa\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\prepared\\material_09.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top_left",
+    "photo_top_center",
+    "photo_top_right",
+    "film_top",
+    "film_canister",
+    "photo_middle_left",
+    "photo_middle_center",
+    "photo_middle_food",
+    "photo_middle_right",
+    "film_middle",
+    "photo_bottom_left",
+    "photo_bottom_center",
+    "film_bottom",
+    "photo_foreground"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "deb4203ca92dd4f1dddb7d1edeca63b73467f30013dea6f2040731539dfe1d8e",
+    "bindings": "fb1a62208c579bcc7de781519aeb20151d7744c6019b661b9687c67400e1b5e9",
+    "input": "1fc7412e5f5a3b042f4fea237b4c8387e5f79d06c9bcfae12c24e738ca020a71",
+    "catalog": "d5982eb484107129fd429ff79367dcce1e1f5f1754d8154dec5c3a4621da8361",
+    "photo_windows": "42a3d12ef79475aa25a73ba000f0c0960c7991e480adb8ac45c2a06b3a2909b7"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\reveal\\index.json",
+    "sha256": "a3f483e8d5d90b28e1b92b60aa1c633ef614d71fa29130010e1cd62dbe4a648d"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\assets\\gate\\report.json",
+    "sha256": "5e3e966e1bd3747f1894517fb60cf5916e294a52763b2aa55883ca858e8b1dea",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 4,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 1,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-068\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

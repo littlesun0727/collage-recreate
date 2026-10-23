@@ -1,0 +1,238 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整张画布的固定纯白底色。",
+      "label": "整张画布的固定纯白底色。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#FFFFFF"
+      }
+    },
+    {
+      "id": "film_top",
+      "kind": "frame",
+      "bbox": [
+        249,
+        121,
+        900,
+        419
+      ],
+      "description": "顶部横向连续胶片框，包含三个照片窗口、上下两排白色齿孔、灰黑色手绘边缘与分隔条，右侧延伸至画布外，左端被胶卷罐遮挡。整体保留粗糙蜡笔质感，三个内口的照片分别替换。",
+      "photo_id": "photo_top_left",
+      "label": "顶部横向连续胶片框，包含三个照片窗口、上下两排白色齿孔、灰黑",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        266,
+        174,
+        439,
+        373
+      ],
+      "description": "户外旅行照片，女子位于画面下方，侧身坐在石栏边，远处可见钟楼、建筑与蓝天。保留完整摄影环境，照片边缘由胶片框遮挡，无主体出框。",
+      "label": "户外旅行照片，女子位于画面下方，侧身坐在石栏边，远处可见钟楼",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_top_center",
+      "kind": "photo",
+      "bbox": [
+        453,
+        173,
+        692,
+        374
+      ],
+      "description": "室内全身旅行照，一名长发女子站在中央偏右，侧身抬手，身后为大型喷泉与华丽建筑，脚下为黑白地面。保留室内环境，四周由胶片窗口裁切。",
+      "label": "室内全身旅行照，一名长发女子站在中央偏右，侧身抬手，身后为大",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        710,
+        172,
+        900,
+        373
+      ],
+      "description": "一名女子站在红色电话亭门口，人物位于右侧，背景包含石质建筑与黑色栏杆。保留电话亭和摄影环境，右侧画面被画布截断，无主体出框。",
+      "label": "一名女子站在红色电话亭门口，人物位于右侧，背景包含石质建筑与",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "film_canister",
+      "kind": "overlay",
+      "bbox": [
+        31,
+        66,
+        270,
+        448
+      ],
+      "description": "覆盖顶部胶片左端的手绘胶卷罐装饰，包含灰黑色罐盖和外轮廓、蓝黄标签、白色大型E100字样，以及Kodak、EKTACHROME、Color Reversal Film、Professional和STAR等印字；全部笔触、磨损与字形整体保留。",
+      "label": "覆盖顶部胶片左端的手绘胶卷罐装饰，包含灰黑色罐盖和外轮廓、蓝",
+      "method": "extract"
+    },
+    {
+      "id": "film_middle",
+      "kind": "frame",
+      "bbox": [
+        26,
+        490,
+        900,
+        775
+      ],
+      "description": "中间横贯画布的连续四窗口胶片框，灰黑色手绘框沿、竖向分隔条和上下两排白色齿孔构成完整载体，右端被画布截断。四张内口照片独立替换。",
+      "photo_id": "photo_middle_left",
+      "label": "中间横贯画布的连续四窗口胶片框，灰黑色手绘框沿、竖向分隔条和",
+      "method": "extract"
+    },
+    {
+      "id": "photo_middle_left",
+      "kind": "photo",
+      "bbox": [
+        39,
+        538,
+        273,
+        734
+      ],
+      "description": "户外全身照，一名穿黑白服装的女子站在前景黑色路桩旁，身后为拱形玻璃顶建筑、车辆及铺石道路。保留完整环境，四周受胶片窗口裁切。",
+      "label": "户外全身照，一名穿黑白服装的女子站在前景黑色路桩旁，身后为拱",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_middle_center",
+      "kind": "photo",
+      "bbox": [
+        290,
+        538,
+        526,
+        734
+      ],
+      "description": "商店内部全身照，一名长发女子背向镜头站在中央，面向摆满商品的柜台和货架。保留店铺陈列、地面及室内背景，无去背景或出框。",
+      "label": "商店内部全身照，一名长发女子背向镜头站在中央，面向摆满商品的",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_middle_food",
+      "kind": "photo",
+      "bbox": [
+        541,
+        538,
+        777,
+        734
+      ],
+      "description": "食物近景，一只手托住圆形碗装黄色甜品，顶部有黄色果肉与绿色叶片，后方为绿色墙面及局部红色牌框。手、甜品和摄影背景一起替换，边缘由胶片窗口裁切。",
+      "label": "食物近景，一只手托住圆形碗装黄色甜品，顶部有黄色果肉与绿色叶",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_middle_right",
+      "kind": "photo",
+      "bbox": [
+        791,
+        538,
+        900,
+        734
+      ],
+      "description": "户外旅行照片，女子背向镜头坐在下方石栏上，远处可见埃菲尔铁塔造型建筑与蓝天。摄影环境保留，右侧随画布截断，无主体出框。",
+      "label": "户外旅行照片，女子背向镜头坐在下方石栏上，远处可见埃菲尔铁塔",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "film_bottom",
+      "kind": "frame",
+      "bbox": [
+        26,
+        833,
+        869,
+        1118
+      ],
+      "description": "底部连续胶片载体，左侧形成两个照片窗口，保留上下齿孔、竖向分隔条及灰黑色蜡笔纹理；右端连接大片弯曲卷起的灰色片尾，下沿向左弯收。片尾部分被前景女子遮挡，整体作为同一框体保留。",
+      "photo_id": "photo_bottom_left",
+      "label": "底部连续胶片载体，左侧形成两个照片窗口，保留上下齿孔、竖向分",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        39,
+        880,
+        273,
+        1079
+      ],
+      "description": "户外全身旅行照，一名女子站在红色车辆左侧，抬起一只手臂，身后为欧式石质建筑、绿植和道路。红色车辆属于摄影内容，环境完整保留，四周由胶片窗口裁切。",
+      "label": "户外全身旅行照，一名女子站在红色车辆左侧，抬起一只手臂，身后",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom_center",
+      "kind": "photo",
+      "bbox": [
+        289,
+        880,
+        526,
+        1079
+      ],
+      "description": "一名扎红色蝴蝶结的长发女子背向镜头坐在石栏边，抬手指向左上方，远处为钟楼、欧式建筑和街景。保留摄影环境，人物与石栏均限于胶片窗口内。",
+      "label": "一名扎红色蝴蝶结的长发女子背向镜头坐在石栏边，抬手指向左上方",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_foreground",
+      "kind": "photo",
+      "bbox": [
+        631,
+        755,
+        869,
+        1200
+      ],
+      "description": "右下方独立抠图女子，长黑发，戴浅色宽檐草帽，穿浅粉色无袖裙，一手抬至帽沿，另一手提浅蓝色手袋，身体正面略侧向镜头。沿人物、帽子、手臂及手袋组合轮廓去除摄影背景，覆盖底部胶片右侧卷曲片尾；腿部在画布底边被截断，不与胶片内照片关联。",
+      "label": "右下方独立抠图女子，长黑发，戴浅色宽檐草帽，穿浅粉色无袖裙，",
+      "method": "local",
+      "rotation": 0
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top_left",
+    "photo_top_center",
+    "photo_top_right",
+    "film_top",
+    "film_canister",
+    "photo_middle_left",
+    "photo_middle_center",
+    "photo_middle_food",
+    "photo_middle_right",
+    "film_middle",
+    "photo_bottom_left",
+    "photo_bottom_center",
+    "film_bottom",
+    "photo_foreground"
+  ]
+}
