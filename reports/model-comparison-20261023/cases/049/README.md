@@ -6,7 +6,7 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-运行中 · analyze
+运行中 · bind
 
 ## Codex gpt-6-luna / medium
 
