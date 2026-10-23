@@ -1,0 +1,144 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1349
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1349
+      ],
+      "description": "整张画布为纯黑固定底色，照片与装饰之间的黑色留白均保持可见。",
+      "label": "整张画布为纯黑固定底色，照片与装饰之间的黑色留白均保持可见。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#000000"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        306,
+        40,
+        842,
+        584
+      ],
+      "description": "上方横向矩形美食照片：浅色碗中有烤鸡腿、米饭和煎蛋，碗沿与桌面环境一并保留；窗口边缘清晰，无独立描边或渐隐。",
+      "label": "上方横向矩形美食照片：浅色碗中有烤鸡腿、米饭和煎蛋，碗沿与桌",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        91,
+        635,
+        788,
+        1122
+      ],
+      "description": "中部横向餐桌照片，画面包含左侧香肠沙拉及蘸料盘、右侧红酱通心粉、下方部分可见的烤鸡腿米饭煎蛋碗和右下红汤碗，保留桌面及周围环境；窗口边缘清晰，无独立描边或渐隐。",
+      "label": "中部横向餐桌照片，画面包含左侧香肠沙拉及蘸料盘、右侧红酱通心",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        34,
+        1129,
+        580,
+        1329
+      ],
+      "description": "底部横向餐桌照片，左侧部分香肠沙拉盘、上方两杯橙色饮料及右侧红酱通心粉碗可见，并保留菜单和桌面环境；窗口边缘清晰，无独立描边或渐隐。",
+      "label": "底部横向餐桌照片，左侧部分香肠沙拉盘、上方两杯橙色饮料及右侧",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_top",
+      "kind": "overlay",
+      "bbox": [
+        18,
+        233,
+        275,
+        448
+      ],
+      "description": "左上白色手绘风中文艺术字“肚子饱了 心情就好了”，分两行倾斜排布，右侧配两颗白色闪光星形涂鸦；字形和点缀共同构成一组独立装饰。",
+      "label": "左上白色手绘风中文艺术字“肚子饱了 心情就好了”，分两行倾斜",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_right",
+      "kind": "overlay",
+      "bbox": [
+        714,
+        534,
+        850,
+        739
+      ],
+      "description": "右侧靠上由数个白色手绘轮廓几何符号组成的倾斜涂鸦装饰，整体保留。",
+      "label": "右侧靠上由数个白色手绘轮廓几何符号组成的倾斜涂鸦装饰，整体保",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_left",
+      "kind": "overlay",
+      "bbox": [
+        14,
+        904,
+        94,
+        992
+      ],
+      "description": "中部照片左下边缘附近的白色手绘闪光星形及小星点装饰，部分压在黑色留白处，整体保留。",
+      "label": "中部照片左下边缘附近的白色手绘闪光星形及小星点装饰，部分压在",
+      "method": "extract"
+    },
+    {
+      "id": "lettering_korean",
+      "kind": "overlay",
+      "bbox": [
+        650,
+        893,
+        855,
+        1052
+      ],
+      "description": "右侧白色手绘描边韩文艺术字及其上方短线、下方圆形笔画点缀，倾斜排布，作为完整装饰保留。",
+      "label": "右侧白色手绘描边韩文艺术字及其上方短线、下方圆形笔画点缀，倾",
+      "method": "extract"
+    },
+    {
+      "id": "lettering_plog",
+      "kind": "overlay",
+      "bbox": [
+        601,
+        1103,
+        846,
+        1249
+      ],
+      "description": "右下白色手写英文艺术字“Plog”，带有星点与小装饰笔画，倾斜排布，作为完整装饰保留。",
+      "label": "右下白色手写英文艺术字“Plog”，带有星点与小装饰笔画，倾",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_middle",
+    "photo_bottom",
+    "text_top",
+    "doodle_right",
+    "doodle_left",
+    "lettering_korean",
+    "lettering_plog"
+  ]
+}
