@@ -1,0 +1,61 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1000,
+        325
+      ],
+      "description": "上半部分照片，显示一位长发女性双手合十放在桌上，面前有一个插着蜡烛的草莓蛋糕。"
+    },
+    {
+      "id": "background_mid",
+      "kind": "background",
+      "bbox": [
+        0,
+        325,
+        1000,
+        635
+      ],
+      "description": "中间部分的米色纹理背景板，作为文字载体。"
+    },
+    {
+      "id": "text_mid",
+      "kind": "text",
+      "bbox": [
+        20,
+        460,
+        980,
+        530
+      ],
+      "text": "Happy birthday.",
+      "color": "#000000",
+      "font": "serif",
+      "align": "center",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        635,
+        1000,
+        1000
+      ],
+      "description": "下半部分照片，俯视视角拍摄桌上的草莓蛋糕，旁边有人的手和身体局部。"
+    }
+  ],
+  "layer_order": [
+    "photo_top",
+    "background_mid",
+    "text_mid",
+    "photo_bottom"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1599
+  ],
+  "objects": [
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        520
+      ],
+      "description": "上半部分照片，显示一位长发女性双手合十放在桌上，面前有一个插着蜡烛的草莓蛋糕。",
+      "label": "上半部分照片，显示一位长发女性双手合十放在桌上，面前有一个插",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "background_mid",
+      "kind": "background",
+      "bbox": [
+        0,
+        520,
+        900,
+        1015
+      ],
+      "description": "中间部分的米色纹理背景板，作为文字载体。",
+      "label": "中间部分的米色纹理背景板，作为文字载体。",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "text_mid",
+      "kind": "text",
+      "bbox": [
+        18,
+        736,
+        882,
+        847
+      ],
+      "description": "Happy birthday.",
+      "label": "Happy birthday.",
+      "method": "local",
+      "text": "Happy birthday.",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "serif",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1015,
+        900,
+        1599
+      ],
+      "description": "下半部分照片，俯视视角拍摄桌上的草莓蛋糕，旁边有人的手和身体局部。",
+      "label": "下半部分照片，俯视视角拍摄桌上的草莓蛋糕，旁边有人的手和身体",
+      "method": "local",
+      "rotation": 0
+    }
+  ],
+  "layer_order": [
+    "photo_top",
+    "background_mid",
+    "text_mid",
+    "photo_bottom"
+  ]
+}
