@@ -1,0 +1,361 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "wood_background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "全幅棕色木纹底面；木纹在拼贴物件之间及边缘可见。"
+    },
+    {
+      "id": "lace_cloth",
+      "kind": "overlay",
+      "bbox": [
+        95,
+        96,
+        1000,
+        906
+      ],
+      "description": "铺在木纹上的大块金棕色蕾丝织物，花纹、纹理和不规则可见边缘整体保留，作为多张照片和装饰的承托底层。"
+    },
+    {
+      "id": "heart_collage",
+      "kind": "overlay",
+      "bbox": [
+        46,
+        37,
+        383,
+        224
+      ],
+      "description": "左上白色撕边心形拼贴底饰，内部为棕金蕾丝纹理；心形轮廓、纸边和内部材质整体保留，五张小照片另行替换。"
+    },
+    {
+      "id": "heart_photo_1",
+      "kind": "photo",
+      "bbox": [
+        145,
+        64,
+        223,
+        125
+      ],
+      "description": "心形拼贴内左上倾斜的小型竖幅照片，画面是一名浅发女性坐着，保留照片场景。"
+    },
+    {
+      "id": "heart_photo_2",
+      "kind": "photo",
+      "bbox": [
+        225,
+        63,
+        294,
+        125
+      ],
+      "description": "心形拼贴内上方偏右倾斜的小型竖幅照片，画面是一名深发女性坐着，保留照片场景。"
+    },
+    {
+      "id": "heart_photo_3",
+      "kind": "photo",
+      "bbox": [
+        91,
+        117,
+        194,
+        181
+      ],
+      "description": "心形拼贴内左下倾斜的小型合照，画面有数名女性，保留照片场景。"
+    },
+    {
+      "id": "heart_photo_4",
+      "kind": "photo",
+      "bbox": [
+        183,
+        128,
+        259,
+        196
+      ],
+      "description": "心形拼贴内下方竖幅合照，画面有数名女性并排坐着，保留照片场景。"
+    },
+    {
+      "id": "heart_photo_5",
+      "kind": "photo",
+      "bbox": [
+        257,
+        116,
+        347,
+        178
+      ],
+      "description": "心形拼贴内右下倾斜的多人合照，保留照片场景。"
+    },
+    {
+      "id": "heart_print_frames",
+      "kind": "overlay",
+      "bbox": [
+        82,
+        60,
+        353,
+        197
+      ],
+      "description": "心形内五张小照片各自周围的白色拍立得式纸边和阴影，作为小型照片纸框整体保留。"
+    },
+    {
+      "id": "date_card",
+      "kind": "overlay",
+      "bbox": [
+        505,
+        73,
+        585,
+        264
+      ],
+      "description": "主照片左侧竖放的浅色日期卡片，印有 Date、No.、From、To、31 等字样及横线；纸张和印字整体保留。"
+    },
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        592,
+        59,
+        954,
+        255
+      ],
+      "description": "右上拍立得内口的竖幅照片：一名长深发女性穿灰色双排扣裙坐在桌前，双手伸向桌面，室内墙面、椅子和桌面仍作为摄影环境保留。"
+    },
+    {
+      "id": "main_polaroid",
+      "kind": "frame",
+      "bbox": [
+        580,
+        42,
+        967,
+        307
+      ],
+      "description": "承载主照片的白色拍立得相纸框，底边有浅蓝色手写字，纸张纹理及阴影整体保留；照片内口独立替换。",
+      "photo_id": "main_photo"
+    },
+    {
+      "id": "top_quote_strip",
+      "kind": "overlay",
+      "bbox": [
+        817,
+        29,
+        984,
+        82
+      ],
+      "description": "斜贴在主拍立得右上边缘的浅黄色窄纸条，带有小号深色印字，纸张折痕和阴影整体保留。"
+    },
+    {
+      "id": "landscape_photo",
+      "kind": "photo",
+      "bbox": [
+        97,
+        238,
+        515,
+        408
+      ],
+      "description": "中左倾斜的横幅照片，画面中两名女性坐在桌边，周围可见室内环境；照片内容整体替换。"
+    },
+    {
+      "id": "landscape_polaroid",
+      "kind": "frame",
+      "bbox": [
+        95,
+        233,
+        518,
+        415
+      ],
+      "description": "承载中左横幅照片的白色拍立得式相纸，宽白边及阴影整体保留；照片内口独立替换。",
+      "photo_id": "landscape_photo"
+    },
+    {
+      "id": "right_group_photo",
+      "kind": "photo",
+      "bbox": [
+        660,
+        285,
+        1000,
+        433
+      ],
+      "description": "右侧部分被上方主拍立得遮挡的横幅合照，画面为两名女性并排坐着，保留照片中的室内场景。"
+    },
+    {
+      "id": "right_group_frame",
+      "kind": "frame",
+      "bbox": [
+        650,
+        280,
+        1000,
+        437
+      ],
+      "description": "承载右侧合照的白色相纸框，部分被主拍立得遮挡；可见纸边和阴影整体保留，照片内口独立替换。",
+      "photo_id": "right_group_photo"
+    },
+    {
+      "id": "held_left_photo",
+      "kind": "photo",
+      "bbox": [
+        198,
+        352,
+        513,
+        607
+      ],
+      "description": "画面中央偏左的倾斜竖幅拍立得内口，照片中两名女性并排坐着，保留室内摄影环境。"
+    },
+    {
+      "id": "held_left_frame",
+      "kind": "frame",
+      "bbox": [
+        187,
+        333,
+        528,
+        619
+      ],
+      "description": "被手托住的左侧灰白拍立得相纸框，四周宽纸边及阴影整体保留；照片内口独立替换。",
+      "photo_id": "held_left_photo"
+    },
+    {
+      "id": "held_right_photo",
+      "kind": "photo",
+      "bbox": [
+        395,
+        367,
+        787,
+        614
+      ],
+      "description": "画面中央偏右的倾斜竖幅拍立得内口，照片中一名深发女性坐在椅旁，保留室内墙面和椅子等摄影环境。"
+    },
+    {
+      "id": "held_right_frame",
+      "kind": "frame",
+      "bbox": [
+        373,
+        339,
+        831,
+        665
+      ],
+      "description": "被手托住的右侧倾斜灰白拍立得相纸框，宽纸边及阴影整体保留；照片内口独立替换。",
+      "photo_id": "held_right_photo"
+    },
+    {
+      "id": "hand_foreground",
+      "kind": "photo",
+      "bbox": [
+        96,
+        440,
+        550,
+        676
+      ],
+      "description": "从左侧伸入并托住两张拍立得的手及手臂，长款亮面美甲清晰可见；作为独立前景摄影内容保留，不含两张相纸。"
+    },
+    {
+      "id": "woven_panel",
+      "kind": "overlay",
+      "bbox": [
+        97,
+        440,
+        878,
+        906
+      ],
+      "description": "下半部覆盖在蕾丝上的深色棕灰编织纹理长方形底片，边缘和纤维质感可见，整体作为固定装饰保留。"
+    },
+    {
+      "id": "season_lettering",
+      "kind": "overlay",
+      "bbox": [
+        264,
+        667,
+        538,
+        693
+      ],
+      "description": "编织底片上方的白色斜体装饰字样“season 19 episode1”，末尾带白色爱心；字形、角度和爱心作为一个完整艺术字装饰保留。"
+    },
+    {
+      "id": "small_flower_tile",
+      "kind": "overlay",
+      "bbox": [
+        48,
+        711,
+        140,
+        746
+      ],
+      "description": "左下方编织底片边缘附近的小型浅色方形装饰片，印有白色花形线稿，连同底板整体保留。"
+    },
+    {
+      "id": "large_flower_card",
+      "kind": "overlay",
+      "bbox": [
+        160,
+        721,
+        289,
+        782
+      ],
+      "description": "小方形浅色纸卡，中央有凸起质感的花枝图案，卡片边缘和图案整体保留。"
+    },
+    {
+      "id": "mini_ephemera_card",
+      "kind": "overlay",
+      "bbox": [
+        254,
+        779,
+        362,
+        840
+      ],
+      "description": "下方浅色小卡片，带淡色花朵装饰和细小印刷字样，纸张、图案及印字整体保留。"
+    },
+    {
+      "id": "cat_postage_stamp",
+      "kind": "overlay",
+      "bbox": [
+        38,
+        846,
+        216,
+        955
+      ],
+      "description": "左下角齿孔边缘的复古邮票装饰，印有猫、音符及“Melody Post 10¢”字样；邮票底色、图案、文字和纸边整体保留。"
+    },
+    {
+      "id": "cutout_woman",
+      "kind": "photo",
+      "bbox": [
+        424,
+        599,
+        1000,
+        1000
+      ],
+      "description": "右下方女性抠图主体：长深发女性穿灰色双排扣裙坐着，双手各举一张小照片，包含完整人物、手中照片和身体轮廓；周围可见不规则白色撕纸描边沿主体组合外形附着，摄影背景已去除，人物覆盖下方织物和木纹。"
+    }
+  ],
+  "layer_order": [
+    "wood_background",
+    "lace_cloth",
+    "heart_collage",
+    "heart_photo_1",
+    "heart_photo_2",
+    "heart_photo_3",
+    "heart_photo_4",
+    "heart_photo_5",
+    "heart_print_frames",
+    "date_card",
+    "landscape_polaroid",
+    "landscape_photo",
+    "right_group_frame",
+    "right_group_photo",
+    "woven_panel",
+    "hand_foreground",
+    "held_left_frame",
+    "held_left_photo",
+    "held_right_frame",
+    "held_right_photo",
+    "season_lettering",
+    "small_flower_tile",
+    "large_flower_card",
+    "mini_ephemera_card",
+    "cat_postage_stamp",
+    "main_polaroid",
+    "main_photo",
+    "top_quote_strip",
+    "cutout_woman"
+  ]
+}

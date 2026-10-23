@@ -1,0 +1,1583 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\reference.png",
+    "sha256": "a000d0dc92aba617de48cc0db12fd442f25aa4bfc42adaefac7416d7fc393382"
+  },
+  "reference_size": [
+    1080,
+    1912
+  ],
+  "canvas_size": [
+    1200,
+    2124
+  ],
+  "objects": [
+    {
+      "id": "wood_background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1912
+      ],
+      "description": "全幅棕色木纹底面；木纹在拼贴物件之间及边缘可见。",
+      "label": "全幅棕色木纹底面；木纹在拼贴物件之间及边缘可见。",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "ValueError: No usable layer 0: Layer 0 aspect ratio changed; Layer 0 aspect ratio changed",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "379b4d6b4a6a98bcd85db44dc28b7a4d297518a33c0971f2182f3a76f747f749"
+      }
+    },
+    {
+      "id": "lace_cloth",
+      "kind": "overlay",
+      "bbox": [
+        103,
+        184,
+        1080,
+        1732
+      ],
+      "description": "铺在木纹上的大块金棕色蕾丝织物，花纹、纹理和不规则可见边缘整体保留，作为多张照片和装饰的承托底层。",
+      "label": "铺在木纹上的大块金棕色蕾丝织物，花纹、纹理和不规则可见边缘整",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e77eedd6a280e683cc9c55e9d30bed7c337f1af4d2ae143dc1c0c8fe7d91f228"
+      }
+    },
+    {
+      "id": "heart_collage",
+      "kind": "overlay",
+      "bbox": [
+        50,
+        71,
+        414,
+        428
+      ],
+      "description": "左上白色撕边心形拼贴底饰，内部为棕金蕾丝纹理；心形轮廓、纸边和内部材质整体保留，五张小照片另行替换。",
+      "label": "左上白色撕边心形拼贴底饰，内部为棕金蕾丝纹理；心形轮廓、纸边",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9ec5c05a923d4861ed3182892e93e56370783e113d69c4d3503d1994b1d00c92"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\heart_collage.png",
+        "sha256": "74dc4a72702fca6a19c3d3058368519f8b8cee03be882011b6d34ba19e57011b",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\heart_collage-restored.png",
+          "sha256": "74dc4a72702fca6a19c3d3058368519f8b8cee03be882011b6d34ba19e57011b",
+          "bbox": [
+            38,
+            59,
+            426,
+            440
+          ],
+          "original_bbox": [
+            50,
+            71,
+            414,
+            428
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "bf2ca38ae1d0321c93c4264d5bc83198fe93e8cc38f1ce5d79ec5525b737f6f1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1912
+          ],
+          "input_sha256": "a000d0dc92aba617de48cc0db12fd442f25aa4bfc42adaefac7416d7fc393382"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\heart_collage-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\heart_collage-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "heart_photo_1",
+      "kind": "photo",
+      "bbox": [
+        157,
+        122,
+        241,
+        239
+      ],
+      "description": "心形拼贴内左上倾斜的小型竖幅照片，画面是一名浅发女性坐着，保留照片场景。",
+      "label": "心形拼贴内左上倾斜的小型竖幅照片，画面是一名浅发女性坐着，保",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "heart_photo_1",
+        "reason": "小型照片保留各自摄影环境，边界为独立矩形照片窗口；白色心形撕纸边属于拼贴底层，不是照片描边，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "heart_photo_1",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中是单名女性的竖幅人物照，但她戴红帽、站立侧身，非浅发女性坐姿；保留完整场景与人物。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "heart_photo_2",
+      "kind": "photo",
+      "bbox": [
+        243,
+        120,
+        318,
+        239
+      ],
+      "description": "心形拼贴内上方偏右倾斜的小型竖幅照片，画面是一名深发女性坐着，保留照片场景。",
+      "label": "心形拼贴内上方偏右倾斜的小型竖幅照片，画面是一名深发女性坐着",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "heart_photo_2",
+        "reason": "保留照片内人物及摄影环境，以矩形窗口容纳倾斜小相片；心形撕纸外缘与照片窗口无关，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "heart_photo_2",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中有清晰女性人物及户外场景，但戴帽且为近景，不是深发女性坐姿；全幅保留以免裁掉人物。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "heart_photo_3",
+      "kind": "photo",
+      "bbox": [
+        98,
+        224,
+        210,
+        346
+      ],
+      "description": "心形拼贴内左下倾斜的小型合照，画面有数名女性，保留照片场景。",
+      "label": "心形拼贴内左下倾斜的小型合照，画面有数名女性，保留照片场景。",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "heart_photo_3",
+        "reason": "多人及其照片场景作为整体保留，固定窗口为倾斜矩形；周围心形白边是拼贴装饰，不是该照片描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "heart_photo_3",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰女性及举手姿势，但仅一人、非多人合照；全幅保留人物和环境。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "heart_photo_4",
+      "kind": "photo",
+      "bbox": [
+        198,
+        245,
+        280,
+        375
+      ],
+      "description": "心形拼贴内下方竖幅合照，画面有数名女性并排坐着，保留照片场景。",
+      "label": "心形拼贴内下方竖幅合照，画面有数名女性并排坐着，保留照片场景",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "heart_photo_4",
+        "reason": "多人合照连同摄影环境保留在独立矩形窗口内；外侧心形撕纸轮廓不属于照片线条，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "heart_photo_4",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材是竖幅单名女性弯身照，非并排坐着的多人；全幅保留人物姿势与场景。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "heart_photo_5",
+      "kind": "photo",
+      "bbox": [
+        278,
+        222,
+        375,
+        340
+      ],
+      "description": "心形拼贴内右下倾斜的多人合照，保留照片场景。",
+      "label": "心形拼贴内右下倾斜的多人合照，保留照片场景。",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "heart_photo_5",
+        "reason": "多人和摄影背景共同保留，照片显示边界是倾斜矩形；心形边框是底层装饰，不另描窗口，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "heart_photo_5",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材为竖幅单名女性侧身照，非多人合照；保留完整人物及海岸环境。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "heart_print_frames",
+      "kind": "overlay",
+      "bbox": [
+        89,
+        115,
+        381,
+        377
+      ],
+      "description": "心形内五张小照片各自周围的白色拍立得式纸边和阴影，作为小型照片纸框整体保留。",
+      "label": "心形内五张小照片各自周围的白色拍立得式纸边和阴影，作为小型照",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection",
+        "Frame has no explicit photo relationship; returned pixels retained"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d723dcfd7b15ff49403575ceb110b679514847eb033836988d7ea7807d3af49e"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\heart_print_frames.png",
+        "sha256": "78517d330501d77d3cbc8710ac4e9c40de6f6e0eceae24094ffe967e5a9e9007",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\heart_print_frames-restored.png",
+          "sha256": "78517d330501d77d3cbc8710ac4e9c40de6f6e0eceae24094ffe967e5a9e9007",
+          "bbox": [
+            77,
+            103,
+            393,
+            389
+          ],
+          "original_bbox": [
+            89,
+            115,
+            381,
+            377
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "475b6f4b1f74f5611015eb023687109fd9fc4a156cc4ef4f3a588d5b9e41bb52",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1912
+          ],
+          "input_sha256": "a000d0dc92aba617de48cc0db12fd442f25aa4bfc42adaefac7416d7fc393382"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\heart_print_frames-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\heart_print_frames-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "date_card",
+      "kind": "overlay",
+      "bbox": [
+        545,
+        140,
+        632,
+        505
+      ],
+      "description": "主照片左侧竖放的浅色日期卡片，印有 Date、No.、From、To、31 等字样及横线；纸张和印字整体保留。",
+      "label": "主照片左侧竖放的浅色日期卡片，印有 Date、No.、Fro",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5b08f0842294030bd1f62ba40622cf8fcf52956e77d274b2a77dcacbcdf785d8"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\date_card.png",
+        "sha256": "bfa5d999b691c05becee5dd354d7774eb3ec94330f8c633c6f2d3020f0e306d7",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\date_card-restored.png",
+          "sha256": "bfa5d999b691c05becee5dd354d7774eb3ec94330f8c633c6f2d3020f0e306d7",
+          "bbox": [
+            536,
+            131,
+            641,
+            514
+          ],
+          "original_bbox": [
+            545,
+            140,
+            632,
+            505
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "104f2b267753dd1209f29f7bb8c4c85f26677796360370be852b48fbdec75b57",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1912
+          ],
+          "input_sha256": "a000d0dc92aba617de48cc0db12fd442f25aa4bfc42adaefac7416d7fc393382"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\date_card-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\date_card-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        639,
+        113,
+        1030,
+        488
+      ],
+      "description": "右上拍立得内口的竖幅照片：一名长深发女性穿灰色双排扣裙坐在桌前，双手伸向桌面，室内墙面、椅子和桌面仍作为摄影环境保留。",
+      "label": "右上拍立得内口的竖幅照片：一名长深发女性穿灰色双排扣裙坐在桌",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "main_photo",
+        "reason": "女性、桌面与室内环境均是替换照片内容，需保留并裁入拍立得独立矩形内口；相纸及其纸边阴影由 frame 保留，不重描，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "main_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰女性主体和户外水岸场景，但非灰色双排扣裙坐在桌前，也没有桌面环境；全幅保留人物与场景。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_00.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\main_polaroid-main_photo-window.png",
+        "sha256": "05ef381b07785654a4097beec749d653128c92f4b10b6b74c48401d517bbba60"
+      },
+      "reveal_frame_id": "main_polaroid"
+    },
+    {
+      "id": "main_polaroid",
+      "kind": "frame",
+      "bbox": [
+        626,
+        80,
+        1044,
+        587
+      ],
+      "description": "承载主照片的白色拍立得相纸框，底边有浅蓝色手写字，纸张纹理及阴影整体保留；照片内口独立替换。",
+      "photo_id": "main_photo",
+      "label": "承载主照片的白色拍立得相纸框，底边有浅蓝色手写字，纸张纹理及",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e93be8570fd26e33f6f444e552c245329bc121f6bdac6812e6b9a471e24f4fd7"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\main_polaroid.png",
+        "sha256": "db6a3809d9b61c50bb4e57fe58c133724ff3b92cdc6382f51712d25f3e80cb82",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\main_polaroid-restored.png",
+          "sha256": "db6a3809d9b61c50bb4e57fe58c133724ff3b92cdc6382f51712d25f3e80cb82",
+          "bbox": [
+            614,
+            68,
+            1056,
+            599
+          ],
+          "original_bbox": [
+            626,
+            80,
+            1044,
+            587
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "3e7693c2eafecc452016c1c4f7f7ec8ba7705dc3cd6c5d909d476c8b2102af8f",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1912
+          ],
+          "input_sha256": "a000d0dc92aba617de48cc0db12fd442f25aa4bfc42adaefac7416d7fc393382"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\main_polaroid-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\main_polaroid-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "top_quote_strip",
+      "kind": "overlay",
+      "bbox": [
+        882,
+        55,
+        1063,
+        157
+      ],
+      "description": "斜贴在主拍立得右上边缘的浅黄色窄纸条，带有小号深色印字，纸张折痕和阴影整体保留。",
+      "label": "斜贴在主拍立得右上边缘的浅黄色窄纸条，带有小号深色印字，纸张",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Frame has no explicit photo relationship; returned pixels retained"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ef9aa5ea5fcd709886651de38960287b33dde655ad523587ae689fdd00c2ddbf"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\top_quote_strip.png",
+        "sha256": "14f02164da6e19340e5b3599cec7de2f6eb12726148175f466d65689bee742c0",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\top_quote_strip-restored.png",
+          "sha256": "14f02164da6e19340e5b3599cec7de2f6eb12726148175f466d65689bee742c0",
+          "bbox": [
+            871,
+            44,
+            1074,
+            168
+          ],
+          "original_bbox": [
+            882,
+            55,
+            1063,
+            157
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "50287f5aa6fd73b7cd1eda7123703d8eafff286e4d6f3009cab061a01b9ab0f1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            1080,
+            1912
+          ],
+          "input_sha256": "a000d0dc92aba617de48cc0db12fd442f25aa4bfc42adaefac7416d7fc393382"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\top_quote_strip-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\top_quote_strip-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "landscape_photo",
+      "kind": "photo",
+      "bbox": [
+        105,
+        455,
+        556,
+        780
+      ],
+      "description": "中左倾斜的横幅照片，画面中两名女性坐在桌边，周围可见室内环境；照片内容整体替换。",
+      "label": "中左倾斜的横幅照片，画面中两名女性坐在桌边，周围可见室内环境",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "landscape_photo",
+        "reason": "两名女性及室内场景作为完整摄影内容替换，显示区域受倾斜拍立得内口的矩形裁切；相纸边缘由 frame 保留，无额外线条或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "landscape_photo",
+        "asset_id": "material_01",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材是开阔的横幅风景照，能保留环境感，但没有桌边女性；与指定人物场景差异明显。"
+      },
+      "source": {
+        "id": "material_01",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+        "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_01.jpg"
+      }
+    },
+    {
+      "id": "landscape_polaroid",
+      "kind": "frame",
+      "bbox": [
+        103,
+        445,
+        559,
+        793
+      ],
+      "description": "承载中左横幅照片的白色拍立得式相纸，宽白边及阴影整体保留；照片内口独立替换。",
+      "photo_id": "landscape_photo",
+      "label": "承载中左横幅照片的白色拍立得式相纸，宽白边及阴影整体保留；照",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "b507f5af5209f8bb2241a651a4de474d7f9e2cb661835ceec0d565415df88221"
+      }
+    },
+    {
+      "id": "right_group_photo",
+      "kind": "photo",
+      "bbox": [
+        713,
+        545,
+        1080,
+        828
+      ],
+      "description": "右侧部分被上方主拍立得遮挡的横幅合照，画面为两名女性并排坐着，保留照片中的室内场景。",
+      "label": "右侧部分被上方主拍立得遮挡的横幅合照，画面为两名女性并排坐着",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "right_group_photo",
+        "reason": "合照与室内背景保留在相纸内口的矩形照片窗口中；上方主拍立得遮挡处由既有层级关系处理，不需渐变，纸框由 frame 保留。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "right_group_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材包含清晰女性和户外环境，但只有一人且非室内并排坐姿；保留全幅以避免裁切人物。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "right_group_frame",
+      "kind": "frame",
+      "bbox": [
+        702,
+        535,
+        1080,
+        836
+      ],
+      "description": "承载右侧合照的白色相纸框，部分被主拍立得遮挡；可见纸边和阴影整体保留，照片内口独立替换。",
+      "photo_id": "right_group_photo",
+      "label": "承载右侧合照的白色相纸框，部分被主拍立得遮挡；可见纸边和阴影",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e5383d6302af80c620196cbf8ca308a5b63ea59464c11e50d7e8f52d9b42aed8"
+      }
+    },
+    {
+      "id": "held_left_photo",
+      "kind": "photo",
+      "bbox": [
+        214,
+        673,
+        554,
+        1161
+      ],
+      "description": "画面中央偏左的倾斜竖幅拍立得内口，照片中两名女性并排坐着，保留室内摄影环境。",
+      "label": "画面中央偏左的倾斜竖幅拍立得内口，照片中两名女性并排坐着，保",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "held_left_photo",
+        "reason": "两人及照片内环境均保留，受倾斜拍立得矩形内口裁切；手与纸框是独立邻层，不属于摄影背景或窗口描边，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "held_left_photo",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰女性人物，但为站立侧身单人照，非两名女性并排坐着；全幅保留人物和场景。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "held_left_frame",
+      "kind": "frame",
+      "bbox": [
+        202,
+        637,
+        570,
+        1184
+      ],
+      "description": "被手托住的左侧灰白拍立得相纸框，四周宽纸边及阴影整体保留；照片内口独立替换。",
+      "photo_id": "held_left_photo",
+      "label": "被手托住的左侧灰白拍立得相纸框，四周宽纸边及阴影整体保留；照",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e07da3f492599929b60c113ce3fbdf130127e93a319a7ee49d12da8d4e4b1166"
+      }
+    },
+    {
+      "id": "held_right_photo",
+      "kind": "photo",
+      "bbox": [
+        427,
+        702,
+        850,
+        1174
+      ],
+      "description": "画面中央偏右的倾斜竖幅拍立得内口，照片中一名深发女性坐在椅旁，保留室内墙面和椅子等摄影环境。",
+      "label": "画面中央偏右的倾斜竖幅拍立得内口，照片中一名深发女性坐在椅旁",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "held_right_photo",
+        "reason": "女性、椅子和墙面均为应保留的摄影环境，固定窗口沿倾斜相纸内口矩形裁切；相纸框和托举手部另由对应层保留，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "held_right_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰女性主体，但为户外近景，不是坐在椅旁的室内场景；全幅保留人物。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "held_right_frame",
+      "kind": "frame",
+      "bbox": [
+        403,
+        648,
+        897,
+        1271
+      ],
+      "description": "被手托住的右侧倾斜灰白拍立得相纸框，宽纸边及阴影整体保留；照片内口独立替换。",
+      "photo_id": "held_right_photo",
+      "label": "被手托住的右侧倾斜灰白拍立得相纸框，宽纸边及阴影整体保留；照",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "eb56147e3e241efd7f029b4b6d82cb5dd50404c7a8d95f14210ad9b72ad33ddc"
+      }
+    },
+    {
+      "id": "hand_foreground",
+      "kind": "photo",
+      "bbox": [
+        104,
+        841,
+        594,
+        1293
+      ],
+      "description": "从左侧伸入并托住两张拍立得的手及手臂，长款亮面美甲清晰可见；作为独立前景摄影内容保留，不含两张相纸。",
+      "label": "从左侧伸入并托住两张拍立得的手及手臂，长款亮面美甲清晰可见；",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "hand_foreground",
+        "reason": "托举手臂及手部是跨越相纸和拼贴底图的独立前景，需沿手臂与手的主体轮廓去除自身摄影背景；无独立几何窗口或主体描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "hand_foreground",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材可见女性及伸展的双手，但没有托住拍立得的手臂或清晰长款亮面美甲，不能满足指定手部主体；全幅保留可见手臂。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "woven_panel",
+      "kind": "overlay",
+      "bbox": [
+        105,
+        841,
+        948,
+        1732
+      ],
+      "description": "下半部覆盖在蕾丝上的深色棕灰编织纹理长方形底片，边缘和纤维质感可见，整体作为固定装饰保留。",
+      "label": "下半部覆盖在蕾丝上的深色棕灰编织纹理长方形底片，边缘和纤维质",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "c69eb66d43f0cac76000b2f6553cc609ca106419a62b29cd21862c988337c7c2"
+      }
+    },
+    {
+      "id": "season_lettering",
+      "kind": "overlay",
+      "bbox": [
+        285,
+        1275,
+        581,
+        1325
+      ],
+      "description": "编织底片上方的白色斜体装饰字样“season 19 episode1”，末尾带白色爱心；字形、角度和爱心作为一个完整艺术字装饰保留。",
+      "label": "编织底片上方的白色斜体装饰字样“season 19 epis",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "5eb9c0ac36297ace1e1c6128212be6fe8329914e4f99e29ae573ab0a07bc37b2"
+      }
+    },
+    {
+      "id": "small_flower_tile",
+      "kind": "overlay",
+      "bbox": [
+        52,
+        1359,
+        151,
+        1426
+      ],
+      "description": "左下方编织底片边缘附近的小型浅色方形装饰片，印有白色花形线稿，连同底板整体保留。",
+      "label": "左下方编织底片边缘附近的小型浅色方形装饰片，印有白色花形线稿",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "20b47baf813acbc029b33e5cf54145c5e2bee62ecc86559f68461717964817cd"
+      }
+    },
+    {
+      "id": "large_flower_card",
+      "kind": "overlay",
+      "bbox": [
+        173,
+        1379,
+        312,
+        1495
+      ],
+      "description": "小方形浅色纸卡，中央有凸起质感的花枝图案，卡片边缘和图案整体保留。",
+      "label": "小方形浅色纸卡，中央有凸起质感的花枝图案，卡片边缘和图案整体",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "7e1fe3f2716047128db05f569b880463f11efcac066c40246090378032555bc3"
+      }
+    },
+    {
+      "id": "mini_ephemera_card",
+      "kind": "overlay",
+      "bbox": [
+        274,
+        1489,
+        391,
+        1606
+      ],
+      "description": "下方浅色小卡片，带淡色花朵装饰和细小印刷字样，纸张、图案及印字整体保留。",
+      "label": "下方浅色小卡片，带淡色花朵装饰和细小印刷字样，纸张、图案及印",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "9a754a57542eded066ef97b0caf18f94388bafac0f6bb5a8eb880db8eaf7c351"
+      }
+    },
+    {
+      "id": "cat_postage_stamp",
+      "kind": "overlay",
+      "bbox": [
+        41,
+        1618,
+        233,
+        1826
+      ],
+      "description": "左下角齿孔边缘的复古邮票装饰，印有猫、音符及“Melody Post 10¢”字样；邮票底色、图案、文字和纸边整体保留。",
+      "label": "左下角齿孔边缘的复古邮票装饰，印有猫、音符及“Melody ",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "4288ac4a664ecd28bf9b43f6510ebf32a9d445810614019028fe981925cc6ab4"
+      }
+    },
+    {
+      "id": "cutout_woman",
+      "kind": "photo",
+      "bbox": [
+        458,
+        1145,
+        1080,
+        1912
+      ],
+      "description": "右下方女性抠图主体：长深发女性穿灰色双排扣裙坐着，双手各举一张小照片，包含完整人物、手中照片和身体轮廓；周围可见不规则白色撕纸描边沿主体组合外形附着，摄影背景已去除，人物覆盖下方织物和木纹。",
+      "label": "右下方女性抠图主体：长深发女性穿灰色双排扣裙坐着，双手各举一",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "cutout_woman",
+        "reason": "人物、双手所持小照片及身体组合共同构成去背景主体；可见白色撕纸边沿该组合外轮廓附着，主体描边以白色实线近似，未见独立固定窗口或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.018,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.005
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "cutout_woman",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰女性及可辨识的身体轮廓，但人物戴帽、穿浅色外套，未见灰色裙装或手举照片，且不是已去背景的撕纸描边主体；只能作为人物近似。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-014-bf86857705c3\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\prepared\\material_00.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "wood_background",
+    "lace_cloth",
+    "heart_collage",
+    "heart_photo_1",
+    "heart_photo_2",
+    "heart_photo_3",
+    "heart_photo_4",
+    "heart_photo_5",
+    "heart_print_frames",
+    "date_card",
+    "landscape_polaroid",
+    "landscape_photo",
+    "right_group_frame",
+    "right_group_photo",
+    "woven_panel",
+    "hand_foreground",
+    "held_left_frame",
+    "held_left_photo",
+    "held_right_frame",
+    "held_right_photo",
+    "season_lettering",
+    "small_flower_tile",
+    "large_flower_card",
+    "mini_ephemera_card",
+    "cat_postage_stamp",
+    "main_polaroid",
+    "main_photo",
+    "top_quote_strip",
+    "cutout_woman"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "2a74586c3812fffed83461bad883c854b412079b4abdd113f7092705d3fcbb0a",
+    "bindings": "afcf1723bb460dd36261186acb6a863ea7142fcf7232a74a297cf4e7dfde2968",
+    "input": "6cc813edab109fe635cb1a6e8358e0db3c3980de8b63dd1d4142bde5c4a91d85",
+    "catalog": "5feba526f956045291c277d3651770a38814d251cd3489cdaf970dbc5a93b729",
+    "photo_windows": "7b9e096491de39efd312d5009469361de436c2c6acbc58db8545a815d29ca6aa"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\reveal\\index.json",
+    "sha256": "a384eb2fff07b6c22254da00a093f829a4f562ae75264ee968cbc1c0edacb20b"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-014\\assets\\gate\\report.json",
+    "sha256": "dbb12127ba27c111e3a3725a0b2ff3d751b1b7aad1c85567cad7cdeb2067b5d9",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 5,
+    "pending": 0,
+    "rejected": 12,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
