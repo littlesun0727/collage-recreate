@@ -26,4 +26,10 @@
 
 ## Codex gpt-6.1-sol / medium
 
-运行中 · build
+已交付
+
+耗时：258.4 秒；交付类别：unreviewed。
+
+![成图](sol/final.png)
+
+[查看参数、中间 JSON、告警及对照图](sol/)
