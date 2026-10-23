@@ -1,0 +1,180 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_main",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "右侧主图，保留百叶窗摄影背景。照片有清晰的矩形边界，需启用固定窗口裁切。无主体描边或边缘渐变效果。"
+    },
+    {
+      "photo_id": "photo_camera_inner",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "位于相机取景框内的照片，保留室内背景。受外部黑色边框限制，需开启矩形窗口进行裁切。无独立描边或渐变。"
+    },
+    {
+      "photo_id": "photo_id_inner",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.05
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "工牌卡套内的照片，保留滑板场景背景。根据卡套内口形状，使用圆角矩形窗口裁切。无额外描边或渐变。"
+    },
+    {
+      "photo_id": "photo_star_inner",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.08,
+              0.08
+            ],
+            [
+              0.92,
+              0.08
+            ],
+            [
+              0.92,
+              0.92
+            ],
+            [
+              0.08,
+              0.92
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "星形爆炸框内的照片，保留教室背景。虽然外框是不规则形状，但内部可视区域为矩形，故使用矩形窗口裁切（此处用 polygon 表达矩形以符合几何定义）。"
+    }
+  ]
+}
