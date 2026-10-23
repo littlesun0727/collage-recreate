@@ -1,0 +1,92 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "浅灰色底布，均匀散布白色圆点，作为固定背景保留。"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        126,
+        27,
+        874,
+        305
+      ],
+      "description": "横向矩形照片，年轻女性坐在室内桌边，深色长发、穿深蓝碎花上衣，一手托脸，桌前有饮料和柠檬片；保留窗户、家具等摄影环境，边缘为清晰直线裁切。"
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        131,
+        328,
+        869,
+        603
+      ],
+      "description": "横向矩形照片，年轻女性侧身趴在木桌上，脸朝镜头，手持叉子，桌上有甜点和饮料；保留室内家具等摄影环境，边缘为清晰直线裁切。"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        131,
+        636,
+        869,
+        910
+      ],
+      "description": "横向矩形照片，年轻女性坐在桌边对镜头微笑，双手在脸前比出爱心，桌上有饮料、柠檬片和甜点；保留室内窗户及家具等摄影环境，边缘为清晰直线裁切。"
+    },
+    {
+      "id": "sticker_cat_top",
+      "kind": "overlay",
+      "bbox": [
+        729,
+        0,
+        936,
+        99
+      ],
+      "description": "右上方白色猫脸贴纸，带尖耳、黑色夸张表情线条及浅灰阴影，完整保留。"
+    },
+    {
+      "id": "sticker_bandaid",
+      "kind": "overlay",
+      "bbox": [
+        41,
+        299,
+        259,
+        379
+      ],
+      "description": "斜放的灰色创可贴贴纸，带有圆点纹样和中央闪电图案，整体连同轮廓与阴影保留，覆盖照片间隙及中间照片左上边缘。"
+    },
+    {
+      "id": "sticker_cat_bottom",
+      "kind": "overlay",
+      "bbox": [
+        728,
+        845,
+        982,
+        963
+      ],
+      "description": "右下方白色卡通脸贴纸，带粉色额头装饰、闭眼表情和淡粉腮红，整体连同轮廓保留，覆盖底部照片右下角。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_middle",
+    "photo_bottom",
+    "sticker_cat_top",
+    "sticker_bandaid",
+    "sticker_cat_bottom"
+  ]
+}
