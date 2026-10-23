@@ -1,0 +1,169 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定的复古电脑桌面场景，包含蓝天白云与绿色草地壁纸，以及其余未单独列出的桌面界面纹理。",
+      "label": "固定的复古电脑桌面场景，包含蓝天白云与绿色草地壁纸，以及其余",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "top_left_dialog",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        0,
+        419,
+        216
+      ],
+      "description": "左上方倾斜且被画布边缘截断的灰色系统对话框，带有青绿色插图、说明文字、选项和底部按钮，作为完整界面元素保留。",
+      "label": "左上方倾斜且被画布边缘截断的灰色系统对话框，带有青绿色插图、",
+      "method": "extract"
+    },
+    {
+      "id": "top_center_dialog",
+      "kind": "overlay",
+      "bbox": [
+        382,
+        0,
+        652,
+        196
+      ],
+      "description": "画面上方蓝色 Windows 风格系统对话框，包含标题栏、图标按钮和底部取消按钮，部分被显示器遮挡。",
+      "label": "画面上方蓝色 Windows 风格系统对话框，包含标题栏、图",
+      "method": "extract"
+    },
+    {
+      "id": "left_menu",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        296,
+        182,
+        608
+      ],
+      "description": "画面左侧被裁切的灰色电脑菜单面板，含多行黑色菜单文字及分隔线，作为完整界面元素保留。",
+      "label": "画面左侧被裁切的灰色电脑菜单面板，含多行黑色菜单文字及分隔线",
+      "method": "extract"
+    },
+    {
+      "id": "screen_photo",
+      "kind": "photo",
+      "bbox": [
+        176,
+        256,
+        713,
+        701
+      ],
+      "description": "显示器内的矩形照片，主体为厨房中正面站立的年轻女性数字形象，长棕发、戴白色厨师帽、穿青绿色上衣并捧着蛋糕；背景中的瓷砖、橱柜和厨具均为照片环境，完整保留且沿屏幕窗口裁切，无主体描边或渐隐。",
+      "label": "显示器内的矩形照片，主体为厨房中正面站立的年轻女性数字形象，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "monitor_frame",
+      "kind": "frame",
+      "bbox": [
+        115,
+        186,
+        877,
+        872
+      ],
+      "description": "承载屏幕照片的米灰色复古 CRT 显示器外壳，包含厚边框、按键区域及底座造型；照片单独替换，外壳材质与阴影作为完整框体保留。",
+      "photo_id": "screen_photo",
+      "label": "承载屏幕照片的米灰色复古 CRT 显示器外壳，包含厚边框、按",
+      "method": "extract"
+    },
+    {
+      "id": "speech_bubble",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        144,
+        358,
+        400
+      ],
+      "description": "覆盖在显示器左上方的白色椭圆对话气泡，带向下尖尾、蓝色柔和渐变中心及黑色像素风“online”字样，整体作为一个装饰保留。",
+      "label": "覆盖在显示器左上方的白色椭圆对话气泡，带向下尖尾、蓝色柔和渐",
+      "method": "extract"
+    },
+    {
+      "id": "keyboard",
+      "kind": "overlay",
+      "bbox": [
+        272,
+        898,
+        770,
+        1027
+      ],
+      "description": "显示器前方的米灰色复古电脑键盘，带有浅色键帽和紫色按键区域，作为独立固定物件保留。",
+      "label": "显示器前方的米灰色复古电脑键盘，带有浅色键帽和紫色按键区域，",
+      "method": "extract"
+    },
+    {
+      "id": "color_palette",
+      "kind": "overlay",
+      "bbox": [
+        797,
+        802,
+        900,
+        1016
+      ],
+      "description": "画面右侧被裁切的彩虹色渐变方形调色板，置于灰色边框内，作为完整界面装饰保留。",
+      "label": "画面右侧被裁切的彩虹色渐变方形调色板，置于灰色边框内，作为完",
+      "method": "extract"
+    },
+    {
+      "id": "error_dialog",
+      "kind": "overlay",
+      "bbox": [
+        648,
+        1014,
+        900,
+        1196
+      ],
+      "description": "右下方被画布边缘截断的灰色错误提示框，带蓝色标题栏、小图标、说明文字和按钮，整体作为固定界面元素保留。",
+      "label": "右下方被画布边缘截断的灰色错误提示框，带蓝色标题栏、小图标、",
+      "method": "extract"
+    },
+    {
+      "id": "foreground_woman",
+      "kind": "photo",
+      "bbox": [
+        11,
+        544,
+        442,
+        1195
+      ],
+      "description": "前景人物抠图：一名长棕发年轻女性坐姿面向画面，穿青绿色背心、蓝色短裤和灰色点状丝袜；左手托着蛋糕片，右手举着打蛋器，腿部向前弯曲。摄影背景已去除，粗白色贴纸式轮廓描边沿人物及手持物组合外缘完整环绕，未形成连续出框关系。",
+      "label": "前景人物抠图：一名长棕发年轻女性坐姿面向画面，穿青绿色背心、",
+      "method": "local",
+      "rotation": 0
+    }
+  ],
+  "layer_order": [
+    "background",
+    "top_left_dialog",
+    "top_center_dialog",
+    "left_menu",
+    "monitor_frame",
+    "screen_photo",
+    "keyboard",
+    "color_palette",
+    "error_dialog",
+    "speech_bubble",
+    "foreground_woman"
+  ]
+}
