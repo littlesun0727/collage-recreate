@@ -1,0 +1,85 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1199
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1199
+      ],
+      "description": "整体背景为带有彩色纸屑和气球装饰的浅色底图，上方有巨大的半透明彩色 Happy Birthday 字样。",
+      "label": "整体背景为带有彩色纸屑和气球装饰的浅色底图，上方有巨大的半透",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        56,
+        510,
+        358,
+        809
+      ],
+      "description": "心形窗口内的照片，显示花束、蜡烛和镜子反射的场景，边缘有白色虚线描边。",
+      "label": "心形窗口内的照片，显示花束、蜡烛和镜子反射的场景，边缘有白色",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        416,
+        510,
+        828,
+        1061
+      ],
+      "description": "右侧矩形窗口内的照片，显示一位戴皇冠的女子双手合十许愿，桌上有蛋糕和鲜花，边缘有白色虚线描边。",
+      "label": "右侧矩形窗口内的照片，显示一位戴皇冠的女子双手合十许愿，桌上",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        90,
+        833,
+        482,
+        1157
+      ],
+      "description": "左下矩形窗口内的照片，显示一位穿粉色裙子的女子手持气球微笑，边缘有白色虚线描边。",
+      "label": "左下矩形窗口内的照片，显示一位穿粉色裙子的女子手持气球微笑，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        941,
+        810,
+        1157
+      ],
+      "description": "白色的手写体英文艺术字 \"Happy Birthday\"，叠加在右侧照片的右下角区域。",
+      "label": "白色的手写体英文艺术字 \"Happy Birthday\"，叠",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_3",
+    "photo_2",
+    "overlay_1"
+  ]
+}
