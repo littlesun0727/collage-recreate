@@ -1,0 +1,128 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "浅灰白色纸张质感底面，带细密颗粒、淡淡污渍和分散的灰色小点与星形纹样，作为整体背景保留。",
+      "label": "浅灰白色纸张质感底面，带细密颗粒、淡淡污渍和分散的灰色小点与",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "dialog_frame",
+      "kind": "frame",
+      "bbox": [
+        130,
+        358,
+        798,
+        865
+      ],
+      "description": "承载中央照片的复古电脑文件选择窗口，浅灰银色圆角界面，包含标题 Open、导航按钮、侧栏图标与文字、文件列表栏及底部按钮；整体界面设计保留，内口照片独立替换。",
+      "photo_id": "dialog_photo",
+      "label": "承载中央照片的复古电脑文件选择窗口，浅灰银色圆角界面，包含标",
+      "method": "extract"
+    },
+    {
+      "id": "dialog_photo",
+      "kind": "photo",
+      "bbox": [
+        357,
+        515,
+        778,
+        805
+      ],
+      "description": "窗口内的近距离俯拍自拍，一名戴黑框眼镜、穿浅色连帽羽绒服的年轻女性占据画面中央，低头看向镜头；周围可见深色长椅和少量地面，摄影环境保留，照片边缘清晰。",
+      "label": "窗口内的近距离俯拍自拍，一名戴黑框眼镜、穿浅色连帽羽绒服的年",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "stamp_frame",
+      "kind": "frame",
+      "bbox": [
+        75,
+        757,
+        273,
+        1015
+      ],
+      "description": "压在电脑窗口左下方的邮票齿孔边框，浅灰色纸质边缘内嵌一张小照片；保留纸张纹理和边缘，内口照片独立替换。",
+      "photo_id": "stamp_photo",
+      "label": "压在电脑窗口左下方的邮票齿孔边框，浅灰色纸质边缘内嵌一张小照",
+      "method": "extract"
+    },
+    {
+      "id": "stamp_photo",
+      "kind": "photo",
+      "bbox": [
+        86,
+        770,
+        262,
+        973
+      ],
+      "description": "邮票框内的全身俯拍照片，一名戴眼镜、穿浅色外套的女性站在室内地面中央，双手靠近身前，头戴带装饰的头饰；身后和两侧可见木质墙面、瓷砖地面及室内陈设，摄影环境保留，照片边缘清晰。",
+      "label": "邮票框内的全身俯拍照片，一名戴眼镜、穿浅色外套的女性站在室内",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "shine_caption",
+      "kind": "overlay",
+      "bbox": [
+        560,
+        312,
+        873,
+        342
+      ],
+      "description": "黑色打字机风格的装饰字样“★ shine cute beautiful ~”，星形符号与整行文字作为一个完整装饰保留。",
+      "label": "黑色打字机风格的装饰字样“★ shine cute beau",
+      "method": "extract"
+    },
+    {
+      "id": "happiness_caption",
+      "kind": "overlay",
+      "bbox": [
+        300,
+        895,
+        453,
+        918
+      ],
+      "description": "黑色打字机风格的“happiness!”字样及其右侧实心爱心，作为一组完整装饰保留。",
+      "label": "黑色打字机风格的“happiness!”字样及其右侧实心爱心",
+      "method": "extract"
+    },
+    {
+      "id": "audio_sticker",
+      "kind": "overlay",
+      "bbox": [
+        677,
+        875,
+        870,
+        943
+      ],
+      "description": "浅色圆角音频播放器装饰，包含左侧播放三角形和右侧黑色波形条，整体作为独立贴纸保留。",
+      "label": "浅色圆角音频播放器装饰，包含左侧播放三角形和右侧黑色波形条，",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "dialog_frame",
+    "dialog_photo",
+    "shine_caption",
+    "happiness_caption",
+    "audio_sticker",
+    "stamp_frame",
+    "stamp_photo"
+  ]
+}
