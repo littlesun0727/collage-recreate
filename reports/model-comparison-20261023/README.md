@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-23T23:54:55+08:00。共 348 个任务。
+最后更新：2026-10-23T23:58:04+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -11,7 +11,7 @@
 | 模型 | 已交付 | 失败 | 运行中 | 排队 | 待提交 |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | yibuapi Qwen3.8-flash / thinking off | 73 | 9 | 1 | 18 | 15 |
-| Codex gpt-6-luna / medium | 90 | 0 | 1 | 10 | 15 |
+| Codex gpt-6-luna / medium | 91 | 0 | 1 | 9 | 15 |
 | Codex gpt-6.1-sol / medium | 0 | 0 | 0 | 0 | 116 |
 
 点击参考图编号打开该案例；点击成图缩略图打开原尺寸 PNG。刷新本页可查看新结果。
@@ -108,8 +108,8 @@
 | [088 · 7663561226697329944.png](cases/088/README.md)<br>![参考](cases/088/reference-thumb.jpg) | 排队 | 已交付<br>[![成图](cases/088/luna/thumb.jpg)](cases/088/luna/final.png) | 待提交 |
 | [089 · 7664149953434111256.jpg](cases/089/README.md)<br>![参考](cases/089/reference-thumb.jpg) | 排队 | 已交付<br>[![成图](cases/089/luna/thumb.jpg)](cases/089/luna/final.png) | 待提交 |
 | [090 · 7664468308615384344.jpg](cases/090/README.md)<br>![参考](cases/090/reference-thumb.jpg) | 排队 | 已交付<br>[![成图](cases/090/luna/thumb.jpg)](cases/090/luna/final.png) | 待提交 |
-| [091 · 7665644059188399384.jpg](cases/091/README.md)<br>![参考](cases/091/reference-thumb.jpg) | 排队 | 运行中 · build | 待提交 |
-| [092 · 7665948685888539966.png](cases/092/README.md)<br>![参考](cases/092/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
+| [091 · 7665644059188399384.jpg](cases/091/README.md)<br>![参考](cases/091/reference-thumb.jpg) | 排队 | 已交付<br>[![成图](cases/091/luna/thumb.jpg)](cases/091/luna/final.png) | 待提交 |
+| [092 · 7665948685888539966.png](cases/092/README.md)<br>![参考](cases/092/reference-thumb.jpg) | 排队 | 运行中 · photo_windows | 待提交 |
 | [093 · 7666084872900873497.png](cases/093/README.md)<br>![参考](cases/093/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [094 · 7668519416618847513.jpg](cases/094/README.md)<br>![参考](cases/094/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [095 · 7669705159856885017.jpg](cases/095/README.md)<br>![参考](cases/095/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
