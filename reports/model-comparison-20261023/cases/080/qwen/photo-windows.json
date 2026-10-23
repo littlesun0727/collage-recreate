@@ -1,0 +1,85 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_heart",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "heart"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "照片保留完整摄影背景，主体未出框。存在独立的心形固定窗口裁切，且窗口边缘有白色手绘描边效果，故开启蒙版描边。"
+    },
+    {
+      "photo_id": "photo_star",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "star",
+          "star_points": 5,
+          "inner_ratio": 0.4
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "照片保留完整摄影背景，主体未出框。存在独立的五角星形固定窗口裁切，且窗口边缘有白色手绘描边效果，故开启蒙版描边。"
+    }
+  ]
+}

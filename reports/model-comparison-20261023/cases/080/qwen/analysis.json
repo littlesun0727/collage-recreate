@@ -1,0 +1,172 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "模糊的暖色调室内背景，包含沙发、靠枕和玩偶等元素，作为底图铺满整个画面。",
+      "label": "模糊的暖色调室内背景，包含沙发、靠枕和玩偶等元素，作为底图铺",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_heart",
+      "kind": "photo",
+      "bbox": [
+        392,
+        108,
+        828,
+        540
+      ],
+      "description": "心形窗口内的照片，显示一个戴着Hello Kitty头套的人趴在桌上，旁边有一个白色包包。边缘有白色手绘描边效果。",
+      "label": "心形窗口内的照片，显示一个戴着Hello Kitty头套的人",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_star",
+      "kind": "photo",
+      "bbox": [
+        32,
+        594,
+        504,
+        1062
+      ],
+      "description": "五角星形窗口内的照片，显示一张圆桌上的食物（蛋糕、冰淇淋）和一个平板电脑。边缘有白色手绘描边效果。",
+      "label": "五角星形窗口内的照片，显示一张圆桌上的食物（蛋糕、冰淇淋）和",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_left_poem",
+      "kind": "text",
+      "bbox": [
+        36,
+        132,
+        396,
+        522
+      ],
+      "description": "我从此感到幸福\n轻易 松脆的幸福\n如同围炉火烤\n你伸手揉碎了茶饼\n芬苦淡淡的 却萦绕不去\n我的幸福\n只需要我伸出手享",
+      "label": "我从此感到幸福\n轻易 松脆的幸福\n如同围炉火烤\n你伸手揉碎了",
+      "method": "local",
+      "text": "我从此感到幸福\n轻易 松脆的幸福\n如同围炉火烤\n你伸手揉碎了茶饼\n芬苦淡淡的 却萦绕不去\n我的幸福\n只需要我伸出手享",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "text_right_poem",
+      "kind": "text",
+      "bbox": [
+        486,
+        630,
+        873,
+        1056
+      ],
+      "description": "在这个世界上\n幸福从来就没有标准答案\n有的人吃路边摊\n但也要拍照记录\n有人看到了日落\n也要感叹生活的美好\n只要是你自己喜欢的日子\n就是最好的日子",
+      "label": "在这个世界上\n幸福从来就没有标准答案\n有的人吃路边摊\n但也要",
+      "method": "local",
+      "text": "在这个世界上\n幸福从来就没有标准答案\n有的人吃路边摊\n但也要拍照记录\n有人看到了日落\n也要感叹生活的美好\n只要是你自己喜欢的日子\n就是最好的日子",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "right",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "overlay_deco_top_right",
+      "kind": "overlay",
+      "bbox": [
+        634,
+        48,
+        842,
+        102
+      ],
+      "description": "右上角的白色手绘装饰符号，包含星星、音符、月亮、爱心和花朵图案。",
+      "label": "右上角的白色手绘装饰符号，包含星星、音符、月亮、爱心和花朵图",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_deco_rabbit",
+      "kind": "overlay",
+      "bbox": [
+        734,
+        462,
+        868,
+        546
+      ],
+      "description": "右侧中部的白色简笔画兔子脸图案。",
+      "label": "右侧中部的白色简笔画兔子脸图案。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_deco_stars_left",
+      "kind": "overlay",
+      "bbox": [
+        54,
+        582,
+        144,
+        678
+      ],
+      "description": "左侧中部的白色手绘四角星闪烁符号。",
+      "label": "左侧中部的白色手绘四角星闪烁符号。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_deco_bow",
+      "kind": "overlay",
+      "bbox": [
+        414,
+        588,
+        486,
+        648
+      ],
+      "description": "中间偏下的白色手绘蝴蝶结图案。",
+      "label": "中间偏下的白色手绘蝴蝶结图案。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_deco_bottom_stars",
+      "kind": "overlay",
+      "bbox": [
+        122,
+        1098,
+        364,
+        1146
+      ],
+      "description": "左下角的一排五个空心五角星图案。",
+      "label": "左下角的一排五个空心五角星图案。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_heart",
+    "photo_star",
+    "text_left_poem",
+    "text_right_poem",
+    "overlay_deco_top_right",
+    "overlay_deco_rabbit",
+    "overlay_deco_stars_left",
+    "overlay_deco_bow",
+    "overlay_deco_bottom_stars"
+  ]
+}
