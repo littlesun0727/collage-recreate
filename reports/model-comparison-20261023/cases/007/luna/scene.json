@@ -1,0 +1,293 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-008\\prepared\\reference.png",
+    "sha256": "36f7e0559f0460ad9a148c0b758c6ad0124cd8f1459cf724d2717be282b384d1"
+  },
+  "reference_size": [
+    960,
+    1280
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        960,
+        1280
+      ],
+      "description": "三张横向实拍画面之间及四周的白色分隔底色，作为固定画布底层保留。",
+      "label": "三张横向实拍画面之间及四周的白色分隔底色，作为固定画布底层保",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#FFFFFF"
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        8,
+        8,
+        952,
+        424
+      ],
+      "description": "上方横向照片：户外草坪与远处树林、建筑背景中，一名戴橙色帽子、穿浅色宽松上衣的人物居中近景，双臂高举伸向画面两侧，低头；保留摄影环境，清晰矩形裁切，无描边或渐隐。",
+      "label": "上方横向照片：户外草坪与远处树林、建筑背景中，一名戴橙色帽子",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top",
+        "reason": "草坪与树林等摄影环境完整保留，照片有清晰矩形内口；人物没有独立描边，边缘清晰且无渐隐。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中人物背对镜头、双臂高举，姿态与上方照片最接近；但场景为湖面日落，帽子和服装颜色也不同。保留全幅以尽量不裁去手臂。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-008-241849b4c814\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-008\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "photo_middle",
+      "kind": "photo",
+      "bbox": [
+        8,
+        434,
+        952,
+        849
+      ],
+      "description": "中间横向照片：明亮草坪及远处树林背景中，右侧有一名戴橙色帽子、穿浅色上衣和深色下装的人物背向镜头向远处行走；前景中央叠有另一张人物近景照片中的橙色帽子与脸部上半部，保留摄影环境，清晰矩形裁切，无描边或渐隐。",
+      "label": "中间横向照片：明亮草坪及远处树林背景中，右侧有一名戴橙色帽子",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_middle",
+        "reason": "草坪、树林和行走人物属于同一张摄影画面，保留背景并按清晰矩形窗口裁切；帽子与脸部近景跨越窗口接缝，但没有明确的独立主体层关系可据以设置渐变或描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_middle",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材可见一名戴帽人物背向镜头，适合对应行走人物的背面姿态；但其站在海边且并非行走，也没有近景脸部。保留全幅避免裁掉人物。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-008-241849b4c814\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-008\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        8,
+        859,
+        952,
+        1270
+      ],
+      "description": "下方横向照片：草坪与远处树林背景前，一名戴橙色帽子和深色太阳镜、穿浅色宽松上衣的人物正面胸像近景，头部居中；保留摄影环境，清晰矩形裁切，无描边或渐隐。",
+      "label": "下方横向照片：草坪与远处树林背景前，一名戴橙色帽子和深色太阳",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom",
+        "reason": "人物胸像与草坪、树林环境一并保留，照片有清晰矩形窗口；虽与中间画面在帽子和脸部处有视觉重叠，未见可确认的窗口渐变或独立描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有清晰可见的单人正面近景、帽子与太阳镜，人物姿态和景别相符；但帽子为蓝色，背景是湖岸而非草坪树林。保留全幅以免裁掉头部与上身。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-008-241849b4c814\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-008\\prepared\\material_00.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_bottom",
+    "photo_middle"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "576ee2fba8a9137a31775c6299225391dd117bdd9618cd1124ca01c860e04c9e",
+    "bindings": "8cf33cc974362aa1c6db0c272afa9eeab27c6ff06be9fbf8d42f8fdab11f8132",
+    "input": "97d6482dff8adfa7c4154784d8280433bb9a13ae8a8a501615ede28c28c0c678",
+    "catalog": "e043afb32c5be5411b3e8a7ddb0b3adb7ccf406ce73c0893cb2c602358e0fed6",
+    "photo_windows": "acca8f15a303e0487549b3da66082085377eff4c1ab276f10f518b525d470da7"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "reveal_config_sha256": "c216edd289059c34fff394fcb8d99432cdf73f9fa164c23dd4de79f0c9d5fb9f"
+}
