@@ -1,0 +1,191 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "整幅粉色底布，均匀铺有大颗白色圆点。",
+      "color": "#F9D5E8"
+    },
+    {
+      "id": "top_lace",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        12,
+        1000,
+        67
+      ],
+      "description": "横贯画面顶部的黑色蕾丝花边，带重复的白色心形、圆点和波浪镂空边缘。"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        97,
+        183,
+        647,
+        482
+      ],
+      "description": "上方矩形自拍窗口：年轻女性近景正面看向镜头，齐刘海、深色长发，佩戴闪亮项链，画面下方可见麦克风；保留室内摄影背景，窗口边缘清晰。"
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        56,
+        154,
+        689,
+        510
+      ],
+      "description": "上方黑色矩形相框，饰有粉白色圆点，承载一张照片；框体与印花整体保留，照片单独替换。",
+      "photo_id": "photo_1"
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        350,
+        593,
+        894,
+        889
+      ],
+      "description": "下方矩形自拍窗口：年轻女性胸部以上近景，正面看向镜头，齐刘海、深色长发，白衣，一根手指抵在下巴附近；保留明亮白色摄影背景，窗口边缘清晰。"
+    },
+    {
+      "id": "frame_2",
+      "kind": "frame",
+      "bbox": [
+        310,
+        565,
+        937,
+        917
+      ],
+      "description": "下方黑色矩形相框，饰有粉白色圆点，承载一张照片；框体与印花整体保留，照片单独替换。",
+      "photo_id": "photo_2"
+    },
+    {
+      "id": "doodle_1",
+      "kind": "overlay",
+      "bbox": [
+        115,
+        189,
+        279,
+        270
+      ],
+      "description": "叠在上方照片左上区域的一组白色手绘小星星、蝴蝶结、卷曲线条和闪光点，作为一组固定装饰保留。"
+    },
+    {
+      "id": "jeweled_loop",
+      "kind": "overlay",
+      "bbox": [
+        543,
+        130,
+        730,
+        270
+      ],
+      "description": "上方相框右上方的银白色水钻环状装饰，带多颗透明圆钻和闪亮质感，跨在相框边缘。"
+    },
+    {
+      "id": "lamb_left",
+      "kind": "overlay",
+      "bbox": [
+        36,
+        376,
+        251,
+        531
+      ],
+      "description": "上方照片左下方的白色蓬松小羊贴饰，带淡蓝色围巾和粉色细节，部分遮挡照片及相框。"
+    },
+    {
+      "id": "bow",
+      "kind": "overlay",
+      "bbox": [
+        574,
+        543,
+        698,
+        630
+      ],
+      "description": "下方相框上沿的粉色缎带蝴蝶结贴饰，带柔和阴影。"
+    },
+    {
+      "id": "lamb_right",
+      "kind": "overlay",
+      "bbox": [
+        803,
+        499,
+        965,
+        666
+      ],
+      "description": "下方照片右上侧的白色蓬松小羊贴饰，带黑色眼鼻和粉色领结，遮挡相框与照片边缘。"
+    },
+    {
+      "id": "caption_1",
+      "kind": "overlay",
+      "bbox": [
+        193,
+        636,
+        436,
+        675
+      ],
+      "description": "粉色圆角对话标签贴纸，带浅色描边和阴影，内有黑色粗体字“I am a princess”。"
+    },
+    {
+      "id": "caption_2",
+      "kind": "overlay",
+      "bbox": [
+        61,
+        682,
+        437,
+        720
+      ],
+      "description": "较宽的粉色圆角对话标签贴纸，带浅色描边和阴影，内有黑色粗体字“But you're not my prince”。"
+    },
+    {
+      "id": "wings",
+      "kind": "overlay",
+      "bbox": [
+        209,
+        834,
+        563,
+        946
+      ],
+      "description": "下方相框底边前方的一对银白色立体天使翅膀装饰，左右分开呈翼形，带高光和阴影。"
+    },
+    {
+      "id": "pearls",
+      "kind": "overlay",
+      "bbox": [
+        790,
+        819,
+        938,
+        920
+      ],
+      "description": "下方照片右下角的一串银白色珍珠装饰，弯曲环绕并跨在照片与相框边缘。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_1",
+    "photo_1",
+    "frame_2",
+    "photo_2",
+    "doodle_1",
+    "jeweled_loop",
+    "lamb_left",
+    "bow",
+    "lamb_right",
+    "caption_1",
+    "caption_2",
+    "pearls",
+    "wings",
+    "top_lace"
+  ]
+}
