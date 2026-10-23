@@ -1,0 +1,242 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    960,
+    1280
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        960,
+        1280
+      ],
+      "description": "整幅灰褐色细颗粒纸质背景，上部较深、下部偏浅，保留自然斑驳纹理与明暗过渡。",
+      "label": "整幅灰褐色细颗粒纸质背景，上部较深、下部偏浅，保留自然斑驳纹",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_coffee",
+      "kind": "photo",
+      "bbox": [
+        128,
+        131,
+        592,
+        748
+      ],
+      "description": "近景照片，中央是一杯透明塑料盖饮料，置于纸浆杯托中，后方可见电脑键盘、屏幕及人物图像。保留完整摄影环境，按窗口裁切，不沿饮料轮廓去背景；整个窗口外缘附有白色细碎手绘描边。下部被星形贴纸和文字纸条遮挡。",
+      "label": "近景照片，中央是一杯透明塑料盖饮料，置于纸浆杯托中，后方可见",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "coffee_title",
+      "kind": "text",
+      "bbox": [
+        213,
+        84,
+        401,
+        120
+      ],
+      "description": "coffee",
+      "label": "coffee",
+      "method": "local",
+      "text": "coffee",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "mono",
+        "align": "center",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "upper_corner",
+      "kind": "overlay",
+      "bbox": [
+        96,
+        100,
+        190,
+        182
+      ],
+      "description": "照片左上方独立白色手绘直角折线，保留粗糙颗粒边缘。",
+      "label": "照片左上方独立白色手绘直角折线，保留粗糙颗粒边缘。",
+      "method": "extract"
+    },
+    {
+      "id": "photo_stars",
+      "kind": "overlay",
+      "bbox": [
+        172,
+        175,
+        316,
+        329
+      ],
+      "description": "叠在饮料照片左上部的三颗白色星星组合，包含一颗空心大星和上下两颗实心小星，保留不规则手绘轮廓。",
+      "label": "叠在饮料照片左上部的三颗白色星星组合，包含一颗空心大星和上下",
+      "method": "extract"
+    },
+    {
+      "id": "right_doodles",
+      "kind": "overlay",
+      "bbox": [
+        622,
+        142,
+        845,
+        461
+      ],
+      "description": "右上方白色手绘气泡与闪光组合，包括纵向散落的空心圆泡、圆内短弧以及周围短线星芒，作为完整局部装饰保留。",
+      "label": "右上方白色手绘气泡与闪光组合，包括纵向散落的空心圆泡、圆内短",
+      "method": "extract"
+    },
+    {
+      "id": "blue_star",
+      "kind": "overlay",
+      "bbox": [
+        8,
+        544,
+        252,
+        792
+      ],
+      "description": "左侧大型蓝色撕纸五角星贴纸，内部保留蓝灰纸张拼接、细小印字和折痕，外围是不规则白色毛边与阴影，覆盖上方照片左下角。",
+      "label": "左侧大型蓝色撕纸五角星贴纸，内部保留蓝灰纸张拼接、细小印字和",
+      "method": "extract"
+    },
+    {
+      "id": "quote_label",
+      "kind": "overlay",
+      "bbox": [
+        337,
+        590,
+        822,
+        742
+      ],
+      "description": "横向浅米色撕纸文字标签，带不规则波浪纸边、白色毛边和阴影；中央印有“不管何时，生活的目标是健康和快乐”，文字与纸张整体保留，覆盖饮料照片下部。",
+      "label": "横向浅米色撕纸文字标签，带不规则波浪纸边、白色毛边和阴影；中",
+      "method": "extract"
+    },
+    {
+      "id": "cup_sticker",
+      "kind": "overlay",
+      "bbox": [
+        640,
+        480,
+        830,
+        620
+      ],
+      "description": "独立饮料杯趣味贴纸，包含黑色杯身、透明封口盖、两只白色圆眼、红白手绘嘴部及左侧白色环线，整体保留实拍材质与附属涂鸦，杯底压在米色文字纸条上。",
+      "label": "独立饮料杯趣味贴纸，包含黑色杯身、透明封口盖、两只白色圆眼、",
+      "method": "extract"
+    },
+    {
+      "id": "bird_pair",
+      "kind": "overlay",
+      "bbox": [
+        184,
+        773,
+        325,
+        913
+      ],
+      "description": "两只沿左下至右上方向排列的白色线描小鸟组合，保留圆眼、翅膀与不规则手绘线条。",
+      "label": "两只沿左下至右上方向排列的白色线描小鸟组合，保留圆眼、翅膀与",
+      "method": "extract"
+    },
+    {
+      "id": "photo_landscape",
+      "kind": "photo",
+      "bbox": [
+        368,
+        781,
+        838,
+        1135
+      ],
+      "description": "横向公园风景照片，前景池塘倒映树木，岸边有草地、长椅与步道，中景高树及开花树木，背景为蓝天和建筑。保留全部摄影环境，不去背景；整个窗口附有白色细颗粒描边，左下部分被半透明音乐播放器覆盖。",
+      "label": "横向公园风景照片，前景池塘倒映树木，岸边有草地、长椅与步道，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "camera_doodle",
+      "kind": "overlay",
+      "bbox": [
+        662,
+        803,
+        786,
+        886
+      ],
+      "description": "叠在风景照片右上方的白色手绘相机与“咔!”字样组合，包含相机轮廓、机顶斜线及右侧强调线，整体保留。",
+      "label": "叠在风景照片右上方的白色手绘相机与“咔!”字样组合，包含相机",
+      "method": "extract"
+    },
+    {
+      "id": "music_player",
+      "kind": "overlay",
+      "bbox": [
+        63,
+        940,
+        431,
+        1126
+      ],
+      "description": "半透明深灰圆角音乐播放器面板，完整保留音符方块、装饰性曲名小字、星号、进度条、时间、音量波形及上一首、暂停、下一首按钮；右部叠在风景照片左侧。",
+      "label": "半透明深灰圆角音乐播放器面板，完整保留音符方块、装饰性曲名小",
+      "method": "extract"
+    },
+    {
+      "id": "landscape_caption",
+      "kind": "text",
+      "bbox": [
+        517,
+        1148,
+        734,
+        1184
+      ],
+      "description": "去有风的地方",
+      "label": "去有风的地方",
+      "method": "local",
+      "text": "去有风的地方",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "center",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "lower_corner",
+      "kind": "overlay",
+      "bbox": [
+        766,
+        1074,
+        861,
+        1156
+      ],
+      "description": "风景照片右下方独立白色手绘直角折线，沿照片外侧向下再向左延伸，保留粗糙线条。",
+      "label": "风景照片右下方独立白色手绘直角折线，沿照片外侧向下再向左延伸",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_coffee",
+    "photo_landscape",
+    "upper_corner",
+    "coffee_title",
+    "photo_stars",
+    "right_doodles",
+    "blue_star",
+    "quote_label",
+    "cup_sticker",
+    "bird_pair",
+    "camera_doodle",
+    "music_player",
+    "landscape_caption",
+    "lower_corner"
+  ]
+}
