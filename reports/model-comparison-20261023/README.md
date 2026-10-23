@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-23T18:59:29+08:00。共 348 个任务。
+最后更新：2026-10-23T19:00:33+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -29,10 +29,10 @@
 | [009 · 7475247081922252056.png](cases/009/README.md)<br>![参考](cases/009/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [010 · 7475568224013208894.png](cases/010/README.md)<br>![参考](cases/010/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [011 · 7476679583430053145.png](cases/011/README.md)<br>![参考](cases/011/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
-| [012 · 7490956089585077529.png](cases/012/README.md)<br>![参考](cases/012/reference-thumb.jpg) | 运行中 | 排队 | 待提交 |
+| [012 · 7490956089585077529.png](cases/012/README.md)<br>![参考](cases/012/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [013 · 7492325253402692888.png](cases/013/README.md)<br>![参考](cases/013/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [014 · 7496082541808766270.png](cases/014/README.md)<br>![参考](cases/014/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
-| [015 · 7496141849216798014.png](cases/015/README.md)<br>![参考](cases/015/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
+| [015 · 7496141849216798014.png](cases/015/README.md)<br>![参考](cases/015/reference-thumb.jpg) | 运行中 | 排队 | 待提交 |
 | [016 · 7496451573170752793.png](cases/016/README.md)<br>![参考](cases/016/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [017 · 7501925026891861272.png](cases/017/README.md)<br>![参考](cases/017/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [018 · 7502022491997687064.png](cases/018/README.md)<br>![参考](cases/018/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
