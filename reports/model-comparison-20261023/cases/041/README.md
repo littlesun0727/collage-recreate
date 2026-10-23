@@ -30,4 +30,4 @@ yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况
 
 ## Codex gpt-6.1-sol / medium
 
-运行中 · analyze
+运行中 · build
