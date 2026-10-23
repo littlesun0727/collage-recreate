@@ -1,0 +1,186 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    960,
+    1280
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        960,
+        1280
+      ],
+      "description": "铺满画面的户外足球场照片背景，保留树林、草地和光影环境；人物与足球在前景独立显示。",
+      "label": "铺满画面的户外足球场照片背景，保留树林、草地和光影环境；人物",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        378,
+        960,
+        1280
+      ],
+      "description": "主照片底图，年轻女性近景，棕色双辫、戴耳机、穿白蓝足球主题背心，面向镜头并在右侧托举大型足球；人物及球与草地树林摄影环境连续呈现，照片画面延伸至画面底边。",
+      "label": "主照片底图，年轻女性近景，棕色双辫、戴耳机、穿白蓝足球主题背",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_main_fg",
+      "kind": "photo",
+      "bbox": [
+        0,
+        381,
+        938,
+        1280
+      ],
+      "description": "从主照片底图中沿女性及其托举足球的完整主体轮廓显示的前景层，人物辫子和手臂越过照片显示范围并遮挡背景草地；摄影背景保留在底图中。",
+      "linked_to": "photo_main",
+      "label": "从主照片底图中沿女性及其托举足球的完整主体轮廓显示的前景层，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_cutout",
+      "kind": "photo",
+      "bbox": [
+        74,
+        82,
+        414,
+        525
+      ],
+      "description": "左上方独立抠图贴片：全身女性穿白蓝运动服，身体向右倾斜、头靠近足球并以手触球；白色手绘轮廓沿人物与足球组合外缘，摄影背景去除。",
+      "label": "左上方独立抠图贴片：全身女性穿白蓝运动服，身体向右倾斜、头靠",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_music",
+      "kind": "frame",
+      "bbox": [
+        612,
+        10,
+        942,
+        426
+      ],
+      "description": "右上竖向圆角白色播放器照片框，宽白边和底部较厚纸面整体保留，内口照片独立替换。",
+      "photo_id": "photo_music",
+      "label": "右上竖向圆角白色播放器照片框，宽白边和底部较厚纸面整体保留，",
+      "method": "extract"
+    },
+    {
+      "id": "photo_music",
+      "kind": "photo",
+      "bbox": [
+        634,
+        32,
+        922,
+        399
+      ],
+      "description": "右上播放器内竖幅照片，女性穿白蓝背心正面出镜，辫发并托着足球；保留照片内树林环境，边缘由白色圆角框承托。",
+      "label": "右上播放器内竖幅照片，女性穿白蓝背心正面出镜，辫发并托着足球",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_player",
+      "kind": "overlay",
+      "bbox": [
+        636,
+        421,
+        942,
+        539
+      ],
+      "description": "照片框下方黑色音乐播放器控制装饰，含 Music 字样、进度条、时间、播放暂停及切歌循环图标，作为一体界面保留。",
+      "label": "照片框下方黑色音乐播放器控制装饰，含 Music 字样、进度",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_ball",
+      "kind": "overlay",
+      "bbox": [
+        531,
+        522,
+        917,
+        905
+      ],
+      "description": "右侧大型黑白足球贴纸，带有可见印刷字样与圆形标记，完整球面及边缘阴影作为独立装饰保留。",
+      "label": "右侧大型黑白足球贴纸，带有可见印刷字样与圆形标记，完整球面及",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_blue_hearts",
+      "kind": "overlay",
+      "bbox": [
+        449,
+        269,
+        579,
+        388
+      ],
+      "description": "照片之间的蓝色手绘爱心组合，包含一个大心形和两枚小心形，作为同一组装饰保留。",
+      "label": "照片之间的蓝色手绘爱心组合，包含一个大心形和两枚小心形，作为",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_star",
+      "kind": "overlay",
+      "bbox": [
+        4,
+        530,
+        221,
+        736
+      ],
+      "description": "左侧白色手绘放射星星涂鸦，含星形轮廓和周围短线，整体作为一组装饰保留。",
+      "label": "左侧白色手绘放射星星涂鸦，含星形轮廓和周围短线，整体作为一组",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_cyan_doodle",
+      "kind": "overlay",
+      "bbox": [
+        237,
+        576,
+        651,
+        1280
+      ],
+      "description": "主照片前方浅青色手绘线条装饰，从星形附近绕过人物与足球，形成弧线、星形端点及小方形结饰，完整保留。",
+      "label": "主照片前方浅青色手绘线条装饰，从星形附近绕过人物与足球，形成",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_bow",
+      "kind": "overlay",
+      "bbox": [
+        199,
+        547,
+        249,
+        635
+      ],
+      "description": "人物头发旁的白色蝴蝶结贴饰，带浅灰阴影，作为独立装饰保留。",
+      "label": "人物头发旁的白色蝴蝶结贴饰，带浅灰阴影，作为独立装饰保留。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_main",
+    "photo_cutout",
+    "frame_music",
+    "photo_music",
+    "overlay_player",
+    "photo_main_fg",
+    "overlay_ball",
+    "overlay_blue_hearts",
+    "overlay_star",
+    "overlay_bow",
+    "overlay_cyan_doodle"
+  ]
+}

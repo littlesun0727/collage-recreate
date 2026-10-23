@@ -1,0 +1,114 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T10:56:50.500885+00:00",
+      "finished_at": "2026-10-23T10:57:23.695405+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T10:57:23.715836+00:00",
+      "finished_at": "2026-10-23T10:57:52.706494+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T10:57:52.731594+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T10:57:52.731617+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "complete",
+      "started_at": "2026-10-23T10:57:52.737133+00:00",
+      "finished_at": "2026-10-23T10:58:24.982819+00:00",
+      "value": null
+    },
+    "build": {
+      "status": "complete",
+      "started_at": "2026-10-23T10:58:24.988557+00:00",
+      "finished_at": "2026-10-23T11:01:35.957698+00:00",
+      "value": null
+    },
+    "screen": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T11:01:35.964327+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "screen_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T11:01:35.964343+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "register": {
+      "status": "complete",
+      "started_at": "2026-10-23T11:01:36.199090+00:00",
+      "finished_at": "2026-10-23T11:01:37.764389+00:00",
+      "value": null
+    }
+  },
+  "started_at": "2026-10-23T10:56:50.264591+00:00",
+  "identity": "9a9788e1e4c9dfdb99ecbee24adf545089d3b806d9e2c001d79bd927783d79ad",
+  "status": "finished",
+  "error": null,
+  "binding_contract": "photo-binding-v9-1",
+  "model": "gpt-6-luna",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "gpt-6-luna",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "gpt-6-luna",
+      "reasoning": {
+        "enabled": true,
+        "effort": "medium"
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "codex",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T11:01:37.771643+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 56975,
+    "completion_tokens": 2036,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 13020,
+  "current_step": "register",
+  "warnings": [
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "background_1：背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：ValueError: Background cleanup has unmapped objects: photo_main_fg"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "photo_cutout：照片特效失败，保留同一客户素材的普通裁剪：Empty customer cutout"
+    }
+  ],
+  "last_render_id": "e09d4722ee9a2bfa",
+  "finished_at": "2026-10-23T11:01:37.771518+00:00"
+}
