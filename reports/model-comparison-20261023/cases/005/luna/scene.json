@@ -1,0 +1,845 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\prepared\\reference.png",
+    "sha256": "b2fe0add787f1e5885a7eb05797774566a6fcfbac23ba28413a4fab151284d36"
+  },
+  "reference_size": [
+    960,
+    1280
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "backdrop_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        960,
+        1280
+      ],
+      "description": "全幅山地风景摄影：前景为暗色草地，右下有一匹马，中景是绿色山坡与雪山，背景为蓝天。保留完整摄影环境，无主体抠图或沿主体描边。",
+      "label": "全幅山地风景摄影：前景为暗色草地，右下有一匹马，中景是绿色山",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "backdrop_photo",
+        "reason": "全幅摄影环境包含天空、山地、草地和马，均属于底图；无沿主体轮廓描边。画面覆盖整幅画布，无独立窗口边缘或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "backdrop_photo",
+        "asset_id": "material_03",
+        "source_crop": [
+          0.29,
+          0,
+          0.71,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "山地与蓝天的全景环境最接近，但山体干旱且没有雪山、绿坡或马；横幅取中央山脊区域适配竖幅，保留完整摄影环境。"
+      },
+      "source": {
+        "id": "material_03",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-006-92c113c7c984\\2bcfdb727b916f4eebf230f31a2cebc50164c3c09a648beb58274579a4ecaddb.png",
+        "sha256": "87ae8cd18b29841f2ca0a5a686645c02f358a85995090a2e901955cbd278009d",
+        "size": [
+          1308,
+          736
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\prepared\\material_03.jpg"
+      }
+    },
+    {
+      "id": "top_tint",
+      "kind": "overlay",
+      "bbox": [
+        182,
+        238,
+        777,
+        436
+      ],
+      "description": "天空上方横向半透明深蓝矩形色块，矩形边缘清晰，透出下方景色。",
+      "label": "天空上方横向半透明深蓝矩形色块，矩形边缘清晰，透出下方景色。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3219c5a1a51e060c1d71fe105c48111ab252e74b7aa0ff15387e4d83ad05c22b"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\top_tint.png",
+        "sha256": "c32a7e77d75cbcdab01d7bcf122dafcef0f691b7266c69c276b8db11d1d9da78",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\top_tint-restored.png",
+          "sha256": "c32a7e77d75cbcdab01d7bcf122dafcef0f691b7266c69c276b8db11d1d9da78",
+          "bbox": [
+            174,
+            230,
+            785,
+            444
+          ],
+          "original_bbox": [
+            182,
+            238,
+            777,
+            436
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "db0529a6f76fdff73413bdb158a34b43554d69d644d4bfcf05c3a16102d04426",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            960,
+            1280
+          ],
+          "input_sha256": "b2fe0add787f1e5885a7eb05797774566a6fcfbac23ba28413a4fab151284d36"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\top_tint-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\top_tint-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "moon_photo",
+      "kind": "photo",
+      "bbox": [
+        228,
+        589,
+        372,
+        777
+      ],
+      "description": "左侧小幅竖向日落照片，画面中有水面、远处城市天际线和面向水面的单人背影；保留照片内部摄影环境，窗口边缘为矩形。",
+      "label": "左侧小幅竖向日落照片，画面中有水面、远处城市天际线和面向水面",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "moon_photo",
+        "reason": "保留日落、水面、天际线与人物所在的摄影环境；矩形照片窗口独立于人物轮廓。周边蓝色手绘装饰不属于照片窗口描边；各边界清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "moon_photo",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "日落水面与面向水面的单人背影相符；人物双臂上举，且没有城市天际线，保留全幅以呈现夕照和倒影。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-006-92c113c7c984\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "autumn_photo",
+      "kind": "photo",
+      "bbox": [
+        601,
+        522,
+        750,
+        716
+      ],
+      "description": "右上小幅竖向户外照片，树枝垂在画面上沿，单人背对镜头站在栏杆前眺望湖面与远山；保留照片内部摄影环境，窗口边缘为矩形。",
+      "label": "右上小幅竖向户外照片，树枝垂在画面上沿，单人背对镜头站在栏杆",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "autumn_photo",
+        "reason": "保留树枝、湖面、远山及人物所在的完整摄影环境；矩形照片窗口不沿人物或枝叶裁切。周边手绘装饰不作为窗口描边；边界清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "autumn_photo",
+        "asset_id": "material_15",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "单人背对镜头眺望湖面的姿态接近；素材为开阔湖岸而非树枝、栏杆与远山，保留全幅避免裁掉人物。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-006-92c113c7c984\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\prepared\\material_15.jpg"
+      }
+    },
+    {
+      "id": "spring_photo",
+      "kind": "photo",
+      "bbox": [
+        74,
+        868,
+        238,
+        1096
+      ],
+      "description": "左下竖向秋色户外照片，一人戴帽、穿条纹上衣站在木栏旁，背后是红褐色树叶；保留照片内部摄影环境，窗口边缘为矩形。",
+      "label": "左下竖向秋色户外照片，一人戴帽、穿条纹上衣站在木栏旁，背后是",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "spring_photo",
+        "reason": "保留红褐色树叶、木栏与人物构成的摄影环境；矩形照片窗口独立于人物轮廓。外侧蓝色手绘框线不是照片窗口描边；边界清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "spring_photo",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "户外戴帽单人侧身的构图较接近；素材没有条纹上衣、木栏或红褐树叶，保留全幅以呈现人物和环境。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-006-92c113c7c984\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "winter_photo",
+      "kind": "photo",
+      "bbox": [
+        788,
+        826,
+        936,
+        986
+      ],
+      "description": "右下小幅横向室内照片，一人坐在窗边背对镜头，面向窗外绿色景物；保留照片内部摄影环境，窗口边缘为矩形。",
+      "label": "右下小幅横向室内照片，一人坐在窗边背对镜头，面向窗外绿色景物",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "winter_photo",
+        "reason": "保留窗边人物、室内及窗外绿色景物的摄影环境；矩形照片窗口不沿人物轮廓裁切。周边蓝色手绘装饰不作窗口描边；边界清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "winter_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有单人及窗外般的开阔景物，但实际是户外近景自拍，不符合室内背对镜头坐在窗边的场景；保留全幅呈现人物与水景。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-006-92c113c7c984\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "moon_doodle",
+      "kind": "overlay",
+      "bbox": [
+        43,
+        131,
+        849,
+        1082
+      ],
+      "description": "蓝色手绘月相与连接线装饰：上方弧形排列的月牙和圆月，细长蓝线向下连接四季照片区域，中心线延伸至下方黄色蓝边星形及周围短线点缀；整体作为一组固定插画保留。",
+      "label": "蓝色手绘月相与连接线装饰：上方弧形排列的月牙和圆月，细长蓝线",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "14b0e064b4e6f2baea73e070d89a37c23be483eabd86ef14f70d13ce6e974481"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\moon_doodle.png",
+        "sha256": "76a59bfc5cb514fe1f763abb6a017fdb5b3bb95244069af7919eaae39d3552fd",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\moon_doodle-restored.png",
+          "sha256": "76a59bfc5cb514fe1f763abb6a017fdb5b3bb95244069af7919eaae39d3552fd",
+          "bbox": [
+            35,
+            123,
+            857,
+            1090
+          ],
+          "original_bbox": [
+            43,
+            131,
+            849,
+            1082
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "55b8a28f808e1d875a29c3a062d0e3cca9f6512d10bbf4365daea52aebb74e6c",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            960,
+            1280
+          ],
+          "input_sha256": "b2fe0add787f1e5885a7eb05797774566a6fcfbac23ba28413a4fab151284d36"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\moon_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\moon_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "summer_frame_doodle",
+      "kind": "overlay",
+      "bbox": [
+        198,
+        568,
+        396,
+        800
+      ],
+      "description": "左侧日落照片周围的蓝色手绘不规则框线、角边短划及上方手写“Summer”字样，作为一组照片旁固定装饰保留。",
+      "label": "左侧日落照片周围的蓝色手绘不规则框线、角边短划及上方手写“S",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "eb77abbe1ac50109b3eb8a70f7ae1d9ea4bb92005efce5baff1e8878d1e94982"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\summer_frame_doodle.png",
+        "sha256": "005a1d3f8161d3ba425b82f6e2317092ac4bdd1a6849947023531764570a9e9d",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\summer_frame_doodle-restored.png",
+          "sha256": "005a1d3f8161d3ba425b82f6e2317092ac4bdd1a6849947023531764570a9e9d",
+          "bbox": [
+            190,
+            560,
+            404,
+            808
+          ],
+          "original_bbox": [
+            198,
+            568,
+            396,
+            800
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "1be8ff765c95795e2c51d1b8d1b1eb0582e452bf002357ced81ddbc34de57ebe",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            960,
+            1280
+          ],
+          "input_sha256": "b2fe0add787f1e5885a7eb05797774566a6fcfbac23ba28413a4fab151284d36"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\summer_frame_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\summer_frame_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "autumn_frame_doodle",
+      "kind": "overlay",
+      "bbox": [
+        579,
+        499,
+        766,
+        723
+      ],
+      "description": "右上照片周围的蓝色手绘不规则框线、角边短划及上方手写“Autumn”字样，作为一组照片旁固定装饰保留。",
+      "label": "右上照片周围的蓝色手绘不规则框线、角边短划及上方手写“Aut",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "a5582cd8e77d0e5b1d32ded7cd3aebccfe119fd381faf2110618b9ba38fafc79"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\autumn_frame_doodle.png",
+        "sha256": "4cc9c94b7b72a7666d46a5c3a0095af05ed52f23226b76623bb23ab3fd72b2e5",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\autumn_frame_doodle-restored.png",
+          "sha256": "4cc9c94b7b72a7666d46a5c3a0095af05ed52f23226b76623bb23ab3fd72b2e5",
+          "bbox": [
+            571,
+            491,
+            774,
+            731
+          ],
+          "original_bbox": [
+            579,
+            499,
+            766,
+            723
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "2c6071453fc003e774e048d25f5f4f714e6387e2ae1d33c7659ac8edbb4f6bf3",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            960,
+            1280
+          ],
+          "input_sha256": "b2fe0add787f1e5885a7eb05797774566a6fcfbac23ba28413a4fab151284d36"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\autumn_frame_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\autumn_frame_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "spring_frame_doodle",
+      "kind": "overlay",
+      "bbox": [
+        42,
+        832,
+        252,
+        1110
+      ],
+      "description": "左下照片周围的蓝色手绘不规则框线、角边短划及上方手写“Spring”字样，作为一组照片旁固定装饰保留。",
+      "label": "左下照片周围的蓝色手绘不规则框线、角边短划及上方手写“Spr",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f9d669acc7adce797070c6b3b59d052e4644c2b0305240533484319e3b171255"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\spring_frame_doodle.png",
+        "sha256": "82a43c8b76b99262922ec791cf2c468cfde9cbcadf31271e5886d6d6ef824d09",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\spring_frame_doodle-restored.png",
+          "sha256": "82a43c8b76b99262922ec791cf2c468cfde9cbcadf31271e5886d6d6ef824d09",
+          "bbox": [
+            34,
+            824,
+            260,
+            1118
+          ],
+          "original_bbox": [
+            42,
+            832,
+            252,
+            1110
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "8f8a81699e49a5670e0aebb9d2bcf83a682b4e1ab80725b6701c9df12f65d132",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            960,
+            1280
+          ],
+          "input_sha256": "b2fe0add787f1e5885a7eb05797774566a6fcfbac23ba28413a4fab151284d36"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\spring_frame_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\spring_frame_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "winter_frame_doodle",
+      "kind": "overlay",
+      "bbox": [
+        778,
+        786,
+        950,
+        1005
+      ],
+      "description": "右下照片周围的蓝色手绘不规则框线、角边短划及上方手写“Winter”字样，作为一组照片旁固定装饰保留。",
+      "label": "右下照片周围的蓝色手绘不规则框线、角边短划及上方手写“Win",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8d80ea1fe1e93ee7ce2296e22d1b9a1d01e058e55cfa7e19278dab77c98d6141"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\winter_frame_doodle.png",
+        "sha256": "8e947331d0645f1ec8d3845e5473a537d963fb2d289b010fe867a3434fea8dc6",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\winter_frame_doodle-restored.png",
+          "sha256": "8e947331d0645f1ec8d3845e5473a537d963fb2d289b010fe867a3434fea8dc6",
+          "bbox": [
+            770,
+            778,
+            958,
+            1013
+          ],
+          "original_bbox": [
+            778,
+            786,
+            950,
+            1005
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "7f18b04f113e4df00027b5bcf62fe605f49a3f45ac9be732b33c85f48b03387b",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            960,
+            1280
+          ],
+          "input_sha256": "b2fe0add787f1e5885a7eb05797774566a6fcfbac23ba28413a4fab151284d36"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\winter_frame_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\winter_frame_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "top_caption",
+      "kind": "text",
+      "bbox": [
+        245,
+        50,
+        714,
+        106
+      ],
+      "description": "月在自己周期里阴晴圆缺 无数个“圆缺”构成了Ta\n而我也在自己的序里汇成了“自己”",
+      "label": "月在自己周期里阴晴圆缺 无数个“圆缺”构成了Ta\n而我也在自",
+      "method": "local",
+      "text": "月在自己周期里阴晴圆缺 无数个“圆缺”构成了Ta\n而我也在自己的序里汇成了“自己”",
+      "text_status": "known",
+      "style": {
+        "fill": "#EAF2FF",
+        "font": "cjk",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "bottom_caption",
+      "kind": "text",
+      "bbox": [
+        322,
+        1189,
+        642,
+        1225
+      ],
+      "description": "在无数个瞬间里感受自己",
+      "label": "在无数个瞬间里感受自己",
+      "method": "local",
+      "text": "在无数个瞬间里感受自己",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "backdrop_photo",
+    "moon_doodle",
+    "top_tint",
+    "moon_photo",
+    "autumn_photo",
+    "spring_photo",
+    "winter_photo",
+    "summer_frame_doodle",
+    "autumn_frame_doodle",
+    "spring_frame_doodle",
+    "winter_frame_doodle",
+    "top_caption",
+    "bottom_caption"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "3f439e7415cc352e622eb9fd66ce48ebd89dda76a9666c4b2484d12c4d12afd7",
+    "bindings": "315597bfa2d8b8a2e12485c42c58218c6e24880dea87dd54ab6b1c8c4cfd7b02",
+    "input": "6509bd6c1b4b424d278c2aba6eff1ff820f5671ef755c75264cba3237d414555",
+    "catalog": "edf34829f43930b946ee4e2be1394dd49b146769757f5c60e7af84d54028f7b2",
+    "photo_windows": "21bb8ad438455378af70b8b3e6d78afdf51829d8d02ace530512981e7847ad9b"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\reveal\\index.json",
+    "sha256": "c730b3edafba45dd5ed4e222d9380a32f19a4e9c3a8e18c5f1f477da4e3de116"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-006\\assets\\gate\\report.json",
+    "sha256": "2b95d8878a29a871e49e74e458bbd1904e7105c6ff8e1b1259518c9b72922034",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 6,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
