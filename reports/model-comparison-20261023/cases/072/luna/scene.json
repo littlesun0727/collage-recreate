@@ -1,0 +1,1026 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\prepared\\reference.png",
+    "sha256": "8602383cfc802963b148de1cf0a296d81bdc09f11bab888a1509a5d30b1c7f26"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定的复古墙面与地面背景：上部深棕色墙面、中下部浅黄褐色粗糙纹理墙面及底部深色地面，保留材质、接缝和明暗变化。",
+      "label": "固定的复古墙面与地面背景：上部深棕色墙面、中下部浅黄褐色粗糙",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "ValueError: Reveal task failed; saved task will not be resubmitted",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "6fdcd3c70a3abf319bdbacc7597c536c8d2aae2e42cbb1810a9ef32197d9080d"
+      }
+    },
+    {
+      "id": "photo_food",
+      "kind": "photo",
+      "bbox": [
+        119,
+        166,
+        390,
+        436
+      ],
+      "description": "咖啡馆桌面静物照片，保留周围环境；桌上有蛋糕、咖啡、饮料、甜点和一只坐着的泰迪熊玩偶，物件相互靠近，无主体描边或渐隐。",
+      "label": "咖啡馆桌面静物照片，保留周围环境；桌上有蛋糕、咖啡、饮料、甜",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_food",
+        "reason": "保留桌面静物的摄影环境；照片为独立矩形窗口，周边墙面及叠放装饰形成清晰硬边，没有窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_food",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中是盐湖、建筑与户外景色，没有蛋糕、饮品或泰迪熊，目录中无咖啡馆桌面静物可匹配。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-133-f9eb5590f05a\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "photo_woman_right",
+      "kind": "photo",
+      "bbox": [
+        478,
+        209,
+        780,
+        614
+      ],
+      "description": "咖啡馆内坐着的年轻女性半身照片，长深色头发，正面朝向镜头，手持勺子靠近嘴边；桌上有餐盘和蓝色饮料，墙面海报、窗帘及餐厅环境保留，无描边或渐隐。",
+      "label": "咖啡馆内坐着的年轻女性半身照片，长深色头发，正面朝向镜头，手",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_woman_right",
+        "reason": "保留女性、餐桌及墙面海报等摄影环境；矩形照片边界清晰，底部与墙面装饰相邻但没有渐隐或独立窗口描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_woman_right",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "有清晰的单人女性半身和可辨环境，但她戴帽、墨镜并在户外指向远处，姿势与咖啡馆正面持勺场景不同。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-133-f9eb5590f05a\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "photo_woman_center",
+      "kind": "photo",
+      "bbox": [
+        244,
+        478,
+        520,
+        822
+      ],
+      "description": "咖啡馆桌边年轻女性上半身照片，长深色头发，低头看向手中食物，周围桌面有饮品、餐点和玩偶，椅子及室内环境保留，无描边或渐隐。",
+      "label": "咖啡馆桌边年轻女性上半身照片，长深色头发，低头看向手中食物，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_woman_center",
+        "reason": "保留女性、桌面、玩偶及室内环境；照片为硬边矩形窗口，周围纸条、唱片等覆盖或邻接照片，不构成渐变或窗口描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_woman_center",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "有清晰完整的女性主体及周围湖岸环境，但为户外戴帽摆姿，与低头进食及室内桌边场景不符。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-133-f9eb5590f05a\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_coffee",
+      "kind": "photo",
+      "bbox": [
+        140,
+        859,
+        359,
+        1076
+      ],
+      "description": "一杯置于碟上的陶杯拿铁照片，杯面有心形拉花，保留桌面和周围摄影环境，无描边或渐隐。",
+      "label": "一杯置于碟上的陶杯拿铁照片，杯面有心形拉花，保留桌面和周围摄",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_coffee",
+        "reason": "保留咖啡杯、碟及桌面摄影环境；矩形照片窗口边缘可辨，唱片与下方胶带为叠加装饰，不需窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_coffee",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "画面是湖水、建筑与天空，没有陶杯或拿铁，目录中无咖啡照片可匹配。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-133-f9eb5590f05a\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "photo_outfit",
+      "kind": "photo",
+      "bbox": [
+        538,
+        726,
+        760,
+        1066
+      ],
+      "description": "俯拍穿搭照片，可见格纹衣物、腿部及鞋袜，旁边有小玩偶和一杯饮品；保留原摄影环境，无描边或渐隐。",
+      "label": "俯拍穿搭照片，可见格纹衣物、腿部及鞋袜，旁边有小玩偶和一杯饮",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_outfit",
+        "reason": "保留穿搭、腿部、玩偶、饮品及原摄影环境；矩形照片边界清楚，周边纸胶带与格纹纸是覆盖装饰，并无窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_outfit",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "可见人物从头到鞋的穿搭及湖岸环境，但人物为侧身站立而非俯拍格纹衣物、腿鞋与玩偶饮品；无更贴合的穿搭素材。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-133-f9eb5590f05a\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "camera_doodle",
+      "kind": "overlay",
+      "bbox": [
+        193,
+        125,
+        325,
+        206
+      ],
+      "description": "白色手绘相机轮廓涂鸦，含机身、取景部和镜头，线条跨在左上照片上沿及其上方背景。",
+      "label": "白色手绘相机轮廓涂鸦，含机身、取景部和镜头，线条跨在左上照片",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "72b7013d1181eb4202fcd1cfbf791f928021ab551c31b914c5bbab26d2f6b59b"
+      }
+    },
+    {
+      "id": "rip_lettering",
+      "kind": "overlay",
+      "bbox": [
+        555,
+        97,
+        786,
+        251
+      ],
+      "description": "大型白色手绘艺术字“RIP”，字形细长、带粗糙刷痕和阴影，跨在右上照片上方。",
+      "label": "大型白色手绘艺术字“RIP”，字形细长、带粗糙刷痕和阴影，跨",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "2af576e9a6bfbd3f907f2e3483a15f2e66f682d60ec00c5a9db434dcb575582a"
+      }
+    },
+    {
+      "id": "message_label",
+      "kind": "overlay",
+      "bbox": [
+        217,
+        419,
+        518,
+        512
+      ],
+      "description": "两条叠放的浅色撕边纸条组成的手写标签，写有“Found a quiet corner”和“of the world.”，含纸张纹理及阴影，压住照片交界处。",
+      "label": "两条叠放的浅色撕边纸条组成的手写标签，写有“Found a ",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "075437e68639dd972b0675e2ba78258aeb46e482004834196124e8ea612ceb07"
+      }
+    },
+    {
+      "id": "label_tape",
+      "kind": "overlay",
+      "bbox": [
+        332,
+        359,
+        422,
+        422
+      ],
+      "description": "压在手写标签上沿的棕色半透明胶带，带有深色手绘符号及褶皱纹理。",
+      "label": "压在手写标签上沿的棕色半透明胶带，带有深色手绘符号及褶皱纹理",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "65815f9ecb857879f5e9dbc7585eeec60c4e98668ddf793df3bf406cd308b50a"
+      }
+    },
+    {
+      "id": "vinyl_record",
+      "kind": "overlay",
+      "bbox": [
+        154,
+        695,
+        385,
+        918
+      ],
+      "description": "黑色唱片装饰，含中心秋叶图案、白色手写“Autumn”和“whispers”字样及音符、闪电等小涂鸦，整体覆盖中部照片与下方咖啡照片交界。",
+      "label": "黑色唱片装饰，含中心秋叶图案、白色手写“Autumn”和“w",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "164f009083de32973fa88d26f006f36940d07ff88c917518c071a8c99ca94211"
+      }
+    },
+    {
+      "id": "plaid_patch",
+      "kind": "overlay",
+      "bbox": [
+        627,
+        725,
+        805,
+        894
+      ],
+      "description": "棕红格纹方形布贴，带白色枫叶线稿及“No ONE BUT You.”字样，作为完整装饰贴在右侧照片附近。",
+      "label": "棕红格纹方形布贴，带白色枫叶线稿及“No ONE BUT Y",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "6550c5e27e04e270a7f23793aae0ec5391fdc5329e9f6d75787bbc42c6c61960"
+      }
+    },
+    {
+      "id": "tape_outfit_upper",
+      "kind": "overlay",
+      "bbox": [
+        485,
+        808,
+        634,
+        946
+      ],
+      "description": "斜贴在右下照片左上侧的浅色撕边胶带，带纸张褶皱与阴影。",
+      "label": "斜贴在右下照片左上侧的浅色撕边胶带，带纸张褶皱与阴影。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "69c59eb0ad56a20e697978383c62eb706127430a9644f80547606121cccb870f"
+      }
+    },
+    {
+      "id": "tape_outfit_lower",
+      "kind": "overlay",
+      "bbox": [
+        644,
+        954,
+        777,
+        1109
+      ],
+      "description": "斜贴在右下照片右下侧的浅色撕边胶带，带纸张褶皱与阴影。",
+      "label": "斜贴在右下照片右下侧的浅色撕边胶带，带纸张褶皱与阴影。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "df015388304a1f24ed4ef647bd5d8623bbc963a0340680e81b035f7f22e2766f"
+      }
+    },
+    {
+      "id": "tape_coffee",
+      "kind": "overlay",
+      "bbox": [
+        62,
+        1018,
+        272,
+        1136
+      ],
+      "description": "横斜覆盖在左下咖啡照片底部及其下方的银灰色皱褶胶带，保留反光纹理和阴影。",
+      "label": "横斜覆盖在左下咖啡照片底部及其下方的银灰色皱褶胶带，保留反光",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "a7e3733cad284cda7cfbe2968c3b619f3d3c592c546a1973eed606f061f5af8c"
+      }
+    },
+    {
+      "id": "cat_doodle",
+      "kind": "overlay",
+      "bbox": [
+        531,
+        542,
+        742,
+        736
+      ],
+      "description": "白色手绘猫咪线稿，猫呈坐姿并带有弯曲延伸的线条，覆盖右侧照片下沿及墙面。",
+      "label": "白色手绘猫咪线稿，猫呈坐姿并带有弯曲延伸的线条，覆盖右侧照片",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "0ece6ae0ad848cf1289ddc861047c19f5996ce28ba350b349980ebb949230516"
+      }
+    },
+    {
+      "id": "camera_marks",
+      "kind": "overlay",
+      "bbox": [
+        76,
+        197,
+        416,
+        394
+      ],
+      "description": "左上照片周围的白色手绘装饰线，包括两侧弯曲短线及邻近的小断续笔画。",
+      "label": "左上照片周围的白色手绘装饰线，包括两侧弯曲短线及邻近的小断续",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "aba4924858b982afaf4d1f65ac2e5ebb26ae6e31b024adc1abaee9da4ad5c449"
+      }
+    },
+    {
+      "id": "star_left_upper",
+      "kind": "overlay",
+      "bbox": [
+        47,
+        374,
+        89,
+        430
+      ],
+      "description": "白色手绘空心星形涂鸦。",
+      "label": "白色手绘空心星形涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "37ef14435beba56e1e855e50218ed8860cfa104bca1530a9113b22eb49c89440"
+      }
+    },
+    {
+      "id": "droplet_upper",
+      "kind": "overlay",
+      "bbox": [
+        125,
+        512,
+        170,
+        587
+      ],
+      "description": "白色手绘水滴形轮廓涂鸦。",
+      "label": "白色手绘水滴形轮廓涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "5205be9ba7bcb9d3be9094c2773449f1fdd8e1d640e38d4d00e3c8895685f7ef"
+      }
+    },
+    {
+      "id": "droplet_middle",
+      "kind": "overlay",
+      "bbox": [
+        176,
+        594,
+        222,
+        671
+      ],
+      "description": "白色实心水滴形涂鸦。",
+      "label": "白色实心水滴形涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e184f768d63e2693d0e935cd895161f0246ffd551103befa5eb52d799b6b431b"
+      }
+    },
+    {
+      "id": "droplet_lower",
+      "kind": "overlay",
+      "bbox": [
+        94,
+        662,
+        141,
+        736
+      ],
+      "description": "白色手绘水滴形轮廓涂鸦。",
+      "label": "白色手绘水滴形轮廓涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e46940b0238285a9a038493629738909a7b02f107151fcb6d6fa69b713aa825a"
+      }
+    },
+    {
+      "id": "star_right",
+      "kind": "overlay",
+      "bbox": [
+        833,
+        506,
+        879,
+        564
+      ],
+      "description": "白色手绘星形涂鸦，笔画略粗糙。",
+      "label": "白色手绘星形涂鸦，笔画略粗糙。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "3b935ab224b38eed9c7a5bb7729a1131023eae891fca80a4ef57b3e09352ea4d"
+      }
+    },
+    {
+      "id": "star_left_lower",
+      "kind": "overlay",
+      "bbox": [
+        14,
+        850,
+        47,
+        887
+      ],
+      "description": "白色手绘小星形涂鸦。",
+      "label": "白色手绘小星形涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "4475c159a6a5514245a7794463ddd07f4468268cd8b54e433b36718e93a48020"
+      }
+    },
+    {
+      "id": "star_left_bottom",
+      "kind": "overlay",
+      "bbox": [
+        74,
+        896,
+        115,
+        948
+      ],
+      "description": "白色手绘星形涂鸦。",
+      "label": "白色手绘星形涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e9b51c5b24b0b0dd56affe4fa3391dc797ea8c0bad76b2795e70d9a3b7558b21"
+      }
+    },
+    {
+      "id": "star_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        854,
+        1133,
+        886,
+        1183
+      ],
+      "description": "白色手绘星形涂鸦，位于画面右下角。",
+      "label": "白色手绘星形涂鸦，位于画面右下角。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "6ff9449a096f444fa83ecf9d8fb02231853f5933ec8ab35266df260fb77b1398"
+      }
+    },
+    {
+      "id": "plus_marks",
+      "kind": "overlay",
+      "bbox": [
+        73,
+        569,
+        135,
+        642
+      ],
+      "description": "两枚分开的白色手绘加号涂鸦。",
+      "label": "两枚分开的白色手绘加号涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "56d134ea0da6dc1b2fa0efbc90c22e7be991e1289ef8215521652a8a59ff9835"
+      }
+    },
+    {
+      "id": "small_marks",
+      "kind": "overlay",
+      "bbox": [
+        802,
+        306,
+        861,
+        403
+      ],
+      "description": "右上照片旁的白色断续短线与小点涂鸦。",
+      "label": "右上照片旁的白色断续短线与小点涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "b3c37084b3f7a53d3413ad5760049323e3529b40c28aea85ef4d45cae4f243da"
+      }
+    },
+    {
+      "id": "top_speck",
+      "kind": "overlay",
+      "bbox": [
+        581,
+        0,
+        603,
+        7
+      ],
+      "description": "画面顶部边缘可见的一小段白色手绘笔画。",
+      "label": "画面顶部边缘可见的一小段白色手绘笔画。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "619235f61d9d22d9d3442d021eaf52bbef8af45ba7f49b51a11bd0078dd4234a"
+      }
+    },
+    {
+      "id": "bottom_marks",
+      "kind": "overlay",
+      "bbox": [
+        391,
+        1008,
+        451,
+        1159
+      ],
+      "description": "画面下方地面附近的白色手绘加号、短横线及竖线装饰。",
+      "label": "画面下方地面附近的白色手绘加号、短横线及竖线装饰。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "d60faffdb90b74e5687633efa426508e500f7cfbbe4bce831730022fd22b6a62"
+      }
+    },
+    {
+      "id": "small_right_plus",
+      "kind": "overlay",
+      "bbox": [
+        807,
+        970,
+        833,
+        1010
+      ],
+      "description": "右侧下方的白色手绘加号涂鸦。",
+      "label": "右侧下方的白色手绘加号涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "eb9d4235c1ba420716a0dfa5a67375e1fd4318a31c922af47249df0b433fef58"
+      }
+    },
+    {
+      "id": "bird_doodle",
+      "kind": "overlay",
+      "bbox": [
+        375,
+        64,
+        401,
+        106
+      ],
+      "description": "深色墙面上的白色小鸟状手绘涂鸦。",
+      "label": "深色墙面上的白色小鸟状手绘涂鸦。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "ef909b560723727f69cfc33be977b2fbbe26ddc730c0f6f28a70592e59cbdc9d"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_food",
+    "photo_woman_right",
+    "photo_woman_center",
+    "photo_coffee",
+    "photo_outfit",
+    "camera_doodle",
+    "rip_lettering",
+    "camera_marks",
+    "star_left_upper",
+    "droplet_upper",
+    "droplet_middle",
+    "droplet_lower",
+    "star_right",
+    "star_left_lower",
+    "star_left_bottom",
+    "star_bottom_right",
+    "plus_marks",
+    "small_marks",
+    "top_speck",
+    "bottom_marks",
+    "small_right_plus",
+    "bird_doodle",
+    "message_label",
+    "label_tape",
+    "vinyl_record",
+    "plaid_patch",
+    "tape_outfit_upper",
+    "tape_outfit_lower",
+    "tape_coffee",
+    "cat_doodle"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "744d2adc49f92752fd1e521659e2f4beefe5a81bf6a77e5fec35d041a38e6ba3",
+    "bindings": "e3fcb43574fc08732eed9bbfe0074da5fca3ed82a8773b8dc1fb4f1c5af73392",
+    "input": "9c0b57225955376011706f21e2e8a03e343faccbc25368dc030578208b6e256f",
+    "catalog": "73994a4fc1f88fbc5205c33d8aeca57353326d947ee2b21f942f0bc46aa2f9b5",
+    "photo_windows": "c90f4c6ae0a50e2a7caa19fb0f4f896326caf89827f840f7ad4d3f6f8cca4f99"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\assets\\reveal\\index.json",
+    "sha256": "75f23f7fd3f07969ef8b43c5f56db56b4a377d756228868fed29c5089e8ed72f"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-133\\assets\\gate\\report.json",
+    "sha256": "058cf8503128197c9c3761fba1c259d1dff3a650d945076878da94adec64596a",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 26,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
