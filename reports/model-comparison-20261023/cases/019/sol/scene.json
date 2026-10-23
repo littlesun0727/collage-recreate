@@ -1,0 +1,671 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\prepared\\reference.png",
+    "sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定复古电脑拼贴底景，保留右上蓝天白云与绿色草坡、下方绿色数字故障纹理、黑白点阵台面、米色键盘及左下打开的笔记本电脑。保留实拍结构、屏幕图案、材质和可见零碎字符，不补绘被遮挡部分。",
+      "label": "固定复古电脑拼贴底景，保留右上蓝天白云与绿色草坡、下方绿色数",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "fd700087dc6dcc4e4097b272d3ea06c6b3c1eaa8b2376048f255b03c42bde4cd"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\background.png",
+        "sha256": "8fe54a30fcbf8b7700ce70f8beddf3677834d6d29ffb97910c012d23df92331c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\background-background-source.png",
+          "sha256": "8fe54a30fcbf8b7700ce70f8beddf3677834d6d29ffb97910c012d23df92331c",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "1de91c740f06407395027616cf217d4437da2974c4759200f3510fff36a7b981",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\background-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "shutdown_window",
+      "kind": "overlay",
+      "bbox": [
+        379,
+        0,
+        652,
+        197
+      ],
+      "description": "顶部被画布裁切的蓝色 Windows 关机对话框，包含系统标志、三个彩色功能图标、Turn Off、Restart 与 Cancel 等界面文字，窗口边框与阴影整体保留。",
+      "label": "顶部被画布裁切的蓝色 Windows 关机对话框，包含系统标",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6dc34b7edbb3ac55d78348f4718977866a54689011feafaf30d8cfe5c4547898"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\shutdown_window.png",
+        "sha256": "3b7d06e6efd2789a0a42e40b91cbc90a2677d556d63d20b9f0465f65904efbd6",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\shutdown_window-restored.png",
+          "sha256": "3b7d06e6efd2789a0a42e40b91cbc90a2677d556d63d20b9f0465f65904efbd6",
+          "bbox": [
+            371,
+            0,
+            660,
+            205
+          ],
+          "original_bbox": [
+            379,
+            0,
+            652,
+            197
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "3e4de37c09559a2f47f3f202b59d31b191588030a6bee09054fa786af72e916c",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\shutdown_window-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\shutdown_window-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "context_menu",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        298,
+        129,
+        610
+      ],
+      "description": "左侧被画布和前景遮挡的灰色右键菜单，保留 Copy、Paste、Create Shortcut、Rename、Delete、Properties 等可见菜单字样、分隔线与菜单底板。",
+      "label": "左侧被画布和前景遮挡的灰色右键菜单，保留 Copy、Past",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "edc39a690b1974facac1006af322941feaa8f39cd9cfccd284a409f3cf55f4e5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\context_menu.png",
+        "sha256": "f0d788a331814dd498d541a1980fed613f27dcdb717ab25d10f674e0af2faa78",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\context_menu-restored.png",
+          "sha256": "f0d788a331814dd498d541a1980fed613f27dcdb717ab25d10f674e0af2faa78",
+          "bbox": [
+            0,
+            290,
+            137,
+            618
+          ],
+          "original_bbox": [
+            0,
+            298,
+            129,
+            610
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "ce0d765c9d3fbcf955efba00418f729b8b41f2103b8d3f5aac4b82d8a989dc40",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\context_menu-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\context_menu-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "screen_photo",
+      "kind": "photo",
+      "bbox": [
+        176,
+        256,
+        718,
+        702
+      ],
+      "description": "显示器内的一张人物场景图：一名棕色长发、戴白蓝厨师帽的女性虚拟人物正面站在厨房中，穿青蓝色无袖上衣及蓝色下装，腰前有水果奶油蛋糕。保留瓷砖、抽油烟机、橱柜、水槽和锅具等完整环境；四周由屏幕内口裁切，无主体出框，边缘无透明渐隐。",
+      "label": "显示器内的一张人物场景图：一名棕色长发、戴白蓝厨师帽的女性虚",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "screen_photo",
+        "reason": "保留人物、蛋糕及厨房摄影环境，主体没有独立描边或连续出框。制作框对齐显示器照片内口，以小圆角矩形近似屏幕边界；monitor_frame 保留原框沿及阴影，不重复绘制窗口描边。四边为明确裁切，无透明渐变。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.045
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "screen_photo",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.85
+        ],
+        "mirror_x": false,
+        "reason": "选用戴蓝帽、正面站立的单人照片，人物与双手清晰；纵向靠下对齐，保留帽顶、脸和手势。不镜像以免帽上文字反转；实际为湖边真人场景，无厨房、厨师服或蛋糕。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-034-d0976b36122f\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\prepared\\material_13.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\monitor_frame-screen_photo-window.png",
+        "sha256": "55347a440b8d2b078ac424c9c69dcb03de95901787d95a45d49038ef08463c44"
+      },
+      "reveal_frame_id": "monitor_frame"
+    },
+    {
+      "id": "monitor_frame",
+      "kind": "frame",
+      "bbox": [
+        117,
+        186,
+        877,
+        874
+      ],
+      "description": "承载厨房人物画面的厚重米灰色 CRT 显示器框体，包含圆弧屏幕内沿、宽底边、右侧纵深机壳、底座、绿色指示灯、按钮及阴影。屏幕内口照片独立替换，框沿遮住照片边缘。",
+      "photo_id": "screen_photo",
+      "label": "承载厨房人物画面的厚重米灰色 CRT 显示器框体，包含圆弧屏",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "41b7fb667426b37c6502a5921a3d5360600e6d99e8ccae7860893fc88081ac09"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\monitor_frame.png",
+        "sha256": "3e9b213f66d3d9431dc0a61605b2ff4748da6245a1fe0d4cade7dc75715c8b84",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\monitor_frame-restored.png",
+          "sha256": "3e9b213f66d3d9431dc0a61605b2ff4748da6245a1fe0d4cade7dc75715c8b84",
+          "bbox": [
+            109,
+            178,
+            885,
+            882
+          ],
+          "original_bbox": [
+            117,
+            186,
+            877,
+            874
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "87a7daabc1f2f5a0dee5c2ee72d61799d0d526f44544c805ace927d2052aeb8b",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\monitor_frame-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\monitor_frame-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "recovery_window",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        0,
+        419,
+        230
+      ],
+      "description": "左上倾斜并被画布裁切的灰色系统恢复设置窗口，包含左侧青绿色图示区域、英文说明、单选项及 Cancel 按钮。窗口纸面般的边缘、透视形态和右下深色阴影整体保留。",
+      "label": "左上倾斜并被画布裁切的灰色系统恢复设置窗口，包含左侧青绿色图",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "4850a8c721ef5eb3747c06839c63b9d61a30f0cd23b54d022e353248c82eb0f1"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\recovery_window.png",
+        "sha256": "9b673393fb39cd6d15440f8e327c70f0692c5a9769ee1e822406dea4c6b6a0fe",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\recovery_window-restored.png",
+          "sha256": "9b673393fb39cd6d15440f8e327c70f0692c5a9769ee1e822406dea4c6b6a0fe",
+          "bbox": [
+            0,
+            0,
+            427,
+            238
+          ],
+          "original_bbox": [
+            0,
+            0,
+            419,
+            230
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "feef849903e5be81b6ed4d9eef0ca663a0b0658c2f549f7d90916bbb6930969c",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\recovery_window-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\recovery_window-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "online_bubble",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        145,
+        361,
+        401
+      ],
+      "description": "左上白色椭圆对话气泡及右下尖尾，内部为蓝色柔和晕染和黑色像素字 online；气泡、文字与渐变共同作为完整装饰保留。",
+      "label": "左上白色椭圆对话气泡及右下尖尾，内部为蓝色柔和晕染和黑色像素",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b52d827d0ea426e34e4cc72831a02200cdb264301a2a953de68ab2ddbf3420fb"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\online_bubble.png",
+        "sha256": "6c68a5e5ba598439f820801e9c3f295b6ce4a559765b74cd056f22829afa04ed",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\online_bubble-restored.png",
+          "sha256": "6c68a5e5ba598439f820801e9c3f295b6ce4a559765b74cd056f22829afa04ed",
+          "bbox": [
+            0,
+            137,
+            369,
+            409
+          ],
+          "original_bbox": [
+            0,
+            145,
+            361,
+            401
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "e432a6cf1e4d8657b200eb778be49d2bf1901686fe0c4c10a0b936da8b3bf80d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\online_bubble-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\online_bubble-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "color_picker",
+      "kind": "overlay",
+      "bbox": [
+        798,
+        803,
+        900,
+        1016
+      ],
+      "description": "右下靠边的灰色取色面板，被画布右边裁切，内部显示红黄绿青等连续彩虹色及向下变暗的颜色区域，保留立体边框。",
+      "label": "右下靠边的灰色取色面板，被画布右边裁切，内部显示红黄绿青等连",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "0059bd6155ddb3eda0f1c839248546a6f65ba7e6d453678650fbda6c941f43f7"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\color_picker.png",
+        "sha256": "3c42a08d65e8847ba591172be2e05dcfd2cc7d8f9afd94a9f416cedfef3f2ba7",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\color_picker-restored.png",
+          "sha256": "3c42a08d65e8847ba591172be2e05dcfd2cc7d8f9afd94a9f416cedfef3f2ba7",
+          "bbox": [
+            790,
+            795,
+            900,
+            1024
+          ],
+          "original_bbox": [
+            798,
+            803,
+            900,
+            1016
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "6692ab9ac2cb7010f1f9b2b8a0a577b2be9c7df11641b8595ccd00e24746b11c",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\color_picker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\color_picker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "error_window",
+      "kind": "overlay",
+      "bbox": [
+        649,
+        1013,
+        900,
+        1200
+      ],
+      "description": "右下被画布裁切的灰色复古错误对话框，蓝色标题栏写 What，内有小型白色图标、Why this happen 字样和写有 becuz u 的按钮；文字、底板及立体边框整体保留。",
+      "label": "右下被画布裁切的灰色复古错误对话框，蓝色标题栏写 What，",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c3a39f79b1419e3541ed978015ff4bb4a5354edd70cf3255501bec356205ce5d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\error_window.png",
+        "sha256": "6fa31191b0214ce82cafc70abdb6b9178d00c82297fd725f6a9cbc84bf4a14d3",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\error_window-restored.png",
+          "sha256": "6fa31191b0214ce82cafc70abdb6b9178d00c82297fd725f6a9cbc84bf4a14d3",
+          "bbox": [
+            641,
+            1005,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            649,
+            1013,
+            900,
+            1200
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "62c10bdda83254cb273a7f068f430743f3007ff8ae801527a7e5c4ded482fe67",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "facebd0f8b2148bccea7255a95c19d6d4aa24a146b0c632f3f9713b99537d15e"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\error_window-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\error_window-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "foreground_girl",
+      "kind": "photo",
+      "bbox": [
+        11,
+        541,
+        441,
+        1171
+      ],
+      "description": "前景一名棕色长发女性虚拟人物，戴高厨师帽、穿青蓝色吊带上衣、蓝色短裙及灰色波点丝袜，屈膝侧坐，脸朝前；左手托着一块蛋糕，右手举粉色锅铲，右侧露出鞋子。沿人物、帽子、双手、蛋糕盘、锅铲及腿脚组成的完整外轮廓去除背景，并保留环绕全组合的宽白色边与细深色外沿。人物覆盖显示器、键盘和笔记本电脑，与屏幕人物不是连续出框关系。",
+      "label": "前景一名棕色长发女性虚拟人物，戴高厨师帽、穿青蓝色吊带上衣、",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "foreground_girl",
+        "reason": "去除背景，沿人物、厨师帽、双手、蛋糕及托盘、锅铲和腿脚鞋子构成的完整组合轮廓描宽白边。白边外还有细深色线，当前单层描边参数仅近似表达白边。轮廓外透出显示器及桌面等其他层，无独立几何窗口或窗口渐变；与屏幕人物姿态不同，不属于连续出框。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.023,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "foreground_girl",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "人物正面弯身屈膝，帽子、手势、双腿及靴子均可见，轮廓较清楚，适合作为分割候选。全幅居中、不镜像，保留完整主体；并非侧坐姿态，也无蛋糕和锅铲。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-034-d0976b36122f\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\prepared\\material_09.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "shutdown_window",
+    "context_menu",
+    "screen_photo",
+    "monitor_frame",
+    "recovery_window",
+    "online_bubble",
+    "color_picker",
+    "error_window",
+    "foreground_girl"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "7b703be2fa4b80a0805011b503541a2a28efd8a55546e6daf030d4e58e4d3b1e",
+    "bindings": "7e875b43cce136e1d6d130ee35f691dbc716357136d677d7e4446d649716eea0",
+    "input": "b7c73d4a88c9e6005809287aa4f0a745e3f5f7cf76afe7a6262e9caef37661a7",
+    "catalog": "8d47b9567eb3c16bb2096a0d9b39313cc2148a737903903f7e499d6def8b45fa",
+    "photo_windows": "5c88b27bd8ae5fddfa3eb81ef69d3c61bdb9ec733a1c5b43cd55336a2a349816"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\reveal\\index.json",
+    "sha256": "fb48676cd14bd619ede77c9c3eebcf99032ee53746c12a3ad931fd52cc100c1b"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-034\\assets\\gate\\report.json",
+    "sha256": "56393dc542662f5d779546988be1b727693f009e7e75cb9c61910dd81a636b70",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 8,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

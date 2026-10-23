@@ -1,0 +1,129 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "固定复古电脑拼贴底景，保留右上蓝天白云与绿色草坡、下方绿色数字故障纹理、黑白点阵台面、米色键盘及左下打开的笔记本电脑。保留实拍结构、屏幕图案、材质和可见零碎字符，不补绘被遮挡部分。"
+    },
+    {
+      "id": "shutdown_window",
+      "kind": "overlay",
+      "bbox": [
+        421,
+        0,
+        724,
+        164
+      ],
+      "description": "顶部被画布裁切的蓝色 Windows 关机对话框，包含系统标志、三个彩色功能图标、Turn Off、Restart 与 Cancel 等界面文字，窗口边框与阴影整体保留。"
+    },
+    {
+      "id": "context_menu",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        248,
+        143,
+        508
+      ],
+      "description": "左侧被画布和前景遮挡的灰色右键菜单，保留 Copy、Paste、Create Shortcut、Rename、Delete、Properties 等可见菜单字样、分隔线与菜单底板。"
+    },
+    {
+      "id": "screen_photo",
+      "kind": "photo",
+      "bbox": [
+        194,
+        212,
+        801,
+        589
+      ],
+      "description": "显示器内的一张人物场景图：一名棕色长发、戴白蓝厨师帽的女性虚拟人物正面站在厨房中，穿青蓝色无袖上衣及蓝色下装，腰前有水果奶油蛋糕。保留瓷砖、抽油烟机、橱柜、水槽和锅具等完整环境；四周由屏幕内口裁切，无主体出框，边缘无透明渐隐。"
+    },
+    {
+      "id": "monitor_frame",
+      "kind": "frame",
+      "bbox": [
+        130,
+        155,
+        974,
+        728
+      ],
+      "photo_id": "screen_photo",
+      "description": "承载厨房人物画面的厚重米灰色 CRT 显示器框体，包含圆弧屏幕内沿、宽底边、右侧纵深机壳、底座、绿色指示灯、按钮及阴影。屏幕内口照片独立替换，框沿遮住照片边缘。"
+    },
+    {
+      "id": "recovery_window",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        0,
+        466,
+        192
+      ],
+      "description": "左上倾斜并被画布裁切的灰色系统恢复设置窗口，包含左侧青绿色图示区域、英文说明、单选项及 Cancel 按钮。窗口纸面般的边缘、透视形态和右下深色阴影整体保留。"
+    },
+    {
+      "id": "online_bubble",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        121,
+        401,
+        334
+      ],
+      "description": "左上白色椭圆对话气泡及右下尖尾，内部为蓝色柔和晕染和黑色像素字 online；气泡、文字与渐变共同作为完整装饰保留。"
+    },
+    {
+      "id": "color_picker",
+      "kind": "overlay",
+      "bbox": [
+        887,
+        669,
+        1000,
+        847
+      ],
+      "description": "右下靠边的灰色取色面板，被画布右边裁切，内部显示红黄绿青等连续彩虹色及向下变暗的颜色区域，保留立体边框。"
+    },
+    {
+      "id": "error_window",
+      "kind": "overlay",
+      "bbox": [
+        721,
+        844,
+        1000,
+        1000
+      ],
+      "description": "右下被画布裁切的灰色复古错误对话框，蓝色标题栏写 What，内有小型白色图标、Why this happen 字样和写有 becuz u 的按钮；文字、底板及立体边框整体保留。"
+    },
+    {
+      "id": "foreground_girl",
+      "kind": "photo",
+      "bbox": [
+        12,
+        451,
+        490,
+        976
+      ],
+      "description": "前景一名棕色长发女性虚拟人物，戴高厨师帽、穿青蓝色吊带上衣、蓝色短裙及灰色波点丝袜，屈膝侧坐，脸朝前；左手托着一块蛋糕，右手举粉色锅铲，右侧露出鞋子。沿人物、帽子、双手、蛋糕盘、锅铲及腿脚组成的完整外轮廓去除背景，并保留环绕全组合的宽白色边与细深色外沿。人物覆盖显示器、键盘和笔记本电脑，与屏幕人物不是连续出框关系。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "shutdown_window",
+    "context_menu",
+    "screen_photo",
+    "monitor_frame",
+    "recovery_window",
+    "online_bubble",
+    "color_picker",
+    "error_window",
+    "foreground_girl"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "screen_photo",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.045
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "保留人物、蛋糕及厨房摄影环境，主体没有独立描边或连续出框。制作框对齐显示器照片内口，以小圆角矩形近似屏幕边界；monitor_frame 保留原框沿及阴影，不重复绘制窗口描边。四边为明确裁切，无透明渐变。"
+    },
+    {
+      "photo_id": "foreground_girl",
+      "subject": {
+        "preserve_background": false,
+        "stroke": {
+          "enabled": true,
+          "width": 0.023,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": false
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "去除背景，沿人物、厨师帽、双手、蛋糕及托盘、锅铲和腿脚鞋子构成的完整组合轮廓描宽白边。白边外还有细深色线，当前单层描边参数仅近似表达白边。轮廓外透出显示器及桌面等其他层，无独立几何窗口或窗口渐变；与屏幕人物姿态不同，不属于连续出框。"
+    }
+  ]
+}
