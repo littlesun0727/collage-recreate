@@ -1,0 +1,773 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "needs_changes",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_detail": 1.0,
+    "photo_seated": 1.0,
+    "photo_room": 1.0,
+    "photo_main": 0.98257
+  },
+  "incomplete_objects": [
+    "lace"
+  ],
+  "issues": [
+    {
+      "id": "background",
+      "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+    },
+    {
+      "id": "lace",
+      "note": "Reveal target unavailable; local fallback requires review"
+    }
+  ],
+  "scene_sha256": "2c392368a0069f00e51366d73f772fd64ffcd8717cbd0c3f0a1706c9b146c649",
+  "final_sha256": "f67a697725a63385fd23edb03d7522f6ab8fd71aae047be0084ecc46407d7312",
+  "resources": [
+    {
+      "id": "background",
+      "kind": "background",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\overlays\\background.png",
+      "sha256": "a2b71cff5329198dc88aceb05733e060a9a5097886b1acb3427707a830b7a5c9",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "quality": "approximate",
+        "method": "local_background",
+        "fallback": true,
+        "background_clean": false,
+        "semantic_verified": false,
+        "fallback_reason": "HTTPError: HTTP Error 402: Payment Required",
+        "fill": "#30211F",
+        "color_source": "uncovered_reference_median",
+        "sample_pixels": 33314,
+        "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_main.png",
+      "sha256": "89bb009d180f90b2f8ccca9289e84eac29f7407e471fddca7c70f1cc0df80367",
+      "quality": "ready",
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_00.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_00",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+          "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_00.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_main",
+          "asset_id": "material_00",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.65,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "单人正面看向镜头，近景且下身出画；横向裁切略靠右，保留脸、帽顶与举起的手。素材为湖边旅行照，无拼花裙、树林和石墙。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_main-content-mask.png",
+        "content_mask_sha256": "c642329e7c2c2651672549db05b206143e79e6423268f9264648efd4898e9812",
+        "photo_window_spec": {
+          "photo_id": "photo_main",
+          "reason": "保留人物、树林与石墙的完整摄影环境，人物没有独立轮廓描边或连续出框。照片为满高矩形窗口，右侧白色花边是独立装饰遮挡，不作为窗口描边；未见透明渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_room",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_room.png",
+      "sha256": "9ce134a9ad1cb8ad0432e89d297f9aeb059a362a7b73cb4e6a5c3eecb83c0c6a",
+      "quality": "ready",
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_08.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_08",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+          "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_08.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_room",
+          "asset_id": "material_08",
+          "source_crop": [
+            0,
+            0.2,
+            0.65,
+            1
+          ],
+          "crop_center": [
+            0,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "无室内书架素材，以主体明确的游船静物近似替代；裁去右侧空景及部分天空，靠左保留船体。场景为室外湖面，与室内陈设明显不同。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_room-content-mask.png",
+        "content_mask_sha256": "2a1dacb8a1a9ba180ff62444fd462e20d17dfc052b3362548eb75d1399bbf9c5",
+        "photo_window_spec": {
+          "photo_id": "photo_room",
+          "reason": "保留书架、书籍与木椅等室内摄影内容，不描主体轮廓。显示边界为小圆角矩形，细白实线沿窗口四周连续分布；边缘清晰，无渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.022
+          },
+          "stroke": {
+            "enabled": true,
+            "width": 0.009,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "round",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_seated",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_seated.png",
+      "sha256": "936122e51308ae6ea9c5194bf9aa7f1a33fadb1db494215771bfea7960d63e06",
+      "quality": "ready",
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_09.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_09",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+          "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_09.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_seated",
+          "asset_id": "material_09",
+          "source_crop": [
+            0,
+            0.24,
+            1,
+            0.96
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "单人俯身朝向镜头，屈膝姿势比直立照更接近低位人物构图；减少上方天空与下方空地，保留帽顶、手和靴子。实际不是坐姿，也无台阶与长裙。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_seated-content-mask.png",
+        "content_mask_sha256": "05137134d7ab91f984d24fdbe446633c6b27509951a0e03f53d49623ce20587a",
+        "photo_window_spec": {
+          "photo_id": "photo_seated",
+          "reason": "保留坐姿人物、草木与台阶摄影背景，人物没有轮廓描边，也未跨越窗口。固定窗口为小圆角矩形，白线属于窗口边界；四边均清晰，不启用渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.022
+          },
+          "stroke": {
+            "enabled": true,
+            "width": 0.009,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "round",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_detail",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_detail.png",
+      "sha256": "3307a7dd49b63467a15fbdd9f021a414d9e4550bee93e45f7a6117bc43882ee8",
+      "quality": "ready",
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_16.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_16",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-120-df0f1581159a\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+          "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\prepared\\material_16.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_detail",
+          "asset_id": "material_16",
+          "source_crop": [
+            0.4,
+            0.55,
+            0.72,
+            0.79
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "紧裁可见的下垂手臂、手与肩包，排除面部，形成衣物配件局部。实际为黑色包和灰棕衣物，没有多串手链，手臂也非横置。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\photos\\photo_detail-content-mask.png",
+        "content_mask_sha256": "6efddaef3142d3ef66f1208189cadd8d9760cc7a61758e0a4647ec07c64314c6",
+        "photo_window_spec": {
+          "photo_id": "photo_detail",
+          "reason": "保留手臂、手链、包与衣物组成的完整摄影特写，不沿这些物体描边。照片按小圆角矩形裁切，细白线沿固定窗口分布；与外围纹理背景为清晰接缝，无渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.022
+          },
+          "stroke": {
+            "enabled": true,
+            "width": 0.009,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "round",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "lace",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\overlays\\lace.png",
+      "sha256": "d87c6bbc9ad5775d87465b02b6e24059ea4c22e7b5713edd902fbb1ea0676857",
+      "quality": "unresolved",
+      "source": null,
+      "metadata": {
+        "quality": "unresolved",
+        "method": "quarantined",
+        "note": "Reveal target unavailable; local fallback requires review"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_white_upper_left",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_white_upper_left.png",
+      "sha256": "ed2a9733e4e12865939e24931556738539a4b50ac28f36b4ff551aa126e6d200",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 108,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 121,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<3",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_white_upper_right",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_white_upper_right.png",
+      "sha256": "eb4d50b4139502ef5f50a3c683e0a70de489cbecb04859f6bdf723f149bad7f3",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 86,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 97,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<3",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_white_middle",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_white_middle.png",
+      "sha256": "73811c41667bd464b1bc35f2ba4cf6a2a06439e0687acd816925bafc4b23eb77",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 69,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 78,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<3",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_white_lower_right",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_white_lower_right.png",
+      "sha256": "91eb71e9fb118966a1dece124f7d2c0042cb182ec08370c6a24a7b77c2953760",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 88,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 99,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<3",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_white_bottom_left",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_white_bottom_left.png",
+      "sha256": "620ee9bddac2a2f838a5af2ab04dc61056331f849d7a4c60aa5dd9b368d1a3b1",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 79,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 89,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<3",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_orange_top",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_orange_top.png",
+      "sha256": "a24259d0fdc04b4eb464483235d5d1209c02c017c1bb99965ec5911baacf4918",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 63,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 72,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<333",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_orange_left",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_orange_left.png",
+      "sha256": "a7a9e58e5260ad7a3f824c01b7353b019da361be175d84bd99537cbb711d3659",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 58,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 66,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<333",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_orange_right",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_orange_right.png",
+      "sha256": "34256405e12cca1a55234934471e9b41994efe5e605ec665c4089b46e84b46f3",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 57,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 65,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<333",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "heart_orange_lower",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\heart_orange_lower.png",
+      "sha256": "8c64e946efd2cabb9029fa3969d10d38cf3bfd84c5b9e67bef1193de4013c7c1",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 57,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 65,
+        "align": "center",
+        "fit_scale": null,
+        "text": "<333",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "number_one",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\number_one.png",
+      "sha256": "ec446ca233ec694f5e13245e05f78087111ea0a6518ad6e964c3cc7d9c3066d2",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 34,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 39,
+        "align": "center",
+        "fit_scale": null,
+        "text": "(1)",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "number_two",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\number_two.png",
+      "sha256": "f1bc81735dcea817fa8769b19bc1b6dcf11affdb60b925e376613f37181a64eb",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 36,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 41,
+        "align": "center",
+        "fit_scale": null,
+        "text": "(2)",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "number_three",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\text\\number_three.png",
+      "sha256": "c0d417a8706837ff5f287739bbd077f95566f76190a5129bef85402426190590",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arial.ttf",
+        "font_size_px": 37,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 42,
+        "align": "center",
+        "fit_scale": null,
+        "text": "(3)",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "d7c61941d122001b",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。；程序检测到 1 个未完成对象。；流程保留 1 项告警，待优化。",
+    "items": [
+      {
+        "id": "lace",
+        "action": "unresolved",
+        "reason": "程序检测到素材缺失、占位或照片不可见"
+      }
+    ],
+    "scene_sha256": "2c392368a0069f00e51366d73f772fd64ffcd8717cbd0c3f0a1706c9b146c649",
+    "final_sha256": "f67a697725a63385fd23edb03d7522f6ab8fd71aae047be0084ecc46407d7312"
+  },
+  "at": "2026-10-23T23:07:33.807686+00:00",
+  "extraction_sheets": [],
+  "review_regions": [
+    {
+      "ids": [
+        "photo_main",
+        "lace"
+      ],
+      "bbox": [
+        447,
+        0,
+        627,
+        838
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\previews\\review-detail-1.png"
+    }
+  ],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\gate\\report.json",
+    "sha256": "d4f6e0226ba752c95b4c73dae439c23de50b1efc2aac83b919c3cc850fb6c23c",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 2,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-120\\assets\\reveal\\index.json",
+    "sha256": "0187cf89eaea17288abb00d20ab9a03da024d31383db26636d8cd827cdf809f9"
+  },
+  "render_id": "d7c61941d122001b",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "d7c61941d122001b",
+    "category": "with_issues",
+    "review_status": "skipped",
+    "warnings": [
+      {
+        "code": "asset_fallback",
+        "stage": "build",
+        "message": "background：背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+      }
+    ],
+    "draft_kind": null
+  }
+}
