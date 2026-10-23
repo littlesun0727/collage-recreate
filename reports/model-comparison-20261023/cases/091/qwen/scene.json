@@ -1,0 +1,1038 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\prepared\\reference.png",
+    "sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+  },
+  "reference_size": [
+    900,
+    1199
+  ],
+  "canvas_size": [
+    1200,
+    1599
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1199
+      ],
+      "description": "浅蓝色底色，上面均匀分布着灰色的圆点图案。",
+      "label": "浅蓝色底色，上面均匀分布着灰色的圆点图案。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#F4F9FB"
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        137,
+        165,
+        752,
+        1043
+      ],
+      "description": "米黄色的笔记本内页底板，顶部有黑色的线圈装订结构，作为整个画面的主要承载背景。",
+      "photo_id": "photo_1",
+      "label": "米黄色的笔记本内页底板，顶部有黑色的线圈装订结构，作为整个画",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection",
+        "Window photo_1 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8f56d88db4f30737080d338b256157b02909bf35cc1119902242cf86c099d10c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\frame_1.png",
+        "sha256": "a92180685bf2d227389fe37eaacf0dd1205a1071f14cb3cc060bada507b83482",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\frame_1-restored.png",
+          "sha256": "a92180685bf2d227389fe37eaacf0dd1205a1071f14cb3cc060bada507b83482",
+          "bbox": [
+            129,
+            157,
+            760,
+            1051
+          ],
+          "original_bbox": [
+            137,
+            165,
+            752,
+            1043
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "e951f7e6042b2da8a6148cc47a92bbaf75b3d72458933ec4a86fb8a6790fc0e8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\frame_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\frame_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        230,
+        282,
+        369,
+        641
+      ],
+      "description": "一杯绿色的气泡饮料，杯口插着一根红色的吸管和一颗樱桃，底部放在一个银色的托盘上。照片边缘带有白色的虚线描边效果。",
+      "label": "一杯绿色的气泡饮料，杯口插着一根红色的吸管和一颗樱桃，底部放",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "主体为去背景的饮料，周围透出笔记本底板背景；白色虚线描边紧贴主体轮廓（杯身与托盘），无独立矩形窗口裁切。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.015,
+            0.015
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位需要竖构图且主体清晰可分割。素材中人物呈蹲姿，轮廓完整独立，背景干净易于抠图。其高挑身形与细长的饮料杯形态相似，作为创意替换非常合适。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-192-8b471a7cd32d\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\prepared\\material_09.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\frame_1-photo_1-window.png",
+        "sha256": "16d16ae7c2a35488cf9977d780d91fffad48514c817b502303fad62a7a181c9f"
+      },
+      "reveal_frame_id": "frame_1"
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        490,
+        357,
+        590,
+        486
+      ],
+      "description": "一杯分层的冰饮，包含绿色、白色和棕色层。照片边缘带有白色的虚线描边效果。",
+      "label": "一杯分层的冰饮，包含绿色、白色和棕色层。照片边缘带有白色的虚",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "主体为去背景的杯子，周围透出底板；白色虚线沿杯体轮廓描边，非矩形窗口边框。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.02,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.02,
+            0.02
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为小尺寸近正方形。素材展示人物上半身，头部和手部动作清晰，主体突出，适合分割。画面紧凑，能很好地填充小窗口而不丢失关键信息。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-192-8b471a7cd32d\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        423,
+        486,
+        698,
+        725
+      ],
+      "description": "一个黑色圆盘里盛放着华夫饼，上面点缀着冰淇淋球、草莓、蓝莓、猕猴桃等水果。照片边缘带有白色的虚线描边效果。",
+      "label": "一个黑色圆盘里盛放着华夫饼，上面点缀着冰淇淋球、草莓、蓝莓、",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "主体为去背景的黑色圆盘食物，周围透出底板；白色虚线沿圆形盘子边缘描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.01,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.01,
+            0.01
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为横向宽幅。素材中人物佩戴红帽，色彩鲜艳，与华夫饼上的草莓呼应。人物侧身站立，轮廓分明，适合从背景中分割出来作为视觉中心。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-192-8b471a7cd32d\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        198,
+        671,
+        486,
+        917
+      ],
+      "description": "一个白色圆盘里盛放着两片吐司，一片上面铺着虾仁、牛油果和滑蛋，另一片上面是火腿和煎蛋。照片边缘带有白色的虚线描边效果。",
+      "label": "一个白色圆盘里盛放着两片吐司，一片上面铺着虾仁、牛油果和滑蛋",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_4",
+        "reason": "主体为去背景的白色圆盘食物，周围透出底板；白色虚线沿圆形盘子边缘描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.01,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.01,
+            0.01
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_4",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "槽位为底部较大的横向区域。素材中人物正面微笑并指向上方，姿态生动，主体完整且边缘清晰，非常适合分割。作为前景元素能有效平衡版面。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-192-8b471a7cd32d\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        81,
+        234,
+        274,
+        360
+      ],
+      "description": "手绘风格的黑色星星椭圆框贴纸。",
+      "label": "手绘风格的黑色星星椭圆框贴纸。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8686ae2ec6b677dc5c6e68ee8cc3d417a19961be22ba8c61badd4464d2a8a8a7"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_1.png",
+        "sha256": "db1ecbefa8bc297a69fcee8d7910b41bbec331ed8e40254e89cabdd60231ecab",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "db1ecbefa8bc297a69fcee8d7910b41bbec331ed8e40254e89cabdd60231ecab",
+          "bbox": [
+            73,
+            226,
+            282,
+            368
+          ],
+          "original_bbox": [
+            81,
+            234,
+            274,
+            360
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "697a764b39d636cc04d12e54482e28217ad4a35173ca31e53217843eef6b40b1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        99,
+        390,
+        194,
+        522
+      ],
+      "description": "粉色奶茶杯形状的卡通贴纸。",
+      "label": "粉色奶茶杯形状的卡通贴纸。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2d558c24097e148af1e5e3f3a7312f2e8ad1f81cac2ae30a5767608ba4bdb6f2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_2.png",
+        "sha256": "ff54a80794a510581f9f73f50f91c7d34d071b9e64249fd2188174c612355111",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "ff54a80794a510581f9f73f50f91c7d34d071b9e64249fd2188174c612355111",
+          "bbox": [
+            91,
+            382,
+            202,
+            530
+          ],
+          "original_bbox": [
+            99,
+            390,
+            194,
+            522
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "98bfca2bf316372764337aa35cee3eb2913d5a3f31ffc384399d24381bf46267",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        90,
+        558,
+        238,
+        725
+      ],
+      "description": "线条勾勒的白色小熊贴纸，脖子上系着蝴蝶结。",
+      "label": "线条勾勒的白色小熊贴纸，脖子上系着蝴蝶结。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1dea424c048e4ae68e46b433c8a9a493e2b89e475286454dc05ab64f6dd8c068"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_3.png",
+        "sha256": "f968d00b4ca1f481fdeca192d009f96734212d2d59bb077650733c629fe52119",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_3-restored.png",
+          "sha256": "f968d00b4ca1f481fdeca192d009f96734212d2d59bb077650733c629fe52119",
+          "bbox": [
+            82,
+            550,
+            246,
+            733
+          ],
+          "original_bbox": [
+            90,
+            558,
+            238,
+            725
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "eca833e5bdf16d632b121fc6b6b8051bdceff9db7b7863ce2609e1e54584c5f7",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        99,
+        785,
+        248,
+        1073
+      ],
+      "description": "一把银色叉子，手柄处缠绕着白色蕾丝并系着粉色蝴蝶结。",
+      "label": "一把银色叉子，手柄处缠绕着白色蕾丝并系着粉色蝴蝶结。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b93d0db888d69177294aa5c751ee30690490e0ccda61c0d92a32cbf533a2d5b2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_4.png",
+        "sha256": "97c369e62549ff17dc8a790702cefa446aab53db3c97a5e34ac5b376e90fac35",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_4-restored.png",
+          "sha256": "97c369e62549ff17dc8a790702cefa446aab53db3c97a5e34ac5b376e90fac35",
+          "bbox": [
+            91,
+            777,
+            256,
+            1081
+          ],
+          "original_bbox": [
+            99,
+            785,
+            248,
+            1073
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "9dc1a086de5cdf3ba1a66ae9465ef58659d5c2e5fa059d7a1ee636f02f4b1ca3",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_4-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_4-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        590,
+        474,
+        698,
+        564
+      ],
+      "description": "一把银色餐刀，刀柄末端有一个姜饼人装饰。",
+      "label": "一把银色餐刀，刀柄末端有一个姜饼人装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9982410f2be12773fa0dd22f212b2c39eccceb61a15a2232a83adf24bad6bd8b"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_5.png",
+        "sha256": "349821a7654e5f58fdbe24c0fdd00961bd0a59c8a878b1f16686eb1bc7a55bd1",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_5-restored.png",
+          "sha256": "349821a7654e5f58fdbe24c0fdd00961bd0a59c8a878b1f16686eb1bc7a55bd1",
+          "bbox": [
+            582,
+            466,
+            706,
+            572
+          ],
+          "original_bbox": [
+            590,
+            474,
+            698,
+            564
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "a26669c9c93cae562e83d2cc39758b55773b0ede5be754aacc145a384e1e1320",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_5-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_5-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        630,
+        384,
+        806,
+        486
+      ],
+      "description": "手绘风格的面包篮贴纸，里面装着两个面包。",
+      "label": "手绘风格的面包篮贴纸，里面装着两个面包。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "324e25554126c8a06380daa9872d02a79d5f31509e6932a3155ad14c600d522d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_6.png",
+        "sha256": "71f4dec9afff5fc5c464d05c6352acc8a617f25563ef70236fe0609cdf0250db",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_6-restored.png",
+          "sha256": "71f4dec9afff5fc5c464d05c6352acc8a617f25563ef70236fe0609cdf0250db",
+          "bbox": [
+            622,
+            376,
+            814,
+            494
+          ],
+          "original_bbox": [
+            630,
+            384,
+            806,
+            486
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "a807ec75240166797d5f59b8b34c284daad82158ea1c51aa88354e5b3de8ad08",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_6-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_6-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_7",
+      "kind": "overlay",
+      "bbox": [
+        680,
+        611,
+        796,
+        701
+      ],
+      "description": "由字母P、O、T组成的艺术字贴纸，其中O是一个南瓜灯造型。",
+      "label": "由字母P、O、T组成的艺术字贴纸，其中O是一个南瓜灯造型。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3522c4373c525d3690c983d68b442d316f9e5432c70b041cca196404e61a807e"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_7.png",
+        "sha256": "198183f899d4e6ad2fed766b02044a3f7b2999d019cdb028e20a5bf8a8e1412b",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_7-restored.png",
+          "sha256": "198183f899d4e6ad2fed766b02044a3f7b2999d019cdb028e20a5bf8a8e1412b",
+          "bbox": [
+            672,
+            603,
+            804,
+            709
+          ],
+          "original_bbox": [
+            680,
+            611,
+            796,
+            701
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "9fde57eadbe32999ae040c9d39adcfb00d8f11d59d50cedab862bf6a503d7e57",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_7-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_7-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_8",
+      "kind": "overlay",
+      "bbox": [
+        522,
+        887,
+        796,
+        1085
+      ],
+      "description": "一条斜向放置的胶带贴纸，上面印有饼干、牛角包等烘焙图案。",
+      "label": "一条斜向放置的胶带贴纸，上面印有饼干、牛角包等烘焙图案。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1277ef5d5887725dc5343ca3b87f6eaf3806e9dfd712d41f84321e58ef6e8fb0"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_8.png",
+        "sha256": "c85ca6649b5c5175a1094a107bd73a950b84973cd19301199dcfcf803615fdcc",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\overlay_8-restored.png",
+          "sha256": "c85ca6649b5c5175a1094a107bd73a950b84973cd19301199dcfcf803615fdcc",
+          "bbox": [
+            514,
+            879,
+            804,
+            1093
+          ],
+          "original_bbox": [
+            522,
+            887,
+            796,
+            1085
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01\\layers_aug_13.png",
+          "raw_sha256": "e02cc2bc194536e22a38a0284721db198f82326b1a6646c12323ac553ca35283",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1199
+          ],
+          "input_sha256": "8a2e5c29544729481a4b7b925f7e7be0359a3c7489a3866503fcaa87459038bd"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_8-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\overlay_8-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        374,
+        282,
+        536,
+        426
+      ],
+      "description": "人間美味!!",
+      "label": "人間美味!!",
+      "method": "local",
+      "text": "人間美味!!",
+      "text_status": "known",
+      "style": {
+        "fill": "#1A3B5C",
+        "font": "cjk-hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_2",
+      "kind": "text",
+      "bbox": [
+        572,
+        252,
+        774,
+        348
+      ],
+      "description": ":) 頻繁的記錄\n不要變成麻木的人",
+      "label": ":) 頻繁的記錄\n不要變成麻木的人",
+      "method": "local",
+      "text": ":) 頻繁的記錄\n不要變成麻木的人",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "cjk-hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_3",
+      "kind": "text",
+      "bbox": [
+        261,
+        953,
+        454,
+        995
+      ],
+      "description": "--- ★*너 귀염둥이야!* ✧",
+      "label": "--- ★*너 귀염둥이야!* ✧",
+      "method": "local",
+      "text": "--- ★*너 귀염둥이야!* ✧",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "sans",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_4",
+      "kind": "text",
+      "bbox": [
+        477,
+        905,
+        729,
+        1013
+      ],
+      "description": "if you\nwill be thirsty for\nif you drink the wine that\nyou have brewed,",
+      "label": "if you\nwill be thirsty for\nif ",
+      "method": "local",
+      "text": "if you\nwill be thirsty for\nif you drink the wine that\nyou have brewed,",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "frame_1",
+    "text_2",
+    "text_4",
+    "overlay_6",
+    "overlay_7",
+    "overlay_8",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "overlay_4",
+    "overlay_5",
+    "text_1",
+    "text_3",
+    "photo_1",
+    "photo_2",
+    "photo_3",
+    "photo_4"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "c0773a43867652ae19d6462d72e604d830c29d105abedfeccd201a248a778312",
+    "bindings": "fc29620aa8b78d1eb0c41ad65ad0828f56f80f5f20e64f45c9df6309d9e86007",
+    "input": "1e8267fa6e498078684d66b8f4812871ec9368300681b3d8e63f5dfc99c42ed2",
+    "catalog": "badd9fd4e38b3199abcd933929db29ef98c0e37a53347d37e25eb332493e04eb",
+    "photo_windows": "5da4add4ecace0432d8428495f6617c4f538576c50499e20b8caf0ee6f35a5d5"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\reveal\\index.json",
+    "sha256": "eaa5696c52dadf75368b0072a9c2e2e99311846f4063d78aaa8033e47b58f80f"
+  },
+  "reveal_unconfirmed_text": {
+    "text_1": [
+      "frame_1"
+    ],
+    "text_3": [
+      "frame_1"
+    ],
+    "text_4": [
+      "frame_1"
+    ]
+  },
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\assets\\gate\\report.json",
+    "sha256": "c47a06e00113d8b3d4c6a15606c1995dfe6e6fc367ac224ac06005ae0f493b5d",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 9,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 1,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-192\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
