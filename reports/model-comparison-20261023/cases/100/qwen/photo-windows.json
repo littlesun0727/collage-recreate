@@ -1,0 +1,207 @@
+{
+  "schema_version": "collage-photo-windows-v3",
+  "photos": [
+    {
+      "photo_id": "photo_top",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "顶部照片为完整摄影场景，保留背景。具有明确的矩形显示边界，需开启固定窗口裁切；无主体描边或边缘渐变效果。"
+    },
+    {
+      "photo_id": "photo_salad",
+      "subject": {
+        "preserve_background": false,
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.02,
+            0.015
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        }
+      },
+      "mask": {
+        "enabled": false
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "抠图主体（沙拉盘），去除背景以透出底层纹理。白色虚线沿主体轮廓绘制，属于主体描边而非几何窗口边框，故关闭固定窗口。"
+    },
+    {
+      "photo_id": "photo_skewers",
+      "subject": {
+        "preserve_background": false,
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.02,
+            0.015
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        }
+      },
+      "mask": {
+        "enabled": false
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "抠图主体（烤肉串），去除背景。白色虚线紧贴铁盘轮廓，确认为主体描边，不启用独立窗口。"
+    },
+    {
+      "photo_id": "photo_friedrice",
+      "subject": {
+        "preserve_background": false,
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.02,
+            0.015
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        }
+      },
+      "mask": {
+        "enabled": false
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "抠图主体（炒饭），去除背景。白色虚线依附于碗体轮廓，为主体描边处理。"
+    },
+    {
+      "photo_id": "photo_tteokbokki",
+      "subject": {
+        "preserve_background": false,
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.02,
+            0.015
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        }
+      },
+      "mask": {
+        "enabled": false
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "抠图主体（年糕锅），去除背景。白色虚线沿锅具及支架的不规则轮廓分布，确认为主体描边。"
+    },
+    {
+      "photo_id": "photo_bottom",
+      "subject": {
+        "preserve_background": true,
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "mask": {
+        "enabled": true,
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        }
+      },
+      "edge_gradient": {
+        "enabled": false,
+        "direction": "inside",
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "reason": "底部照片为完整摄影场景，保留背景。具有明确的矩形显示边界，需开启固定窗口裁切；无特殊描边或渐变。"
+    }
+  ]
+}
