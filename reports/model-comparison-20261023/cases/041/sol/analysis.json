@@ -1,0 +1,262 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    900
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        900
+      ],
+      "description": "固定背景，上半部为鲜蓝色平面，下半部从约画面高度51%处开始为深绿色织物质感地面，保留纹理、明暗和水平分界。",
+      "label": "固定背景，上半部为鲜蓝色平面，下半部从约画面高度51%处开始",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "heart_cloud_large",
+      "kind": "overlay",
+      "bbox": [
+        29,
+        16,
+        135,
+        109
+      ],
+      "description": "左上方较大的白色云雾爱心，保留蓬松颗粒、蓝白过渡和柔散边缘。",
+      "label": "左上方较大的白色云雾爱心，保留蓬松颗粒、蓝白过渡和柔散边缘。",
+      "method": "extract"
+    },
+    {
+      "id": "heart_cloud_small",
+      "kind": "overlay",
+      "bbox": [
+        143,
+        79,
+        210,
+        142
+      ],
+      "description": "左上方较小的白色云雾爱心，内部疏松，保留不规则颗粒和柔散轮廓。",
+      "label": "左上方较小的白色云雾爱心，内部疏松，保留不规则颗粒和柔散轮廓",
+      "method": "extract"
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        135,
+        280,
+        473,
+        669
+      ],
+      "description": "左侧俯拍陶艺工作台照片，无人物；多个陶碗、盘子、装满画笔的容器和小调色盘散布在浅色格纹台面上。保留完整摄影环境，按矩形内口显示，边缘清晰，无主体去背景或透明渐隐。",
+      "label": "左侧俯拍陶艺工作台照片，无人物；多个陶碗、盘子、装满画笔的容",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        473,
+        280,
+        789,
+        669
+      ],
+      "description": "右侧近景照片，一人用手托着不规则陶碗，碗占画面中央，碗内有黄色字样；人物仅露手部及局部身体，周围可见工作室环境。保留摄影背景，矩形裁切，顶部局部被爱心气泡和对话框遮挡，下方被大猫装饰遮挡，无去背景或渐隐。",
+      "label": "右侧近景照片，一人用手托着不规则陶碗，碗占画面中央，碗内有黄",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "computer_frame",
+      "kind": "frame",
+      "bbox": [
+        119,
+        166,
+        805,
+        738
+      ],
+      "description": "承载左右并排照片的复古电脑窗口框体，保留灰色立体边沿、蓝色标题栏、电脑图标、“My Computer”、窗口控制按钮、“File Edit View Help”菜单、底部状态栏及原有小字、像素质感和阴影。两张内口照片分别替换。",
+      "photo_id": "photo_left",
+      "label": "承载左右并排照片的复古电脑窗口框体，保留灰色立体边沿、蓝色标",
+      "method": "extract"
+    },
+    {
+      "id": "small_cat",
+      "kind": "overlay",
+      "bbox": [
+        490,
+        233,
+        546,
+        270
+      ],
+      "description": "菜单栏上的小型白色像素猫头像，蓝色轮廓、粉色面颊和横向胡须作为完整装饰保留。",
+      "label": "菜单栏上的小型白色像素猫头像，蓝色轮廓、粉色面颊和横向胡须作",
+      "method": "extract"
+    },
+    {
+      "id": "heart_bubble",
+      "kind": "overlay",
+      "bbox": [
+        448,
+        297,
+        539,
+        371
+      ],
+      "description": "白色像素对话气泡，带蓝色阶梯状边框、右下尖角和中央粉色爱心，整体覆盖照片上缘。",
+      "label": "白色像素对话气泡，带蓝色阶梯状边框、右下尖角和中央粉色爱心，",
+      "method": "extract"
+    },
+    {
+      "id": "hey_girl_dialog",
+      "kind": "overlay",
+      "bbox": [
+        658,
+        238,
+        868,
+        324
+      ],
+      "description": "右上方独立复古对话框，保留蓝色标题栏、关闭按钮、浅灰底板、边框及阴影；文字为“hey girl”“he will not call”，下方三个按钮为“i know”“cry”“idc”。",
+      "label": "右上方独立复古对话框，保留蓝色标题栏、关闭按钮、浅灰底板、边",
+      "method": "extract"
+    },
+    {
+      "id": "hand_cursor",
+      "kind": "overlay",
+      "bbox": [
+        806,
+        297,
+        860,
+        364
+      ],
+      "description": "白色黑边像素手形鼠标指针，食指向上压住右上对话框的右侧按钮，下部伸出对话框。",
+      "label": "白色黑边像素手形鼠标指针，食指向上压住右上对话框的右侧按钮，",
+      "method": "extract"
+    },
+    {
+      "id": "status_hearts",
+      "kind": "overlay",
+      "bbox": [
+        284,
+        690,
+        379,
+        717
+      ],
+      "description": "状态栏上的三个并排像素爱心，前两个为粉色填充，第三个为空心浅灰内部，统一蓝色阶梯状轮廓，作为一组保留。",
+      "label": "状态栏上的三个并排像素爱心，前两个为粉色填充，第三个为空心浅",
+      "method": "extract"
+    },
+    {
+      "id": "error_dialog",
+      "kind": "overlay",
+      "bbox": [
+        48,
+        643,
+        224,
+        783
+      ],
+      "description": "左下方独立复古错误弹窗，保留立体灰色外壳、深蓝标题栏、“Error”、关闭按钮、中央像素字“ALONE”及底部“OK”按钮，整体覆盖主窗口左下角。",
+      "label": "左下方独立复古错误弹窗，保留立体灰色外壳、深蓝标题栏、“Er",
+      "method": "extract"
+    },
+    {
+      "id": "large_cat",
+      "kind": "overlay",
+      "bbox": [
+        662,
+        594,
+        887,
+        770
+      ],
+      "description": "右下方大型白色像素猫，黑色粗阶梯轮廓，包含脸部、四足、横向身体和右侧高举弯曲尾巴，整体覆盖照片及电脑窗口底边。",
+      "label": "右下方大型白色像素猫，黑色粗阶梯轮廓，包含脸部、四足、横向身",
+      "method": "extract"
+    },
+    {
+      "id": "blue_star_right",
+      "kind": "overlay",
+      "bbox": [
+        830,
+        492,
+        882,
+        545
+      ],
+      "description": "右侧绿色背景上的独立鲜蓝色五角星，保留不对称角度和清晰轮廓。",
+      "label": "右侧绿色背景上的独立鲜蓝色五角星，保留不对称角度和清晰轮廓。",
+      "method": "extract"
+    },
+    {
+      "id": "blue_star_bottom",
+      "kind": "overlay",
+      "bbox": [
+        235,
+        788,
+        301,
+        855
+      ],
+      "description": "下方偏左的独立鲜蓝色五角星，形态略倾斜，位于错误弹窗下方绿色背景上。",
+      "label": "下方偏左的独立鲜蓝色五角星，形态略倾斜，位于错误弹窗下方绿色",
+      "method": "extract"
+    },
+    {
+      "id": "pixel_star",
+      "kind": "overlay",
+      "bbox": [
+        605,
+        758,
+        673,
+        824
+      ],
+      "description": "下方偏右的黄色像素星贴纸，包含白色内侧亮边和蓝紫色阶梯状外轮廓，整体略倾斜。",
+      "label": "下方偏右的黄色像素星贴纸，包含白色内侧亮边和蓝紫色阶梯状外轮",
+      "method": "extract"
+    },
+    {
+      "id": "timestamp",
+      "kind": "text",
+      "bbox": [
+        10,
+        852,
+        149,
+        892
+      ],
+      "description": "PM 10:25\nAUGUST. 07 1990",
+      "label": "PM 10:25\nAUGUST. 07 1990",
+      "method": "local",
+      "text": "PM 10:25\nAUGUST. 07 1990",
+      "text_status": "known",
+      "style": {
+        "fill": "#5264FF",
+        "font": "mono",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "heart_cloud_large",
+    "heart_cloud_small",
+    "photo_left",
+    "photo_right",
+    "computer_frame",
+    "small_cat",
+    "heart_bubble",
+    "status_hearts",
+    "hey_girl_dialog",
+    "hand_cursor",
+    "error_dialog",
+    "large_cat",
+    "blue_star_right",
+    "blue_star_bottom",
+    "pixel_star",
+    "timestamp"
+  ]
+}

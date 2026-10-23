@@ -26,4 +26,4 @@
 
 ## Codex gpt-6.1-sol / medium
 
-待提交
+运行中
