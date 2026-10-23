@@ -1,0 +1,185 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    675
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        675
+      ],
+      "description": "浅灰色纯色背景，作为整个拼贴设计的底板。",
+      "label": "浅灰色纯色背景，作为整个拼贴设计的底板。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#EAEAEA"
+      }
+    },
+    {
+      "id": "photo_main_stamp",
+      "kind": "photo",
+      "bbox": [
+        40,
+        56,
+        450,
+        609
+      ],
+      "description": "左侧大幅樱花照片，边缘处理为邮票齿孔形状（白色波浪边），画面内容为盛开的樱花树和下方的河道。",
+      "label": "左侧大幅樱花照片，边缘处理为邮票齿孔形状（白色波浪边），画面",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_happy_day",
+      "kind": "overlay",
+      "bbox": [
+        348,
+        490,
+        472,
+        518
+      ],
+      "description": "黑色矩形标签，印有白色文字“#Happy day”，叠加在左侧主照片的右下部分。",
+      "label": "黑色矩形标签，印有白色文字“#Happy day”，叠加在左",
+      "method": "extract"
+    },
+    {
+      "id": "text_num_top",
+      "kind": "text",
+      "bbox": [
+        531,
+        59,
+        778,
+        91
+      ],
+      "description": "5 . 1 1",
+      "label": "5 . 1 1",
+      "method": "local",
+      "text": "5 . 1 1",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "photo_right_small_1",
+      "kind": "photo",
+      "bbox": [
+        531,
+        127,
+        698,
+        341
+      ],
+      "description": "右侧上方较小的竖构图樱花照片，显示粉色花簇和树枝。",
+      "label": "右侧上方较小的竖构图樱花照片，显示粉色花簇和树枝。",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_right_small_2",
+      "kind": "photo",
+      "bbox": [
+        657,
+        192,
+        842,
+        442
+      ],
+      "description": "右侧下方较大的横构图樱花照片，与上方小图有重叠，显示较稀疏的樱花枝条。",
+      "label": "右侧下方较大的横构图樱花照片，与上方小图有重叠，显示较稀疏的",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_daily_travel",
+      "kind": "overlay",
+      "bbox": [
+        693,
+        179,
+        806,
+        202
+      ],
+      "description": "黑色矩形标签，印有白色文字“#Daily travel”，位于右侧两张照片交界处上方。",
+      "label": "黑色矩形标签，印有白色文字“#Daily travel”，位",
+      "method": "extract"
+    },
+    {
+      "id": "text_handwritten_body",
+      "kind": "text",
+      "bbox": [
+        518,
+        354,
+        711,
+        560
+      ],
+      "description": "See me or not\nIt doesn't matter if you are with me or not\nI'm right there\nwith no emotions\nIt doesn't matter if you hold me or not\nthe feeling is right there\nand it isn't going anywhere.\nIt doesn't matter if you love me or not\nMy heart is in your hand\nand I'm not going to let you go\ntear me apart into two\nor\ndet me live in your heart to eternity\nlost in silence\njust with memories\n—ZakuraBaka",
+      "label": "See me or not\nIt doesn't matte",
+      "method": "local",
+      "text": "See me or not\nIt doesn't matter if you are with me or not\nI'm right there\nwith no emotions\nIt doesn't matter if you hold me or not\nthe feeling is right there\nand it isn't going anywhere.\nIt doesn't matter if you love me or not\nMy heart is in your hand\nand I'm not going to let you go\ntear me apart into two\nor\ndet me live in your heart to eternity\nlost in silence\njust with memories\n—ZakuraBaka",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "text_num_bottom",
+      "kind": "text",
+      "bbox": [
+        536,
+        574,
+        670,
+        611
+      ],
+      "description": "2   5",
+      "label": "2   5",
+      "method": "local",
+      "text": "2   5",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "overlay_circle_text",
+      "kind": "overlay",
+      "bbox": [
+        706,
+        456,
+        878,
+        638
+      ],
+      "description": "环形排列的黑色英文装饰文字 \"take darkness for lightfoot\"，中间包含数字时间 \"18:45\"。",
+      "label": "环形排列的黑色英文装饰文字 \"take darkness f",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_main_stamp",
+    "photo_right_small_1",
+    "photo_right_small_2",
+    "text_num_top",
+    "text_num_bottom",
+    "text_handwritten_body",
+    "overlay_happy_day",
+    "overlay_daily_travel",
+    "overlay_circle_text"
+  ]
+}

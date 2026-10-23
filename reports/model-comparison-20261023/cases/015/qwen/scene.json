@@ -1,0 +1,572 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\prepared\\reference.png",
+    "sha256": "e1f755ebde8df008598fbe12a52f9dfcba56d4995772648e024d435283166cc9"
+  },
+  "reference_size": [
+    900,
+    675
+  ],
+  "canvas_size": [
+    1200,
+    900
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        675
+      ],
+      "description": "浅灰色纯色背景，作为整个拼贴设计的底板。",
+      "label": "浅灰色纯色背景，作为整个拼贴设计的底板。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#EAEAEA"
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_main_stamp",
+      "kind": "photo",
+      "bbox": [
+        40,
+        56,
+        450,
+        609
+      ],
+      "description": "左侧大幅樱花照片，边缘处理为邮票齿孔形状（白色波浪边），画面内容为盛开的樱花树和下方的河道。",
+      "label": "左侧大幅樱花照片，边缘处理为邮票齿孔形状（白色波浪边），画面",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_main_stamp",
+        "reason": "左侧大幅樱花照片，边缘处理为邮票齿孔形状（白色波浪边），画面内容为盛开的樱花树和下方的河道。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_main_stamp",
+        "asset_id": "material_01",
+        "source_crop": [
+          0.2,
+          0.0,
+          0.8,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为大幅竖构图风景，原图是樱花河道。素材库中无花卉，选择视觉结构最接近的航拍盐湖景观（material_01）。该图包含天空、水面和陆地纹理，通过裁切中间部分（左0.2至右0.8）形成竖向构图，能很好地模拟原图中“上方花树、下方河道”的纵向延伸感。"
+      },
+      "source": {
+        "id": "material_01",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-036-7a30152314a8\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+        "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\prepared\\material_01.jpg"
+      }
+    },
+    {
+      "id": "overlay_happy_day",
+      "kind": "overlay",
+      "bbox": [
+        348,
+        490,
+        472,
+        518
+      ],
+      "description": "黑色矩形标签，印有白色文字“#Happy day”，叠加在左侧主照片的右下部分。",
+      "label": "黑色矩形标签，印有白色文字“#Happy day”，叠加在左",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "41114197e2021f84c078dfb7f2150f9110130662f1e172026caa0f5caf90d7e9"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_happy_day.png",
+        "sha256": "b0a4609bcf0adeeac7a3478cf23b5e190817a9cc526425e787d7a6c043f8ab9f",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01\\overlay_happy_day-restored.png",
+          "sha256": "b0a4609bcf0adeeac7a3478cf23b5e190817a9cc526425e787d7a6c043f8ab9f",
+          "bbox": [
+            345,
+            487,
+            475,
+            521
+          ],
+          "original_bbox": [
+            348,
+            490,
+            472,
+            518
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "cb3e82186874016decb6156dc7297985c4da8f08c939379941e8214236c7603d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            675
+          ],
+          "input_sha256": "e1f755ebde8df008598fbe12a52f9dfcba56d4995772648e024d435283166cc9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_happy_day-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_happy_day-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_num_top",
+      "kind": "text",
+      "bbox": [
+        531,
+        59,
+        778,
+        91
+      ],
+      "description": "5 . 1 1",
+      "label": "5 . 1 1",
+      "method": "local",
+      "text": "5 . 1 1",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_right_small_1",
+      "kind": "photo",
+      "bbox": [
+        531,
+        127,
+        698,
+        341
+      ],
+      "description": "右侧上方较小的竖构图樱花照片，显示粉色花簇和树枝。",
+      "label": "右侧上方较小的竖构图樱花照片，显示粉色花簇和树枝。",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_right_small_1",
+        "reason": "右侧上方较小的竖构图樱花照片，显示粉色花簇和树枝。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_right_small_1",
+        "asset_id": "material_17",
+        "source_crop": [
+          0.3,
+          0.0,
+          0.9,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为右上小竖图。选择 material_17（红顶小屋与湖水），其色彩明快且主体居中。通过裁切右侧部分（左0.3至右0.9）去除左侧留白，使画面更紧凑，符合小图的填充需求。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-036-7a30152314a8\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "photo_right_small_2",
+      "kind": "photo",
+      "bbox": [
+        657,
+        192,
+        842,
+        442
+      ],
+      "description": "右侧下方较大的横构图樱花照片，与上方小图有重叠，显示较稀疏的樱花枝条。",
+      "label": "右侧下方较大的横构图樱花照片，与上方小图有重叠，显示较稀疏的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_right_small_2",
+        "reason": "右侧下方较大的横构图樱花照片，与上方小图有重叠，显示较稀疏的樱花枝条。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_right_small_2",
+        "asset_id": "material_12",
+        "source_crop": [
+          0.2,
+          0.0,
+          0.8,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为右下横图。选择 material_12（俯瞰视角的盐湖地貌），其丰富的线条和色块纹理与原图中“稀疏枝条”的复杂细节在视觉上较为匹配。裁切左右边缘保留中心区域，以适配槽位比例。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-036-7a30152314a8\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "overlay_daily_travel",
+      "kind": "overlay",
+      "bbox": [
+        693,
+        179,
+        806,
+        202
+      ],
+      "description": "黑色矩形标签，印有白色文字“#Daily travel”，位于右侧两张照片交界处上方。",
+      "label": "黑色矩形标签，印有白色文字“#Daily travel”，位",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "12a24ba2a2062dd69d7e8ce4b8fc58ee5e0b91bf7071079d877b1f8cfd4447bf"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_daily_travel.png",
+        "sha256": "3e0cc3a2177c6a5afb246fdda0b74d94e6a64d192a43e2168f2c9bd3eda92c97",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01\\overlay_daily_travel-restored.png",
+          "sha256": "3e0cc3a2177c6a5afb246fdda0b74d94e6a64d192a43e2168f2c9bd3eda92c97",
+          "bbox": [
+            690,
+            176,
+            809,
+            205
+          ],
+          "original_bbox": [
+            693,
+            179,
+            806,
+            202
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "c7d5f0a4bd711789f2708f5d7e8b5b66d96d0342823a9b9f0cb9047b5cabcf17",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            675
+          ],
+          "input_sha256": "e1f755ebde8df008598fbe12a52f9dfcba56d4995772648e024d435283166cc9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_daily_travel-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_daily_travel-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_handwritten_body",
+      "kind": "text",
+      "bbox": [
+        518,
+        354,
+        711,
+        560
+      ],
+      "description": "See me or not\nIt doesn't matter if you are with me or not\nI'm right there\nwith no emotions\nIt doesn't matter if you hold me or not\nthe feeling is right there\nand it isn't going anywhere.\nIt doesn't matter if you love me or not\nMy heart is in your hand\nand I'm not going to let you go\ntear me apart into two\nor\ndet me live in your heart to eternity\nlost in silence\njust with memories\n—ZakuraBaka",
+      "label": "See me or not\nIt doesn't matte",
+      "method": "local",
+      "text": "See me or not\nIt doesn't matter if you are with me or not\nI'm right there\nwith no emotions\nIt doesn't matter if you hold me or not\nthe feeling is right there\nand it isn't going anywhere.\nIt doesn't matter if you love me or not\nMy heart is in your hand\nand I'm not going to let you go\ntear me apart into two\nor\ndet me live in your heart to eternity\nlost in silence\njust with memories\n—ZakuraBaka",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_num_bottom",
+      "kind": "text",
+      "bbox": [
+        536,
+        574,
+        670,
+        611
+      ],
+      "description": "2   5",
+      "label": "2   5",
+      "method": "local",
+      "text": "2   5",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "sans",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "overlay_circle_text",
+      "kind": "overlay",
+      "bbox": [
+        706,
+        456,
+        878,
+        638
+      ],
+      "description": "环形排列的黑色英文装饰文字 \"take darkness for lightfoot\"，中间包含数字时间 \"18:45\"。",
+      "label": "环形排列的黑色英文装饰文字 \"take darkness f",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "226a0b5ec804f45be283b4fcc1d05b27fa63df9c38cc61006d7e10edbc26c378"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_circle_text.png",
+        "sha256": "615e13cf490c40df4db982095c8a1e81ee1c164594b934fb81e4259f27060faf",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01\\overlay_circle_text-restored.png",
+          "sha256": "615e13cf490c40df4db982095c8a1e81ee1c164594b934fb81e4259f27060faf",
+          "bbox": [
+            700,
+            450,
+            884,
+            644
+          ],
+          "original_bbox": [
+            706,
+            456,
+            878,
+            638
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "a2140e9834a10685b2edd1520a8ee69d9a16aea45ef50e54fc40908b67b75f0e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            675
+          ],
+          "input_sha256": "e1f755ebde8df008598fbe12a52f9dfcba56d4995772648e024d435283166cc9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_circle_text-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\overlay_circle_text-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_main_stamp",
+    "photo_right_small_1",
+    "photo_right_small_2",
+    "text_num_top",
+    "text_num_bottom",
+    "text_handwritten_body",
+    "overlay_happy_day",
+    "overlay_daily_travel",
+    "overlay_circle_text"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "43500a005bf405993ea157c99c8665ad72594d70770c708afc4e85d5cdb003ff",
+    "bindings": "b660337fed3ffd89848f2c0e5ccb4d2266c44b344ea0966987b314e893473b56",
+    "input": "0965c33152e621fa3f4f3af5b0c26af9ddd828029b8f7aa7a354c98bee923f16",
+    "catalog": "f203f3b1f78cffda02da9c7f732bf50f86a185b9f0ab3a1a5f2a0e0027d35e93",
+    "photo_windows": "4d1255a9669654788e11aba0b4814791cb2aece30daa1295048a9bb2fed8e950"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\reveal\\index.json",
+    "sha256": "340372eda1f01e8053455071348d2ec39f73b86200f789964bf5d74bc04823e5"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-036\\assets\\gate\\report.json",
+    "sha256": "4c9303add6aedc362962e7626bf10cad12a3340747c041ae33ce8a201a473a30",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 3,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
