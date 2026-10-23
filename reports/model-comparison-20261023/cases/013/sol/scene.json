@@ -1,0 +1,1084 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\prepared\\reference.png",
+    "sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+  },
+  "reference_size": [
+    900,
+    1600
+  ],
+  "canvas_size": [
+    1200,
+    2133
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1600
+      ],
+      "description": "近黑色相机界面底层，保留轻微明暗不均的屏幕质感，照片显示区之外形成上下及两侧留边。",
+      "label": "近黑色相机界面底层，保留轻微明暗不均的屏幕质感，照片显示区之",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "54b0fcdbe33b5e46dffaac0b9420bd33597d4e714b8522ebcf8fc666c7d5ec90"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\background.png",
+        "sha256": "4f18a6ea694cd51fa8e82fd4c61225c1572cf73eb0231b00e792bbc2815ca1bf",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\background-background-source.png",
+          "sha256": "4f18a6ea694cd51fa8e82fd4c61225c1572cf73eb0231b00e792bbc2815ca1bf",
+          "bbox": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "929df2974e92bf334da88a9131964cd9d47543cfb087051cb14324b1d7bc7e9d",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\background-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\background-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        56,
+        163,
+        842,
+        694
+      ],
+      "description": "上方独立照片，一名扎高发髻的女性侧身对镜自拍，举手机遮住大部分面部，穿浅色长袖上衣和浅色牛仔短裙，显示头部至大腿。保留镜内墙壁、插座、深色门板及浅色地面，摄影环境完整可见；照片按清晰窗口裁切，无主体去背景或透明渐隐。",
+      "label": "上方独立照片，一名扎高发髻的女性侧身对镜自拍，举手机遮住大部",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top",
+        "reason": "保留人物及墙壁、插座、门板和地面的完整摄影背景，无主体描边。显示边界为水平矩形，窗口无独立描边；底边与下方照片硬切拼接，无透明混合或连续出框。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.63
+        ],
+        "mirror_x": false,
+        "reason": "选用单人近景，浅色长袖及抬手靠近面部的姿态较接近；纵向靠下裁切，保留帽顶、面部及双手。素材为湖边正面摆拍，非侧身镜自拍，服装、背景不同，横槽只能保留至腰胯附近。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-028-e49cd6318c51\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        56,
+        694,
+        842,
+        1245
+      ],
+      "description": "下方独立照片，一名扎高发髻的女性侧身对镜自拍，手机遮脸，穿浅色长袖上衣和浅色牛仔短裙，人物位于中右侧，显示头部至大腿。保留左侧墙壁与插座、后方深色门板和右侧地面；照片清晰裁切，与上方照片直接拼接，无去背景或透明渐隐。",
+      "label": "下方独立照片，一名扎高发髻的女性侧身对镜自拍，手机遮脸，穿浅",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom",
+        "reason": "保留人物与完整室内摄影环境，无主体描边。照片由独立水平矩形窗口裁切，四边无独立线条；顶边与上方照片清晰拼接，其余边直接邻接深色界面，均无透明渐变。两张照片为独立重复画面，不构成连续出框。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.63
+        ],
+        "mirror_x": false,
+        "reason": "单人侧身、浅色长袖且位于中右侧，较接近参考人物朝向与位置；纵向靠下裁切，保留帽顶、垂下的手及大腿。不镜像；实际为海边戴帽侧身照，无手机遮脸、高发髻及室内背景。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-028-e49cd6318c51\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "status_dot",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        14,
+        500,
+        35
+      ],
+      "description": "顶部单独的微小绿色指示光点，保留柔和发光边缘。",
+      "label": "顶部单独的微小绿色指示光点，保留柔和发光边缘。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5093c3fa03d9652af8bc62be5c4771cf9aaa76ff5390b69d08ea29e832a44c90"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\status_dot.png",
+        "sha256": "11672b06280a89181690e5aa979c2af5c714f4d17e9a004d6dc670619fe240f5",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\status_dot-restored.png",
+          "sha256": "11672b06280a89181690e5aa979c2af5c714f4d17e9a004d6dc670619fe240f5",
+          "bbox": [
+            480,
+            12,
+            502,
+            37
+          ],
+          "original_bbox": [
+            482,
+            14,
+            500,
+            35
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "b41ddd9b069423599d4d0b40f3e9a42f80c64ba85757c614e4858d31e701be01",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\status_dot-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\status_dot-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "top_flash",
+      "kind": "overlay",
+      "bbox": [
+        82,
+        75,
+        138,
+        133
+      ],
+      "description": "顶部左侧圆圈闪电图标，保留暗底、细圆环与浅色闪电符号。",
+      "label": "顶部左侧圆圈闪电图标，保留暗底、细圆环与浅色闪电符号。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f59cc1e8bdfa9996791bf5922d599b8612c83ed7294c94c5d5d620ea8d5a3f0f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_flash.png",
+        "sha256": "3cba37185c0eee32ceadb02bbc326abaafd8d58e43def803715c2b0b4856d24e",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\top_flash-restored.png",
+          "sha256": "3cba37185c0eee32ceadb02bbc326abaafd8d58e43def803715c2b0b4856d24e",
+          "bbox": [
+            76,
+            69,
+            144,
+            139
+          ],
+          "original_bbox": [
+            82,
+            75,
+            138,
+            133
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_13.png",
+          "raw_sha256": "0fc29c97eec610f0c90b9f74f1ec49a3e8d4541c780fb4543d384b39089d791b",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_flash-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_flash-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "top_filter",
+      "kind": "overlay",
+      "bbox": [
+        154,
+        75,
+        212,
+        133
+      ],
+      "description": "顶部第二个圆形控制图标，内部为浅色圆形与横向暗纹，整体保留。",
+      "label": "顶部第二个圆形控制图标，内部为浅色圆形与横向暗纹，整体保留。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "fccc2ee1f0a6077405305c980e0ee2c5c316388b8b48d0d9c0babaca007096b5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_filter.png",
+        "sha256": "f498ed3f085ba5672a289bc2b5f0558d40bc79fecae358c1d77c296bbc986f87",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\top_filter-restored.png",
+          "sha256": "f498ed3f085ba5672a289bc2b5f0558d40bc79fecae358c1d77c296bbc986f87",
+          "bbox": [
+            148,
+            69,
+            218,
+            139
+          ],
+          "original_bbox": [
+            154,
+            75,
+            212,
+            133
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "bfdbe836977847d0fecad3fc615207f6c04c535c2c3fac3ca7426fc5455bf0c8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_filter-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_filter-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "top_chevron",
+      "kind": "overlay",
+      "bbox": [
+        418,
+        74,
+        482,
+        136
+      ],
+      "description": "顶部中央深色圆形按钮，内含黄色向下折线。",
+      "label": "顶部中央深色圆形按钮，内含黄色向下折线。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "52620d6b3ff37cacf42a8c49cf5f3d6637a03689bb0f06854d2bdbf6619162ee"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_chevron.png",
+        "sha256": "6e9b4e480a991f5c2cd65cb6dd7b9efd76f1450ff8daa0d3bcf9ab41e08898c4",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\top_chevron-restored.png",
+          "sha256": "6e9b4e480a991f5c2cd65cb6dd7b9efd76f1450ff8daa0d3bcf9ab41e08898c4",
+          "bbox": [
+            411,
+            67,
+            489,
+            143
+          ],
+          "original_bbox": [
+            418,
+            74,
+            482,
+            136
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "0fea7562aa645dfcc92655996c4ab25d0f6696dc68304f90370ab133a114c449",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_chevron-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_chevron-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "raw_label",
+      "kind": "text",
+      "bbox": [
+        679,
+        78,
+        741,
+        126
+      ],
+      "description": "RAW\nMAX",
+      "label": "RAW\nMAX",
+      "method": "local",
+      "text": "RAW\nMAX",
+      "text_status": "known",
+      "style": {
+        "fill": "#BEC4B8",
+        "font": "sans",
+        "align": "center",
+        "bold": true,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "top_target",
+      "kind": "overlay",
+      "bbox": [
+        760,
+        75,
+        816,
+        133
+      ],
+      "description": "右上方同心圆控制图标，保留多重细圆环、中心点和暗色底部。",
+      "label": "右上方同心圆控制图标，保留多重细圆环、中心点和暗色底部。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "cb2f1dd8bfc89610acd5357cd2d6fe72509fe1c8e115c6f877bf498379c8a1ea"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_target.png",
+        "sha256": "7987cc8c13e18c60f52921b4e172c3025fe0ec33d856d69dcd33b001dd731c19",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\top_target-restored.png",
+          "sha256": "7987cc8c13e18c60f52921b4e172c3025fe0ec33d856d69dcd33b001dd731c19",
+          "bbox": [
+            754,
+            69,
+            822,
+            139
+          ],
+          "original_bbox": [
+            760,
+            75,
+            816,
+            133
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_14.png",
+          "raw_sha256": "0baa98ef643021af96410b91e64afcc03cb66a2ebe32c18ebfe89bb6d96c4a22",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_target-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\top_target-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bottom_flash",
+      "kind": "overlay",
+      "bbox": [
+        101,
+        1243,
+        197,
+        1336
+      ],
+      "description": "照片下方第一枚深色圆形按钮，内部为浅色闪电符号。",
+      "label": "照片下方第一枚深色圆形按钮，内部为浅色闪电符号。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "89deb0c20c3fe0055b4cc8d7bebdeeec283c75ba23723b5973001b5a36446a79"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_flash.png",
+        "sha256": "279feb63339938e442de5a43a8653520c7dfef11fb0fc5f540ea3cf95f6b0601",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\bottom_flash-restored.png",
+          "sha256": "279feb63339938e442de5a43a8653520c7dfef11fb0fc5f540ea3cf95f6b0601",
+          "bbox": [
+            91,
+            1233,
+            207,
+            1346
+          ],
+          "original_bbox": [
+            101,
+            1243,
+            197,
+            1336
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "5199becbf339139cf353d29ab5e246009d0226c6265a43466444a47bd3168274",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_flash-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_flash-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bottom_filter",
+      "kind": "overlay",
+      "bbox": [
+        220,
+        1243,
+        316,
+        1336
+      ],
+      "description": "照片下方第二枚深色圆形按钮，内部为浅色圆形及横向条纹。",
+      "label": "照片下方第二枚深色圆形按钮，内部为浅色圆形及横向条纹。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e72b85cfca816a0d6bb9ab2b06676011b46d116efd00bed91ada5d0b5a2605ea"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_filter.png",
+        "sha256": "6e6843bf06143499b8d76a75f9bf36ac91f3292fdfb86db0d5e86e103a6f4c51",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\bottom_filter-restored.png",
+          "sha256": "6e6843bf06143499b8d76a75f9bf36ac91f3292fdfb86db0d5e86e103a6f4c51",
+          "bbox": [
+            210,
+            1233,
+            326,
+            1346
+          ],
+          "original_bbox": [
+            220,
+            1243,
+            316,
+            1336
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "dc1cf028ee236cbd96fca4923821900203b172895f31afbf92ce03ac8f2bba93",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_filter-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_filter-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bottom_target",
+      "kind": "overlay",
+      "bbox": [
+        339,
+        1243,
+        436,
+        1336
+      ],
+      "description": "照片下方第三枚深色圆形按钮，内部为浅色多重同心圆。",
+      "label": "照片下方第三枚深色圆形按钮，内部为浅色多重同心圆。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d81d95e47de9a5c98ed7dfacb4ae6a2b81c822abbdc8336628b587664bc54e68"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_target.png",
+        "sha256": "72aa4ec9b1700767284b7533f289763a4b98f4a3df468e1769658a8c5a2abfb7",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\bottom_target-restored.png",
+          "sha256": "72aa4ec9b1700767284b7533f289763a4b98f4a3df468e1769658a8c5a2abfb7",
+          "bbox": [
+            329,
+            1233,
+            446,
+            1346
+          ],
+          "original_bbox": [
+            339,
+            1243,
+            436,
+            1336
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "e8d30339b31baa7dd0803cbe6945b5bbc226fce18af338ab49f3436d9eb20301",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_target-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_target-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bottom_stack",
+      "kind": "overlay",
+      "bbox": [
+        459,
+        1243,
+        556,
+        1336
+      ],
+      "description": "照片下方第四枚深色圆形按钮，内部为倾斜叠置的矩形线框图标。",
+      "label": "照片下方第四枚深色圆形按钮，内部为倾斜叠置的矩形线框图标。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c5b68fbe6750b0f62abe59d94681381fc834909d8a8825d6e67d5d2ec79f00ac"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_stack.png",
+        "sha256": "00812e04a03f24917bd320db9f0b935d36e61cb923f5f2542c18bbc924b13677",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\bottom_stack-restored.png",
+          "sha256": "00812e04a03f24917bd320db9f0b935d36e61cb923f5f2542c18bbc924b13677",
+          "bbox": [
+            449,
+            1233,
+            566,
+            1346
+          ],
+          "original_bbox": [
+            459,
+            1243,
+            556,
+            1336
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "c0dd4f46bfd3ac31e349f8de0edfb7c370058e20363193e3441e59c0cea5c340",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_stack-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_stack-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bottom_ratio",
+      "kind": "overlay",
+      "bbox": [
+        579,
+        1243,
+        676,
+        1336
+      ],
+      "description": "照片下方第五枚深色圆形按钮，内部带有浅色“4:3”字样，文字与按钮整体保留。",
+      "label": "照片下方第五枚深色圆形按钮，内部带有浅色“4:3”字样，文字",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e9edd8b223897ec60c9072aecbc944541670c8a175502367bf72880e8bf99430"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_ratio.png",
+        "sha256": "c007a0d593faf4f0cb04d3ff27b42812fe4bebaa705034ec9651bd4c2c9a91db",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\bottom_ratio-restored.png",
+          "sha256": "c007a0d593faf4f0cb04d3ff27b42812fe4bebaa705034ec9651bd4c2c9a91db",
+          "bbox": [
+            569,
+            1233,
+            686,
+            1346
+          ],
+          "original_bbox": [
+            579,
+            1243,
+            676,
+            1336
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "36d50f87de7a1d2817c28cbfd31c89457dcc5d2f9b34afdcff185e7f42c7cdfd",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_ratio-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_ratio-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "bottom_adjust",
+      "kind": "overlay",
+      "bbox": [
+        698,
+        1243,
+        796,
+        1336
+      ],
+      "description": "照片下方第六枚深色圆形按钮，内部为浅色圆环及上下排列的加减符号。",
+      "label": "照片下方第六枚深色圆形按钮，内部为浅色圆环及上下排列的加减符",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "50c848bc04061751293cf01ddaf0fbf428ef9b986968a4b6ebb26e1a6f68c331"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_adjust.png",
+        "sha256": "0625709f9bbf042c220f184b2d353db3d3281a230233d1c9ead0763fc9775555",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\bottom_adjust-restored.png",
+          "sha256": "0625709f9bbf042c220f184b2d353db3d3281a230233d1c9ead0763fc9775555",
+          "bbox": [
+            688,
+            1233,
+            806,
+            1346
+          ],
+          "original_bbox": [
+            698,
+            1243,
+            796,
+            1336
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "a9c0c316eee63a4ea02cc1021bd2bd80ac156bf5db38560d448fbe876560f563",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_adjust-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\bottom_adjust-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "thumbnail",
+      "kind": "overlay",
+      "bbox": [
+        53,
+        1349,
+        244,
+        1542
+      ],
+      "description": "左下方接近黑色的方形缩略图占位区域，内部没有可辨认摄影内容，保留其微弱边界及暗色块。",
+      "label": "左下方接近黑色的方形缩略图占位区域，内部没有可辨认摄影内容，",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d8abd45f304e0885033a39f76140772d54c553b9c2f8d88f6898035d349a7e08"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\thumbnail.png",
+        "sha256": "58282d837f63a12c8ec6cc775fd141aaed1a3f1ee8e42199873ff90710b2687f",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\thumbnail-restored.png",
+          "sha256": "58282d837f63a12c8ec6cc775fd141aaed1a3f1ee8e42199873ff90710b2687f",
+          "bbox": [
+            43,
+            1339,
+            254,
+            1552
+          ],
+          "original_bbox": [
+            53,
+            1349,
+            244,
+            1542
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "adac6a19c95e7149ebd188db9b1bbfe2913dfb307600faa468e968e1efc55717",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\thumbnail-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\thumbnail-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "shutter",
+      "kind": "overlay",
+      "bbox": [
+        374,
+        1362,
+        523,
+        1510
+      ],
+      "description": "底部中央的大型快门按钮，浅灰实心圆盘外围有深色间隔及浅色双环，完整保留柔和边缘。",
+      "label": "底部中央的大型快门按钮，浅灰实心圆盘外围有深色间隔及浅色双环",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c1bbc16120319d200dc7953b7278106926f5fdaf3e8a346e3378488766a4f4ef"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\shutter.png",
+        "sha256": "68909a8ea513e8910ea601fec0b523e070ae31bdf29c45a2de627738704f4c6c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\shutter-restored.png",
+          "sha256": "68909a8ea513e8910ea601fec0b523e070ae31bdf29c45a2de627738704f4c6c",
+          "bbox": [
+            364,
+            1352,
+            533,
+            1520
+          ],
+          "original_bbox": [
+            374,
+            1362,
+            523,
+            1510
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "dfa8bbfaed57be80a0d30532425e28f80202ce0f57c6e992eecc6936e1c59ae3",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\shutter-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\shutter-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "switch_camera",
+      "kind": "overlay",
+      "bbox": [
+        697,
+        1386,
+        800,
+        1488
+      ],
+      "description": "右下方深色圆形切换镜头按钮，内部为两段浅色循环箭头。",
+      "label": "右下方深色圆形切换镜头按钮，内部为两段浅色循环箭头。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "80c53eba4d52290ae24084316fbfcae830a8d2960e2204587fb0ef7e416bd49b"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\switch_camera.png",
+        "sha256": "aae063c8a4b7edb9b3f398ba51793442c55330d90b845ed8ca467cc7f27470a3",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\switch_camera-restored.png",
+          "sha256": "aae063c8a4b7edb9b3f398ba51793442c55330d90b845ed8ca467cc7f27470a3",
+          "bbox": [
+            687,
+            1376,
+            810,
+            1498
+          ],
+          "original_bbox": [
+            697,
+            1386,
+            800,
+            1488
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "2d271e781cf7d3fdb1ed88694cca9175fd6be33fe2abf1b60d2ac2358a3dfca5",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1600
+          ],
+          "input_sha256": "f9c34c8e9685e8c77fd526c3c1ce7348e8ce9b139188fd31e04b9735a44aa6e8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\switch_camera-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\switch_camera-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_bottom",
+    "status_dot",
+    "top_flash",
+    "top_filter",
+    "top_chevron",
+    "raw_label",
+    "top_target",
+    "bottom_flash",
+    "bottom_filter",
+    "bottom_target",
+    "bottom_stack",
+    "bottom_ratio",
+    "bottom_adjust",
+    "thumbnail",
+    "shutter",
+    "switch_camera"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "0683c84d443e3e7ec9438cc629940da62ad282f1ec63679747db8eb92cab4691",
+    "bindings": "80de1560c11272d562c145bea0e8c31d00689da3e0188dab7d07756694ab9f21",
+    "input": "94e9f8efd7cb81d878bbec729e245e063e502677e25c9e54ce4c1c4fbcec8a39",
+    "catalog": "a04bd901cf803a84bb17e3ead6d85f0f68028a47cc790aa62e8be3576fc875d5",
+    "photo_windows": "835efce63a8a18742dae938ad22b06575401ad4352ff1bc98d230af6f79c14d3"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\reveal\\index.json",
+    "sha256": "de714ff692c44f9bf0c726b537e332793db151fd129a6e70611b25174d971d42"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-028\\assets\\gate\\report.json",
+    "sha256": "b0619ac5d08d85fa504d811e649703166f7787083f00ab9a58d5e3a8b247b518",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 15,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

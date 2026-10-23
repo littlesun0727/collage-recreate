@@ -1,0 +1,275 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1600
+      ],
+      "description": "近黑色相机界面底层，保留轻微明暗不均的屏幕质感，照片显示区之外形成上下及两侧留边。",
+      "label": "近黑色相机界面底层，保留轻微明暗不均的屏幕质感，照片显示区之",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        56,
+        163,
+        842,
+        694
+      ],
+      "description": "上方独立照片，一名扎高发髻的女性侧身对镜自拍，举手机遮住大部分面部，穿浅色长袖上衣和浅色牛仔短裙，显示头部至大腿。保留镜内墙壁、插座、深色门板及浅色地面，摄影环境完整可见；照片按清晰窗口裁切，无主体去背景或透明渐隐。",
+      "label": "上方独立照片，一名扎高发髻的女性侧身对镜自拍，举手机遮住大部",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        56,
+        694,
+        842,
+        1245
+      ],
+      "description": "下方独立照片，一名扎高发髻的女性侧身对镜自拍，手机遮脸，穿浅色长袖上衣和浅色牛仔短裙，人物位于中右侧，显示头部至大腿。保留左侧墙壁与插座、后方深色门板和右侧地面；照片清晰裁切，与上方照片直接拼接，无去背景或透明渐隐。",
+      "label": "下方独立照片，一名扎高发髻的女性侧身对镜自拍，手机遮脸，穿浅",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "status_dot",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        14,
+        500,
+        35
+      ],
+      "description": "顶部单独的微小绿色指示光点，保留柔和发光边缘。",
+      "label": "顶部单独的微小绿色指示光点，保留柔和发光边缘。",
+      "method": "extract"
+    },
+    {
+      "id": "top_flash",
+      "kind": "overlay",
+      "bbox": [
+        82,
+        75,
+        138,
+        133
+      ],
+      "description": "顶部左侧圆圈闪电图标，保留暗底、细圆环与浅色闪电符号。",
+      "label": "顶部左侧圆圈闪电图标，保留暗底、细圆环与浅色闪电符号。",
+      "method": "extract"
+    },
+    {
+      "id": "top_filter",
+      "kind": "overlay",
+      "bbox": [
+        154,
+        75,
+        212,
+        133
+      ],
+      "description": "顶部第二个圆形控制图标，内部为浅色圆形与横向暗纹，整体保留。",
+      "label": "顶部第二个圆形控制图标，内部为浅色圆形与横向暗纹，整体保留。",
+      "method": "extract"
+    },
+    {
+      "id": "top_chevron",
+      "kind": "overlay",
+      "bbox": [
+        418,
+        74,
+        482,
+        136
+      ],
+      "description": "顶部中央深色圆形按钮，内含黄色向下折线。",
+      "label": "顶部中央深色圆形按钮，内含黄色向下折线。",
+      "method": "extract"
+    },
+    {
+      "id": "raw_label",
+      "kind": "text",
+      "bbox": [
+        679,
+        78,
+        741,
+        126
+      ],
+      "description": "RAW\nMAX",
+      "label": "RAW\nMAX",
+      "method": "local",
+      "text": "RAW\nMAX",
+      "text_status": "known",
+      "style": {
+        "fill": "#BEC4B8",
+        "font": "sans",
+        "align": "center",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "top_target",
+      "kind": "overlay",
+      "bbox": [
+        760,
+        75,
+        816,
+        133
+      ],
+      "description": "右上方同心圆控制图标，保留多重细圆环、中心点和暗色底部。",
+      "label": "右上方同心圆控制图标，保留多重细圆环、中心点和暗色底部。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_flash",
+      "kind": "overlay",
+      "bbox": [
+        101,
+        1243,
+        197,
+        1336
+      ],
+      "description": "照片下方第一枚深色圆形按钮，内部为浅色闪电符号。",
+      "label": "照片下方第一枚深色圆形按钮，内部为浅色闪电符号。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_filter",
+      "kind": "overlay",
+      "bbox": [
+        220,
+        1243,
+        316,
+        1336
+      ],
+      "description": "照片下方第二枚深色圆形按钮，内部为浅色圆形及横向条纹。",
+      "label": "照片下方第二枚深色圆形按钮，内部为浅色圆形及横向条纹。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_target",
+      "kind": "overlay",
+      "bbox": [
+        339,
+        1243,
+        436,
+        1336
+      ],
+      "description": "照片下方第三枚深色圆形按钮，内部为浅色多重同心圆。",
+      "label": "照片下方第三枚深色圆形按钮，内部为浅色多重同心圆。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_stack",
+      "kind": "overlay",
+      "bbox": [
+        459,
+        1243,
+        556,
+        1336
+      ],
+      "description": "照片下方第四枚深色圆形按钮，内部为倾斜叠置的矩形线框图标。",
+      "label": "照片下方第四枚深色圆形按钮，内部为倾斜叠置的矩形线框图标。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_ratio",
+      "kind": "overlay",
+      "bbox": [
+        579,
+        1243,
+        676,
+        1336
+      ],
+      "description": "照片下方第五枚深色圆形按钮，内部带有浅色“4:3”字样，文字与按钮整体保留。",
+      "label": "照片下方第五枚深色圆形按钮，内部带有浅色“4:3”字样，文字",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_adjust",
+      "kind": "overlay",
+      "bbox": [
+        698,
+        1243,
+        796,
+        1336
+      ],
+      "description": "照片下方第六枚深色圆形按钮，内部为浅色圆环及上下排列的加减符号。",
+      "label": "照片下方第六枚深色圆形按钮，内部为浅色圆环及上下排列的加减符",
+      "method": "extract"
+    },
+    {
+      "id": "thumbnail",
+      "kind": "overlay",
+      "bbox": [
+        53,
+        1349,
+        244,
+        1542
+      ],
+      "description": "左下方接近黑色的方形缩略图占位区域，内部没有可辨认摄影内容，保留其微弱边界及暗色块。",
+      "label": "左下方接近黑色的方形缩略图占位区域，内部没有可辨认摄影内容，",
+      "method": "extract"
+    },
+    {
+      "id": "shutter",
+      "kind": "overlay",
+      "bbox": [
+        374,
+        1362,
+        523,
+        1510
+      ],
+      "description": "底部中央的大型快门按钮，浅灰实心圆盘外围有深色间隔及浅色双环，完整保留柔和边缘。",
+      "label": "底部中央的大型快门按钮，浅灰实心圆盘外围有深色间隔及浅色双环",
+      "method": "extract"
+    },
+    {
+      "id": "switch_camera",
+      "kind": "overlay",
+      "bbox": [
+        697,
+        1386,
+        800,
+        1488
+      ],
+      "description": "右下方深色圆形切换镜头按钮，内部为两段浅色循环箭头。",
+      "label": "右下方深色圆形切换镜头按钮，内部为两段浅色循环箭头。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_bottom",
+    "status_dot",
+    "top_flash",
+    "top_filter",
+    "top_chevron",
+    "raw_label",
+    "top_target",
+    "bottom_flash",
+    "bottom_filter",
+    "bottom_target",
+    "bottom_stack",
+    "bottom_ratio",
+    "bottom_adjust",
+    "thumbnail",
+    "shutter",
+    "switch_camera"
+  ]
+}
