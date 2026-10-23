@@ -6,11 +6,11 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-运行中
+运行中 · analyze
 
 ## Codex gpt-6-luna / medium
 
-排队
+运行中 · analyze
 
 ## Codex gpt-6.1-sol / medium
 

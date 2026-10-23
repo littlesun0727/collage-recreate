@@ -239,8 +239,8 @@ def export_case(row):
     for filename in ['state.json', 'warnings.json']:
         if (control / filename).is_file():
             write_json(dest / 'workflow' / filename, read(control / filename))
-    for source in (control / 'vlm').glob('*/parameters.json'):
-        write_json(dest / 'vlm' / source.parent.name / source.name, read(source))
+    for source in (control / 'vlm').rglob('parameters.json'):
+        write_json(dest / 'vlm' / source.relative_to(control / 'vlm'), read(source))
     for filename in ['final.png', 'previews/comparison.png', 'previews/analysis-boxes.png',
                      'previews/photo-windows.png']:
         source = run / filename

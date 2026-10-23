@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-23T18:44:33+08:00。共 348 个任务。
+最后更新：2026-10-23T18:45:43+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -11,14 +11,14 @@
 | 模型 | 已交付 | 失败 | 运行中 | 排队 | 待提交 |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | yibuapi Qwen3.8-flash / thinking off | 0 | 0 | 1 | 0 | 115 |
-| Codex gpt-6-luna / medium | 0 | 0 | 0 | 1 | 115 |
+| Codex gpt-6-luna / medium | 0 | 0 | 1 | 0 | 115 |
 | Codex gpt-6.1-sol / medium | 0 | 0 | 0 | 0 | 116 |
 
 点击参考图编号打开该案例；点击成图缩略图打开原尺寸 PNG。刷新本页可查看新结果。
 
 | 参考图 | Qwen / off | Luna / medium | Sol / medium |
 | --- | --- | --- | --- |
-| [001 · 20260908-192922.jpg](cases/001/README.md)<br>![参考](cases/001/reference-thumb.jpg) | 运行中 | 排队 | 待提交 |
+| [001 · 20260908-192922.jpg](cases/001/README.md)<br>![参考](cases/001/reference-thumb.jpg) | 运行中 · analyze | 运行中 · analyze | 待提交 |
 | [002 · 20260908-192946.jpg](cases/002/README.md)<br>![参考](cases/002/reference-thumb.jpg) | 待提交 | 待提交 | 待提交 |
 | [003 · 20260915-170355_封面样图.png](cases/003/README.md)<br>![参考](cases/003/reference-thumb.jpg) | 待提交 | 待提交 | 待提交 |
 | [004 · 20260915-170441_封面样图.png](cases/004/README.md)<br>![参考](cases/004/reference-thumb.jpg) | 待提交 | 待提交 | 待提交 |
