@@ -1,21 +1,21 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-23T22:24:11+08:00",
+  "updated_at": "2026-10-23T22:25:16+08:00",
   "references": 116,
   "total": 348,
   "counts": {
     "qwen": {
-      "completed": 53,
+      "completed": 54,
       "failed": 9,
       "running": 1,
-      "queued": 18,
+      "queued": 17,
       "pending": 35
     },
     "luna": {
-      "completed": 64,
+      "completed": 65,
       "running": 1,
-      "queued": 16,
+      "queued": 15,
       "pending": 35
     },
     "sol": {
@@ -772,20 +772,20 @@
       "case": "063",
       "model": "qwen",
       "batch": "run-ce916d934f684ec4ac99004550fe182c",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "51af3b2e1c93b7e6",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 253.574,
+      "delivery_category": "with_issues",
+      "review_status": "skipped"
     },
     {
       "case": "064",
       "model": "qwen",
       "batch": "run-ce916d934f684ec4ac99004550fe182c",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "4f68e500a4710389",
       "elapsed_seconds": null,
@@ -2048,20 +2048,20 @@
       "case": "065",
       "model": "luna",
       "batch": "run-136b623b8c5b46c48483427306f8605e",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "3ec35b0551d5d1b2",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 175.332,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "066",
       "model": "luna",
       "batch": "run-136b623b8c5b46c48483427306f8605e",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "b165d97e59f7c0c7",
       "elapsed_seconds": null,
