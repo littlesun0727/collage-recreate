@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-23T18:47:25+08:00。共 348 个任务。
+最后更新：2026-10-23T18:48:29+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -18,7 +18,7 @@
 
 | 参考图 | Qwen / off | Luna / medium | Sol / medium |
 | --- | --- | --- | --- |
-| [001 · 20260908-192922.jpg](cases/001/README.md)<br>![参考](cases/001/reference-thumb.jpg) | 运行中 · bind | 运行中 · build | 待提交 |
+| [001 · 20260908-192922.jpg](cases/001/README.md)<br>![参考](cases/001/reference-thumb.jpg) | 运行中 · build | 运行中 · build | 待提交 |
 | [002 · 20260908-192946.jpg](cases/002/README.md)<br>![参考](cases/002/reference-thumb.jpg) | 待提交 | 待提交 | 待提交 |
 | [003 · 20260915-170355_封面样图.png](cases/003/README.md)<br>![参考](cases/003/reference-thumb.jpg) | 待提交 | 待提交 | 待提交 |
 | [004 · 20260915-170441_封面样图.png](cases/004/README.md)<br>![参考](cases/004/reference-thumb.jpg) | 待提交 | 待提交 | 待提交 |
