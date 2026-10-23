@@ -1,0 +1,492 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-132\\prepared\\reference.png",
+    "sha256": "646b035a11163c62401ca95f4fa07791da7d9380323b2dbd6b4c139fb76da4d6"
+  },
+  "reference_size": [
+    900,
+    675
+  ],
+  "canvas_size": [
+    1200,
+    900
+  ],
+  "objects": [
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        675
+      ],
+      "description": "铺满画面的暗绿色户外建筑与花园照片，可见建筑窗格、屋檐及下方植物。保留摄影环境，整体明显失焦、昏暗并带颗粒质感，没有透明渐隐，上方叠放照片和装饰。",
+      "label": "铺满画面的暗绿色户外建筑与花园照片，可见建筑窗格、屋檐及下方",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_background",
+        "reason": "保留完整建筑与花园摄影环境，以画布边界作矩形裁切，无主体描边。失焦、暗部及颗粒属于摄影表现，未见透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_background",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0.38,
+          1,
+          0.9425
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "选用可见窗格、屋顶的户外建筑场景，裁去大部分天空，保留建筑与下方绿色水面；无花园植物，且并非暗色失焦照片。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-132-adc5f53a9a8e\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-132\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "frame_left",
+      "kind": "frame",
+      "bbox": [
+        66,
+        237,
+        482,
+        556
+      ],
+      "description": "向左下倾斜的白色宽边照片纸框，保留泛黄污点、细微折痕、纸张质感和完整外缘；右侧部分被另一照片框及百合花遮挡。",
+      "photo_id": "photo_left",
+      "label": "向左下倾斜的白色宽边照片纸框，保留泛黄污点、细微折痕、纸张质",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "8497976d2116e8a478c1c36c39c64dd072ad5e237b6d14d659fec14cc411f85e"
+      }
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        163,
+        287,
+        438,
+        489
+      ],
+      "description": "车内单人近景照片，浅金色短发人物穿白色翻领上衣，歪头以手托住脸颊，面朝镜头。保留车窗、座椅、安全带及窗外环境，照片随倾斜内口裁切，右下局部被百合花遮挡，无主体出框。",
+      "label": "车内单人近景照片，浅金色短发人物穿白色翻领上衣，歪头以手托住",
+      "method": "local",
+      "rotation": -15.3,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_left",
+        "reason": "保留人物及车内摄影背景，制作框对齐 frame_left 的倾斜矩形内口。白色宽边属于固定纸框，不重复描边；右下为百合遮挡，并非主体出框或窗口渐变，遮挡处内口依据其余直边延续估计。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_left",
+        "asset_id": "material_09",
+        "source_crop": [
+          0.12,
+          0.28,
+          0.85,
+          0.743
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "人物正面歪头、手势靠近脸颊，最接近左槽姿态；裁成近景，保留帽顶、脸与手势。不足是户外戴帽人物，并非车内金发托腮。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-132-adc5f53a9a8e\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-132\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "frame_right",
+      "kind": "frame",
+      "bbox": [
+        425,
+        110,
+        852,
+        408
+      ],
+      "description": "向右下倾斜的白色宽边照片纸框，右侧纸边较宽，保留轻微泛黄、污渍及纸张质感；左下边缘被百合花遮挡。",
+      "photo_id": "photo_right",
+      "label": "向右下倾斜的白色宽边照片纸框，右侧纸边较宽，保留轻微泛黄、污",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "fb07ca003063cdcb564eba7e5a728a3e3ab513e1a58cb27aa4fceaebb96032df"
+      }
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        462,
+        146,
+        757,
+        363
+      ],
+      "description": "车内单人近景照片，浅金色短发人物穿白色翻领上衣，侧脸朝左，张嘴并以手掌托住下颌。保留汽车内饰、车窗及窗外道路车辆，按倾斜照片内口裁切，摄影背景未去除，无主体出框。",
+      "label": "车内单人近景照片，浅金色短发人物穿白色翻领上衣，侧脸朝左，张",
+      "method": "local",
+      "rotation": 7.8,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_right",
+        "reason": "保留人物、汽车内饰及窗外道路，按 frame_right 的倾斜矩形内口裁切。人物没有连续跨越内口，亦无轮廓描边；白色纸边属于固定框体，照片边界清晰，无窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_right",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0.25,
+          1,
+          0.8438
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "单人侧脸朝左，与右槽朝向一致；裁取帽顶至上身并保留周围环境，无需镜像。不足是沙漠户外场景，服装不同，也没有张嘴托下颌动作。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-132-adc5f53a9a8e\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-132\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "title",
+      "kind": "overlay",
+      "bbox": [
+        60,
+        128,
+        435,
+        207
+      ],
+      "description": "白色花体英文“Angel Energy”，保留细长连笔、倾斜字形、大小写比例及字母间的独特延伸笔画，作为完整艺术字装饰。",
+      "label": "白色花体英文“Angel Energy”，保留细长连笔、倾斜",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "4a1663da204350e151041d61adb88da910a6fbea2fffa00cf957f93daba479c2"
+      }
+    },
+    {
+      "id": "lily",
+      "kind": "overlay",
+      "bbox": [
+        364,
+        352,
+        660,
+        646
+      ],
+      "description": "一朵大型白色百合花装饰，完整保留向外舒展的花瓣、淡蓝色阴影、浅绿色花心及黄褐色花蕊；花朵压住两张照片下缘及纸框，不包含摄影人物。",
+      "label": "一朵大型白色百合花装饰，完整保留向外舒展的花瓣、淡蓝色阴影、",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "07e6124e17f18bd8a214b13874ec6e1b8ca5b1dd926a7668c95e15270469acf1"
+      }
+    },
+    {
+      "id": "small_script",
+      "kind": "overlay",
+      "bbox": [
+        497,
+        354,
+        688,
+        475
+      ],
+      "description": "照片下缘与百合花上方的纤细白色花体字装饰，可辨为“a fallen angel”，保留原有倾斜连笔、细线和向右下延伸的大幅回环花饰，不拆成普通文字。",
+      "label": "照片下缘与百合花上方的纤细白色花体字装饰，可辨为“a fal",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "21aa07689f4cedc73052621480c4617064782ef12f829f503cad458a5e5ae8e1"
+      }
+    },
+    {
+      "id": "sparkle_top_left",
+      "kind": "overlay",
+      "bbox": [
+        19,
+        37,
+        71,
+        103
+      ],
+      "description": "左上角独立白色四芒星闪光，保留细长竖向尖角与弧形收束轮廓。",
+      "label": "左上角独立白色四芒星闪光，保留细长竖向尖角与弧形收束轮廓。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "d59682853efcbeaca5dfb9a9ebdb9cadd38f7549480748f7b1947f3a8aabf11e"
+      }
+    },
+    {
+      "id": "sparkle_right_upper",
+      "kind": "overlay",
+      "bbox": [
+        718,
+        498,
+        773,
+        565
+      ],
+      "description": "右侧中下部独立白色四芒星闪光，纵向尖角较长。",
+      "label": "右侧中下部独立白色四芒星闪光，纵向尖角较长。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "3fa8116a738be5b75f98b24f9807a23f0388118837377642da3bc7d29a91410f"
+      }
+    },
+    {
+      "id": "sparkle_right_middle",
+      "kind": "overlay",
+      "bbox": [
+        749,
+        585,
+        785,
+        629
+      ],
+      "description": "右下方较小的独立白色四芒星闪光，保留纤细尖角。",
+      "label": "右下方较小的独立白色四芒星闪光，保留纤细尖角。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "de1716f812e570907b94924c53a3ba449557c84a452b4ee469bde2aa60bae8bd"
+      }
+    },
+    {
+      "id": "sparkle_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        816,
+        614,
+        874,
+        675
+      ],
+      "description": "画面右下角的独立白色四芒星闪光，下端延伸至画布边缘。",
+      "label": "画面右下角的独立白色四芒星闪光，下端延伸至画布边缘。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "b01e4e1d8df4336361d93c3779aa83e9e3ae327113b5d56ee38195302d580785"
+      }
+    }
+  ],
+  "layer_order": [
+    "photo_background",
+    "frame_left",
+    "photo_left",
+    "frame_right",
+    "photo_right",
+    "title",
+    "lily",
+    "small_script",
+    "sparkle_top_left",
+    "sparkle_right_upper",
+    "sparkle_right_middle",
+    "sparkle_bottom_right"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "e057bcaae0cfe9940d5f500c1d491cfb87d3b19ad62d2422ffe07248214882b3",
+    "bindings": "3ecd0bfaddd2d9a0f124d7af819f7ad24e3ea73dfcdde60ab5ca8e71f47a3596",
+    "input": "154265b99b38cb9f225b6cfde90d0924fd57c3123813ca99944dc7d4d766a796",
+    "catalog": "822c1e69319e1955b082124e35f3b5da02c8c31a75334450c6c4da40ed269fc5",
+    "photo_windows": "03fb61f462b6a144f771431289104f8124f2b50093c07ae074d3106a60e89d21"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-132\\assets\\reveal\\index.json",
+    "sha256": "1349d2f8bd9a8c53a93e3b733b499e017e8afdb5515d556811e604310e15792c"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-132\\assets\\gate\\report.json",
+    "sha256": "e882557c8a10ee1684e1cb0b6697ecc5809497ace10699307fe63f2df44e5a94",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 9,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

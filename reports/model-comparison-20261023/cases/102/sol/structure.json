@@ -1,0 +1,154 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "铺满画面的暗绿色户外建筑与花园照片，可见建筑窗格、屋檐及下方植物。保留摄影环境，整体明显失焦、昏暗并带颗粒质感，没有透明渐隐，上方叠放照片和装饰。"
+    },
+    {
+      "id": "frame_left",
+      "kind": "frame",
+      "bbox": [
+        73,
+        351,
+        536,
+        824
+      ],
+      "description": "向左下倾斜的白色宽边照片纸框，保留泛黄污点、细微折痕、纸张质感和完整外缘；右侧部分被另一照片框及百合花遮挡。",
+      "photo_id": "photo_left"
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        157,
+        376,
+        511,
+        775
+      ],
+      "description": "车内单人近景照片，浅金色短发人物穿白色翻领上衣，歪头以手托住脸颊，面朝镜头。保留车窗、座椅、安全带及窗外环境，照片随倾斜内口裁切，右下局部被百合花遮挡，无主体出框。"
+    },
+    {
+      "id": "frame_right",
+      "kind": "frame",
+      "bbox": [
+        472,
+        163,
+        947,
+        605
+      ],
+      "description": "向右下倾斜的白色宽边照片纸框，右侧纸边较宽，保留轻微泛黄、污渍及纸张质感；左下边缘被百合花遮挡。",
+      "photo_id": "photo_right"
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        498,
+        187,
+        857,
+        566
+      ],
+      "description": "车内单人近景照片，浅金色短发人物穿白色翻领上衣，侧脸朝左，张嘴并以手掌托住下颌。保留汽车内饰、车窗及窗外道路车辆，按倾斜照片内口裁切，摄影背景未去除，无主体出框。"
+    },
+    {
+      "id": "title",
+      "kind": "overlay",
+      "bbox": [
+        67,
+        189,
+        483,
+        307
+      ],
+      "description": "白色花体英文“Angel Energy”，保留细长连笔、倾斜字形、大小写比例及字母间的独特延伸笔画，作为完整艺术字装饰。"
+    },
+    {
+      "id": "lily",
+      "kind": "overlay",
+      "bbox": [
+        405,
+        521,
+        733,
+        957
+      ],
+      "description": "一朵大型白色百合花装饰，完整保留向外舒展的花瓣、淡蓝色阴影、浅绿色花心及黄褐色花蕊；花朵压住两张照片下缘及纸框，不包含摄影人物。"
+    },
+    {
+      "id": "small_script",
+      "kind": "overlay",
+      "bbox": [
+        552,
+        524,
+        765,
+        704
+      ],
+      "description": "照片下缘与百合花上方的纤细白色花体字装饰，可辨为“a fallen angel”，保留原有倾斜连笔、细线和向右下延伸的大幅回环花饰，不拆成普通文字。"
+    },
+    {
+      "id": "sparkle_top_left",
+      "kind": "overlay",
+      "bbox": [
+        21,
+        55,
+        79,
+        153
+      ],
+      "description": "左上角独立白色四芒星闪光，保留细长竖向尖角与弧形收束轮廓。"
+    },
+    {
+      "id": "sparkle_right_upper",
+      "kind": "overlay",
+      "bbox": [
+        798,
+        738,
+        859,
+        837
+      ],
+      "description": "右侧中下部独立白色四芒星闪光，纵向尖角较长。"
+    },
+    {
+      "id": "sparkle_right_middle",
+      "kind": "overlay",
+      "bbox": [
+        832,
+        867,
+        872,
+        932
+      ],
+      "description": "右下方较小的独立白色四芒星闪光，保留纤细尖角。"
+    },
+    {
+      "id": "sparkle_bottom_right",
+      "kind": "overlay",
+      "bbox": [
+        907,
+        910,
+        971,
+        1000
+      ],
+      "description": "画面右下角的独立白色四芒星闪光，下端延伸至画布边缘。"
+    }
+  ],
+  "layer_order": [
+    "photo_background",
+    "frame_left",
+    "photo_left",
+    "frame_right",
+    "photo_right",
+    "title",
+    "lily",
+    "small_script",
+    "sparkle_top_left",
+    "sparkle_right_upper",
+    "sparkle_right_middle",
+    "sparkle_bottom_right"
+  ]
+}
