@@ -1,0 +1,167 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "主图照片，展示一名年轻女子在面包店内手持姜饼人饼干和波点包袋的场景。"
+    },
+    {
+      "id": "photo_inset",
+      "kind": "photo",
+      "bbox": [
+        42,
+        48,
+        385,
+        425
+      ],
+      "description": "左上角椭圆窗口内的照片，展示同一名女子在柜台前举着咖啡杯的全身照。边缘有白色虚线描边效果。"
+    },
+    {
+      "id": "overlay_sticker_blue",
+      "kind": "overlay",
+      "bbox": [
+        37,
+        325,
+        195,
+        435
+      ],
+      "description": "蓝色卡通兔子贴纸，位于左侧中部，覆盖在主图和插图之间。"
+    },
+    {
+      "id": "overlay_sticker_cry",
+      "kind": "overlay",
+      "bbox": [
+        695,
+        280,
+        805,
+        355
+      ],
+      "description": "流泪表情贴纸，位于右侧人物头发处。"
+    },
+    {
+      "id": "overlay_sticker_cats",
+      "kind": "overlay",
+      "bbox": [
+        835,
+        380,
+        935,
+        440
+      ],
+      "description": "黑白两只小猫贴纸，位于右侧中部。"
+    },
+    {
+      "id": "text_bubble_top",
+      "kind": "text",
+      "bbox": [
+        305,
+        45,
+        510,
+        95
+      ],
+      "text": "Blog is my life . .",
+      "color": "#000000",
+      "font": "sans",
+      "align": "center",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "bubble_bg_top",
+      "kind": "overlay",
+      "bbox": [
+        305,
+        45,
+        510,
+        95
+      ],
+      "description": "顶部文字气泡的白色背景框。"
+    },
+    {
+      "id": "text_bubble_bottom",
+      "kind": "text",
+      "bbox": [
+        200,
+        805,
+        435,
+        925
+      ],
+      "text": "뭔가가\n그려워지는데.",
+      "color": "#000000",
+      "font": "cjk",
+      "align": "center",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "bubble_bg_bottom",
+      "kind": "overlay",
+      "bbox": [
+        190,
+        805,
+        445,
+        925
+      ],
+      "description": "底部文字气泡的白色背景框。"
+    },
+    {
+      "id": "text_bubble_right",
+      "kind": "text",
+      "bbox": [
+        805,
+        435,
+        945,
+        495
+      ],
+      "text": "역시 군침나가요?\n강아지에게\n좋아한다 말을 들으면",
+      "color": "#000000",
+      "font": "cjk",
+      "align": "center",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "id": "bubble_bg_right",
+      "kind": "overlay",
+      "bbox": [
+        795,
+        430,
+        955,
+        500
+      ],
+      "description": "右侧文字气泡的浅蓝色背景框。"
+    },
+    {
+      "id": "deco_stars",
+      "kind": "overlay",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "散布在画面各处的星星装饰图案（黑色、白色）。"
+    }
+  ],
+  "layer_order": [
+    "photo_main",
+    "photo_inset",
+    "deco_stars",
+    "overlay_sticker_blue",
+    "overlay_sticker_cry",
+    "overlay_sticker_cats",
+    "bubble_bg_top",
+    "text_bubble_top",
+    "bubble_bg_bottom",
+    "text_bubble_bottom",
+    "bubble_bg_right",
+    "text_bubble_right"
+  ]
+}
