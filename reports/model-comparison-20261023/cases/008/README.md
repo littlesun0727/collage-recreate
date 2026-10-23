@@ -10,7 +10,7 @@
 
 ## Codex gpt-6-luna / medium
 
-运行中 · analyze
+运行中 · build
 
 ## Codex gpt-6.1-sol / medium
 
