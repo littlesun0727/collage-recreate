@@ -1,23 +1,23 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-24T01:28:42+08:00",
+  "updated_at": "2026-10-24T01:29:50+08:00",
   "references": 116,
   "total": 348,
   "counts": {
     "qwen": {
-      "completed": 83,
+      "completed": 84,
       "failed": 12,
       "running": 1,
-      "queued": 5,
+      "queued": 4,
       "pending": 15
     },
     "luna": {
-      "completed": 115,
-      "running": 1
+      "completed": 116
     },
     "sol": {
-      "pending": 116
+      "running": 1,
+      "pending": 115
     }
   },
   "scheduling": "yibu serial || (codex luna serial -> sol serial)",
@@ -1166,20 +1166,20 @@
       "case": "096",
       "model": "qwen",
       "batch": "run-6fbe1b78464244fd98940082951c4c85",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "b19572365d8d7b81",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 278.166,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "097",
       "model": "qwen",
       "batch": "run-6fbe1b78464244fd98940082951c4c85",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "4197327a1edcac61",
       "elapsed_seconds": null,
@@ -2738,21 +2738,25 @@
       "case": "116",
       "model": "luna",
       "batch": "run-edff3b9f614548a980d66a35d682c1a6",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "1d1f39dc97f1d0ce",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 236.504,
+      "delivery_category": "with_issues",
+      "review_status": "skipped"
     },
     {
       "case": "001",
       "model": "sol",
       "batch": "run-7c9d2592a9d04650a7bd19a083cbec82",
-      "status": "pending",
+      "status": "running",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "002",
