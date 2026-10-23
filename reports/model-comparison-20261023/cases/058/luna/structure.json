@@ -1,0 +1,158 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "固定的奇幻暗色场景底层：深色空间中有强烈的金白色光流、反光的阶梯状地面和底部草丛；保留所有照片框后方可见的场景。",
+      "color": "#17150F"
+    },
+    {
+      "id": "photo_center",
+      "kind": "photo",
+      "bbox": [
+        253,
+        128,
+        735,
+        709
+      ],
+      "description": "中央大型照片窗口，显示一位白色长发、身穿浅蓝披风和深色长裙的角色背对观者站在发光的金白色阶梯上，主体居中并占据大部分画面，周围摄影环境仍可见；照片边界清晰，无独立描边。"
+    },
+    {
+      "id": "photo_upper_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        112,
+        258,
+        342
+      ],
+      "description": "左上倾斜的照片窗口，呈现暖色奇幻场景中的两位角色：左侧有红橙色披风人物，右侧有深色服装人物，环境光与地面仍可见，窗口边缘清晰。"
+    },
+    {
+      "id": "photo_upper_right",
+      "kind": "photo",
+      "bbox": [
+        742,
+        109,
+        1000,
+        297
+      ],
+      "description": "右上倾斜的照片窗口，明亮金色草地上有两位穿浅黄色与白色长袍的角色，人物全身可见并彼此相对，摄影环境保留，边缘清晰。"
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        814,
+        409,
+        1000,
+        555
+      ],
+      "description": "右侧小型倾斜照片窗口，显示两位并排站立、穿蓝绿色服装并戴花饰的角色，背景为蓝绿色环境与地面，摄影环境保留，边缘清晰。"
+    },
+    {
+      "id": "photo_lower_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        573,
+        168,
+        755
+      ],
+      "description": "左下照片窗口，显示明亮橙色天空下两位相邻的浅色服装角色，前景有一片鲜艳粉紫色花丛，摄影环境保留，窗口边缘清晰。"
+    },
+    {
+      "id": "photo_lower_center",
+      "kind": "photo",
+      "bbox": [
+        531,
+        722,
+        747,
+        908
+      ],
+      "description": "下方偏右的照片窗口，草地与蓝白色光点背景前有两位坐着的角色，左侧人物穿橙色上衣，右侧人物穿浅色服装；摄影环境保留，窗口边缘清晰。"
+    },
+    {
+      "id": "frame_upper_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        0,
+        274,
+        392
+      ],
+      "description": "左上大型深色厚边承载框体，倾斜的四边围住照片内口，表面为黑褐色并带金色反光边线；框沿遮住周围场景，照片独立替换。",
+      "photo_id": "photo_upper_left"
+    },
+    {
+      "id": "frame_upper_right",
+      "kind": "frame",
+      "bbox": [
+        705,
+        0,
+        1000,
+        393
+      ],
+      "description": "右上大型深色厚边承载框体，倾斜的框沿围住明亮照片内口，黑褐色表面带金色反光；照片独立替换。",
+      "photo_id": "photo_upper_right"
+    },
+    {
+      "id": "frame_right",
+      "kind": "frame",
+      "bbox": [
+        785,
+        388,
+        1000,
+        602
+      ],
+      "description": "右侧小型深色厚边承载框体，斜置并围住照片内口，框沿带亮色反光，照片独立替换。",
+      "photo_id": "photo_right"
+    },
+    {
+      "id": "frame_lower_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        553,
+        337,
+        861
+      ],
+      "description": "左下方大型深色承载框体，斜置厚边围住照片内口，右侧和下侧有宽阔黑色框沿及反光，照片独立替换。",
+      "photo_id": "photo_lower_left"
+    },
+    {
+      "id": "frame_lower_center",
+      "kind": "frame",
+      "bbox": [
+        530,
+        684,
+        793,
+        927
+      ],
+      "description": "下方偏右的深色承载框体，略倾斜并围住照片内口，厚边呈黑褐色且带高光，照片独立替换。",
+      "photo_id": "photo_lower_center"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_upper_left",
+    "photo_upper_left",
+    "frame_upper_right",
+    "photo_upper_right",
+    "photo_center",
+    "frame_right",
+    "photo_right",
+    "frame_lower_left",
+    "photo_lower_left",
+    "frame_lower_center",
+    "photo_lower_center"
+  ]
+}

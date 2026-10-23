@@ -1,0 +1,880 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\prepared\\reference.png",
+    "sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定的奇幻暗色场景底层：深色空间中有强烈的金白色光流、反光的阶梯状地面和底部草丛；保留所有照片框后方可见的场景。",
+      "label": "固定的奇幻暗色场景底层：深色空间中有强烈的金白色光流、反光的",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#17150F"
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_center",
+      "kind": "photo",
+      "bbox": [
+        228,
+        154,
+        662,
+        851
+      ],
+      "description": "中央大型照片窗口，显示一位白色长发、身穿浅蓝披风和深色长裙的角色背对观者站在发光的金白色阶梯上，主体居中并占据大部分画面，周围摄影环境仍可见；照片边界清晰，无独立描边。",
+      "label": "中央大型照片窗口，显示一位白色长发、身穿浅蓝披风和深色长裙的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_center",
+        "reason": "中央人物与阶梯、光影共同构成摄影画面，保留环境；矩形照片边界清晰，无主体或窗口独立描边。上下左右均为明确硬边，没有与周边内容混合的渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_center",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有白发披风角色素材；该图至少有一位背向观者的全身人物及海岸环境，姿态方向近似，但服饰与阶梯场景不同。全幅保留人物和环境。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-099-80284b8e0c2e\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "photo_upper_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        134,
+        232,
+        410
+      ],
+      "description": "左上倾斜的照片窗口，呈现暖色奇幻场景中的两位角色：左侧有红橙色披风人物，右侧有深色服装人物，环境光与地面仍可见，窗口边缘清晰。",
+      "label": "左上倾斜的照片窗口，呈现暖色奇幻场景中的两位角色：左侧有红橙",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_upper_left",
+        "reason": "两位角色、暖色场景与地面均属于照片内容，保留摄影背景；画面由倾斜的承载框内口界定，框沿属于固定框体而非照片描边。边界清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_upper_left",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无两位奇幻角色的对应素材；此图仅有红色头巾、棕色外套的单人及沙地山景，红暖色与描述略有呼应但人数和环境不符。全幅保留人物与背景。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-099-80284b8e0c2e\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\prepared\\material_06.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_left-photo_upper_left-window.png",
+        "sha256": "3f93166872235f4066668243b00a5bd32da4fe1b0f0662e1d555dab468e214d9"
+      },
+      "reveal_frame_id": "frame_upper_left"
+    },
+    {
+      "id": "photo_upper_right",
+      "kind": "photo",
+      "bbox": [
+        668,
+        131,
+        900,
+        356
+      ],
+      "description": "右上倾斜的照片窗口，明亮金色草地上有两位穿浅黄色与白色长袍的角色，人物全身可见并彼此相对，摄影环境保留，边缘清晰。",
+      "label": "右上倾斜的照片窗口，明亮金色草地上有两位穿浅黄色与白色长袍的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_upper_right",
+        "reason": "两位人物与金色草地环境一并保留；倾斜照片显示边缘由框体内口形成，框体高光不是独立照片描边。窗口边缘清楚，没有渐变证据。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_upper_right",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有金色草地上的双人素材；该图为浅色服装人物背影及开阔夕照环境，光色接近但仅一人且并非相对站立。全幅保留人物与环境。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-099-80284b8e0c2e\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\prepared\\material_14.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_right-photo_upper_right-window.png",
+        "sha256": "212a131eea76f667f9ccbca656734e46278124f9ff5fb7b2afcfecd9ec366769"
+      },
+      "reveal_frame_id": "frame_upper_right"
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        733,
+        491,
+        900,
+        666
+      ],
+      "description": "右侧小型倾斜照片窗口，显示两位并排站立、穿蓝绿色服装并戴花饰的角色，背景为蓝绿色环境与地面，摄影环境保留，边缘清晰。",
+      "label": "右侧小型倾斜照片窗口，显示两位并排站立、穿蓝绿色服装并戴花饰",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_right",
+        "reason": "两位角色、蓝绿色环境及地面属于同一摄影画面，保留背景；小型倾斜矩形内口为固定窗口，框沿反光不另描。边缘清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_right",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有蓝绿色双人花饰素材；此图有一位穿蓝灰色衣服、戴蓝帽的人物，背景为水岸，颜色略近但人数、花饰不符。全幅保留人物和环境。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-099-80284b8e0c2e\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\prepared\\material_13.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_right-photo_right-window.png",
+        "sha256": "5558501ea6e99bd46cf74a3947ad86f28e92e868b431d1dce7bd9d3884af8870"
+      },
+      "reveal_frame_id": "frame_right"
+    },
+    {
+      "id": "photo_lower_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        688,
+        151,
+        906
+      ],
+      "description": "左下照片窗口，显示明亮橙色天空下两位相邻的浅色服装角色，前景有一片鲜艳粉紫色花丛，摄影环境保留，窗口边缘清晰。",
+      "label": "左下照片窗口，显示明亮橙色天空下两位相邻的浅色服装角色，前景",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_lower_left",
+        "reason": "人物、橙色天空与粉紫花丛构成完整照片，保留环境；固定矩形窗口由斜置框体内口限定，框体边缘不重复描绘。可见边界明确，没有渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_lower_left",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有橙色天空、花丛前的双人素材；该图为单人浅色外套近景，背景有蓝绿色水面，人物服装与场景差异明显。全幅保留人物和岸边环境。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-099-80284b8e0c2e\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\prepared\\material_00.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_left-photo_lower_left-window.png",
+        "sha256": "60ed7f65ef29943dfac3232d5fac9fa7a5163477074dc85fcdb679a001c5d573"
+      },
+      "reveal_frame_id": "frame_lower_left"
+    },
+    {
+      "id": "photo_lower_center",
+      "kind": "photo",
+      "bbox": [
+        478,
+        866,
+        672,
+        1090
+      ],
+      "description": "下方偏右的照片窗口，草地与蓝白色光点背景前有两位坐着的角色，左侧人物穿橙色上衣，右侧人物穿浅色服装；摄影环境保留，窗口边缘清晰。",
+      "label": "下方偏右的照片窗口，草地与蓝白色光点背景前有两位坐着的角色，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_lower_center",
+        "reason": "两位坐姿人物与草地、光点背景共同保留；矩形内口由倾斜承载框确定，框体高光不是额外窗口描边。边界清楚，未见需要混合的渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_lower_center",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无草地光点前双人坐姿素材；该图是水岸与远处建筑的景观照，只有远景小人且非坐姿，场景差异明显。全幅保留水面与建筑。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-099-80284b8e0c2e\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\prepared\\material_17.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_center-photo_lower_center-window.png",
+        "sha256": "8043174f16b24cac4bb2005d85fb7476989524fc50845d66cd5b98fc1af1016c"
+      },
+      "reveal_frame_id": "frame_lower_center"
+    },
+    {
+      "id": "frame_upper_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        0,
+        247,
+        470
+      ],
+      "description": "左上大型深色厚边承载框体，倾斜的四边围住照片内口，表面为黑褐色并带金色反光边线；框沿遮住周围场景，照片独立替换。",
+      "photo_id": "photo_upper_left",
+      "label": "左上大型深色厚边承载框体，倾斜的四边围住照片内口，表面为黑褐",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_upper_left contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "77381c649846f86d600fc4ba43cfc484fe11139de31686891ca5b292e7177b1c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_left.png",
+        "sha256": "be5c06947c030766ae8e785a2cbd22961a3ee3f3121cc6cbcbf8144a04ded6a2",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\frame_upper_left-restored.png",
+          "sha256": "be5c06947c030766ae8e785a2cbd22961a3ee3f3121cc6cbcbf8144a04ded6a2",
+          "bbox": [
+            0,
+            0,
+            255,
+            478
+          ],
+          "original_bbox": [
+            0,
+            0,
+            247,
+            470
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "77525f881f5a7b64b98e21ee3c5b364f9b6dc641f28570c0a86953719aee2029",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "frame_upper_right",
+      "kind": "frame",
+      "bbox": [
+        634,
+        0,
+        900,
+        472
+      ],
+      "description": "右上大型深色厚边承载框体，倾斜的框沿围住明亮照片内口，黑褐色表面带金色反光；照片独立替换。",
+      "photo_id": "photo_upper_right",
+      "label": "右上大型深色厚边承载框体，倾斜的框沿围住明亮照片内口，黑褐色",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_upper_right contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "a03ebc5cee4f2dce1e1cdee917614f2b664bef96ca08e4048bfbe940cb056ee2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_right.png",
+        "sha256": "06fd2d5a2c091d5ac6ae22545999e0557cf25f106cb9e7178ee77206acfe3376",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\frame_upper_right-restored.png",
+          "sha256": "06fd2d5a2c091d5ac6ae22545999e0557cf25f106cb9e7178ee77206acfe3376",
+          "bbox": [
+            626,
+            0,
+            900,
+            480
+          ],
+          "original_bbox": [
+            634,
+            0,
+            900,
+            472
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "086f5ef8d681fc6f470a1394a57819efa18b35af0b320f7a208b1d7d0fd408f4",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_upper_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "frame_right",
+      "kind": "frame",
+      "bbox": [
+        706,
+        466,
+        900,
+        722
+      ],
+      "description": "右侧小型深色厚边承载框体，斜置并围住照片内口，框沿带亮色反光，照片独立替换。",
+      "photo_id": "photo_right",
+      "label": "右侧小型深色厚边承载框体，斜置并围住照片内口，框沿带亮色反光",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_right contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "bdb1d32a916c2538269dd0bee3d31b0f3611a48c61f17545bc313a5c4fa789b0"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_right.png",
+        "sha256": "5daf2b209f7e42a4810c31c987bb764b02e29ffa6caa963ab64365700873f837",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\frame_right-restored.png",
+          "sha256": "5daf2b209f7e42a4810c31c987bb764b02e29ffa6caa963ab64365700873f837",
+          "bbox": [
+            698,
+            458,
+            900,
+            730
+          ],
+          "original_bbox": [
+            706,
+            466,
+            900,
+            722
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "95c9b2cb7cb1e8df1b81f2220d937646f93c5333b9f3f397b0aba08273e51fea",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "frame_lower_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        664,
+        303,
+        1033
+      ],
+      "description": "左下方大型深色承载框体，斜置厚边围住照片内口，右侧和下侧有宽阔黑色框沿及反光，照片独立替换。",
+      "photo_id": "photo_lower_left",
+      "label": "左下方大型深色承载框体，斜置厚边围住照片内口，右侧和下侧有宽",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_lower_left contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9f2d985d28ab98d9dbc7140c35a0c18776a691e6427643980516f4be91bf8e10"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_left.png",
+        "sha256": "06b200eea7248b5a06897957031131695ac9c46e83d303a959764805b33cd64c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\frame_lower_left-restored.png",
+          "sha256": "06b200eea7248b5a06897957031131695ac9c46e83d303a959764805b33cd64c",
+          "bbox": [
+            0,
+            656,
+            311,
+            1041
+          ],
+          "original_bbox": [
+            0,
+            664,
+            303,
+            1033
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "ba0d5bd30dea5cd806bbec1b38427fefa5f2003803b7e7c754587c73ca890c4f",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "frame_lower_center",
+      "kind": "frame",
+      "bbox": [
+        477,
+        821,
+        714,
+        1112
+      ],
+      "description": "下方偏右的深色承载框体，略倾斜并围住照片内口，厚边呈黑褐色且带高光，照片独立替换。",
+      "photo_id": "photo_lower_center",
+      "label": "下方偏右的深色承载框体，略倾斜并围住照片内口，厚边呈黑褐色且",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1e9f06eb35bd2ea517ddfbde8ccaa98d760b74bd2f444bd217df2f070842c808"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_center.png",
+        "sha256": "e9c558477b0f0abec81a7456e4378f0fbb723175d911945ec355bf9bd2e7101b",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\frame_lower_center-restored.png",
+          "sha256": "e9c558477b0f0abec81a7456e4378f0fbb723175d911945ec355bf9bd2e7101b",
+          "bbox": [
+            469,
+            813,
+            722,
+            1120
+          ],
+          "original_bbox": [
+            477,
+            821,
+            714,
+            1112
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "a5130f878c3a0e0f79a1e8fd37f516336609ccd906aca687cbbd8f6b3ffec63b",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_center-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\frame_lower_center-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_upper_left",
+    "photo_upper_left",
+    "frame_upper_right",
+    "photo_upper_right",
+    "photo_center",
+    "frame_right",
+    "photo_right",
+    "frame_lower_left",
+    "photo_lower_left",
+    "frame_lower_center",
+    "photo_lower_center"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "a4ce464643c634837bd6f8aad7701d047d4dea2ccd6040abd55fbe0f0063ac37",
+    "bindings": "a8d945e26dd66cb2a1a153b1bf17af06fa41888a6e95942711c4bec4fb4b1998",
+    "input": "2300bb423387f27429f4611316208357598e8b9cc202f9d4094738e5e15d12b7",
+    "catalog": "a09f87009154268f35b1a0f24c2e7c0df6b4627a94e2d60c650a260c92b2aa21",
+    "photo_windows": "eea9225ea5a0e1fca72dc646afbb82da38112ec71e522e12e33681e4e1b5d904"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\reveal\\index.json",
+    "sha256": "4f9209606c4096e4d88ab41a15877954ea2bc3fe9bed91aa95e2c6b23971a92e"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\assets\\gate\\report.json",
+    "sha256": "d21cb9c36d9df6bfa39ac4a296b84a2349df7c43c6b9bcd7016bb1e3a86244d4",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 5,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 4,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-099\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

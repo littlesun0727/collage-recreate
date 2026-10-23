@@ -1,0 +1,146 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "粉色渐变背景，带有星星图案和蕾丝花边装饰。",
+      "label": "粉色渐变背景，带有星星图案和蕾丝花边装饰。",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        32,
+        98,
+        306,
+        228
+      ],
+      "description": "LOVE\nMy favorite\nWon yeong Jang\nI bear that I love you",
+      "label": "LOVE\nMy favorite\nWon yeong Jan",
+      "method": "local",
+      "text": "LOVE\nMy favorite\nWon yeong Jang\nI bear that I love you",
+      "text_status": "known",
+      "style": {
+        "fill": "#E63946",
+        "font": "sans",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        63,
+        336,
+        855,
+        456
+      ],
+      "description": "红色艺术字“WONYOUNG”，横跨画面中部，位于人物后方。",
+      "label": "红色艺术字“WONYOUNG”，横跨画面中部，位于人物后方。",
+      "method": "extract"
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        45,
+        162,
+        774,
+        1140
+      ],
+      "description": "主体人物照片，年轻女性扎双麻花辫，佩戴红色发饰、项链和耳环，双手分别持有一个Hello Kitty小盒子和一个透明手机壳。人物边缘有白色描边效果，与背景分离。",
+      "label": "主体人物照片，年轻女性扎双麻花辫，佩戴红色发饰、项链和耳环，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        666,
+        162,
+        873,
+        276
+      ],
+      "description": "右上角矩形照片窗口，展示人物眼部特写，带有红色边框。",
+      "label": "右上角矩形照片窗口，展示人物眼部特写，带有红色边框。",
+      "method": "local",
+      "rotation": -10
+    },
+    {
+      "id": "photo_bottom_left_1",
+      "kind": "photo",
+      "bbox": [
+        27,
+        750,
+        252,
+        948
+      ],
+      "description": "左下角上方矩形照片窗口，展示人物手持物品的半身照，带有红色边框。",
+      "label": "左下角上方矩形照片窗口，展示人物手持物品的半身照，带有红色边",
+      "method": "local",
+      "rotation": -10
+    },
+    {
+      "id": "photo_bottom_left_2",
+      "kind": "photo",
+      "bbox": [
+        63,
+        924,
+        297,
+        1122
+      ],
+      "description": "左下角下方矩形照片窗口，展示人物面部特写，带有红色边框。",
+      "label": "左下角下方矩形照片窗口，展示人物面部特写，带有红色边框。",
+      "method": "local",
+      "rotation": -10
+    },
+    {
+      "id": "text_2",
+      "kind": "text",
+      "bbox": [
+        612,
+        960,
+        864,
+        1098
+      ],
+      "description": "YOU\nMy favorite\nWon yeong Jang\nI bear that I love you",
+      "label": "YOU\nMy favorite\nWon yeong Jang",
+      "method": "local",
+      "text": "YOU\nMy favorite\nWon yeong Jang\nI bear that I love you",
+      "text_status": "known",
+      "style": {
+        "fill": "#E63946",
+        "font": "sans",
+        "align": "right",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "overlay_1",
+    "photo_main",
+    "text_1",
+    "photo_top_right",
+    "photo_bottom_left_1",
+    "photo_bottom_left_2",
+    "text_2"
+  ]
+}

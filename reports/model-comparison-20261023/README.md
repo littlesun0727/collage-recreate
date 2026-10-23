@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-23T21:58:12+08:00。共 348 个任务。
+最后更新：2026-10-23T21:59:17+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -10,8 +10,8 @@
 
 | 模型 | 已交付 | 失败 | 运行中 | 排队 | 待提交 |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| yibuapi Qwen3.8-flash / thinking off | 47 | 9 | 1 | 4 | 55 |
-| Codex gpt-6-luna / medium | 57 | 0 | 1 | 3 | 55 |
+| yibuapi Qwen3.8-flash / thinking off | 48 | 9 | 1 | 3 | 55 |
+| Codex gpt-6-luna / medium | 58 | 0 | 1 | 2 | 55 |
 | Codex gpt-6.1-sol / medium | 0 | 0 | 0 | 0 | 116 |
 
 点击参考图编号打开该案例；点击成图缩略图打开原尺寸 PNG。刷新本页可查看新结果。
@@ -74,9 +74,9 @@
 | [054 · 7536187688081280318.png](cases/054/README.md)<br>![参考](cases/054/reference-thumb.jpg) | 已交付<br>[![成图](cases/054/qwen/thumb.jpg)](cases/054/qwen/final.png) | 已交付<br>[![成图](cases/054/luna/thumb.jpg)](cases/054/luna/final.png) | 待提交 |
 | [055 · 7537221833469316414.png](cases/055/README.md)<br>![参考](cases/055/reference-thumb.jpg) | 已交付<br>[![成图](cases/055/qwen/thumb.jpg)](cases/055/qwen/final.png) | 已交付<br>[![成图](cases/055/luna/thumb.jpg)](cases/055/luna/final.png) | 待提交 |
 | [056 · 7538408003763031320.png](cases/056/README.md)<br>![参考](cases/056/reference-thumb.jpg) | 已交付<br>[![成图](cases/056/qwen/thumb.jpg)](cases/056/qwen/final.png) | 已交付<br>[![成图](cases/056/luna/thumb.jpg)](cases/056/luna/final.png) | 待提交 |
-| [057 · 7538422147958639897.png](cases/057/README.md)<br>![参考](cases/057/reference-thumb.jpg) | 运行中 · build | 已交付<br>[![成图](cases/057/luna/thumb.jpg)](cases/057/luna/final.png) | 待提交 |
-| [058 · 7538583629111364926.png](cases/058/README.md)<br>![参考](cases/058/reference-thumb.jpg) | 排队 | 运行中 · build | 待提交 |
-| [059 · 7538634074844335422.png](cases/059/README.md)<br>![参考](cases/059/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
+| [057 · 7538422147958639897.png](cases/057/README.md)<br>![参考](cases/057/reference-thumb.jpg) | 已交付<br>[![成图](cases/057/qwen/thumb.jpg)](cases/057/qwen/final.png) | 已交付<br>[![成图](cases/057/luna/thumb.jpg)](cases/057/luna/final.png) | 待提交 |
+| [058 · 7538583629111364926.png](cases/058/README.md)<br>![参考](cases/058/reference-thumb.jpg) | 运行中 · bind | 已交付<br>[![成图](cases/058/luna/thumb.jpg)](cases/058/luna/final.png) | 待提交 |
+| [059 · 7538634074844335422.png](cases/059/README.md)<br>![参考](cases/059/reference-thumb.jpg) | 排队 | 运行中 · photo_windows | 待提交 |
 | [060 · 7538947099040206142.png](cases/060/README.md)<br>![参考](cases/060/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [061 · 7539931779700919576.png](cases/061/README.md)<br>![参考](cases/061/reference-thumb.jpg) | 排队 | 排队 | 待提交 |
 | [062 · 7539951064926358808.png](cases/062/README.md)<br>![参考](cases/062/reference-thumb.jpg) | 待提交 | 待提交 | 待提交 |
