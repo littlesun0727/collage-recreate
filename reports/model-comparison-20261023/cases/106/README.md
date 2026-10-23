@@ -6,7 +6,17 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-运行中 · bind
+失败
+
+耗时：689.1 秒；交付类别：None。
+
+失败信息：
+
+```text
+yibu / qwen3.8-flash HTTP 400：请检查模型及参数支持情况
+```
+
+[查看参数、中间 JSON、告警及对照图](qwen/)
 
 ## Codex gpt-6-luna / medium
 
