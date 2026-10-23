@@ -30,4 +30,4 @@ yibu / qwen3.8-flash HTTP 502：上游网关错误
 
 ## Codex gpt-6.1-sol / medium
 
-排队
+运行中
