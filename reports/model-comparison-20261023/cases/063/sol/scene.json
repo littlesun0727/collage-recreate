@@ -1,0 +1,1329 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\reference.png",
+    "sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画面的车内向外拍摄照片，保留上方深色车顶、雨水模糊的车窗、窗外树木与街道、右侧后视镜和下方仪表台等摄影环境，其他拼贴内容覆盖其上。",
+      "label": "铺满画面的车内向外拍摄照片，保留上方深色车顶、雨水模糊的车窗",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_background",
+        "reason": "保留完整车内与窗外摄影环境，以画布矩形为固定窗口；暗部属于摄影内容，无主体描边或边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_background",
+        "asset_id": "material_10",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中没有车内雨窗照片；选交通设施纵深视角作近似，保留全幅轨道、站台和天空，但不具备车顶、后视镜及仪表台。"
+      },
+      "source": {
+        "id": "material_10",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\8a0a41a129153aca65bd0f78170e85b4a0ed3a636a67c907d54825afb48d672d.png",
+        "sha256": "32634a073776d1e381e379f42e854ec5c8f9af7ad58c4862de02f7cdb0c86d8b",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_10.jpg"
+      }
+    },
+    {
+      "id": "photo_portrait",
+      "kind": "photo",
+      "bbox": [
+        205,
+        311,
+        581,
+        814
+      ],
+      "description": "咖啡店内一名长发刘海女性的半身照片，身体略侧向右，面向镜头微笑，双手将小玩偶举在脸旁；保留桌台、座椅和店内背景。矩形照片上部被饮品照片遮挡，右侧被甜点照片覆盖，下部被饮料瓶照片覆盖，没有沿人物去背景。",
+      "label": "咖啡店内一名长发刘海女性的半身照片，身体略侧向右，面向镜头微",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_portrait",
+        "reason": "女性、手持玩偶及店内摄影背景共同保留；照片为矩形窗口，被邻图遮挡而非主体连续出框。可见边缘清晰，无描边或透明混合。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_portrait",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "单名女性面向镜头微笑，双手靠近脸部，最接近原槽的人像姿态；全幅居中保留头部与双手。实际为户外戴帽人像，没有玩偶和咖啡店环境。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_pastries",
+      "kind": "photo",
+      "bbox": [
+        82,
+        263,
+        286,
+        451
+      ],
+      "description": "俯拍桌上两只白色长盘中的酥皮点心，周围有小杯、纸张与橙色格纹织物，保留完整桌面摄影环境。照片外围有白色手绘直线与断开的角部边线，作为该照片的窗口边缘效果保留。",
+      "label": "俯拍桌上两只白色长盘中的酥皮点心，周围有小杯、纸张与橙色格纹",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_pastries",
+        "reason": "保留点心、餐盘与桌面环境，照片内口为水平矩形。外围白线属于窗口而非食物轮廓；手绘线条存在断口及不均匀留白，以外侧实线近似，无法精确复现各段断口。照片边缘无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.045
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_pastries",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有点心素材，选俯视场景近似原槽的拍摄角度；居中适配保留左下水池与右侧建筑，实际无长盘、点心或桌面。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "photo_drinks",
+      "kind": "photo",
+      "bbox": [
+        323,
+        132,
+        617,
+        350
+      ],
+      "description": "两杯高脚杯饮品并排放在银色托盘上，左杯有奶油、彩色糖针与红色樱桃，右杯为带青柠片的橙粉色饮品；保留木桌和托盘摄影背景，照片呈完整矩形显示。",
+      "label": "两杯高脚杯饮品并排放在银色托盘上，左杯有奶油、彩色糖针与红色",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_drinks",
+        "reason": "两杯饮品、托盘及木桌背景完整保留，矩形制作框对齐照片内口。白色手绘边线与装订环属于关联的 frame_drinks，保留框体像素，不重复绘制窗口描边；无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_drinks",
+        "asset_id": "material_08",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有饮品素材，以并列大小船只的横向场景作构图近似；全幅居中适配，保留船只与湖面，不具备高脚杯、托盘和木桌。"
+      },
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_08.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\frame_drinks-photo_drinks-window.png",
+        "sha256": "78710ed8b69c47715c10aac1ef3ce333781b107a90b300cf18a6567d5c594192"
+      },
+      "reveal_frame_id": "frame_drinks"
+    },
+    {
+      "id": "frame_drinks",
+      "kind": "frame",
+      "bbox": [
+        313,
+        113,
+        634,
+        359
+      ],
+      "description": "围绕饮品照片的白色手绘笔记本式框体，四周不规则细线与顶部一排装订环构成完整设计，装订环压在照片上沿，保留笔触与不规则轮廓。",
+      "photo_id": "photo_drinks",
+      "label": "围绕饮品照片的白色手绘笔记本式框体，四周不规则细线与顶部一排",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "aae4757ebbeaa9420c740295540d61bdb149ec2b4d944912e10a3cddb19b4a15"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\frame_drinks.png",
+        "sha256": "fbbcaa192bd7025be1fbf0cff9f92971e4126c763fab0e93365877177c6163d1",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\frame_drinks-restored.png",
+          "sha256": "fbbcaa192bd7025be1fbf0cff9f92971e4126c763fab0e93365877177c6163d1",
+          "bbox": [
+            305,
+            105,
+            642,
+            367
+          ],
+          "original_bbox": [
+            313,
+            113,
+            634,
+            359
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "d8224e5da324a7ca81704a8f7e130840d2eb6b321b1ea226dfc060b068460334",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\frame_drinks-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\frame_drinks-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_cake",
+      "kind": "photo",
+      "bbox": [
+        576,
+        386,
+        777,
+        654
+      ],
+      "description": "桌面近景照片，白色盘子上放着切开的深色面包甜点及黄色夹心，后方可见饮料杯和人物局部，保留桌面、花纹桌布及右下角原有小标记。矩形显示，上方右角被胶带装饰覆盖。",
+      "label": "桌面近景照片，白色盘子上放着切开的深色面包甜点及黄色夹心，后",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_cake",
+        "reason": "保留甜点、盘子、桌布与后方摄影内容；窗口为边缘清晰的矩形，右上胶带仅为覆盖装饰，不改变裁切形状。无主体描边、窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_cake",
+        "asset_id": "material_17",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有面包甜点照片，选前景有独立岩石的场景替代；原图比例吻合，全幅保留岩石及远景，实际不是盘装甜点，也没有桌布或饮料杯。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "photo_bear",
+      "kind": "photo",
+      "bbox": [
+        628,
+        679,
+        822,
+        870
+      ],
+      "description": "一只棕色毛绒熊侧躺在灰色褶皱床品上的室内照片，保留床铺、靠垫及右上方暗处环境，矩形边缘清晰。",
+      "label": "一只棕色毛绒熊侧躺在灰色褶皱床品上的室内照片，保留床铺、靠垫",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bear",
+        "reason": "毛绒熊与床品、靠垫和室内暗部一起保留，使用固定矩形窗口。左下被饮料照片覆盖，不是主体抠图；外围涂鸦不构成窗口描边，边界无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bear",
+        "asset_id": "material_05",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.65
+        ],
+        "mirror_x": false,
+        "reason": "没有毛绒熊或床铺素材，仅以岩坡近景作环境替代，不能还原原槽主体；居中裁去部分左右边缘，保留主要岩坡，不镜像。"
+      },
+      "source": {
+        "id": "material_05",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\3cdf61da6802362193ed1af16b6af31fb0a8d475c9d7b47d52fd9279ddb97da3.png",
+        "sha256": "4c5ccf7d473f090864ac3c513de4dee4eada9a031ca7a19476d048b088d75c07",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_05.jpg"
+      }
+    },
+    {
+      "id": "photo_snack",
+      "kind": "photo",
+      "bbox": [
+        53,
+        734,
+        333,
+        932
+      ],
+      "description": "近景照片中一只手拿着装有金黄色炸物的印花纸袋，纸袋带蓝色漫画人物和中文印字，保留地面与黄色标线摄影环境；外围有略不规则的白色细线照片边框，纸袋文字随照片替换。",
+      "label": "近景照片中一只手拿着装有金黄色炸物的印花纸袋，纸袋带蓝色漫画",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_snack",
+        "reason": "手、炸物纸袋及地面摄影背景共同保留，内口为水平矩形。白色细线位于照片外围，与纸袋及手的轮廓无关，以外侧窗口实线近似手绘的不规则边线；无边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.007,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.04
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_snack",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.56
+        ],
+        "mirror_x": false,
+        "reason": "没有手持炸物纸袋素材，选可见抬手动作的近景人像近似；横槽适配偏下对齐，保留举起的手、帽子和面部，但无纸袋、炸物或黄色标线。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "photo_bottles",
+      "kind": "photo",
+      "bbox": [
+        382,
+        727,
+        691,
+        1146
+      ],
+      "description": "三瓶粉色、棕色和浅色饮料并排立在木质台面上，瓶身有卡通标签，保留浅色墙面与木台摄影背景。整体在竖向椭圆窗口内显示，外围分布白色手绘虚线边缘，左上及底部等处可见，背景没有沿瓶身去除。",
+      "label": "三瓶粉色、棕色和浅色饮料并排立在木质台面上，瓶身有卡通标签，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottles",
+        "reason": "三瓶饮料与浅墙、木台背景在竖向椭圆内共同显示，不沿瓶身去背景。制作框对齐椭圆实像边界，白色虚线位于窗口外侧；手绘虚线长度及间距不完全均匀，以规则虚线近似。椭圆边缘清晰，无透明渐变。",
+        "shape": {
+          "type": "ellipse"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.012,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.045,
+            0.065
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.045
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottles",
+        "asset_id": "material_12",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "没有三瓶饮料素材，选竖幅俯瞰景观替代；全幅居中适配椭圆窗口，保留中央道路与两侧水池，实际无瓶身、卡通标签或木台。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-093-9a363f5be8cd\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "overlay_sparkles",
+      "kind": "overlay",
+      "bbox": [
+        249,
+        43,
+        343,
+        142
+      ],
+      "description": "左上方一组白色手绘闪光装饰，包含两个带排线的四角星及周围短线星芒，作为完整局部装饰保留。",
+      "label": "左上方一组白色手绘闪光装饰，包含两个带排线的四角星及周围短线",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "14f35bdf8b3d506a8e07df598609431091329535f1c909e2959ceda0c4f9f9cb"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_sparkles.png",
+        "sha256": "c67da9864787803e75017f79804284a7390fec9c256641c4b6f17571c898ec65",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_sparkles-restored.png",
+          "sha256": "c67da9864787803e75017f79804284a7390fec9c256641c4b6f17571c898ec65",
+          "bbox": [
+            241,
+            35,
+            351,
+            150
+          ],
+          "original_bbox": [
+            249,
+            43,
+            343,
+            142
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "164a734ac3c90a106ca640bfcdcbd4aa3a00b840037cac2840176b4a5c22b2a9",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_sparkles-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_sparkles-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_my_life",
+      "kind": "overlay",
+      "bbox": [
+        86,
+        176,
+        304,
+        223
+      ],
+      "description": "白色空心手绘“MY LIFE”字样，字母大小、笔画和位置不规则，保留整组艺术字轮廓。",
+      "label": "白色空心手绘“MY LIFE”字样，字母大小、笔画和位置不规",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2551069413069b8eda364aacec95c1776c717513aa41a969d8959714449f10cd"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_my_life.png",
+        "sha256": "e9c897c8f6d241ef770a6be2955b7f489698221dc6ebc2b996064051a76d6963",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_my_life-restored.png",
+          "sha256": "e9c897c8f6d241ef770a6be2955b7f489698221dc6ebc2b996064051a76d6963",
+          "bbox": [
+            81,
+            171,
+            309,
+            228
+          ],
+          "original_bbox": [
+            86,
+            176,
+            304,
+            223
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "453b79ede5c588cc61dafb839568fe1175c57588b3e7b20e4ffdcc6cf7a0f525",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_my_life-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_my_life-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_music",
+      "kind": "overlay",
+      "bbox": [
+        649,
+        121,
+        816,
+        280
+      ],
+      "description": "右上方白色手绘音乐装饰，包含两个音符和周围散布的白色圆点，整体保留。",
+      "label": "右上方白色手绘音乐装饰，包含两个音符和周围散布的白色圆点，整",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "01b91e7ae862293a36a1485a65dc8ac72d93a121c4efd47de5181d2051fd76f0"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_music.png",
+        "sha256": "da7176c50e4221375c69c031cd8cc7c36dcaa32571d5b71db984d7ef7ea4ee09",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_music-restored.png",
+          "sha256": "da7176c50e4221375c69c031cd8cc7c36dcaa32571d5b71db984d7ef7ea4ee09",
+          "bbox": [
+            641,
+            113,
+            824,
+            288
+          ],
+          "original_bbox": [
+            649,
+            121,
+            816,
+            280
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "ab65ecd40e1469d23bb495ce6543ae15885e31705082d9ba36c8cb796b9e2b3e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_music-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_music-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_face",
+      "kind": "overlay",
+      "bbox": [
+        649,
+        228,
+        788,
+        355
+      ],
+      "description": "白色连续线条绘成的侧脸人物涂鸦，包含头发、面部及贴在脸旁的手部轮廓，作为一个完整装饰保留。",
+      "label": "白色连续线条绘成的侧脸人物涂鸦，包含头发、面部及贴在脸旁的手",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c8cfd19a115ad9341d74fa8efa833b6077c25b4d4aa0e6353a6f297dd5e982ee"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_face.png",
+        "sha256": "d1a8a2968f464576451d87592636ffa953eeb85c696367c78f3c05b0b3b48cac",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_face-restored.png",
+          "sha256": "d1a8a2968f464576451d87592636ffa953eeb85c696367c78f3c05b0b3b48cac",
+          "bbox": [
+            641,
+            220,
+            796,
+            363
+          ],
+          "original_bbox": [
+            649,
+            228,
+            788,
+            355
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "3d4fe17885c2db78684d0be1b9c25a2cc32ccfc44a0c47cc8e83a66b0b9de8f9",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_face-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_face-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_tape",
+      "kind": "overlay",
+      "bbox": [
+        718,
+        364,
+        791,
+        438
+      ],
+      "description": "斜贴在甜点照片右上角的浅灰白色胶带，保留两端不规则断口、纸面质感和覆盖照片边界的形态。",
+      "label": "斜贴在甜点照片右上角的浅灰白色胶带，保留两端不规则断口、纸面",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8ef8fd786502dda88269bccc2a7b1fe8ca12cc6f538e18ce0f0c64d7149521e3"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_tape.png",
+        "sha256": "bbee7a8f503755f53c21b523c8aee14240138da72f012c534a53325ea3c706a7",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_tape-restored.png",
+          "sha256": "bbee7a8f503755f53c21b523c8aee14240138da72f012c534a53325ea3c706a7",
+          "bbox": [
+            710,
+            356,
+            799,
+            446
+          ],
+          "original_bbox": [
+            718,
+            364,
+            791,
+            438
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "85665c3fecf061f8920481a5bfadd6e5dc855247849ce1ccf88e3513710872b6",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_tape-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_tape-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_drops",
+      "kind": "overlay",
+      "bbox": [
+        97,
+        469,
+        155,
+        638
+      ],
+      "description": "左侧树干前一组纵向错落排列的白色空心水滴涂鸦，大小不一的五个水滴整体保留。",
+      "label": "左侧树干前一组纵向错落排列的白色空心水滴涂鸦，大小不一的五个",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d42311e8378f3362599cdf25ee5a1b0e96db49f8913a069c9714becb25d364ae"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_drops.png",
+        "sha256": "22df4f6e4918652491a136cdcbc6256dec3629eb917b55bf5e1b5636727685f5",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_drops-restored.png",
+          "sha256": "22df4f6e4918652491a136cdcbc6256dec3629eb917b55bf5e1b5636727685f5",
+          "bbox": [
+            91,
+            463,
+            161,
+            644
+          ],
+          "original_bbox": [
+            97,
+            469,
+            155,
+            638
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "dc10f0f0653dc1decbe2ca2f918b6f3d8c02953bb6dde0240a80c18de235895a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_drops-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_drops-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_cake_symbols",
+      "kind": "overlay",
+      "bbox": [
+        603,
+        654,
+        744,
+        690
+      ],
+      "description": "甜点照片下方一排白色手绘小符号，包含旋涡、星形、爱心和圆脸等，连同周围小点作为一组完整装饰保留。",
+      "label": "甜点照片下方一排白色手绘小符号，包含旋涡、星形、爱心和圆脸等",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "fbee261fd3dad93a75cdafa42eddc14d919f42d3143947d7b7015801169632a2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_cake_symbols.png",
+        "sha256": "19e3ad7daf2333303a3bf1f4e24af21c2d4c4b4cffbd5115d727c0f8bf44b409",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_cake_symbols-restored.png",
+          "sha256": "19e3ad7daf2333303a3bf1f4e24af21c2d4c4b4cffbd5115d727c0f8bf44b409",
+          "bbox": [
+            599,
+            650,
+            748,
+            694
+          ],
+          "original_bbox": [
+            603,
+            654,
+            744,
+            690
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "aa3c00877f8763625804ed24a5f9bbe7f5995633f49a05d4cf91a4dbf735b224",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_cake_symbols-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_cake_symbols-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_bear_symbols",
+      "kind": "overlay",
+      "bbox": [
+        701,
+        875,
+        856,
+        916
+      ],
+      "description": "毛绒熊照片下方一排白色手绘符号，包含旋涡、星形、爱心和圆脸及散落短线小点，作为独立装饰组保留。",
+      "label": "毛绒熊照片下方一排白色手绘符号，包含旋涡、星形、爱心和圆脸及",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "77dc737a275800c823563de69b1b81699461bcbc3603c0d6f3bd40e5e0f51247"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_bear_symbols.png",
+        "sha256": "e19c599dee458efbf8a30aa2c5421d8111460b922cec3a906ae169f90cb11d25",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_bear_symbols-restored.png",
+          "sha256": "e19c599dee458efbf8a30aa2c5421d8111460b922cec3a906ae169f90cb11d25",
+          "bbox": [
+            696,
+            870,
+            861,
+            921
+          ],
+          "original_bbox": [
+            701,
+            875,
+            856,
+            916
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "f91e879bfe76f91b916dac4bb264c910437284681a462f5ebe4723641d16f87e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_bear_symbols-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_bear_symbols-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_trees",
+      "kind": "overlay",
+      "bbox": [
+        204,
+        959,
+        365,
+        1072
+      ],
+      "description": "底部左侧两棵白色手绘圆冠小树，树冠中有圆点，带树干轮廓及底部两簇小草，作为一个完整局部装饰保留。",
+      "label": "底部左侧两棵白色手绘圆冠小树，树冠中有圆点，带树干轮廓及底部",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "45df7d6246ed275725f81cc62deccd81a914d4b798ef8800ce02ff47bafbf5d5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_trees.png",
+        "sha256": "4a14ed5d924bdf78eb37acc696dc14992051276532712e26a4ad0074c2672733",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_trees-restored.png",
+          "sha256": "4a14ed5d924bdf78eb37acc696dc14992051276532712e26a4ad0074c2672733",
+          "bbox": [
+            196,
+            951,
+            373,
+            1080
+          ],
+          "original_bbox": [
+            204,
+            959,
+            365,
+            1072
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "e362e63251418729089463a7305d822826f8d789365186229d7c49dfd1cb398c",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_trees-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_trees-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_cozy_day",
+      "kind": "overlay",
+      "bbox": [
+        652,
+        1008,
+        773,
+        1104
+      ],
+      "description": "右下方白色空心手绘“COZY DAY”两行艺术字，字母位置与角度不规则；左侧部分被椭圆饮料照片遮挡，保留实际可见笔画，不补造被遮部分。",
+      "label": "右下方白色空心手绘“COZY DAY”两行艺术字，字母位置与",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5d12cc9c217796f010b224881b76725b8583b03f472c970226fb6c4d54e17f99"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_cozy_day.png",
+        "sha256": "f86ca33bf21c3994b08e7946b444d523efa39381c32275f7296f3fa7008e68f9",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\overlay_cozy_day-restored.png",
+          "sha256": "f86ca33bf21c3994b08e7946b444d523efa39381c32275f7296f3fa7008e68f9",
+          "bbox": [
+            644,
+            1000,
+            781,
+            1112
+          ],
+          "original_bbox": [
+            652,
+            1008,
+            773,
+            1104
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "0a61ce57e031c7b9db799d55c3e215a8eafcb26819918a154499c732346e0850",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "81b1520489a8d78d6b502068ca1fd560f2d22c6b60b81f467ca47b990b231362"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_cozy_day-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\overlay_cozy_day-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "photo_background",
+    "photo_portrait",
+    "photo_pastries",
+    "photo_drinks",
+    "frame_drinks",
+    "photo_cake",
+    "photo_bear",
+    "photo_snack",
+    "overlay_sparkles",
+    "overlay_my_life",
+    "overlay_music",
+    "overlay_face",
+    "overlay_tape",
+    "overlay_drops",
+    "overlay_cake_symbols",
+    "overlay_bear_symbols",
+    "overlay_trees",
+    "overlay_cozy_day",
+    "photo_bottles"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "f3d035c15ea90b4259e0bc598a3db1ab125705b63120836ffa0036c31ce05f99",
+    "bindings": "68d857ee8a8374a0eab1749b68c0379015ae0dd4e31e04cec5c0a59e90ad27a3",
+    "input": "30bb48e43945d864c688a70d80f9dc63ea081ee8847a34d822ac5e384327c728",
+    "catalog": "2225ca11ec3f983a7cd91acaf64650ea5fd34372199f9a64207fe6bf0e3c5c4c",
+    "photo_windows": "3d227175ecdb51b6f2aa889cf679b722eb4e56c0f50ee1f0adae0d30b74d4cef"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\reveal\\index.json",
+    "sha256": "beeaaa3dd24b3feef928631051eb3e0cbf6c7678885a9443f82661a59ad34fba"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-093\\assets\\gate\\report.json",
+    "sha256": "cec59e66da2ab5c62587e3d890dbedaed147b9ba646aac4bd262e48890ec302d",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 11,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
