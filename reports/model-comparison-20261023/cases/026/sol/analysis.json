@@ -1,0 +1,254 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "白色横线笔记纸底纹，密集灰色横线贯穿画面，左侧有两条浅蓝色竖向页边线，整体作为固定底层保留。",
+      "label": "白色横线笔记纸底纹，密集灰色横线贯穿画面，左侧有两条浅蓝色竖",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "apple_frame_top",
+      "kind": "frame",
+      "bbox": [
+        312,
+        77,
+        860,
+        630
+      ],
+      "description": "上方浅绿色切面苹果框体，保留果皮、厚实浅色果肉、顶部果梗及真实材质；中央承载人物照片，果肉与照片交界柔和。",
+      "photo_id": "photo_top",
+      "label": "上方浅绿色切面苹果框体，保留果皮、厚实浅色果肉、顶部果梗及真",
+      "method": "extract"
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        394,
+        221,
+        757,
+        583
+      ],
+      "description": "一名黑色齐刘海短发女生的近景，头部位于右上，穿白色长袖，双手在脸旁比剪刀手，侧身看向镜头，发侧有浅色发夹。人物左后方仍可见绿色植被背景；照片四周柔化渐隐，与下方苹果果肉融合，不是沿人体轮廓完全去背景。",
+      "label": "一名黑色齐刘海短发女生的近景，头部位于右上，穿白色长袖，双手",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "apple_frame_bottom",
+      "kind": "frame",
+      "bbox": [
+        27,
+        632,
+        571,
+        1133
+      ],
+      "description": "下方绿色苹果照片框体，保留左上伸出的宽大绿叶、棕色果梗、绿色果皮和果肉厚度及材质；中央区域承载照片。",
+      "photo_id": "photo_bottom",
+      "label": "下方绿色苹果照片框体，保留左上伸出的宽大绿叶、棕色果梗、绿色",
+      "method": "extract"
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        178,
+        768,
+        508,
+        1098
+      ],
+      "description": "一名黑色短发女生的正面近景，穿白色上衣，头略倾斜，一只手靠在右侧脸旁，注视镜头。照片主要显示头部、手和上半身，周围摄影环境不明显；外围柔化渐隐至苹果果肉，未出现连续出框。",
+      "label": "一名黑色短发女生的正面近景，穿白色上衣，头略倾斜，一只手靠在",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "clover_top",
+      "kind": "overlay",
+      "bbox": [
+        84,
+        62,
+        223,
+        226
+      ],
+      "description": "左上绿色四叶草装饰，四片心形叶片带真实叶脉和浅色边缘，细长弯曲叶柄向右下伸出，完整保留。",
+      "label": "左上绿色四叶草装饰，四片心形叶片带真实叶脉和浅色边缘，细长弯",
+      "method": "extract"
+    },
+    {
+      "id": "clover_middle",
+      "kind": "overlay",
+      "bbox": [
+        123,
+        374,
+        347,
+        572
+      ],
+      "description": "左侧中部较大的绿色四叶草，保留四片心形叶、叶脉和向左下弯伸的细柄。",
+      "label": "左侧中部较大的绿色四叶草，保留四片心形叶、叶脉和向左下弯伸的",
+      "method": "extract"
+    },
+    {
+      "id": "clover_right",
+      "kind": "overlay",
+      "bbox": [
+        800,
+        934,
+        894,
+        1044
+      ],
+      "description": "右下小型绿色四叶草，保留心形叶片、叶脉以及向左下伸出的弯曲细柄。",
+      "label": "右下小型绿色四叶草，保留心形叶片、叶脉以及向左下伸出的弯曲细",
+      "method": "extract"
+    },
+    {
+      "id": "note_top",
+      "kind": "overlay",
+      "bbox": [
+        372,
+        66,
+        451,
+        167
+      ],
+      "description": "上方绿色双音符装饰，带浅黄色边缘，略有倾斜，作为一个完整符号保留。",
+      "label": "上方绿色双音符装饰，带浅黄色边缘，略有倾斜，作为一个完整符号",
+      "method": "extract"
+    },
+    {
+      "id": "note_middle",
+      "kind": "overlay",
+      "bbox": [
+        497,
+        616,
+        549,
+        688
+      ],
+      "description": "两只苹果之间的小型绿色双音符装饰，带浅黄色边缘。",
+      "label": "两只苹果之间的小型绿色双音符装饰，带浅黄色边缘。",
+      "method": "extract"
+    },
+    {
+      "id": "note_bottom",
+      "kind": "overlay",
+      "bbox": [
+        556,
+        1033,
+        643,
+        1160
+      ],
+      "description": "右下较大的绿色双音符装饰，保留浅黄色边缘及倾斜造型。",
+      "label": "右下较大的绿色双音符装饰，保留浅黄色边缘及倾斜造型。",
+      "method": "extract"
+    },
+    {
+      "id": "label_top_left",
+      "kind": "overlay",
+      "bbox": [
+        44,
+        265,
+        209,
+        354
+      ],
+      "description": "左上白色小纸签，带浅绿色细小韩文字样及散布的小星点图案，文字较模糊，纸面与内部图文整体保留。",
+      "label": "左上白色小纸签，带浅绿色细小韩文字样及散布的小星点图案，文字",
+      "method": "extract"
+    },
+    {
+      "id": "label_bottom_left",
+      "kind": "overlay",
+      "bbox": [
+        44,
+        1007,
+        244,
+        1142
+      ],
+      "description": "左下浅绿色细格纹矩形卡片，带细边框，内部印有深绿色四叶草、弯曲草茎、小星点和浅绿色韩文字样；作为完整印刷卡片保留，叠在下方苹果左下缘。",
+      "label": "左下浅绿色细格纹矩形卡片，带细边框，内部印有深绿色四叶草、弯",
+      "method": "extract"
+    },
+    {
+      "id": "english_quote",
+      "kind": "overlay",
+      "bbox": [
+        648,
+        479,
+        869,
+        620
+      ],
+      "description": "右上苹果右下方的英文拼贴字条组合，浅灰白色不规则纸条上写有“YOU ARE MORE / THAN THE MISTAKES / YOU'VE MADE.”，各词错落排列，整体保留纸边、字形及层叠关系。",
+      "label": "右上苹果右下方的英文拼贴字条组合，浅灰白色不规则纸条上写有“",
+      "method": "extract"
+    },
+    {
+      "id": "speech_bubble",
+      "kind": "overlay",
+      "bbox": [
+        426,
+        715,
+        640,
+        823
+      ],
+      "description": "下方苹果右上侧的白色椭圆对话气泡，左下带尖角、外围浅蓝细线，内部为“반가와요★”字样，文字、星形及气泡作为完整装饰保留。",
+      "label": "下方苹果右上侧的白色椭圆对话气泡，左下带尖角、外围浅蓝细线，",
+      "method": "extract"
+    },
+    {
+      "id": "korean_vertical_strip",
+      "kind": "overlay",
+      "bbox": [
+        705,
+        688,
+        762,
+        1070
+      ],
+      "description": "右侧较长白色竖向纸条，深色韩文逐字竖排“첫눈에 저와 함께 해주세요”，保留整条纸面、边缘和原有竖排字形。",
+      "label": "右侧较长白色竖向纸条，深色韩文逐字竖排“첫눈에 저와 함께 ",
+      "method": "extract"
+    },
+    {
+      "id": "japanese_vertical_strip",
+      "kind": "overlay",
+      "bbox": [
+        788,
+        692,
+        828,
+        958
+      ],
+      "description": "右侧较窄白色竖向纸条，深色日文竖排“世界の終わりも、一緒に”，保留纸面及文字的原有竖排视觉形式。",
+      "label": "右侧较窄白色竖向纸条，深色日文竖排“世界の終わりも、一緒に”",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "apple_frame_top",
+    "photo_top",
+    "apple_frame_bottom",
+    "photo_bottom",
+    "clover_top",
+    "clover_middle",
+    "note_top",
+    "note_middle",
+    "note_bottom",
+    "label_top_left",
+    "english_quote",
+    "speech_bubble",
+    "korean_vertical_strip",
+    "japanese_vertical_strip",
+    "clover_right",
+    "label_bottom_left"
+  ]
+}
