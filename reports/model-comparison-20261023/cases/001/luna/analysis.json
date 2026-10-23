@@ -1,0 +1,254 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    1290,
+    2306
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1290,
+        2306
+      ],
+      "description": "整幅固定的拼贴底层，保留浅灰米色纸张、旧报纸与手写纸片纹理及可见边缘；照片和贴纸遮住的部分不补全。",
+      "label": "整幅固定的拼贴底层，保留浅灰米色纸张、旧报纸与手写纸片纹理及",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        671,
+        1176
+      ],
+      "description": "左上方一张竖幅自拍，棕发女性正面鼓起脸颊，穿灰绿色背心，一只手抬在画面左侧；人物周围保留金属卷帘门等摄影环境，边缘与拼贴底层柔和融合。",
+      "label": "左上方一张竖幅自拍，棕发女性正面鼓起脸颊，穿灰绿色背心，一只",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        555,
+        380,
+        1290,
+        1199
+      ],
+      "description": "右上方一张女性近景自拍，棕发女性正面鼓起脸颊并以手指抵住嘴角；保留卷帘门等摄影环境，照片边缘柔和融合并与左上照片相邻交叠。",
+      "label": "右上方一张女性近景自拍，棕发女性正面鼓起脸颊并以手指抵住嘴角",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        969,
+        729,
+        1926
+      ],
+      "description": "左下方一张室内竖幅照片，浅金发女性坐着，一手指向脸颊，穿深绿色印花上衣；保留室内墙面、门口及家具等摄影环境，边缘柔和融合。",
+      "label": "左下方一张室内竖幅照片，浅金发女性坐着，一手指向脸颊，穿深绿",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom_right",
+      "kind": "photo",
+      "bbox": [
+        445,
+        1118,
+        1290,
+        2306
+      ],
+      "description": "右下方一张浅金发女性的大幅近景自拍，正面看向镜头，穿深绿色印花上衣；保留人物及可见摄影环境，照片覆盖左下照片的一部分，边缘柔和融合。",
+      "label": "右下方一张浅金发女性的大幅近景自拍，正面看向镜头，穿深绿色印",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "hearts",
+      "kind": "overlay",
+      "bbox": [
+        462,
+        0,
+        810,
+        235
+      ],
+      "description": "顶部三枚浅粉色手绘心形组成的装饰，作为一组完整图案保留。",
+      "label": "顶部三枚浅粉色手绘心形组成的装饰，作为一组完整图案保留。",
+      "method": "extract"
+    },
+    {
+      "id": "coffee_sticker",
+      "kind": "overlay",
+      "bbox": [
+        858,
+        108,
+        1249,
+        408
+      ],
+      "description": "右上方深棕色白圆点底板上的拿铁咖啡杯贴纸，杯子带绿色外轮廓，底板、杯子和轮廓作为完整装饰保留。",
+      "label": "右上方深棕色白圆点底板上的拿铁咖啡杯贴纸，杯子带绿色外轮廓，",
+      "method": "extract"
+    },
+    {
+      "id": "ticket",
+      "kind": "overlay",
+      "bbox": [
+        650,
+        288,
+        1032,
+        528
+      ],
+      "description": "米黄色旧纸票券标签，带细边框、竖排数字和印字“Ticket To Anywhere”，纸张纹理与文字作为完整装饰保留。",
+      "label": "米黄色旧纸票券标签，带细边框、竖排数字和印字“Ticket ",
+      "method": "extract"
+    },
+    {
+      "id": "together_label",
+      "kind": "overlay",
+      "bbox": [
+        45,
+        837,
+        537,
+        996
+      ],
+      "description": "浅色撕边纸条标签，印有大字“together.”，保留纸张纹理及字样。",
+      "label": "浅色撕边纸条标签，印有大字“together.”，保留纸张纹",
+      "method": "extract"
+    },
+    {
+      "id": "rabbit_sticker",
+      "kind": "overlay",
+      "bbox": [
+        1076,
+        1118,
+        1290,
+        1533
+      ],
+      "description": "右侧棕色兔子头像贴纸，沿外形有紫色描边，整体作为一个装饰保留。",
+      "label": "右侧棕色兔子头像贴纸，沿外形有紫色描边，整体作为一个装饰保留",
+      "method": "extract"
+    },
+    {
+      "id": "blue_star_right",
+      "kind": "overlay",
+      "bbox": [
+        808,
+        980,
+        1290,
+        1400
+      ],
+      "description": "兔子后方的蓝色白圆点星形装饰底图，作为独立贴纸保留。",
+      "label": "兔子后方的蓝色白圆点星形装饰底图，作为独立贴纸保留。",
+      "method": "extract"
+    },
+    {
+      "id": "croissant_sticker",
+      "kind": "overlay",
+      "bbox": [
+        46,
+        1686,
+        421,
+        1946
+      ],
+      "description": "左下方牛角面包图案贴纸，带橙色外轮廓，完整保留。",
+      "label": "左下方牛角面包图案贴纸，带橙色外轮廓，完整保留。",
+      "method": "extract"
+    },
+    {
+      "id": "pink_arrows",
+      "kind": "overlay",
+      "bbox": [
+        18,
+        1656,
+        415,
+        1884
+      ],
+      "description": "牛角面包周围三枚粉色手绘箭头组成的装饰组，完整保留。",
+      "label": "牛角面包周围三枚粉色手绘箭头组成的装饰组，完整保留。",
+      "method": "extract"
+    },
+    {
+      "id": "blue_star_left",
+      "kind": "overlay",
+      "bbox": [
+        40,
+        1808,
+        442,
+        2154
+      ],
+      "description": "猫咪后方的蓝色白圆点星形装饰底图，作为独立贴纸保留。",
+      "label": "猫咪后方的蓝色白圆点星形装饰底图，作为独立贴纸保留。",
+      "method": "extract"
+    },
+    {
+      "id": "cat_sticker",
+      "kind": "overlay",
+      "bbox": [
+        178,
+        1916,
+        553,
+        2306
+      ],
+      "description": "左下方橘色虎斑猫头像贴纸，沿头像轮廓有橙色描边，完整保留。",
+      "label": "左下方橘色虎斑猫头像贴纸，沿头像轮廓有橙色描边，完整保留。",
+      "method": "extract"
+    },
+    {
+      "id": "hello_label",
+      "kind": "overlay",
+      "bbox": [
+        613,
+        2002,
+        878,
+        2124
+      ],
+      "description": "略微倾斜的白色细点纹纸标签，带黑色投影、字样“hello”和小星形点缀，作为完整装饰保留。",
+      "label": "略微倾斜的白色细点纹纸标签，带黑色投影、字样“hello”和",
+      "method": "extract"
+    },
+    {
+      "id": "artist_label",
+      "kind": "overlay",
+      "bbox": [
+        582,
+        2117,
+        1076,
+        2246
+      ],
+      "description": "略微倾斜的白色细点纹纸标签，带黑色投影、字样“I am a artist”和小星形点缀，作为完整装饰保留。",
+      "label": "略微倾斜的白色细点纹纸标签，带黑色投影、字样“I am a ",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top_left",
+    "photo_bottom_left",
+    "photo_top_right",
+    "photo_bottom_right",
+    "hearts",
+    "coffee_sticker",
+    "ticket",
+    "together_label",
+    "blue_star_right",
+    "rabbit_sticker",
+    "pink_arrows",
+    "croissant_sticker",
+    "blue_star_left",
+    "cat_sticker",
+    "hello_label",
+    "artist_label"
+  ]
+}
