@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-24T01:26:16+08:00。共 348 个任务。
+最后更新：2026-10-24T01:27:36+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -133,7 +133,7 @@
 | [113 · 拼贴5.jpg](cases/113/README.md)<br>![参考](cases/113/reference-thumb.jpg) | 待提交 | 已交付<br>[![成图](cases/113/luna/thumb.jpg)](cases/113/luna/final.png) | 待提交 |
 | [114 · 拼贴6.jpg](cases/114/README.md)<br>![参考](cases/114/reference-thumb.jpg) | 待提交 | 已交付<br>[![成图](cases/114/luna/thumb.jpg)](cases/114/luna/final.png) | 待提交 |
 | [115 · 拼贴7.jpg](cases/115/README.md)<br>![参考](cases/115/reference-thumb.jpg) | 待提交 | 已交付<br>[![成图](cases/115/luna/thumb.jpg)](cases/115/luna/final.png) | 待提交 |
-| [116 · 海边人像拼图.jpg](cases/116/README.md)<br>![参考](cases/116/reference-thumb.jpg) | 待提交 | 运行中 · photo_windows | 待提交 |
+| [116 · 海边人像拼图.jpg](cases/116/README.md)<br>![参考](cases/116/reference-thumb.jpg) | 待提交 | 运行中 · build | 待提交 |
 
 原尺寸成图和关键中间产物逐项同步。原始客户视频、凭证、请求图片载荷不进入报告。
 
