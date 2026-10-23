@@ -1,0 +1,318 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1202
+  ],
+  "objects": [
+    {
+      "id": "album_base",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1202
+      ],
+      "description": "固定的剪贴簿底层结构：深棕色外底、上方圆角牛皮纸页和下方白色圆角页面，保留纸面纹理、页面轮廓及连接处；不包含前景金属活页环。",
+      "label": "固定的剪贴簿底层结构：深棕色外底、上方圆角牛皮纸页和下方白色",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "binding_rings",
+      "kind": "overlay",
+      "bbox": [
+        207,
+        552,
+        698,
+        645
+      ],
+      "description": "横跨两页连接处的一排五个银色金属活页环及其可见连接硬件，作为完整的装订结构保留。",
+      "label": "横跨两页连接处的一排五个银色金属活页环及其可见连接硬件，作为",
+      "method": "extract"
+    },
+    {
+      "id": "photo_polaroid",
+      "kind": "photo",
+      "bbox": [
+        194,
+        148,
+        440,
+        407
+      ],
+      "description": "上方拍立得内口照片：室内镜面前一男一女上下叠站自拍，男子在后方戴深色帽子比手势，女子在前方戴眼镜、手持手机；保留室内环境。白色拍立得纸框另作为固定承载框。",
+      "label": "上方拍立得内口照片：室内镜面前一男一女上下叠站自拍，男子在后",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_polaroid",
+      "kind": "frame",
+      "bbox": [
+        193,
+        119,
+        451,
+        474
+      ],
+      "description": "上方白色拍立得式纸框，含宽下沿及左上黑色爱心蝴蝶结装饰；纸张、印刷和附属造型整体保留，内口照片独立替换。",
+      "photo_id": "photo_polaroid",
+      "label": "上方白色拍立得式纸框，含宽下沿及左上黑色爱心蝴蝶结装饰；纸张",
+      "method": "extract"
+    },
+    {
+      "id": "photo_couple_full",
+      "kind": "photo",
+      "bbox": [
+        514,
+        225,
+        742,
+        421
+      ],
+      "description": "上方右侧矩形照片：室内商店中一男一女并肩站立，女子穿棕色裙装、男子穿深色衣物，保留店内环境与全身景别。",
+      "label": "上方右侧矩形照片：室内商店中一男一女并肩站立，女子穿棕色裙装",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_love_detail",
+      "kind": "photo",
+      "bbox": [
+        193,
+        719,
+        312,
+        781
+      ],
+      "description": "下方左上小矩形照片，拍摄写有 LOVE 的纸面及周围物件，保留原摄影内容。",
+      "label": "下方左上小矩形照片，拍摄写有 LOVE 的纸面及周围物件，保",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_heart",
+      "kind": "photo",
+      "bbox": [
+        169,
+        810,
+        435,
+        1066
+      ],
+      "description": "下方左侧心形窗口自拍：户外近景的一男一女戴帽并肩贴近镜头，保留两人及后方绿植摄影环境；心形为照片裁切窗口，不另设框体。",
+      "label": "下方左侧心形窗口自拍：户外近景的一男一女戴帽并肩贴近镜头，保",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_dotted",
+      "kind": "photo",
+      "bbox": [
+        469,
+        701,
+        760,
+        891
+      ],
+      "description": "下方右上矩形照片：室内镜前一男一女并肩自拍，女子在左侧比手势、男子在右侧举手机，保留室内环境。",
+      "label": "下方右上矩形照片：室内镜前一男一女并肩自拍，女子在左侧比手势",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_dotted",
+      "kind": "frame",
+      "bbox": [
+        469,
+        684,
+        760,
+        892
+      ],
+      "description": "承载下方右上照片的棕色矩形纸框，带浅蓝圆点印花和白色内口，框体图案与材质整体保留。",
+      "photo_id": "photo_dotted",
+      "label": "承载下方右上照片的棕色矩形纸框，带浅蓝圆点印花和白色内口，框",
+      "method": "extract"
+    },
+    {
+      "id": "photo_cats",
+      "kind": "photo",
+      "bbox": [
+        460,
+        923,
+        638,
+        1093
+      ],
+      "description": "下方偏右倾斜的矩形摄影画面，灰色网格纹理表面上有一只黑猫和一只白猫相邻卧着，保留完整摄影环境。",
+      "label": "下方偏右倾斜的矩形摄影画面，灰色网格纹理表面上有一只黑猫和一",
+      "method": "local",
+      "rotation": -35
+    },
+    {
+      "id": "text_love",
+      "kind": "text",
+      "bbox": [
+        533,
+        169,
+        663,
+        197
+      ],
+      "description": "L-O-V-Eeeeeee",
+      "label": "L-O-V-Eeeeeee",
+      "method": "local",
+      "text": "L-O-V-Eeeeeee",
+      "text_status": "known",
+      "style": {
+        "fill": "#604D45",
+        "font": "sans",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "text_emoticon",
+      "kind": "text",
+      "bbox": [
+        453,
+        185,
+        517,
+        238
+      ],
+      "description": ":3",
+      "label": ":3",
+      "method": "local",
+      "text": ":3",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "sans",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "overlay_quote",
+      "kind": "overlay",
+      "bbox": [
+        353,
+        440,
+        491,
+        502
+      ],
+      "description": "贴在上方拍立得下沿附近的米色纸条，印有“You are made of everything soft and kind”字样；文字、纸条和边缘作为完整标签保留。",
+      "label": "贴在上方拍立得下沿附近的米色纸条，印有“You are ma",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_cassette",
+      "kind": "overlay",
+      "bbox": [
+        540,
+        445,
+        656,
+        543
+      ],
+      "description": "下方上页靠右的粉色倾斜磁带贴纸，带有可辨文字“summer nights”及磁带细节，整体保留。",
+      "label": "下方上页靠右的粉色倾斜磁带贴纸，带有可辨文字“summer ",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_heart_sign",
+      "kind": "overlay",
+      "bbox": [
+        669,
+        388,
+        742,
+        513
+      ],
+      "description": "上方右侧独立心形贴纸装饰，红色立体心形置于浅色横纹底板上，含投影和边缘。",
+      "label": "上方右侧独立心形贴纸装饰，红色立体心形置于浅色横纹底板上，含",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_star_doodle",
+      "kind": "overlay",
+      "bbox": [
+        271,
+        72,
+        541,
+        188
+      ],
+      "description": "上方页面顶部一组彩色星星、音符、线描及小符号涂鸦，保留各自形状、颜色和位置关系。",
+      "label": "上方页面顶部一组彩色星星、音符、线描及小符号涂鸦，保留各自形",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_blue_star",
+      "kind": "overlay",
+      "bbox": [
+        669,
+        171,
+        770,
+        264
+      ],
+      "description": "上方右侧深蓝色带白色点状缝线的大型星形贴纸，完整保留内部镂空和轮廓。",
+      "label": "上方右侧深蓝色带白色点状缝线的大型星形贴纸，完整保留内部镂空",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_ladybugs",
+      "kind": "overlay",
+      "bbox": [
+        158,
+        413,
+        211,
+        512
+      ],
+      "description": "上方拍立得左下方两只红黑瓢虫贴纸，连同斑点、触角和投影作为一组装饰保留。",
+      "label": "上方拍立得左下方两只红黑瓢虫贴纸，连同斑点、触角和投影作为一",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_misc_top",
+      "kind": "overlay",
+      "bbox": [
+        125,
+        76,
+        710,
+        542
+      ],
+      "description": "上方页面其余独立装饰：薄荷绿水滴、黄色感叹号涂鸦、棕色椭圆底板上的浅绿色花朵、星星及小型荧光点缀；保留各完整图形，不含照片与拍立得框。",
+      "label": "上方页面其余独立装饰：薄荷绿水滴、黄色感叹号涂鸦、棕色椭圆底",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_misc_bottom",
+      "kind": "overlay",
+      "bbox": [
+        129,
+        673,
+        752,
+        1097
+      ],
+      "description": "下方页面散布的固定贴纸与涂鸦，包括电池图标、爱心、糖果/旋涡、银灰爱心、粉色长条贴纸、蓝色小字卡、黄色小卡、粉色 LOVE 圆形字样贴纸、底部 WOW 字母拼贴，以及薄荷绿水滴、花朵、星星和小彩点；各图形按原有独立造型整体保留。",
+      "label": "下方页面散布的固定贴纸与涂鸦，包括电池图标、爱心、糖果/旋涡",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "album_base",
+    "frame_polaroid",
+    "photo_polaroid",
+    "photo_couple_full",
+    "photo_love_detail",
+    "photo_heart",
+    "frame_dotted",
+    "photo_dotted",
+    "photo_cats",
+    "overlay_star_doodle",
+    "overlay_misc_top",
+    "overlay_blue_star",
+    "overlay_ladybugs",
+    "overlay_quote",
+    "overlay_cassette",
+    "overlay_heart_sign",
+    "overlay_misc_bottom",
+    "binding_rings",
+    "text_love",
+    "text_emoticon"
+  ]
+}
