@@ -1,0 +1,488 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\prepared\\reference.png",
+    "sha256": "877d6d13ff3c71db4ba0ee3bf8e71f391802e78bea9666d137aeb2546ec5d4d6"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画面的街道与建筑摄影背景，保留墙面、路面、路边行人及环境；中央人物由独立前景照片显示。",
+      "label": "铺满画面的街道与建筑摄影背景，保留墙面、路面、路边行人及环境",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "background_photo",
+        "reason": "保留街道、建筑和路边行人的摄影环境作为全画面底图；画布边缘无需渐隐，也无描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "background_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无街道、建筑或路边行人的对应素材；选用竖幅湖景作全幅近似背景，场景差异明显。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-049-f153e97a5461\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "star_photo",
+      "kind": "photo",
+      "bbox": [
+        30,
+        46,
+        414,
+        436
+      ],
+      "description": "左上方星形照片区域，显示一名穿深色格纹无袖连衣裙、背双肩带的年轻女性上半身，正面朝向镜头；保留照片内可见的墙面和街景。白色手绘线沿星形窗口完整轮廓描边，属于照片边缘效果。",
+      "label": "左上方星形照片区域，显示一名穿深色格纹无袖连衣裙、背双肩带的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "star_photo",
+        "reason": "星形窗口内保留墙面、道路与人物的摄影内容；白色手绘线沿固定星形窗口描边，不是主体描边。窗口边缘清晰，无渐变。",
+        "shape": {
+          "type": "star",
+          "star_points": 5,
+          "inner_ratio": 0.48
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.008,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.005
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "star_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中是戴帽、穿浅色外套的女性近景，并非格纹裙正面上半身，场景也为湖边；无更接近的候选。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-049-f153e97a5461\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "main_subject",
+      "kind": "photo",
+      "bbox": [
+        304,
+        326,
+        612,
+        1150
+      ],
+      "description": "中央前景为一名穿深色格纹无袖连衣裙、白袜和白色运动鞋的年轻女性，正面朝向镜头行走，双臂自然向两侧伸展，人物完整显示至鞋底；沿人物外轮廓显示，摄影背景不随此前景层显示。",
+      "label": "中央前景为一名穿深色格纹无袖连衣裙、白袜和白色运动鞋的年轻女",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "main_subject",
+        "reason": "仅显示中央完整行走人物，街景不随此前景层出现；人物边缘依分割轮廓，无额外固定窗口或主体描边。该人物与其他照片中的人物姿态及照片内容不同，不构成连续出框。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "main_subject",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材仅见戴帽、穿浅色外套的女性近景，缺少格纹裙、行走姿态及完整四肢，不能满足所需清晰完整可分割主体。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-049-f153e97a5461\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "oval_photo",
+      "kind": "photo",
+      "bbox": [
+        544,
+        676,
+        851,
+        1100
+      ],
+      "description": "右下方椭圆形照片区域，显示同一女性穿深色格纹无袖连衣裙、正面站立的全身像，周围保留建筑墙面与道路摄影环境；白色手绘双线沿椭圆窗口轮廓描边，属于照片边缘效果。",
+      "label": "右下方椭圆形照片区域，显示同一女性穿深色格纹无袖连衣裙、正面",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "oval_photo",
+        "reason": "椭圆窗口内保留独立照片的建筑墙面与道路环境；白色手绘双线沿固定椭圆窗口边缘，归属窗口描边。边界清晰，无渐变。",
+        "shape": {
+          "type": "ellipse"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.008,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.005
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "oval_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材仅有湖边女性近景，不是格纹裙正面全身像，亦无建筑道路环境；无合适对应素材。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-049-f153e97a5461\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "white_doodles",
+      "kind": "overlay",
+      "bbox": [
+        260,
+        422,
+        694,
+        674
+      ],
+      "description": "围绕中央人物的白色手绘装饰组合，包括头顶左侧小星形、两侧手形翅膀线稿、人物腰部前方的弧形环绕线及周围小星星、闪光和十字点缀，作为一组独立装饰保留。",
+      "label": "围绕中央人物的白色手绘装饰组合，包括头顶左侧小星形、两侧手形",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "647856633606fb82665964e3193dd8b61484918427d6ea02cd9f8712fd3b451f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\white_doodles.png",
+        "sha256": "a4165e70cee1918716f958c4d0b04402df23568a35b4688d1719cc5d55b9fd62",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\chain\\round_01\\white_doodles-restored.png",
+          "sha256": "a4165e70cee1918716f958c4d0b04402df23568a35b4688d1719cc5d55b9fd62",
+          "bbox": [
+            252,
+            414,
+            702,
+            682
+          ],
+          "original_bbox": [
+            260,
+            422,
+            694,
+            674
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "9f513ce84c4f14c230767175f5e49d3ff53c9fd13e3983c649f34f2c857445bc",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "877d6d13ff3c71db4ba0ee3bf8e71f391802e78bea9666d137aeb2546ec5d4d6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\white_doodles-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\white_doodles-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "heart_sticker",
+      "kind": "overlay",
+      "bbox": [
+        80,
+        832,
+        314,
+        1048
+      ],
+      "description": "左下方白色心形贴纸，内部有黑色“I”和“ME”字样及红色爱心图案，底板、字样与图案整体保留。",
+      "label": "左下方白色心形贴纸，内部有黑色“I”和“ME”字样及红色爱心",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "83c3c3494bb8f6c9859256b8b2d6b9d6a9675b1e084c63cb62acd79546a83d51"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\heart_sticker.png",
+        "sha256": "dc2034cd7dc821e2c7de64d8a53badca36ccdcef07f68727018b3f9f408ccdfb",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\chain\\round_01\\heart_sticker-restored.png",
+          "sha256": "dc2034cd7dc821e2c7de64d8a53badca36ccdcef07f68727018b3f9f408ccdfb",
+          "bbox": [
+            72,
+            824,
+            322,
+            1056
+          ],
+          "original_bbox": [
+            80,
+            832,
+            314,
+            1048
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "8595fe14015e6c67cd6f16492b8a090280e11f8a3cd4776d67a6bec93f4980a4",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "877d6d13ff3c71db4ba0ee3bf8e71f391802e78bea9666d137aeb2546ec5d4d6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\heart_sticker-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\heart_sticker-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_photo",
+    "star_photo",
+    "main_subject",
+    "oval_photo",
+    "white_doodles",
+    "heart_sticker"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "94fe2ec306f1c72af3afb8155c51c833370c5e153d03b0fb31eaf59c523dfc66",
+    "bindings": "b08f3a512cbf568d0293a78257adf1c4c44e1a0ea69f8edefd594b6349d20b58",
+    "input": "8be4d540f037e9961eef6a8c2dc52d40bfe2b564790dc4336df6a541e8af8a09",
+    "catalog": "3f824641cc1099b2a6fdcfc224d7547fb9324d4fa06377f2cb71ba67f4855a0a",
+    "photo_windows": "393639cfad5bcce9a9952cbe55cfa6c4237a82ee622f731119abf6da9b3fc657"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\reveal\\index.json",
+    "sha256": "9247c32824c7d94ba8bfea921f031d671f5297d15c735a661eb739bbbace5c3c"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-049\\assets\\gate\\report.json",
+    "sha256": "953ec31efb12b8f135bddb601588305907ba77328ff080e4cfc7b1ec0b76d04d",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 2,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
