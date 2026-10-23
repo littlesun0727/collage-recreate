@@ -1,0 +1,123 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1198
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1198
+      ],
+      "description": "整体背景，带有水彩质感的浅蓝色和白色晕染效果。画面中散布着多个深灰色星星图案（左下角密集分布）、右上角的大空心星星、右侧的淡色翅膀图案以及散落的墨点纹理。",
+      "label": "整体背景，带有水彩质感的浅蓝色和白色晕染效果。画面中散布着多",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        52,
+        206,
+        507,
+        889
+      ],
+      "description": "一张竖构图照片，显示一名年轻女子坐在路边，身穿条纹衬衫和深色裤子，背景是茂密的绿色爬山虎墙壁。照片边缘有撕纸效果的白边。",
+      "label": "一张竖构图照片，显示一名年轻女子坐在路边，身穿条纹衬衫和深色",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        26,
+        162,
+        585,
+        916
+      ],
+      "description": "承载主照片的白色底板，具有明显的撕纸边缘效果，顶部有一个金属夹子装饰。",
+      "photo_id": "photo_1",
+      "label": "承载主照片的白色底板，具有明显的撕纸边缘效果，顶部有一个金属",
+      "method": "extract"
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        425,
+        395,
+        670,
+        549
+      ],
+      "description": "一张横构图小照片，特写拍摄了白色的花朵和绿叶，背景中有模糊的栅栏。",
+      "label": "一张横构图小照片，特写拍摄了白色的花朵和绿叶，背景中有模糊的",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_2",
+      "kind": "frame",
+      "bbox": [
+        389,
+        365,
+        698,
+        577
+      ],
+      "description": "承载小照片的相框，呈不规则四边形（类似标签形状），边框为灰白色，内侧有一圈虚线装饰。",
+      "photo_id": "photo_2",
+      "label": "承载小照片的相框，呈不规则四边形（类似标签形状），边框为灰白",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        706,
+        290,
+        842,
+        365
+      ],
+      "description": "一个对话气泡形状的标签，白底黑字，文字内容为“♪summer♪”，位于右上方。",
+      "label": "一个对话气泡形状的标签，白底黑字，文字内容为“♪summer",
+      "method": "extract"
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        425,
+        833,
+        770,
+        869
+      ],
+      "description": "駆け抜けた恋、戻らない夏、\n綺麗な花火だった。",
+      "label": "駆け抜けた恋、戻らない夏、\n綺麗な花火だった。",
+      "method": "local",
+      "text": "駆け抜けた恋、戻らない夏、\n綺麗な花火だった。",
+      "text_status": "known",
+      "style": {
+        "fill": "#333333",
+        "font": "sans",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "frame_1",
+    "photo_1",
+    "frame_2",
+    "photo_2",
+    "overlay_1",
+    "text_1"
+  ]
+}

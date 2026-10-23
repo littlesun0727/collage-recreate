@@ -1,0 +1,99 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "整体背景，带有水彩质感的浅蓝色和白色晕染效果。画面中散布着多个深灰色星星图案（左下角密集分布）、右上角的大空心星星、右侧的淡色翅膀图案以及散落的墨点纹理。"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        58,
+        172,
+        563,
+        742
+      ],
+      "description": "一张竖构图照片，显示一名年轻女子坐在路边，身穿条纹衬衫和深色裤子，背景是茂密的绿色爬山虎墙壁。照片边缘有撕纸效果的白边。"
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        29,
+        135,
+        650,
+        765
+      ],
+      "description": "承载主照片的白色底板，具有明显的撕纸边缘效果，顶部有一个金属夹子装饰。",
+      "photo_id": "photo_1"
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        472,
+        330,
+        745,
+        458
+      ],
+      "description": "一张横构图小照片，特写拍摄了白色的花朵和绿叶，背景中有模糊的栅栏。"
+    },
+    {
+      "id": "frame_2",
+      "kind": "frame",
+      "bbox": [
+        432,
+        305,
+        775,
+        482
+      ],
+      "description": "承载小照片的相框，呈不规则四边形（类似标签形状），边框为灰白色，内侧有一圈虚线装饰。",
+      "photo_id": "photo_2"
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        785,
+        242,
+        935,
+        305
+      ],
+      "description": "一个对话气泡形状的标签，白底黑字，文字内容为“♪summer♪”，位于右上方。"
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        472,
+        695,
+        855,
+        725
+      ],
+      "text": "駆け抜けた恋、戻らない夏、\n綺麗な花火だった。",
+      "color": "#333333",
+      "font": "sans",
+      "align": "left",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "frame_1",
+    "photo_1",
+    "frame_2",
+    "photo_2",
+    "overlay_1",
+    "text_1"
+  ]
+}

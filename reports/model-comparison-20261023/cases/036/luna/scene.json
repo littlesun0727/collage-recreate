@@ -1,0 +1,611 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\prepared\\reference.png",
+    "sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "main_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画面的室内人像照片：一名年轻女性正面站立，黑发扎起并戴白色发饰，穿白色上衣；人物位于画面中央偏右，从头部至腰部可见，明亮室内墙面和左侧窗户等摄影环境保留。",
+      "label": "铺满画面的室内人像照片：一名年轻女性正面站立，黑发扎起并戴白",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "main_photo",
+        "reason": "主照片保留室内摄影环境，覆盖整幅画面并具有矩形照片边界；人物和环境均无主体描边。画面边缘为清晰裁切，没有窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "main_photo",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中有一名女性全身站立、侧身望向左侧，头部与四肢完整，适合纵向主体人像；但服饰、姿态及雪山背景与描述中的正面白衣室内照不同。保留全幅以呈现人物和环境。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-057-451df46f040d\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "inset_photo",
+      "kind": "photo",
+      "bbox": [
+        80,
+        97,
+        400,
+        394
+      ],
+      "description": "左上方云朵线框内的独立人像照片，显示同一名年轻女性的头肩近景，正面微低头，刘海垂在额前，周围摄影背景仍可见；照片沿云朵形状裁切，云朵线条不属于照片。",
+      "label": "左上方云朵线框内的独立人像照片，显示同一名年轻女性的头肩近景",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "inset_photo",
+        "reason": "插图照片保留头肩人像周围可见的室内环境；固定窗口为矩形，云朵线框属于照片外的装饰，未见其作为照片蒙版。照片窗口边缘清晰，无独立窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "inset_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材有单人女性头肩近景，面部朝向镜头且周围湖景背景可见，最接近云朵框内人像；帽子、眼镜和户外背景与描述中的刘海及室内摄影背景不同。保留全幅供云朵形状裁切。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-057-451df46f040d\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "thought_doodle",
+      "kind": "overlay",
+      "bbox": [
+        80,
+        98,
+        400,
+        455
+      ],
+      "description": "左上方黑色手绘思绪云朵线框，环绕小幅人像照片，包含云状外轮廓及其下方两枚逐渐变小的空心思绪泡泡。",
+      "label": "左上方黑色手绘思绪云朵线框，环绕小幅人像照片，包含云状外轮廓",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ed30b44da7e08763ab9898e727b7c3d22bcda8d99bbd1a67f2c2b9f9129f2407"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\thought_doodle.png",
+        "sha256": "6c630e6179bcc73dc6b467fd60912b67392247d8e86e5abf709413b254cdbb70",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\thought_doodle-restored.png",
+          "sha256": "6c630e6179bcc73dc6b467fd60912b67392247d8e86e5abf709413b254cdbb70",
+          "bbox": [
+            72,
+            90,
+            408,
+            463
+          ],
+          "original_bbox": [
+            80,
+            98,
+            400,
+            455
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "90f0436e37de75029bf0198066816c22e82340e1a03a44ef678ff637e482e3d1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\thought_doodle-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\thought_doodle-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "rabbit_sticker_upper",
+      "kind": "overlay",
+      "bbox": [
+        675,
+        152,
+        840,
+        317
+      ],
+      "description": "右上方白色方形底板上的灰褐色手绘兔子脸贴图，带耳朵、胡须、表情线和小装饰，底板与图案为一个完整装饰。",
+      "label": "右上方白色方形底板上的灰褐色手绘兔子脸贴图，带耳朵、胡须、表",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "251c216412e3509b6beb6732c3dee3eef5ef7290c5d9f5d55800d898f3f3eee6"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\rabbit_sticker_upper.png",
+        "sha256": "46cdb331e21837c0b31d4bb7d502b5aa6c3e94ddb737b4f16525b06c5f2cd152",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\rabbit_sticker_upper-restored.png",
+          "sha256": "46cdb331e21837c0b31d4bb7d502b5aa6c3e94ddb737b4f16525b06c5f2cd152",
+          "bbox": [
+            667,
+            144,
+            848,
+            325
+          ],
+          "original_bbox": [
+            675,
+            152,
+            840,
+            317
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "7d17f76ddd9d7ba75482265adadd743cbce5429a6c4eeb5f377279e1c0f52252",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\rabbit_sticker_upper-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\rabbit_sticker_upper-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "rabbit_sticker_lower",
+      "kind": "overlay",
+      "bbox": [
+        67,
+        976,
+        229,
+        1140
+      ],
+      "description": "左下方白色方形底板上的灰褐色手绘兔子贴图，周围有粉色小爱心和短线装饰，底板、图案和点缀为一个完整装饰。",
+      "label": "左下方白色方形底板上的灰褐色手绘兔子贴图，周围有粉色小爱心和",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "577fd8166311de9512b34cbccb8f66f7ac61238ada0eb6e1ac8b558133a49ca6"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\rabbit_sticker_lower.png",
+        "sha256": "ba65e8a456eb8331589d25a8a6aeebcfcafc201ac7c8bfd4a28d7d9c4c8612bb",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\rabbit_sticker_lower-restored.png",
+          "sha256": "ba65e8a456eb8331589d25a8a6aeebcfcafc201ac7c8bfd4a28d7d9c4c8612bb",
+          "bbox": [
+            59,
+            968,
+            237,
+            1148
+          ],
+          "original_bbox": [
+            67,
+            976,
+            229,
+            1140
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "6f95c920a5a910a782b8b6dfc5961c0d8cbedcde9c3845feae08306da2345f4a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\rabbit_sticker_lower-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\rabbit_sticker_lower-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "heart_left_upper",
+      "kind": "overlay",
+      "bbox": [
+        173,
+        455,
+        209,
+        508
+      ],
+      "description": "左侧一枚粉色手绘爱心，带深色不规则描边和内部短线纹样。",
+      "label": "左侧一枚粉色手绘爱心，带深色不规则描边和内部短线纹样。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "e9065b79e8aef86f8b52d4dd0d9bb831a208b228223e55700027470b25c213da"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_left_upper.png",
+        "sha256": "f7b1730d9490222543f99ea6fddba30ae72a96db628bd2854195acb532b8ccf8",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\heart_left_upper-restored.png",
+          "sha256": "f7b1730d9490222543f99ea6fddba30ae72a96db628bd2854195acb532b8ccf8",
+          "bbox": [
+            169,
+            451,
+            213,
+            512
+          ],
+          "original_bbox": [
+            173,
+            455,
+            209,
+            508
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "4d96b0603e98343e036dff542fc712199c4a103a31e833e125426d3f7d8291e1",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_left_upper-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_left_upper-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "heart_right_upper",
+      "kind": "overlay",
+      "bbox": [
+        751,
+        458,
+        810,
+        522
+      ],
+      "description": "右侧一枚粉色手绘爱心，带深色不规则描边和内部短线纹样。",
+      "label": "右侧一枚粉色手绘爱心，带深色不规则描边和内部短线纹样。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6b30f98f8c5e3b0f763a6c415c2c220e07162e788d83982ee836c4fa34c68776"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_right_upper.png",
+        "sha256": "0e8347d880b17f75fdada3e1543d71dc627a6c21f62e0c438b5e507f9cdd9660",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\heart_right_upper-restored.png",
+          "sha256": "0e8347d880b17f75fdada3e1543d71dc627a6c21f62e0c438b5e507f9cdd9660",
+          "bbox": [
+            745,
+            452,
+            816,
+            528
+          ],
+          "original_bbox": [
+            751,
+            458,
+            810,
+            522
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "5de2635e6e0062830b1ad8271b2648b9ce51f313e7613591eda17b8d21c799f7",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_right_upper-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_right_upper-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "heart_left_lower",
+      "kind": "overlay",
+      "bbox": [
+        114,
+        776,
+        162,
+        830
+      ],
+      "description": "左侧偏下的一枚粉色手绘爱心，带深色不规则描边。",
+      "label": "左侧偏下的一枚粉色手绘爱心，带深色不规则描边。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8d084830b420f873c8e4981e9302cadeea524e68d5573fb7c39e4e4a06fd44a1"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_left_lower.png",
+        "sha256": "3ef6771b6f79c0210f90569ce98137d22c42d07527b9e13b48fff453203bb479",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\heart_left_lower-restored.png",
+          "sha256": "3ef6771b6f79c0210f90569ce98137d22c42d07527b9e13b48fff453203bb479",
+          "bbox": [
+            109,
+            771,
+            167,
+            835
+          ],
+          "original_bbox": [
+            114,
+            776,
+            162,
+            830
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "d44b92a55a56595dcc165b438889ad64d92aaabaf56b02816cea982a70dd8bb6",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_left_lower-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_left_lower-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "heart_right_lower",
+      "kind": "overlay",
+      "bbox": [
+        725,
+        1064,
+        764,
+        1114
+      ],
+      "description": "右下方一枚小型粉色手绘爱心，带深色不规则描边和内部短线纹样。",
+      "label": "右下方一枚小型粉色手绘爱心，带深色不规则描边和内部短线纹样。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c6425036eb136062d1f25ec821addfb8c2c3af60edeacbc148c9d8205d0d6191"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_right_lower.png",
+        "sha256": "4537272bc41481d0290747f1c9d03ffd945419e38d91fa9b51794f8021d6b80c",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\heart_right_lower-restored.png",
+          "sha256": "4537272bc41481d0290747f1c9d03ffd945419e38d91fa9b51794f8021d6b80c",
+          "bbox": [
+            721,
+            1060,
+            768,
+            1118
+          ],
+          "original_bbox": [
+            725,
+            1064,
+            764,
+            1114
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "c3bc1166946fee06329bff18d218a055a8d319492fb518320442909987650758",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "e06df08ecf686fea613e3ff237a55e5dbfb5a6e5968c1bfe76e9384e93eb7b4d"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_right_lower-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\heart_right_lower-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "main_photo",
+    "inset_photo",
+    "thought_doodle",
+    "rabbit_sticker_upper",
+    "rabbit_sticker_lower",
+    "heart_left_upper",
+    "heart_right_upper",
+    "heart_left_lower",
+    "heart_right_lower"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "0bd3e28e2b9e22e846f4251c96b872a151544d9dbe042d0b1f8fd7c641f710b8",
+    "bindings": "6f4d819574ac757645f59db8995ccf49cd724b36d232b07bef73f794635c95ad",
+    "input": "352c0e881b3d8dae495c66982f96936db7adc225f37050ed821c12f378bf8e54",
+    "catalog": "58f33d8f40716caba565423fd8b98cf1512be7fad2e060d9f15f20d012de618a",
+    "photo_windows": "7abbf4b3c896df094a04170b35d69bebbd5d2ac4dd421dc72a3257d6dcdf91e4"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\reveal\\index.json",
+    "sha256": "f6c8d5d98283cdf2843855cd609881feb1529ed6c208d4ad0e755e9a8dd799fb"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-057\\assets\\gate\\report.json",
+    "sha256": "30d5b53aaeb6619cc6437222f7474dd378a582c3dee3d01c837f72def717010b",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 7,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
