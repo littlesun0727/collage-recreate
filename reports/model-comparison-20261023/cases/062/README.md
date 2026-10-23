@@ -6,11 +6,11 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-待提交
+排队
 
 ## Codex gpt-6-luna / medium
 
-运行中 · photo_windows
+运行中 · build
 
 ## Codex gpt-6.1-sol / medium
 

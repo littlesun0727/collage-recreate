@@ -1,0 +1,80 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "深黑色背景，作为整个画面的底层衬托。"
+    },
+    {
+      "id": "photo_strip_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        35,
+        1000,
+        360
+      ],
+      "description": "位于画面上方的横向胶片条带，包含多张游戏场景截图（如草地、石门等），带有明显的白色齿孔边框。"
+    },
+    {
+      "id": "photo_strip_mid_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        380,
+        480,
+        590
+      ],
+      "description": "位于画面中左侧的横向胶片条带，包含两张游戏角色背影截图，带有白色齿孔边框。"
+    },
+    {
+      "id": "photo_strip_bot_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        600,
+        620,
+        880
+      ],
+      "description": "位于画面左下方的倾斜胶片条带，包含三张游戏角色截图，带有白色齿孔边框。"
+    },
+    {
+      "id": "photo_strip_right",
+      "kind": "photo",
+      "bbox": [
+        780,
+        370,
+        1000,
+        950
+      ],
+      "description": "位于画面右侧边缘的竖向胶片条带，部分被前景人物遮挡，可见上下两张游戏截图及齿孔。"
+    },
+    {
+      "id": "foreground_character",
+      "kind": "photo",
+      "bbox": [
+        360,
+        165,
+        980,
+        995
+      ],
+      "description": "前景中央背对镜头的游戏角色，身穿橙色斗篷，头部有白色发型装饰，主体清晰且无背景底板，呈抠图效果叠加在后方胶片之上。"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_strip_top",
+    "photo_strip_mid_left",
+    "photo_strip_bot_left",
+    "photo_strip_right",
+    "foreground_character"
+  ]
+}

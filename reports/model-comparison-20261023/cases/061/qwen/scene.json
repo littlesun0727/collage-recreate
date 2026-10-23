@@ -1,0 +1,502 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\prepared\\reference.png",
+    "sha256": "f3315a6a22d7537377350244b84bb293b7fe666b5274a341ad7ea3a5057bcc84"
+  },
+  "reference_size": [
+    900,
+    1201
+  ],
+  "canvas_size": [
+    1200,
+    1601
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1201
+      ],
+      "description": "深黑色背景，作为整个画面的底层衬托。",
+      "label": "深黑色背景，作为整个画面的底层衬托。",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "918a9a046f971ca453b70c1e27f6c47b70dafce880314c1d12d9e11250fb1e06"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\assets\\reveal\\background_1.png",
+        "sha256": "6d835f865e2d579f75ebd8e4f346948bafd7311d759273fe806e29de3ca909c2",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "6d835f865e2d579f75ebd8e4f346948bafd7311d759273fe806e29de3ca909c2",
+          "bbox": [
+            0,
+            0,
+            900,
+            1201
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1201
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\assets\\reveal\\chain\\round_01\\layers_aug_00.png",
+          "raw_sha256": "372c03941cd8259f6719cf392106ccfd24d0f16e42071b91f1c0e2977ea8d4d0",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_strip_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        42,
+        900,
+        432
+      ],
+      "description": "位于画面上方的横向胶片条带，包含多张游戏场景截图（如草地、石门等），带有明显的白色齿孔边框。",
+      "label": "位于画面上方的横向胶片条带，包含多张游戏场景截图（如草地、石",
+      "method": "local",
+      "rotation": -2,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_strip_top",
+        "reason": "保留摄影背景，作为底层胶片条带。画面呈现为倾斜的透视效果，此处以矩形窗口近似裁切并添加轻微旋转对齐视觉走向。无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_strip_top",
+        "asset_id": "material_01",
+        "source_crop": [
+          0.0,
+          0.25,
+          1.0,
+          0.75
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "该槽位需要展示包含草地、建筑等元素的横向风景条带。Material_01为广角航拍图，包含了盐湖、绿地和道路设施，色彩丰富且构图开阔，非常适合作为顶部的主视觉背景。裁切选取了画面中间景深最丰富的区域以匹配长宽比。"
+      },
+      "source": {
+        "id": "material_01",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-122-18779f5dfcfe\\1fa62e3ec2391637269c300d0a69b30954b0bba2e9b88b9cc4b28bd71c35b142.png",
+        "sha256": "0b4f42e2195efe34df1e9e00c9fad2cdd5e16044ac6987d1f27ff577b03046c7",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\prepared\\material_01.jpg"
+      }
+    },
+    {
+      "id": "photo_strip_mid_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        456,
+        432,
+        709
+      ],
+      "description": "位于画面中左侧的横向胶片条带，包含两张游戏角色背影截图，带有白色齿孔边框。",
+      "label": "位于画面中左侧的横向胶片条带，包含两张游戏角色背影截图，带有",
+      "method": "local",
+      "rotation": -2,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_strip_mid_left",
+        "reason": "保留摄影背景，位于中左侧的胶片条带。与上方条带保持平行的倾斜角度，使用矩形窗口裁切。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_strip_mid_left",
+        "asset_id": "material_14",
+        "source_crop": [
+          0.0,
+          0.3,
+          1.0,
+          0.7
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "描述要求“角色背影截图”。Material_14展示了人物在天空之镜中的背影剪影，意境唯美，符合游戏场景的梦幻感。通过上下裁切去除多余的天空和水面，聚焦于人物与倒影，适配横向槽位。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-122-18779f5dfcfe\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "photo_strip_bot_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        721,
+        558,
+        1057
+      ],
+      "description": "位于画面左下方的倾斜胶片条带，包含三张游戏角色截图，带有白色齿孔边框。",
+      "label": "位于画面左下方的倾斜胶片条带，包含三张游戏角色截图，带有白色",
+      "method": "local",
+      "rotation": -2,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_strip_bot_left",
+        "reason": "保留摄影背景，位于左下方的胶片条带。延续整体画面的倾斜布局风格，通过矩形窗口显示内容。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_strip_bot_left",
+        "asset_id": "material_16",
+        "source_crop": [
+          0.0,
+          0.2,
+          1.0,
+          0.8
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "描述要求“角色截图”。Material_16是一张清晰的人物侧后方全身照，蓝色帽子与棕色背心色彩鲜明，主体突出。裁切保留了人物完整姿态及环境背景，适合作为下方胶片条带的素材。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-122-18779f5dfcfe\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "photo_strip_right",
+      "kind": "photo",
+      "bbox": [
+        702,
+        444,
+        900,
+        1141
+      ],
+      "description": "位于画面右侧边缘的竖向胶片条带，部分被前景人物遮挡，可见上下两张游戏截图及齿孔。",
+      "label": "位于画面右侧边缘的竖向胶片条带，部分被前景人物遮挡，可见上下",
+      "method": "local",
+      "rotation": -2,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_strip_right",
+        "reason": "保留摄影背景，右侧边缘的竖向胶片条带。部分被前景人物遮挡，但自身仍视为独立的矩形照片层处理。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_strip_right",
+        "asset_id": "material_17",
+        "source_crop": [
+          0.2,
+          0.0,
+          0.8,
+          1.0
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "右侧边缘竖向条带适合放置竖构图照片。Material_17是竖幅的风景照，包含红顶小屋和水面，色调清新。裁切选取了画面中心垂直区域，去除了左右两侧留白，完美填充竖向空间。"
+      },
+      "source": {
+        "id": "material_17",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-122-18779f5dfcfe\\f26e3911b6c6a3452b352e839c3a227ca8af616463e26c146593b0052fbf990d.png",
+        "sha256": "fce89c38adda66d5743c4116c8a6291421ea1a312f38d0a4d3cb8fc2cb249872",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\prepared\\material_17.jpg"
+      }
+    },
+    {
+      "id": "foreground_character",
+      "kind": "photo",
+      "bbox": [
+        324,
+        198,
+        882,
+        1195
+      ],
+      "description": "前景中央背对镜头的游戏角色，身穿橙色斗篷，头部有白色发型装饰，主体清晰且无背景底板，呈抠图效果叠加在后方胶片之上。",
+      "label": "前景中央背对镜头的游戏角色，身穿橙色斗篷，头部有白色发型装饰",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "foreground_character",
+        "reason": "前景中央的游戏角色，主体清晰且无背景底板，呈抠图效果叠加在后方胶片之上。不需要固定窗口裁切，直接显示分割后的主体轮廓。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "foreground_character",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "前景需要可分割的清晰主体。Material_00中人物位于画面中央，佩戴蓝帽墨镜，手势生动（指向上方），轮廓清晰且与背景分离度高，非常适合抠图作为前景叠加层。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-122-18779f5dfcfe\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\prepared\\material_00.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_strip_top",
+    "photo_strip_mid_left",
+    "photo_strip_bot_left",
+    "photo_strip_right",
+    "foreground_character"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "0445d5515afc4b6c4c125673281f3318804609aa46a1c3cf23faf5f7a7797961",
+    "bindings": "8e06888fb448eeaa3d303827afabdb343c26803d119d22fbba9bb89aa548ce49",
+    "input": "c9f1c791287cf5d78e93c35772e18597459bd0e61acd279d9225d6044aadba70",
+    "catalog": "3876f27600aaf0aa530c31b84dca2c98f8e33bdb85cfedcb35386ab508968609",
+    "photo_windows": "fff7c529654b329b7f624b94f269eb12dd4e14f5eb4a36ff7c2e31bcbebcdb49"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\assets\\reveal\\index.json",
+    "sha256": "099b1c81d3031bd358886d6114d963c7f5837e1785a4c41d60776267eee8192a"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-122\\assets\\gate\\report.json",
+    "sha256": "31c38ca50bf9876b8b9bf9464350d464b97ddf7129111a36d8902ea233cd589d",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 1,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
