@@ -1,0 +1,285 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画面的暗色街景实拍背景，保留模糊的树木、道路、建筑和路面内容。",
+      "label": "铺满画面的暗色街景实拍背景，保留模糊的树木、道路、建筑和路面",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "portrait_photo",
+      "kind": "photo",
+      "bbox": [
+        206,
+        350,
+        576,
+        814
+      ],
+      "description": "咖啡馆内一名长发年轻女性的半身照片；她面向镜头微笑，手持小熊玩偶，周围室内环境仍可见，矩形画面无明显描边。",
+      "label": "咖啡馆内一名长发年轻女性的半身照片；她面向镜头微笑，手持小熊",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "dessert_photo",
+      "kind": "photo",
+      "bbox": [
+        576,
+        386,
+        775,
+        653
+      ],
+      "description": "白盘上放着切开的烤点心，露出浅色馅料；近景桌面与后方饮品仍可见，矩形照片窗口无描边。",
+      "label": "白盘上放着切开的烤点心，露出浅色馅料；近景桌面与后方饮品仍可",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "teddy_photo",
+      "kind": "photo",
+      "bbox": [
+        580,
+        678,
+        823,
+        872
+      ],
+      "description": "床上斜躺着一只棕色毛绒熊，床单与室内环境仍可见，矩形照片窗口无描边。",
+      "label": "床上斜躺着一只棕色毛绒熊，床单与室内环境仍可见，矩形照片窗口",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "snack_photo",
+      "kind": "photo",
+      "bbox": [
+        41,
+        728,
+        334,
+        944
+      ],
+      "description": "手拿印有图案和文字的纸袋，袋中露出炸物；保留周围地面摄影环境，矩形照片窗口外围有白色手绘线框。",
+      "label": "手拿印有图案和文字的纸袋，袋中露出炸物；保留周围地面摄影环境",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "bottle_photo",
+      "kind": "photo",
+      "bbox": [
+        382,
+        727,
+        689,
+        1145
+      ],
+      "description": "三瓶不同颜色与包装的饮料并排置于桌面，椭圆形照片窗口内保留饮品及周围摄影内容；窗口外另有环绕的白色虚线装饰。",
+      "label": "三瓶不同颜色与包装的饮料并排置于桌面，椭圆形照片窗口内保留饮",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "food_photo",
+      "kind": "photo",
+      "bbox": [
+        69,
+        247,
+        288,
+        457
+      ],
+      "description": "桌布上的两份烤点心和小碟，保留桌面摄影环境；矩形照片窗口外围有白色手绘线框。",
+      "label": "桌布上的两份烤点心和小碟，保留桌面摄影环境；矩形照片窗口外围",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "drinks_photo",
+      "kind": "photo",
+      "bbox": [
+        315,
+        118,
+        630,
+        360
+      ],
+      "description": "桌上两只装有彩色饮品的高脚杯，左杯顶有奶油、彩针和樱桃，右杯有青柠片；保留桌面环境，窗口外围有白色手绘线框。",
+      "label": "桌上两只装有彩色饮品的高脚杯，左杯顶有奶油、彩针和樱桃，右杯",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "dessert_tape",
+      "kind": "overlay",
+      "bbox": [
+        720,
+        366,
+        796,
+        439
+      ],
+      "description": "压在甜点照片右上角的浅色斜贴纸胶带，保留纸面折角与阴影。",
+      "label": "压在甜点照片右上角的浅色斜贴纸胶带，保留纸面折角与阴影。",
+      "method": "extract"
+    },
+    {
+      "id": "life_lettering",
+      "kind": "overlay",
+      "bbox": [
+        86,
+        176,
+        315,
+        224
+      ],
+      "description": "左上方白色手绘空心字样“MY LIFE”，不规则描边字形作为整体装饰保留。",
+      "label": "左上方白色手绘空心字样“MY LIFE”，不规则描边字形作为",
+      "method": "extract"
+    },
+    {
+      "id": "top_sparkles",
+      "kind": "overlay",
+      "bbox": [
+        250,
+        43,
+        345,
+        143
+      ],
+      "description": "顶部照片左上方的白色手绘闪光符号与小点，作为一组装饰保留。",
+      "label": "顶部照片左上方的白色手绘闪光符号与小点，作为一组装饰保留。",
+      "method": "extract"
+    },
+    {
+      "id": "music_doodles",
+      "kind": "overlay",
+      "bbox": [
+        652,
+        121,
+        800,
+        228
+      ],
+      "description": "右上方白色手绘音符、音符状线条及小圆点组成的装饰组。",
+      "label": "右上方白色手绘音符、音符状线条及小圆点组成的装饰组。",
+      "method": "extract"
+    },
+    {
+      "id": "head_doodle",
+      "kind": "overlay",
+      "bbox": [
+        648,
+        239,
+        788,
+        355
+      ],
+      "description": "右上侧白色手绘侧脸轮廓与周围小点、短线组成的装饰。",
+      "label": "右上侧白色手绘侧脸轮廓与周围小点、短线组成的装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "left_drops",
+      "kind": "overlay",
+      "bbox": [
+        101,
+        469,
+        156,
+        640
+      ],
+      "description": "左侧纵向排列的白色手绘水滴与小圆点装饰。",
+      "label": "左侧纵向排列的白色手绘水滴与小圆点装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "teddy_icons",
+      "kind": "overlay",
+      "bbox": [
+        601,
+        653,
+        834,
+        689
+      ],
+      "description": "小熊照片上方的一排白色手绘小图标与爱心装饰。",
+      "label": "小熊照片上方的一排白色手绘小图标与爱心装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "lower_icons",
+      "kind": "overlay",
+      "bbox": [
+        720,
+        870,
+        853,
+        900
+      ],
+      "description": "小熊照片下方的一排白色手绘小图标与爱心装饰。",
+      "label": "小熊照片下方的一排白色手绘小图标与爱心装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "bottle_dashes",
+      "kind": "overlay",
+      "bbox": [
+        364,
+        821,
+        693,
+        1164
+      ],
+      "description": "围绕椭圆饮料照片外侧延伸的白色手绘虚线，作为独立装饰保留。",
+      "label": "围绕椭圆饮料照片外侧延伸的白色手绘虚线，作为独立装饰保留。",
+      "method": "extract"
+    },
+    {
+      "id": "flower_doodles",
+      "kind": "overlay",
+      "bbox": [
+        205,
+        956,
+        360,
+        1072
+      ],
+      "description": "左下方两个白色手绘花朵脸及其简笔茎叶组成的装饰组。",
+      "label": "左下方两个白色手绘花朵脸及其简笔茎叶组成的装饰组。",
+      "method": "extract"
+    },
+    {
+      "id": "cozy_lettering",
+      "kind": "overlay",
+      "bbox": [
+        654,
+        1007,
+        778,
+        1108
+      ],
+      "description": "右下方白色手绘空心字样“COZY DAY”，分两行排列，特殊字形作为整体装饰保留。",
+      "label": "右下方白色手绘空心字样“COZY DAY”，分两行排列，特殊",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "portrait_photo",
+    "food_photo",
+    "drinks_photo",
+    "dessert_photo",
+    "teddy_photo",
+    "snack_photo",
+    "bottle_photo",
+    "dessert_tape",
+    "top_sparkles",
+    "life_lettering",
+    "music_doodles",
+    "head_doodle",
+    "left_drops",
+    "teddy_icons",
+    "lower_icons",
+    "bottle_dashes",
+    "flower_doodles",
+    "cozy_lettering"
+  ]
+}
