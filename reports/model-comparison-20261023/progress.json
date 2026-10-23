@@ -1,23 +1,23 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-24T04:10:51+08:00",
+  "updated_at": "2026-10-24T04:12:01+08:00",
   "references": 116,
   "total": 348,
   "counts": {
     "qwen": {
-      "completed": 93,
+      "completed": 94,
       "failed": 16,
       "running": 1,
-      "queued": 6
+      "queued": 5
     },
     "luna": {
       "completed": 116
     },
     "sol": {
       "completed": 41,
-      "running": 1,
-      "queued": 19,
+      "running": 2,
+      "queued": 18,
       "pending": 55
     }
   },
@@ -1335,20 +1335,20 @@
       "case": "110",
       "model": "qwen",
       "batch": "run-a24a40662d4b48b3b470722b5639ab26",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "db372421fd127025",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 1050.438,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "111",
       "model": "qwen",
       "batch": "run-a24a40662d4b48b3b470722b5639ab26",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "aab25c7bf20f186a",
       "elapsed_seconds": null,
@@ -3304,9 +3304,9 @@
       "model": "sol",
       "batch": "run-70b9e426d0ae4456b77d123667338d92",
       "status": "running",
-      "step": null,
+      "step": "analyze",
       "error": null,
-      "task_id": null,
+      "task_id": "db73ebb684d212f8",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -3318,7 +3318,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "bdf8266b27d4bd06",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -3330,7 +3330,7 @@
       "status": "queued",
       "step": null,
       "error": null,
-      "task_id": null,
+      "task_id": "97a5f2413ce5e217",
       "elapsed_seconds": null,
       "delivery_category": null,
       "review_status": null
@@ -3339,7 +3339,7 @@
       "case": "045",
       "model": "sol",
       "batch": "run-70b9e426d0ae4456b77d123667338d92",
-      "status": "queued",
+      "status": "running",
       "step": null,
       "error": null,
       "task_id": null,
