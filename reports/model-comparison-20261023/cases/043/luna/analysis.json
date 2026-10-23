@@ -1,0 +1,371 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画布的模糊暖色摄影拼贴背景，保留柔焦的深绿、棕色、灰紫及浅色区域；前景照片和装饰叠在其上。",
+      "label": "铺满画布的模糊暖色摄影拼贴背景，保留柔焦的深绿、棕色、灰紫及",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_latte",
+      "kind": "photo",
+      "bbox": [
+        77,
+        224,
+        410,
+        667
+      ],
+      "description": "竖幅静物照片，桌面上有亮灯罩的台灯、两杯饮品、餐具和多只浅色毛绒玩偶，保留完整摄影环境，矩形裁切，边缘清晰。",
+      "label": "竖幅静物照片，桌面上有亮灯罩的台灯、两杯饮品、餐具和多只浅色",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_book",
+      "kind": "photo",
+      "bbox": [
+        444,
+        82,
+        775,
+        290
+      ],
+      "description": "横幅书页照片，打开的中文印刷书占据画面，左右页和书页文字均属摄影内容，保留页面及周围摄影环境，矩形裁切，边缘清晰。",
+      "label": "横幅书页照片，打开的中文印刷书占据画面，左右页和书页文字均属",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_shelf",
+      "kind": "photo",
+      "bbox": [
+        475,
+        349,
+        840,
+        625
+      ],
+      "description": "横幅书架照片，木质架上摆放多排书籍，保留书架及周围摄影环境，矩形裁切，边缘清晰。",
+      "label": "横幅书架照片，木质架上摆放多排书籍，保留书架及周围摄影环境，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_room",
+      "kind": "photo",
+      "bbox": [
+        175,
+        796,
+        477,
+        1097
+      ],
+      "description": "横幅室内照片，可见窗户、窗帘、绿植、桌面及一盏亮着的装饰台灯，保留完整摄影环境，矩形裁切，边缘清晰。",
+      "label": "横幅室内照片，可见窗户、窗帘、绿植、桌面及一盏亮着的装饰台灯",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_plate",
+      "kind": "photo",
+      "bbox": [
+        508,
+        694,
+        799,
+        985
+      ],
+      "description": "近圆形绿边花纹瓷盘的俯拍照片，盘中放着数只戴眼镜的毛绒玩偶；保留盘面和周围摄影内容，按照片轮廓裁切，边缘清晰。",
+      "label": "近圆形绿边花纹瓷盘的俯拍照片，盘中放着数只戴眼镜的毛绒玩偶；",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "text_universe",
+      "kind": "text",
+      "bbox": [
+        507,
+        306,
+        812,
+        336
+      ],
+      "description": "About the Universe",
+      "label": "About the Universe",
+      "method": "local",
+      "text": "About the Universe",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "center",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "text_latte",
+      "kind": "text",
+      "bbox": [
+        53,
+        700,
+        524,
+        732
+      ],
+      "description": "Pistachio Ice Cream Latte",
+      "label": "Pistachio Ice Cream Latte",
+      "method": "local",
+      "text": "Pistachio Ice Cream Latte",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "serif",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "doodle_star_1",
+      "kind": "overlay",
+      "bbox": [
+        166,
+        112,
+        201,
+        146
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_2",
+      "kind": "overlay",
+      "bbox": [
+        89,
+        166,
+        116,
+        196
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_3",
+      "kind": "overlay",
+      "bbox": [
+        205,
+        185,
+        231,
+        211
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_4",
+      "kind": "overlay",
+      "bbox": [
+        629,
+        28,
+        655,
+        55
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_5",
+      "kind": "overlay",
+      "bbox": [
+        711,
+        25,
+        734,
+        54
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_6",
+      "kind": "overlay",
+      "bbox": [
+        780,
+        197,
+        809,
+        228
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_7",
+      "kind": "overlay",
+      "bbox": [
+        423,
+        430,
+        451,
+        456
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_8",
+      "kind": "overlay",
+      "bbox": [
+        782,
+        672,
+        808,
+        701
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_9",
+      "kind": "overlay",
+      "bbox": [
+        65,
+        800,
+        99,
+        848
+      ],
+      "description": "独立白色手绘空心星形涂鸦。",
+      "label": "独立白色手绘空心星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_10",
+      "kind": "overlay",
+      "bbox": [
+        104,
+        868,
+        140,
+        912
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_11",
+      "kind": "overlay",
+      "bbox": [
+        486,
+        878,
+        514,
+        907
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_star_12",
+      "kind": "overlay",
+      "bbox": [
+        744,
+        988,
+        772,
+        1015
+      ],
+      "description": "独立白色手绘星形涂鸦。",
+      "label": "独立白色手绘星形涂鸦。",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_ribbon_1",
+      "kind": "overlay",
+      "bbox": [
+        285,
+        178,
+        373,
+        276
+      ],
+      "description": "照片间的白色手绘斜向带状涂鸦，含内部折线纹样，整体作为一个装饰单元。",
+      "label": "照片间的白色手绘斜向带状涂鸦，含内部折线纹样，整体作为一个装",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_ribbon_2",
+      "kind": "overlay",
+      "bbox": [
+        445,
+        566,
+        518,
+        647
+      ],
+      "description": "照片间的白色手绘斜向带状涂鸦，含内部平行线纹样，整体作为一个装饰单元。",
+      "label": "照片间的白色手绘斜向带状涂鸦，含内部平行线纹样，整体作为一个",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_spiral",
+      "kind": "overlay",
+      "bbox": [
+        153,
+        804,
+        190,
+        1096
+      ],
+      "description": "室内照片左侧的一列白色手绘装订圈形线条，作为连续装饰整体保留。",
+      "label": "室内照片左侧的一列白色手绘装订圈形线条，作为连续装饰整体保留",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_mark",
+      "kind": "overlay",
+      "bbox": [
+        766,
+        846,
+        836,
+        934
+      ],
+      "description": "瓷盘右侧的白色手绘抽象字形涂鸦，带有曲线和引号状笔画，整体保留。",
+      "label": "瓷盘右侧的白色手绘抽象字形涂鸦，带有曲线和引号状笔画，整体保",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_latte",
+    "photo_book",
+    "photo_shelf",
+    "photo_room",
+    "photo_plate",
+    "text_universe",
+    "text_latte",
+    "doodle_star_1",
+    "doodle_star_2",
+    "doodle_star_3",
+    "doodle_star_4",
+    "doodle_star_5",
+    "doodle_star_6",
+    "doodle_star_7",
+    "doodle_star_8",
+    "doodle_star_9",
+    "doodle_star_10",
+    "doodle_star_11",
+    "doodle_star_12",
+    "doodle_ribbon_1",
+    "doodle_ribbon_2",
+    "doodle_spiral",
+    "doodle_mark"
+  ]
+}
