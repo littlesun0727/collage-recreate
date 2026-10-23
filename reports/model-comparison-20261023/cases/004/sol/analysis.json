@@ -1,0 +1,129 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    960,
+    1280
+  ],
+  "objects": [
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        960,
+        1280
+      ],
+      "description": "铺满画布的户外近景照片，一名扎双辫、佩戴耳机的女子居中偏左，面向镜头，右侧抬手托着足球，身体与左侧辫子被画布边缘裁切。保留身后的草坪、树木和明暗环境，不沿人物去背景；上方叠有其他照片与装饰。",
+      "label": "铺满画布的户外近景照片，一名扎双辫、佩戴耳机的女子居中偏左，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        71,
+        81,
+        411,
+        525
+      ],
+      "description": "左上方独立全身人物与足球组合：女子双臂举球过头，身体向左弯曲，双腿伸展，穿浅色短裤和运动鞋。摄影背景沿人物、双臂、足球及鞋子轮廓去除，完整组合外缘附有白色描边，内部空隙透明。",
+      "label": "左上方独立全身人物与足球组合：女子双臂举球过头，身体向左弯曲",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_player",
+      "kind": "photo",
+      "bbox": [
+        635,
+        32,
+        922,
+        385
+      ],
+      "description": "右上播放器框内的竖幅照片，女子扎双辫、戴耳机，面向镜头，一侧抱足球，另一手提起辫子；保留背后的深绿色树林摄影环境。底图按照片内口显示，人物另有连续延伸至内口外的前景层。",
+      "label": "右上播放器框内的竖幅照片，女子扎双辫、戴耳机，面向镜头，一侧",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_player",
+      "kind": "frame",
+      "bbox": [
+        613,
+        12,
+        945,
+        522
+      ],
+      "description": "右上竖向音乐播放器照片框，保留白色圆角卡片、较宽下边沿及其上的Music字样，以及下方进度线、圆形滑块、0:00和5:20时间、爱心、上一曲、圆圈暂停、下一曲与循环图标。以上为完整播放器载体设计，照片内口独立替换。",
+      "photo_id": "photo_player",
+      "label": "右上竖向音乐播放器照片框，保留白色圆角卡片、较宽下边沿及其上",
+      "method": "extract"
+    },
+    {
+      "id": "photo_player_foreground",
+      "kind": "photo",
+      "bbox": [
+        619,
+        90,
+        955,
+        440
+      ],
+      "description": "延伸自右上框内照片的同一女子前景，沿头发、双臂、足球及上半身轮廓去背景。左臂与足球越过内口左边，右手及辫子越过右边，下方衣服越过内口下边并遮住白色卡片下沿的部分区域，躯干底部平直截断于进度条上方。",
+      "linked_to": "photo_player",
+      "label": "延伸自右上框内照片的同一女子前景，沿头发、双臂、足球及上半身",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_hearts",
+      "kind": "overlay",
+      "bbox": [
+        452,
+        266,
+        578,
+        384
+      ],
+      "description": "上方中间的三颗手绘实心爱心组合，一颗较大的蓝色爱心配左右下方两颗青蓝色小爱心，保留不规则笔触及大爱心上的浅色短划。",
+      "label": "上方中间的三颗手绘实心爱心组合，一颗较大的蓝色爱心配左右下方",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_starburst",
+      "kind": "overlay",
+      "bbox": [
+        4,
+        529,
+        215,
+        731
+      ],
+      "description": "左侧浅黄白色手绘空心五角星及四周长短放射线组成的完整装饰，线条略不规则，叠在草坪与人物左侧附近。",
+      "label": "左侧浅黄白色手绘空心五角星及四周长短放射线组成的完整装饰，线",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_mint_line",
+      "kind": "overlay",
+      "bbox": [
+        222,
+        554,
+        637,
+        1280
+      ],
+      "description": "覆盖主照片的薄荷青色手绘连线装饰，包含人物脸侧与足球左上方的两颗实心星星、由星星向下延伸并交叉的弧线，以及胸前连线上的小空心圆角矩形。线条继续伸向画布底边，全部作为一个完整装饰保留。",
+      "label": "覆盖主照片的薄荷青色手绘连线装饰，包含人物脸侧与足球左上方的",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "photo_main",
+    "photo_left",
+    "photo_player",
+    "frame_player",
+    "photo_player_foreground",
+    "overlay_hearts",
+    "overlay_starburst",
+    "overlay_mint_line"
+  ]
+}
