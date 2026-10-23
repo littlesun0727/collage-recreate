@@ -1,0 +1,1161 @@
+{
+  "schema_version": "collage-result-v1",
+  "exported": true,
+  "status": "preview",
+  "renders_verified": false,
+  "coverage_complete": true,
+  "customer_photos_verified": true,
+  "photo_visible_fractions": {
+    "photo_seated_person": 1.0,
+    "photo_street": 0.95003,
+    "photo_swans": 1.0,
+    "photo_orange_people": 1.0,
+    "photo_seaside": 0.83608,
+    "photo_sparkler": 1.0,
+    "photo_butterfly": 1.0,
+    "photo_belly": 0.90034,
+    "photo_mountain": 0.89553,
+    "photo_base": 0.53899
+  },
+  "incomplete_objects": [],
+  "issues": [
+    {
+      "id": "overlay_dotted_path",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "overlay_dotted_path",
+      "note": "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+    }
+  ],
+  "scene_sha256": "5b297faab91471a3f1888d6b165e8c1b8a578e46af4c9d9b155c3dd5c05af28b",
+  "final_sha256": "c2143dbdeb3a829d8c9ab3ad7b7847f4638de00aa89556a3d7aae475ad674c00",
+  "resources": [
+    {
+      "id": "photo_base",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_base.png",
+      "sha256": "30447599be177bdc10d624e28f288a6e61371516d8fd92cd2bca3209e3ed4d9b",
+      "quality": "ready",
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_12.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_12",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+          "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_12.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_base",
+          "asset_id": "material_12",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "以道路、盐湖与远山的纵向环境照替代，保留全幅；素材中没有手托展示物、木桌或出租车，场景差异明显。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_base-content-mask.png",
+        "content_mask_sha256": "8b46e570941dee9ea96b76462c9db74f246908ec96002cde7d58c16008312533",
+        "photo_window_spec": {
+          "photo_id": "photo_base",
+          "reason": "木桌、手、袖口、黑色展示物边缘和出租车均属于完整摄影场景，保留背景；窗口铺满画布，无主体描边或透明渐变。",
+          "shape": {
+            "type": "rectangle"
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "overlay_dotted_path",
+      "kind": "overlay",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\overlays\\overlay_dotted_path.png",
+      "sha256": "002d61eb718fec8d4ed5797e51bc6aa9e58bd4ecc30ef59221b8e59ebbd50c46",
+      "quality": "needs_review",
+      "source": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\chain\\round_01\\overlay_dotted_path-restored.png",
+        "sha256": "936045e27c040e0d38b0868ba21d2aa58cb56912955f4263cd2219668119a0ac",
+        "bbox": [
+          68,
+          582,
+          960,
+          1134
+        ],
+        "original_bbox": [
+          76,
+          590,
+          960,
+          1126
+        ],
+        "padding": 0.1,
+        "padding_mode": "capped",
+        "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+        "raw_sha256": "0b21e1aebfcfb7f089b0ab5cac97c8b79513e437a96a24ea6c0f7a8550199ecf",
+        "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\chain\\round_01",
+        "crop_box": [
+          0,
+          0,
+          960,
+          1280
+        ],
+        "input_sha256": "75285bee97fde5a7546c2b4df4244dd908115d863058697366d78a031b4ca8a5"
+      },
+      "metadata": {
+        "quality": "needs_review",
+        "method": "reveal",
+        "resource_type": "reference_extraction",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\chain\\round_01\\overlay_dotted_path-restored.png",
+          "sha256": "936045e27c040e0d38b0868ba21d2aa58cb56912955f4263cd2219668119a0ac",
+          "bbox": [
+            68,
+            582,
+            960,
+            1134
+          ],
+          "original_bbox": [
+            76,
+            590,
+            960,
+            1126
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "0b21e1aebfcfb7f089b0ab5cac97c8b79513e437a96a24ea6c0f7a8550199ecf",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            960,
+            1280
+          ],
+          "input_sha256": "75285bee97fde5a7546c2b4df4244dd908115d863058697366d78a031b4ca8a5"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\overlay_dotted_path-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\overlay_dotted_path-preview.png",
+        "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_mountain",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_mountain.png",
+      "sha256": "b923920af37477a68675fbbc94bb06a99f3eb72de40b1250cd2188655f6d9d5d",
+      "quality": "ready",
+      "source": {
+        "id": "material_03",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\2bcfdb727b916f4eebf230f31a2cebc50164c3c09a648beb58274579a4ecaddb.png",
+        "sha256": "87ae8cd18b29841f2ca0a5a686645c02f358a85995090a2e901955cbd278009d",
+        "size": [
+          1308,
+          736
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_03.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_03",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\2bcfdb727b916f4eebf230f31a2cebc50164c3c09a648beb58274579a4ecaddb.png",
+          "sha256": "87ae8cd18b29841f2ca0a5a686645c02f358a85995090a2e901955cbd278009d",
+          "size": [
+            1308,
+            736
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_03.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_mountain",
+          "asset_id": "material_03",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "连绵山地与远山层次最接近，居中轻裁两侧；没有车窗支柱，亦非淡紫天空下的雪山。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_mountain-content-mask.png",
+        "content_mask_sha256": "71162f24699da6a9f886b77e1bf818c2bd2f948632d59b8c33881e9859c9e903",
+        "photo_window_spec": {
+          "photo_id": "photo_mountain",
+          "reason": "雪山、天空及车窗暗部整体保留，外缘为清晰圆角矩形；黑色区域是摄影内容，不作描边或渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.17
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_belly",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_belly.png",
+      "sha256": "92f3d05b636bfc48c114459bd7a961466a706f529194b4b979cd0ea0d30d7261",
+      "quality": "ready",
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_13.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_13",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+          "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_13.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_belly",
+          "asset_id": "material_13",
+          "source_crop": [
+            0,
+            0.25,
+            1,
+            0.95
+          ],
+          "crop_center": [
+            0.5,
+            0
+          ],
+          "mirror_x": false,
+          "reason": "人物近景中双手动作清楚，以顶部对齐保留帽顶、面部和双手；并非多人抚腹，服饰与姿势不同。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_belly-content-mask.png",
+        "content_mask_sha256": "efadb0e3d1f38ed7703276299da8e5748aba5af2af315a16d2eb4daa2fac9adb",
+        "photo_window_spec": {
+          "photo_id": "photo_belly",
+          "reason": "多只手与腹部衣物均保留在摄影环境中，不抠主体；固定圆角窗口右下被烟花照片遮挡，接缝清晰，无渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.12
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_butterfly",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_butterfly.png",
+      "sha256": "981bd09cca7e29e705d84e75b130f3145119556e88f183b00fa63a2f5ba71055",
+      "quality": "ready",
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_11.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_11",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+          "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_11.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_butterfly",
+          "asset_id": "material_11",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.4,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "没有蝴蝶或价目表素材，以带树形图案及地面文字的环境照作弱近似；裁切略靠左保留图案，不冒充昆虫照片。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_butterfly-content-mask.png",
+        "content_mask_sha256": "2b6ec49bac1e21ffca8d194e4ff05580afba4ce0630c3a0329024bedbf4d04e6",
+        "photo_window_spec": {
+          "photo_id": "photo_butterfly",
+          "reason": "蝴蝶与印字纸张整体作为摄影内容保留；圆角窗口边界清晰，上部被雪山照片遮挡，无主体描边或边缘渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.14
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_sparkler",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_sparkler.png",
+      "sha256": "cae7b1eeda4548fe373f1ce6d7c2ada76147f9d9f7e275b02b516495108e7572",
+      "quality": "ready",
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_14.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_14",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+          "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_14.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_sparkler",
+          "asset_id": "material_14",
+          "source_crop": [
+            0,
+            0.25,
+            1,
+            0.76
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "以夕阳亮点和较暗人物形成明暗对比，裁去上下留白并保留举起的双手及双脚；没有烟花棒，且为日落环境。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_sparkler-content-mask.png",
+        "content_mask_sha256": "ec5f9c4e29c7098a8a0f5fb6ec30d723bb8ad6f9f5feafa36ad0e019bf4a185f",
+        "photo_window_spec": {
+          "photo_id": "photo_sparkler",
+          "reason": "保留烟花棒及深色摄影背景，以圆角矩形裁切，右端由画布截断；火花亮度衰减不是窗口透明渐变，无描边。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.17
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_seaside",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_seaside.png",
+      "sha256": "8dd4d571ed43bf4643eed20e341f6394355e117a86744995629d80945ba37d98",
+      "quality": "ready",
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_15.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_15",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+          "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_15.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_seaside",
+          "asset_id": "material_15",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "背向镜头的长发人物站在水边，朝向与场景较接近；居中裁两侧保留全身，无栏杆且有举手动作。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_seaside-content-mask.png",
+        "content_mask_sha256": "806e954fedcffbba99a990281f93898f98dae005476758c1ebdfa2e9c1a0d443",
+        "photo_window_spec": {
+          "photo_id": "photo_seaside",
+          "reason": "女子、海面、天空与栏杆属于同一摄影环境，全部保留；圆角窗口上左及右下分别被邻图遮挡，无描边或透明混合。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.15
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_orange_people",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_orange_people.png",
+      "sha256": "b3d3b7cf0c5bad73678b9e82d701f5a1bf52201645c1e61f5ff32e50b1e5d902",
+      "quality": "ready",
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_06.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_06",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+          "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_06.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_orange_people",
+          "asset_id": "material_06",
+          "source_crop": [
+            0,
+            0.24,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0
+          ],
+          "mirror_x": false,
+          "reason": "红帽、暖棕衣服的人物侧面是较近候选，顶部对齐呈现头部与上身；并非橙衣多人街景，横幅无法容纳完整下身。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_orange_people-content-mask.png",
+        "content_mask_sha256": "7e0e0f3c9f207c2e562e867244904fbaaabe5452572aaf5c06a03cc2329b316d",
+        "photo_window_spec": {
+          "photo_id": "photo_orange_people",
+          "reason": "所有人物及蓝色摄影背景整体保留，左侧由画布截断，右侧圆角边界清晰；与海边照片为直接叠放，无主体出框或渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.15
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_swans",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_swans.png",
+      "sha256": "b50a11d68b27bacd99673deec38c5df20e64e39dea6204d10551ff0f28db4236",
+      "quality": "ready",
+      "source": {
+        "id": "material_08",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+        "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_08.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_08",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\696d980fcb610a211d566bb4b6f56f030905b1cb511f6b335bfea070eed8bace.png",
+          "sha256": "895325c8721a4527274c667a51c614831da57a6ca1bb84d4902f11ef5b87420b",
+          "size": [
+            1744,
+            1308
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_08.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_swans",
+          "asset_id": "material_08",
+          "source_crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.8
+          ],
+          "mirror_x": false,
+          "reason": "没有天鹅素材，以水面上的大小船只作环境近似；裁切偏下保留船体与水面，不能对应双天鹅姿态。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_swans-content-mask.png",
+        "content_mask_sha256": "b495dc4ecc4711b3a3115eeb0ceb782769a083aadff8f91c6ad77b5028f56072",
+        "photo_window_spec": {
+          "photo_id": "photo_swans",
+          "reason": "两只天鹅、水面与岸边整体保留，独立横向圆角窗口压在海边照片上；边缘清晰，无主体描边或渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.17
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_street",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_street.png",
+      "sha256": "537071d5dc721f569d27e240b5a4bea50ededa1b3de03f05d301409daa096478",
+      "quality": "ready",
+      "source": {
+        "id": "material_10",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\8a0a41a129153aca65bd0f78170e85b4a0ed3a636a67c907d54825afb48d672d.png",
+        "sha256": "32634a073776d1e381e379f42e854ec5c8f9af7ad58c4862de02f7cdb0c86d8b",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_10.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_10",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\8a0a41a129153aca65bd0f78170e85b4a0ed3a636a67c907d54825afb48d672d.png",
+          "sha256": "32634a073776d1e381e379f42e854ec5c8f9af7ad58c4862de02f7cdb0c86d8b",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_10.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_street",
+          "asset_id": "material_10",
+          "source_crop": [
+            0,
+            0.4,
+            1,
+            1
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "轨道、游人、建筑与黄色车辆构成交通场景，裁去大部分天空突出下方环境；并非密集楼宇中的出租车街道。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_street-content-mask.png",
+        "content_mask_sha256": "5cd359cefb48f5af747f149a833400d2dde435077fbb2fe3c1db0967d2bbc5b2",
+        "photo_window_spec": {
+          "photo_id": "photo_street",
+          "reason": "街道、车辆、楼宇和招牌均为完整摄影内容；圆角窗口下缘局部被坐姿人物照片遮挡，边界没有透明渐变或独立描边。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.12
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "photo_seated_person",
+      "kind": "photo",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_seated_person.png",
+      "sha256": "a63f3ede62364521ce2b17722fa62177d37ab89e9f6c1d81ed4bcf32b2f0a9f7",
+      "quality": "ready",
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_09.jpg"
+      },
+      "metadata": {
+        "resource_type": "customer_photo",
+        "source": {
+          "id": "material_09",
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-018-620198cd1c55\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+          "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+          "size": [
+            1308,
+            1744
+          ],
+          "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\prepared\\material_09.jpg"
+        },
+        "mode": "cover",
+        "binding": {
+          "slot_id": "photo_seated_person",
+          "asset_id": "material_09",
+          "source_crop": [
+            0,
+            0.26,
+            1,
+            0.9
+          ],
+          "crop_center": [
+            0.5,
+            0.5
+          ],
+          "mirror_x": false,
+          "reason": "前倾人物可作为姿态近似，裁去多余天空和前景，保留帽顶、手势及鞋子；人物并未坐下，也没有悬布、台面或桶。"
+        },
+        "pixel_operation": "bound-source-resize-crop-mask; no generated RGB",
+        "content_mask": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\photos\\photo_seated_person-content-mask.png",
+        "content_mask_sha256": "cf567c90e49bb65630557625bbec3ad5556ae1fe2d6e2d740dd9cf8893e24f56",
+        "photo_window_spec": {
+          "photo_id": "photo_seated_person",
+          "reason": "坐姿人物、悬挂布料、立柱、台面及桶均保留为同一摄影场景；独立圆角窗口直接覆盖街景下缘，无连续出框、描边或渐变。",
+          "shape": {
+            "type": "rounded_rect",
+            "corner_radius": 0.15
+          },
+          "stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "subject": {
+            "mode": "preserve"
+          },
+          "subject_stroke": {
+            "enabled": false,
+            "width": 0,
+            "color": "#FFFFFF",
+            "pattern": "solid",
+            "line_cap": "butt",
+            "placement": "inside",
+            "offset": 0
+          },
+          "fade": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "fade_direction": "inside",
+          "window_enabled": true
+        },
+        "quality": "ready"
+      },
+      "group": null
+    },
+    {
+      "id": "text_2026",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\text\\text_2026.png",
+      "sha256": "dbcf0047030f2ce56a06d33b9a5bc6af04f9ed7dbb2d4240b27be785436e12b2",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arialbi.ttf",
+        "font_size_px": 82,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 93,
+        "align": "center",
+        "fit_scale": null,
+        "text": "2026",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "text_2025",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\text\\text_2025.png",
+      "sha256": "8359ed326c6d1917a70cb89cc1ffd83d592a16b1a7e997b17d7819e7a3b31b60",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\arialbi.ttf",
+        "font_size_px": 89,
+        "requested_font_size_px": null,
+        "line_count": 1,
+        "line_spacing": 1.0,
+        "line_spacing_mode": "single",
+        "line_advance_px": 100,
+        "align": "center",
+        "fit_scale": null,
+        "text": "2025",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    },
+    {
+      "id": "text_footer",
+      "kind": "text",
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\text\\text_footer.png",
+      "sha256": "776e44c3464c50d7e90b7c228300d582a9b87fd4e27fad22796fad693db421bf",
+      "quality": "approximate",
+      "source": null,
+      "metadata": {
+        "font": "C:\\Windows\\Fonts\\timesbi.ttf",
+        "font_size_px": 23,
+        "requested_font_size_px": null,
+        "line_count": 2,
+        "line_spacing": 1.1538,
+        "line_spacing_mode": "fit_bbox",
+        "line_advance_px": 30.0,
+        "align": "center",
+        "fit_scale": null,
+        "text": "2025-2026 COLLECTION. ALL RIGHTS RESERVED.\nSHOT BY KAZUKI IN 2025.",
+        "text_rendered": true,
+        "font_match": "approximate",
+        "quality": "approximate"
+      },
+      "group": null
+    }
+  ],
+  "visual_review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "1f54cb0c7a8775e5",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。",
+    "items": [],
+    "scene_sha256": "5b297faab91471a3f1888d6b165e8c1b8a578e46af4c9d9b155c3dd5c05af28b",
+    "final_sha256": "c2143dbdeb3a829d8c9ab3ad7b7847f4638de00aa89556a3d7aae475ad674c00"
+  },
+  "at": "2026-10-23T17:44:19.614009+00:00",
+  "extraction_sheets": [
+    "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\previews\\extractions-1.jpg"
+  ],
+  "review_regions": [
+    {
+      "ids": [
+        "photo_orange_people",
+        "overlay_dotted_path"
+      ],
+      "bbox": [
+        51,
+        563,
+        265,
+        769
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\previews\\review-detail-1.png"
+    },
+    {
+      "ids": [
+        "photo_belly",
+        "photo_sparkler"
+      ],
+      "bbox": [
+        655,
+        243,
+        869,
+        449
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\previews\\review-detail-2.png"
+    },
+    {
+      "ids": [
+        "photo_mountain",
+        "photo_butterfly"
+      ],
+      "bbox": [
+        23,
+        117,
+        410,
+        323
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\previews\\review-detail-3.png"
+    },
+    {
+      "ids": [
+        "photo_seaside",
+        "photo_swans"
+      ],
+      "bbox": [
+        199,
+        831,
+        392,
+        1037
+      ],
+      "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\previews\\review-detail-4.png"
+    }
+  ],
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\gate\\report.json",
+    "sha256": "eb9272682d2a786cc97c388f4b3359bb4c5a5a835e2b4a24e77952266ff3d98a",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 1,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-018\\assets\\reveal\\index.json",
+    "sha256": "e3c5b4476656f9bbac9603b542ccdf17355134d4f98c22f250f5b918a2d2982f"
+  },
+  "render_id": "1f54cb0c7a8775e5",
+  "workflow_delivery": {
+    "mode": "best_effort",
+    "render_id": "1f54cb0c7a8775e5",
+    "category": "unreviewed",
+    "review_status": "skipped",
+    "warnings": [],
+    "draft_kind": null
+  }
+}
