@@ -1,0 +1,446 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1202
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1202
+      ],
+      "description": "干净的白色固定底色。",
+      "label": "干净的白色固定底色。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#FFFFFF"
+      }
+    },
+    {
+      "id": "title",
+      "kind": "overlay",
+      "bbox": [
+        286,
+        32,
+        618,
+        167
+      ],
+      "description": "黑色手绘艺术字设计单元，上方为大字“去旅行”，下方为手写英文“Go on a journey”；字形、笔画和排布整体保留。",
+      "label": "黑色手绘艺术字设计单元，上方为大字“去旅行”，下方为手写英文",
+      "method": "extract"
+    },
+    {
+      "id": "clouds",
+      "kind": "overlay",
+      "bbox": [
+        40,
+        32,
+        253,
+        137
+      ],
+      "description": "左上角两朵相连的蓝色手绘云朵，带黑色轮廓和小点装饰，作为一个完整装饰保留。",
+      "label": "左上角两朵相连的蓝色手绘云朵，带黑色轮廓和小点装饰，作为一个",
+      "method": "extract"
+    },
+    {
+      "id": "camera_top",
+      "kind": "overlay",
+      "bbox": [
+        51,
+        175,
+        320,
+        478
+      ],
+      "description": "左侧相机造型的上部装饰，包含相机机身、镜头、按钮、闪光灯及顶部翻盖细节；内部没有照片窗口，整体保留。",
+      "label": "左侧相机造型的上部装饰，包含相机机身、镜头、按钮、闪光灯及顶",
+      "method": "extract"
+    },
+    {
+      "id": "photo_left_1",
+      "kind": "photo",
+      "bbox": [
+        76,
+        444,
+        346,
+        672
+      ],
+      "description": "左侧竖向拼贴的第一张横向照片，窗口内两名长发女生靠近镜头举手，周围可见蓝天与飘落的橙色叶片；保留摄影环境，照片边缘随窗口裁切，无独立描边。",
+      "label": "左侧竖向拼贴的第一张横向照片，窗口内两名长发女生靠近镜头举手",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_left_1",
+      "kind": "frame",
+      "bbox": [
+        46,
+        430,
+        364,
+        688
+      ],
+      "description": "左侧相机拼贴第一格的白色不规则手绘相纸边框，带黑色线描与阴影，承载独立替换的照片。",
+      "photo_id": "photo_left_1",
+      "label": "左侧相机拼贴第一格的白色不规则手绘相纸边框，带黑色线描与阴影",
+      "method": "extract"
+    },
+    {
+      "id": "photo_left_2",
+      "kind": "photo",
+      "bbox": [
+        75,
+        662,
+        372,
+        893
+      ],
+      "description": "左侧竖向拼贴的第二张横向照片，两名女生在树林背景前并排面对镜头，手臂伸向画面前方；保留摄影环境，照片边缘随窗口裁切，无独立描边。",
+      "label": "左侧竖向拼贴的第二张横向照片，两名女生在树林背景前并排面对镜",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_left_2",
+      "kind": "frame",
+      "bbox": [
+        50,
+        651,
+        374,
+        906
+      ],
+      "description": "左侧相机拼贴第二格的白色倾斜手绘相纸边框，带黑色线描和阴影，承载独立替换的照片。",
+      "photo_id": "photo_left_2",
+      "label": "左侧相机拼贴第二格的白色倾斜手绘相纸边框，带黑色线描和阴影，",
+      "method": "extract"
+    },
+    {
+      "id": "photo_left_3",
+      "kind": "photo",
+      "bbox": [
+        109,
+        882,
+        382,
+        1101
+      ],
+      "description": "左下第三张横向照片，两名女生在蓝天和树林背景前举着橙色叶片，叶片遮住部分脸部；保留摄影环境，照片边缘随窗口裁切，无独立描边。",
+      "label": "左下第三张横向照片，两名女生在蓝天和树林背景前举着橙色叶片，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_left_3",
+      "kind": "frame",
+      "bbox": [
+        82,
+        870,
+        405,
+        1113
+      ],
+      "description": "左侧相机拼贴第三格的白色倾斜手绘相纸边框，带黑色线描和阴影，承载独立替换的照片。",
+      "photo_id": "photo_left_3",
+      "label": "左侧相机拼贴第三格的白色倾斜手绘相纸边框，带黑色线描和阴影，",
+      "method": "extract"
+    },
+    {
+      "id": "photo_center",
+      "kind": "photo",
+      "bbox": [
+        365,
+        218,
+        680,
+        602
+      ],
+      "description": "中央竖向照片窗口内，两名长发女生在草地与树林前上下错位摆姿势，前方女生举手，后方女生在她身后探出；保留摄影环境，窗口边缘有黑色手绘线条。",
+      "label": "中央竖向照片窗口内，两名长发女生在草地与树林前上下错位摆姿势",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_center",
+      "kind": "frame",
+      "bbox": [
+        321,
+        175,
+        716,
+        703
+      ],
+      "description": "中央邮票造型相纸框，外缘为黑色波浪齿边，内侧有手绘黑色边线；下沿印有“20g”和“FRANCE”，整体作为照片承载框保留。",
+      "photo_id": "photo_center",
+      "label": "中央邮票造型相纸框，外缘为黑色波浪齿边，内侧有手绘黑色边线；",
+      "method": "extract"
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        713,
+        250,
+        822,
+        522
+      ],
+      "description": "右上偏中的竖向照片，女生在树下仰身摆姿势，画面可见蓝天、树枝和落叶；保留摄影环境，照片按矩形窗口裁切。",
+      "label": "右上偏中的竖向照片，女生在树下仰身摆姿势，画面可见蓝天、树枝",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "checker_card",
+      "kind": "overlay",
+      "bbox": [
+        710,
+        287,
+        897,
+        623
+      ],
+      "description": "右侧倾斜的黑白棋盘格装饰卡片，位于竖向照片后方，保留完整图案和白色边缘。",
+      "label": "右侧倾斜的黑白棋盘格装饰卡片，位于竖向照片后方，保留完整图案",
+      "method": "extract"
+    },
+    {
+      "id": "camera",
+      "kind": "overlay",
+      "bbox": [
+        654,
+        49,
+        809,
+        182
+      ],
+      "description": "右上角薄荷绿色复古相机插画，带镜头、按钮、黑色描边及后方白色手绘环形线条，作为一个完整装饰保留。",
+      "label": "右上角薄荷绿色复古相机插画，带镜头、按钮、黑色描边及后方白色",
+      "method": "extract"
+    },
+    {
+      "id": "flowers_center",
+      "kind": "overlay",
+      "bbox": [
+        532,
+        197,
+        729,
+        352
+      ],
+      "description": "覆盖中央照片右上边缘的一簇粉白樱花与花苞，带黑色描边和枝条，作为完整花饰保留。",
+      "label": "覆盖中央照片右上边缘的一簇粉白樱花与花苞，带黑色描边和枝条，",
+      "method": "extract"
+    },
+    {
+      "id": "milk_carton",
+      "kind": "overlay",
+      "bbox": [
+        650,
+        549,
+        824,
+        772
+      ],
+      "description": "右侧粉白相间的牛奶盒插画，含“ミルク”字样、草莓图案、侧面标签和黑色轮廓，整体保留。",
+      "label": "右侧粉白相间的牛奶盒插画，含“ミルク”字样、草莓图案、侧面标",
+      "method": "extract"
+    },
+    {
+      "id": "stamp_photo",
+      "kind": "photo",
+      "bbox": [
+        432,
+        742,
+        682,
+        1022
+      ],
+      "description": "右下倾斜的邮票状照片，两名女生坐在户外草地与落叶间并肩面对镜头；保留摄影环境，按照片窗口裁切。",
+      "label": "右下倾斜的邮票状照片，两名女生坐在户外草地与落叶间并肩面对镜",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "stamp_frame",
+      "kind": "frame",
+      "bbox": [
+        398,
+        721,
+        710,
+        1048
+      ],
+      "description": "右下倾斜的白色邮票相纸框，外缘为黑色波浪齿边并带手绘线条，承载独立替换的照片。",
+      "photo_id": "stamp_photo",
+      "label": "右下倾斜的白色邮票相纸框，外缘为黑色波浪齿边并带手绘线条，承",
+      "method": "extract"
+    },
+    {
+      "id": "flower_cluster",
+      "kind": "overlay",
+      "bbox": [
+        310,
+        726,
+        490,
+        938
+      ],
+      "description": "中央偏左的一簇粉白手绘花朵，含花瓣、花心、黑色描边及叶片，局部靠近邮票框，作为一个完整装饰保留。",
+      "label": "中央偏左的一簇粉白手绘花朵，含花瓣、花心、黑色描边及叶片，局",
+      "method": "extract"
+    },
+    {
+      "id": "pink_flower",
+      "kind": "overlay",
+      "bbox": [
+        14,
+        758,
+        72,
+        817
+      ],
+      "description": "左侧的小型粉色花朵贴纸，带黑色描边和中心点。",
+      "label": "左侧的小型粉色花朵贴纸，带黑色描边和中心点。",
+      "method": "extract"
+    },
+    {
+      "id": "bunny",
+      "kind": "overlay",
+      "bbox": [
+        46,
+        990,
+        140,
+        1138
+      ],
+      "description": "左下角白色兔子涂鸦，包含长耳、脸部和身体线条，压在左侧照片边框前方，整体保留。",
+      "label": "左下角白色兔子涂鸦，包含长耳、脸部和身体线条，压在左侧照片边",
+      "method": "extract"
+    },
+    {
+      "id": "suitcase",
+      "kind": "overlay",
+      "bbox": [
+        458,
+        1049,
+        556,
+        1132
+      ],
+      "description": "底部偏左的橙色手绘行李箱，带“TRIP”字样、提手和黑色轮廓，整体作为装饰保留。",
+      "label": "底部偏左的橙色手绘行李箱，带“TRIP”字样、提手和黑色轮廓",
+      "method": "extract"
+    },
+    {
+      "id": "girl",
+      "kind": "overlay",
+      "bbox": [
+        654,
+        863,
+        844,
+        1191
+      ],
+      "description": "右下角举着黄色扇形叶片的卡通女孩，穿黄色圆点裙并迈步行走，包含人物、叶片及动作线，整体保留。",
+      "label": "右下角举着黄色扇形叶片的卡通女孩，穿黄色圆点裙并迈步行走，包",
+      "method": "extract"
+    },
+    {
+      "id": "music_note_blue",
+      "kind": "overlay",
+      "bbox": [
+        735,
+        787,
+        766,
+        844
+      ],
+      "description": "女孩左上方的蓝色手绘音符装饰。",
+      "label": "女孩左上方的蓝色手绘音符装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "music_note_black",
+      "kind": "overlay",
+      "bbox": [
+        848,
+        853,
+        886,
+        903
+      ],
+      "description": "右侧黑色手绘双音符装饰。",
+      "label": "右侧黑色手绘双音符装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "sparkles",
+      "kind": "overlay",
+      "bbox": [
+        26,
+        154,
+        860,
+        238
+      ],
+      "description": "画面上方分散的黄色手绘闪光星芒，包括左侧两枚和右侧两枚，均保留各自轮廓与内线。",
+      "label": "画面上方分散的黄色手绘闪光星芒，包括左侧两枚和右侧两枚，均保",
+      "method": "extract"
+    },
+    {
+      "id": "green_arrow",
+      "kind": "overlay",
+      "bbox": [
+        11,
+        387,
+        50,
+        438
+      ],
+      "description": "左侧指向上方的绿色手绘箭头，带黑色轮廓。",
+      "label": "左侧指向上方的绿色手绘箭头，带黑色轮廓。",
+      "method": "extract"
+    },
+    {
+      "id": "orange_squiggle",
+      "kind": "overlay",
+      "bbox": [
+        798,
+        660,
+        875,
+        786
+      ],
+      "description": "右侧橙色手绘弯曲线条及末端圆点，作为一个完整装饰保留。",
+      "label": "右侧橙色手绘弯曲线条及末端圆点，作为一个完整装饰保留。",
+      "method": "extract"
+    },
+    {
+      "id": "small_leaves",
+      "kind": "overlay",
+      "bbox": [
+        6,
+        1011,
+        852,
+        1201
+      ],
+      "description": "画面下方散布的多枚小型黄色手绘落叶，包含各自的黑色或浅色轮廓，作为同组点缀保留。",
+      "label": "画面下方散布的多枚小型黄色手绘落叶，包含各自的黑色或浅色轮廓",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "camera_top",
+    "checker_card",
+    "frame_left_1",
+    "photo_left_1",
+    "frame_left_2",
+    "photo_left_2",
+    "frame_left_3",
+    "photo_left_3",
+    "frame_center",
+    "photo_center",
+    "stamp_frame",
+    "stamp_photo",
+    "photo_right",
+    "flowers_center",
+    "flower_cluster",
+    "camera",
+    "milk_carton",
+    "pink_flower",
+    "suitcase",
+    "girl",
+    "music_note_blue",
+    "music_note_black",
+    "sparkles",
+    "green_arrow",
+    "orange_squiggle",
+    "small_leaves",
+    "bunny",
+    "title",
+    "clouds"
+  ]
+}
