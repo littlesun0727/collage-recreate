@@ -1,0 +1,1106 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\prepared\\reference.png",
+    "sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+  },
+  "reference_size": [
+    900,
+    1212
+  ],
+  "canvas_size": [
+    1200,
+    1616
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1212
+      ],
+      "description": "淡黄色底色，中间区域为带有黄色小圆点图案的白色背景板。",
+      "label": "淡黄色底色，中间区域为带有黄色小圆点图案的白色背景板。",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "fa55474efad0ee03b8e2774ed9cafe090d7b102f80cb377ca51ef7884f400822"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\background_1.png",
+        "sha256": "37bd055101bfa861c1fb26b35263d5ff509fa96cb35c7bc9ebd01cf5096876e8",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "37bd055101bfa861c1fb26b35263d5ff509fa96cb35c7bc9ebd01cf5096876e8",
+          "bbox": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "6356668f5aa641cd6553754b897e3541c144fc6873e8728af7d3c2611e01be9f",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        292,
+        48,
+        603,
+        267
+      ],
+      "description": "第一张矩形照片，展示一位年轻女性的面部特写，她面带微笑，背景可见部分沙发纹理。",
+      "label": "第一张矩形照片，展示一位年轻女性的面部特写，她面带微笑，背景",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "保留摄影背景，照片有清晰的矩形边界，无独立描边或渐变。周围贴纸为独立图层。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_09",
+        "source_crop": [
+          0.0,
+          0.25,
+          1.0,
+          0.75
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图第一张为女性面部特写，素材中 material_09 和 material_13 均为正面人像。选择 material_09 是因为其人物表情开朗微笑，且头部占比大，裁切上半部分后最接近参考图的构图比例。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-038-c1aa29fcf49e\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        252,
+        18,
+        351,
+        79
+      ],
+      "description": "位于左上角的饼干贴纸，包含两块叠放的圆形夹心饼干。",
+      "label": "位于左上角的饼干贴纸，包含两块叠放的圆形夹心饼干。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5185c6c7bbd648085282021e6ae9689aa41c86e4c6055a115851d78a1ecba139"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_1.png",
+        "sha256": "d217adb6b0a4af63fc686b3d2d8ae2b05760a0777ebf371c8dd0254ad69e9457",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "d217adb6b0a4af63fc686b3d2d8ae2b05760a0777ebf371c8dd0254ad69e9457",
+          "bbox": [
+            245,
+            11,
+            358,
+            86
+          ],
+          "original_bbox": [
+            252,
+            18,
+            351,
+            79
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "74ed1e4ef2c633f1cd2f1c585c88f2fcb0ccd94fb8439af1291024cfdda784b9",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        513,
+        24,
+        612,
+        91
+      ],
+      "description": "位于右上角的星星贴纸，包含两颗黄色的五角星装饰。",
+      "label": "位于右上角的星星贴纸，包含两颗黄色的五角星装饰。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "21b01560d791f2843bdd368aa387f2b3a4ef3f368b5a69ecc2a24810e43011fe"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_2.png",
+        "sha256": "954e4de6478a98d8f0ad4e3102fa664c0829e4a3891207ec4ca0fe51559ade85",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "954e4de6478a98d8f0ad4e3102fa664c0829e4a3891207ec4ca0fe51559ade85",
+          "bbox": [
+            506,
+            17,
+            619,
+            98
+          ],
+          "original_bbox": [
+            513,
+            24,
+            612,
+            91
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "753c1b80127eda3a94ea25a954e51287c6b7d615aa0ad7021417528745dfe01b",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        248,
+        176,
+        387,
+        297
+      ],
+      "description": "位于左侧的小熊玩偶贴纸，旁边有一块面包。",
+      "label": "位于左侧的小熊玩偶贴纸，旁边有一块面包。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "dcb131d01eb37c84197f58351933add60154b6d64b0b4643349d71ecf832fe14"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_3.png",
+        "sha256": "7683e2b472bc6fc44edcaa3e9c38bb8035941aa38102ca95fe9a4de906bc48e1",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_3-restored.png",
+          "sha256": "7683e2b472bc6fc44edcaa3e9c38bb8035941aa38102ca95fe9a4de906bc48e1",
+          "bbox": [
+            240,
+            168,
+            395,
+            305
+          ],
+          "original_bbox": [
+            248,
+            176,
+            387,
+            297
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "31267f4225e1dca7454c9a6263bcb25f95350fd6f0268d160fb7ecbfd51caf1c",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        292,
+        321,
+        603,
+        533
+      ],
+      "description": "第二张矩形照片，展示同一位女性低头看镜头的画面，背景有衣物或毯子。",
+      "label": "第二张矩形照片，展示同一位女性低头看镜头的画面，背景有衣物或",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "保留摄影背景，照片有清晰的矩形边界，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_13",
+        "source_crop": [
+          0.0,
+          0.2,
+          1.0,
+          0.8
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图第二张展示同一位女性低头看镜头的画面。素材 material_13 中人物有类似的手部动作和神态，且景别适中，裁切后能保留完整的头部和手势，符合描述。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-038-c1aa29fcf49e\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        549,
+        291,
+        648,
+        364
+      ],
+      "description": "位于右上方的黄色蝴蝶结贴纸。",
+      "label": "位于右上方的黄色蝴蝶结贴纸。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ba57f0350e91d41d6b9530736b043e71a44531840f8be2ed5c33b08bb4f9a500"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_4.png",
+        "sha256": "5964e546deee11d81547986a9050fde123839b9341b6f8a92f267246749d1521",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_4-restored.png",
+          "sha256": "5964e546deee11d81547986a9050fde123839b9341b6f8a92f267246749d1521",
+          "bbox": [
+            541,
+            283,
+            656,
+            372
+          ],
+          "original_bbox": [
+            549,
+            291,
+            648,
+            364
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "a99c7abac394f83b114dd8fe448c165a9604b308a74eb21729384b51ac912ebc",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_4-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_4-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        252,
+        412,
+        315,
+        491
+      ],
+      "description": "位于左侧中部的黄色蝴蝶结贴纸。",
+      "label": "位于左侧中部的黄色蝴蝶结贴纸。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "aaf5909badc682ee9e67ee1b171c24056e9e6aa2a58fe41864604d7f9b358b8f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_5.png",
+        "sha256": "04db6c78b85eaf811010e923a84c60a31d38e9002fa33b9ecf555ff542bdc807",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_5-restored.png",
+          "sha256": "04db6c78b85eaf811010e923a84c60a31d38e9002fa33b9ecf555ff542bdc807",
+          "bbox": [
+            245,
+            405,
+            322,
+            498
+          ],
+          "original_bbox": [
+            252,
+            412,
+            315,
+            491
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "a07882556f11bd50849e400b336aff5dd3b40f1b74cfd8258211a5ab6b2c440e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_5-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_5-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        454,
+        491,
+        540,
+        582
+      ],
+      "description": "位于下方的吐司面包造型小熊贴纸。",
+      "label": "位于下方的吐司面包造型小熊贴纸。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2c689b59ac97dc22fbee0ffad736accbb340b1fc17d8d02940d37e3f1629c88f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_6.png",
+        "sha256": "d93bfd66a7208ac9b16e40d8fe8c5716d6a4e5801420576d7d01953fe55c4102",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_6-restored.png",
+          "sha256": "d93bfd66a7208ac9b16e40d8fe8c5716d6a4e5801420576d7d01953fe55c4102",
+          "bbox": [
+            446,
+            483,
+            548,
+            590
+          ],
+          "original_bbox": [
+            454,
+            491,
+            540,
+            582
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "f2bb985fcd1689ad08fdc48f4865b45941d990b8cd948422ef80f749215822cf",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_6-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_6-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_7",
+      "kind": "overlay",
+      "bbox": [
+        544,
+        527,
+        644,
+        564
+      ],
+      "description": "右侧的对话气泡标签，内含韩文文字“봉이랑 사주세요..”。",
+      "label": "右侧的对话气泡标签，内含韩文文字“봉이랑 사주세요..”。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "eda8806954b9c08d6e56db2f87822a51a12156be2baa61edbaffa3c0092a6ec5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_7.png",
+        "sha256": "d53c377e8e72b9bf8441c62601922bf7ace87e2d44b31b6fefc440f652dcf1d1",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_7-restored.png",
+          "sha256": "d53c377e8e72b9bf8441c62601922bf7ace87e2d44b31b6fefc440f652dcf1d1",
+          "bbox": [
+            540,
+            523,
+            648,
+            568
+          ],
+          "original_bbox": [
+            544,
+            527,
+            644,
+            564
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "c0102d477a0587b1ac0ed88dc7213435f0fa723764eba441048f04821a10e193",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_7-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_7-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        292,
+        594,
+        603,
+        806
+      ],
+      "description": "第三张矩形照片，展示女性张嘴惊讶的表情，背景较暗。",
+      "label": "第三张矩形照片，展示女性张嘴惊讶的表情，背景较暗。",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "保留摄影背景，照片有清晰的矩形边界，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_00",
+        "source_crop": [
+          0.0,
+          0.2,
+          1.0,
+          0.8
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图第三张为张嘴惊讶的表情。虽然素材中没有完全一致的惊讶表情，但 material_00 是另一张清晰的人像特写，人物面带笑容，作为备选填充人像槽位，保持整体风格一致。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-038-c1aa29fcf49e\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "overlay_8",
+      "kind": "overlay",
+      "bbox": [
+        238,
+        618,
+        306,
+        727
+      ],
+      "description": "位于左侧的咖啡杯贴纸，杯身印有小熊图案。",
+      "label": "位于左侧的咖啡杯贴纸，杯身印有小熊图案。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "336665dcbaffd2bc67403affccb618cb28c5d615e4e728db24c27947808fe9b6"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_8.png",
+        "sha256": "470dbc56e2485ddb912e8b63aa1655a21174173426c8ff6f69d7595ced8d4d4d",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_8-restored.png",
+          "sha256": "470dbc56e2485ddb912e8b63aa1655a21174173426c8ff6f69d7595ced8d4d4d",
+          "bbox": [
+            231,
+            611,
+            313,
+            734
+          ],
+          "original_bbox": [
+            238,
+            618,
+            306,
+            727
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "5756abc3aeccb0cf49df52e475691af8db311f0e1ae4a687717535592a06e4fb",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_8-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_8-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_9",
+      "kind": "overlay",
+      "bbox": [
+        504,
+        697,
+        626,
+        830
+      ],
+      "description": "位于右下方戴眼镜的小熊贴纸，手持手机。",
+      "label": "位于右下方戴眼镜的小熊贴纸，手持手机。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d0f1921ce9d977edae67a58281b0afb9a9011ef99f2de851d800f770a2867953"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_9.png",
+        "sha256": "cb8e8b3d2789daa3a7448a8e97c221348eda001787ee936a692870156b0bddd2",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_9-restored.png",
+          "sha256": "cb8e8b3d2789daa3a7448a8e97c221348eda001787ee936a692870156b0bddd2",
+          "bbox": [
+            496,
+            689,
+            634,
+            838
+          ],
+          "original_bbox": [
+            504,
+            697,
+            626,
+            830
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "b98b77474eea565ff8f34878ae615e1befffbe7b97af6fdecc4efcacb56e6201",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_9-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_9-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_10",
+      "kind": "overlay",
+      "bbox": [
+        252,
+        842,
+        428,
+        897
+      ],
+      "description": "上方的长条形对话气泡，内含日文文字“てんてんかいしん”。",
+      "label": "上方的长条形对话气泡，内含日文文字“てんてんかいしん”。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "abf66431e8533742879723c624fae7163057990ff62a91da55a58d07913759fe"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_10.png",
+        "sha256": "22e1ec17d19df412ce348588b1aa504560f4cba5b102195641c2f1626deb70a1",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_10-restored.png",
+          "sha256": "22e1ec17d19df412ce348588b1aa504560f4cba5b102195641c2f1626deb70a1",
+          "bbox": [
+            246,
+            836,
+            434,
+            903
+          ],
+          "original_bbox": [
+            252,
+            842,
+            428,
+            897
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "dd0be7a2c86b5f867aab115d52152b2e08c918c92700616f297e27e27f95cd2f",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_10-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_10-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        292,
+        854,
+        603,
+        1073
+      ],
+      "description": "第四张矩形照片，展示女性抿嘴微笑的特写。",
+      "label": "第四张矩形照片，展示女性抿嘴微笑的特写。",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_4",
+        "reason": "保留摄影背景，照片有清晰的矩形边界，无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_4",
+        "asset_id": "material_06",
+        "source_crop": [
+          0.0,
+          0.1,
+          1.0,
+          0.9
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图第四张为抿嘴微笑的特写。素材 material_06 展示了戴红帽子的女性侧脸/正侧面，虽然是不同造型，但在现有素材库中属于较高质量的人物近景，适合作为最后一张人像照片的替代。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-038-c1aa29fcf49e\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "overlay_11",
+      "kind": "overlay",
+      "bbox": [
+        248,
+        939,
+        292,
+        1073
+      ],
+      "description": "左下角垂直排列的三个小熊头像贴纸。",
+      "label": "左下角垂直排列的三个小熊头像贴纸。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2857f26de4389c442978095e66116e9081c162d3dddd08b14659ce2af71f307a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_11.png",
+        "sha256": "6b09d2c2ff8477de7f7d90aaa0906b91a1b988e5d09c424100732e0cf9a54e87",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_11-restored.png",
+          "sha256": "6b09d2c2ff8477de7f7d90aaa0906b91a1b988e5d09c424100732e0cf9a54e87",
+          "bbox": [
+            243,
+            934,
+            297,
+            1078
+          ],
+          "original_bbox": [
+            248,
+            939,
+            292,
+            1073
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "68bf5ac75a61817461bb6209b689f0fb0fef33ffbd49e3afcdb8983c8a05a943",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_11-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_11-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_12",
+      "kind": "overlay",
+      "bbox": [
+        418,
+        1000,
+        616,
+        1121
+      ],
+      "description": "右下角趴着的大号轻松熊玩偶贴纸。",
+      "label": "右下角趴着的大号轻松熊玩偶贴纸。",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "2a75efa45cd9d41e8f055bd763c7bff42b21ef1f4c81410b8f4c7f75cb566967"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_12.png",
+        "sha256": "23a04cbca4da7e2ec6885289f02264640a62c4b595c88021a4ece0d66c27490e",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\overlay_12-restored.png",
+          "sha256": "23a04cbca4da7e2ec6885289f02264640a62c4b595c88021a4ece0d66c27490e",
+          "bbox": [
+            410,
+            992,
+            624,
+            1129
+          ],
+          "original_bbox": [
+            418,
+            1000,
+            616,
+            1121
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "724e574b1055ab662ad2785d2fc7c05558dbde0426d68a705ede1135fbfe22d0",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1212
+          ],
+          "input_sha256": "0ef0e69831241cdf8962b6aa4f1164f21d42d632b15553718df9acb542c675f3"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_12-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\overlay_12-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "photo_3",
+    "photo_4",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "overlay_4",
+    "overlay_5",
+    "overlay_6",
+    "overlay_7",
+    "overlay_8",
+    "overlay_9",
+    "overlay_10",
+    "overlay_11",
+    "overlay_12"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "84a47ed3654f74c763c1efc1baff7359bf4065664f45525bba334ea5bcb3b1a4",
+    "bindings": "e6ce118e09c1c9a232d6de36778fee16eb6116317191c53f6f1638ee09af5612",
+    "input": "c4da7e3501e1c06306a85800e3c3f8d8bf3994947a331c6cc4150986e1247726",
+    "catalog": "1a6322c31853d724dbceb068717a5d1d8b7e70638b1761d7a8768cfee9921df8",
+    "photo_windows": "28f4b039d52af5c10bf50dc5377224e5e8bb59adfe6dd54584906a0f68befbd9"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\reveal\\index.json",
+    "sha256": "82c44b90b8b73ef5137b78cc1aa8b4b0164815fa7670bc6a10d744acbbf73dbe"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-038\\assets\\gate\\report.json",
+    "sha256": "dc6012206eb35d411d7e8188f964e6590b3a043e80cc9f8349530bf920df4c70",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 13,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
