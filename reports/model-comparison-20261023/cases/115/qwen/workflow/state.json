@@ -1,0 +1,137 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T20:52:15.508902+00:00",
+      "finished_at": "2026-10-23T20:54:03.908235+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T20:54:03.940030+00:00",
+      "finished_at": "2026-10-23T20:55:18.275128+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T20:55:18.299071+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T20:55:18.299088+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "complete",
+      "started_at": "2026-10-23T20:55:18.309050+00:00",
+      "finished_at": "2026-10-23T20:55:50.285018+00:00",
+      "value": null
+    },
+    "build": {
+      "status": "complete",
+      "started_at": "2026-10-23T20:55:50.291309+00:00",
+      "finished_at": "2026-10-23T20:57:45.532790+00:00",
+      "value": null
+    },
+    "screen": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T20:57:45.542756+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "screen_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T20:57:45.542779+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "register": {
+      "status": "complete",
+      "started_at": "2026-10-23T20:57:45.792312+00:00",
+      "finished_at": "2026-10-23T20:57:47.570536+00:00",
+      "value": null
+    }
+  },
+  "started_at": "2026-10-23T20:52:15.252998+00:00",
+  "identity": "c2269b3be4110bc72d1d4862566adac5a50be54ff2f9bf96703bfac157ea8fc5",
+  "status": "finished",
+  "error": null,
+  "binding_contract": "photo-binding-v9-1",
+  "model": "qwen3.8-flash",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T20:57:47.578744+00:00",
+  "usage": {
+    "requests": 4,
+    "prompt_tokens": 44182,
+    "completion_tokens": 8094,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 18832,
+  "current_step": "register",
+  "warnings": [
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "background_1：背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：ValueError: No usable layer 0: Layer 0 aspect ratio changed; Layer 0 aspect ratio changed"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_1：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_2：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_3：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_4：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_5：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_7：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    }
+  ],
+  "last_render_id": "0655aa5b1294d626",
+  "finished_at": "2026-10-23T20:57:47.578654+00:00"
+}
