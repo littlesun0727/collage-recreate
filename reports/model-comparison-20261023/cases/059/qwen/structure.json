@@ -1,0 +1,83 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "description": "上方照片，展示一名长发年轻女性的面部特写，背景为户外街道。人物占据画面右侧大部分区域，左侧可见路面和斑马线。",
+      "bbox": [
+        0,
+        0,
+        1000,
+        500
+      ]
+    },
+    {
+      "id": "overlay_bubble",
+      "kind": "overlay",
+      "description": "手绘风格的白色对话气泡贴纸，包含黑色手写文字“Have a :) Good Day”以及下方的四叶草图案。",
+      "bbox": [
+        140,
+        60,
+        380,
+        250
+      ],
+      "parent_id": "photo_top"
+    },
+    {
+      "id": "overlay_mushroom",
+      "kind": "overlay",
+      "description": "两个卡通蘑菇插画贴纸，位于左侧边缘，部分遮挡下方便签纸。",
+      "bbox": [
+        0,
+        390,
+        200,
+        460
+      ],
+      "parent_id": "photo_top"
+    },
+    {
+      "id": "overlay_note",
+      "kind": "overlay",
+      "description": "一张带有网格线的方形便签纸素材，上面有手写的韩文、英文及涂鸦（如小熊脸），作为装饰元素叠加在两张照片的交界处。",
+      "bbox": [
+        40,
+        450,
+        280,
+        610
+      ]
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "description": "下方照片，展示同一名长发年轻女性，头顶别着两个银色发夹，背景为室内玻璃窗环境。",
+      "bbox": [
+        0,
+        500,
+        1000,
+        1000
+      ]
+    },
+    {
+      "id": "overlay_panda",
+      "kind": "overlay",
+      "description": "一组半透明的熊猫头像贴纸，带有星星点缀，位于右下角。",
+      "bbox": [
+        790,
+        690,
+        980,
+        830
+      ],
+      "parent_id": "photo_bottom"
+    }
+  ],
+  "layer_order": [
+    "photo_top",
+    "photo_bottom",
+    "overlay_bubble",
+    "overlay_mushroom",
+    "overlay_note",
+    "overlay_panda"
+  ]
+}
