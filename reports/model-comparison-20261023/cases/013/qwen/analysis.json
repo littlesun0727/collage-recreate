@@ -1,0 +1,87 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1600
+      ],
+      "description": "模拟手机相机界面的黑色背景，包含顶部和底部的操作栏区域。",
+      "label": "模拟手机相机界面的黑色背景，包含顶部和底部的操作栏区域。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#000000"
+      }
+    },
+    {
+      "id": "overlay_top_ui",
+      "kind": "overlay",
+      "bbox": [
+        76,
+        72,
+        828,
+        136
+      ],
+      "description": "位于顶部的相机UI控件组，包括左侧的闪光灯、滤镜图标，中间的向下箭头，以及右侧的RAW MAX文字标识和镜头切换图标。作为整体界面元素保留。",
+      "label": "位于顶部的相机UI控件组，包括左侧的闪光灯、滤镜图标，中间的",
+      "method": "extract"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        54,
+        160,
+        842,
+        688
+      ],
+      "description": "上方照片窗口，显示一名女子在镜子前自拍的画面，穿着白色长袖上衣和牛仔短裙，手持手机遮挡面部，背景为室内墙壁和插座。",
+      "label": "上方照片窗口，显示一名女子在镜子前自拍的画面，穿着白色长袖上",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        54,
+        688,
+        842,
+        1240
+      ],
+      "description": "下方照片窗口，内容与上方类似，显示同一名女子在镜子前自拍，构图略有不同，同样包含室内环境细节。",
+      "label": "下方照片窗口，内容与上方类似，显示同一名女子在镜子前自拍，构",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_bottom_ui",
+      "kind": "overlay",
+      "bbox": [
+        90,
+        1240,
+        810,
+        1512
+      ],
+      "description": "位于底部的相机UI控件组，包括一排功能小图标（闪光灯、滤镜、镜头等）、比例选择'4:3'、中间的大圆形快门按钮以及右下角的翻转摄像头图标。",
+      "label": "位于底部的相机UI控件组，包括一排功能小图标（闪光灯、滤镜、",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "overlay_top_ui",
+    "overlay_bottom_ui"
+  ]
+}
