@@ -1,0 +1,194 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "白色皱纹布底上承托一块圆角棕色纹理夹板，板内固定铺有横线白纸；保留纸张、夹板和布面的可见纹理与边缘。"
+    },
+    {
+      "id": "photo_drinks",
+      "kind": "photo",
+      "bbox": [
+        183,
+        274,
+        463,
+        562
+      ],
+      "description": "左上方饮品照片，画面中多杯饮料摆在印有图案与文字的购物袋前；保留摄影环境，照片边缘呈撕纸状。"
+    },
+    {
+      "id": "photo_selfie",
+      "kind": "photo",
+      "bbox": [
+        510,
+        207,
+        836,
+        471
+      ],
+      "description": "右上方自拍照片，两名年轻女性近景并排面对镜头，前方人物举手伸向镜头，后方人物以手臂遮挡部分脸部；保留室内摄影背景，矩形清晰窗口。"
+    },
+    {
+      "id": "frame_selfie",
+      "kind": "frame",
+      "bbox": [
+        493,
+        181,
+        852,
+        544
+      ],
+      "description": "承载右上自拍的浅灰纹理纸卡，照片位于上部矩形内口，下方留白并带撕裂状边缘；纸卡整体保留。",
+      "photo_id": "photo_selfie"
+    },
+    {
+      "id": "photo_plush_hand",
+      "kind": "photo",
+      "bbox": [
+        186,
+        638,
+        562,
+        851
+      ],
+      "description": "左下方近景照片，一只手拿着浅色毛绒玩偶，背景可见深色衣物、手机和耳机线；保留摄影背景，照片边缘呈撕纸状。"
+    },
+    {
+      "id": "photo_plushies",
+      "kind": "photo",
+      "bbox": [
+        529,
+        562,
+        868,
+        752
+      ],
+      "description": "右下方照片，多只毛绒玩偶和小摆件成组陈列在灰色地面上；保留摄影环境，照片边缘呈撕纸状。"
+    },
+    {
+      "id": "clip_label",
+      "kind": "overlay",
+      "bbox": [
+        353,
+        10,
+        651,
+        144
+      ],
+      "description": "夹板顶部的手绘夹子形标签贴纸，含有“clamp!”字样，保留纸片轮廓、深色描边和阴影。"
+    },
+    {
+      "id": "tape_drinks",
+      "kind": "overlay",
+      "bbox": [
+        258,
+        243,
+        377,
+        297
+      ],
+      "description": "饮品照片上沿压住照片的深棕色白点胶带，保留不规则纸边与点状图案。"
+    },
+    {
+      "id": "stars",
+      "kind": "overlay",
+      "bbox": [
+        654,
+        169,
+        766,
+        236
+      ],
+      "description": "自拍卡片上沿附近的两枚粉色手绘星形贴纸，分别为小星与较大的描边星，作为一组保留。"
+    },
+    {
+      "id": "hearts",
+      "kind": "overlay",
+      "bbox": [
+        126,
+        425,
+        223,
+        577
+      ],
+      "description": "饮品照片左侧散布的数枚浅粉纸质爱心贴纸，内部有深色小图案与描边，作为一组保留。"
+    },
+    {
+      "id": "happy_blog",
+      "kind": "overlay",
+      "bbox": [
+        682,
+        458,
+        896,
+        541
+      ],
+      "description": "贴在自拍卡片右下留白处的浅色撕边标签，带手写“Haaaappy blog.”字样及小箭头，标签和字样整体保留。"
+    },
+    {
+      "id": "drink_caption",
+      "kind": "overlay",
+      "bbox": [
+        132,
+        575,
+        428,
+        626
+      ],
+      "description": "照片之间横贴的浅米色纸条，写有手写中文“来一杯续命水/”，保留纸条底色、边缘和字迹。"
+    },
+    {
+      "id": "doodle_characters",
+      "kind": "overlay",
+      "bbox": [
+        131,
+        806,
+        307,
+        882
+      ],
+      "description": "夹板纸张左下角的两只棕色线描卡通小动物及周围小装饰线条，作为完整手绘贴纸保留。"
+    },
+    {
+      "id": "nice_day",
+      "kind": "overlay",
+      "bbox": [
+        600,
+        758,
+        864,
+        869
+      ],
+      "description": "右下角彩色手绘艺术字“HAVE A NICE DAY”，配有彩虹及小花状装饰，字形与装饰整体保留。"
+    },
+    {
+      "id": "heading",
+      "kind": "text",
+      "bbox": [
+        151,
+        176,
+        456,
+        226
+      ],
+      "text": "# To Do LIST:",
+      "color": "#292526",
+      "font": "hand",
+      "align": "left",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_drinks",
+    "photo_selfie",
+    "frame_selfie",
+    "photo_plush_hand",
+    "photo_plushies",
+    "clip_label",
+    "heading",
+    "tape_drinks",
+    "stars",
+    "hearts",
+    "happy_blog",
+    "drink_caption",
+    "doodle_characters",
+    "nice_day"
+  ]
+}
