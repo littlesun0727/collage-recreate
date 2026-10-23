@@ -1,0 +1,955 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\prepared\\reference.png",
+    "sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整体背景呈现为波光粼粼的水面或天空质感，带有强烈的光斑和折射效果。底部有深色的草地纹理，画面中漂浮着几条金鱼作为装饰元素。",
+      "label": "整体背景呈现为波光粼粼的水面或天空质感，带有强烈的光斑和折射",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "57fd7275f4c22f5b8c3741ee430e9adbe74d68ce2951410702921624cfd7e0ba"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\background_1.png",
+        "sha256": "536a4fe9cb95ea77fcfb64da0d0401199523b9bbcf8133d9b94e579f0678c7e2",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "536a4fe9cb95ea77fcfb64da0d0401199523b9bbcf8133d9b94e579f0678c7e2",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "8b2c72a6e2db47eed84c240a7f6f2c6e5ee25cceffa89031000e0c743b2c5651",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_center",
+      "kind": "photo",
+      "bbox": [
+        234,
+        150,
+        675,
+        936
+      ],
+      "description": "位于画面中央的动漫风格人物背影，身穿蓝色斗篷，白色长发，黑色面部（无五官），身体周围环绕着游动的金鱼。该主体直接叠加在背景之上，没有明显的边框载体。",
+      "label": "位于画面中央的动漫风格人物背影，身穿蓝色斗篷，白色长发，黑色",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_center",
+        "reason": "画面中央的动漫人物背影直接叠加在背景之上，没有明显的边框载体或独立摄影环境。主体周围的金鱼和光效属于装饰元素而非照片内容，因此需要去除背景保留主体轮廓，不使用固定窗口裁切。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_center",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图主体为动漫人物背影，素材库中无此内容。选择 material_16（戴蓝帽穿马甲的背影）作为最接近的替代，其姿态、朝向及蓝色系色调与参考图中央人物有视觉呼应，且主体轮廓清晰完整，适合分割处理。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-119-3b20d48e3afc\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "frame_top_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        108,
+        252,
+        468
+      ],
+      "description": "左上角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深色外壳、旋钮细节和立体感，承载着一张展示两个游戏角色的图片。",
+      "photo_id": "photo_top_left",
+      "label": "左上角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_top_left contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "caf5dbe70081c1f99cc4b23495b7ad861ea9c302659108abd5912a8a847daa3f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_top_left.png",
+        "sha256": "3315d808081c57b69d20088be806d927eefe2828a9c06949d6a89c2b32b91f46",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\frame_top_left-restored.png",
+          "sha256": "3315d808081c57b69d20088be806d927eefe2828a9c06949d6a89c2b32b91f46",
+          "bbox": [
+            0,
+            100,
+            260,
+            476
+          ],
+          "original_bbox": [
+            0,
+            108,
+            252,
+            468
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "60abd52620004846f79f4fc7b3e98a948982f74b7ea3f84d7fd920e15fb02282",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_top_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_top_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_top_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        120,
+        216,
+        360
+      ],
+      "description": "左上角电视框内的照片，展示了两个《光·遇》游戏角色在夕阳下的场景，一个穿着红色斗篷，另一个穿着蓝色斗篷。",
+      "label": "左上角电视框内的照片，展示了两个《光·遇》游戏角色在夕阳下的",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_left",
+        "reason": "位于左上角复古电视机造型边框内，保留了完整的夕阳游戏场景作为摄影背景。照片被限制在电视屏幕区域内，需启用固定窗口裁切以匹配屏幕形状（近似梯形/矩形）。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.05,
+              0.1
+            ],
+            [
+              0.95,
+              0.05
+            ],
+            [
+              0.95,
+              0.95
+            ],
+            [
+              0.05,
+              0.95
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_left",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为夕阳下的双人场景。选择 material_14，虽然画面中只有一人，但其背景为明显的金色夕阳和水面倒影，光影氛围与参考图的暖色调高度一致，是最佳近似匹配。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-119-3b20d48e3afc\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\prepared\\material_14.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_top_left-photo_top_left-window.png",
+        "sha256": "01ebf58d56a80973ad34d1e706bc4dc8a71634c5a0193969d89c15f14452a5ee"
+      },
+      "reveal_frame_id": "frame_top_left"
+    },
+    {
+      "id": "frame_top_right",
+      "kind": "frame",
+      "bbox": [
+        630,
+        120,
+        900,
+        468
+      ],
+      "description": "右上角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深色外壳和立体感，承载着一张展示两个游戏角色的图片。",
+      "photo_id": "photo_top_right",
+      "label": "右上角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal layer is empty or nearly transparent",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "746c0117c7d8e3d864fe48075ec32443cc3f8733f696366aff780c1f21e602a2"
+      }
+    },
+    {
+      "id": "photo_top_right",
+      "kind": "photo",
+      "bbox": [
+        666,
+        120,
+        900,
+        348
+      ],
+      "description": "右上角电视框内的照片，展示了两个《光·遇》游戏角色在明亮背景下的场景，分别穿着黄色和白色斗篷。",
+      "label": "右上角电视框内的照片，展示了两个《光·遇》游戏角色在明亮背景",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top_right",
+        "reason": "位于右上角复古电视机造型边框内，展示了明亮背景下的游戏角色。照片内容完整保留，受限于电视屏幕区域，需启用固定窗口裁切。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.05,
+              0.05
+            ],
+            [
+              0.95,
+              0.1
+            ],
+            [
+              0.95,
+              0.95
+            ],
+            [
+              0.05,
+              0.95
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top_right",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为明亮背景下的人物。选择 material_13，该照片光线充足，天空湛蓝，人物穿着浅色衣物，整体明度和色彩倾向与参考图的明亮感相符。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-119-3b20d48e3afc\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "frame_mid_right",
+      "kind": "frame",
+      "bbox": [
+        693,
+        456,
+        900,
+        720
+      ],
+      "description": "右侧中间的复古电视机造型边框，屏幕区域显示照片内容。边框具有深色外壳，承载着一张展示两个游戏角色的图片。",
+      "photo_id": "photo_mid_right",
+      "label": "右侧中间的复古电视机造型边框，屏幕区域显示照片内容。边框具有",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_mid_right contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "a63d49fe3a6f0e3b0083081d0643f273ebf7b3c5bed33d29829134e1febe533d"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_mid_right.png",
+        "sha256": "4634cfa9b71a3602cecc47a16ad8acc7c7678e7c7271a95bba79045aa33b27ab",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\frame_mid_right-restored.png",
+          "sha256": "4634cfa9b71a3602cecc47a16ad8acc7c7678e7c7271a95bba79045aa33b27ab",
+          "bbox": [
+            685,
+            448,
+            900,
+            728
+          ],
+          "original_bbox": [
+            693,
+            456,
+            900,
+            720
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "496eff1a2a6b77355071633f861ce6ec1ea9471965a9f584bd073ffddc00436e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_mid_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_mid_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_mid_right",
+      "kind": "photo",
+      "bbox": [
+        711,
+        474,
+        900,
+        648
+      ],
+      "description": "右侧中间电视框内的照片，展示了两个《光·遇》游戏角色并排站立，均穿着青绿色斗篷，戴着花环头饰。",
+      "label": "右侧中间电视框内的照片，展示了两个《光·遇》游戏角色并排站立",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_mid_right",
+        "reason": "位于右侧中间复古电视机造型边框内，显示两个青绿色斗篷角色。照片有明确的屏幕边界，需开启固定窗口进行矩形裁切。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.05,
+              0.05
+            ],
+            [
+              0.95,
+              0.05
+            ],
+            [
+              0.95,
+              0.95
+            ],
+            [
+              0.05,
+              0.95
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_mid_right",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为两个并排站立的角色。选择 material_09，照片中人物在沙滩上摆出活泼姿势，背景有蓝天和彩色建筑，构图较为饱满，适合作为电视框内的填充素材。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-119-3b20d48e3afc\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\prepared\\material_09.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_mid_right-photo_mid_right-window.png",
+        "sha256": "22f067af6d74f8ef6b61d03f4845be4b874a2cd2bb3fbadc5ac02f8cdfb093ae"
+      },
+      "reveal_frame_id": "frame_mid_right"
+    },
+    {
+      "id": "frame_bottom_left",
+      "kind": "frame",
+      "bbox": [
+        0,
+        624,
+        297,
+        936
+      ],
+      "description": "左下角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深色外壳，部分被前景遮挡，承载着一张展示游戏角色的图片。",
+      "photo_id": "photo_bottom_left",
+      "label": "左下角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "62e67e2224a9f977fde631b1431976cc0646fb6b4cec60a3d2dbde2039e537f6"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_left.png",
+        "sha256": "8aa6abc8298ec2f56acd609f3e535dc2c4a607811d094254de763eabcea838b7",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\frame_bottom_left-restored.png",
+          "sha256": "8aa6abc8298ec2f56acd609f3e535dc2c4a607811d094254de763eabcea838b7",
+          "bbox": [
+            0,
+            616,
+            305,
+            944
+          ],
+          "original_bbox": [
+            0,
+            624,
+            297,
+            936
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "c2a53828d7b429ef9545a859ebc3605e60f7893faacf85d188d7f22ea4a97882",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_bottom_left",
+      "kind": "photo",
+      "bbox": [
+        0,
+        672,
+        144,
+        888
+      ],
+      "description": "左下角电视框内的照片，展示了两个《光·遇》游戏角色坐在紫色花海中，背景是粉红色的天空。",
+      "label": "左下角电视框内的照片，展示了两个《光·遇》游戏角色坐在紫色花",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_left",
+        "reason": "位于左下角复古电视机造型边框内，展示紫色花海中的角色。虽然部分被遮挡，但可见区域仍遵循屏幕边界，需启用固定窗口裁切。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.05,
+              0.05
+            ],
+            [
+              0.95,
+              0.05
+            ],
+            [
+              0.95,
+              0.95
+            ],
+            [
+              0.05,
+              0.95
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_left",
+        "asset_id": "material_15",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为坐在花海中的角色，背景偏粉紫色。选择 material_15，该照片展示了独特的红褐色水域景观，这种特殊的色彩纹理能很好地对应参考图中“花海”的色彩丰富度，视觉上较为协调。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-119-3b20d48e3afc\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\prepared\\material_15.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_left-photo_bottom_left-window.png",
+        "sha256": "515ec02f3e1f019af84e0377b3d4c33e537f373eecdacac0d424e3d418862f16"
+      },
+      "reveal_frame_id": "frame_bottom_left"
+    },
+    {
+      "id": "frame_bottom_right",
+      "kind": "frame",
+      "bbox": [
+        450,
+        792,
+        855,
+        1104
+      ],
+      "description": "右下角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深色外壳，放置在草地上，承载着一张展示游戏角色的图片。",
+      "photo_id": "photo_bottom_right",
+      "label": "右下角的复古电视机造型边框，屏幕区域显示照片内容。边框具有深",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "a9e3f7ad745cbba823c39300764faae8ce33fb617506c838a9c038063357b591"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_right.png",
+        "sha256": "446be0434ec88b1200422227501f66819aa09010c4b31baeb89458fea0ce9115",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\frame_bottom_right-restored.png",
+          "sha256": "446be0434ec88b1200422227501f66819aa09010c4b31baeb89458fea0ce9115",
+          "bbox": [
+            442,
+            784,
+            863,
+            1112
+          ],
+          "original_bbox": [
+            450,
+            792,
+            855,
+            1104
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "92503189759398644551a8197f1d2a927d76986a49a7d0a1c240ca76a1fae9fe",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "6f5497c1ef4583bc279e2978b29bd62932543517980e7f9e0d448a347ebf24b8"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_right-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_right-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_bottom_right",
+      "kind": "photo",
+      "bbox": [
+        477,
+        852,
+        666,
+        1080
+      ],
+      "description": "右下角电视框内的照片，展示了两个《光·遇》游戏角色在夜晚的场景中，周围有蓝色的光点，角色分别穿着橙色和米色斗篷。",
+      "label": "右下角电视框内的照片，展示了两个《光·遇》游戏角色在夜晚的场",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom_right",
+        "reason": "位于右下角复古电视机造型边框内，展示夜晚草地上的角色。照片内容完整，受限于屏幕几何形状，需启用固定窗口裁切。",
+        "shape": {
+          "type": "polygon",
+          "points": [
+            [
+              0.05,
+              0.05
+            ],
+            [
+              0.95,
+              0.05
+            ],
+            [
+              0.95,
+              0.95
+            ],
+            [
+              0.05,
+              0.95
+            ]
+          ]
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom_right",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图为夜晚场景，有蓝色光点。选择 material_06，该照片拍摄于黄昏或清晨，光线较暗，人物戴着红色帽子形成冷暖对比，背景的深蓝色调与参考图的夜景氛围最为接近。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-119-3b20d48e3afc\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\prepared\\material_06.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\frame_bottom_right-photo_bottom_right-window.png",
+        "sha256": "2707f1482bc0056d87c2c9d97a968a5007458cc3f4df871b908a5cc659143cf5"
+      },
+      "reveal_frame_id": "frame_bottom_right"
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "frame_top_left",
+    "photo_top_left",
+    "frame_top_right",
+    "photo_top_right",
+    "frame_mid_right",
+    "photo_mid_right",
+    "frame_bottom_left",
+    "photo_bottom_left",
+    "frame_bottom_right",
+    "photo_bottom_right",
+    "photo_center"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "9ab7809c4f9286c279dcbf8451877d9739bd79fa4ea6b9f22dcb1678ac8be183",
+    "bindings": "6d59a647206bb1f5226c2ef537ecfba11164c9e48c282f58bfa21cb26ad3676f",
+    "input": "c9e5cf5ce544b7fbe508ab2569acf5f700328c49a7be1034ca1b1933d3cf66cc",
+    "catalog": "5295d9ab5ca843afae962ebeb491fd534da1c5d3f8cee52a01a2aeb9db1d5007",
+    "photo_windows": "298f83c831bdd9c8eebf75b11a41d4a4ead95cb44562b040413c238474ad9bdb"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\reveal\\index.json",
+    "sha256": "abec9d179fda1ddcb7b340f70596a25792f5c232c4015848cf565a0485a4f19f"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\assets\\gate\\report.json",
+    "sha256": "7862595a99eb60029b2111dcaf1dfc4bc255dba2b8d6e0d74baeb70d6b37e791",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 5,
+    "pending": 0,
+    "rejected": 1,
+    "warning_objects": 2,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-119\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
