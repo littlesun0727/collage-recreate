@@ -1,0 +1,230 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "固定的深色夜景底图，上半部近黑，下半部为绿色水面；保留白色手绘树枝轮廓、星光点缀及背景中的小型青绿色手绘动物。",
+      "label": "固定的深色夜景底图，上半部近黑，下半部为绿色水面；保留白色手",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_drinks",
+      "kind": "photo",
+      "bbox": [
+        0,
+        419,
+        324,
+        702
+      ],
+      "description": "餐桌上的饮品照片，包含左侧高杯浅色饮料、右侧红色饮品及前景小碗和泡沫饮品，保留原摄影环境。",
+      "label": "餐桌上的饮品照片，包含左侧高杯浅色饮料、右侧红色饮品及前景小",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_table",
+      "kind": "photo",
+      "bbox": [
+        14,
+        232,
+        292,
+        498
+      ],
+      "description": "深色托盘上的金色细长罐和小圆环，俯拍静物，保留桌面与托盘摄影环境。",
+      "label": "深色托盘上的金色细长罐和小圆环，俯拍静物，保留桌面与托盘摄影",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottles",
+      "kind": "photo",
+      "bbox": [
+        292,
+        36,
+        500,
+        276
+      ],
+      "description": "木质桌面上的两瓶饮料，一瓶深色玻璃瓶与一瓶浅色罐装饮料并置，保留桌面摄影环境。",
+      "label": "木质桌面上的两瓶饮料，一瓶深色玻璃瓶与一瓶浅色罐装饮料并置，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_snack",
+      "kind": "photo",
+      "bbox": [
+        556,
+        109,
+        854,
+        343
+      ],
+      "description": "手持橙色虾形包装食品的近景，背景为货架商品，保留手部及商店摄影环境。",
+      "label": "手持橙色虾形包装食品的近景，背景为货架商品，保留手部及商店摄",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_spoons",
+      "kind": "photo",
+      "bbox": [
+        588,
+        392,
+        814,
+        601
+      ],
+      "description": "深色桌面上排列的多把木匙，盛有不同颜色的粉末或调味料，保留桌面摄影环境。",
+      "label": "深色桌面上排列的多把木匙，盛有不同颜色的粉末或调味料，保留桌",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_cans",
+      "kind": "photo",
+      "bbox": [
+        582,
+        661,
+        900,
+        914
+      ],
+      "description": "橙色桌面上并排的两罐饮料，金色罐盖清晰可见，保留桌面摄影环境。",
+      "label": "橙色桌面上并排的两罐饮料，金色罐盖清晰可见，保留桌面摄影环境",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_meal",
+      "kind": "photo",
+      "bbox": [
+        670,
+        893,
+        892,
+        1111
+      ],
+      "description": "俯拍一锅蔬菜与肉类餐食，旁边可见调味料容器和餐桌局部，保留摄影环境。",
+      "label": "俯拍一锅蔬菜与肉类餐食，旁边可见调味料容器和餐桌局部，保留摄",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottle_set",
+      "kind": "photo",
+      "bbox": [
+        0,
+        762,
+        324,
+        964
+      ],
+      "description": "桌面上的粉色饮料罐与粉色随行瓶，旁有一杯饮料，保留托盘及桌面摄影环境。",
+      "label": "桌面上的粉色饮料罐与粉色随行瓶，旁有一杯饮料，保留托盘及桌面",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "doodle_tree",
+      "kind": "overlay",
+      "bbox": [
+        65,
+        109,
+        137,
+        232
+      ],
+      "description": "左上方荧光色手绘小圣诞树涂鸦，含顶部装饰与底部小点缀，作为完整手绘装饰保留。",
+      "label": "左上方荧光色手绘小圣诞树涂鸦，含顶部装饰与底部小点缀，作为完",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_cool",
+      "kind": "overlay",
+      "bbox": [
+        179,
+        94,
+        272,
+        184
+      ],
+      "description": "白色云朵形手绘气泡及其中的“Cool Cool”字样和小符号，整体作为装饰保留。",
+      "label": "白色云朵形手绘气泡及其中的“Cool Cool”字样和小符号",
+      "method": "extract"
+    },
+    {
+      "id": "music_player",
+      "kind": "overlay",
+      "bbox": [
+        613,
+        52,
+        807,
+        116
+      ],
+      "description": "右上照片上方的音乐播放器样式装饰，含小图标、装饰文字、进度线与控制符号，整体保留。",
+      "label": "右上照片上方的音乐播放器样式装饰，含小图标、装饰文字、进度线",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_right",
+      "kind": "overlay",
+      "bbox": [
+        841,
+        486,
+        900,
+        606
+      ],
+      "description": "画面右侧边缘部分可见的橙色与蓝色荧光手绘涂鸦及上方黄色小字，保留可见部分。",
+      "label": "画面右侧边缘部分可见的橙色与蓝色荧光手绘涂鸦及上方黄色小字，",
+      "method": "extract"
+    },
+    {
+      "id": "doodle_bird",
+      "kind": "overlay",
+      "bbox": [
+        83,
+        959,
+        295,
+        1200
+      ],
+      "description": "左下方大型粉色荧光手绘鸟形角色，带黄色星形头饰、喙与腿脚，整体作为完整涂鸦保留。",
+      "label": "左下方大型粉色荧光手绘鸟形角色，带黄色星形头饰、喙与腿脚，整",
+      "method": "extract"
+    },
+    {
+      "id": "caption_nice_day",
+      "kind": "overlay",
+      "bbox": [
+        590,
+        1136,
+        778,
+        1170
+      ],
+      "description": "底部偏右的装饰性“NICE DAY”字样，周围带有小图标、闪光和短线，整体作为固定装饰保留。",
+      "label": "底部偏右的装饰性“NICE DAY”字样，周围带有小图标、闪",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_table",
+    "photo_drinks",
+    "photo_bottles",
+    "photo_snack",
+    "photo_spoons",
+    "photo_bottle_set",
+    "photo_cans",
+    "photo_meal",
+    "doodle_tree",
+    "doodle_cool",
+    "music_player",
+    "doodle_right",
+    "doodle_bird",
+    "caption_nice_day"
+  ]
+}
