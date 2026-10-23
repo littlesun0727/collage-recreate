@@ -1,0 +1,68 @@
+{
+  "version": "structure-analysis-v9-8-text-autofit",
+  "coordinate_mode": "normalized_1000",
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1000,
+        1000
+      ],
+      "description": "固定的生日派对背景：浅色墙面与桌面、散布的彩纸碎屑和装饰，以及上半部超大彩色“Happy Birthday”字样和气球；作为连续底层保留。"
+    },
+    {
+      "id": "photo_flowers",
+      "kind": "photo",
+      "bbox": [
+        64,
+        422,
+        406,
+        667
+      ],
+      "description": "左侧花束照片窗口，呈不规则圆润轮廓，包含多色花束、玻璃器皿与点燃的细蜡烛；保留摄影环境，窗口周围有白色短虚线描边。"
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        456,
+        423,
+        938,
+        804
+      ],
+      "description": "右侧较大的竖向照片窗口，画面中一位长发女性坐在桌边，双手合十闭眼许愿，身穿粉色上衣，桌上有礼物、花朵、玻璃杯和点燃的蜡烛，背景墙上挂着人像画；保留摄影环境，窗口周围有白色短虚线描边。"
+    },
+    {
+      "id": "photo_lower",
+      "kind": "photo",
+      "bbox": [
+        101,
+        691,
+        543,
+        969
+      ],
+      "description": "左下方横向照片窗口，画面中同一女性穿粉色蓬裙和长手套，坐在桌边微笑并手持细蜡烛，背景可见挂画与沙发；保留摄影环境，窗口周围有白色短虚线描边，右侧边缘叠在右侧大照片前。"
+    },
+    {
+      "id": "overlay_birthday",
+      "kind": "overlay",
+      "bbox": [
+        545,
+        790,
+        946,
+        972
+      ],
+      "description": "右下方白色手写艺术字“Happy Birthday”，带有同风格的弧线、短线和小装饰笔画，作为完整独立装饰保留。"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_flowers",
+    "photo_main",
+    "photo_lower",
+    "overlay_birthday"
+  ]
+}
