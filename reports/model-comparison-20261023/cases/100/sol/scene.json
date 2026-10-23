@@ -1,0 +1,684 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\prepared\\reference.png",
+    "sha256": "7195582206902165a5994b8551ad39e368b49dd71e709a7b9f48f89c10a05fa4"
+  },
+  "reference_size": [
+    900,
+    1601
+  ],
+  "canvas_size": [
+    1200,
+    2135
+  ],
+  "objects": [
+    {
+      "id": "background_kraft",
+      "kind": "background",
+      "bbox": [
+        0,
+        549,
+        900,
+        1071
+      ],
+      "description": "中间横贯画面的牛皮纸材质底板，保留浅棕色纸纤维、颗粒和自然深浅纹理。",
+      "label": "中间横贯画面的牛皮纸材质底板，保留浅棕色纸纤维、颗粒和自然深",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "HTTPError: HTTP Error 402: Payment Required",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "40107f1da3b0e89af75e8b17bd8073e5d168edb4c53951d81af8ffa64bebb078"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        549
+      ],
+      "description": "餐厅内一名长发黑衣女子坐在餐桌后，左侧手持筷子，右侧手举饮料杯；前景右侧伸来的手持金属汤勺遮住她的脸。桌上有铜锅、炉具、米饭、沙拉、肉串及饮料，完整保留餐厅摄影环境，照片四边裁切清晰。",
+      "label": "餐厅内一名长发黑衣女子坐在餐桌后，左侧手持筷子，右侧手举饮料",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_top",
+        "reason": "保留人物、前景手与汤勺及完整餐厅环境；照片为水平矩形窗口，下沿与牛皮纸背景硬切，无主体描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_top",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "正面单人双手抬起，最接近参考人物的手部构图；居中横裁保留帽顶、脸和双手。不镜像；素材为湖边女子，无餐桌、饮料或遮脸汤勺。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-130-c4dc0674465d\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        0,
+        1071,
+        900,
+        1601
+      ],
+      "description": "餐厅内一名短发浅蓝上衣男子坐在餐桌后，一手持筷子、一手举饮料杯；左下方伸来的前景手臂持汤勺遮住他的脸。桌上有铜锅、炉具、沙拉、米饭及多杯饮料，保留完整摄影环境，画面在底边裁切桌上菜品与前景手臂。",
+      "label": "餐厅内一名短发浅蓝上衣男子坐在餐桌后，一手持筷子、一手举饮料",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bottom",
+        "reason": "保留男子、前景手臂与汤勺及餐厅摄影环境；上沿与纸张区域边界清晰，其余边在画布处裁切，无出框、描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bottom",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "正面单人近景并有抬手动作；居中横裁突出脸部与举起的手，不镜像。缺少参考中的男子、餐厅及桌上菜品，仅作人物构图近似。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-130-c4dc0674465d\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "photo_salad",
+      "kind": "photo",
+      "bbox": [
+        194,
+        616,
+        410,
+        789
+      ],
+      "description": "俯拍一只浅色条纹圆碗，碗中有绿叶菜、黄瓜片、肉末及粉红色细丝。沿碗的完整外轮廓去除摄影背景，外围附有一圈白色手绘虚线，虚线与碗共同保留。",
+      "label": "俯拍一只浅色条纹圆碗，碗中有绿叶菜、黄瓜片、肉末及粉红色细丝",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_salad",
+        "reason": "保留沙拉与完整碗体组合，去除摄影背景，周围透出纸张；白色虚线沿碗外轮廓留白环绕，以圆头虚线近似手绘线，无独立固定窗口或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.025,
+            0.035
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.02
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_salad",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.6
+        ],
+        "mirror_x": false,
+        "reason": "没有沙拉素材；近似替代为俯身比手势的女子，帽顶、手部及双脚完整可见，主体轮廓较清晰，可供分割选材。保持全幅、不镜像，对齐略偏下；人物不能还原碗与菜品。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-130-c4dc0674465d\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "photo_skewers",
+      "kind": "photo",
+      "bbox": [
+        436,
+        591,
+        651,
+        754
+      ],
+      "description": "俯拍深灰圆盘上的多串烤肉，肉串成排铺放，竹签向下方及左下方伸出。沿盘子和伸出的竹签组合轮廓去除摄影背景，外侧白色手绘虚线包围完整组合。",
+      "label": "俯拍深灰圆盘上的多串烤肉，肉串成排铺放，竹签向下方及左下方伸",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_skewers",
+        "reason": "盘子、烤肉与伸出的竹签共同作为去背景主体；白色虚线随盘沿及竹签组合外轮廓分布，不是椭圆窗口描边，手绘不规则处以圆头虚线近似，无窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.025,
+            0.035
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.02
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_skewers",
+        "asset_id": "material_15",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.7
+        ],
+        "mirror_x": false,
+        "reason": "没有肉串或餐盘素材；替代图中背向站立人物头脚完整，与湖水背景可区分，可作为人物分割候选。保持全幅、不镜像，向下对齐优先保留脚部；主体与参考料理明显不同。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-130-c4dc0674465d\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\prepared\\material_15.jpg"
+      }
+    },
+    {
+      "id": "photo_rice",
+      "kind": "photo",
+      "bbox": [
+        225,
+        821,
+        418,
+        973
+      ],
+      "description": "俯拍深色圆盘中的橙黄色炒饭，顶部有黑色海苔碎及配料。沿盘子外轮廓去除摄影背景，盘外一圈白色手绘虚线属于该照片的边缘效果。",
+      "label": "俯拍深色圆盘中的橙黄色炒饭，顶部有黑色海苔碎及配料。沿盘子外",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_rice",
+        "reason": "炒饭与完整深色盘子作为去背景主体，盘外显示纸张；白色虚线与盘沿保持小段留白，按主体轮廓描绘，以规则虚线近似手绘效果，无固定几何窗口或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.025,
+            0.035
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.02
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_rice",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.65
+        ],
+        "mirror_x": false,
+        "reason": "没有炒饭素材；侧身站立女子的帽子、手臂、包和靴子可见，轮廓较明确，可供人物分割选材。按要求保留全幅、不镜像，略向下对齐；横槽直接覆盖仍可能截断人物，不能冒充完整餐盘。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-130-c4dc0674465d\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "photo_pot",
+      "kind": "photo",
+      "bbox": [
+        487,
+        810,
+        684,
+        967
+      ],
+      "description": "俯拍双耳铜锅中的红色年糕料理，中央覆盖浅黄色芝士，锅下连同黑色炉面和棕色底座一起显示。沿锅、双侧把手及炉具的完整组合去除摄影背景，外围白色手绘虚线随组合轮廓保留。",
+      "label": "俯拍双耳铜锅中的红色年糕料理，中央覆盖浅黄色芝士，锅下连同黑",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_pot",
+        "reason": "料理、铜锅、双侧把手及下方黑色炉面和棕色底座共同去背景；白色虚线包围整个组合，底部斜边来自炉具轮廓而非窗口，手绘线以圆头虚线近似，无固定窗口或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.015,
+          "color": "#FFFFFF",
+          "pattern": "dash",
+          "dash": [
+            0.025,
+            0.035
+          ],
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.02
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_pot",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.56
+        ],
+        "mirror_x": false,
+        "reason": "没有铜锅与炉具素材；替代为背向举起双臂的人物，双手和双脚完整可见，轮廓可辨，可供分割选材。保持全幅、不镜像，略向下对齐兼顾手脚；并非锅具组合，也无参考中的料理。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-130-c4dc0674465d\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "overlay_loading",
+      "kind": "overlay",
+      "bbox": [
+        27,
+        557,
+        211,
+        672
+      ],
+      "description": "左上角白色手写装饰，包含错落排布的“快乐 加载中”、上方小电池图形及下方两组小爱心；保留原有字形、位置和细线笔触，作为一个完整局部设计。",
+      "label": "左上角白色手写装饰，包含错落排布的“快乐 加载中”、上方小电",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "ee0239698db45568c8865bd60880457ef31d8406b6f2f17d60f6a4baaf17c714"
+      }
+    },
+    {
+      "id": "overlay_characters",
+      "kind": "overlay",
+      "bbox": [
+        10,
+        712,
+        216,
+        892
+      ],
+      "description": "相互依偎的蓝色考拉与白色粉耳兔卡通贴纸，包含深灰外轮廓、粉色脸颊及手部小动作，整体保留。",
+      "label": "相互依偎的蓝色考拉与白色粉耳兔卡通贴纸，包含深灰外轮廓、粉色",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "4a2699acc807ae36cd74f66bef73cd93c80c354b82e3b8b787aa4426cf6a8457"
+      }
+    },
+    {
+      "id": "overlay_utensils",
+      "kind": "overlay",
+      "bbox": [
+        673,
+        624,
+        831,
+        749
+      ],
+      "description": "白色手绘叉子与餐刀装饰，连同周围的小圆点、短线和闪光星形作为完整一组保留。",
+      "label": "白色手绘叉子与餐刀装饰，连同周围的小圆点、短线和闪光星形作为",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "7748ef6366997e7dccae01aed5ad700249d0ae0eeb2e58628568fd0569dcac0d"
+      }
+    },
+    {
+      "id": "overlay_fish",
+      "kind": "overlay",
+      "bbox": [
+        709,
+        961,
+        868,
+        1033
+      ],
+      "description": "右下角三条分散排布的白色线描小鱼，大小及朝向各异，作为同一局部鱼群装饰完整保留。",
+      "label": "右下角三条分散排布的白色线描小鱼，大小及朝向各异，作为同一局",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "cf2c4b0ee0c07e5236be70781eb1f1b68e7c0486176baaef07f11c087386c9bb"
+      }
+    },
+    {
+      "id": "text_caption",
+      "kind": "text",
+      "bbox": [
+        103,
+        1005,
+        749,
+        1055
+      ],
+      "description": "一起吃饭 | 普通日子里的小浪漫",
+      "label": "一起吃饭 | 普通日子里的小浪漫",
+      "method": "local",
+      "text": "一起吃饭 | 普通日子里的小浪漫",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "background_kraft",
+    "photo_top",
+    "photo_bottom",
+    "photo_salad",
+    "photo_skewers",
+    "photo_rice",
+    "photo_pot",
+    "overlay_loading",
+    "overlay_characters",
+    "overlay_utensils",
+    "overlay_fish",
+    "text_caption"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "c599de5e5263fd04fb749c4171910de20c342b9690398994bf928f19857934d2",
+    "bindings": "3a41bb6384f01b634c7a574b36fc6314f1a98fb56a5b81af9f8517cb162119ba",
+    "input": "f2070065c233686de6efddedba00679a1c01ae670343c77cfe1a266bce7e6698",
+    "catalog": "ecebfd2349c4ec2842b880bdddd1dfe09fbd62b61d29514040a70c7c1f27b592",
+    "photo_windows": "e14ca5f6a68d0e4eaa65f69f4bad2a05888e5d7076be986d7a49454793d63a76"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\assets\\reveal\\index.json",
+    "sha256": "4b1fb0ca288755152c31ee0f110332df07060c8e2f1fd48225f405f9f8c5c894"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-130\\assets\\gate\\report.json",
+    "sha256": "860f75164309fcb47e55bc3784fa399a33d06d3f196199386d1a7293ceb157a0",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 5,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
