@@ -1,0 +1,801 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\prepared\\reference.png",
+    "sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1020
+      ],
+      "description": "铺底摄影内容，为一张对镜自拍。画面中一名长发女子身穿黑白拼接连衣裙，正举着手机拍摄镜子中的自己，背景是带有复古花纹地毯和木门的室内环境。",
+      "label": "铺底摄影内容，为一张对镜自拍。画面中一名长发女子身穿黑白拼接",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_main",
+        "reason": "铺底照片，保留完整摄影背景。画面边缘清晰，无窗口描边或渐变效果。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_main",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "参考图主图为对镜自拍，素材库中无此场景。选择竖构图且包含人物全身背影的 material_14 作为近似替代，画面主体突出，背景开阔，符合铺底照片的氛围需求。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-108-cfbda8581f50\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "overlay_ui_top",
+      "kind": "overlay",
+      "bbox": [
+        81,
+        24,
+        819,
+        84
+      ],
+      "description": "位于顶部的相机界面UI元素，包含左侧关闭叉号、中间闪光灯图标及右侧更多选项圆圈，均为白色线条样式。",
+      "label": "位于顶部的相机界面UI元素，包含左侧关闭叉号、中间闪光灯图标",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "a062d3686baad0e9b4b3046e814a33fbce60b5880d23d7f9dcd48f672a7bf37c"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_top.png",
+        "sha256": "0107f3f3dce4a60e94cd96c3ebbdbb3af125474a821384edc350a4825427dc70",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_ui_top-restored.png",
+          "sha256": "0107f3f3dce4a60e94cd96c3ebbdbb3af125474a821384edc350a4825427dc70",
+          "bbox": [
+            75,
+            18,
+            825,
+            90
+          ],
+          "original_bbox": [
+            81,
+            24,
+            819,
+            84
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "ce81f0f279f3c99cf8dbac3ff3850fe6ff90ad16a328021bb6efb869f3517697",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_top-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_top-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_ui_left",
+      "kind": "overlay",
+      "bbox": [
+        36,
+        396,
+        108,
+        732
+      ],
+      "description": "位于左侧的相机功能图标列，包含文字Aa、心形、网格布局及向下箭头，均为白色线条样式。",
+      "label": "位于左侧的相机功能图标列，包含文字Aa、心形、网格布局及向下",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d9fb77f02f525cae896696d50bf5a870681c079bac45c51cf092fa50e36ff1bd"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_left.png",
+        "sha256": "0b8427f63a4a9da6672b76d3492eedbc594e891e2fc7c95d9875db6fde678638",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_ui_left-restored.png",
+          "sha256": "0b8427f63a4a9da6672b76d3492eedbc594e891e2fc7c95d9875db6fde678638",
+          "bbox": [
+            28,
+            388,
+            116,
+            740
+          ],
+          "original_bbox": [
+            36,
+            396,
+            108,
+            732
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "9db16a09ed594f48c05390ac66891d68231f444699c080e13639f750093fc8af",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_left-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_left-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_ui_bottom",
+      "kind": "overlay",
+      "bbox": [
+        117,
+        984,
+        783,
+        1188
+      ],
+      "description": "位于底部的相机操作栏，包含模式选择文字（SLO-MO, VIDEO, PHOTO等）、圆形快门按钮、相册缩略图及翻转镜头图标。",
+      "label": "位于底部的相机操作栏，包含模式选择文字（SLO-MO, VI",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "6f38883d3715a4d6c60ceb98cbac95ee1711b285f3d5c4d724054a6c161e7aa5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_bottom.png",
+        "sha256": "7b73412dfd3dc17495356c0b7e46ac5893d80afec9038e7cbea7ca13a567a89e",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_ui_bottom-restored.png",
+          "sha256": "7b73412dfd3dc17495356c0b7e46ac5893d80afec9038e7cbea7ca13a567a89e",
+          "bbox": [
+            109,
+            976,
+            791,
+            1196
+          ],
+          "original_bbox": [
+            117,
+            984,
+            783,
+            1188
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_08.png",
+          "raw_sha256": "f20bf9d538c9ee10556397d4d47d73c6c110507ea8c9e76420d76fdc5e4f8119",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_bottom-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_ui_bottom-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "text_tag_1",
+      "kind": "text",
+      "bbox": [
+        72,
+        216,
+        324,
+        264
+      ],
+      "description": "°+☆ • +°너와 함께.ғ",
+      "label": "°+☆ • +°너와 함께.ғ",
+      "method": "local",
+      "text": "°+☆ • +°너와 함께.ғ",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "sans",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_tag_2",
+      "kind": "text",
+      "bbox": [
+        207,
+        300,
+        333,
+        360
+      ],
+      "description": "-',♡,'-",
+      "label": "-',♡,'-",
+      "method": "local",
+      "text": "-',♡,'-",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "font": "sans",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_inset_heart_tr",
+      "kind": "photo",
+      "bbox": [
+        612,
+        132,
+        846,
+        408
+      ],
+      "description": "右上角的心形照片窗口，显示一名女子坐在户外台阶上，双手交握，穿着格纹裙。边缘有白色手绘风格描边。",
+      "label": "右上角的心形照片窗口，显示一名女子坐在户外台阶上，双手交握，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_inset_heart_tr",
+        "reason": "心形窗口照片，保留内部摄影环境。白色手绘风格粗边框依附于几何形状轮廓（非主体分割），故启用蒙版描边并关闭主体描边。",
+        "shape": {
+          "type": "heart"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.02,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_inset_heart_tr",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.3
+        ],
+        "mirror_x": false,
+        "reason": "参考图右上角为坐姿人像特写。选择 material_09，该图为半身人像，人物表情生动且占据画面主要位置，适合心形窗口的裁切展示，能很好地呼应原图的活泼感。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-108-cfbda8581f50\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "overlay_sticker_i_love_me_tr",
+      "kind": "overlay",
+      "bbox": [
+        792,
+        240,
+        882,
+        360
+      ],
+      "description": "位于右上心形照片旁的“I love ME”贴纸，心形图案为粉色，文字为黑色，整体带有白色轮廓。",
+      "label": "位于右上心形照片旁的“I love ME”贴纸，心形图案为粉",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5c001c501fd4418dc1638cf71f38d16e51ae25ba1f05ccc781af448b9908052a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_tr.png",
+        "sha256": "78141ad7b01b5c0e9b7c6fc0e277e0c4bd8eecd207a343109505f00f2c98f5a8",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_sticker_i_love_me_tr-restored.png",
+          "sha256": "78141ad7b01b5c0e9b7c6fc0e277e0c4bd8eecd207a343109505f00f2c98f5a8",
+          "bbox": [
+            784,
+            232,
+            890,
+            368
+          ],
+          "original_bbox": [
+            792,
+            240,
+            882,
+            360
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "7f5b8006ec31e172fb75b41ff89b26486c43eebddea70b89e1500891e27b7cc8",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_tr-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_tr-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_sticker_i_love_me_center",
+      "kind": "overlay",
+      "bbox": [
+        360,
+        312,
+        540,
+        480
+      ],
+      "description": "位于主图中央遮挡面部的“I love ME”贴纸，具有明显的白色发光光晕效果，心形为粉色，文字为黑色粗体。",
+      "label": "位于主图中央遮挡面部的“I love ME”贴纸，具有明显的",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "54681008bed14e86d937cfa6f7905bf67756e1410499a24f3270dc78bc63b68f"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_center.png",
+        "sha256": "04368ac99dd29fb2ce416610afbe3d68a384afa9d072f99bf8128e72158096b0",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_sticker_i_love_me_center-restored.png",
+          "sha256": "04368ac99dd29fb2ce416610afbe3d68a384afa9d072f99bf8128e72158096b0",
+          "bbox": [
+            352,
+            304,
+            548,
+            488
+          ],
+          "original_bbox": [
+            360,
+            312,
+            540,
+            480
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "a7c59be03de862d786a93ff9600077562212169aa76ab74e20d0a098bafbb63a",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_center-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_center-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_inset_heart_bl",
+      "kind": "photo",
+      "bbox": [
+        90,
+        708,
+        315,
+        948
+      ],
+      "description": "左下角的心形照片窗口，显示一名女子抱着一只黑白花猫的特写。边缘有白色手绘风格描边。",
+      "label": "左下角的心形照片窗口，显示一名女子抱着一只黑白花猫的特写。边",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_inset_heart_bl",
+        "reason": "心形窗口照片，保留内部摄影环境。白色手绘风格粗边框依附于几何形状轮廓，故启用蒙版描边并关闭主体描边。",
+        "shape": {
+          "type": "heart"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.02,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_inset_heart_bl",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.4
+        ],
+        "mirror_x": false,
+        "reason": "参考图左下角为人物与宠物的合影特写。选择 material_13，该图同样为近景人像，人物姿态自然，面部清晰，适合作为装饰性的小窗口图片，与整体风格协调。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261023-108-cfbda8581f50\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "overlay_sticker_i_love_me_bl",
+      "kind": "overlay",
+      "bbox": [
+        54,
+        840,
+        144,
+        936
+      ],
+      "description": "位于左下爱心照片旁的“I love ME”贴纸，心形图案为粉色，文字为黑色，整体带有白色轮廓。",
+      "label": "位于左下爱心照片旁的“I love ME”贴纸，心形图案为粉",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "5c5fbbdcaa8fa77722139c620e410e9b9cafb73efc4ceecc382ecaf4f1ac786a"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_bl.png",
+        "sha256": "32244592ab463e1cf77739ff7b047121b24df551fd1cd9385ad91411bde474e9",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_sticker_i_love_me_bl-restored.png",
+          "sha256": "32244592ab463e1cf77739ff7b047121b24df551fd1cd9385ad91411bde474e9",
+          "bbox": [
+            46,
+            832,
+            152,
+            944
+          ],
+          "original_bbox": [
+            54,
+            840,
+            144,
+            936
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "eb3b7007f600d5fa49bc5c39080ce6decd1bd81176a7086edf33eb6a2cf65eaf",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_bl-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_sticker_i_love_me_bl-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_text_box_br",
+      "kind": "overlay",
+      "bbox": [
+        603,
+        708,
+        837,
+        876
+      ],
+      "description": "右下角的白色矩形文本框，内部包含韩文诗句“힘들면 눈을 감고 팔을 뻗어 세상의 자유를 느껴봐요!”以及装饰符号“— ☆: *♫* :☆ —”。作为完整设计单元保留。",
+      "label": "右下角的白色矩形文本框，内部包含韩文诗句“힘들면 눈을 감고",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c71218f8e8233f14173304c8d541517748e6eb4efec81244b1ff757668d83088"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_text_box_br.png",
+        "sha256": "7aab3937f38ccdc5676f1c7da854679b69bd50675c113380ac33cf7932a96b92",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_text_box_br-restored.png",
+          "sha256": "7aab3937f38ccdc5676f1c7da854679b69bd50675c113380ac33cf7932a96b92",
+          "bbox": [
+            595,
+            700,
+            845,
+            884
+          ],
+          "original_bbox": [
+            603,
+            708,
+            837,
+            876
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_07.png",
+          "raw_sha256": "3b2982ac42e0d1b88d7b866487110d40ebec53c8be10006b51855a794300c5e6",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_text_box_br-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_text_box_br-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_deco_stars",
+      "kind": "overlay",
+      "bbox": [
+        171,
+        84,
+        846,
+        948
+      ],
+      "description": "散布在画面各处的白色五角星装饰图案，大小不一，作为独立的装饰层保留。",
+      "label": "散布在画面各处的白色五角星装饰图案，大小不一，作为独立的装饰",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Layer spans multiple photos; inspect actual pixels, retained without automatic rejection"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d4778d878bd0e3ba47ccdd0ab821d65289d5df3700aa4595437049f29b5866a0"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_deco_stars.png",
+        "sha256": "b75d6b60c3cd742a545be730e7217705438ea09d4b805411824ef19081e435a8",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\overlay_deco_stars-restored.png",
+          "sha256": "b75d6b60c3cd742a545be730e7217705438ea09d4b805411824ef19081e435a8",
+          "bbox": [
+            163,
+            76,
+            854,
+            956
+          ],
+          "original_bbox": [
+            171,
+            84,
+            846,
+            948
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "aa2cdddc9d2994d88df5cfff215d2c90a753691e71d4a39ccb6e7a1e8416aace",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "604728fa4269b8c58f222c99c26674609b4e23f3c3350e414a97592b19a611e9"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_deco_stars-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\overlay_deco_stars-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "photo_main",
+    "overlay_ui_top",
+    "overlay_ui_left",
+    "overlay_ui_bottom",
+    "text_tag_1",
+    "text_tag_2",
+    "photo_inset_heart_tr",
+    "overlay_sticker_i_love_me_tr",
+    "overlay_sticker_i_love_me_center",
+    "photo_inset_heart_bl",
+    "overlay_sticker_i_love_me_bl",
+    "overlay_text_box_br",
+    "overlay_deco_stars"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "996977520ec29c3d21103d52c7eab570958dcc32bbd84a494fdc4a9f25aad13e",
+    "bindings": "e8205ad7ee271d57cda88fea36dcbb56a03ec96c6f783a5fe36e05f07f11e2e4",
+    "input": "21d526df06bb256c19dee592ca862a4d90eee9d8b78042a98e9b67259573a161",
+    "catalog": "60126642f2069da0c3a181f316b612933e16e464b00b9d064fe506b0d012ffd1",
+    "photo_windows": "210960f16aaf2de480977d9610182e08ecd7b17eaa358cc55ee09ca59da0d0d4"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\reveal\\index.json",
+    "sha256": "17552c6fc1f0357fb02310fc8e8bc88c94bc6a8afc0ea08c722863bfa9a974e3"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\assets\\gate\\report.json",
+    "sha256": "d808e86c06f23a9ef6931fe044c5236a55eb57572239f369efc6e7c9b633bd27",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 8,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 1,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261023-108\\previews\\gate-1.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}

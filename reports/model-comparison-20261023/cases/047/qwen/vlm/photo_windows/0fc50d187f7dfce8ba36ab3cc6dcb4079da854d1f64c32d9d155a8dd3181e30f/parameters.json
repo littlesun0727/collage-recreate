@@ -1,0 +1,28 @@
+{
+  "model": "qwen3.8-flash",
+  "reasoning": {
+    "enabled": false
+  },
+  "temperature": 0,
+  "max_tokens": 16000,
+  "single_request": false,
+  "provider": "yibu",
+  "endpoint": "http://127.0.0.1:17860/v1/chat/completions",
+  "image_dimensions_in_prompt": false,
+  "request_options": {
+    "max_tokens": 16000,
+    "temperature": 0,
+    "enable_thinking": false
+  },
+  "response_format": "json_object",
+  "coordinates": {
+    "mode": "normalized_1000",
+    "canonical_mode": "pixel",
+    "reference_size": [
+      900,
+      1200
+    ],
+    "scale": 1000,
+    "adapter_version": 2
+  }
+}
