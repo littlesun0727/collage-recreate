@@ -1,0 +1,117 @@
+{
+  "steps": {
+    "analyze": {
+      "status": "complete",
+      "started_at": "2026-10-23T12:56:05.536794+00:00",
+      "finished_at": "2026-10-23T12:56:55.179113+00:00",
+      "value": null
+    },
+    "photo_windows": {
+      "status": "complete",
+      "started_at": "2026-10-23T12:56:55.200280+00:00",
+      "finished_at": "2026-10-23T12:57:22.147057+00:00",
+      "value": null
+    },
+    "boxes": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T12:57:22.169841+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "boxes_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T12:57:22.169857+00:00",
+      "summary": "bbox 校准已关闭，沿用当前分析框"
+    },
+    "bind": {
+      "status": "complete",
+      "started_at": "2026-10-23T12:57:22.175201+00:00",
+      "finished_at": "2026-10-23T12:57:45.439142+00:00",
+      "value": null
+    },
+    "build": {
+      "status": "complete",
+      "started_at": "2026-10-23T12:57:45.446189+00:00",
+      "finished_at": "2026-10-23T12:58:50.283406+00:00",
+      "value": null
+    },
+    "screen": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T12:58:50.290166+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "screen_apply": {
+      "status": "skipped",
+      "finished_at": "2026-10-23T12:58:50.290183+00:00",
+      "summary": "相框审核已关闭，直接使用提取素材"
+    },
+    "register": {
+      "status": "complete",
+      "started_at": "2026-10-23T12:58:50.549402+00:00",
+      "finished_at": "2026-10-23T12:58:52.084913+00:00",
+      "value": null
+    }
+  },
+  "started_at": "2026-10-23T12:56:05.306859+00:00",
+  "identity": "9aef837ba300a1b5a1dd3d51200e06475a0185f06d601dd0b3d70dcf77e65974",
+  "status": "finished",
+  "error": null,
+  "binding_contract": "photo-binding-v9-1",
+  "model": "qwen3.8-flash",
+  "controller": "workflow-v9",
+  "attempt": 1,
+  "model_policy": {
+    "analyze": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    },
+    "subsequent": {
+      "model": "qwen3.8-flash",
+      "reasoning": {
+        "enabled": false
+      },
+      "max_tokens": 16000,
+      "coordinate_mode": "normalized_1000",
+      "provider": "yibu",
+      "response_format": "json_object"
+    }
+  },
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "updated_at": "2026-10-23T12:58:52.091569+00:00",
+  "usage": {
+    "requests": 3,
+    "prompt_tokens": 31452,
+    "completion_tokens": 2645,
+    "reported_cost_usd": 0,
+    "cost_complete": false
+  },
+  "worker_pid": 28828,
+  "current_step": "register",
+  "warnings": [
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_fish：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_cat：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    },
+    {
+      "code": "asset_fallback",
+      "stage": "build",
+      "message": "frame_trees：提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+    }
+  ],
+  "last_render_id": "675dddf5820243ae",
+  "finished_at": "2026-10-23T12:58:52.091482+00:00"
+}
