@@ -1,0 +1,1451 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\reference.png",
+    "sha256": "744ac03e988026ba91512fb612edc25f5624a63e9b550365dc0b319bae495391"
+  },
+  "reference_size": [
+    1080,
+    1437
+  ],
+  "canvas_size": [
+    1200,
+    1597
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1437
+      ],
+      "description": "暖棕色软木纹理底面与上方展开的白色点阵活页本整体保留，包括纸页边缘、中央接缝、三组金属活页环及其阴影；所有独立照片、文字与贴饰另列。",
+      "label": "暖棕色软木纹理底面与上方展开的白色点阵活页本整体保留，包括纸",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "HTTPError: HTTP Error 402: Payment Required",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "00a3ff355e7e7304fe3a70d85857b49d5dd26c9afa51c7aaea690187cdc9700a"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        189,
+        111,
+        431,
+        273
+      ],
+      "description": "一名长发女性站在室内木质墙面前，白色露肩上衣，手靠近脸侧，上半身入镜；保留摄影背景及右下角日期，照片边界清晰。",
+      "label": "一名长发女性站在室内木质墙面前，白色露肩上衣，手靠近脸侧，上",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "保留人物、木墙及日期等完整摄影内容；矩形边界清晰，无主体描边或透明渐变，右上贴纸为独立遮挡。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0.29,
+          1,
+          0.8
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "单人正面、双手靠近脸侧，横向裁取帽顶至上半身并保留手势；但为户外戴帽照，无木墙、露肩服装和日期。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        92,
+        283,
+        273,
+        526
+      ],
+      "description": "两名女性室内近距离合影，前方女性俯身靠近镜头，另一人在右后方微笑，保留暗色花卉背景；窗口外缘有细白边。",
+      "label": "两名女性室内近距离合影，前方女性俯身靠近镜头，另一人在右后方",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "两人及暗色花卉背景一起保留；细白边沿矩形照片窗口而非人物轮廓，局部被贴纸遮住，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.012,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "女性俯身靠近镜头的姿势最接近，基本保留全幅及脚部；仅一名近景人物，非室内双人合影。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        299,
+        285,
+        486,
+        533
+      ],
+      "description": "夜间道路上的骑车场景，近处为戴白色头盔者的背影，前方有其他骑车人、车辆与树木；保留完整摄影环境，照片窗口沿边有白色线框。",
+      "label": "夜间道路上的骑车场景，近处为戴白色头盔者的背影，前方有其他骑",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "保留骑车人物、道路与树木环境；白色微圆角边线属于固定窗口。右上浅色图案覆盖窗口，不作为摄影边缘渐变；外侧细暗线未重复模拟。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.025
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.018,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_15",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.52,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "以戴帽人物背影近似原槽背面视角，竖向居中保留头部和双脚；实际为白天湖边站立，没有头盔、骑车或夜间道路。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_15.jpg"
+      }
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        96,
+        537,
+        478,
+        787
+      ],
+      "description": "三名女性在红色沙发前并排合影，中间与右侧面部可见，左侧面部被独立表情贴纸遮挡；保留室内背景、人物完整可见部分和底部日期，摄影内容没有去背景。",
+      "label": "三名女性在红色沙发前并排合影，中间与右侧面部可见，左侧面部被",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_4",
+        "reason": "三人、沙发背景和日期保留在矩形照片内；表情及文字贴纸只是遮挡，没有连续出框、主体描边或边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_4",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0.26,
+          1,
+          0.76
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "选正面女性及举手姿势，横裁保留帽顶、面部、手指和上半身；素材没有三人合影、沙发或日期。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "photo_5",
+      "kind": "photo",
+      "bbox": [
+        638,
+        138,
+        868,
+        290
+      ],
+      "description": "两名女性坐在红色沙发上的半身合影，左侧穿黑色上衣，右侧穿白色露肩上衣并拿饮料；保留摄影环境和日期，显示于邮政纸卡内口。",
+      "label": "两名女性坐在红色沙发上的半身合影，左侧穿黑色上衣，右侧穿白色",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_5",
+        "reason": "保留两人、沙发及日期；制作框对齐 frame_5 的矩形摄影内口。牛皮纸、邮政印字和框体由原相框保留，不重复描边，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_5",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0.27,
+          1,
+          0.78
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "裁取单人帽顶至上半身，保留暖色衣着及山地背景；仅为侧向站立人物，与双人正面坐姿、饮料和室内场景明显不同。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "frame_5",
+      "kind": "frame",
+      "bbox": [
+        623,
+        95,
+        1005,
+        305
+      ],
+      "description": "承载照片的牛皮纸色邮政卡片，保留上方红色邮编方格、右上邮资框及中文印字、右下“邮政编码：362400”和纸面质感；照片内容独立替换。",
+      "photo_id": "photo_5",
+      "label": "承载照片的牛皮纸色邮政卡片，保留上方红色邮编方格、右上邮资框",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "ad29c73fa4e82b2dd717afee8b35a7cb4da27e528091a90cdcfa3273e746bd71"
+      }
+    },
+    {
+      "id": "photo_6",
+      "kind": "photo",
+      "bbox": [
+        686,
+        322,
+        989,
+        527
+      ],
+      "description": "两名女性在深红花卉墙面前半身合影，左侧穿浅色上衣并举剪刀手，右侧穿白色红花露肩上衣；保留摄影背景和日期，照片边界清晰。",
+      "label": "两名女性在深红花卉墙面前半身合影，左侧穿浅色上衣并举剪刀手，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_6",
+        "reason": "保留双人及花卉墙面摄影背景；固定矩形边界清晰，左侧纸片为遮挡，没有人物轮廓描边或透明过渡。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_6",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0.29,
+          1,
+          0.8
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "复用正面女性手势照，横裁保留面部与两手；没有双人素材，此图也非剪刀手，无花卉墙面及日期。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "photo_7",
+      "kind": "photo",
+      "bbox": [
+        604,
+        576,
+        881,
+        764
+      ],
+      "description": "两名女性坐在红色沙发上，双手举至头顶附近做姿势，半身构图；保留沙发、墙面等摄影环境和日期，无主体抠出。",
+      "label": "两名女性坐在红色沙发上，双手举至头顶附近做姿势，半身构图；保",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_7",
+        "reason": "两人的举手姿势与沙发环境均在矩形照片内，保留摄影背景；右上纸条覆盖边缘，不构成出框或渐变，无可见描边。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_7",
+        "asset_id": "material_14",
+        "source_crop": [
+          0,
+          0.29,
+          1,
+          0.8
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "双臂上举的姿态较接近，横裁保留手尖至双脚和夕阳环境；实际为单人背影全身照，非双人正面沙发半身合影。"
+      },
+      "source": {
+        "id": "material_14",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\e9ab8a22c1aede33a1d0f3100e31e3ff81f25e7a05a192d8227b4d0fceab3681.png",
+        "sha256": "6cad0072779df4840395b31dde268fd6442909a926769cc599e4b9059b93926a",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_14.jpg"
+      }
+    },
+    {
+      "id": "photo_8",
+      "kind": "photo",
+      "bbox": [
+        307,
+        846,
+        513,
+        1000
+      ],
+      "description": "多人室内合影，人物集中于下半部，后方有深色格栅、竖向招牌和立柱；照片随青蓝相纸倾斜，保留摄影环境，人物不越出窗口。",
+      "label": "多人室内合影，人物集中于下半部，后方有深色格栅、竖向招牌和立",
+      "method": "local",
+      "rotation": -16.5,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_8",
+        "reason": "多人及格栅、招牌、立柱背景整体保留，矩形摄影内口随 frame_8 逆时针倾斜；青蓝宽边及浅色外沿属于固定框体，不另描边。与下层照片硬边叠放，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_8",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.65,
+          1
+        ],
+        "mirror_x": false,
+        "reason": "画面下半部可见多名游客及建筑，靠右下对齐保留这些内容；人物很小且并非合影，没有室内格栅和招牌。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "frame_8",
+      "kind": "frame",
+      "bbox": [
+        259,
+        789,
+        578,
+        1048
+      ],
+      "description": "倾斜摆放的青蓝色宽边照片纸框，保留浅色外沿、纸面色泽与阴影；承载中央多人合照，下缘压住左下方桌面照片。",
+      "photo_id": "photo_8",
+      "label": "倾斜摆放的青蓝色宽边照片纸框，保留浅色外沿、纸面色泽与阴影；",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "2148f9c79034589a618cfb75649a4071d675f3079f25c801addf6575507f0a8a"
+      }
+    },
+    {
+      "id": "photo_9",
+      "kind": "photo",
+      "bbox": [
+        573,
+        834,
+        761,
+        972
+      ],
+      "description": "多名女性在室内分前后排合影，有人举手摆姿势，保留背后的深色格栅、竖向招牌和室内环境；倾斜显示于白色相纸内口。",
+      "label": "多名女性在室内分前后排合影，有人举手摆姿势，保留背后的深色格",
+      "method": "local",
+      "rotation": 13.3,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_9",
+        "reason": "保留多人合影及室内背景，制作矩形顺时针旋转以对齐 frame_9 摄影内口；白色宽边和阴影保留在相框层，不重复绘制。叠放接缝清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_9",
+        "asset_id": "material_11",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          1,
+          1
+        ],
+        "mirror_x": false,
+        "reason": "保留右下方多名游客与环境，近似多人集中下部的构图；实际为户外远景散客，非分排摆姿势的室内女性合影。"
+      },
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_11.jpg"
+      }
+    },
+    {
+      "id": "frame_9",
+      "kind": "frame",
+      "bbox": [
+        535,
+        793,
+        827,
+        1015
+      ],
+      "description": "向右下倾斜的白色拍立得式相纸，保留较宽底边、纸张边缘与阴影；叠在青蓝照片纸框和下方大照片上。",
+      "photo_id": "photo_9",
+      "label": "向右下倾斜的白色拍立得式相纸，保留较宽底边、纸张边缘与阴影；",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "06df832171a8bdb5834e588186fbf91cc42c9750f088bc0dfc33835a731dcbc8"
+      }
+    },
+    {
+      "id": "photo_10",
+      "kind": "photo",
+      "bbox": [
+        69,
+        938,
+        390,
+        1365
+      ],
+      "description": "俯拍木桌上散放的六张多人合影相纸，桌面、相纸和相纸中的人物均属于这一张完整摄影内容，不另拆照片；保留桌面摄影背景，外围带细密蓝紫色边纹及白色轮廓。",
+      "label": "俯拍木桌上散放的六张多人合影相纸，桌面、相纸和相纸中的人物均",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_10",
+        "reason": "桌面及散放的六张相纸属于同一张摄影内容，整体保留，不拆分或抠人物。固定窗口近似微圆角矩形；外围蓝紫细纹与白色多重边线不能由单条描边完整表达，此处仅近似外侧白线，留白对应纹理带。上方被青蓝相框遮挡，无渐变。",
+        "shape": {
+          "type": "rounded_rect",
+          "corner_radius": 0.012
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.014,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.019
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_10",
+        "asset_id": "material_12",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无木桌相纸素材，以俯视盐湖道路和色块的完整环境照作低匹配替代，基本保留全幅；没有桌面、六张相纸或相纸内合影。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "photo_11",
+      "kind": "photo",
+      "bbox": [
+        446,
+        984,
+        1024,
+        1369
+      ],
+      "description": "两名长发女性坐在红色沙发前拥抱的近景合影，右侧女性手臂横过左侧女性前方，两人面向镜头；保留红色沙发、暗色室内背景及右下日期，上缘被两张倾斜相纸局部遮挡。",
+      "label": "两名长发女性坐在红色沙发前拥抱的近景合影，右侧女性手臂横过左",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_11",
+        "reason": "拥抱的两人、沙发、暗色室内背景和日期整体保留；窗口为水平矩形，无独立描边。上缘由倾斜相纸遮挡，暗部及局部柔和色调属于摄影内容，不作为透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_11",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0.26,
+          1,
+          0.76
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "复用正面近景女性照，横裁保留面部、举起的手及上半身；素材没有双人拥抱，不能还原交叠手臂、红沙发和日期。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-141-d83ee06d6020\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "heart_sticker",
+      "kind": "overlay",
+      "bbox": [
+        362,
+        78,
+        486,
+        177
+      ],
+      "description": "白色立体对话气泡贴纸，内部两颗深浅灰色爱心，连同浅灰描边与投影完整保留，覆盖左上照片右上角。",
+      "label": "白色立体对话气泡贴纸，内部两颗深浅灰色爱心，连同浅灰描边与投",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "1da95efcd37f7609b06b66189048698b529d4a24265105597e5d45faa8337fa7"
+      }
+    },
+    {
+      "id": "clip_sticker",
+      "kind": "overlay",
+      "bbox": [
+        84,
+        240,
+        172,
+        336
+      ],
+      "description": "黑白手绘长尾夹贴纸，带浅黄色夹体、粗黑轮廓及白色外边，完整覆盖左侧合影上缘。",
+      "label": "黑白手绘长尾夹贴纸，带浅黄色夹体、粗黑轮廓及白色外边，完整覆",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "4ae1740f214c267058bb9542f070375134f2e6b7cf4b296646c516cef71999f7"
+      }
+    },
+    {
+      "id": "animal_sticker",
+      "kind": "overlay",
+      "bbox": [
+        434,
+        201,
+        539,
+        282
+      ],
+      "description": "并排站立的猫与长耳兔手绘贴纸，保留棕色虚线轮廓、白色身体、表情与小点缀，作为一个完整局部装饰。",
+      "label": "并排站立的猫与长耳兔手绘贴纸，保留棕色虚线轮廓、白色身体、表",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e726b5a7052f844f61a58753e4e899ad32a2d69cc3e2d2af8bb3a64348f4bcaa"
+      }
+    },
+    {
+      "id": "face_doodle",
+      "kind": "overlay",
+      "bbox": [
+        442,
+        277,
+        507,
+        335
+      ],
+      "description": "小型黑色手绘表情及周围白色柔光团，位于道路照片右上角，柔光覆盖部分摄影画面，作为独立贴饰保留。",
+      "label": "小型黑色手绘表情及周围白色柔光团，位于道路照片右上角，柔光覆",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "8e332b182eb6d3716b570104661d4bc5b71a388d22dc27d3d7412495cc4ce299"
+      }
+    },
+    {
+      "id": "polka_tape",
+      "kind": "overlay",
+      "bbox": [
+        81,
+        497,
+        167,
+        543
+      ],
+      "description": "灰色白波点半透明胶带，保留纸边和透叠效果，横压左侧上下两张照片的接合处。",
+      "label": "灰色白波点半透明胶带，保留纸边和透叠效果，横压左侧上下两张照",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "39ccc48fbe77975a8df84ab61867abdf74ea1cc84a751fd2c3dbef166f4a539b"
+      }
+    },
+    {
+      "id": "emoji_sticker",
+      "kind": "overlay",
+      "bbox": [
+        171,
+        593,
+        248,
+        662
+      ],
+      "description": "黄色戴黑色墨镜、露齿大笑的表情贴纸，含头部周围小装饰，遮住三人合影最左侧人物面部。",
+      "label": "黄色戴黑色墨镜、露齿大笑的表情贴纸，含头部周围小装饰，遮住三",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "85e2ca9433ce86276eaebd0afbc1f8764e067bfb9068eff120ef710ba4adaa7f"
+      }
+    },
+    {
+      "id": "pencil_sticker",
+      "kind": "overlay",
+      "bbox": [
+        465,
+        461,
+        521,
+        570
+      ],
+      "description": "斜放的浅黄色铅笔贴饰，顶部带蓝色部分、底部为灰色笔尖，位于道路照片右下侧，部分被照片和附近装饰遮住。",
+      "label": "斜放的浅黄色铅笔贴饰，顶部带蓝色部分、底部为灰色笔尖，位于道",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "faddffd0b20e3aed343f422dc78aaec2beb96f3e2ad82e085e4257caa97605cc"
+      }
+    },
+    {
+      "id": "childhood_sticker",
+      "kind": "overlay",
+      "bbox": [
+        379,
+        533,
+        497,
+        614
+      ],
+      "description": "白色细线环绕轨迹与彩色小圆点组成的装饰，内有“Painting childhood”字样，保留完整线圈、点缀和特殊排版，叠在照片右上部。",
+      "label": "白色细线环绕轨迹与彩色小圆点组成的装饰，内有“Paintin",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "b7f19dca23506e0fa0d760f098140e942ca66797e2c9e61679295274291cb6ed"
+      }
+    },
+    {
+      "id": "word_collage",
+      "kind": "overlay",
+      "bbox": [
+        403,
+        608,
+        519,
+        754
+      ],
+      "description": "由白色、浅蓝和粉色小纸条拼贴成的英文句子“Used bookstore's clock lags half a heartbeat”，保留逐词错落位置、不同底纸、字形和叠贴关系。",
+      "label": "由白色、浅蓝和粉色小纸条拼贴成的英文句子“Used book",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "c3c1ec6e49693a223ae1d90db724701166dd28ec4bec1210cc3c8ed50816346b"
+      }
+    },
+    {
+      "id": "paperclip",
+      "kind": "overlay",
+      "bbox": [
+        602,
+        80,
+        671,
+        135
+      ],
+      "description": "斜置于牛皮纸照片卡左上角的浅色金属回形针，保留双线轮廓及投影，跨过卡片边缘。",
+      "label": "斜置于牛皮纸照片卡左上角的浅色金属回形针，保留双线轮廓及投影",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "62b3d0bc27d3403334ae551a1656d6689b4d784140b36b70ceb70f24d64928b5"
+      }
+    },
+    {
+      "id": "star_tabs",
+      "kind": "overlay",
+      "bbox": [
+        653,
+        302,
+        732,
+        384
+      ],
+      "description": "三块错落叠贴的小纸片星星装饰，包含黑色实心星及两颗线描星，纸片为灰白与浅米色，整体覆盖右侧中部照片左上角。",
+      "label": "三块错落叠贴的小纸片星星装饰，包含黑色实心星及两颗线描星，纸",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "97e544c913d30929fa4859fe26789313c5ff0e0113d0fcbf110b290b9de39e70"
+      }
+    },
+    {
+      "id": "newspaper_star",
+      "kind": "overlay",
+      "bbox": [
+        591,
+        434,
+        729,
+        568
+      ],
+      "description": "报纸印刷纹理构成的不规则星形剪纸，保留全部尖角、密集小字和纸面，部分叠压右侧照片左边缘。",
+      "label": "报纸印刷纹理构成的不规则星形剪纸，保留全部尖角、密集小字和纸",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "d21a4423dbf36534570fa5af19420692c29ec14f867a6dcc399a22dafb621f75"
+      }
+    },
+    {
+      "id": "gray_poem_label",
+      "kind": "overlay",
+      "bbox": [
+        812,
+        537,
+        1014,
+        614
+      ],
+      "description": "灰米色不规则纸标签，带蓝紫色手写英文短诗，以“The petal of a flower or a tiny worm”开头；保留文字、歪斜行列和纸片轮廓，横跨两张右侧照片间隙。",
+      "label": "灰米色不规则纸标签，带蓝紫色手写英文短诗，以“The pet",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "68d3956460e8288870af0a4a97c19f3b509cb9db210ad1276ccaca7de2696f30"
+      }
+    },
+    {
+      "id": "yellow_poem_note",
+      "kind": "overlay",
+      "bbox": [
+        900,
+        645,
+        1018,
+        796
+      ],
+      "description": "黄色横线便笺，带细竖线和多行手写英文，以“THE petal of a”开头，保留底纸纹理、线格、原有文字和纸边。",
+      "label": "黄色横线便笺，带细竖线和多行手写英文，以“THE petal",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "fac5b7986279853f25d9a7355d6e47db9c5e8c71a5f49c77dd80ece5d2b5171a"
+      }
+    },
+    {
+      "id": "bottom_tape",
+      "kind": "overlay",
+      "bbox": [
+        19,
+        802,
+        287,
+        852
+      ],
+      "description": "横贴在活页本下缘的浅黄绿色半透明横线胶带，印有“SO IT REALLY DOESN'T STOP”，保留文字、格线和整条纸边。",
+      "label": "横贴在活页本下缘的浅黄绿色半透明横线胶带，印有“SO IT ",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "03b47605aec25895c7775ec435296c7e4f9d6f68da8cf21fe2d9325ac1700b1f"
+      }
+    },
+    {
+      "id": "ribbon_label",
+      "kind": "overlay",
+      "bbox": [
+        880,
+        923,
+        1080,
+        1048
+      ],
+      "description": "浅米黄色折皱丝带状标签，带黑色英文“Can always seize the day boys”，保留弯折、阴影与两端轮廓，斜压在大照片右上角。",
+      "label": "浅米黄色折皱丝带状标签，带黑色英文“Can always s",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "f63ce6524a6023045bb72ee51eb464314174fdeb360184a97eb5dc9da35de434"
+      }
+    },
+    {
+      "id": "text_top_left",
+      "kind": "text",
+      "bbox": [
+        76,
+        85,
+        193,
+        168
+      ],
+      "description": "Different trains\nare\non their way to\nbetter\nplaces.",
+      "label": "Different trains\nare\non their ",
+      "method": "local",
+      "text": "Different trains\nare\non their way to\nbetter\nplaces.",
+      "text_status": "known",
+      "style": {
+        "fill": "#34372E",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_future",
+      "kind": "text",
+      "bbox": [
+        585,
+        399,
+        714,
+        431
+      ],
+      "description": "May the future be\nbetter than the past.",
+      "label": "May the future be\nbetter than ",
+      "method": "local",
+      "text": "May the future be\nbetter than the past.",
+      "text_status": "known",
+      "style": {
+        "fill": "#45453E",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "text_sunshine",
+      "kind": "text",
+      "bbox": [
+        464,
+        1056,
+        612,
+        1147
+      ],
+      "description": "Wherever you go,\nno matter what\nthe weather,\nalways bring your\nown sunshine.",
+      "label": "Wherever you go,\nno matter wha",
+      "method": "local",
+      "text": "Wherever you go,\nno matter what\nthe weather,\nalways bring your\nown sunshine.",
+      "text_status": "known",
+      "style": {
+        "fill": "#281B1B",
+        "font": "hand",
+        "align": "center",
+        "bold": true,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_5",
+    "photo_1",
+    "photo_2",
+    "photo_3",
+    "photo_4",
+    "photo_5",
+    "photo_6",
+    "photo_7",
+    "photo_10",
+    "photo_11",
+    "frame_8",
+    "photo_8",
+    "frame_9",
+    "photo_9",
+    "heart_sticker",
+    "clip_sticker",
+    "animal_sticker",
+    "face_doodle",
+    "polka_tape",
+    "emoji_sticker",
+    "pencil_sticker",
+    "childhood_sticker",
+    "word_collage",
+    "paperclip",
+    "star_tabs",
+    "newspaper_star",
+    "gray_poem_label",
+    "yellow_poem_note",
+    "bottom_tape",
+    "ribbon_label",
+    "text_top_left",
+    "text_future",
+    "text_sunshine"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "47c040ed4fa02a041a82a3fab693898982e04305683026d367043e9b0e5418df",
+    "bindings": "96ef0ed3fc3c06357c479a725ee5b467e5099f4c776d42505d9805ec7e6252b5",
+    "input": "0d589439a6c7c4401797c4ec6eb9de9f4a621b9d912ea6b7763c765e01893ef6",
+    "catalog": "bd41f800379dd6ff3282c2ae9e0c5f9df24d5d903e1d9a2c35a72980ab905e7e",
+    "photo_windows": "0efad7004088e6e35a9a75bfdff683df3adf24ef69ea0e169f786bed07506bfb"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\assets\\reveal\\index.json",
+    "sha256": "8d0e36684838efff543599430eb060c8998021a459e65f2a7c660cba383c4ca6"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-141\\assets\\gate\\report.json",
+    "sha256": "fa53766aa7f3218bfdfa08149512df83253a6af7a61e47320ad39d741df7038e",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 20,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
