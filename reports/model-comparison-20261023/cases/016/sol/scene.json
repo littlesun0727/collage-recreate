@@ -1,0 +1,1296 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\reference.png",
+    "sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "整幅画面的深酒红色纯色底，透过九宫格式排列的各单元间隙显露。",
+      "label": "整幅画面的深酒红色纯色底，透过九宫格式排列的各单元间隙显露。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#210710"
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        44,
+        62,
+        264,
+        290
+      ],
+      "description": "单人眼部极近特写，眼睛位于画面偏下，长睫毛及周围皮肤清晰可见，皮肤上有蝴蝶、花朵和彩色贴饰。保留全部摄影内容，按照片内口裁切，无主体去背景或出框。",
+      "label": "单人眼部极近特写，眼睛位于画面偏下，长睫毛及周围皮肤清晰可见",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "保留眼部、皮肤及彩色妆饰摄影内容，无主体描边或连续出框。矩形窗口对齐frame_1内口，红色印花框体不重复描边；四边清晰，无透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_00",
+        "source_crop": [
+          0.25,
+          0.27,
+          0.92,
+          0.79
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "选单人正面近景，裁切集中帽子、面部与抬手；但墨镜遮住眼睛，无睫毛特写及彩色贴饰，无法还原参考妆容。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_00.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_1-photo_1-window.png",
+        "sha256": "898ffb9c3b2a82c4c54bb553328e7ce4c3933d20f975beb08d355e42ebb39fa2"
+      },
+      "reveal_frame_id": "frame_1"
+    },
+    {
+      "id": "frame_1",
+      "kind": "frame",
+      "bbox": [
+        27,
+        46,
+        279,
+        354
+      ],
+      "description": "红色艺术印花照片框，四周含金黄色手写线条、地图式图案和细小印字，下边框较宽；完整保留纸面纹理及印刷设计。",
+      "photo_id": "photo_1",
+      "label": "红色艺术印花照片框，四周含金黄色手写线条、地图式图案和细小印",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_1 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "998e82ec557a62a65273f84510791dd68659bacdacba079410ee648969e2220b"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_1.png",
+        "sha256": "a0869ca413934cb44422d73be8a7a317fb1d152b8de8f52c43e55e5271e009ee",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_1-restored.png",
+          "sha256": "a0869ca413934cb44422d73be8a7a317fb1d152b8de8f52c43e55e5271e009ee",
+          "bbox": [
+            19,
+            38,
+            287,
+            362
+          ],
+          "original_bbox": [
+            27,
+            46,
+            279,
+            354
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_10.png",
+          "raw_sha256": "ee3255c97fc5f2ab478753088c953b37771ad8f5cee2e32140f9083d180b16b5",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        328,
+        58,
+        551,
+        288
+      ],
+      "description": "单人侧转的面部极近特写，一只蓝色眼睛位于右侧，鼻梁、脸颊和深色头发占据其余画面，面部有明暗交错的暖色光影。保留摄影环境及原有裁切，无主体去背景或出框。",
+      "label": "单人侧转的面部极近特写，一只蓝色眼睛位于右侧，鼻梁、脸颊和深",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "保留面部、头发及摄影光影，无主体描边或出框。照片按frame_2矩形内口裁切，周围浅色线条属于固定框体；摄影明暗不作为窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_06",
+        "source_crop": [
+          0.27,
+          0.27,
+          0.81,
+          0.69
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "侧转面部、深色头发和暖色侧光较接近，裁取头肩；人物朝左且戴墨镜，并非右侧蓝眼睛极近特写，不镜像。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_06.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_2-photo_2-window.png",
+        "sha256": "8b96a5d02dc80bb885960f384065425a3ab2450eda7c725bc5ea9f95ff33a4ed"
+      },
+      "reveal_frame_id": "frame_2"
+    },
+    {
+      "id": "frame_2",
+      "kind": "frame",
+      "bbox": [
+        311,
+        40,
+        571,
+        356
+      ],
+      "description": "深褐近黑色艺术照片框，米白色涂鸦、线条和手写文字遍布边缘，底部可见框线中的“TARTOWN RECORD”和罗马数字等印字，作为完整框体保留。",
+      "photo_id": "photo_2",
+      "label": "深褐近黑色艺术照片框，米白色涂鸦、线条和手写文字遍布边缘，底",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7874c6cdf372003093ea2b84bda37bbfcac4664e893a39f2f5754074d5061076"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_2.png",
+        "sha256": "e95c8ecfda7dd68031281d1b708055751667874866a42622a1afdf8f94b801a8",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_2-restored.png",
+          "sha256": "e95c8ecfda7dd68031281d1b708055751667874866a42622a1afdf8f94b801a8",
+          "bbox": [
+            303,
+            32,
+            579,
+            364
+          ],
+          "original_bbox": [
+            311,
+            40,
+            571,
+            356
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_11.png",
+          "raw_sha256": "9817e2a62aa00ae503e6b8dd81dbe5d10ea01bba939960b32ddfd1b8c68e0219",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        613,
+        58,
+        850,
+        295
+      ],
+      "description": "单人面部局部近特写，鼻子位于上半部，微张的亮泽嘴唇与牙齿位于下半部，数缕深色头发横过脸颊和嘴部。保留完整摄影内容，无主体去背景或出框。",
+      "label": "单人面部局部近特写，鼻子位于上半部，微张的亮泽嘴唇与牙齿位于",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "保留鼻唇、脸颊与横过面部的头发，不去背景、不描主体。矩形窗口对齐frame_3黄色框内口，黄色框及印字保留原像素；窗口无独立描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_09",
+        "source_crop": [
+          0.24,
+          0.29,
+          0.75,
+          0.69
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "微笑露齿且脸侧可见深色头发，裁取面部和邻近手势；没有横过嘴部的发丝，也不是亮泽嘴唇特写。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_09.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_3-photo_3-window.png",
+        "sha256": "0649aeb3fd4ccc46cea4e3c670722312148a0eab12180e753f5222a6c72b9462"
+      },
+      "reveal_frame_id": "frame_3"
+    },
+    {
+      "id": "frame_3",
+      "kind": "frame",
+      "bbox": [
+        598,
+        38,
+        862,
+        359
+      ],
+      "description": "黄色照片纸框，底部宽边印有黑色不规则手写体“BASQUIAT”及小型商标标记；黄色纸面、字样和边缘整体保留。",
+      "photo_id": "photo_3",
+      "label": "黄色照片纸框，底部宽边印有黑色不规则手写体“BASQUIAT",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_3 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "8be16f5a74e61cb4be895443da58db39de8488625b5ee6bda59d6e0599ef8021"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_3.png",
+        "sha256": "877fef532844995edca4f3dbe37e0c0b86dd66b349e607090c524d1ccd103cfc",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_3-restored.png",
+          "sha256": "877fef532844995edca4f3dbe37e0c0b86dd66b349e607090c524d1ccd103cfc",
+          "bbox": [
+            590,
+            30,
+            870,
+            367
+          ],
+          "original_bbox": [
+            598,
+            38,
+            862,
+            359
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_12.png",
+          "raw_sha256": "5ac7a404a02eceef373244eba995c341230b07682a999c81bc030741da828bde",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        30,
+        416,
+        262,
+        656
+      ],
+      "description": "单人嘴部极近特写，涂有亮泽唇彩的嘴唇张开，露出牙齿，口中含一颗鲜红樱桃，绿色果梗向下延伸。樱桃及嘴唇均属于摄影内容，保留皮肤背景，按内口裁切。",
+      "label": "单人嘴部极近特写，涂有亮泽唇彩的嘴唇张开，露出牙齿，口中含一",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_4",
+        "reason": "嘴唇、牙齿、樱桃及果梗均为同一照片内容，保留皮肤背景，无主体描边或出框。按frame_4矩形内口裁切，框体涂鸦不转为窗口描边；无边缘混合渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_4",
+        "asset_id": "material_13",
+        "source_crop": [
+          0.14,
+          0.3,
+          0.88,
+          0.87
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "以单人露齿笑脸近似嘴部主题，裁取头部、双手及上身；素材没有樱桃、果梗或亮泽唇彩，不作虚构。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_13.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_4-photo_4-window.png",
+        "sha256": "fb0c19c0a77a865116abe20cc1c9b8c3ffb8577c427be06172b5637e1f8d3b07"
+      },
+      "reveal_frame_id": "frame_4"
+    },
+    {
+      "id": "frame_4",
+      "kind": "frame",
+      "bbox": [
+        13,
+        398,
+        278,
+        721
+      ],
+      "description": "米白色涂鸦照片框，黑色手绘符号、方框及零散彩色笔迹遍布四周，宽底边含“BOXER REBELLION”“TECHNICOLOR”等印字，整体保留其纸面与图文。",
+      "photo_id": "photo_4",
+      "label": "米白色涂鸦照片框，黑色手绘符号、方框及零散彩色笔迹遍布四周，",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_4 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "1729d27e12ab2e15be7dbe8c22c37989860f1d782dec254122c44b0253f359e3"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_4.png",
+        "sha256": "dcd001c66ce33abc755ad1717a10dce39629ab0bc2d5816dec81f72c7a06e0a7",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_4-restored.png",
+          "sha256": "dcd001c66ce33abc755ad1717a10dce39629ab0bc2d5816dec81f72c7a06e0a7",
+          "bbox": [
+            5,
+            390,
+            286,
+            729
+          ],
+          "original_bbox": [
+            13,
+            398,
+            278,
+            721
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_13.png",
+          "raw_sha256": "8980306ebc77ccd62d151d177df8264aa821d73d3f9ec6253ca614992aa41e0e",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_4-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_4-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "center_package",
+      "kind": "overlay",
+      "bbox": [
+        318,
+        380,
+        582,
+        721
+      ],
+      "description": "独立的深紫黑色宝丽来胶片包装装饰，上沿左侧有凸出的折片，纸面带颗粒纹理及细微磨损。完整保留顶部插入提示、中央“Keep your friends close, and your Polaroid film in the fridge.”、底部polaroid标志和小字，不承载照片。",
+      "label": "独立的深紫黑色宝丽来胶片包装装饰，上沿左侧有凸出的折片，纸面",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "4cbdb46875208865a6923efec2608fc49585af9e8160c9f7fdfadbe5afe5fba4"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\center_package.png",
+        "sha256": "3380ced5491b12d01ab543abae36ec6e67ba9414ce7b70d8fe8651e32a755586",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\center_package-restored.png",
+          "sha256": "3380ced5491b12d01ab543abae36ec6e67ba9414ce7b70d8fe8651e32a755586",
+          "bbox": [
+            310,
+            372,
+            590,
+            729
+          ],
+          "original_bbox": [
+            318,
+            380,
+            582,
+            721
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_09.png",
+          "raw_sha256": "4e5b0a39e32f56ebd30cfde2bce51ba0382cd9865363cb5836ac7f9d58c601b7",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\center_package-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\center_package-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_5",
+      "kind": "photo",
+      "bbox": [
+        617,
+        413,
+        848,
+        649
+      ],
+      "description": "单人侧脸至肩部的近景，人物位于左侧，耳边垂挂粉紫、淡黄花朵和绿色长穗，后方可见深色头发及右侧浅色帘布。花饰属于摄影内容，保留背景，人物与花饰均在照片内裁切。",
+      "label": "单人侧脸至肩部的近景，人物位于左侧，耳边垂挂粉紫、淡黄花朵和",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_5",
+        "reason": "保留人物、花饰、头发及浅色帘布摄影背景，无主体描边，花穗未连续越出窗口。矩形裁切对齐frame_5内口，框体笔迹保留，不另描边；四边无透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_5",
+        "asset_id": "material_16",
+        "source_crop": [
+          0.34,
+          0.28,
+          0.73,
+          0.58
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "人物左向侧脸与肩部姿态较接近，裁取头肩并保留湖面背景；没有耳边花饰、浅色帘布，服装也不同。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_16.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_5-photo_5-window.png",
+        "sha256": "0e70dfd0dfb307e61b40ecfea734da24219874129fdfbc477982d9b6f3352fd3"
+      },
+      "reveal_frame_id": "frame_5"
+    },
+    {
+      "id": "frame_5",
+      "kind": "frame",
+      "bbox": [
+        600,
+        398,
+        864,
+        714
+      ],
+      "description": "米白色艺术涂鸦照片框，黑色线条、数字及红绿蓝笔迹分布四边，底边较宽并含零散手写字和符号，框体印刷与纸面整体保留。",
+      "photo_id": "photo_5",
+      "label": "米白色艺术涂鸦照片框，黑色线条、数字及红绿蓝笔迹分布四边，底",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_5 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9c9d81bc16ce8c771fd3b81333bd698a769718bb5fd6073f7ff79368efab65cc"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_5.png",
+        "sha256": "b3d6f445ee115be2c26cd65c9d8fa05526267f5aa94fd4dfa3ba691a77220288",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_5-restored.png",
+          "sha256": "b3d6f445ee115be2c26cd65c9d8fa05526267f5aa94fd4dfa3ba691a77220288",
+          "bbox": [
+            592,
+            390,
+            872,
+            722
+          ],
+          "original_bbox": [
+            600,
+            398,
+            864,
+            714
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_14.png",
+          "raw_sha256": "94989446669d6eb64bb1e32c54ef0491375dcc41facbed145e4aeed9e0861f1d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_5-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_5-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_6",
+      "kind": "photo",
+      "bbox": [
+        36,
+        778,
+        274,
+        1034
+      ],
+      "description": "单人耳侧、颈部和肩部近景，人物位于左侧至下方，耳边挂有黄色、橙色、深紫色花朵与绿色长茎，肩上可见白色细肩带，右侧为浅色帘布。保留全部摄影内容和背景，无主体出框。",
+      "label": "单人耳侧、颈部和肩部近景，人物位于左侧至下方，耳边挂有黄色、",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_6",
+        "reason": "保留耳颈、肩部、花朵长茎及帘布背景，无主体描边或连续出框。窗口对齐frame_6矩形内口，黄色印花框不重复绘制；浅色帘布不是透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_6",
+        "asset_id": "material_15",
+        "source_crop": [
+          0.35,
+          0.31,
+          0.66,
+          0.67
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "背侧角度可呈现头发与肩背，裁取上身并保留湖面；耳颈被头发和衣物遮挡，无花朵长茎、白色肩带及帘布。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_15.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_6-photo_6-window.png",
+        "sha256": "001ad683fbf6806afe0009e7fe91a6c4f51a863b4c8a6a7e0ae4d5e224555e89"
+      },
+      "reveal_frame_id": "frame_6"
+    },
+    {
+      "id": "frame_6",
+      "kind": "frame",
+      "bbox": [
+        17,
+        762,
+        287,
+        1088
+      ],
+      "description": "黄色艺术印花照片框，四周有红蓝黑色涂写及局部蓝色色块，底部宽边带“HOLLYWOOD AFRICANS”等手写印字，完整保留不规则印刷质感。",
+      "photo_id": "photo_6",
+      "label": "黄色艺术印花照片框，四周有红蓝黑色涂写及局部蓝色色块，底部宽",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_6 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "3159cbc9365193072890dcb062a3686998bb0cc1dd5535fe486901194e564d06"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_6.png",
+        "sha256": "e0d29880de7d1944c1e9da94ba71ebc056e0daf8866f22153efcccef3e4b2ce3",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_6-restored.png",
+          "sha256": "e0d29880de7d1944c1e9da94ba71ebc056e0daf8866f22153efcccef3e4b2ce3",
+          "bbox": [
+            9,
+            754,
+            295,
+            1096
+          ],
+          "original_bbox": [
+            17,
+            762,
+            287,
+            1088
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_15.png",
+          "raw_sha256": "bbafcc029a9f4d871a3b8f9feaec6c7e8ae845373a4dc4bcbbda674b0b9cfb59",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_6-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_6-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_7",
+      "kind": "photo",
+      "bbox": [
+        318,
+        780,
+        558,
+        1020
+      ],
+      "description": "单人一只眼睛及眉毛的极近特写，眼角向右上挑起，眼周有亮片妆、粉红眼线和星形闪亮装饰。保留皮肤及全部妆饰摄影内容，矩形内口裁切，无主体去背景或出框。",
+      "label": "单人一只眼睛及眉毛的极近特写，眼角向右上挑起，眼周有亮片妆、",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_7",
+        "reason": "保留眼眉、皮肤、亮片和星形妆饰，无主体去背景或描边。矩形窗口对齐frame_7内口，深色框及皇冠印字属于固定框体；窗口四边清晰，无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_7",
+        "asset_id": "material_09",
+        "source_crop": [
+          0.33,
+          0.34,
+          0.67,
+          0.6
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "缺少眼妆素材，复用未戴墨镜的正面人物并收紧至脸部；帽檐遮暗眼周，无法匹配单眼、粉红眼线和星形亮片。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_09.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_7-photo_7-window.png",
+        "sha256": "f16007726ed67366ebc5313efb0ada8ee0900b287b2dc8ef19df1c1af3cfbc7c"
+      },
+      "reveal_frame_id": "frame_7"
+    },
+    {
+      "id": "frame_7",
+      "kind": "frame",
+      "bbox": [
+        304,
+        761,
+        572,
+        1087
+      ],
+      "description": "深紫黑色照片框，底部宽边有黄色三尖皇冠图案和米白色“JEAN-MICHEL BASQUIAT”手写字样，框体色泽、纹理及印刷作为一个完整单元保留。",
+      "photo_id": "photo_7",
+      "label": "深紫黑色照片框，底部宽边有黄色三尖皇冠图案和米白色“JEAN",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_7 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d6addc6e88758435b39e05c7e0635fdabe1b80478fda5c4490eb6c0135b9a84e"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_7.png",
+        "sha256": "fff1f0074aff073136e44a456729478a5bfc7a2dba72d38529873bc8942dea6f",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_7-restored.png",
+          "sha256": "fff1f0074aff073136e44a456729478a5bfc7a2dba72d38529873bc8942dea6f",
+          "bbox": [
+            296,
+            753,
+            580,
+            1095
+          ],
+          "original_bbox": [
+            304,
+            761,
+            572,
+            1087
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_16.png",
+          "raw_sha256": "b9e96dfa81514b33fea254b916557ea3c29f09987cee64bc6a49fcf829c53eaa",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_7-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_7-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_8",
+      "kind": "photo",
+      "bbox": [
+        616,
+        790,
+        841,
+        1019
+      ],
+      "description": "单人嘴部与脸颊的近特写，张嘴咬住黄色杨桃切片，下方可见持水果的手指，右侧脸颊贴有青绿色星形装饰。保留水果、手指、贴饰及摄影背景，画面略显柔焦，无透明渐隐或主体出框。",
+      "label": "单人嘴部与脸颊的近特写，张嘴咬住黄色杨桃切片，下方可见持水果",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_8",
+        "reason": "保留嘴部、杨桃、手指、脸颊贴饰及摄影背景，无主体描边或出框。矩形窗口对齐frame_8最内侧摄影内口，粉白窄框及阴影归固定框体，不重复描边；柔焦不作为透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_8",
+        "asset_id": "material_13",
+        "source_crop": [
+          0.16,
+          0.31,
+          0.89,
+          0.87
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "复用笑脸旁有手指及托掌动作的素材，裁取面部与双手；没有咬水果动作、杨桃及青绿色星形贴饰，背景也不同。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-031-654f4b4423fe\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\prepared\\material_13.jpg"
+      },
+      "photo_window": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_8-photo_8-window.png",
+        "sha256": "f7a25fc9002bf334a2c40b76f66cfe43699124d77fe18eeece8d6dd64ed5cc91"
+      },
+      "reveal_frame_id": "frame_8"
+    },
+    {
+      "id": "frame_8",
+      "kind": "frame",
+      "bbox": [
+        598,
+        758,
+        869,
+        1085
+      ],
+      "description": "多色绘画印花照片框，外层有红黄绿黑色粗犷笔触及底部局部骷髅式图案，内口围有粉色和白色窄框并带阴影；内外固定框体作为同一完整设计保留。",
+      "photo_id": "photo_8",
+      "label": "多色绘画印花照片框，外层有红黄绿黑色粗犷笔触及底部局部骷髅式",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_notes": [
+        "Window photo_8 contains visible pixels; inspect for old photos or intentional decoration"
+      ],
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "89564c5d362567752d1517016834c4bf07aa952b64a213280f2189f4ec22fefd"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_8.png",
+        "sha256": "017a3e93390f08cd52afee7e814543c514c8aa272966dd55407bb97889e27b14",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\frame_8-restored.png",
+          "sha256": "017a3e93390f08cd52afee7e814543c514c8aa272966dd55407bb97889e27b14",
+          "bbox": [
+            590,
+            750,
+            877,
+            1093
+          ],
+          "original_bbox": [
+            598,
+            758,
+            869,
+            1085
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01\\layers_aug_17.png",
+          "raw_sha256": "ba4923151aa867bb24c0ad7fd0a38fe634169dc5602dc48fdbb6332d964143a5",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "cddb161a15956142f0c57fc473ac79dca0da535042ca751412767436c6b18199"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_8-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\frame_8-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background",
+    "frame_1",
+    "photo_1",
+    "frame_2",
+    "photo_2",
+    "frame_3",
+    "photo_3",
+    "frame_4",
+    "photo_4",
+    "center_package",
+    "frame_5",
+    "photo_5",
+    "frame_6",
+    "photo_6",
+    "frame_7",
+    "photo_7",
+    "frame_8",
+    "photo_8"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "6d8a4c137218cc67f45b0f12015de185c68ff7eeb56bc6db416fe94075950d31",
+    "bindings": "dfea55745dff2f9ee5d3b40684b5100ed7382bdbd6664dbe1928e73857ed8e1c",
+    "input": "54332c8a3e93684e59e665e7a99f6000e187c142dd89cf465516574859f7e0dc",
+    "catalog": "ee45ef2dcc6e837c768026c212450c498759fcdd612148f30ab27e4d1719a190",
+    "photo_windows": "776905961973c3c60a1fce78b7306bcbe531acb278f37cec2d5991d0a18370b7"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\reveal\\index.json",
+    "sha256": "7cee6377943d27953c4ed0268d19d2c836391410fe5fd2510d3641b6981298d0"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\assets\\gate\\report.json",
+    "sha256": "e58ef456e3dd4716e8f1b14d28888e2cece9049e0e4785485d0e77619f9f2156",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 9,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 7,
+    "sheets": [
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\previews\\gate-1.jpg",
+      "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-031\\previews\\gate-2.jpg"
+    ]
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
