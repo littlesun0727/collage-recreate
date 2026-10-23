@@ -1,0 +1,241 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1600
+      ],
+      "description": "整幅画面下方的固定深黑色相机界面底色。",
+      "label": "整幅画面下方的固定深黑色相机界面底色。",
+      "method": "local",
+      "background_type": "simple_design",
+      "style": {
+        "fill": "#080D0C"
+      }
+    },
+    {
+      "id": "photo_top",
+      "kind": "photo",
+      "bbox": [
+        55,
+        163,
+        842,
+        694
+      ],
+      "description": "上方横向矩形照片窗口；一名年轻女性在室内镜前自拍，身体微侧并略向后倾，手持手机遮住部分面部，穿浅色长袖上衣和牛仔短裤，镜中保留墙面、插座及室内环境。画面清晰裁切，无额外描边或渐隐。",
+      "label": "上方横向矩形照片窗口；一名年轻女性在室内镜前自拍，身体微侧并",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_bottom",
+      "kind": "photo",
+      "bbox": [
+        55,
+        694,
+        842,
+        1245
+      ],
+      "description": "下方横向矩形照片窗口；与上方相同的镜前自拍画面，一名年轻女性微侧身后倾，手持手机遮住部分面部，穿浅色长袖上衣和牛仔短裤，保留镜中墙面、插座及室内环境。画面清晰裁切，无额外描边或渐隐。",
+      "label": "下方横向矩形照片窗口；与上方相同的镜前自拍画面，一名年轻女性",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "top_flash",
+      "kind": "overlay",
+      "bbox": [
+        84,
+        78,
+        137,
+        130
+      ],
+      "description": "顶部左侧圆形闪电图标按钮，包含圆环、闪电符号及暗色底部。",
+      "label": "顶部左侧圆形闪电图标按钮，包含圆环、闪电符号及暗色底部。",
+      "method": "extract"
+    },
+    {
+      "id": "top_mode",
+      "kind": "overlay",
+      "bbox": [
+        156,
+        78,
+        211,
+        130
+      ],
+      "description": "顶部左侧第二个圆形相机模式图标按钮，包含圆环和浅色圆形符号。",
+      "label": "顶部左侧第二个圆形相机模式图标按钮，包含圆环和浅色圆形符号。",
+      "method": "extract"
+    },
+    {
+      "id": "top_chevron",
+      "kind": "overlay",
+      "bbox": [
+        421,
+        77,
+        477,
+        130
+      ],
+      "description": "顶部中央暗色圆形按钮，内有向下的金色V形箭头。",
+      "label": "顶部中央暗色圆形按钮，内有向下的金色V形箭头。",
+      "method": "extract"
+    },
+    {
+      "id": "raw_max",
+      "kind": "overlay",
+      "bbox": [
+        679,
+        80,
+        742,
+        126
+      ],
+      "description": "顶部右侧 RAW 与 MAX 两行字样组成的相机界面标识，整体保留。",
+      "label": "顶部右侧 RAW 与 MAX 两行字样组成的相机界面标识，整",
+      "method": "extract"
+    },
+    {
+      "id": "top_target",
+      "kind": "overlay",
+      "bbox": [
+        760,
+        77,
+        814,
+        130
+      ],
+      "description": "顶部右侧圆形同心环图标按钮。",
+      "label": "顶部右侧圆形同心环图标按钮。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_flash",
+      "kind": "overlay",
+      "bbox": [
+        99,
+        1242,
+        196,
+        1304
+      ],
+      "description": "照片下方第一枚深色圆形按钮，内有浅色闪电符号。",
+      "label": "照片下方第一枚深色圆形按钮，内有浅色闪电符号。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_mode",
+      "kind": "overlay",
+      "bbox": [
+        222,
+        1242,
+        318,
+        1304
+      ],
+      "description": "照片下方第二枚深色圆形按钮，内有浅色圆形相机模式符号。",
+      "label": "照片下方第二枚深色圆形按钮，内有浅色圆形相机模式符号。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_target",
+      "kind": "overlay",
+      "bbox": [
+        343,
+        1242,
+        400,
+        1304
+      ],
+      "description": "照片下方第三枚深色圆形按钮，内有同心环图标。",
+      "label": "照片下方第三枚深色圆形按钮，内有同心环图标。",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_switch",
+      "kind": "overlay",
+      "bbox": [
+        462,
+        1242,
+        522,
+        1304
+      ],
+      "description": "照片下方第四枚深色圆形按钮，内有相机切换样式图标。",
+      "label": "照片下方第四枚深色圆形按钮，内有相机切换样式图标。",
+      "method": "extract"
+    },
+    {
+      "id": "aspect_button",
+      "kind": "overlay",
+      "bbox": [
+        579,
+        1242,
+        640,
+        1304
+      ],
+      "description": "照片下方第五枚深色圆形按钮，内有 4:3 字样。",
+      "label": "照片下方第五枚深色圆形按钮，内有 4:3 字样。",
+      "method": "extract"
+    },
+    {
+      "id": "zoom_button",
+      "kind": "overlay",
+      "bbox": [
+        701,
+        1242,
+        764,
+        1304
+      ],
+      "description": "照片下方第六枚深色圆形按钮，内有加减符号及圆环。",
+      "label": "照片下方第六枚深色圆形按钮，内有加减符号及圆环。",
+      "method": "extract"
+    },
+    {
+      "id": "shutter",
+      "kind": "overlay",
+      "bbox": [
+        376,
+        1362,
+        520,
+        1510
+      ],
+      "description": "底部中央大型白色快门按钮，双层圆形描边与浅色圆心完整保留。",
+      "label": "底部中央大型白色快门按钮，双层圆形描边与浅色圆心完整保留。",
+      "method": "extract"
+    },
+    {
+      "id": "camera_flip",
+      "kind": "overlay",
+      "bbox": [
+        701,
+        1389,
+        767,
+        1485
+      ],
+      "description": "底部右侧深色圆形按钮，内有浅色环形双箭头图标。",
+      "label": "底部右侧深色圆形按钮，内有浅色环形双箭头图标。",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_top",
+    "photo_bottom",
+    "top_flash",
+    "top_mode",
+    "top_chevron",
+    "raw_max",
+    "top_target",
+    "bottom_flash",
+    "bottom_mode",
+    "bottom_target",
+    "bottom_switch",
+    "aspect_button",
+    "zoom_button",
+    "shutter",
+    "camera_flip"
+  ]
+}
