@@ -1,0 +1,315 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1200
+  ],
+  "objects": [
+    {
+      "id": "street_photo",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "铺满画面的夜间韩国商业街摄影，店铺招牌、行人、路面及环境均保留在背景照片中；无额外描边或渐隐。",
+      "label": "铺满画面的夜间韩国商业街摄影，店铺招牌、行人、路面及环境均保",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "selfie_photo",
+      "kind": "photo",
+      "bbox": [
+        46,
+        258,
+        398,
+        542
+      ],
+      "description": "白色窗口内的近景镜自拍：一名长黑发年轻女性穿粉色上衣，手持白色手机遮住部分脸部，身后可见室内环境；保留摄影背景，边缘按矩形窗口裁切。",
+      "label": "白色窗口内的近景镜自拍：一名长黑发年轻女性穿粉色上衣，手持白",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "selfie_frame",
+      "kind": "frame",
+      "bbox": [
+        41,
+        218,
+        405,
+        582
+      ],
+      "description": "白色圆角应用窗口框，含顶部浅灰控制栏、返回与关闭图标及下方白色边框；作为承载自拍照片的完整固定框体保留。",
+      "photo_id": "selfie_photo",
+      "label": "白色圆角应用窗口框，含顶部浅灰控制栏、返回与关闭图标及下方白",
+      "method": "extract"
+    },
+    {
+      "id": "question_photo",
+      "kind": "photo",
+      "bbox": [
+        448,
+        92,
+        599,
+        186
+      ],
+      "description": "小幅灰度近景摄影，画面中可见圆形浅色物体和深色小物；摄影内容整体替换，保留矩形窗口边缘。",
+      "label": "小幅灰度近景摄影，画面中可见圆形浅色物体和深色小物；摄影内容",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "food_photo",
+      "kind": "photo",
+      "bbox": [
+        37,
+        776,
+        381,
+        1118
+      ],
+      "description": "桌面食物摄影，包含盘中的圆形烘烤点心、饮品杯及周围餐桌物品；保留摄影环境，白色手绘线条覆盖效果不属于照片内容。",
+      "label": "桌面食物摄影，包含盘中的圆形烘烤点心、饮品杯及周围餐桌物品；",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "collage_photo_1",
+      "kind": "photo",
+      "bbox": [
+        473,
+        584,
+        625,
+        752
+      ],
+      "description": "夜间户外半身人物照：戴浅色针织帽、穿粉色外套的女性站在树丛前，保留摄影背景并按倾斜照片窗口裁切。",
+      "label": "夜间户外半身人物照：戴浅色针织帽、穿粉色外套的女性站在树丛前",
+      "method": "local",
+      "rotation": -8
+    },
+    {
+      "id": "collage_photo_2",
+      "kind": "photo",
+      "bbox": [
+        616,
+        574,
+        780,
+        743
+      ],
+      "description": "夜间户外人物照：戴浅色针织帽、穿粉色外套的女性站在树丛前，保留摄影背景并按倾斜照片窗口裁切。",
+      "label": "夜间户外人物照：戴浅色针织帽、穿粉色外套的女性站在树丛前，保",
+      "method": "local",
+      "rotation": -8
+    },
+    {
+      "id": "collage_photo_3",
+      "kind": "photo",
+      "bbox": [
+        483,
+        752,
+        654,
+        941
+      ],
+      "description": "夜间长椅前的坐姿人物照：戴浅色针织帽、穿粉色外套的女性坐着面向镜头，保留摄影背景并按倾斜照片窗口裁切。",
+      "label": "夜间长椅前的坐姿人物照：戴浅色针织帽、穿粉色外套的女性坐着面",
+      "method": "local",
+      "rotation": -8
+    },
+    {
+      "id": "collage_photo_4",
+      "kind": "photo",
+      "bbox": [
+        644,
+        730,
+        798,
+        911
+      ],
+      "description": "室内近景自拍：戴浅色针织帽、穿粉色衣物的女性手持白色手机，部分脸部被手机遮挡；保留摄影背景并按倾斜照片窗口裁切。",
+      "label": "室内近景自拍：戴浅色针织帽、穿粉色衣物的女性手持白色手机，部",
+      "method": "local",
+      "rotation": -8
+    },
+    {
+      "id": "collage_frame",
+      "kind": "frame",
+      "bbox": [
+        428,
+        532,
+        837,
+        1002
+      ],
+      "description": "倾斜的白色四格照片拼贴纸框，含粗白边、分隔格线和边缘投影；顶部有花朵图案夹饰，右上贴有粉色韩文小标签，底部有三个心形韩文字样，整体作为固定拼贴框体保留。",
+      "photo_id": "collage_photo_1",
+      "label": "倾斜的白色四格照片拼贴纸框，含粗白边、分隔格线和边缘投影；顶",
+      "method": "extract"
+    },
+    {
+      "id": "question_marks",
+      "kind": "overlay",
+      "bbox": [
+        117,
+        145,
+        333,
+        246
+      ],
+      "description": "自拍框上方一组粉色圆点纹理问号装饰，包含大小不同的问号，作为完整贴纸组保留。",
+      "label": "自拍框上方一组粉色圆点纹理问号装饰，包含大小不同的问号，作为",
+      "method": "extract"
+    },
+    {
+      "id": "tiny_caption",
+      "kind": "overlay",
+      "bbox": [
+        263,
+        200,
+        371,
+        236
+      ],
+      "description": "自拍框顶栏附近的小白色矩形字样贴片，含蓝色符号及细线装饰，作为整体保留。",
+      "label": "自拍框顶栏附近的小白色矩形字样贴片，含蓝色符号及细线装饰，作",
+      "method": "extract"
+    },
+    {
+      "id": "heart_doodle",
+      "kind": "overlay",
+      "bbox": [
+        20,
+        476,
+        122,
+        588
+      ],
+      "description": "自拍框左下方跨边缘的白色手绘爱心线稿，带少量点状装饰，整体保留。",
+      "label": "自拍框左下方跨边缘的白色手绘爱心线稿，带少量点状装饰，整体保",
+      "method": "extract"
+    },
+    {
+      "id": "vertical_label",
+      "kind": "overlay",
+      "bbox": [
+        373,
+        284,
+        436,
+        496
+      ],
+      "description": "青绿色竖向点纹标签，含白色艺术字“Secret this angel”和星形点缀，文字与底板作为一个装饰单元保留。",
+      "label": "青绿色竖向点纹标签，含白色艺术字“Secret this a",
+      "method": "extract"
+    },
+    {
+      "id": "star_right",
+      "kind": "overlay",
+      "bbox": [
+        750,
+        130,
+        823,
+        180
+      ],
+      "description": "右上店铺墙面上的白色五角星图形装饰。",
+      "label": "右上店铺墙面上的白色五角星图形装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "star_center",
+      "kind": "overlay",
+      "bbox": [
+        461,
+        478,
+        516,
+        540
+      ],
+      "description": "画面中部偏下的白色五角星图形装饰。",
+      "label": "画面中部偏下的白色五角星图形装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "food_doodle",
+      "kind": "overlay",
+      "bbox": [
+        55,
+        782,
+        359,
+        1110
+      ],
+      "description": "覆盖食物照片的白色手绘环形轨迹、爱心与星星线稿及闪光点，作为完整独立装饰保留。",
+      "label": "覆盖食物照片的白色手绘环形轨迹、爱心与星星线稿及闪光点，作为",
+      "method": "extract"
+    },
+    {
+      "id": "slow_lapse",
+      "kind": "overlay",
+      "bbox": [
+        417,
+        748,
+        526,
+        841
+      ],
+      "description": "拼贴框左侧的绿色手绘心形字样贴纸，写有“Slow lapse”，含内部线条，整体保留。",
+      "label": "拼贴框左侧的绿色手绘心形字样贴纸，写有“Slow lapse",
+      "method": "extract"
+    },
+    {
+      "id": "number_labels",
+      "kind": "overlay",
+      "bbox": [
+        16,
+        647,
+        70,
+        895
+      ],
+      "description": "左侧纵向排列的三个蓝色编号标签，分别写有“01.”、“02.”、“03.”，数字、底板和阴影整体保留。",
+      "label": "左侧纵向排列的三个蓝色编号标签，分别写有“01.”、“02.",
+      "method": "extract"
+    },
+    {
+      "id": "love_typography",
+      "kind": "overlay",
+      "bbox": [
+        35,
+        638,
+        374,
+        778
+      ],
+      "description": "左下区域重复排布的白色艺术字“love”，含大小与位置变化及细小心形点缀，作为整体字样装饰保留。",
+      "label": "左下区域重复排布的白色艺术字“love”，含大小与位置变化及",
+      "method": "extract"
+    },
+    {
+      "id": "weekend_title",
+      "kind": "overlay",
+      "bbox": [
+        328,
+        1034,
+        729,
+        1121
+      ],
+      "description": "底部偏中的装饰标题“Weekend.”，带橙色星芒和浅黄色艺术字效果，作为一个完整图形字样保留。",
+      "label": "底部偏中的装饰标题“Weekend.”，带橙色星芒和浅黄色艺",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "street_photo",
+    "food_photo",
+    "question_photo",
+    "selfie_frame",
+    "selfie_photo",
+    "collage_photo_1",
+    "collage_photo_2",
+    "collage_photo_3",
+    "collage_photo_4",
+    "collage_frame",
+    "question_marks",
+    "tiny_caption",
+    "vertical_label",
+    "number_labels",
+    "love_typography",
+    "food_doodle",
+    "heart_doodle",
+    "star_right",
+    "star_center",
+    "slow_lapse",
+    "weekend_title"
+  ]
+}
