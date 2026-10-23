@@ -6,11 +6,17 @@
 
 ## yibuapi Qwen3.8-flash / thinking off
 
-待提交
+排队
 
 ## Codex gpt-6-luna / medium
 
-运行中 · build
+已交付
+
+耗时：158.2 秒；交付类别：unreviewed。
+
+![成图](luna/final.png)
+
+[查看参数、中间 JSON、告警及对照图](luna/)
 
 ## Codex gpt-6.1-sol / medium
 
