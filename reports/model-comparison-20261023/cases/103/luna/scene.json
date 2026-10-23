@@ -1,0 +1,764 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\prepared\\reference.png",
+    "sha256": "811a98fac4eb901afbe7bffcdd4b652678e447218b2e13b378af4f43f904a2e6"
+  },
+  "reference_size": [
+    900,
+    1200
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1200
+      ],
+      "description": "全幅固定的抽象底层，保留浅黄绿与青绿色的半透明横向层叠纹理、模糊红橙色斑块、细线及朦胧的植物或空间质感。",
+      "label": "全幅固定的抽象底层，保留浅黄绿与青绿色的半透明横向层叠纹理、",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7bb8ced2e625a5f0d588050c1a0cc8764cd7e5b5835b3cfa3f0c478ffbd53456"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\background_1.png",
+        "sha256": "2f7f20f51f6708acc43d5c40c03b61fcbca18b6ea59742aeabd0d75fd350c1b5",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\background_1-background-source.png",
+          "sha256": "2f7f20f51f6708acc43d5c40c03b61fcbca18b6ea59742aeabd0d75fd350c1b5",
+          "bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "original_bbox": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "padding": 0,
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_02\\layers_aug_00.png",
+          "raw_sha256": "de6397e386a8de8b51f806d57251c37886021d8fb5b7c41ed98349f6255c1a1a",
+          "background_clean": true,
+          "semantic_verified": false
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\background_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\background_1-preview.png",
+        "action": "background_cleanup"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        324,
+        67,
+        774,
+        406
+      ],
+      "description": "横向矩形公园照片，远景草坪、成排树木和天空；草地中央偏左有一名小人物。保留照片场景，边缘为清晰直边，无额外渐隐。",
+      "label": "横向矩形公园照片，远景草坪、成排树木和天空；草地中央偏左有一",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_1",
+        "reason": "保留草坪、树木和天空等摄影环境；照片显示为清晰矩形边界，无主体描边、窗口描边或边缘渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_1",
+        "asset_id": "material_11",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材中可见开阔草地、树木与天空，远景接近原图场景；无完全匹配的公园照片，且没有中央小人物。保留全幅。"
+      },
+      "source": {
+        "id": "material_11",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-002-ef8292ed50f7\\aa88c613053a9a9de377b9fdc2f75fe6b48cad28246e53b65636bf752669a845.png",
+        "sha256": "f044e11373093d30f03ab88a10d0fe35f5ba57b9bc5cf746b184bc9306beb8c1",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\prepared\\material_11.jpg"
+      }
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        80,
+        85,
+        424,
+        307
+      ],
+      "description": "浅蓝色手写字样与定义文字组成的完整手绘文字装饰，包含大字“LOVE:”, 小字释义及手写线条；保留原有不规则字形与分行。",
+      "label": "浅蓝色手写字样与定义文字组成的完整手绘文字装饰，包含大字“L",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9f87c79fadfed7b452af220976ca671bf4c09526e698ccf3342bd5cb3e28bea2"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_1.png",
+        "sha256": "f71804edd1bd7416b2dc14371c7fa95174758f2d17c528d16bb8609573ec86ae",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\overlay_1-restored.png",
+          "sha256": "f71804edd1bd7416b2dc14371c7fa95174758f2d17c528d16bb8609573ec86ae",
+          "bbox": [
+            72,
+            77,
+            432,
+            315
+          ],
+          "original_bbox": [
+            80,
+            85,
+            424,
+            307
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\layers_aug_01.png",
+          "raw_sha256": "c908f38a005ee004708461dd67bf01129b4f72663f4e6c91443cbcbe92fc8821",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "811a98fac4eb901afbe7bffcdd4b652678e447218b2e13b378af4f43f904a2e6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_1-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_1-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        34,
+        461,
+        406,
+        740
+      ],
+      "description": "横向矩形花木照片，近景枝叶间可见数朵粉色花朵，背景为深色树冠与阳光；摄影环境保留。照片外围有一圈连续白色不规则手绘轮廓线，沿照片窗口周边延伸，属于该照片的边缘效果。",
+      "label": "横向矩形花木照片，近景枝叶间可见数朵粉色花朵，背景为深色树冠",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_2",
+        "reason": "保留花木照片的深色树冠与阳光背景；照片窗口为矩形，外围可见白色不规则手绘轮廓线，按窗口外侧白色实线近似表达，无法精确还原其起伏形状；无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.01,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0.01
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_2",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材库没有花木照片；选用有枝叶与粉色花朵近景的参考图素材作为最接近匹配，深色树冠与阳光也相符。保留全幅。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-002-ef8292ed50f7\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        629,
+        272,
+        840,
+        494
+      ],
+      "description": "右上方浅蓝色手绘圆环与环边小点构成的装饰组，保留不规则描边和内部留白。",
+      "label": "右上方浅蓝色手绘圆环与环边小点构成的装饰组，保留不规则描边和",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "73f285e5e498b6288ea5aeb0bb60f40155e39452475f07c3d1162e40979dc893"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_2.png",
+        "sha256": "4dfdcad07f39d08d6b5aeddb3d32eb60e0348022619f7233979f54d571d28524",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\overlay_2-restored.png",
+          "sha256": "4dfdcad07f39d08d6b5aeddb3d32eb60e0348022619f7233979f54d571d28524",
+          "bbox": [
+            621,
+            264,
+            848,
+            502
+          ],
+          "original_bbox": [
+            629,
+            272,
+            840,
+            494
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\layers_aug_02.png",
+          "raw_sha256": "6d8f43b9ed1f125af78238e2689c2e49ea15614dc686e21fff1fe283f5a19f48",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "811a98fac4eb901afbe7bffcdd4b652678e447218b2e13b378af4f43f904a2e6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_2-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_2-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        672,
+        390,
+        838,
+        497
+      ],
+      "description": "右侧浅蓝色小圆环与浅蓝、淡黄色星形涂鸦组成的独立装饰组，保留各自形状与颜色。",
+      "label": "右侧浅蓝色小圆环与浅蓝、淡黄色星形涂鸦组成的独立装饰组，保留",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "141b5d1b7bfe3582833b003dc234201a3d4a9a6f88e87e1dba1980a7c5eb5aee"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_3.png",
+        "sha256": "1f8e833d9e8557ebf854f208df1799a3cf8c024c31c05655fe1d1a14d0f14a86",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\overlay_3-restored.png",
+          "sha256": "1f8e833d9e8557ebf854f208df1799a3cf8c024c31c05655fe1d1a14d0f14a86",
+          "bbox": [
+            664,
+            382,
+            846,
+            505
+          ],
+          "original_bbox": [
+            672,
+            390,
+            838,
+            497
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\layers_aug_03.png",
+          "raw_sha256": "2f1cea765270dec1efa582b25619e9f4ffeb27489d1cd92f4d3acd3ce5f5ab62",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "811a98fac4eb901afbe7bffcdd4b652678e447218b2e13b378af4f43f904a2e6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_3-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_3-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_3",
+      "kind": "photo",
+      "bbox": [
+        492,
+        643,
+        865,
+        922
+      ],
+      "description": "横向矩形公园照片，草坪与树木背景中一名人物操作喷水设备，弧形水流横跨画面；完整保留摄影环境，边缘为清晰直边。",
+      "label": "横向矩形公园照片，草坪与树木背景中一名人物操作喷水设备，弧形",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_3",
+        "reason": "保留草坪、树木、人物及喷水水流所在的完整摄影场景；照片边界为清晰矩形，无主体描边、窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_3",
+        "asset_id": "material_04",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材库没有人物喷水场景；该图含草地、开阔水岸和小人物，作为公园户外的近似替代，但无喷水设备及弧形水流。保留全幅。"
+      },
+      "source": {
+        "id": "material_04",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-002-ef8292ed50f7\\2efd9b0d29e4ccd4978a5784a56d2a3675d0e8305662818e13635059475ff521.png",
+        "sha256": "92fb06c23be73dc11beeb590f127d79d4e376579cb33074a9fc013c9f52a6f97",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\prepared\\material_04.jpg"
+      }
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        703,
+        575,
+        832,
+        733
+      ],
+      "description": "灰色立体星形与细长弯曲金属夹组合成的纸夹装饰，作为完整固定单元保留。",
+      "label": "灰色立体星形与细长弯曲金属夹组合成的纸夹装饰，作为完整固定单",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ab81a830c48d1288a0c0e5c6e679f56343273f04c88251c2d8145afd1a7901c5"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_4.png",
+        "sha256": "85d3e584883b0715b52be97b9f8d58b57ef3fdc896328543bae3ebd31f908def",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\overlay_4-restored.png",
+          "sha256": "85d3e584883b0715b52be97b9f8d58b57ef3fdc896328543bae3ebd31f908def",
+          "bbox": [
+            695,
+            567,
+            840,
+            741
+          ],
+          "original_bbox": [
+            703,
+            575,
+            832,
+            733
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\layers_aug_04.png",
+          "raw_sha256": "083f44ddc0b6aa1e2e191f56948b66c4b9cbb4b93b4911a9c7d87e895b6ba341",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "811a98fac4eb901afbe7bffcdd4b652678e447218b2e13b378af4f43f904a2e6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_4-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_4-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        14,
+        798,
+        211,
+        988
+      ],
+      "description": "左侧两枚浅米色底、白色手绘线条的星形贴纸，大小不同并彼此靠近，保留纸边、轮廓和内部线条。",
+      "label": "左侧两枚浅米色底、白色手绘线条的星形贴纸，大小不同并彼此靠近",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "73b491916878a75a5b248c0adf34048f253b62cdb9d5114b833a95b3a8def6d9"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_5.png",
+        "sha256": "f955ab870d1b583f6b0c550175b8552e8a82599c06ced28d506f15f44264e45a",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\overlay_5-restored.png",
+          "sha256": "f955ab870d1b583f6b0c550175b8552e8a82599c06ced28d506f15f44264e45a",
+          "bbox": [
+            6,
+            790,
+            219,
+            996
+          ],
+          "original_bbox": [
+            14,
+            798,
+            211,
+            988
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\layers_aug_05.png",
+          "raw_sha256": "f5be917b919c95b0d95cd252e10573e69518ae509f828f407b901ada10129b1d",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "811a98fac4eb901afbe7bffcdd4b652678e447218b2e13b378af4f43f904a2e6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_5-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_5-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    },
+    {
+      "id": "photo_4",
+      "kind": "photo",
+      "bbox": [
+        182,
+        796,
+        461,
+        1168
+      ],
+      "description": "竖向矩形树木照片，仰拍多棵枝叶繁茂的树及蓝天，树干从画面下方延伸向上；保留摄影场景，边缘为清晰直边。",
+      "label": "竖向矩形树木照片，仰拍多棵枝叶繁茂的树及蓝天，树干从画面下方",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_4",
+        "reason": "保留树木枝叶与蓝天构成的摄影环境；显示边界为清晰竖向矩形，无主体描边、窗口描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_4",
+        "asset_id": "material_05",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "素材库没有仰拍繁茂树木；选择含蓝天、树木与向上伸展枝干的场景作近似，缺少多棵树的完整匹配。保留全幅。"
+      },
+      "source": {
+        "id": "material_05",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-002-ef8292ed50f7\\3cdf61da6802362193ed1af16b6af31fb0a8d475c9d7b47d52fd9279ddb97da3.png",
+        "sha256": "4c5ccf7d473f090864ac3c513de4dee4eada9a031ca7a19476d048b088d75c07",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\prepared\\material_05.jpg"
+      }
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        559,
+        934,
+        817,
+        1007
+      ],
+      "description": "底部偏右的白色手绘星形、圆点、弯月形和加号涂鸦，作为同一组独立线条装饰保留。",
+      "label": "底部偏右的白色手绘星形、圆点、弯月形和加号涂鸦，作为同一组独",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "gate": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "b77b7c405664dd8b023f96762b626c4737578f9cb7b2abbfa13623395cdf74cf"
+      },
+      "recovered": {
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_6.png",
+        "sha256": "5c08577ca437d4e22bfa2609281f9de0627cac87f74e612a3b92d986018d3101",
+        "source": {
+          "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\overlay_6-restored.png",
+          "sha256": "5c08577ca437d4e22bfa2609281f9de0627cac87f74e612a3b92d986018d3101",
+          "bbox": [
+            551,
+            926,
+            825,
+            1015
+          ],
+          "original_bbox": [
+            559,
+            934,
+            817,
+            1007
+          ],
+          "padding": 0.1,
+          "padding_mode": "capped",
+          "raw_file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01\\layers_aug_06.png",
+          "raw_sha256": "c284fb45f79b566f32e7b4de25284019d74ad113a35395964725407f4cfbaeb2",
+          "task": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\chain\\round_01",
+          "crop_box": [
+            0,
+            0,
+            900,
+            1200
+          ],
+          "input_sha256": "811a98fac4eb901afbe7bffcdd4b652678e447218b2e13b378af4f43f904a2e6"
+        },
+        "reference_crop": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_6-reference.png",
+        "foreground": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\overlay_6-preview.png",
+        "action": "reuse_layer"
+      },
+      "gate_embedded_ids": []
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "overlay_1",
+    "photo_2",
+    "overlay_5",
+    "photo_4",
+    "photo_3",
+    "overlay_4",
+    "overlay_2",
+    "overlay_3",
+    "overlay_6"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "4ad56bee758cd4925ad6db8baf718563f5ab6fe79d8473add925cfabc074639e",
+    "bindings": "45236448139c668cac8ef5e6b32dc12433b633dd07adc3716c9e1440d5d20350",
+    "input": "0e119c7282676905c912daa255ae27d650eec0ea059675c66bcfda0249e129d6",
+    "catalog": "6bd6d781fdcc7526324a3376aba9240485f67b4764137c0e342831f2a34d5f8f",
+    "photo_windows": "162be3e64a95e1e330832a7985bc745de57a79051fdd76ccd469ccca6e8ed6b1"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\reveal\\index.json",
+    "sha256": "fa3fc5d84c07be4968bf2a0db23ea9659ac0cecc986347cc00ee486f4f768c73"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-002\\assets\\gate\\report.json",
+    "sha256": "d6fe95f99035efa51585f1b2c240b85ec040a4969f5cd071b9d31a362bc2572a",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 7,
+    "pending": 0,
+    "rejected": 0,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
