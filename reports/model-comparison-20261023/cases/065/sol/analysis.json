@@ -1,0 +1,284 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1199
+  ],
+  "objects": [
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        900,
+        1199
+      ],
+      "description": "铺满画布的咖啡馆照片，一名长发女子坐在木桌后，单手托腮望向左侧，桌前放有高杯冰饮。保留窗边绿植、吊灯、座椅及右侧室内环境，摄影背景完整可见，无去背景或透明渐隐。",
+      "label": "铺满画布的咖啡馆照片，一名长发女子坐在木桌后，单手托腮望向左",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "ornamental_outline",
+      "kind": "overlay",
+      "bbox": [
+        142,
+        192,
+        843,
+        1032
+      ],
+      "description": "叠加在主照片内部的白色手绘装饰框线，包含顶部连续花边与星点、左右细碎竖线、右侧卷曲小圆纹及底部粗糙横线；不构成独立照片内口，保留完整可见线条。",
+      "label": "叠加在主照片内部的白色手绘装饰框线，包含顶部连续花边与星点、",
+      "method": "extract"
+    },
+    {
+      "id": "photo_oval",
+      "kind": "photo",
+      "bbox": [
+        128,
+        73,
+        315,
+        314
+      ],
+      "description": "上方椭圆照片，俯拍室外木桌上的甜点白盘、红色饮料和分层咖啡，保留木桌与少量周围绿植。照片沿椭圆边界裁切，边缘清晰。",
+      "label": "上方椭圆照片，俯拍室外木桌上的甜点白盘、红色饮料和分层咖啡，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        35,
+        304,
+        251,
+        569
+      ],
+      "description": "左侧竖幅照片，一名长发女子俯身靠近木桌，抬头看向镜头，双臂围着深色冰饮，保留桌面与身后人物环境。照片窗口外围有贴合边界的红色粗糙细描边。",
+      "label": "左侧竖幅照片，一名长发女子俯身靠近木桌，抬头看向镜头，双臂围",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        590,
+        130,
+        845,
+        456
+      ],
+      "description": "右上竖幅照片，一名长发女子伏在木桌前，低头用吸管喝深色冰饮，双臂与上半身可见，保留身后座椅和其他顾客。窗口外围有贴合边界的橙色粗糙细描边。",
+      "label": "右上竖幅照片，一名长发女子伏在木桌前，低头用吸管喝深色冰饮，",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_dessert",
+      "kind": "photo",
+      "bbox": [
+        23,
+        765,
+        242,
+        924
+      ],
+      "description": "左下矩形俯拍照片，手托带花纹的白色盘子，盘中放有三角甜点及点缀，周围可见木桌、餐具和浅色衣物。保留摄影环境，右下部分被吊牌及下方饮品照片遮挡。",
+      "label": "左下矩形俯拍照片，手托带花纹的白色盘子，盘中放有三角甜点及点",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_coffees",
+      "kind": "photo",
+      "bbox": [
+        59,
+        916,
+        299,
+        1103
+      ],
+      "description": "左下方双杯咖啡照片，左侧是带吸管的高杯冰咖啡，右上是带花朵点缀的泡沫咖啡及杯碟，保留桌面、格纹杯垫和纸盒。窗口左右可见黄色短虚线，右下有小型心形线条，与照片边缘装饰一起保留。",
+      "label": "左下方双杯咖啡照片，左侧是带吸管的高杯冰咖啡，右上是带花朵点",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_heart",
+      "kind": "photo",
+      "bbox": [
+        555,
+        800,
+        830,
+        1113
+      ],
+      "description": "右下心形照片，夜间街景中可见明亮店铺招牌、行人、街道及前景车辆，保留完整摄影环境。沿心形窗口有双道不规则白色细描边，上方局部被白熊装饰遮挡，左下被纸袋遮挡。",
+      "label": "右下心形照片，夜间街景中可见明亮店铺招牌、行人、街道及前景车",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "bear_top",
+      "kind": "overlay",
+      "bbox": [
+        33,
+        169,
+        132,
+        294
+      ],
+      "description": "左上棕黄色毛绒熊贴饰，具有圆耳、白色腹部和手持的小兔形配件，保留完整毛绒轮廓及配件。",
+      "label": "左上棕黄色毛绒熊贴饰，具有圆耳、白色腹部和手持的小兔形配件，",
+      "method": "extract"
+    },
+    {
+      "id": "coffee_sticker",
+      "kind": "overlay",
+      "bbox": [
+        194,
+        355,
+        253,
+        446
+      ],
+      "description": "叠在左侧人物照片右上区域的外带咖啡杯贴饰，保留黑色杯盖、绿色小塞、米色杯身及杯身文字和手绘图案。",
+      "label": "叠在左侧人物照片右上区域的外带咖啡杯贴饰，保留黑色杯盖、绿色",
+      "method": "extract"
+    },
+    {
+      "id": "music_paper",
+      "kind": "overlay",
+      "bbox": [
+        778,
+        79,
+        867,
+        161
+      ],
+      "description": "右上倾斜的白色撕边纸贴，纸面印有灰色音符，纸张轮廓、折痕和音符作为完整装饰保留。",
+      "label": "右上倾斜的白色撕边纸贴，纸面印有灰色音符，纸张轮廓、折痕和音",
+      "method": "extract"
+    },
+    {
+      "id": "bear_right",
+      "kind": "overlay",
+      "bbox": [
+        665,
+        411,
+        799,
+        568
+      ],
+      "description": "右侧棕色毛绒熊贴饰，戴浅色帽子、穿浅色衣服，配有红色背带、棕色小包和手持点心配件；完整保留服饰、配件与毛绒边缘，覆盖右上照片下边缘。",
+      "label": "右侧棕色毛绒熊贴饰，戴浅色帽子、穿浅色衣服，配有红色背带、棕",
+      "method": "extract"
+    },
+    {
+      "id": "star_top",
+      "kind": "overlay",
+      "bbox": [
+        525,
+        118,
+        563,
+        153
+      ],
+      "description": "上方单独的浅灰白立体五角星，保留折面明暗与细微阴影。",
+      "label": "上方单独的浅灰白立体五角星，保留折面明暗与细微阴影。",
+      "method": "extract"
+    },
+    {
+      "id": "star_left",
+      "kind": "overlay",
+      "bbox": [
+        50,
+        603,
+        96,
+        649
+      ],
+      "description": "左侧浅米白折纸五角星，完整保留不规则折面、纸质纹理及阴影。",
+      "label": "左侧浅米白折纸五角星，完整保留不规则折面、纸质纹理及阴影。",
+      "method": "extract"
+    },
+    {
+      "id": "quote_label",
+      "kind": "overlay",
+      "bbox": [
+        76,
+        669,
+        229,
+        712
+      ],
+      "description": "左侧米色撕边纸标签，带两行黑色手写英文“Don't work the same three days.”和“It's a clear waste but big enough.”；以原图可见笔画为准，纸边、文字和阴影整体保留。",
+      "label": "左侧米色撕边纸标签，带两行黑色手写英文“Don't work",
+      "method": "extract"
+    },
+    {
+      "id": "love_tag",
+      "kind": "overlay",
+      "bbox": [
+        177,
+        808,
+        266,
+        935
+      ],
+      "description": "左下牛皮纸吊牌及上方打结麻绳，吊牌上有倾斜手写“love”字样，保留穿孔、绳结、纸张纹理与阴影，覆盖甜点照片右侧及咖啡照片上缘。",
+      "label": "左下牛皮纸吊牌及上方打结麻绳，吊牌上有倾斜手写“love”字",
+      "method": "extract"
+    },
+    {
+      "id": "white_bear",
+      "kind": "overlay",
+      "bbox": [
+        696,
+        722,
+        857,
+        858
+      ],
+      "description": "右下横卧的白色毛绒熊头部贴饰，具有圆耳、灰褐色五官和蓬松毛边，整体覆盖心形街景照片上缘。",
+      "label": "右下横卧的白色毛绒熊头部贴饰，具有圆耳、灰褐色五官和蓬松毛边",
+      "method": "extract"
+    },
+    {
+      "id": "star_bottom",
+      "kind": "overlay",
+      "bbox": [
+        361,
+        1046,
+        414,
+        1102
+      ],
+      "description": "底部独立的米白色折纸五角星，保留纸张折痕、立体明暗和阴影。",
+      "label": "底部独立的米白色折纸五角星，保留纸张折痕、立体明暗和阴影。",
+      "method": "extract"
+    },
+    {
+      "id": "paper_bag",
+      "kind": "overlay",
+      "bbox": [
+        523,
+        987,
+        623,
+        1105
+      ],
+      "description": "底部棕色牛皮纸袋贴饰，上口卷折，袋身具有自然褶皱与少量深色印记，完整保留纸袋轮廓和阴影，覆盖心形照片左下边缘。",
+      "label": "底部棕色牛皮纸袋贴饰，上口卷折，袋身具有自然褶皱与少量深色印",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "photo_main",
+    "ornamental_outline",
+    "photo_oval",
+    "photo_left",
+    "photo_right",
+    "photo_dessert",
+    "photo_coffees",
+    "photo_heart",
+    "bear_top",
+    "coffee_sticker",
+    "music_paper",
+    "bear_right",
+    "star_top",
+    "star_left",
+    "quote_label",
+    "love_tag",
+    "white_bear",
+    "star_bottom",
+    "paper_bag"
+  ]
+}
