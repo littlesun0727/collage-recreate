@@ -1,7 +1,7 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-23T19:52:10+08:00",
+  "updated_at": "2026-10-23T19:53:29+08:00",
   "references": 116,
   "total": 348,
   "counts": {
@@ -13,9 +13,10 @@
       "pending": 95
     },
     "luna": {
-      "completed": 20,
+      "completed": 21,
       "running": 1,
-      "pending": 95
+      "queued": 19,
+      "pending": 75
     },
     "sol": {
       "pending": 116
@@ -256,7 +257,7 @@
       "model": "qwen",
       "batch": "run-5c74597685de4c9590a0be1fc22cdf73",
       "status": "running",
-      "step": "bind",
+      "step": "build",
       "error": null,
       "task_id": "98599936f04cab59",
       "elapsed_seconds": null,
@@ -1279,173 +1280,253 @@
       "case": "021",
       "model": "luna",
       "batch": "run-cb089a1902d04d3aa208ecbe93f40c73",
-      "status": "running",
-      "step": "build",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "8718a6da53ab8ab6",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 229.954,
+      "delivery_category": "unreviewed",
+      "review_status": "skipped"
     },
     {
       "case": "022",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "running",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "023",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "024",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "025",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "026",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "027",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "028",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "029",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "030",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "031",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "032",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "033",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "034",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "035",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "036",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "037",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "038",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "039",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "040",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "041",
       "model": "luna",
       "batch": "run-96e62440ba86452d912a86c840a0296f",
-      "status": "pending",
+      "status": "queued",
       "step": null,
-      "error": null
+      "error": null,
+      "task_id": null,
+      "elapsed_seconds": null,
+      "delivery_category": null,
+      "review_status": null
     },
     {
       "case": "042",
