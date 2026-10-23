@@ -1,0 +1,145 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1221
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1221
+      ],
+      "description": "铺满画面的浅绿至深绿渐变颗粒纸纹背景，保留原有纹理与明暗变化。",
+      "label": "铺满画面的浅绿至深绿渐变颗粒纸纹背景，保留原有纹理与明暗变化",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "clover_square",
+      "kind": "overlay",
+      "bbox": [
+        55,
+        85,
+        202,
+        230
+      ],
+      "description": "左上方白色方形底片上叠放一枚绿色四叶草，保留白底、叶片、细茎与整体边缘。",
+      "label": "左上方白色方形底片上叠放一枚绿色四叶草，保留白底、叶片、细茎",
+      "method": "extract"
+    },
+    {
+      "id": "portrait_main",
+      "kind": "photo",
+      "bbox": [
+        126,
+        164,
+        552,
+        736
+      ],
+      "description": "户外近距离自拍，一名长发女性身穿深蓝外套和浅色内搭，面向镜头微笑并眨一只眼；人物居中，周围保留树叶、栏杆及户外环境，矩形照片边缘清晰。",
+      "label": "户外近距离自拍，一名长发女性身穿深蓝外套和浅色内搭，面向镜头",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "caption_top",
+      "kind": "text",
+      "bbox": [
+        516,
+        242,
+        829,
+        281
+      ],
+      "description": "Cut film strips held more\ntruth than the final reel.",
+      "label": "Cut film strips held more\ntrut",
+      "method": "local",
+      "text": "Cut film strips held more\ntruth than the final reel.",
+      "text_status": "known",
+      "style": {
+        "fill": "#414B43",
+        "font": "serif",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "clover_strip",
+      "kind": "photo",
+      "bbox": [
+        538,
+        347,
+        837,
+        546
+      ],
+      "description": "横向矩形照片，浅色纸面上排列多枚绿色四叶草，底部有手写字样“Am I the luckiest girl or what?!”。保留照片内纸面与环境，边缘为浅色横带。",
+      "label": "横向矩形照片，浅色纸面上排列多枚绿色四叶草，底部有手写字样“",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "caption_middle",
+      "kind": "text",
+      "bbox": [
+        215,
+        783,
+        499,
+        832
+      ],
+      "description": "\"Vintage flashbulbs started\n1920s dust awake\"",
+      "label": "\"Vintage flashbulbs started\n19",
+      "method": "local",
+      "text": "\"Vintage flashbulbs started\n1920s dust awake\"",
+      "text_status": "known",
+      "style": {
+        "fill": "#6A7566",
+        "font": "serif",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "card_quote",
+      "kind": "overlay",
+      "bbox": [
+        68,
+        858,
+        382,
+        1088
+      ],
+      "description": "白色圆角卡片装饰，带有两枚绿色四叶草图案及橄榄绿色衬线文字“love blooms like a cherished four-leaf clover, a rare and beautiful treasure.”，卡片、图案和文字作为完整单元保留。",
+      "label": "白色圆角卡片装饰，带有两枚绿色四叶草图案及橄榄绿色衬线文字“",
+      "method": "extract"
+    },
+    {
+      "id": "portrait_lower",
+      "kind": "photo",
+      "bbox": [
+        460,
+        659,
+        815,
+        1116
+      ],
+      "description": "户外近距离人像，一名长发女性穿深色外套、肩披浅灰色衣物，面向镜头；头发掠过脸部，人物居中，周围保留明亮树叶环境，矩形照片边缘清晰。",
+      "label": "户外近距离人像，一名长发女性穿深色外套、肩披浅灰色衣物，面向",
+      "method": "local",
+      "rotation": 0
+    }
+  ],
+  "layer_order": [
+    "background",
+    "clover_square",
+    "portrait_main",
+    "caption_top",
+    "clover_strip",
+    "caption_middle",
+    "card_quote",
+    "portrait_lower"
+  ]
+}
