@@ -1,0 +1,209 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    900,
+    1140
+  ],
+  "objects": [
+    {
+      "id": "background_1",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        900,
+        1140
+      ],
+      "description": "整张图的背景，上半部分为蓝天，下半部分为深绿色的树丛。",
+      "label": "整张图的背景，上半部分为蓝天，下半部分为深绿色的树丛。",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        166,
+        154,
+        743,
+        537
+      ],
+      "description": "上方照片窗口，显示一名身穿红白条纹裙的女子在草原上举着红色抱枕，背景有山丘和树林。边缘带有白色手绘风格描边。",
+      "label": "上方照片窗口，显示一名身穿红白条纹裙的女子在草原上举着红色抱",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_2",
+      "kind": "photo",
+      "bbox": [
+        166,
+        610,
+        754,
+        990
+      ],
+      "description": "下方照片窗口，显示一辆车的挡风玻璃视角，前景有一双穿着红鞋的脚翘起。边缘带有白色手绘风格描边。",
+      "label": "下方照片窗口，显示一辆车的挡风玻璃视角，前景有一双穿着红鞋的",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "overlay_1",
+      "kind": "overlay",
+      "bbox": [
+        99,
+        302,
+        207,
+        405
+      ],
+      "description": "位于左侧中部的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "label": "位于左侧中部的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_2",
+      "kind": "overlay",
+      "bbox": [
+        590,
+        40,
+        688,
+        120
+      ],
+      "description": "位于右上方的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "label": "位于右上方的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_3",
+      "kind": "overlay",
+      "bbox": [
+        630,
+        542,
+        698,
+        598
+      ],
+      "description": "位于两张照片中间右侧的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "label": "位于两张照片中间右侧的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_4",
+      "kind": "overlay",
+      "bbox": [
+        36,
+        724,
+        122,
+        826
+      ],
+      "description": "位于左下方的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "label": "位于左下方的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_5",
+      "kind": "overlay",
+      "bbox": [
+        788,
+        758,
+        868,
+        838
+      ],
+      "description": "位于右下方的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "label": "位于右下方的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "method": "extract"
+    },
+    {
+      "id": "overlay_6",
+      "kind": "overlay",
+      "bbox": [
+        400,
+        1015,
+        504,
+        1112
+      ],
+      "description": "位于底部中间的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "label": "位于底部中间的白色手绘五角星贴纸，内部带有笑脸图案。",
+      "method": "extract"
+    },
+    {
+      "id": "text_1",
+      "kind": "text",
+      "bbox": [
+        171,
+        103,
+        234,
+        131
+      ],
+      "description": "No.1",
+      "label": "No.1",
+      "method": "local",
+      "text": "No.1",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "text_2",
+      "kind": "text",
+      "bbox": [
+        360,
+        547,
+        531,
+        587
+      ],
+      "description": "百分百做自己",
+      "label": "百分百做自己",
+      "method": "local",
+      "text": "百分百做自己",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "cjk-hand",
+        "align": "center",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "text_3",
+      "kind": "text",
+      "bbox": [
+        648,
+        1015,
+        738,
+        1043
+      ],
+      "description": "Happy",
+      "label": "Happy",
+      "method": "local",
+      "text": "Happy",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "font": "hand",
+        "align": "right",
+        "bold": false,
+        "italic": false
+      }
+    }
+  ],
+  "layer_order": [
+    "background_1",
+    "photo_1",
+    "photo_2",
+    "overlay_1",
+    "overlay_2",
+    "overlay_3",
+    "overlay_4",
+    "overlay_5",
+    "overlay_6",
+    "text_1",
+    "text_2",
+    "text_3"
+  ]
+}
