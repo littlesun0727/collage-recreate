@@ -1,6 +1,6 @@
 # 116 张参考图 · 三模型对比
 
-最后更新：2026-10-24T08:03:56+08:00。共 348 个任务。
+最后更新：2026-10-24T08:05:06+08:00。共 348 个任务。
 
 执行顺序：**yibuapi Qwen 串行**与**Codex 串行队列（全部 Luna → 全部 Sol）**并行。
 
@@ -131,7 +131,7 @@
 | [111 · 拼贴3.jpg](cases/111/README.md)<br>![参考](cases/111/reference-thumb.jpg) | 已交付<br>[![成图](cases/111/qwen/thumb.jpg)](cases/111/qwen/final.png) | 已交付<br>[![成图](cases/111/luna/thumb.jpg)](cases/111/luna/final.png) | 已交付<br>[![成图](cases/111/sol/thumb.jpg)](cases/111/sol/final.png) |
 | [112 · 拼贴4.jpg](cases/112/README.md)<br>![参考](cases/112/reference-thumb.jpg) | 已交付<br>[![成图](cases/112/qwen/thumb.jpg)](cases/112/qwen/final.png) | 已交付<br>[![成图](cases/112/luna/thumb.jpg)](cases/112/luna/final.png) | 已交付<br>[![成图](cases/112/sol/thumb.jpg)](cases/112/sol/final.png) |
 | [113 · 拼贴5.jpg](cases/113/README.md)<br>![参考](cases/113/reference-thumb.jpg) | 已交付<br>[![成图](cases/113/qwen/thumb.jpg)](cases/113/qwen/final.png) | 已交付<br>[![成图](cases/113/luna/thumb.jpg)](cases/113/luna/final.png) | 已交付<br>[![成图](cases/113/sol/thumb.jpg)](cases/113/sol/final.png) |
-| [114 · 拼贴6.jpg](cases/114/README.md)<br>![参考](cases/114/reference-thumb.jpg) | 已交付<br>[![成图](cases/114/qwen/thumb.jpg)](cases/114/qwen/final.png) | 已交付<br>[![成图](cases/114/luna/thumb.jpg)](cases/114/luna/final.png) | 运行中 · analyze |
+| [114 · 拼贴6.jpg](cases/114/README.md)<br>![参考](cases/114/reference-thumb.jpg) | 已交付<br>[![成图](cases/114/qwen/thumb.jpg)](cases/114/qwen/final.png) | 已交付<br>[![成图](cases/114/luna/thumb.jpg)](cases/114/luna/final.png) | 运行中 · bind |
 | [115 · 拼贴7.jpg](cases/115/README.md)<br>![参考](cases/115/reference-thumb.jpg) | 已交付<br>[![成图](cases/115/qwen/thumb.jpg)](cases/115/qwen/final.png) | 已交付<br>[![成图](cases/115/luna/thumb.jpg)](cases/115/luna/final.png) | 排队 |
 | [116 · 海边人像拼图.jpg](cases/116/README.md)<br>![参考](cases/116/reference-thumb.jpg) | 已交付<br>[![成图](cases/116/qwen/thumb.jpg)](cases/116/qwen/final.png) | 已交付<br>[![成图](cases/116/luna/thumb.jpg)](cases/116/luna/final.png) | 排队 |
 
