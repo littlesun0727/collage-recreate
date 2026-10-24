@@ -1,0 +1,348 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    1080,
+    1435
+  ],
+  "objects": [
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1435
+      ],
+      "description": "铺满画布的海滩摄影底图，可见蓝天、海水、沙滩及中央被其他对象遮挡的放大人物。保留摄影环境，整体柔焦，不将模糊误作透明渐隐。",
+      "label": "铺满画布的海滩摄影底图，可见蓝天、海水、沙滩及中央被其他对象",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "frame_left",
+      "kind": "frame",
+      "bbox": [
+        83,
+        75,
+        540,
+        775
+      ],
+      "description": "承托左上照片的纸卡，底部露出浅蓝与白色竖条纹宽边，带青蓝色花朵印花；纸卡及印花整体保留，内口照片独立替换。",
+      "photo_id": "photo_left",
+      "label": "承托左上照片的纸卡，底部露出浅蓝与白色竖条纹宽边，带青蓝色花",
+      "method": "extract"
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        84,
+        76,
+        538,
+        679
+      ],
+      "description": "一名长黑发女子坐在海滩上，正面看向镜头，一手举蓝色海星，一手举红色相机；可见浅蓝上衣、星纹裙、沙滩包及远处海湾山景。保留完整摄影环境，照片边缘清晰，人物不出框。",
+      "label": "一名长黑发女子坐在海滩上，正面看向镜头，一手举蓝色海星，一手",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "starfish_pair",
+      "kind": "overlay",
+      "bbox": [
+        49,
+        44,
+        271,
+        214
+      ],
+      "description": "左上角交叠的立体海星装饰，包含一只大米白海星及左下方小薄荷绿海星，保留表面颗粒、立体明暗和阴影。",
+      "label": "左上角交叠的立体海星装饰，包含一只大米白海星及左下方小薄荷绿",
+      "method": "extract"
+    },
+    {
+      "id": "flower_top",
+      "kind": "overlay",
+      "bbox": [
+        260,
+        194,
+        293,
+        227
+      ],
+      "description": "左上照片中人物头部左上方的小型浅蓝放射花朵装饰。",
+      "label": "左上照片中人物头部左上方的小型浅蓝放射花朵装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "flower_left",
+      "kind": "overlay",
+      "bbox": [
+        98,
+        329,
+        170,
+        402
+      ],
+      "description": "叠在左上照片举起的手臂附近的浅蓝色放射花朵。",
+      "label": "叠在左上照片举起的手臂附近的浅蓝色放射花朵。",
+      "method": "extract"
+    },
+    {
+      "id": "flower_right_top",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        287,
+        523,
+        329
+      ],
+      "description": "左上照片右侧沙滩区域的淡蓝色放射花朵装饰。",
+      "label": "左上照片右侧沙滩区域的淡蓝色放射花朵装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "flower_middle",
+      "kind": "overlay",
+      "bbox": [
+        220,
+        441,
+        259,
+        485
+      ],
+      "description": "左上照片人物左侧腰部附近的小浅蓝花朵装饰。",
+      "label": "左上照片人物左侧腰部附近的小浅蓝花朵装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "flower_right",
+      "kind": "overlay",
+      "bbox": [
+        431,
+        525,
+        492,
+        593
+      ],
+      "description": "左上照片人物右侧下方的浅蓝放射花朵装饰。",
+      "label": "左上照片人物右侧下方的浅蓝放射花朵装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "flower_bottom",
+      "kind": "overlay",
+      "bbox": [
+        108,
+        584,
+        161,
+        641
+      ],
+      "description": "左上照片左下角、沙滩包附近的浅蓝花朵装饰。",
+      "label": "左上照片左下角、沙滩包附近的浅蓝花朵装饰。",
+      "method": "extract"
+    },
+    {
+      "id": "summer_title",
+      "kind": "overlay",
+      "bbox": [
+        551,
+        88,
+        958,
+        144
+      ],
+      "description": "SUMMER TIME 拼贴标题，每个字母位于独立浅色小纸片上，字形带摄影图案和不规则细节，整体作为艺术字装饰保留。",
+      "label": "SUMMER TIME 拼贴标题，每个字母位于独立浅色小纸片",
+      "method": "extract"
+    },
+    {
+      "id": "poem",
+      "kind": "text",
+      "bbox": [
+        529,
+        185,
+        1029,
+        396
+      ],
+      "description": "I have only to break into\nthe tightness of strawberry,\nand i see summer\nits dust and lowering skies.",
+      "label": "I have only to break into\nthe ",
+      "method": "local",
+      "text": "I have only to break into\nthe tightness of strawberry,\nand i see summer\nits dust and lowering skies.",
+      "text_status": "known",
+      "style": {
+        "fill": "#283D45",
+        "font": "mono",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      }
+    },
+    {
+      "id": "fruit_red",
+      "kind": "overlay",
+      "bbox": [
+        705,
+        171,
+        773,
+        232
+      ],
+      "description": "叠在诗句第一行附近的浅色圆角水果贴纸，内部为红色水果图案，保留底板及柔和边缘。",
+      "label": "叠在诗句第一行附近的浅色圆角水果贴纸，内部为红色水果图案，保",
+      "method": "extract"
+    },
+    {
+      "id": "fruit_peach",
+      "kind": "overlay",
+      "bbox": [
+        608,
+        230,
+        680,
+        291
+      ],
+      "description": "诗句第二行左侧的浅色圆角贴纸，带橙粉色水果图案。",
+      "label": "诗句第二行左侧的浅色圆角贴纸，带橙粉色水果图案。",
+      "method": "extract"
+    },
+    {
+      "id": "fruit_strawberry",
+      "kind": "overlay",
+      "bbox": [
+        774,
+        228,
+        843,
+        291
+      ],
+      "description": "诗句第二行中部的浅色圆角草莓贴纸，保留红色草莓与淡色底板。",
+      "label": "诗句第二行中部的浅色圆角草莓贴纸，保留红色草莓与淡色底板。",
+      "method": "extract"
+    },
+    {
+      "id": "fruit_grape",
+      "kind": "overlay",
+      "bbox": [
+        823,
+        287,
+        893,
+        350
+      ],
+      "description": "诗句第三行右端的浅色圆角青绿色葡萄贴纸，包含枝梗与底板。",
+      "label": "诗句第三行右端的浅色圆角青绿色葡萄贴纸，包含枝梗与底板。",
+      "method": "extract"
+    },
+    {
+      "id": "fruit_yellow",
+      "kind": "overlay",
+      "bbox": [
+        523,
+        352,
+        590,
+        412
+      ],
+      "description": "诗句第四行开头附近的浅色圆角黄色水果贴纸。",
+      "label": "诗句第四行开头附近的浅色圆角黄色水果贴纸。",
+      "method": "extract"
+    },
+    {
+      "id": "frame_right",
+      "kind": "frame",
+      "bbox": [
+        555,
+        455,
+        1014,
+        1276
+      ],
+      "description": "右侧竖向照片卡框，上半部为大块浅白纸面，印有黑、粉、蓝绿色水滴及三处“(drop)”字样，下半部承载海滩照片。保留纸面、印刷图案和边缘阴影。",
+      "photo_id": "photo_right",
+      "label": "右侧竖向照片卡框，上半部为大块浅白纸面，印有黑、粉、蓝绿色水",
+      "method": "extract"
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        555,
+        740,
+        1012,
+        1274
+      ],
+      "description": "一名长黑发女子在海边沙滩上蹲坐，面向镜头微笑，双手向下靠近沙地；穿浅蓝上衣和深色裙，身前沙地有红色相机、黄色与蓝色海星，右侧有草编包。保留海水、浪线和沙滩背景，人物均在矩形窗口内。",
+      "label": "一名长黑发女子在海边沙滩上蹲坐，面向镜头微笑，双手向下靠近沙",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "photo_cutout",
+      "kind": "photo",
+      "bbox": [
+        90,
+        636,
+        700,
+        1360
+      ],
+      "description": "独立的单人抠图：长黑发女子坐姿大笑，左臂向左下伸出，右手举红色相机，穿浅蓝上衣和蓝色星纹裙，双腿向下弯曲。沿人物、衣物、双腿及手持相机组成的完整外轮廓去除摄影背景，外围带粗糙白色纸边和柔和暗影；覆盖左上纸卡及右侧照片左缘，与左上照片姿态不同，不建立出框关联。",
+      "label": "独立的单人抠图：长黑发女子坐姿大笑，左臂向左下伸出，右手举红",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "white_drops",
+      "kind": "overlay",
+      "bbox": [
+        572,
+        763,
+        984,
+        1035
+      ],
+      "description": "右侧照片上散布的一组白色水滴装饰，延伸至左侧相机附近，包含大小不同的实心水滴；与上方卡框印刷的彩色水滴区分，整体保留其疏密和分布。",
+      "label": "右侧照片上散布的一组白色水滴装饰，延伸至左侧相机附近，包含大",
+      "method": "extract"
+    },
+    {
+      "id": "speech_bubble",
+      "kind": "overlay",
+      "bbox": [
+        35,
+        829,
+        246,
+        946
+      ],
+      "description": "左下方倾斜的浅白对话气泡贴纸，黑色不规则轮廓内含圆眼、弯嘴及两侧短线表情，保留完整气泡外形与表情笔画。",
+      "label": "左下方倾斜的浅白对话气泡贴纸，黑色不规则轮廓内含圆眼、弯嘴及",
+      "method": "extract"
+    },
+    {
+      "id": "bottom_calligraphy",
+      "kind": "overlay",
+      "bbox": [
+        581,
+        1170,
+        982,
+        1355
+      ],
+      "description": "画面下部的白色细线花体英文装饰，以“Dreamy …”大字横跨右侧照片下部，下方接两行较小花体字及细小闪光符号；保留长卷曲笔画、文字层次与整体排布，不拆成普通文字。",
+      "label": "画面下部的白色细线花体英文装饰，以“Dreamy …”大字横",
+      "method": "extract"
+    }
+  ],
+  "layer_order": [
+    "photo_background",
+    "frame_left",
+    "photo_left",
+    "starfish_pair",
+    "flower_top",
+    "flower_left",
+    "flower_right_top",
+    "flower_middle",
+    "flower_right",
+    "flower_bottom",
+    "summer_title",
+    "fruit_red",
+    "fruit_peach",
+    "fruit_strawberry",
+    "fruit_grape",
+    "fruit_yellow",
+    "poem",
+    "frame_right",
+    "photo_right",
+    "photo_cutout",
+    "white_drops",
+    "speech_bubble",
+    "bottom_calligraphy"
+  ]
+}

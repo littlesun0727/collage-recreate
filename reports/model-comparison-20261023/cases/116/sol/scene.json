@@ -1,0 +1,794 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-146\\prepared\\reference.png",
+    "sha256": "b4a3e65fa868e530cec9666085747ad1aea37036ca7a2dee1a8181f2706ee5cd"
+  },
+  "reference_size": [
+    1080,
+    1435
+  ],
+  "canvas_size": [
+    1200,
+    1594
+  ],
+  "objects": [
+    {
+      "id": "photo_background",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1435
+      ],
+      "description": "铺满画布的海滩摄影底图，可见蓝天、海水、沙滩及中央被其他对象遮挡的放大人物。保留摄影环境，整体柔焦，不将模糊误作透明渐隐。",
+      "label": "铺满画布的海滩摄影底图，可见蓝天、海水、沙滩及中央被其他对象",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_background",
+        "reason": "海滩摄影环境铺满画布，保留背景及被遮挡的放大人物；画布形成矩形窗口，无主体或窗口描边。柔焦及暗部不是透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_background",
+        "asset_id": "material_16",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "蓝天、水面、浪线、沙滩及中央较大人物符合底图构成；保留全幅环境，不镜像。人物为侧身站姿，与参考不同。"
+      },
+      "source": {
+        "id": "material_16",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-146-a8a3ba781d9e\\ebf645bd403dfc4c82db1815172c0c8c5ca820a06257df37789a3bdd94aec11b.png",
+        "sha256": "06638b50677afc7cba7473a3306f8c21b7cbcc080d0af9e6ba727c9b62ec3fe0",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-146\\prepared\\material_16.jpg"
+      }
+    },
+    {
+      "id": "frame_left",
+      "kind": "frame",
+      "bbox": [
+        83,
+        75,
+        540,
+        775
+      ],
+      "description": "承托左上照片的纸卡，底部露出浅蓝与白色竖条纹宽边，带青蓝色花朵印花；纸卡及印花整体保留，内口照片独立替换。",
+      "photo_id": "photo_left",
+      "label": "承托左上照片的纸卡，底部露出浅蓝与白色竖条纹宽边，带青蓝色花",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "5841075520173aaf951992b44fd7f462b819457a18569dbd0b2fff14e3904d20"
+      }
+    },
+    {
+      "id": "photo_left",
+      "kind": "photo",
+      "bbox": [
+        84,
+        76,
+        538,
+        679
+      ],
+      "description": "一名长黑发女子坐在海滩上，正面看向镜头，一手举蓝色海星，一手举红色相机；可见浅蓝上衣、星纹裙、沙滩包及远处海湾山景。保留完整摄影环境，照片边缘清晰，人物不出框。",
+      "label": "一名长黑发女子坐在海滩上，正面看向镜头，一手举蓝色海星，一手",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_left",
+        "reason": "保留人物及海湾、沙滩摄影背景，人物无轮廓描边或连续出框。矩形内口下沿止于条纹纸卡上缘；frame_left 的条纹、花纹与框体不重复绘制，照片边缘无渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_left",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "女子正面微笑、双手抬起，水岸环境与参考较接近；全幅居中保留帽顶和双手，不镜像以保护帽上文字。实际为站姿，无相机和海星，服装亦不同。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-146-a8a3ba781d9e\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-146\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "starfish_pair",
+      "kind": "overlay",
+      "bbox": [
+        49,
+        44,
+        271,
+        214
+      ],
+      "description": "左上角交叠的立体海星装饰，包含一只大米白海星及左下方小薄荷绿海星，保留表面颗粒、立体明暗和阴影。",
+      "label": "左上角交叠的立体海星装饰，包含一只大米白海星及左下方小薄荷绿",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "432ea6ba711276a06043bc3f8fbdf7327ac0b4620d55e1dbd76e63e316721136"
+      }
+    },
+    {
+      "id": "flower_top",
+      "kind": "overlay",
+      "bbox": [
+        260,
+        194,
+        293,
+        227
+      ],
+      "description": "左上照片中人物头部左上方的小型浅蓝放射花朵装饰。",
+      "label": "左上照片中人物头部左上方的小型浅蓝放射花朵装饰。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "b430815874067d38f046b307ee307b178ee81e373ff1942aa4086792fe435d42"
+      }
+    },
+    {
+      "id": "flower_left",
+      "kind": "overlay",
+      "bbox": [
+        98,
+        329,
+        170,
+        402
+      ],
+      "description": "叠在左上照片举起的手臂附近的浅蓝色放射花朵。",
+      "label": "叠在左上照片举起的手臂附近的浅蓝色放射花朵。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e3c299ab17f1eb234d8c8ab76387d5de85043932b5b1ac141590f83e79b50f5d"
+      }
+    },
+    {
+      "id": "flower_right_top",
+      "kind": "overlay",
+      "bbox": [
+        482,
+        287,
+        523,
+        329
+      ],
+      "description": "左上照片右侧沙滩区域的淡蓝色放射花朵装饰。",
+      "label": "左上照片右侧沙滩区域的淡蓝色放射花朵装饰。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "8a2b40dc5729c90d74307d5bf357411c800c4c2864d4ce6dc102a4ff0e4885d9"
+      }
+    },
+    {
+      "id": "flower_middle",
+      "kind": "overlay",
+      "bbox": [
+        220,
+        441,
+        259,
+        485
+      ],
+      "description": "左上照片人物左侧腰部附近的小浅蓝花朵装饰。",
+      "label": "左上照片人物左侧腰部附近的小浅蓝花朵装饰。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "5f17766114ec68963dce7fb890e4ab11e47ad245cc20e8d4e9b6a56029b848f2"
+      }
+    },
+    {
+      "id": "flower_right",
+      "kind": "overlay",
+      "bbox": [
+        431,
+        525,
+        492,
+        593
+      ],
+      "description": "左上照片人物右侧下方的浅蓝放射花朵装饰。",
+      "label": "左上照片人物右侧下方的浅蓝放射花朵装饰。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e1ba4f6484f630b46eb262eea044cb0d1c6580276f18b6bbe511b73bda65d670"
+      }
+    },
+    {
+      "id": "flower_bottom",
+      "kind": "overlay",
+      "bbox": [
+        108,
+        584,
+        161,
+        641
+      ],
+      "description": "左上照片左下角、沙滩包附近的浅蓝花朵装饰。",
+      "label": "左上照片左下角、沙滩包附近的浅蓝花朵装饰。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "b214ff0b0d76de66196e2c1cb50321ffab9b6d8226be0efccf5dfe035d6cb016"
+      }
+    },
+    {
+      "id": "summer_title",
+      "kind": "overlay",
+      "bbox": [
+        551,
+        88,
+        958,
+        144
+      ],
+      "description": "SUMMER TIME 拼贴标题，每个字母位于独立浅色小纸片上，字形带摄影图案和不规则细节，整体作为艺术字装饰保留。",
+      "label": "SUMMER TIME 拼贴标题，每个字母位于独立浅色小纸片",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "05f16c37723e73ca1cb56986e18da286993babfea469b2402ef9ebaf914212bf"
+      }
+    },
+    {
+      "id": "poem",
+      "kind": "text",
+      "bbox": [
+        529,
+        185,
+        1029,
+        396
+      ],
+      "description": "I have only to break into\nthe tightness of strawberry,\nand i see summer\nits dust and lowering skies.",
+      "label": "I have only to break into\nthe ",
+      "method": "local",
+      "text": "I have only to break into\nthe tightness of strawberry,\nand i see summer\nits dust and lowering skies.",
+      "text_status": "known",
+      "style": {
+        "fill": "#283D45",
+        "font": "mono",
+        "align": "left",
+        "bold": true,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "fruit_red",
+      "kind": "overlay",
+      "bbox": [
+        705,
+        171,
+        773,
+        232
+      ],
+      "description": "叠在诗句第一行附近的浅色圆角水果贴纸，内部为红色水果图案，保留底板及柔和边缘。",
+      "label": "叠在诗句第一行附近的浅色圆角水果贴纸，内部为红色水果图案，保",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "81ec39d17bada40b67d101768e9797f84cf758fc7a3ea15e31d390fe2b170971"
+      }
+    },
+    {
+      "id": "fruit_peach",
+      "kind": "overlay",
+      "bbox": [
+        608,
+        230,
+        680,
+        291
+      ],
+      "description": "诗句第二行左侧的浅色圆角贴纸，带橙粉色水果图案。",
+      "label": "诗句第二行左侧的浅色圆角贴纸，带橙粉色水果图案。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "3d61ff058559f253f92ed2daa21b64f955dcf87e67fe6f21a5c5f50ed71d435f"
+      }
+    },
+    {
+      "id": "fruit_strawberry",
+      "kind": "overlay",
+      "bbox": [
+        774,
+        228,
+        843,
+        291
+      ],
+      "description": "诗句第二行中部的浅色圆角草莓贴纸，保留红色草莓与淡色底板。",
+      "label": "诗句第二行中部的浅色圆角草莓贴纸，保留红色草莓与淡色底板。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "39b1c042e7405d3f783c245969da5540f9fe349a798a5cd6e48aedba6d4a801b"
+      }
+    },
+    {
+      "id": "fruit_grape",
+      "kind": "overlay",
+      "bbox": [
+        823,
+        287,
+        893,
+        350
+      ],
+      "description": "诗句第三行右端的浅色圆角青绿色葡萄贴纸，包含枝梗与底板。",
+      "label": "诗句第三行右端的浅色圆角青绿色葡萄贴纸，包含枝梗与底板。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "09da34d670e2efb7b05cf7353542fd1dadb972f9b19355728aea2a2460ca9a6e"
+      }
+    },
+    {
+      "id": "fruit_yellow",
+      "kind": "overlay",
+      "bbox": [
+        523,
+        352,
+        590,
+        412
+      ],
+      "description": "诗句第四行开头附近的浅色圆角黄色水果贴纸。",
+      "label": "诗句第四行开头附近的浅色圆角黄色水果贴纸。",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "7d8d38027461813ecfcab07b258bb52f7a78277830fc19d2d406699a039aa77d"
+      }
+    },
+    {
+      "id": "frame_right",
+      "kind": "frame",
+      "bbox": [
+        555,
+        455,
+        1014,
+        1276
+      ],
+      "description": "右侧竖向照片卡框，上半部为大块浅白纸面，印有黑、粉、蓝绿色水滴及三处“(drop)”字样，下半部承载海滩照片。保留纸面、印刷图案和边缘阴影。",
+      "photo_id": "photo_right",
+      "label": "右侧竖向照片卡框，上半部为大块浅白纸面，印有黑、粉、蓝绿色水",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "42d2ebf47b1e56ca937096e3a22e6027a93f6ed578bebb68944cf9c6c17b454c"
+      }
+    },
+    {
+      "id": "photo_right",
+      "kind": "photo",
+      "bbox": [
+        555,
+        740,
+        1012,
+        1274
+      ],
+      "description": "一名长黑发女子在海边沙滩上蹲坐，面向镜头微笑，双手向下靠近沙地；穿浅蓝上衣和深色裙，身前沙地有红色相机、黄色与蓝色海星，右侧有草编包。保留海水、浪线和沙滩背景，人物均在矩形窗口内。",
+      "label": "一名长黑发女子在海边沙滩上蹲坐，面向镜头微笑，双手向下靠近沙",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_right",
+        "reason": "保留蹲坐人物及海水、浪线、沙滩和包，主体无描边。固定矩形照片上沿与 frame_right 白色印花纸面相接，右边及下边清晰，无透明渐变；左侧由独立贴纸遮挡，不构成连续出框。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_right",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.7
+        ],
+        "mirror_x": false,
+        "reason": "女子面向镜头微笑、俯身屈膝，一手向下，身后有水面和沙地，是蹲坐场景的最近候选；纵向靠下对齐保留双靴。实际为俯身站姿，无相机、海星及草编包。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-146-a8a3ba781d9e\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-146\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "photo_cutout",
+      "kind": "photo",
+      "bbox": [
+        90,
+        636,
+        700,
+        1360
+      ],
+      "description": "独立的单人抠图：长黑发女子坐姿大笑，左臂向左下伸出，右手举红色相机，穿浅蓝上衣和蓝色星纹裙，双腿向下弯曲。沿人物、衣物、双腿及手持相机组成的完整外轮廓去除摄影背景，外围带粗糙白色纸边和柔和暗影；覆盖左上纸卡及右侧照片左缘，与左上照片姿态不同，不建立出框关联。",
+      "label": "独立的单人抠图：长黑发女子坐姿大笑，左臂向左下伸出，右手举红",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_cutout",
+        "reason": "独立坐姿人物贴纸，去除摄影背景，白边沿头发、伸出的手臂、衣裙、双腿及手持相机的组合轮廓绘制。粗糙纸边以白色实线近似，柔和暗影不作为窗口渐变；无独立几何窗口，与其他照片姿态不同，不建立出框关联。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.022,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_cutout",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.7
+        ],
+        "mirror_x": false,
+        "reason": "可见完整帽顶、双臂、屈膝双腿及双靴，人物轮廓清晰，适合作为分割候选；保留全幅并靠下对齐。素材中无对应坐姿，故与右图复用；实际为俯身微笑举手势，未持相机，并非坐姿大笑。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-146-a8a3ba781d9e\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-146\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "white_drops",
+      "kind": "overlay",
+      "bbox": [
+        572,
+        763,
+        984,
+        1035
+      ],
+      "description": "右侧照片上散布的一组白色水滴装饰，延伸至左侧相机附近，包含大小不同的实心水滴；与上方卡框印刷的彩色水滴区分，整体保留其疏密和分布。",
+      "label": "右侧照片上散布的一组白色水滴装饰，延伸至左侧相机附近，包含大",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "f1f9f66830ed0c40a611dbcd087e2904fd072fb8aa077ef697ede43055240dab"
+      }
+    },
+    {
+      "id": "speech_bubble",
+      "kind": "overlay",
+      "bbox": [
+        35,
+        829,
+        246,
+        946
+      ],
+      "description": "左下方倾斜的浅白对话气泡贴纸，黑色不规则轮廓内含圆眼、弯嘴及两侧短线表情，保留完整气泡外形与表情笔画。",
+      "label": "左下方倾斜的浅白对话气泡贴纸，黑色不规则轮廓内含圆眼、弯嘴及",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "0f28cb5753600d160f65c6fc020a8d96a5f438568bc80d48539fab09933f691e"
+      }
+    },
+    {
+      "id": "bottom_calligraphy",
+      "kind": "overlay",
+      "bbox": [
+        581,
+        1170,
+        982,
+        1355
+      ],
+      "description": "画面下部的白色细线花体英文装饰，以“Dreamy …”大字横跨右侧照片下部，下方接两行较小花体字及细小闪光符号；保留长卷曲笔画、文字层次与整体排布，不拆成普通文字。",
+      "label": "画面下部的白色细线花体英文装饰，以“Dreamy …”大字横",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "f193be04b4c993f3612960c7d0d31b4010a7ae57ccb21200f2f151dfba33c36c"
+      }
+    }
+  ],
+  "layer_order": [
+    "photo_background",
+    "frame_left",
+    "photo_left",
+    "starfish_pair",
+    "flower_top",
+    "flower_left",
+    "flower_right_top",
+    "flower_middle",
+    "flower_right",
+    "flower_bottom",
+    "summer_title",
+    "fruit_red",
+    "fruit_peach",
+    "fruit_strawberry",
+    "fruit_grape",
+    "fruit_yellow",
+    "poem",
+    "frame_right",
+    "photo_right",
+    "photo_cutout",
+    "white_drops",
+    "speech_bubble",
+    "bottom_calligraphy"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "ac3f1e2b26b08208a1f82d9339e09308859a9414b10171bd19546aacd2b37587",
+    "bindings": "0aa0f3d75d30b6508159f83ecb5c971797b8c04568638573c92b313e31b30b37",
+    "input": "4178fe0a7fb5e2a13852f93e2b94fbad02226ba6bd69f10a9079f4a3658f92f7",
+    "catalog": "9455f150c02938cd213d7ae2325c2f2feb59827ab66a144d909a7c5710ac3ea8",
+    "photo_windows": "910b0e18652b1b1fe61a3830b780698ae5ff85fed4e1e63af061b8c95f855f9c"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-146\\assets\\reveal\\index.json",
+    "sha256": "0ee335595d2a86bb58bbc74cef1d25e1297fec8760b5c8e093579a84a181f11e"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-146\\assets\\gate\\report.json",
+    "sha256": "fdad7a188a5a9134b9c838b5a8858138907f0319f29fd020a96be94d5ce19397",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 18,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
