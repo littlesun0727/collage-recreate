@@ -1,0 +1,573 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-145\\prepared\\reference.png",
+    "sha256": "a000d0dc92aba617de48cc0db12fd442f25aa4bfc42adaefac7416d7fc393382"
+  },
+  "reference_size": [
+    1080,
+    1912
+  ],
+  "canvas_size": [
+    1200,
+    2124
+  ],
+  "objects": [
+    {
+      "id": "background_wood",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1912
+      ],
+      "description": "铺满画布的棕色木板背景，保留纵向木纹、拼接缝、结疤和明暗变化。",
+      "label": "铺满画布的棕色木板背景，保留纵向木纹、拼接缝、结疤和明暗变化",
+      "method": "extract",
+      "background_type": "reference_clean",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "HTTPError: HTTP Error 402: Payment Required",
+      "gate_local": true,
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "92bbb009b7c788b5439f68ccd0b81b82b39ca9c9235aee72e8edcff78fc95291"
+      }
+    },
+    {
+      "id": "photo_main",
+      "kind": "photo",
+      "bbox": [
+        105,
+        184,
+        976,
+        1728
+      ],
+      "description": "大幅摄影画面：手持两张拍立得，后方另有散放的合影拍立得，周围可见金色蕾丝、深色阴影和下方粗糙织物。手、相纸及其中的小照片均为这张实拍场景的内容，随整张照片替换；保留摄影环境，四周直接裁切，无主体去背景或透明渐隐。",
+      "label": "大幅摄影画面：手持两张拍立得，后方另有散放的合影拍立得，周围",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_main",
+        "reason": "手、拍立得、蕾丝及织物均属于同一摄影场景，整体保留。照片以水平矩形硬边裁切，局部边界被其他层遮挡，无主体描边或透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_main",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.6,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "近景女性与抬手形成前景，后方保留完整湖岸摄影环境；全幅素材略靠右对齐，优先保留脸和抬起的手。素材中没有拍立得、蕾丝或织物，与参考场景差异明显。"
+      },
+      "source": {
+        "id": "material_00",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-145-5b6215b6a774\\1ab97fcbeb8740730e9da959c485ab0d01b0961289a617eabbf65b5a16168f0b.png",
+        "sha256": "f4e6838a79ca6adcfdb006945a509d7fa631adc97c9ca69290fb2bb43c354cc2",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-145\\prepared\\material_00.jpg"
+      }
+    },
+    {
+      "id": "photo_heart",
+      "kind": "photo",
+      "bbox": [
+        68,
+        94,
+        404,
+        409
+      ],
+      "description": "左上心形摄影画面，金棕色蕾丝上摆放五张女性单人或双人拍立得，属于同一摄影场景。保留蕾丝环境，沿心形窗口显示，外缘附有完整的不规则白色撕纸状宽边及灰色阴影，不沿人物轮廓去背景。",
+      "label": "左上心形摄影画面，金棕色蕾丝上摆放五张女性单人或双人拍立得，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_heart",
+        "reason": "保留五张拍立得及其蕾丝摄影背景，按独立心形窗口裁切。白色宽边沿心形而非人物轮廓；以实线近似不规则撕纸边，外侧灰色纸层和阴影无法用单一描边精确表达，没有透明渐变。",
+        "shape": {
+          "type": "heart"
+        },
+        "stroke": {
+          "enabled": true,
+          "width": 0.035,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_heart",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0.15,
+          1,
+          0.88
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "选择暖棕服饰的单人环境照作为近似，裁去部分天空和下身，保留侧脸、红帽及山地背景；没有五张拍立得与蕾丝，人物也是侧面而非参考中的正面合影。"
+      },
+      "source": {
+        "id": "material_06",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-145-5b6215b6a774\\405b0033ea558d4996c4f0d7d9419ce09840cb37d201c88ce7c9fb0c17138419.png",
+        "sha256": "04c2d3e1b7f8314b0b8de3fe38833539594c812cee17b9f8fcfc5790ecbb206c",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-145\\prepared\\material_06.jpg"
+      }
+    },
+    {
+      "id": "overlay_note",
+      "kind": "overlay",
+      "bbox": [
+        545,
+        141,
+        633,
+        507
+      ],
+      "description": "竖向灰米色旧式记录纸，保留纸张纹理、横线、Date、No.、FROM、TO及方框31等印字；右侧被上方大拍立得遮住。",
+      "label": "竖向灰米色旧式记录纸，保留纸张纹理、横线、Date、No.、",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "9dec2c3e1142b0d176bc5040ce85d373b769818a5373eeb32781b1740dd8ea2d"
+      }
+    },
+    {
+      "id": "frame_portrait",
+      "kind": "frame",
+      "bbox": [
+        627,
+        82,
+        1044,
+        589
+      ],
+      "description": "右上大拍立得纸框，保留灰白纸张、细微斑点、宽下沿、下沿淡蓝色细小手写字及边缘阴影，内口照片独立替换。",
+      "photo_id": "photo_portrait",
+      "label": "右上大拍立得纸框，保留灰白纸张、细微斑点、宽下沿、下沿淡蓝色",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "1bdb883b9175a04f9cef2ec7c05e0ebb5ec6cec8d0dc75751cd4efc0abb9380e"
+      }
+    },
+    {
+      "id": "photo_portrait",
+      "kind": "photo",
+      "bbox": [
+        640,
+        111,
+        1030,
+        486
+      ],
+      "description": "一位长黑发女性穿灰色短袖连衣裙坐在桌前，低头看向前方，双手在蛋糕两侧抬起；可见粉色墙面、右侧木椅与窗框、下缘蛋糕和桌面。摄影背景保留，照片裁于纸框内口，无主体描边或渐隐。",
+      "label": "一位长黑发女性穿灰色短袖连衣裙坐在桌前，低头看向前方，双手在",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_portrait",
+        "reason": "人物、粉色墙面、椅子与蛋糕桌面整体保留，矩形窗口对齐 frame_portrait 的摄影内口。纸框、印字及阴影由原相框保留，不重复绘制窗口描边，无主体描边和渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_portrait",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0.22,
+          1,
+          0.94
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "正面女性双手抬起的半身构图较接近参考；裁去上方多余天空，保留帽顶、脸及双手。实际为湖边站姿，没有低头、蛋糕、桌椅和室内背景。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-145-5b6215b6a774\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-145\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "overlay_tape",
+      "kind": "overlay",
+      "bbox": [
+        883,
+        57,
+        1064,
+        157
+      ],
+      "description": "右上斜贴于拍立得上沿的淡黄色半透明纸胶带，保留不规则纸边、折痕、深色细小英文印字和阴影。",
+      "label": "右上斜贴于拍立得上沿的淡黄色半透明纸胶带，保留不规则纸边、折",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "1c2a4587cfb81c59f7bb077a7cacd66798437a6babffd2968d421a6a783453ad"
+      }
+    },
+    {
+      "id": "overlay_caption",
+      "kind": "overlay",
+      "bbox": [
+        288,
+        1271,
+        582,
+        1315
+      ],
+      "description": "白色花体装饰字与右端实心白色爱心组成的完整标题，可辨内容近似“season 19 epissode1”；保留连笔、字间疏密和爱心的相对位置。",
+      "label": "白色花体装饰字与右端实心白色爱心组成的完整标题，可辨内容近似",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "528f12e81b86d36dc941b80f55f2febe4513d607d7a1d0e2709386fcf5432874"
+      }
+    },
+    {
+      "id": "overlay_butterfly",
+      "kind": "overlay",
+      "bbox": [
+        52,
+        1365,
+        151,
+        1423
+      ],
+      "description": "浅米绿色小矩形蝴蝶标签，细白线蝴蝶图案、底板、柔软纸边和阴影整体保留。",
+      "label": "浅米绿色小矩形蝴蝶标签，细白线蝴蝶图案、底板、柔软纸边和阴影",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "439e8ecf73ae2cab1a0adca841cddc703917fd05b71c0e8e219f5755bb55a02e"
+      }
+    },
+    {
+      "id": "overlay_embossed_flower",
+      "kind": "overlay",
+      "bbox": [
+        173,
+        1384,
+        312,
+        1499
+      ],
+      "description": "米色近方形纸片，中央有浅色浮雕花枝，保留纸张质感、凹凸花纹及边缘阴影。",
+      "label": "米色近方形纸片，中央有浅色浮雕花枝，保留纸张质感、凹凸花纹及",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "1930d0aac755928290d4f41001975764c36ed9dae817d54f0e031b75deaea2bb"
+      }
+    },
+    {
+      "id": "overlay_flower_card",
+      "kind": "overlay",
+      "bbox": [
+        274,
+        1489,
+        394,
+        1608
+      ],
+      "description": "小型奶白色花卉卡片，保留上半部浅色花朵、散点、下方细小印刷纹理、宽纸边和阴影；作为完整固定装饰。",
+      "label": "小型奶白色花卉卡片，保留上半部浅色花朵、散点、下方细小印刷纹",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "eb16a608890711de7c8f78a3dc26e696002294ff073779f746c622e22832a9cf"
+      }
+    },
+    {
+      "id": "overlay_cat_stamp",
+      "kind": "overlay",
+      "bbox": [
+        41,
+        1618,
+        233,
+        1824
+      ],
+      "description": "左下邮票装饰，奶油色齿孔边包围粉色底板，内有黑猫、谱号及Melody Post、10¢印字，保留印刷颗粒和纸张边缘。",
+      "label": "左下邮票装饰，奶油色齿孔边包围粉色底板，内有黑猫、谱号及Me",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "0a9227c07932b1a43ec2925182a0a058705dce3958910374c63dd2c2faa4692e"
+      }
+    },
+    {
+      "id": "photo_foreground",
+      "kind": "photo",
+      "bbox": [
+        473,
+        1143,
+        1080,
+        1912
+      ],
+      "description": "右下独立大幅人物：长黑发女性穿灰色双排扣连衣裙坐着，低头，两手各举一张拍立得。沿女性、手中照片、椅子及底部桌沿构成的完整组合去除外围摄影背景，组合内部保留椅背空隙中的可见内容；外侧有连续白色宽描边及灰色纸层状轮廓，右侧和底部被画布裁切，覆盖中央大照片。",
+      "label": "右下独立大幅人物：长黑发女性穿灰色双排扣连衣裙坐着，低头，两",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cutout",
+      "photo_window_spec": {
+        "photo_id": "photo_foreground",
+        "reason": "独立去背景组合包含女性、双手所持照片、椅子及底部桌沿，保留组合内部可见内容，白色宽边沿整个组合外轮廓。实线近似撕纸白边，灰色多层纸边无法精确表达；无独立几何窗口或渐变，右侧及底部由画布截断。与中央照片不是连续出框关系。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "cutout"
+        },
+        "subject_stroke": {
+          "enabled": true,
+          "width": 0.025,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "round",
+          "placement": "outside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": false
+      },
+      "binding": {
+        "slot_id": "photo_foreground",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "女性正面俯身，帽顶、双手、腿和靴子均可见，人物与湖水及浅色沙地边界较清晰，适合作为分割候选；按要求使用全幅并居中，不镜像。实际为俯身比手势，并非坐姿持拍立得，也没有椅子和桌沿组合。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-145-5b6215b6a774\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-145\\prepared\\material_09.jpg"
+      }
+    }
+  ],
+  "layer_order": [
+    "background_wood",
+    "photo_main",
+    "photo_heart",
+    "overlay_note",
+    "frame_portrait",
+    "photo_portrait",
+    "overlay_tape",
+    "overlay_caption",
+    "overlay_butterfly",
+    "overlay_embossed_flower",
+    "overlay_flower_card",
+    "overlay_cat_stamp",
+    "photo_foreground"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "6bab2ba5e4230e8e71493cfca28f5ba7eb4b6b3f8d7ae437dcee151f1d2e91ae",
+    "bindings": "5f2c126f51af2e1d0f3876780a0bf4a50538fa37e1a4377f43d9fe7b358ea6df",
+    "input": "5de317d2d9c7f8eb8ea69aa5ae5fca96ba07deabcb5a29f33e89755501912196",
+    "catalog": "0a011d257332831da698178d98f0a94e3e3f4f4ae3257671b8b341e1d6dd19a7",
+    "photo_windows": "1b5678b8797c59549c5cd30e9e9d126136b65dc173eec97a90fc412d32031b4e"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-145\\assets\\reveal\\index.json",
+    "sha256": "b08b83adb0aae608540e1018768acc2823f02c7ae59296e2b0f76e480ca6df6e"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-145\\assets\\gate\\report.json",
+    "sha256": "a7ae96e1330771d9986626af87269cb17077c9a5d972fa7260e755aa93747906",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 9,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
