@@ -1,0 +1,890 @@
+{
+  "schema_version": "collage-scene-v1",
+  "reference": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\prepared\\reference.png",
+    "sha256": "7dbe084a6faa261cfb6041743004ba133c69e8c39d2b3b3ad9419d2ea125a966"
+  },
+  "reference_size": [
+    1080,
+    1440
+  ],
+  "canvas_size": [
+    1200,
+    1600
+  ],
+  "objects": [
+    {
+      "id": "photo_store",
+      "kind": "photo",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1440
+      ],
+      "description": "铺满画面的店铺环境摄影，顶部悬挂多只藤篮，右侧为透光玻璃窗和植物，下方摆放藤篮、水果及西瓜，左侧可见木家具。保留摄影环境，中央大部分被纸页遮挡，无主体抠图或透明渐隐。",
+      "label": "铺满画面的店铺环境摄影，顶部悬挂多只藤篮，右侧为透光玻璃窗和",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_store",
+        "reason": "店铺摄影铺满画布，保留藤篮、窗户、植物及家具环境；中央纸页为上层遮挡，无主体描边或窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_store",
+        "asset_id": "material_12",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无店铺素材，以道路、帐篷及盐湖构成的纵向环境照近似替代；全幅保留上下环境，但没有藤篮、家具和水果。"
+      },
+      "source": {
+        "id": "material_12",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-143-20aaacdc40fc\\d13d93845115b2ee5467591bd82567d7cadd446690dc4405dd58f6bba169c463.png",
+        "sha256": "4026ebaa393a4e64640cf4b92d8b33a8dc05df7c7f9e55a64573bff657b27ac7",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\prepared\\material_12.jpg"
+      }
+    },
+    {
+      "id": "paper",
+      "kind": "overlay",
+      "bbox": [
+        94,
+        183,
+        923,
+        1236
+      ],
+      "description": "中央完整的牛皮纸双页拼贴底板，保留纸张纤维、色差、横向折痕、边缘和投影，以及横跨中缝的浅色装订线。纸面上的独立照片、贴纸和文字分别列项。",
+      "label": "中央完整的牛皮纸双页拼贴底板，保留纸张纤维、色差、横向折痕、",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "00ecc0fba7a25b1c7d65e13909aa3bdacda60991e378991bed989eeed3cb71b0"
+      }
+    },
+    {
+      "id": "clip_top",
+      "kind": "overlay",
+      "bbox": [
+        296,
+        96,
+        393,
+        245
+      ],
+      "description": "夹住纸页上缘的金属长尾夹，保留深灰夹体、向上竖起的金属线手柄、反光与阴影。",
+      "label": "夹住纸页上缘的金属长尾夹，保留深灰夹体、向上竖起的金属线手柄",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "2175246784fc43da2c7fd4d2061ab843dddfc12a99603efef31fe4d776d1867e"
+      }
+    },
+    {
+      "id": "clip_bottom",
+      "kind": "overlay",
+      "bbox": [
+        314,
+        1174,
+        417,
+        1326
+      ],
+      "description": "夹住纸页下缘的金属长尾夹，夹体位于纸页正面，细长金属手柄向下延伸到纸外，保留反光和阴影。",
+      "label": "夹住纸页下缘的金属长尾夹，夹体位于纸页正面，细长金属手柄向下",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "d6d92f95d3d7d67c9f6c0eab9342600dbe43acb9b6799d896817f7ddd67ef794"
+      }
+    },
+    {
+      "id": "photo_hand",
+      "kind": "photo",
+      "bbox": [
+        181,
+        278,
+        431,
+        469
+      ],
+      "description": "一只涂深色指甲的手从左下伸入，拿着一张两人合影小相片，背景为木质台阶或木板。手、手持相片及其人物均属于同一摄影内容，保留完整摄影背景；左上被吊牌遮挡，左下被海星装饰遮挡。",
+      "label": "一只涂深色指甲的手从左下伸入，拿着一张两人合影小相片，背景为",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_hand",
+        "reason": "手、手持合影及木板均属于同一摄影内容，保留背景；照片为水平矩形硬边，吊牌与海星仅遮挡边缘，无连续出框、描边或渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_hand",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0.27,
+          1,
+          0.8458
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "以清楚展示双手动作的单人近景替代，裁去多余天空和下身，保留帽顶、脸与双手；并非手持双人相片，背景也非木板。"
+      },
+      "source": {
+        "id": "material_13",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-143-20aaacdc40fc\\d524898b502dcb88d72e73b372c29dea879e2cadd0ab7df58ac5b435843a9b45.png",
+        "sha256": "b781a179c58a33aa0d2dae869dd581350ac0dad21df6a220ba3df1a6d8ec47e3",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\prepared\\material_13.jpg"
+      }
+    },
+    {
+      "id": "summer_tags",
+      "kind": "overlay",
+      "bbox": [
+        160,
+        215,
+        266,
+        341
+      ],
+      "description": "上下排列的两块浅蓝纸吊牌及其细绳、孔眼和阴影，分别写有“summer”“paradise”。上方细绳弯曲悬垂，作为完整局部吊牌组合保留。",
+      "label": "上下排列的两块浅蓝纸吊牌及其细绳、孔眼和阴影，分别写有“su",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e09bc2785513968844a5b0a62899ad82e3d526ba03860bc9ea1e41adb2d2b106"
+      }
+    },
+    {
+      "id": "summer_caption",
+      "kind": "overlay",
+      "bbox": [
+        368,
+        348,
+        492,
+        376
+      ],
+      "description": "窄小的灰褐色文字纸条，带打字机式文字“The throbbing of summer is a grand encounter”，保留纸条轮廓与原有两行排版。",
+      "label": "窄小的灰褐色文字纸条，带打字机式文字“The throbbi",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "1111e24c3a3bdc0374aa1040dc1ac2bdefd4db920d4df51fe854b9c2f0a31c7d"
+      }
+    },
+    {
+      "id": "starfish",
+      "kind": "overlay",
+      "bbox": [
+        143,
+        412,
+        251,
+        503
+      ],
+      "description": "一大一小两只浅蓝白色海星构成的局部装饰组合，保留海星表面颗粒、浅色边缘和阴影，压在左上照片下缘。",
+      "label": "一大一小两只浅蓝白色海星构成的局部装饰组合，保留海星表面颗粒",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "28821aa96874ae1dd07121771f90303c31971fdd10f7a38a07e3cc73d0e8bbf7"
+      }
+    },
+    {
+      "id": "photo_interior",
+      "kind": "photo",
+      "bbox": [
+        548,
+        274,
+        834,
+        513
+      ],
+      "description": "暖黄色小店室内景，正面可见墙上镜框、吊灯、柜台、杯罐和陈列物，右侧为较明亮的门口区域，无人物。保留摄影环境，照片在文件夹内呈矩形显示，上方右侧部分被白色字条覆盖。",
+      "label": "暖黄色小店室内景，正面可见墙上镜框、吊灯、柜台、杯罐和陈列物",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_interior",
+        "reason": "保留完整室内摄影环境，矩形制作框对齐folder_frame的照片内口；褐色底板、印字及折口属于固定框体，不重复描边。右上白色字条为遮挡，明亮门口不是透明渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_interior",
+        "asset_id": "material_10",
+        "source_crop": [
+          0,
+          0.35,
+          1,
+          0.984
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无室内素材，以车站建筑及轨道的纵深环境近似替代；裁去上方大片天空，保留建筑和前景，缺少柜台、杯罐且画面有游客。"
+      },
+      "source": {
+        "id": "material_10",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-143-20aaacdc40fc\\8a0a41a129153aca65bd0f78170e85b4a0ed3a636a67c907d54825afb48d672d.png",
+        "sha256": "32634a073776d1e381e379f42e854ec5c8f9af7ad58c4862de02f7cdb0c86d8b",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\prepared\\material_10.jpg"
+      }
+    },
+    {
+      "id": "folder_frame",
+      "kind": "frame",
+      "bbox": [
+        463,
+        258,
+        891,
+        603
+      ],
+      "description": "承载右上室内照片的褐色文件夹式纸框，包含宽纸质底板、左侧竖排“Date:”印字、右下标签形折口及下沿叠层轮廓，保留纸质肌理和阴影，照片独立替换。",
+      "photo_id": "photo_interior",
+      "label": "承载右上室内照片的褐色文件夹式纸框，包含宽纸质底板、左侧竖排",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "e20359a3ba3f1470fabeab8143e34e15bd52f5b591ccad8cc1b94b93e07bce3a"
+      }
+    },
+    {
+      "id": "focus_note",
+      "kind": "overlay",
+      "bbox": [
+        777,
+        238,
+        912,
+        315
+      ],
+      "description": "略倾斜的白色不规则撕边便笺，手写“focus on the good”，保留纸边、字形和下划线，覆盖文件夹及照片右上部。",
+      "label": "略倾斜的白色不规则撕边便笺，手写“focus on the ",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "d93ebdb0af84a1b404dfa8d25130a38efe0540d2b6e1cfa89be6d95f333177d5"
+      }
+    },
+    {
+      "id": "photo_bear",
+      "kind": "photo",
+      "bbox": [
+        345,
+        510,
+        508,
+        672
+      ],
+      "description": "一名戴浅色帽子、穿深色衣服的人背向镜头抱着浅棕色大泰迪熊，人物与熊为近景，后方可见店内桌椅和杂物。保留摄影背景，矩形照片上缘局部被小标签覆盖。",
+      "label": "一名戴浅色帽子、穿深色衣服的人背向镜头抱着浅棕色大泰迪熊，人",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_bear",
+        "reason": "人物与泰迪熊连同后方店内环境整体保留，未见主体轮廓描边；独立矩形照片边界清晰，上缘标签为遮挡，不需渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_bear",
+        "asset_id": "material_15",
+        "source_crop": [
+          0.13,
+          0,
+          0.8686,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "选择戴浅蓝帽、背向镜头的人物，朝向最接近；左右收窄保留帽顶、手臂及脚部，但没有泰迪熊，且为户外全身景。"
+      },
+      "source": {
+        "id": "material_15",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-143-20aaacdc40fc\\eb82ba43abac735c8f600beb8269579dc70f710a35f9c8ee9d20ba6c663c9cc6.png",
+        "sha256": "314880705d0e79764a273f3d4266e7cf18906e59f81d0ac8adb6ebbb6cc8fe6a",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\prepared\\material_15.jpg"
+      }
+    },
+    {
+      "id": "little_things",
+      "kind": "overlay",
+      "bbox": [
+        472,
+        485,
+        538,
+        528
+      ],
+      "description": "压在人物抱熊照片右上边缘的小型白色纸标签，含醒目的“LITTLE THINGS”和下方细小文字，保留不齐纸边与整体印刷设计。",
+      "label": "压在人物抱熊照片右上边缘的小型白色纸标签，含醒目的“LITT",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "472e91c065273205805c83b35542f5ac2969cc7d72d17d496f3a920b85925d25"
+      }
+    },
+    {
+      "id": "text_journey",
+      "kind": "text",
+      "bbox": [
+        171,
+        530,
+        338,
+        664
+      ],
+      "description": "The best\njourneys start\nwith a one-way\nticket in hand\nand no plan\nin mind",
+      "label": "The best\njourneys start\nwith a",
+      "method": "local",
+      "text": "The best\njourneys start\nwith a one-way\nticket in hand\nand no plan\nin mind",
+      "text_status": "known",
+      "style": {
+        "fill": "#302C23",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    },
+    {
+      "id": "photo_food",
+      "kind": "photo",
+      "bbox": [
+        200,
+        798,
+        474,
+        1060
+      ],
+      "description": "木桌上的甜点与饮品静物照片，可见两盘甜点及后方两杯饮品，背景为受光的浅色墙面。保留全部摄影环境，照片显示于左下拍立得纸框内，无抠图或渐隐。",
+      "label": "木桌上的甜点与饮品静物照片，可见两盘甜点及后方两杯饮品，背景",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_food",
+        "reason": "甜点、饮品、木桌与墙面均保留，窗口对齐polaroid_frame的矩形摄影内口；白色相纸、底部手写字及阴影由固定框体保留，不作为窗口描边。墙面光影不构成渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_food",
+        "asset_id": "material_02",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.4,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无甜点饮品素材，仅以俯视盐池和建筑的多物件构图替代；全幅基础上横向略靠左对齐，兼顾圆形盐池与右侧建筑，内容并非餐桌静物。"
+      },
+      "source": {
+        "id": "material_02",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-143-20aaacdc40fc\\2191fc10309335c1776d00c39f2f8ce6fb5b25f17b579ea489b2036fd4c35736.png",
+        "sha256": "a7748ee803548c54161202a8016604bdb829c5aafd33d1a6930b8f4ca25959ab",
+        "size": [
+          1744,
+          1308
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\prepared\\material_02.jpg"
+      }
+    },
+    {
+      "id": "polaroid_frame",
+      "kind": "frame",
+      "bbox": [
+        177,
+        763,
+        500,
+        1152
+      ],
+      "description": "左下白色拍立得相纸框，四周窄边、下方宽留白，保留纸张细纹、叠层边缘和外投影。底部自带深蓝手写“Arrebol”及星形符号，与纸框整体保留。",
+      "photo_id": "photo_food",
+      "label": "左下白色拍立得相纸框，四周窄边、下方宽留白，保留纸张细纹、叠",
+      "method": "extract",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "0a9194ea3cc65ce8a9e55a11d1a41330cf8fcc57e8b42bf86d79bf7213766f04"
+      }
+    },
+    {
+      "id": "photo_doll",
+      "kind": "photo",
+      "bbox": [
+        570,
+        780,
+        819,
+        988
+      ],
+      "description": "一只深色卷发、戴格纹帽并围格纹围巾的小人偶站在户外木长凳上，右下有一张小相片，背景可见植物和木结构。保留摄影背景，右上被便笺覆盖，右下边缘被文字贴纸遮挡。",
+      "label": "一只深色卷发、戴格纹帽并围格纹围巾的小人偶站在户外木长凳上，",
+      "method": "local",
+      "rotation": 0,
+      "style": {},
+      "text_unresolved": false,
+      "mode": "cover",
+      "photo_window_spec": {
+        "photo_id": "photo_doll",
+        "reason": "人偶、长凳、小相片及植物属于同一摄影内容，保留背景且不描主体；固定矩形边缘清晰，右上便笺与右下文字贴纸为上层遮挡，无出框关联或窗口渐变。",
+        "shape": {
+          "type": "rectangle"
+        },
+        "stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "subject": {
+          "mode": "preserve"
+        },
+        "subject_stroke": {
+          "enabled": false,
+          "width": 0,
+          "color": "#FFFFFF",
+          "pattern": "solid",
+          "line_cap": "butt",
+          "placement": "inside",
+          "offset": 0
+        },
+        "fade": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "fade_direction": "inside",
+        "window_enabled": true
+      },
+      "binding": {
+        "slot_id": "photo_doll",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0.28,
+          1,
+          0.905
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "无玩偶素材，以戴帽、俯身比手势的人物近似替代活泼站姿；裁去上方天空及底部余地，保留帽顶、手势和双靴，但不具格纹服饰、木凳及小相片。"
+      },
+      "source": {
+        "id": "material_09",
+        "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\.live-media\\task-20261024-143-20aaacdc40fc\\87db329bc6c55f6fec5517b152bc89452548c97c2f8035cd5e29b56e094308a9.png",
+        "sha256": "9868e13cfdc69c4652f65e4f1b6374ab60583cee6a0bdbfb4b1d559c6c1fa978",
+        "size": [
+          1308,
+          1744
+        ],
+        "thumbnail": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\prepared\\material_09.jpg"
+      }
+    },
+    {
+      "id": "joy_note",
+      "kind": "overlay",
+      "bbox": [
+        782,
+        740,
+        917,
+        844
+      ],
+      "description": "倾斜的浅色方形纸便笺，带细线边框、顶部小字和蓝色草写“joy has a habit of returning.”，保留完整纸张与印字，覆盖人偶照片右上角。",
+      "label": "倾斜的浅色方形纸便笺，带细线边框、顶部小字和蓝色草写“joy",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "c0592507fb330d6b34895c0acbe75410497d99fdc9dc756f71a64fe5ca22c288"
+      }
+    },
+    {
+      "id": "continued_labels",
+      "kind": "overlay",
+      "bbox": [
+        757,
+        956,
+        919,
+        1001
+      ],
+      "description": "“To”“be”“continued”三块相邻的小白纸文字贴片，粉色字样，各自角度和高低错落，带深色边缘及阴影；作为同一局部短语装饰完整保留。",
+      "label": "“To”“be”“continued”三块相邻的小白纸文字贴",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "01efbc2a155342727fd46a376a4a3ccdeb7464254afc487cce3e8a1f83df6191"
+      }
+    },
+    {
+      "id": "yellow_note",
+      "kind": "overlay",
+      "bbox": [
+        546,
+        1009,
+        744,
+        1094
+      ],
+      "description": "下半页黄色长方形便笺，内有多行细小英文手写内容，开头可辨“we met at the wrong time”，保留原有字迹、纸面色差和边缘，不拆为独立文字。",
+      "label": "下半页黄色长方形便笺，内有多行细小英文手写内容，开头可辨“w",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "46b4b1d9d604e547954291c7fcb2bde451b864859073d5ebfa730f4c602171e2"
+      }
+    },
+    {
+      "id": "drink_sticker",
+      "kind": "overlay",
+      "bbox": [
+        798,
+        1009,
+        890,
+        1102
+      ],
+      "description": "青蓝色饮料摇杯与小量杯组成的贴纸装饰，附带星芒、圆点及白色轮廓边，保留整组图案和细小点缀。",
+      "label": "青蓝色饮料摇杯与小量杯组成的贴纸装饰，附带星芒、圆点及白色轮",
+      "method": "placeholder",
+      "style": {},
+      "text_unresolved": false,
+      "reveal_warning": "Reveal target unavailable; local fallback requires review",
+      "gate": {
+        "status": "rejected",
+        "basis": "program",
+        "input_key": "f8ecdacb2ceed8a7600a5f842e7308b7db2ff63f18e8a2628956a29f82fe83d4"
+      }
+    },
+    {
+      "id": "text_souvenir",
+      "kind": "text",
+      "bbox": [
+        616,
+        1116,
+        900,
+        1188
+      ],
+      "description": "The best Souvenir is the\nperson you became while\nno one was watching",
+      "label": "The best Souvenir is the\nperso",
+      "method": "local",
+      "text": "The best Souvenir is the\nperson you became while\nno one was watching",
+      "text_status": "known",
+      "style": {
+        "fill": "#302B21",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      },
+      "text_unresolved": false
+    }
+  ],
+  "layer_order": [
+    "photo_store",
+    "paper",
+    "photo_hand",
+    "summer_tags",
+    "summer_caption",
+    "starfish",
+    "folder_frame",
+    "photo_interior",
+    "focus_note",
+    "photo_bear",
+    "little_things",
+    "text_journey",
+    "polaroid_frame",
+    "photo_food",
+    "photo_doll",
+    "joy_note",
+    "continued_labels",
+    "yellow_note",
+    "drink_sticker",
+    "text_souvenir",
+    "clip_top",
+    "clip_bottom"
+  ],
+  "cutout_model": "D:\\codes\\visual-recreate-validation\\models\\birefnet-lite-fp32.onnx",
+  "sources": {
+    "analysis": "6ae78f5a5058c0976011ae84453deab76d9efc079cb5f13946f9d66d24aa6da6",
+    "bindings": "c150e542e79963a4cc0d8e3ec00105adfdf18e3fab964d6cc7d6fbf7c7767f31",
+    "input": "eb20853f5f6b3c82049b3733e41a696d67a9047b2589f863620b80aebb8c5d95",
+    "catalog": "5e0cd57120f2e41449d67a7058fcf919ba7aa3f505ce08beaa058b6d96def28d",
+    "photo_windows": "601b311d16954d158c23a64a6800a486327e2d22a5c48e24abc9883ef7f78c12"
+  },
+  "revision": 0,
+  "workflow_options": {
+    "bbox_refinement": false,
+    "screen": false
+  },
+  "best_effort": true,
+  "recovered_groups": [],
+  "reveal_index": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\assets\\reveal\\index.json",
+    "sha256": "f62fd9ffbf8b6cf2c9ca3ba469471c1ae7de2da7c20f4c4cddea26d4aa927b5d"
+  },
+  "reveal_unconfirmed_text": {},
+  "asset_gate": {
+    "file": "D:\\codes\\collage-recreate-v9-output\\model-comparison-20261023\\runtime\\tasks\\task-20261024-143\\assets\\gate\\report.json",
+    "sha256": "ee4fce97ba35d8e27ea2f733333088d25c914de11b89b70c7fea2a6403d0361f",
+    "version": "asset-gate-v4-screen-switch"
+  },
+  "asset_gate_summary": {
+    "accepted": 0,
+    "pending": 0,
+    "rejected": 14,
+    "warning_objects": 0,
+    "sheets": []
+  },
+  "reveal_config_sha256": "1e448b39b51da80f7d20380499d8076f56918243846ccc87eff9487fab71fbc6"
+}
