@@ -1,7 +1,7 @@
 {
   "created_at": "2026-10-23T18:42:31+08:00",
   "source_commit": "308af6828159c4b05c0608b5110c53868d8a7efa",
-  "updated_at": "2026-10-24T07:59:23+08:00",
+  "updated_at": "2026-10-24T08:00:37+08:00",
   "references": 116,
   "total": 348,
   "counts": {
@@ -13,10 +13,10 @@
       "completed": 116
     },
     "sol": {
-      "completed": 110,
+      "completed": 111,
       "failed": 1,
       "running": 1,
-      "queued": 4
+      "queued": 3
     }
   },
   "scheduling": "yibu serial || (codex luna serial -> sol serial)",
@@ -4141,20 +4141,20 @@
       "case": "112",
       "model": "sol",
       "batch": "run-ed17001be2514c8a931712a8d94ea99f",
-      "status": "running",
-      "step": "bind",
+      "status": "completed",
+      "step": "register",
       "error": null,
       "task_id": "f11447cec7599b08",
-      "elapsed_seconds": null,
-      "delivery_category": null,
-      "review_status": null
+      "elapsed_seconds": 207.323,
+      "delivery_category": "with_issues",
+      "review_status": "skipped"
     },
     {
       "case": "113",
       "model": "sol",
       "batch": "run-ed17001be2514c8a931712a8d94ea99f",
-      "status": "queued",
-      "step": null,
+      "status": "running",
+      "step": "analyze",
       "error": null,
       "task_id": "ace1b4931d41b132",
       "elapsed_seconds": null,
