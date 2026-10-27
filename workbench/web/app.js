@@ -1,5 +1,6 @@
 "use strict";
 const $ = (s) => document.querySelector(s);
+const isCustomerPhoto = (o) => o.kind === "photo" || (o.kind === "background" && o.background_type === "photo");
 const escapeHTML = (x) =>
   String(x ?? "").replace(
     /[&<>"']/g,
@@ -100,18 +101,16 @@ function selectedVersion() {
   if (state.stage === 5) return d.versions[0] || null;
   return d.versions.at(-1) || null;
 }
-function taskList() {
-  const term = $("#search").value.toLowerCase().trim();
-  const statuses = {queued:"排队中",running:"执行中",completed:"已完成",failed:"未完成"};
-  const byId = new Map(state.tasks.map(t => [t.id, t]));
-  const groups = state.batches.map(batch => ({...batch, tasks:batch.items.map(item => ({
+function buildTaskGroups(tasks, batches) {
+  const byId = new Map(tasks.map(t => [t.id, t]));
+  const groups = batches.map(batch => ({...batch, tasks:batch.items.map(item => ({
     ...(byId.get(item.task_id) || {}), id:item.task_id, name:item.name, index:item.index,
     status:item.status, phase:item.phase, error:item.error,
   }))}));
   // Offline runs and imported tasks carry batch metadata without a web queue record.
   // Keep those tasks visible, including tasks missing from a partial queue listing.
   const grouped = new Set(groups.flatMap(g => g.tasks.map(t => t.id)).filter(Boolean));
-  for (const task of state.tasks) {
+  for (const task of tasks) {
     if (!task.batch?.id || grouped.has(task.id)) continue;
     let group = groups.find(g => g.id === task.batch.id);
     if (!group) {
@@ -125,16 +124,67 @@ function taskList() {
     grouped.add(task.id);
   }
   for (const group of groups) group.tasks.sort((a,b) => (a.index || 0) - (b.index || 0));
-  const ungrouped = state.tasks.filter(t => !t.batch?.id);
-  groups.push({id:"ungrouped",name:"单独任务 / 历史任务",tasks:ungrouped,total:ungrouped.length});
-  setHTML($("#batchFilter"), '<option value="">全部批次</option>'+groups.map(g =>
+  // Execution chunks are bookkeeping; browse one continuous result list per model policy.
+  const canonical = value => value && typeof value === 'object'
+    ? Array.isArray(value) ? value.map(canonical) : Object.fromEntries(Object.keys(value).sort().map(k => [k, canonical(value[k])]))
+    : value;
+  const merged = new Map();
+  for (const batch of groups.sort((a,b) => (a.created_at || '').localeCompare(b.created_at || '') || a.id.localeCompare(b.id))) {
+    const policy = batch.model_policy;
+    const key = policy ? JSON.stringify(canonical(policy)) : batch.id;
+    let group = merged.get(key);
+    if (!group) {
+      const model = policy?.subsequent?.model || policy?.analyze?.model;
+      const label = /qwen/i.test(model) ? 'Qwen' : /luna/i.test(model) ? 'Luna' : /sol/i.test(model) ? 'Sol' : model;
+      let hash = 2166136261;
+      for (const char of key) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);
+      group = {...batch, id:policy ? `model-${(hash >>> 0).toString(16)}` : batch.id,
+        name:model ? `${label} · ${model}` : batch.name, tasks:[], total:0, batchIds:[],
+        counts:batch.counts ? {completed:0, failed:0, running:0, queued:0} : null};
+      // A merged model has multiple input fingerprints; don't attribute one chunk's hash to all results.
+      delete group.dataset_sha256;
+      merged.set(key, group);
+    }
+    group.batchIds.push(batch.id);
+    const offset = group.total;
+    group.tasks.push(...batch.tasks.map((t, index) => ({...t, index:offset + (t.index || index + 1)})));
+    group.total += Math.max(batch.total || 0, batch.tasks.length);
+    if (JSON.stringify(canonical(group.materials)) !== JSON.stringify(canonical(batch.materials))) {
+      delete group.materials;
+    }
+    if (group.counts && batch.counts) {
+      for (const status of Object.keys(group.counts)) group.counts[status] += batch.counts[status] || 0;
+    } else group.counts = null;
+  }
+  const result = [...merged.values()];
+  const ungrouped = tasks.filter(t => !t.batch?.id && !grouped.has(t.id));
+  if (ungrouped.length) result.push({id:"ungrouped", name:"单独任务 / 历史任务", tasks:ungrouped, total:ungrouped.length, batchIds:[]});
+  return result;
+}
+function taskGroups() {
+  return buildTaskGroups(state.tasks, state.batches);
+}
+function selectedTaskGroup(groups = taskGroups()) {
+  return groups.find(g => g.id === state.batch || g.batchIds.includes(state.batch));
+}
+function taskList() {
+  const term = $("#search").value.toLowerCase().trim();
+  const statuses = {queued:"排队中",running:"执行中",completed:"已完成",failed:"未完成"};
+  const groups = taskGroups();
+  const selected = selectedTaskGroup(groups);
+  if (selected && state.batch !== selected.id) {
+    state.batch = selected.id;
+    const url = new URL(location.href);
+    url.searchParams.set('batch', state.batch);
+    history.replaceState({}, '', url);
+  }
+  setHTML($("#batchFilter"), '<option value="">全部模型</option>'+groups.map(g =>
     `<option value="${escapeHTML(g.id)}">${escapeHTML(g.name)} (${g.total})</option>`).join(''));
   // A deep link can arrive while its first input is still being prepared.
   if (state.batch && !groups.some(g => g.id === state.batch)) {
     $("#batchFilter").insertAdjacentHTML('beforeend', `<option value="${escapeHTML(state.batch)}">批次暂不可用</option>`);
   }
   $("#batchFilter").value = state.batch;
-  const selected = groups.find(g => g.id === state.batch);
   const summary = $("#batchSummary");
   summary.hidden = !selected?.model_policy;
   if (selected?.model_policy) {
@@ -166,8 +216,9 @@ function taskList() {
   $("#taskCount").textContent = count;
 }
 function availableTasks() {
-  const tasks = state.tasks.filter(t => !state.batch || (t.batch?.id || 'ungrouped') === state.batch);
-  return state.batch && state.batch !== 'ungrouped' ? tasks.sort((a,b) => a.batch.index-b.batch.index) : tasks;
+  const groups = taskGroups();
+  const selected = selectedTaskGroup(groups);
+  return (state.batch ? selected?.tasks || [] : groups.flatMap(g => g.tasks)).filter(t => t.id);
 }
 $("#batchFilter").onchange = () => {
   state.batch = $("#batchFilter").value;
@@ -184,9 +235,9 @@ $("#tasks").addEventListener('toggle', e => {
   }
 }, true);
 function selectTask(id) {
-  const selected = state.tasks.find(t => t.id === id);
-  if (state.batch && selected && (selected.batch?.id || 'ungrouped') !== state.batch) {
-    state.batch = selected.batch?.id || 'ungrouped';
+  const selected = taskGroups().find(g => g.tasks.some(t => t.id === id));
+  if (state.batch && selected) {
+    state.batch = selected.id;
   }
   state.page = "workbench";
   state.techObject = null;
@@ -278,7 +329,7 @@ function renderTechVisual() {
     return;
   }
   if (!originals.some(o => o.id === state.techObject)) {
-    state.techObject = (originals.find(o => o.kind === "photo") || originals[0]).id;
+    state.techObject = (originals.find(isCustomerPhoto) || originals[0]).id;
   }
   const original = originals.find(o => o.id === state.techObject);
   const version = d.versions.at(-1);
@@ -286,7 +337,7 @@ function renderTechVisual() {
   const material = d.materials.find(m => m.id === original.id);
   const binding = current?.binding;
   const customer = d.catalog.find(a => a.id === binding?.asset_id);
-  const photo = original.kind === "photo";
+  const photo = isCustomerPhoto(original);
   $("#techVisual").hidden = false;
   $("#techJsonHint").textContent = `当前案例：${d.name}。选择对象后，三张图与下方 JSON 同步更新。JSON 为公开记录中的当前对象片段，省略完整层级、路径与哈希；不是完整运行文件。`;
   setHTML($("#techObject"), originals.map(o => `<option value="${escapeHTML(o.id)}">${escapeHTML(o.label || o.id)} · ${escapeHTML(o.id)}</option>`).join(""));
@@ -523,7 +574,7 @@ function renderCanvas() {
     return;
   }
   if (step === 4) {
-    const photos = d.materials.filter(m => m.kind === 'photo');
+    const photos = d.materials.filter(isCustomerPhoto);
     c.innerHTML = `<div class="binding-grid">${photos.length ? photos.map(m =>
       `<article><h3>${escapeHTML(m.id)} → ${escapeHTML(m.binding?.asset_id || '尚未绑定')}</h3><div class="material-pair">${thumb(m.images.reference, '参考位置')}${thumb(m.images.customer, '绑定的客户素材')}</div></article>`
     ).join('') : '<p class="subtle">当前没有需要绑定的照片对象。</p>'}</div>`;

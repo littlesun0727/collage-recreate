@@ -28,7 +28,7 @@ def prepared(tmp_path):
     save(run/'analysis.json', {
         'schema_version': 'collage-analysis-v1', 'reference_size': [200, 300],
         'objects': [
-            {'id': 'bg', 'kind': 'background', 'background_type': 'simple_design',
+            {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
              'method': 'local', 'bbox': [0, 0, 200, 300], 'label': '底色',
              'description': '底色', 'style': {'fill': '#FFFFFF'}},
             {'id': 'deco', 'kind': 'overlay', 'method': 'local', 'bbox': [50, 60, 150, 160],

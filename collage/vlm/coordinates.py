@@ -3,6 +3,7 @@
 Only declared global geometry is converted. In particular style.window.bbox,
 polygon points, source_crop, stroke/fade ratios and rotations are not global boxes.
 """
+from collage.object_roles import is_customer_photo
 
 from copy import deepcopy
 import math
@@ -91,9 +92,14 @@ def _bbox_schemas(schema):
     units = props.get('text_units', {}).get('items', {}).get('properties', {})
     if 'bbox' in units:
         yield units['bbox']
-    placement = props.get('photos', {}).get('items', {}).get('properties', {}).get('placement', {}).get('properties', {})
-    if 'bbox' in placement:
-        yield placement['bbox']
+    for node in _placement_schemas(schema):
+        if 'bbox' in node.get('properties', {}):
+            yield node['properties']['bbox']
+
+
+def _placement_schemas(schema):
+    node = schema.get('properties', {}).get('photos', {}).get('items', {}).get('properties', {}).get('placement', {})
+    return node.get('anyOf', [node])
 
 
 class ReferenceCoordinates:
@@ -119,7 +125,7 @@ class ReferenceCoordinates:
         if isinstance(context.get('analysis'), dict) and 'photo_slots' not in self.context:
             self.context['photo_slots'] = []
             for item in context['analysis'].get('objects', []):
-                if item.get('kind') == 'photo':
+                if is_customer_photo(item):
                     l, t, r, b = item['bbox']
                     self.context['photo_slots'].append({'slot_id': item['id'], 'width': r-l, 'height': b-t,
                                                        'aspect_ratio': round((r-l)/(b-t), 6)})
@@ -151,6 +157,11 @@ class ReferenceCoordinates:
             box['description'] = ('全局 [left,top,right,bottom]；' +
                                   ('0～1000 归一化坐标。' if self.mode == 'normalized_1000'
                                    else '原图像素；x<=reference_size[0]，y<=reference_size[1]。'))
+        for node in _placement_schemas(schema):
+            for point in node.get('properties', {}).get('corners', {}).get('properties', {}).values():
+                point['items'] = {'type':'number','minimum':0,
+                                  'maximum':1000 if self.mode=='normalized_1000' else max(self.size)}
+                point['description'] = '全局参考图 [x,y] 坐标，不是裁片坐标或局部蒙版坐标'
         analysis = schema['properties'].get('analysis', {}).get('properties', {})
         if 'reference_size' in analysis:
             if self.mode == 'normalized_1000':
@@ -183,4 +194,14 @@ class ReferenceCoordinates:
                 else:
                     row[name] = [round(v / 1000 * self.size[i % 2]) for i, v in enumerate(row[name])]
                 _check_box(row[name], self.size, str(key) + ' converted pixels')
+        for photo in result.get('photos', []):
+            corners = photo.get('placement', {}).get('corners', {})
+            for name, point in corners.items():
+                limits = [1000,1000] if self.mode=='normalized_1000' else self.size
+                if (not isinstance(point,list) or len(point)!=2 or any(
+                        isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v)
+                        or not 0<=v<=limits[i] for i,v in enumerate(point))):
+                    raise ValueError('Invalid global corner: '+name)
+                if self.mode=='normalized_1000':
+                    corners[name]=[v/1000*self.size[i] for i,v in enumerate(point)]
         return result

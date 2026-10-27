@@ -1,4 +1,5 @@
 """阶段 2：对象清单 + 参考图/裁片 -> 照片摆放、窗口形状、主体处理和效果。"""
+from collage.object_roles import is_customer_photo, is_photo_background
 
 from copy import deepcopy
 from collage import contracts
@@ -7,7 +8,7 @@ from collage.vlm.client import ModelError
 from collage.storage import read, save
 
 
-VERSION = 'window-drawing-v9-3'
+VERSION = 'window-drawing-v9-5-corners'
 
 
 class StructureRepairRequired(RuntimeError):
@@ -16,9 +17,9 @@ class StructureRepairRequired(RuntimeError):
 
 def input_analysis(analysis):
     """Only photo/frame design data crosses this model boundary."""
-    fields = ('id', 'kind', 'bbox', 'description', 'photo_id', 'linked_to', 'parent_id')
+    fields = ('id', 'kind', 'bbox', 'description', 'photo_id', 'linked_to', 'parent_id', 'background_type')
     rows = [{k: deepcopy(o[k]) for k in fields if k in o}
-            for o in analysis['objects'] if o['kind'] in {'photo', 'frame'}]
+            for o in analysis['objects'] if is_customer_photo(o) or o['kind'] == 'frame']
     ids = {o['id'] for o in rows}
     for row in rows:
         if row.get('parent_id') not in ids:
@@ -46,8 +47,11 @@ def execute(ctx):
                 save(ctx.control/'window-geometry.json', evidence)
                 ctx.warn('window_structure_unresolved', 'photo_windows', '；'.join(answer['structure_issues']))
                 raise StructureRepairRequired('照片窗口结构需要修正：' + '；'.join(answer['structure_issues']))
-            value, plan, notes = compile_response(answer, current, ctx.run)
-            evidence.update(status='accepted', answer=answer, notes=notes)
+            geometry_review = []
+            value, plan, notes = compile_response(answer, current, ctx.run, geometry_review)
+            evidence.update(status='accepted', answer=answer, notes=notes, geometry_review=geometry_review)
+            from collage.workflow.window_geometry import save_preview
+            save_preview(ctx.run, geometry_review)
             ctx.write_reference(value)
         else:
             value, plan, notes = current, defaults(current['analysis']), []
@@ -64,6 +68,10 @@ def execute(ctx):
         evidence['status'] = 'needs_visual_review'
         for row in pending:
             ctx.warn('window_boundary_review', 'photo_windows', row['photo_id'] + '：' + row['review_reason'])
+    for row in evidence.get('geometry_review', []):
+        if row['warnings']:
+            evidence['status'] = 'needs_visual_review'
+            ctx.warn('window_placement_review', 'photo_windows', row['photo_id'] + ': ' + '; '.join(row['warnings']))
     initial = {o['id']: o for o in current['analysis']['objects']}
     evidence['link_review'] = [
         {'photo_id': p['photo_id'], 'initial_linked_to': initial[p['photo_id']].get('linked_to'),
@@ -81,9 +89,15 @@ def schema():
     from window_contract import SCHEMA
     result = deepcopy(SCHEMA)
     row = result['properties']['photos']['items']
-    row['properties']['placement'] = contracts.obj({
+    box = contracts.obj({
+        'type': {'const':'box_rotation'},
         'bbox': deepcopy(contracts.ANALYSIS['properties']['objects']['items']['properties']['bbox']),
-        'rotation': {'type': 'number', 'minimum': -180, 'maximum': 180}})
+        'rotation': {'type': 'number', 'minimum': -180, 'maximum': 180}}, ['bbox','rotation'])
+    from collage.workflow.window_geometry import CORNER_NAMES
+    point = {'type':'array','items':{'type':'number'},'minItems':2,'maxItems':2}
+    row['properties']['placement'] = {'anyOf': [box, contracts.obj({
+        'type': {'const':'rectangle_corners'},
+        'corners':contracts.obj({k:deepcopy(point) for k in CORNER_NAMES})})]}
     row['required'].append('placement')
     result['properties']['structure_issues'] = {'type': 'array', 'maxItems': 12,
         'items': {'type': 'string', 'minLength': 1, 'maxLength': 500},
@@ -91,19 +105,21 @@ def schema():
     result['properties']['frame_fallbacks'] = {'type': 'array', 'items': contracts.obj({
         'frame_id': contracts.IDENTIFIER,
         'fill': {'type': 'string', 'pattern': '^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$'},
+        'border': contracts.obj({edge: {'type': 'number', 'minimum': 0, 'maximum': .3}
+                                 for edge in ('top', 'right', 'bottom', 'left')}),
         'radius': {'type': 'number', 'minimum': 0, 'maximum': .5}}, ['frame_id', 'fill'])}
     return result
 
 
-def compile_response(answer, current, run=None):
-    from photo_windows import resolve_seams
+def compile_response(answer, current, run=None, geometry_review=None):
+    from photo_windows import resolve_seams, enforce_canvas_base
     from window_contract import execution_spec
     value = deepcopy(current)
     plan = deepcopy(answer)
     if plan.pop('structure_issues', []):
         raise StructureRepairRequired('Window assessment reported an incorrect photo/frame structure')
     objects = {o['id']: o for o in value['analysis']['objects']}
-    expected = {oid for oid, o in objects.items() if o['kind'] == 'photo'}
+    expected = {oid for oid, o in objects.items() if is_customer_photo(o)}
     ids = [p['photo_id'] for p in plan['photos']]
     if len(ids) != len(set(ids)) or set(ids) != expected:
         raise ValueError('Window plan must include every photo exactly once')
@@ -112,6 +128,22 @@ def compile_response(answer, current, run=None):
             raise ValueError(spec['photo_id'] + ': window reason must explain visible drawing parameters')
         placement = spec.pop('placement')
         item = objects[spec['photo_id']]
+        if is_photo_background(item):
+            # The canvas contract owns background geometry, even if the model
+            # proposes a smaller rectangle or a rotated set of corners.
+            placement = {'type': 'box_rotation',
+                         'bbox': [0, 0, *value['analysis']['reference_size']], 'rotation': 0}
+        if placement.get('type') == 'rectangle_corners':
+            from collage.workflow.window_geometry import fit_rectangle
+            placement, review = fit_rectangle(placement['corners'])
+            review['photo_id'] = item['id']
+            if geometry_review is not None:
+                geometry_review.append(review)
+            mask = spec.get('mask',{})
+            if not mask.get('enabled') or mask.get('shape',{}).get('type') not in {'rectangle','rounded_rect'}:
+                raise ValueError(item['id'] + ': corner placement requires a rectangular fixed window')
+        elif placement.get('type') not in {None, 'box_rotation'}:
+            raise ValueError('Unknown placement type')
         if item.get('linked_to'):
             spec.setdefault('linked_to', item['linked_to'])
         if spec.get('linked_to') and execution_spec(spec)['shape']['type'] != 'rectangle':
@@ -128,9 +160,11 @@ def compile_response(answer, current, run=None):
             raise ValueError('frame_fallbacks must name distinct existing frames')
         seen.add(oid)
         objects[oid]['style'] = {k: v for k, v in fallback.items() if k != 'frame_id'}
+    canvas_ids = enforce_canvas_base(value['analysis'], plan)
     if run is not None:
         contracts.validate_reference(value, run, geometry_warnings=[])
     plan, notes = resolve_seams(plan, value['analysis'])
+    notes.extend(oid + '：铺底范围由程序固定为全画布，旋转归零' for oid in canvas_ids)
     return value, plan, notes
 
 

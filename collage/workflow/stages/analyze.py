@@ -10,7 +10,7 @@ from collage.storage import read, save
 from collage.vlm.response_normalization import unwrap_object
 
 
-VERSION = 'structure-analysis-v9-8-text-autofit'
+VERSION = 'structure-analysis-v9-10-solid-color'
 ID = {'type': 'string', 'pattern': '^[a-z][a-z0-9_-]{0,63}$'}
 COLOR = {'type': 'string', 'pattern': '^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$'}
 TEXT_STYLE_FIELDS = ('font', 'align', 'bold', 'italic')
@@ -67,7 +67,8 @@ def schema(size, mode):
     number = {'type': 'number' if mode == 'normalized_1000' else 'integer',
               'minimum': 0, 'maximum': 1000 if mode == 'normalized_1000' else max(size)}
     item = contracts.obj({
-        'id': ID, 'kind': {'enum': ['photo', 'overlay', 'frame', 'background', 'text']},
+        'id': ID, 'kind': {'enum': ['background', 'photo', 'overlay', 'frame', 'text']},
+        'background_type': {'enum': ['photo', 'reference_clean', 'solid_color']},
         'bbox': {'type': 'array', 'items': number, 'minItems': 4, 'maxItems': 4},
         'description': {'type': 'string', 'minLength': 1, 'maxLength': 400},
         'linked_to': ID,
@@ -77,12 +78,24 @@ def schema(size, mode):
         **{key: deepcopy(contracts.STYLE['properties'][key]) for key in TEXT_STYLE_FIELDS},
     }, ['id', 'kind', 'bbox'])
     item['allOf'] = [
+        {'if': {'properties': {'kind': {'const': 'background'}}},
+         'then': {'required': ['background_type'],
+                  'properties': {'linked_to': False, 'parent_id': False}},
+         'else': {'properties': {'background_type': False}}},
+        {'if': {'properties': {'background_type': {'const': 'solid_color'}},
+                'required': ['background_type']},
+         'then': {'required': ['color']}},
+        {'if': {'properties': {'background_type': {'enum': ['photo', 'reference_clean']}},
+                'required': ['background_type']},
+         'then': {'properties': {'color': False}}},
         {'if': {'properties': {'kind': {'const': 'text'}}},
          'then': {'required': ['text']}, 'else': {'required': ['description']}},
         {'if': {'properties': {'kind': {'const': 'frame'}}}, 'then': {'required': ['photo_id']}},
         {'if': {'properties': {'kind': {'const': 'photo'}}},
          'else': {'properties': {'linked_to': False}}}]
     return contracts.obj({
+        # Count/ordering are checked by problems(), including providers whose
+        # strict schema subset cannot express array-wide contains constraints.
         'objects': {'type': 'array', 'items': item, 'minItems': 1, 'maxItems': 160},
         'layer_order': {'type': 'array', 'items': ID, 'minItems': 1, 'maxItems': 160,
                         'uniqueItems': True},
@@ -100,7 +113,7 @@ def normalize(value):
     for item in result['objects']:
         if not isinstance(item, dict):
             continue
-        for key in ('photo_id', 'parent_id', 'linked_to', 'color', *TEXT_STYLE_FIELDS):
+        for key in ('photo_id', 'parent_id', 'linked_to', 'background_type', 'color', *TEXT_STYLE_FIELDS):
             if key in item and item[key] is None:
                 del item[key]
         for key, owner in (('text', 'text'),):
@@ -160,6 +173,11 @@ def problems(value, size, mode):
     if len(by_id) != len(objects):
         issues.append({'path': 'objects', 'message': 'Duplicate object IDs'})
     order = value.get('layer_order')
+    backgrounds = [o for o in objects if o.get('kind') == 'background']
+    if len(backgrounds) != 1:
+        issues.append({'path': 'objects', 'message': 'Exactly one kind=background is required; reassess canvas source and object ownership'})
+    elif isinstance(order, list) and order and order[0] != backgrounds[0]['id']:
+        issues.append({'path': 'layer_order', 'message': 'The unique background must be first in layer_order'})
     if isinstance(order, list) and all(isinstance(oid, str) for oid in order):
         if len(order) != len(objects) or set(order) != set(by_id):
             issues.append({'path': 'layer_order',
@@ -213,7 +231,7 @@ def compile_inventory(value, size, mode, run=None):
         raise ValueError('; '.join(i['path'] + ': ' + i['message'] for i in issues))
     objects, units = [], []
     for source in value['objects']:
-        item = {k: deepcopy(source[k]) for k in ('id', 'kind', 'bbox', 'description', 'photo_id', 'parent_id', 'linked_to') if k in source}
+        item = {k: deepcopy(source[k]) for k in ('id', 'kind', 'bbox', 'description', 'photo_id', 'parent_id', 'linked_to', 'background_type') if k in source}
         if source['kind'] == 'text' and 'description' not in item:
             item['description'] = (source['text'] or '无法辨认的独立文字')[:400]
         if mode == 'normalized_1000':
@@ -222,8 +240,9 @@ def compile_inventory(value, size, mode, run=None):
         kind = item['kind']
         item['method'] = 'extract' if kind in {'overlay', 'frame'} else 'local'
         if kind == 'background':
-            item['background_type'] = 'simple_design' if source.get('color') else 'reference_clean'
-            item['method'] = 'local' if source.get('color') else 'extract'
+            item['bbox'] = [0, 0, *size]
+            item['rotation'] = 0
+            item['method'] = 'extract' if source['background_type'] == 'reference_clean' else 'local'
             if source.get('color'):
                 item['style'] = {'fill': source['color']}
         if kind == 'text':

@@ -17,8 +17,10 @@ from text import render_text
 def inventory():
     return {'objects': [{'id': 'caption', 'kind': 'text', 'bbox': [100, 100, 900, 800],
                          'text': 'First line\nSecond line\n\nLast line', 'color': '#123456',
-                         'font': 'sans', 'align': 'left', 'bold': True, 'italic': False}],
-            'layer_order': ['caption']}
+                         'font': 'sans', 'align': 'left', 'bold': True, 'italic': False},
+                        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+                         'bbox': [0, 0, 100, 100], 'description': 'White canvas', 'color': '#FFFFFF'}],
+            'layer_order': ['bg', 'caption']}
 
 
 @pytest.mark.parametrize('mode', ['pixel', 'normalized_1000'])
@@ -37,7 +39,7 @@ def test_typography_survives_strict_provider_projection():
     value = inventory()
     schema = analyze.schema([1200, 1600], 'normalized_1000')
     strict = project(schema)
-    wire = {'objects': [{k: value['objects'][0].get(k) for k in schema['properties']['objects']['items']['properties']}],
+    wire = {'objects': [{k: o.get(k) for k in schema['properties']['objects']['items']['properties']} for o in value['objects']],
             'layer_order': value['layer_order']}
     Draft202012Validator(strict).validate(wire)
     assert analyze.normalize(restore(wire, schema)) == value
@@ -161,7 +163,7 @@ def test_real_scene_compilation_and_export_scale_keep_text_layout(tmp_path):
     bbox = scene['objects'][0]['bbox']
     _, small = render_text(value['objects'][0]['text'], (bbox[2]-bbox[0], bbox[3]-bbox[1]), style)
     render(run)
-    meta = read(run/'result.json')['resources'][0]['metadata']
+    meta = next(r for r in read(run/'result.json')['resources'] if r['id'] == 'caption')['metadata']
     assert abs(meta['font_size_px']-2*small['font_size_px']) <= 2 and meta['line_count'] == 2
     assert meta['line_spacing'] >= 1 and meta['align'] == 'left'
     digest = sha(run/'final.png')

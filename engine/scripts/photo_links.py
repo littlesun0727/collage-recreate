@@ -1,4 +1,5 @@
 """One source-to-canvas mapping for a base window and its pop-out subject."""
+from collage.object_roles import is_customer_photo
 from copy import deepcopy
 import math
 import numpy as np
@@ -22,7 +23,7 @@ def inventory_issues(objects, order):
         message = None
         if child.get('kind') != 'photo' or ('mode' in child and child['mode'] != 'cutout'):
             message = 'linked_to requires a cutout photo foreground'
-        elif not base or base.get('kind') != 'photo' or root == child['id'] or base.get('linked_to'):
+        elif not base or not is_customer_photo(base) or root == child['id'] or base.get('linked_to'):
             message = 'linked_to must name an independent base photo; no chains or cycles'
         elif base.get('mode') == 'cutout':
             message = 'linked_to base must retain its photographic background'

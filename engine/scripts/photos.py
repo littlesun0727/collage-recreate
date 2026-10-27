@@ -9,6 +9,16 @@ from effects import clip_round, expanded_outline, photo_layout, photo_card
 from photo_windows import apply_window, subject_stroke
 
 
+def resolve_cutout_model(model):
+    """Resolve archived tasks after relocating the shared model into this project."""
+    if model and not Path(model).is_file() and Path(model).name == 'birefnet-lite-fp32.onnx':
+        root = Path(__file__).resolve().parents[2]
+        relocated = root.with_name(root.name+'-output')/'models/birefnet-lite-fp32.onnx'
+        if relocated.is_file():
+            return str(relocated)
+    return model
+
+
 def fit_image(im, size, center=(.5,.5), contain=False, margin=0):
     if margin:
         if contain:
@@ -54,6 +64,7 @@ def session(model, model_sha):
 
 
 def cutout(im, source, model, cache):
+    model = resolve_cutout_model(model)
     if not model or not Path(model).is_file(): raise ValueError('cutout needs existing BiRefNet FP32 ONNX weights (--cutout-model in prepare)')
     model_sha=sha(model);key=fingerprint([source['sha256'],model_sha,'v5-birefnet-1'])
     path=Path(cache)/(key+'.png');manifest=path.with_suffix('.json')

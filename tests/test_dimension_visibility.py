@@ -33,7 +33,10 @@ def inventory(mode):
     return {'objects': [
         {'id': 'photo', 'kind': 'photo', 'description': 'portrait',
          'bbox': [0, 0, 1000, 1000] if mode == 'normalized_1000' else [0, 0, *SIZE]},
-        {'id': 'title', 'kind': 'text', 'bbox': [10, 10, 100, 100], 'text': 'Hello'}]}
+        {'id': 'title', 'kind': 'text', 'bbox': [10, 10, 100, 100], 'text': 'Hello'},
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+         'bbox': [0, 0, 100, 100], 'description': 'White canvas', 'color': '#FFFFFF'}],
+        'layer_order': ['bg', 'photo', 'title']}
 
 
 def response(answer):

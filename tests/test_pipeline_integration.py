@@ -37,7 +37,10 @@ def run_offline_pipeline(folder):
     prepare(reference, [material_dir], run, width=400)
     objects = [{'id': f'photo_{i}', 'kind': 'photo', 'bbox': [i*500, 0, (i+1)*500, 1000],
                 'description': 'Rectangular photo; retain its environment; no stroke or transparency.'} for i in range(2)]
-    inventory = {'objects': objects, 'layer_order': ['photo_1', 'photo_0']}
+    background = {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+                  'bbox': [0, 0, 1000, 1000], 'description': 'Transparent canvas behind independent panels',
+                  'color': '#00000000'}
+    inventory = {'objects': [background, *objects], 'layer_order': ['bg', 'photo_1', 'photo_0']}
     compiled = compile_inventory(inventory, [400, 300], 'normalized_1000')
     windows = defaults(compiled['analysis'])
     windows['coordinate_space'] = 'normalized_1000'
@@ -68,16 +71,16 @@ def run_offline_pipeline(folder):
     assert read(run/'analysis.json')['layer_order'] == inventory['layer_order']
     assert read(run/'scene.json')['layer_order'] == inventory['layer_order']
     window_input = json.loads(calls[1]['messages'][1]['content'][0]['text'].split('\n', 1)[1])
-    assert window_input['analysis']['layer_order'] == inventory['layer_order']
+    assert window_input['analysis']['layer_order'] == ['photo_1', 'photo_0']
     binding_input = read(run/'workflow/binding-input.json')
     assert 'photo_windows' not in binding_input
     slot = binding_input['photo_slots'][0]
-    assert slot['bbox'] == [0, 0, 200, 300]
-    assert slot['aspect_ratio'] == round(200/300, 6)
+    assert slot['bbox'] == [0, 0, 220, 300]
+    assert slot['aspect_ratio'] == round(220/300, 6)
     assert slot['requires_segmentable_subject'] is False
     assert not {'subject', 'mask', 'edge_gradient', 'linked_foregrounds'} & set(slot)
     wire = json.loads(calls[2]['messages'][1]['content'][0]['text'].split('\n', 1)[1])
-    assert wire['photo_slots'][0]['bbox'] == [0, 0, 500, 1000]
+    assert wire['photo_slots'][0]['bbox'] == [0, 0, 550, 1000]
     assert 'photo_windows' not in wire and 'analysis' not in wire
     assert not workflow.state.get('warnings')
     assert read(run/'workflow/window-geometry.json')['status'] == 'accepted'

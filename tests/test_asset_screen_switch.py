@@ -24,6 +24,8 @@ def test_build_renders_extracted_frame_when_screen_disabled(tmp_path, monkeypatc
     run = tmp_path/'task'
     prepare(reference, [customers], run, width=200)
     bundle = compile_inventory({'objects': [
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+         'bbox': [0, 0, 200, 200], 'description': 'White canvas', 'color': '#FFFFFF'},
         {'id': 'photo_1', 'kind': 'photo', 'bbox': [40, 40, 160, 160], 'description': 'Customer photo'},
         {'id': 'frame_1', 'kind': 'frame', 'bbox': [20, 20, 180, 180],
          'photo_id': 'photo_1', 'description': 'Blue drawn frame with interior decoration'},
@@ -52,7 +54,7 @@ def test_build_renders_extracted_frame_when_screen_disabled(tmp_path, monkeypatc
     gate = read(run/'assets/gate/report.json')['records'][0]
     frame = next(o for o in scene['objects'] if o['id'] == 'frame_1')
     resource = next(r for r in read(run/'result.json')['resources'] if r['id'] == 'frame_1')
-    assert scene['layer_order'] == ['photo_1', 'frame_1']
+    assert scene['layer_order'] == ['bg', 'photo_1', 'frame_1']
     assert scene['workflow_options']['screen'] is bool(enabled)
     with Image.open(run/'final.png') as final:
         pixel = final.getpixel((100, 90))[:3]

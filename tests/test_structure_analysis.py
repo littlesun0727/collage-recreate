@@ -17,7 +17,7 @@ from collage.storage import read, save
 
 def inventory():
     return {'objects': [
-        {'id': 'bg', 'kind': 'background', 'bbox': [0, 0, 1000, 1000], 'description': 'white background', 'color': '#FFFFFF'},
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color', 'bbox': [0, 0, 1000, 1000], 'description': 'white background', 'color': '#FFFFFF'},
         {'id': 'photo', 'kind': 'photo', 'bbox': [200, 200, 700, 700], 'description': 'portrait'},
         {'id': 'frame', 'kind': 'frame', 'bbox': [180, 180, 720, 760], 'description': 'printed frame with Music and timestamps', 'photo_id': 'photo'},
         {'id': 'title', 'kind': 'text', 'bbox': [200, 30, 800, 100], 'description': 'ordinary title', 'text': 'Hello', 'color': '#123456'},
@@ -40,7 +40,7 @@ def test_inventory_compiles_to_valid_engine_without_model_text_ledger(tmp_path):
 
 def test_complex_background_and_decorative_lettering_keep_reference_pixels():
     value = {'objects': [
-        {'id': 'bg', 'kind': 'background', 'bbox': [0, 0, 1000, 1000], 'description': 'printed paper'},
+        {'id': 'bg', 'kind': 'background', 'background_type': 'reference_clean', 'bbox': [0, 0, 1000, 1000], 'description': 'printed paper'},
         {'id': 'art', 'kind': 'overlay', 'bbox': [10, 10, 100, 100], 'description': 'handwritten label with backing'}]}
     result = structure.compile_inventory(value, [1000, 1000], 'normalized_1000')
     assert result['analysis']['objects'][0]['background_type'] == 'reference_clean'
@@ -168,6 +168,7 @@ def test_layer_id_faults_are_fixed_locally_in_one_analysis_request(tmp_path, out
 @pytest.mark.parametrize('action', ['keep', 'backing'])
 def test_frame_screening_preserves_received_order(tmp_path, monkeypatch, frame_first, action):
     import asset_gate
+    import reveal_assets  # Import its publish alias before mocking asset_gate.
     import render
     import scene
     from common import sha

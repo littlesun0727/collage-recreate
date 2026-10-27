@@ -36,7 +36,9 @@ def test_structure_repair_preserves_codex_policy_and_inventory_contract(tmp_path
         {'id': 'photo', 'kind': 'photo', 'description': 'portrait',
          'bbox': [0, 0, 1000, 1000] if mode == 'normalized_1000' else [0, 0, *size]},
         {'id': 'title', 'kind': 'text', 'bbox': [10, 10, 100, 100], 'text': 'Hello'},
-    ], 'layer_order': ['photo', 'title']}
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+         'bbox': [0, 0, 100, 100], 'description': 'White canvas', 'color': '#FFFFFF'},
+    ], 'layer_order': ['bg', 'photo', 'title']}
     invalid = deepcopy(valid)
     # A bad box passes the projected remote subset but requires V8 business repair.
     invalid['objects'][0]['bbox'] = [900, 0, 100, 800]

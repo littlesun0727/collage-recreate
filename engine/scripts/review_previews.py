@@ -1,4 +1,5 @@
 """Matched detail crops for visual review, not automatic occlusion verdicts."""
+from collage.object_roles import is_customer_photo, is_photo_background
 import math
 from itertools import combinations
 from pathlib import Path
@@ -19,13 +20,13 @@ def area(box):return max(0,box[2]-box[0])*max(0,box[3]-box[1])
 
 def regions(scene,limit=4):
     w,h=scene['reference_size'];canvas=[0,0,w,h]
-    objects=[o for o in scene['objects'] if o['kind'] in ['photo','overlay','frame']
+    objects=[o for o in scene['objects'] if (is_customer_photo(o) or o['kind'] in ['overlay','frame'])
              and not o.get('embedded_owner') and not o.get('recovery_owner')]
     candidates=[]
     for a,b in combinations(objects,2):
-        if a['kind']!='photo' and b['kind']!='photo':continue
+        if not is_customer_photo(a) and not is_customer_photo(b):continue
         # A full-page background photo would otherwise dominate every detail.
-        if any(o['kind']=='photo' and o.get('mode','cover')!='cutout'
+        if any(is_customer_photo(o) and o.get('mode','cover')!='cutout'
                and area(o['bbox'])>.85*w*h for o in [a,b]):continue
         overlap=intersection(intersection(envelope(a),envelope(b)),canvas)
         if area(overlap)<16:continue

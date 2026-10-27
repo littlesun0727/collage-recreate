@@ -89,7 +89,7 @@ def input_objects(objects, reference_size, input_size):
     return result
 
 
-def layer_zero(task, expected_size):
+def layer_zero(task, expected_size, box_mapping=None):
     errors = []
     for name in ['layers_aug_00.png', 'layers_base_00.png']:
         path = task / name
@@ -99,7 +99,14 @@ def layer_zero(task, expected_size):
             with Image.open(path) as im:
                 im.load()
                 if abs(im.width/im.height - expected_size[0]/expected_size[1]) > .02 * expected_size[0]/expected_size[1]:
-                    raise ValueError('Layer 0 aspect ratio changed')
+                    from reveal_grouped import resize_mapping_matches
+                    if not resize_mapping_matches(im.size, expected_size, box_mapping):
+                        raise ValueError('Layer 0 aspect ratio changed without a consistent box mapping')
+                    # Normalize the residual canvas before the next round uses reference coordinates.
+                    # Keep the downloaded original and ordinary cache paths unchanged.
+                    normalized = path.with_name(path.stem + '-normalized.png')
+                    im.resize(tuple(expected_size), Image.Resampling.LANCZOS).save(normalized)
+                    return normalized
             return path
         except (OSError, ValueError) as exc:
             errors.append(str(exc))
@@ -250,7 +257,8 @@ def acquire(run, scene, targets, config):
             missing = [objects[i].get('source_id', objects[i]['id']) for i in range(len(objects)) if i not in indices]
             receipt['missing_ids'] = missing
             try:
-                base = layer_zero(source_task, rgb.size)
+                base = layer_zero(source_task, rgb.size,
+                                  (out.get('image_boxes', boxes), out.get('resized_image_boxes')))
             except ValueError:
                 if require_base:
                     raise
@@ -280,6 +288,16 @@ def acquire(run, scene, targets, config):
             objects = [o for o in batch['objects'] if o.get('source_id', o['id']) not in processed]
             if objects:
                 execute(objects, 'materials', bool(bg) or index+1 < len(p['batches']))
+        # A service response can omit a requested asset while returning the other layers.
+        # Retry those unmapped IDs once on the residual canvas, preserving completed work.
+        # Mapped layers with download problems must resume downloads, not incur another submit.
+        missing = [o for batch in p['batches'] for o in batch['objects']
+                   if o['role'] == 'asset' and o.get('source_id', o['id']) not in processed]
+        cleanup_rounds = math.ceil(len(cleanup_objects(scene, processed, padding, padding_mode))/HARD_LIMIT) if bg else 0
+        if (missing and current != reference and len(report['rounds']) + 1 + cleanup_rounds <= limit):
+            retry_objects = missing[:HARD_LIMIT]
+            report['material_retry_ids'] = [o.get('source_id', o['id']) for o in retry_objects]
+            execute(retry_objects, 'materials_retry', bool(bg))
         cleanup = cleanup_objects(scene, processed, padding, padding_mode) if bg else []
         report['cleanup_ids'] = [o['source_id'] for o in cleanup]
         report['actual_planned_rounds'] = len(report['rounds']) + math.ceil(len(cleanup)/HARD_LIMIT)

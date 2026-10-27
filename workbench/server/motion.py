@@ -1,4 +1,5 @@
 """Persisted jobs: serial import/render and two concurrent creation batches."""
+from collage.object_roles import is_customer_photo
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import hashlib
@@ -429,7 +430,7 @@ class Motion:
         current = read(run/'result.json')
         manifest = read(run/'media/manifest.json')
         asset_ids={video['asset_id'] for video in manifest.get('videos',[])}
-        eligible=sum(obj.get('kind')=='photo' and obj.get('binding',{}).get('asset_id') in asset_ids
+        eligible=sum(is_customer_photo(obj) and obj.get('binding',{}).get('asset_id') in asset_ids
                      for obj in read(run/'scene.json').get('objects',[]))
         videos = []
         for video in manifest.get('videos', []):

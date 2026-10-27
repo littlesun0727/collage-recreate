@@ -1,4 +1,5 @@
 """Post-cover motion production. Never rewrites the approved static scene/PNG."""
+from collage.object_roles import is_customer_photo, is_photo_background
 import argparse
 from contextlib import contextmanager, ExitStack
 from copy import deepcopy
@@ -15,7 +16,7 @@ import numpy as np
 from PIL import Image, ImageOps, ImageChops
 from motion_io import save
 from live_media import timeline, frame_index, decode_needed, encode_frames, verify_encoded, NativeFrameReader
-from photos import cutout, fit_image, feather_alpha, fit_subject_mask
+from photos import cutout, fit_image, feather_alpha, fit_subject_mask, resolve_cutout_model
 from effects import photo_layout, photo_card, clip_round, expanded_outline, scale_style, shadow_layer
 from editor_scene import translate,clip_window
 from photo_windows import apply_window, needs_subject_mask, subject_stroke
@@ -187,7 +188,7 @@ def make_plan(run, scene, result):
         verify_source(video['poster'])
     slots = []
     for obj in scene['objects']:
-        if obj['kind'] != 'photo':
+        if not is_customer_photo(obj):
             continue
         video = by_asset.get(obj.get('binding', {}).get('asset_id'))
         if not video:
@@ -202,7 +203,7 @@ def make_plan(run, scene, result):
     model_record = None
     moving_ids = {slot['object_id'] for slot in slots}
     if any(obj['id'] in moving_ids and needs_subject_mask(obj) for obj in scene['objects']):
-        model = scene.get('cutout_model')
+        model = resolve_cutout_model(scene.get('cutout_model'))
         if not model or not Path(model).is_file():
             raise ValueError('Live cutout/subject stroke requires the pinned BiRefNet model')
         model_record = {'file': str(model), 'sha256': sha(model)}
@@ -295,7 +296,7 @@ def _execute(run, identifier=None, base_render_id=None):
                 decoded_count += len(decoded[video['id']])
                 progress.count(decoded_count,decode_total,video_id=video['id'])
         mattes = {}; anchors = {}; inference_rows = []; warnings = []
-        model = scene.get('cutout_model')
+        model = resolve_cutout_model(scene.get('cutout_model'))
         with progress.stage('matte'):
             total = sum(len(needed[key]) for key in masked_ids); done = 0
             progress.count(0,total)

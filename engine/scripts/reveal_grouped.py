@@ -8,6 +8,26 @@ from common import cache_directory,read,save,sha,fingerprint,event
 from reveal_plan import plan,preview
 
 
+def resize_mapping_matches(source_size, target_size, box_mapping):
+    """Verify the service's independent x/y resize against every returned box."""
+    if box_mapping is None:
+        return False
+    original, resized = box_mapping
+    if not isinstance(original, list) or not isinstance(resized, list) or not original or len(original) != len(resized):
+        return False
+    rw, rh = source_size
+    cw, ch = target_size
+    for before, after in zip(original, resized):
+        if not isinstance(before, list) or not isinstance(after, list) or len(before) != 4 or len(after) != 4:
+            return False
+        for i, (a, b) in enumerate(zip(before, after)):
+            if (type(a) not in (int, float) or type(b) not in (int, float)
+                    or not math.isfinite(a) or not math.isfinite(b)
+                    or abs(a * (rw / cw if i % 2 == 0 else rh / ch) - b) > 2):
+                return False
+    return True
+
+
 def restore(raw, crop, reference_size, destination, box_mapping=None):
     with Image.open(raw) as source:
         if 'A' not in source.getbands():raise ValueError('Reveal layer lacks alpha')
@@ -15,19 +35,8 @@ def restore(raw, crop, reference_size, destination, box_mapping=None):
         if abs(rw/rh-cw/ch)>.02*max(rw/rh,cw/ch):
             # The service may round dimensions independently. Accept this only
             # when its returned box coordinates prove the same x/y transform.
-            valid=False
-            if box_mapping is not None:
-                original,resized=box_mapping
-                if isinstance(original,list) and isinstance(resized,list) and original and len(original)==len(resized):
-                    valid=True
-                    for before,after in zip(original,resized):
-                        if not isinstance(before,list) or not isinstance(after,list) or len(before)!=4 or len(after)!=4:
-                            valid=False;break
-                        for i,(a,b) in enumerate(zip(before,after)):
-                            if type(a) not in (int,float) or type(b) not in (int,float) or not math.isfinite(a) or not math.isfinite(b) or abs(a*(rw/cw if i%2==0 else rh/ch)-b)>2:
-                                valid=False;break
-                        if not valid:break
-            if not valid:raise ValueError('Unexpected returned crop aspect ratio: no consistent box mapping')
+            if not resize_mapping_matches((rw, rh), (cw, ch), box_mapping):
+                raise ValueError('Unexpected returned crop aspect ratio: no consistent box mapping')
         tile=source.convert('RGBA').resize((cw,ch),Image.Resampling.LANCZOS)
     out=Image.new('RGBA',tuple(reference_size));out.paste(tile,(crop[0],crop[1]))
     out.save(destination)

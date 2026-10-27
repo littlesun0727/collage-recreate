@@ -1,4 +1,5 @@
 """阶段 4：照片槽 + 客户素材 -> 选材与裁切。一次请求，失败停止制作。"""
+from collage.object_roles import is_customer_photo, is_photo_background
 
 from copy import deepcopy
 from jsonschema import Draft202012Validator
@@ -6,15 +7,15 @@ from collage import contracts, prompts
 from collage.storage import read, save
 
 
-VERSION = 'photo-binding-v9-1'
+VERSION = 'photo-binding-v9-2-background'
 
 
 def execute(ctx):
-    ctx.progress(2, 'running', 'VLM 一次完成客户照片观察、选材与裁切，仅处理 photo 槽')
+    ctx.progress(2, 'running', 'VLM 一次完成客户照片与铺底背景的选材、裁切')
     structure = read_structure(ctx.run, ctx.config)
     windows = read(ctx.run/'photo-windows.json') if (ctx.run/'photo-windows.json').exists() else None
     evidence = {'contract': VERSION, 'status': 'running',
-                'photo_count': sum(o['kind'] == 'photo' for o in structure['objects']),
+                'photo_count': sum(is_customer_photo(o) for o in structure['objects']),
                 'texts_policy': 'disabled',
                 'automatic_retry': False, 'automatic_repair': False}
     save(ctx.control/'binding-check.json', evidence)
@@ -47,7 +48,7 @@ def execute(ctx):
 
 
 def read_structure(run, config):
-    """Read the public inventory; normalize geometry without depending on analysis.json."""
+    """Keep inventory semantics; use finalized pixel placement when available."""
     from collage.vlm.coordinates import resolve_mode
     structure = read(run/'structure.json')
     if not isinstance(structure.get('objects'), list):
@@ -59,8 +60,24 @@ def read_structure(run, config):
     if mode == 'normalized_1000':
         size = read(run/'input.json')['reference_size']
         for photo in structure['objects']:
-            if photo['kind'] == 'photo':
+            if is_customer_photo(photo):
                 photo['bbox'] = [v * size[i % 2] / 1000 for i, v in enumerate(photo['bbox'])]
+    if (run/'analysis.json').is_file():
+        current = read(run/'analysis.json')
+        placed = {p['id']: p for p in current['objects'] if is_customer_photo(p)}
+        expected = {p['id'] for p in structure['objects'] if is_customer_photo(p)}
+        if set(placed) != expected:
+            raise ValueError('Final photo geometry must match structure photo IDs')
+        for photo in structure['objects']:
+            if is_customer_photo(photo):
+                geometry = placed[photo['id']]
+                photo['bbox'] = deepcopy(geometry['bbox'])
+                photo['rotation'] = geometry.get('rotation', 0)
+    # Standalone binding may only have structure.json. Background placement is
+    # still the canvas, regardless of the model's original box.
+    for photo in structure['objects']:
+        if is_photo_background(photo):
+            photo.update(bbox=[0, 0, *read(run/'input.json')['reference_size']], rotation=0)
     return structure
 
 
@@ -68,10 +85,10 @@ def context_for(base, structure, windows=None):
     """Expose photo descriptions and geometry, with only one derived subject requirement."""
     slots = []
     for photo in structure['objects']:
-        if photo['kind'] != 'photo':
+        if not is_customer_photo(photo):
             continue
         row = {key: deepcopy(photo[key]) for key in
-               ('description', 'bbox', 'rotation', 'linked_to') if key in photo}
+               ('description', 'bbox', 'rotation', 'linked_to', 'kind', 'background_type') if key in photo}
         l, t, r, b = photo['bbox']
         if r <= l or b <= t:
             raise ValueError(photo['id'] + ': photo slot must have positive area')

@@ -29,7 +29,7 @@ def simple_bundle(run):
     cols = 1 if len(available) == 1 else 2
     rows = math.ceil(len(available)/cols)
     gap = max(1, round(min(w, h)*.025))
-    objects = [{'id': 'draft_background', 'kind': 'background', 'background_type': 'simple_design',
+    objects = [{'id': 'draft_background', 'kind': 'background', 'background_type': 'solid_color',
                 'method': 'local', 'bbox': [0, 0, w, h], 'label': '简化草稿底色',
                 'description': '分析不可用时的中性设计底图', 'style': {'fill': '#F4F1EB'}}]
     photos = []

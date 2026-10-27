@@ -1,4 +1,5 @@
 """JSON Schema and cross-object validation; errors identify fields, not prose repairs."""
+from collage.object_roles import is_customer_photo, is_photo_background
 from common import ROOT, read, sha
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
@@ -29,6 +30,15 @@ def analysis_check(value, inputs=None):
         raise ValueError('reference_size must equal prepared image dimensions')
     w, h = value['reference_size']
     objects = value['objects']
+    for obj in objects:
+        if obj.get('background_type') == 'photo':
+            if (obj['kind'] != 'background' or obj.get('method', 'local') != 'local'
+                    or obj.get('mode', 'cover') != 'cover' or obj.get('linked_to')
+                    or obj.get('parent_id') or obj.get('rotation', 0)
+                    or obj['bbox'] != [0, 0, w, h]
+                    or value['layer_order'][:1] != [obj['id']]
+                    or sum(o['kind'] == 'background' for o in objects) != 1):
+                raise ValueError('Customer photo background must be the unique local full-canvas background')
     ids = [o['id'] for o in objects]
     if len(ids) != len(set(ids)):
         raise ValueError('Object IDs must be unique')
@@ -47,10 +57,10 @@ def analysis_check(value, inputs=None):
             raise ValueError(f'{o["id"]}.parent_id: invalid reference')
         style=o.get('style',{})
         window_check(o,style)
-        if o.get('appearance') and o['kind']!='photo':raise ValueError('appearance is for photos only')
-        if any(k in style for k in ['card','corner_radius','outline_width','outline_color']) and o['kind']!='photo':
+        if o.get('appearance') and not is_customer_photo(o):raise ValueError('appearance is for photos only')
+        if any(k in style for k in ['card','corner_radius','outline_width','outline_color']) and not is_customer_photo(o):
             raise ValueError(f'{o["id"]}: photo effects require kind=photo')
-        if o['kind']=='photo':
+        if is_customer_photo(o):
             if 'shape' in style:raise ValueError('Photo shape is not supported; use appearance or corner_radius')
             if o.get('appearance')=='polaroid' or 'card' in style:
                 if o.get('mode','cover')!='cover':raise ValueError('Photo card requires cover mode')
@@ -63,7 +73,7 @@ def analysis_check(value, inputs=None):
         if 'text_status' in o:
             if (o['text_status'] == 'known') != (isinstance(o.get('text'),str) and bool(o['text'].strip())):
                 raise ValueError(f'{o["id"]}: known text must be nonempty; unreadable text must be null')
-        if o['kind'] != 'photo' and 'mode' in o:
+        if not is_customer_photo(o) and 'mode' in o:
             raise ValueError(f'{o["id"]}: mode is only for photos')
         if o.get('style',{}).get('shape')=='polygon' and len(o['style'].get('points',[]))<3:
             raise ValueError(f'{o["id"]}: polygon requires at least three points')
@@ -79,17 +89,17 @@ def analysis_check(value, inputs=None):
                 raise ValueError('photo_id must link an overlay/frame to a photo')
         if o['kind']=='frame':
             photo=by_id[o['photo_id']]
-            if any(p['kind']=='photo' and p.get('parent_id')==o['id'] and p['id']!=photo['id'] for p in objects):
+            if any(is_customer_photo(p) and p.get('parent_id')==o['id'] and p['id']!=photo['id'] for p in objects):
                 raise ValueError(o['id']+': frame has one photo_id; continuous multi-window carriers use overlay')
             if o.get('embedded_in'):
                 raise ValueError(o['id']+': frame must be an independent extraction')
         if 'window_bbox' in o:
             box=o['window_bbox'];outer=o['bbox']
-            if o['kind']!='photo' or not (outer[0]<=box[0]<box[2]<=outer[2] and outer[1]<=box[1]<box[3]<=outer[3]):
+            if not is_customer_photo(o) or not (outer[0]<=box[0]<box[2]<=outer[2] and outer[1]<=box[1]<box[3]<=outer[3]):
                 raise ValueError('window_bbox must be a positive rectangle inside its photo bbox')
         if 'embedded_in' in o:
             owner=by_id.get(o['embedded_in'],{})
-            if o['kind']=='photo' or owner.get('kind') not in ['overlay','frame','photo'] or owner.get('id')==o['id'] or owner.get('embedded_in'):
+            if is_customer_photo(o) or owner.get('kind') not in ['overlay','frame','photo'] or owner.get('id')==o['id'] or owner.get('embedded_in'):
                 raise ValueError('embedded_in requires a distinct unembedded decoration/card owner')
     for key in ids:
         seen = set()
@@ -101,7 +111,7 @@ def analysis_check(value, inputs=None):
 
 def bindings_check(value, analysis, catalog, verify=True):
     schema_check('bindings', value)
-    slots = {o['id'] for o in analysis['objects'] if o['kind']=='photo'}
+    slots = {o['id'] for o in analysis['objects'] if is_customer_photo(o)}
     selected = [b['slot_id'] for b in value['photos']]
     if len(selected) != len(set(selected)) or set(selected) != slots:
         raise ValueError('bindings.photos must cover every photo slot exactly once')
@@ -142,7 +152,7 @@ def review_check(value, scene):
         if item['action']!='adjust' and item.get('changes'): raise ValueError('changes only apply to adjust')
         crop=item.get('changes',{}).get('source_crop')
         if crop and not (crop[0]<crop[2] and crop[1]<crop[3]):raise ValueError('source_crop must have positive area')
-        if item['action']=='generate' and next(o for o in scene['objects'] if o['id']==item['id'])['kind']=='photo':
+        if item['action']=='generate' and is_customer_photo(next(o for o in scene['objects'] if o['id']==item['id'])):
             raise ValueError('Customer photos cannot be generated')
         if item['action']=='generate' and next(o for o in scene['objects'] if o['id']==item['id'])['kind']=='frame':
             raise ValueError('Frames require extraction with their linked photo, not generation')

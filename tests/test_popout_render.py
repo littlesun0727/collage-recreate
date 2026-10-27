@@ -25,12 +25,14 @@ def prepare_popout(tmp_path, monkeypatch, *, fixed=False, mirror=False, angle=0)
     run = tmp_path/'task'
     prepare(reference, [customers], run, width=200)
     analysis = compile_inventory({'objects': [
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+         'bbox': [0, 0, 200, 300], 'color': '#FFFFFF', 'description': 'White canvas'},
         {'id': 'base', 'kind': 'photo', 'bbox': [20, 160, 180, 280],
          'description': 'Retained photo background'},
         {'id': 'front', 'kind': 'photo', 'linked_to': 'base', 'bbox': [80, 130, 120, 170],
          'description': 'Linked subject continues above base'},
     ]}, [200, 300], 'pixel')['analysis']
-    analysis['objects'][0]['rotation'] = angle
+    analysis['objects'][1]['rotation'] = angle
     save(run/'analysis.json', analysis)
     plan = defaults(analysis)
     plan['photos'][0]['mask'] = {'enabled': True, 'shape': {'type': 'rectangle'}, 'stroke': empty_stroke()}
@@ -113,6 +115,8 @@ def test_expanded_sampling_preserves_subject_stroke_size(monkeypatch):
     from photo_windows import apply_window
     import window_drawing
     spec = defaults(compile_inventory({'objects': [
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+         'bbox': [0, 0, 100, 80], 'color': '#FFFFFF', 'description': 'White canvas'},
         {'id': 'photo', 'kind': 'photo', 'bbox': [0, 0, 100, 80], 'description': 'subject'},
     ]}, [200, 300], 'pixel')['analysis'])['photos'][0]
     spec['subject']['preserve_background'] = False

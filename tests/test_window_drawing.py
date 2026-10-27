@@ -20,7 +20,7 @@ from window_drawing import sampling_margin
 
 def bundle():
     return compile_inventory({'objects': [
-        {'id': 'bg', 'kind': 'background', 'bbox': [0, 0, 1000, 1000], 'description': 'white', 'color': '#FFFFFF'},
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color', 'bbox': [0, 0, 1000, 1000], 'description': 'white', 'color': '#FFFFFF'},
         {'id': 'carrier', 'kind': 'overlay', 'bbox': [50, 50, 950, 950], 'description': 'fixed printed label'},
         {'id': 'photo', 'kind': 'photo', 'bbox': [200, 200, 800, 800], 'description': 'portrait with visible environment', 'parent_id': 'carrier'},
         {'id': 'frame', 'kind': 'frame', 'bbox': [180, 180, 820, 820], 'description': 'paper frame', 'photo_id': 'photo'},
@@ -73,6 +73,8 @@ def test_public_example_and_strict_provider_coordinates_roundtrip(window_enabled
     contract = adapter.schema(schema())
     Draft202012Validator(contract).validate(example)
     def nullable(value, node):
+        if 'anyOf' in node:
+            node = next(branch for branch in node['anyOf'] if Draft202012Validator(branch).is_valid(value))
         if isinstance(value, dict):
             return {k: nullable(value[k], child) if k in value else None for k, child in node['properties'].items()}
         if isinstance(value, list) and node.get('type') == 'array':
@@ -285,6 +287,8 @@ def test_static_and_live_use_identical_dual_strokes_and_outward_sampling(tmp_pat
 
 def test_new_popout_fallback_retains_link_without_an_initial_effect_label():
     current = compile_inventory({'objects': [
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+         'bbox': [0, 0, 1000, 1000], 'color': '#FFFFFF', 'description': 'White canvas'},
         {'id': 'base', 'kind': 'photo', 'bbox': [100, 200, 900, 900], 'description': 'base with environment'},
         {'id': 'front', 'kind': 'photo', 'bbox': [100, 100, 900, 900], 'description': 'same person above window', 'linked_to': 'base'},
     ]}, [1000, 1000], 'normalized_1000')

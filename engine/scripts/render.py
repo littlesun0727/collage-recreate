@@ -1,3 +1,4 @@
+from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
 from pathlib import Path
 import numpy as np
@@ -23,7 +24,7 @@ def material(o, size, reference, photos, run, scene):
     if o.get('gate',{}).get('status') in ['pending','rejected'] and not o.get('gate_local') and not o.get('generated'):
         return Image.new('RGBA',size), {'quality':'unresolved','method':'quarantined',
             'note':o.get('reveal_warning','Asset gate blocked this layer')}
-    if o['kind']=='photo':
+    if is_customer_photo(o):
         tile, metadata = make_photo(o,o['source'],o['binding'],size,run,scene.get('cutout_model'))
         metadata['quality']='ready'
         return tile, metadata
@@ -57,7 +58,7 @@ def best_effort_material(o, size, reference, photos, run, scene):
     except (ValueError, OSError, RuntimeError) as exc:
         if not scene.get('best_effort'):
             raise
-        if o['kind'] == 'photo':
+        if is_customer_photo(o):
             plain = deepcopy(o)
             plain.update(mode='cover', style={})
             if plain.get('photo_window_spec'):
@@ -88,7 +89,7 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
     # Invalidate old visual acceptance before attempting a new render.
     save(run/'result.json',{'exported':False,'renders_verified':False,'status':'rendering','at':now()})
     with Image.open(verify_source(s['reference'])) as raw:reference=raw.convert('RGB')
-    photo_objects=[o for o in s['objects'] if o['kind']=='photo'];by_id={o['id']:o for o in s['objects']}
+    photo_objects=[o for o in s['objects'] if is_customer_photo(o)];by_id={o['id']:o for o in s['objects']}
     canvas=Image.new('RGBA',(w,h),'white');layers=[];issues=[];incomplete=[];records=[]
     code=fingerprint({str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'scripts').rglob('*.py')})
     grouped={member:group for group in s.get('generated_groups',[]) for member in group['member_ids']}
@@ -111,12 +112,12 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
         box=[round(n*scale) for n in o['bbox']];size=(max(1,box[2]-box[0]),max(1,box[3]-box[1]))
         o['style']=scale_style(o['style'],scale)
         o['_render_scale']=scale
-        if o['kind']=='photo':o['_render_canvas_size']=[w,h]
-        group='photos' if o['kind']=='photo' else 'text' if o['kind']=='text' else 'overlays'
+        if is_customer_photo(o):o['_render_canvas_size']=[w,h]
+        group='photos' if is_customer_photo(o) else 'text' if o['kind']=='text' else 'overlays'
         folder=run/'assets'/group;folder.mkdir(parents=True,exist_ok=True)
         path=folder/(oid+'.png');receipt_path=folder/(oid+'.json')
         key=fingerprint([o,size,s['reference'],s.get('cutout_model'),code,s.get('best_effort',False)])
-        if o['kind']=='photo':verify_source(o['source'])
+        if is_customer_photo(o):verify_source(o['source'])
         cached=read(receipt_path) if receipt_path.exists() else {}
         cm=cached.get('metadata',{}).get('content_mask')
         mask_valid=not cm or (Path(cm).exists() and sha(cm)==cached['metadata'].get('content_mask_sha256'))
@@ -145,7 +146,7 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
         if metadata.get('note'):issues.append({'id':oid,'note':metadata['note']})
         for note in original.get('reveal_notes',[]):issues.append({'id':oid,'note':note})
         content_alpha=None
-        if o['kind']=='photo':
+        if is_customer_photo(o):
             with Image.open(metadata['content_mask']) as raw:content_alpha=raw.convert('L')
             if o['style'].get('opacity',1)!=1:content_alpha=content_alpha.point(lambda v:round(v*o['style']['opacity']))
         placement_box=[0,0,w,h] if metadata.get('canvas_aligned') else box
@@ -207,7 +208,7 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
     visibility={};trans=np.ones((h,w),dtype='float32')
     for oid,kind,alpha,photo_alpha in reversed(layers):
         a=np.asarray(alpha,dtype='float32')/255
-        if kind=='photo':
+        if photo_alpha is not None:
             customer=np.asarray(photo_alpha,dtype='float32')/255
             fraction=float((customer*trans).sum()/max(float(customer.sum()),1))
             visibility[oid]=round(fraction,5)
@@ -231,7 +232,7 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
     review_regions=review_previews(run,s,reference,final)
     from extraction import sheets
     extraction_sheets=sheets(run,[r for r in records if not r['metadata'].get('embedded_content')])
-    proof=all(r['kind']!='photo' or r['metadata'].get('resource_type')=='customer_photo' for r in records)
+    proof=all(not is_customer_photo(by_id[r['id']]) or r['metadata'].get('resource_type')=='customer_photo' for r in records)
     result={'schema_version':'collage-result-v1','exported':True,'status':'preview','renders_verified':False,'coverage_complete':len(records)==len(s['objects']),'customer_photos_verified':proof and len(visibility)==len(photo_objects),'photo_visible_fractions':visibility,'incomplete_objects':sorted(set(incomplete)),'issues':issues,'scene_sha256':sha(run/'scene.json'),'final_sha256':sha(run/'final.png'),'resources':records,'visual_review':None,'at':now()}
     if capture_layers:result['editor_layers']=editor_layers
     result['extraction_sheets']=extraction_sheets

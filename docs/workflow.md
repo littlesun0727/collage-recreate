@@ -27,18 +27,28 @@ flowchart TD
 
 ## 每个阶段的边界
 
+新分析必须包含恰好一个 `kind=background`，且位于 `layer_order` 第一项。`background_type=photo` 表示客户素材铺底，`reference_clean` 表示清版后保留的固定底图，`solid_color` 表示带明确颜色的本地底色。多张独立照片拼满画布且无可见底图时，使用透明底色占位，照片范围保持独立。背景 bbox 由程序固定为全画布、旋转归零，不再按层序猜测哪张普通照片应该铺满。
+
+分析先依据显示边界、内容连续性和遮挡关系确定独立照片与固定设计单元，再选择背景来源。唯一背景不改变各单元的替换范围。`solid_color` 仅执行一个均匀颜色填充；需要保留空间变化的颜色、图案或材质时，应选择 `reference_clean` 或将独立设计单元单列，不能仅写进描述而继续使用纯色路线。
+
+客户素材背景保留 `kind=background`，和普通 photo 一起进入窗口判断、binding、静态及 Live 渲染；固定背景不进入照片选材。窗口阶段不得将客户素材背景抠图、缩小、旋转或增加固定窗口/渐隐。出框前景可用 `linked_to` 指向客户素材背景，共用素材和变换。缺失、重复背景或来源不明进入结构重试，不能通过仅修改个别字段的修复绕过。旧产物不会自动重新分类；需要用新分析重新运行来修正已有语义错误。
+
 | 阶段与实现 | 输入 | 责任与输出 | 结构化 VLM |
 | --- | --- | --- | --- |
 | 准备输入：[prepare.py](../engine/scripts/prepare.py) | 参考图、客户图片/视频、客户说明 | 复制和校验输入，生成 `input.json`、`prepared/reference.png`、`prepared/catalog.json` 与联系表 | 无 |
 | 1 [analyze.py](../collage/workflow/stages/analyze.py) | 参考图 | 识别对象、水平外接框、归属、层级和关联；照片内容与可见效果写入 description，不输出 mode 或 effects。保存 `structure.json`，编译 `analysis.json` 和 `text-units.json` | 首次 1 次；有错误时最多追加 1 次局部修复或整体重试 |
-| 2 [photo_windows.py](../collage/workflow/stages/photo_windows.py) | 仅 photo/frame 对象、参考图及照片裁片 | 确定制作框、角度、主体处理、可关闭的固定窗口和窗口渐变；两种描边来源独立。回写照片几何，保存 v3 `photo-windows.json` | 有照片时调用；不合规输出最多纠正 1 次 |
+| 2 [photo_windows.py](../collage/workflow/stages/photo_windows.py) | photo/frame 及 background_type=photo 的背景、参考图和照片裁片 | 确定普通照片的制作框、角度、主体处理、窗口和渐变；客户素材背景固定全画布并保留摄影环境。保存 v3 `photo-windows.json` | 有客户照片或客户素材背景时调用；不合规输出最多纠正 1 次 |
 | 3 [boxes.py](../collage/workflow/stages/boxes.py) | 已有对象和带原框标记的局部裁片 | 只校准范围，保持身份、归属、层级和效果。保存校准决策和映射，本地 `boxes_apply` 应用 | 可选，默认关闭；全部目标合在一次请求中 |
-| 4 [bind.py](../collage/workflow/stages/bind.py) | `structure.json` 的 photo 描述、几何和关联，加窗口结果推导的 `requires_segmentable_subject`；客户说明、素材及联系表 | 程序整理精简的 `workflow/binding-input.json`，一次完成观察、选材和裁切，保存 `bindings.json`。窗口绘制细节仅用于本地约束 | 有照片槽时 1 次；缺少窗口计划或绑定失败时停止，禁止自动换一套绑定 |
+| 4 [bind.py](../collage/workflow/stages/bind.py) | `structure.json` 的 photo 描述和关联、`analysis.json` 中窗口阶段确认的制作框与角度，加窗口结果推导的 `requires_segmentable_subject`；客户说明、素材及联系表 | 程序整理精简的 `workflow/binding-input.json`，按旋转前制作框计算实际宽高比，一次完成观察、选材和裁切，保存 `bindings.json`。独立绑定没有 analysis 时沿用结构清单几何 | 有照片槽时 1 次；缺少窗口计划或绑定失败时停止，禁止自动换一套绑定 |
 | 5 [build.py](../collage/workflow/stages/build.py) | 分析、窗口、绑定 | 提取固定素材，使用客户像素渲染照片并合成；输出 `scene.json`、`final.png`、`result.json` | 无；素材提取可调用独立图像服务 |
 | 6 [screen.py](../collage/workflow/stages/screen.py) | 成图、相框提取候选与检查表 | 仅检查相框内是否残留参考照片。`screen_apply` 在本地应用决策 | 可选，默认关闭；开启且有可审核相框时调用 |
 | 7 [deliver.py](../collage/workflow/stages/deliver.py) | 成图、资源记录和告警 | 校验文件与客户照片来源，登记交付状态和 `review.json` | 无；不声称已经完成整图视觉审核 |
 
 `text-units.json` 是本地引擎使用的文字记录，由分析清单编译生成；首次 VLM 不重复填写这份台账。
+
+窗口阶段的矩形/圆角矩形可输出 `placement.type=rectangle_corners` 和照片内口四角；归一化角点先按参考图宽高分别转换为像素，再由 `window_geometry.py` 拟合旋转矩形，得到制作框及角度。心形、星形、椭圆、圆形、多边形及无固定窗口继续使用 `box_rotation`；历史 bbox/rotation 响应仍可回放。后续 analysis、绑定及渲染只接收像素制作框和角度，不新增 analysis 字段或 VLM 阶段。
+
+角点必须构成非退化凸四边形；拟合偏差超过短边 5% 时提示复核，超过 30% 时拒绝。这些阈值检查几何自洽，不证明角点位于真实边界。原角点与拟合矩形保存在窗口阶段证据中，`previews/window-geometry.png` 用红色显示原角点、青色显示拟合结果。替代相框继续围绕最终照片内口扩边并共享旋转；正常提取的相框保留原像素。
 
 独立 text 在首次分析中保留参考图的逐行内容，JSON 字符串用 `\n` 表示真实换行，同时给出 color、font、align、bold、italic，不分析字号和行间距。渲染按 bbox 的宽高，以字体标准单倍行距（字体 ascent + descent）为下限选择能容纳整段文字的最大字号；多行文字将框内剩余高度均匀分到行间，避免只在上下留白、行间仍拥挤。单行垂直居中，空行保留，不把段落合成单行。导出尺寸变化后按实际文字框重新适配。资源记录保存实际字号、行数、行距倍率和基线距离，便于检查排版；引擎仍兼容既有场景或手动编辑中的显式字号、行距，显式行距不自动拉开。
 
@@ -49,6 +59,8 @@ analysis 输出 `objects` 和 `layer_order`；后者用对象 ID 明确从底到
 程序不根据 `photo_id`、`linked_to` 推导或修正照片、相框和出框前景的先后。关联存在性、对象 ID 唯一性等结构校验继续执行。整理后的 layer_order 保存到 structure.json、analysis.json，并沿用到窗口与渲染步骤；相框审核的 keep/backing 决策也不移动相框或照片。原始响应保存在 `response-*.json`，接收结果保存在 `accepted.json` 和 `structure.json`；`normalization-*.json` 记录本地整理是否发生变化。
 
 ## 执行与失败
+
+倾斜照片由现有 `photo_windows` 请求先判断内口、旋转方向与旋转前制作框，再判断主体和窗口效果，不增加几何复核 VLM。`frame_fallbacks.border` 表达上、右、下、左的边宽，均相对关联照片制作框短边，范围 0～0.3；未提供时使用保守细边。相框提取失败后，本地程序在照片局部坐标中扩边，并旋转外框中心的偏移，使宽下沿等不对称边框仍与照片内口对齐。提取成功的框保留原像素和原坐标，不重复旋转。此替代框只近似颜色、边宽和圆角，不恢复印字、纹理或透视。
 
 [context.py](../collage/workflow/context.py) 提供状态、锁、原子文件写入、本地引擎命令和可回滚修改。`pipeline.py` 在续跑前检查输入、模型配置、选项及交付哈希；已完成阶段不会再次执行。`boxes_apply` 和 `screen_apply` 是本地写入步骤，没有额外 VLM 请求。
 

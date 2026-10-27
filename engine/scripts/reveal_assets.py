@@ -1,4 +1,5 @@
 """Compile recovered full-canvas layers and shared customer-photo windows."""
+from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
 import math
 from pathlib import Path
@@ -28,7 +29,7 @@ def targets(scene):
     result=[]
     for o in scene['objects']:
         if o['kind'] in ['overlay','frame']:result.append({**o,'request':o.get('method')!='local'})
-        elif o['kind']=='photo' and not o.get('photo_window_spec') and (o.get('appearance')=='polaroid' or 'card' in o['style']):
+        elif is_customer_photo(o) and not o.get('photo_window_spec') and (o.get('appearance')=='polaroid' or 'card' in o['style']):
             result.append({'id':'frame_'+fingerprint(o['id'])[:16],'kind':'overlay','bbox':o['bbox'],
                            'photo_id':o['id'],'label':o['label']+' 相纸','description':'Derived photo frame',
                            'derived':True,'request':True,'style':{},'rotation':o.get('rotation',0)})
@@ -91,7 +92,7 @@ def attach(run,scene,config):
     omitted={o['id']:o['reason'] for o in repair.get('omit',[])}
     missing={w['overlay_id'] for w in repair.get('windows',[])}-assets.keys()
     if missing:raise ValueError('Missing window repair sources: '+', '.join(sorted(missing)))
-    by_id={o['id']:o for o in scene['objects']};photos=[o for o in scene['objects'] if o['kind']=='photo']
+    by_id={o['id']:o for o in scene['objects']};photos=[o for o in scene['objects'] if is_customer_photo(o)]
     width,height=scene['reference_size'];records=[];recovered={};owners={};used_photos=set();gate_records=[]
     # A clean background is the residual canvas, never a giant foreground extraction target.
     for o in scene['objects']:
@@ -142,7 +143,7 @@ def attach(run,scene,config):
             rec.update(action='local_fallback',reason=reason)
             obj=by_id[target['photo_id']] if target.get('derived') else o
             obj['reveal_warning']=reason
-            if obj['kind']!='photo':
+            if not is_customer_photo(obj):
                 if obj['kind']!='frame':
                     obj['method']='local' if obj.get('style',{}).get('shape') else 'placeholder'
                 gate={'id':oid,'status':'rejected','basis':'program','input_key':fingerprint([scene['sources'],target,reason]),
@@ -278,7 +279,7 @@ def attach(run,scene,config):
         for child in gate.get('text_candidates',[]):
             if child['id'] not in gate.get('embedded_ids',[]):candidates.setdefault(child['id'],[]).append(gate['id'])
     for obj in scene['objects']:
-        if obj['kind']=='photo' or obj.get('text_origin'):continue
+        if is_customer_photo(obj) or obj.get('text_origin'):continue
         owner=obj.get('embedded_in') or obj.get('parent_id')
         if owner in merged_owners:owner=merged_owners[owner]
         if owner in by_id and by_id[owner].get('reveal_frame_id'):owner=by_id[owner]['reveal_frame_id']

@@ -6,7 +6,7 @@
 
 ## 输入与选材
 
-`photo_slots` 来自 `structure.json` 的 photo 对象，包含照片 ID、description、位置、实际宽高比及已有的 linked_to 关联。程序只补充一个选材标记 `requires_segmentable_subject`。`catalog` 的素材 ID 与联系表、单图标签一致，例如 `material_00`；`instructions` 表达客户的选材、裁切和镜像偏好。
+`photo_slots` 来自普通 photo 以及 kind=background、background_type=photo 的客户素材背景，二者都必须绑定。固定清版背景和纯色背景不参与选材。输入包含 ID、kind、background_type（适用时）、description、位置、实际宽高比及 linked_to 关联。客户素材背景保持全画布，选择可整体覆盖画布的摄影内容，不仅裁取人物局部。程序补充选材标记 `requires_segmentable_subject`。`catalog` 的素材 ID 与联系表、单图标签一致，例如 `material_00`；`instructions` 表达客户的选材、裁切和镜像偏好。
 
 先浏览联系表比较全部素材，再核对带 ID 标签的单图。根据 description 比较主体或场景、人数、景别、姿势朝向和构图，再考虑色调、光线与留白。不能仅凭横竖比例或“有天空／有水”匹配，也不能混淆正面、背面及不同姿态。
 
@@ -27,7 +27,7 @@
 
 {{REFERENCE_COORDINATES}}
 
-`aspect_ratio` 是程序计算的实际槽宽高比，不用归一化 bbox 的宽高差推断比例。优先保留必要的脸、头顶和四肢，不为填满照片槽裁掉关键主体。
+`aspect_ratio` 是程序根据窗口阶段最终确认的旋转前制作框计算的实际槽宽高比，不是首次分析的水平外接框比例，也不用归一化 bbox 的宽高差推断比例。摆放角度已由窗口阶段决定，本次只按实际槽比例选材和裁切。优先保留必要的脸、头顶和四肢，不为填满照片槽裁掉关键主体。
 
 `source_crop` 按 `[左, 上, 右, 下]` 填写，使用 0～1 局部坐标，左小于右、上小于下，默认 `[0,0,1,1]`。Schema 若为某个槽规定固定裁切值，必须照填；程序已处理独立抠图的全幅限制，不能仅凭主体需求标记猜测裁切规则或抠图后的紧包围框。
 

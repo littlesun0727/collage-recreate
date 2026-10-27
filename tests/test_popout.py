@@ -18,6 +18,8 @@ from photo_windows import defaults, check, configure, apply_window
 
 def inventory():
     return {'objects': [
+        {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+         'bbox': [0, 0, 1000, 1000], 'description': 'White canvas', 'color': '#FFFFFF'},
         {'id': 'base', 'kind': 'photo', 'bbox': [100, 400, 900, 900],
          'description': 'Bottom photo retains grass and trees; head continues above the top edge.'},
         {'id': 'frame', 'kind': 'frame', 'photo_id': 'base', 'bbox': [80, 380, 920, 920],
@@ -43,7 +45,7 @@ def test_popout_survives_strict_schema_engine_and_binding_context(tmp_path):
     contract = structure.schema([1000, 1000], 'normalized_1000')
     fields = contract['properties']['objects']['items']['properties']
     strict = {'objects': [{k: row.get(k) for k in fields} for row in value['objects']],
-              'layer_order': ['base', 'frame', 'front']}
+              'layer_order': ['bg', 'base', 'frame', 'front']}
     Draft202012Validator(project(contract)).validate(strict)
     restored = structure.normalize(restore(strict, contract))
     save(tmp_path/'input.json', {'reference_size': [1000, 1000]})
@@ -65,7 +67,7 @@ def test_popout_survives_strict_schema_engine_and_binding_context(tmp_path):
 
 @pytest.mark.parametrize('fault', ['self', 'missing', 'cycle', 'chain', 'nonphoto'])
 def test_bad_popout_structure_cannot_be_accepted_or_null_patched(fault):
-    value = inventory(); base, frame, front = value['objects']
+    value = inventory(); base, frame, front = value['objects'][1:]
     if fault == 'self': front['linked_to'] = 'front'
     if fault == 'missing': front['linked_to'] = 'missing'
     if fault == 'cycle': base['linked_to'] = 'front'
@@ -79,7 +81,7 @@ def test_bad_popout_structure_cannot_be_accepted_or_null_patched(fault):
 @pytest.mark.parametrize('order', [(0, 2, 1), (1, 0, 2), (2, 1, 0)])
 def test_popout_order_is_preserved_through_analysis_and_window_validation(order, tmp_path):
     value = inventory()
-    value['layer_order'] = [value['objects'][i]['id'] for i in order]
+    value['layer_order'] = ['bg'] + [value['objects'][i+1]['id'] for i in order]
     original = deepcopy(value)
     save(tmp_path/'input.json', {'reference_size': [1000, 1000]})
     current = structure.compile_inventory(value, [1000, 1000], 'normalized_1000', tmp_path)

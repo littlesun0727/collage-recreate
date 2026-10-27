@@ -1,4 +1,5 @@
 """Optional yibu generation. No analysis/selection/review model APIs."""
+from collage.object_roles import is_customer_photo
 import math
 import subprocess
 import uuid
@@ -61,7 +62,7 @@ def generate(run,args):
         raise ValueError('Remove the decoration recovery group with recover before generating its members')
     if len(args.ids)!=len(set(args.ids)):raise ValueError('Duplicate generation IDs')
     for oid in args.ids:
-        if oid not in objects or objects[oid]['kind']=='photo':raise ValueError('Only known non-photo objects may be generated')
+        if oid not in objects or is_customer_photo(objects[oid]):raise ValueError('Only known non-photo objects may be generated')
         if objects[oid]['kind']=='frame':raise ValueError('Frames require extraction with their linked photo, not generation')
         if objects[oid].get('text_unresolved'):raise ValueError('Resolve exact text before generation')
     groups=scene.get('generated_groups',[])

@@ -54,7 +54,7 @@ _object_schema.setdefault('allOf', []).extend([{'if': {'properties': {'kind': {'
 _object_schema['allOf'] += [
     # These restrictions already exist in engine validation. Put them in the
     # model contract as well so strict-output providers can prevent the mistakes.
-    {'if': {'properties': {'kind': {'enum': ['background', 'text', 'overlay', 'frame']}},
+    {'if': {'properties': {'kind': {'enum': ['text', 'overlay', 'frame']}},
             'required': ['kind']},
      'then': {'properties': {'window_bbox': False, 'mode': False, 'appearance': False}}},
     {'if': {'properties': {'kind': {'enum': ['background', 'text', 'photo']}},
@@ -62,11 +62,14 @@ _object_schema['allOf'] += [
      'then': {'properties': {'photo_id': False}}},
     {'if': {'properties': {'kind': {'const': 'background'}}, 'required': ['kind']},
      'then': {'required': ['background_type', 'method'], 'properties': {
-         'background_type': {'enum': ['simple_design', 'complex_design', 'reference_clean']}}}},
+         'background_type': {'enum': ['photo', 'solid_color', 'reference_clean', 'simple_design', 'complex_design']}}}},
+    {'if': {'properties': {'background_type': {'const': 'photo'}}, 'required': ['background_type']},
+     'then': {'properties': {'kind': {'const': 'background'}, 'method': {'const': 'local'},
+                             'mode': {'const': 'cover'}, 'linked_to': False, 'parent_id': False}}},
     {'if': {'properties': {'background_type': {'const': 'photographic'}}, 'required': ['background_type']},
      'then': {'properties': {'kind': {'const': 'photo'}, 'mode': {'enum': ['cover', 'feather', 'stroke']},
                              'method': {'const': 'local'}}}},
-    {'if': {'properties': {'background_type': {'enum': ['simple_design', 'complex_design']}},
+    {'if': {'properties': {'background_type': {'enum': ['solid_color', 'simple_design', 'complex_design']}},
             'required': ['background_type']},
      'then': {'required': ['style'], 'properties': {'kind': {'const': 'background'},
                'method': {'const': 'local'}, 'style': {'required': ['fill']}}}},
@@ -150,9 +153,18 @@ def validate_backgrounds(analysis):
     for item in analysis['objects']:
         kind = item['kind']; route = item.get('background_type'); style = item.get('style', {})
         if kind == 'background':
-            if route not in {'simple_design', 'complex_design', 'reference_clean'}:
-                raise ValueError(item['id'] + ': background requires simple_design, reference_clean or legacy complex_design')
-            if route == 'reference_clean':
+            if route not in {'photo', 'solid_color', 'reference_clean', 'simple_design', 'complex_design'}:
+                raise ValueError(item['id'] + ': background requires photo, solid_color, reference_clean or a legacy design route')
+            if route == 'photo':
+                if item.get('method') != 'local' or item.get('mode', 'cover') != 'cover':
+                    raise ValueError(item['id'] + ': photo background requires local customer imagery in cover mode')
+                if item.get('linked_to') or item.get('parent_id'):
+                    raise ValueError(item['id'] + ': canvas background cannot be a child or linked foreground')
+                if item['bbox'] != [0, 0, *analysis['reference_size']] or item.get('rotation', 0):
+                    raise ValueError(item['id'] + ': photo background must fill canvas without rotation')
+                if analysis['layer_order'][0] != item['id']:
+                    raise ValueError(item['id'] + ': photo background must be bottommost')
+            elif route == 'reference_clean':
                 if item.get('method') != 'extract':
                     raise ValueError(item['id'] + ': reference_clean background requires method=extract')
             elif item.get('method') != 'local' or not style.get('fill'):

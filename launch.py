@@ -40,7 +40,7 @@ def main():
     command = [sys.executable, '-B', '-m', 'workbench', '--runs', *runs, '--port', str(args.port),
                '--enable-create', '--enable-chat', '--enable-editor', '--enable-motion',
                '--media-root', str(data/'service'), '--chat-state', str(data/'chat.sqlite')]
-    model = Path(os.getenv('COLLAGE_CUTOUT_MODEL', 'D:/codes/visual-recreate-validation/models/birefnet-lite-fp32.onnx'))
+    model = Path(os.getenv('COLLAGE_CUTOUT_MODEL', str(root.with_name(root.name+'-output')/'models/birefnet-lite-fp32.onnx')))
     if model.is_file():
         command += ['--cutout-model', str(model)]
     with (data/'server-out.log').open('ab') as stdout, (data/'server-error.log').open('ab') as stderr:

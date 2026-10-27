@@ -1,4 +1,5 @@
 """Reference window plans and deterministic masks shared by still/Live rendering."""
+from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
 import math
 from pathlib import Path
@@ -11,6 +12,12 @@ from window_contract import SCHEMA, VERSION, empty_stroke, execution_plan, execu
 
 
 EDGES = ('top', 'bottom', 'left', 'right')
+
+
+def enforce_canvas_base(analysis, plan=None):
+    from collage.object_roles import fill_background_canvas
+    return fill_background_canvas(analysis)
+
 
 
 def subject_stroke(spec):
@@ -45,7 +52,7 @@ def lower_opaque_rectangles(analysis, photo_id, specs):
                 or obj.get('rotation', 0) % 360):
             continue
         l,t,r,b = obj['bbox']; w,h = r-l,b-t
-        if obj['kind'] == 'photo':
+        if is_customer_photo(obj):
             spec = specs.get(oid)
             if (not spec or spec['subject']['mode'] == 'cutout'
                     or spec['shape']['type'] != 'rectangle'):
@@ -139,13 +146,17 @@ def check(plan, analysis):
     validate_plan(plan)
     original = plan
     plan = execution_plan(plan)
-    photos = {p['id']: p for p in analysis['objects'] if p['kind'] == 'photo'}
+    photos = {p['id']: p for p in analysis['objects'] if is_customer_photo(p)}
     ids = [p['photo_id'] for p in plan['photos']]
     if len(ids) != len(set(ids)) or set(ids) != set(photos):
         raise ValueError('photo_windows must cover every photo ID exactly once')
     specs={p['photo_id']:p for p in plan['photos']}
     for spec in plan['photos']:
         oid = spec['photo_id']; shape = spec['shape']; stroke = spec['stroke']
+        if is_photo_background(photos[oid]) and (
+                spec['subject']['mode'] != 'preserve' or spec['window_enabled']
+                or any(spec['fade'].values()) or spec.get('linked_to')):
+            raise ValueError(oid + ': photo background must preserve the full canvas without a mask, fade or linked_to')
         linked=spec.get('linked_to')
         initial_link = photos[oid].get('linked_to')
         if initial_link and linked != initial_link:
@@ -200,7 +211,7 @@ def defaults(analysis):
     """Preserve explicit source links; do not guess visual effects after failure."""
     specs = []
     for photo in analysis['objects']:
-        if photo['kind'] != 'photo':
+        if not is_customer_photo(photo):
             continue
         specs.append({'photo_id': photo['id'], 'mask': {'enabled': False},
                       'subject': {'preserve_background': not bool(photo.get('linked_to')),
@@ -308,7 +319,7 @@ def reference_crops(run, analysis):
     images = []; regions = []
     with Image.open(run/'prepared/reference.png') as raw:
         for p in analysis['objects']:
-            if p['kind'] != 'photo':
+            if not is_customer_photo(p):
                 continue
             l,t,r,b = p['bbox']; margin = max(12, round(.12*max(r-l,b-t)))
             box = [max(0,l-margin),max(0,t-margin),min(raw.width,r+margin),min(raw.height,b+margin)]
@@ -329,7 +340,7 @@ def previews(run, analysis, plan):
         full = raw.convert('RGBA')
     reference = full.convert('RGB')
     for p in analysis['objects']:
-        if p['kind'] != 'photo':
+        if not is_customer_photo(p):
             continue
         spec = specs[p['id']]; l,t,r,b = p['bbox']
         preview_spec = deepcopy(spec)

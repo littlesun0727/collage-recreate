@@ -1,3 +1,4 @@
+from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
 import math
 import os
@@ -17,15 +18,17 @@ def compile_scene(run, reveal_config=None):
     scale=inputs['output_width']/analysis['reference_size'][0]
     window_plan = None; windows = {}
     if (run/'photo-windows.json').exists():
-        from photo_windows import check, configure
-        window_plan = check(read(run/'photo-windows.json'), analysis)
+        from photo_windows import check, configure, enforce_canvas_base
+        window_plan = read(run/'photo-windows.json')
+        enforce_canvas_base(analysis, window_plan)
+        window_plan = check(window_plan, analysis)
         windows = {p['photo_id']:p for p in window_plan['photos']}
     objects=[]
     for original in analysis['objects']:
         o=deepcopy(original);o['style']=resolve_style(o)
         if o['id'] in texts:o['text']=texts[o['id']]['text'];o['text_origin']=texts[o['id']]['origin']
         o['text_unresolved']=o.get('text_status')=='unreadable' and o['id'] not in texts
-        if o['kind']=='photo':
+        if is_customer_photo(o):
             o.setdefault('mode','cover')
             if o['mode']=='stroke' and window_plan is None:
                 raise ValueError(o['id'] + ': stroke mode requires photo-windows.json parameters')
@@ -45,6 +48,8 @@ def compile_scene(run, reveal_config=None):
     if config.get('enabled'):
         from reveal_assets import attach
         attach(run,scene,config)
+    from frame_fallback import align_frames
+    align_frames(scene)
     if config_file.exists():scene['reveal_config_sha256']=sha(config_file)
     save(run/'scene.json',scene);boxes(run,analysis)
     return scene
@@ -80,7 +85,7 @@ def checked_review(run, path):
 
 def move_local_photos(scene, before, carrier, explicit_geometry):
     """Move a local carrier's photo windows with one similarity transform."""
-    related=[p for p in scene['objects'] if p['kind']=='photo' and
+    related=[p for p in scene['objects'] if is_customer_photo(p) and
              (p['id']==carrier.get('photo_id') or p.get('parent_id')==carrier['id'])]
     if not related:return
     if any(p['id'] in explicit_geometry for p in related):
@@ -142,7 +147,7 @@ def apply_review(run, path, dry_run=False):
                      not by_id[i].get('generated')]
     claimed=[]
     for carrier in moving_carriers:
-        claimed.extend(p['id'] for p in s['objects'] if p['kind']=='photo' and
+        claimed.extend(p['id'] for p in s['objects'] if is_customer_photo(p) and
                        (p['id']==carrier.get('photo_id') or p.get('parent_id')==carrier['id']))
     if len(claimed)!=len(set(claimed)):
         raise ValueError('A photo cannot follow multiple adjusted carriers')
@@ -158,7 +163,7 @@ def apply_review(run, path, dry_run=False):
             translates_extraction=False
             if o['kind'] in ['overlay','frame'] and o.get('recovered') and set(changes)=={'bbox'}:
                 linked=bool(o.get('photo_id') or o.get('photo_window') or
-                    any(p['kind']=='photo' and p.get('parent_id')==o['id'] for p in s['objects']))
+                    any(is_customer_photo(p) and p.get('parent_id')==o['id'] for p in s['objects']))
                 grouped=bool(o.get('embedded_owner') or o.get('recovery_owner') or
                     o['recovered'].get('source',{}).get('recovery_group') or
                     any(p.get('embedded_owner')==o['id'] or p.get('recovery_owner')==o['id'] for p in s['objects']))
@@ -180,15 +185,16 @@ def apply_review(run, path, dry_run=False):
                     catalog={a['id']:a for a in read(run/'prepared/catalog.json')['assets']}
                     if value not in catalog:raise ValueError('Unknown customer asset: '+value)
                     verify_source(catalog[value])
-                    if o['kind']=='background':
+                    if o['kind']=='background' and not is_photo_background(o):
                         if o.get('embedded_owner') or o.get('recovery_owner') or any(
                             p.get('embedded_owner')==o['id'] or p.get('recovery_owner')==o['id'] for p in s['objects']):
                             raise ValueError('Cannot replace a background merged with other objects')
                         # Keep the layer ID/position/order; replace its pixels with a verified customer image.
                         for old_key in ['recovered','generated','gate','gate_local','photo_window','window_bbox','text','text_status','extracted_offset']:
                             o.pop(old_key,None)
-                        o.update(kind='photo',mode='cover',style={},binding={'slot_id':o['id']},
-                                 text_unresolved=False,customer_background=True,background_type='photographic')
+                        o.update(kind='background',mode='cover',method='local',style={},binding={'slot_id':o['id']},
+                                 bbox=[0,0,*s['reference_size']],rotation=0,
+                                 text_unresolved=False,customer_background=True,background_type='photo')
                     o['source']=deepcopy(catalog[value]);o['binding']['asset_id']=value
                     for placement in ['source_crop','crop_center','mirror_x']:
                         if placement not in changes:o['binding'].pop(placement,None)
@@ -204,7 +210,7 @@ def apply_review(run, path, dry_run=False):
                         if isinstance(setting,dict):o['style'][name]={**o['style'].get(name,{}),**setting}
                         else:o['style'][name]=setting
                 elif key in ['crop_center','source_crop','mirror_x']:
-                    if o['kind']!='photo':raise ValueError('Photo placement parameters only apply to photos')
+                    if not is_customer_photo(o):raise ValueError('Photo placement parameters only apply to photos')
                     o['binding'][key]=value
                 else:o[key]=value
             if o in moving_carriers:

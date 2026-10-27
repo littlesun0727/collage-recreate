@@ -1,4 +1,5 @@
 """Project task evidence without importing the rendering engine."""
+from collage.object_roles import is_customer_photo
 import hashlib
 import io
 import json
@@ -235,7 +236,8 @@ class Store:
             for obj in version_scene.get('objects', []):
                 oid = obj['id']; resource = vresources.get(oid, {})
                 vmaterials.append({'id': oid, 'label': obj.get('label', oid), 'kind': obj['kind'],
-                                   'bbox': obj.get('bbox'), 'method': '程序相框' if resource.get('metadata',{}).get('method')=='local_frame' else '客户照片' if obj['kind']=='photo' else '参考提取' if obj.get('method')=='extract' else '本地绘制',
+                                   'background_type': obj.get('background_type'),
+                                   'bbox': obj.get('bbox'), 'method': '程序相框' if resource.get('metadata',{}).get('method')=='local_frame' else '客户照片' if is_customer_photo(obj) else '参考提取' if obj.get('method')=='extract' else '本地绘制',
                                    'status': 'unresolved' if resource.get('quality') in {'placeholder','unresolved'} else 'complete',
                                    'quality': resource.get('quality'), 'cache_hit': False,
                                    'images': {'reference': self.image(key, run, run/'prepared/reference.png', obj.get('bbox')), 'final': arts.get('material:'+oid), 'raw': arts.get('raw:'+oid), 'processed': arts.get('processed:'+oid)},
@@ -268,7 +270,7 @@ class Store:
             if rebuilding and row.get('attempt_id') != last_command.get('attempt_id'):
                 state = 'pending'; output = None
             source = assets.get(bindings.get(oid, {}).get('asset_id'), {})
-            method = '客户照片' if obj['kind'] == 'photo' else '参考提取' if obj.get('method') == 'extract' else '本地绘制'
+            method = '客户照片' if is_customer_photo(obj) else '参考提取' if obj.get('method') == 'extract' else '本地绘制'
             metadata = resources.get(oid, {}).get('metadata', {})
             if metadata.get('method')=='local_frame':method='程序相框'
             images = {'reference': self.image(key, run, run/'prepared/reference.png', obj.get('bbox')),
@@ -288,6 +290,7 @@ class Store:
                 state = 'failed'
                 note = failure['error'] or '提取或下载失败，未采用该素材'
             cards.append({'id': oid, 'label': obj.get('label', oid), 'kind': obj['kind'], 'bbox': obj.get('bbox'),
+                          'background_type': obj.get('background_type'),
                           'binding': bindings.get(oid),
                           'method': method, 'status': state, 'quality': quality, 'cache_hit': row.get('cache_hit', False),
                           'images': images, 'decision': clean(obj.get('gate', {})), 'note': clean(note)})

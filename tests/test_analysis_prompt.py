@@ -16,7 +16,9 @@ from collage.workflow.stages.analyze import compile_inventory, schema
 def test_analysis_uses_inline_format_but_rejects_invalid_answers(tmp_path, template, mode, invalid):
     photo = {'id': 'photo_1', 'kind': 'photo', 'bbox': [10, 10, 90, 90],
              'description': 'Complete photograph'}
-    answer = {'objects': [photo], 'layer_order': ['photo_1']}
+    bg = {'id': 'bg', 'kind': 'background', 'background_type': 'solid_color',
+          'bbox': [0, 0, 200, 200], 'color': '#FFFFFF', 'description': 'White canvas'}
+    answer = {'objects': [bg, photo], 'layer_order': ['bg', 'photo_1']}
     if invalid == 'array':
         answer = []
     elif invalid == 'missing_description':
@@ -63,8 +65,8 @@ def test_analysis_example_has_explicit_order_independent_of_object_listing(mode)
     from jsonschema import Draft202012Validator
     example = json.loads(prompts.render('analyze', mode=mode).split('```json\n')[1].split('```')[0])
     assert set(example) == {'objects', 'layer_order'}
-    Draft202012Validator(schema([200, 200], mode)).validate(example)
-    result = compile_inventory(example, [200, 200], mode)['analysis']
+    Draft202012Validator(schema([1000, 1000], mode)).validate(example)
+    result = compile_inventory(example, [1000, 1000], mode)['analysis']
     assert result['layer_order'] == example['layer_order']
     assert result['layer_order'] != [o['id'] for o in result['objects']]
 

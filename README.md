@@ -42,7 +42,7 @@ docs/                  阅读和使用说明
 双击 `start.vbs`，或执行：
 
 ```powershell
-& 'D:/codes/visual-recreate-validation/clean-env/Scripts/python.exe' -B launch.py
+& './.venv/Scripts/python.exe' -B launch.py
 ```
 
 地址为 `http://127.0.0.1:8809/`。新任务和日志默认写到相邻的 `collage-recreate-v9-output/runtime/`。

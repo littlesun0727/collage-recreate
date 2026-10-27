@@ -1,4 +1,5 @@
 """Normalize unsupported optional metadata without dropping objects."""
+from collage.object_roles import is_customer_photo
 
 
 def normalize_boxes(value, current):
@@ -24,7 +25,7 @@ def normalize(value):
     for item in value['analysis']['objects']:
         owner = objects.get(item.get('embedded_in'))
         if owner and owner['id'] != item['id'] and (
-                item['kind'] in {'photo', 'frame'} or owner['kind'] == 'background'
+                (is_customer_photo(item) or item['kind']=='frame') or owner['kind'] == 'background'
                 or owner.get('embedded_in')):
             memberships.append(item)
     for item in memberships:
@@ -36,7 +37,7 @@ def normalize(value):
     for item in value['analysis']['objects']:
         oid = item['id']
         style = item.get('style', {})
-        if item['kind'] != 'photo':
+        if not is_customer_photo(item):
             removed = {key: style.pop(key) for key in
                        ('card', 'corner_radius', 'outline_width', 'outline_color') if key in style}
             for key in ('appearance', 'mode'):

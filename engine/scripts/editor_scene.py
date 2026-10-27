@@ -1,4 +1,5 @@
 """Opt-in manual placement; original analysis and asset coordinates stay intact."""
+from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
 import math
 
@@ -46,7 +47,7 @@ def capabilities(scene):
         related=[o.get('parent_id'),o.get('photo_id'),o.get('reveal_frame_id'),o.get('photo_window_spec',{}).get('linked_to')]
         # Only explicit photo/carrier links group layers. Ordinary overlapping
         # stickers or paper backgrounds never become an implicit giant group.
-        if o['kind']!='photo':related=[o.get('photo_id')]
+        if not is_customer_photo(o):related=[o.get('photo_id')]
         for other in related:
             if other in objects:
                 a,b=root(o['id']),root(other)
@@ -61,14 +62,14 @@ def capabilities(scene):
         fused=any(i in g['member_ids'] for g in scene.get('generated_groups',[]))
         editable=independent and not fused and o['kind']=='text' and o.get('method','local')!='extract' and not o.get('generated') and not o.get('recovered')
         remove_roots={root(i)}
-        if o['kind']=='photo':
+        if is_customer_photo(o):
             remove_roots.update(root(frame['id']) for frame in objects.values()
                                 if frame['kind']=='frame' and frame.get('photo_id')==i)
             remove_roots.update(root(child['id']) for child in objects.values()
                                 if child.get('photo_window_spec',{}).get('linked_to')==i)
         result[i]={'move':movable,'rotate':movable,'scale':movable,'remove':independent,
                    'remove_ids':sorted(k for k in objects if root(k) in remove_roots),
-                   'crop':independent and not fused and o['kind']=='photo' and bool(o.get('source')) and not o.get('photo_window_spec',{}).get('linked_to'),
+                   'crop':independent and not fused and is_customer_photo(o) and bool(o.get('source')) and not o.get('photo_window_spec',{}).get('linked_to'),
                    'text':editable,'group':sorted(group),'owner':root(i)}
     return result
 

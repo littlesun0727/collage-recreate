@@ -36,12 +36,14 @@
           },
           "background_type": {
             "enum": [
+              "photo",
+              "solid_color",
               "photographic",
               "simple_design",
               "complex_design",
               "reference_clean"
             ],
-            "description": "仅背景层填写：需替换的客户照片底图用 photographic 且 kind=photo；可可靠绘制的固定底图用 simple_design、method=local；需保留原材质或结构并清除独立前景的固定底图用 reference_clean、kind=background、method=extract。实拍固定模板也可清底。complex_design 仅兼容旧任务的本地近似。普通前景省略。"
+            "description": "背景层固定 kind=background：客户照片铺底用 photo、method=local；均匀纯色底用 solid_color、method=local；需要清除独立前景的固定模板底用 reference_clean、method=extract。photographic、simple_design 和 complex_design 仅兼容旧任务。普通前景省略。"
           },
           "bbox": {
             "type": "array",
@@ -216,6 +218,17 @@
     "style": {
       "type": "object",
       "properties": {
+        "border": {
+          "type": "object",
+          "properties": {
+            "top": {"type": "number", "minimum": 0, "maximum": 0.3},
+            "right": {"type": "number", "minimum": 0, "maximum": 0.3},
+            "bottom": {"type": "number", "minimum": 0, "maximum": 0.3},
+            "left": {"type": "number", "minimum": 0, "maximum": 0.3}
+          },
+          "required": ["top", "right", "bottom", "left"],
+          "additionalProperties": false
+        },
         "fill": {
           "type": "string",
           "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"

@@ -120,6 +120,8 @@ def screen(run, path, dry_run=False, rescreen=False):
         remaining=[oid for oid in owners if objects[oid].get('recovered') and objects[child].get('embedded_owner')!=oid]
         if remaining:scene['reveal_unconfirmed_text'][child]=remaining
         else:scene['reveal_unconfirmed_text'].pop(child)
+    from frame_fallback import align_frames
+    align_frames(scene)
     receipt=run/'screening.json';save(receipt,plan)
     scene['screening']={'file':str(receipt.resolve()),'sha256':sha(receipt)}
     publish(run,scene,list(records.values()));save(run/'scene.json',scene)

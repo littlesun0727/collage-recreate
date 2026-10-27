@@ -1,4 +1,5 @@
 """Deterministic admission of extracted layers; semantic uncertainty is explicit."""
+from collage.object_roles import is_customer_photo
 from pathlib import Path
 import math
 import hashlib
@@ -27,7 +28,7 @@ def check_extensions(plan, scene):
         key=d.get('input_key','')
         if not isinstance(key,str) or len(key)!=64 or any(c not in '0123456789abcdef' for c in key):raise ValueError('Decision needs current gate input_key')
         ids=d.get('embedded_ids',[])
-        if not isinstance(ids,list) or any(i not in objects or objects[i]['kind'] in ['photo','frame'] for i in ids):raise ValueError('Invalid embedded_ids')
+        if not isinstance(ids,list) or any(i not in objects or (is_customer_photo(objects[i]) or objects[i]['kind']=='frame') for i in ids):raise ValueError('Invalid embedded_ids')
         if ids and d['verdict']!='accepted':raise ValueError('Only accepted layers can own embedded content')
         for child in ids:
             owner=objects[child].get('embedded_in') or objects[child].get('parent_id')
@@ -108,7 +109,7 @@ def inspect(image, target, scene, source, repair, checks, text_candidates, repai
     status='rejected' if hard else 'pending' if issues else 'accepted';basis='program';embedded=[];use_local=False
     if target.get('kind')!='frame' and status=='accepted':
         embedded=[o['id'] for o in scene.get('objects',[]) if o.get('embedded_in')==target['id']
-                  and o['kind'] not in ['photo','frame']]
+                  and not is_customer_photo(o) and o['kind']!='frame']
     if valid:
         if decision['verdict']=='rejected' and target.get('kind')=='frame':status='rejected';basis='visual'
         elif decision['verdict']=='accepted' and not hard:

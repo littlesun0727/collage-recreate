@@ -70,7 +70,7 @@ def test_store_exposes_window_and_binding_products_without_a_scene(tmp_path):
     run = task(tmp_path)
     save(run/'structure.json', {'coordinate_mode': 'normalized_1000', 'objects': [
         {'id': 'photo_1', 'kind': 'photo', 'bbox': [100, 200, 900, 800], 'description': 'photo'},
-        {'id': 'bg', 'kind': 'background', 'bbox': [0, 0, 1000, 1000], 'description': 'photographic background'}]})
+        {'id': 'bg', 'kind': 'background', 'background_type': 'reference_clean', 'bbox': [0, 0, 1000, 1000], 'description': 'photographic background'}]})
     save(run/'bindings.json', {'photos': [{'slot_id': 'photo_1', 'asset_id': 'material_00'}]})
     save(run/'prepared/catalog.json', {'assets': [{'id': 'material_00', 'thumbnail': str(run.parent/'shared.jpg')}]})
     (run/'prepared/vlm-materials').mkdir()
