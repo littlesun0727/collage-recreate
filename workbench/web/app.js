@@ -9,6 +9,11 @@ const escapeHTML = (x) =>
         c
       ],
   );
+// Only display URLs use lossy previews; original/edit/download URLs remain intact.
+function previewURL(url, size = 480) {
+  return url && /^\/api\/tasks\/[a-f0-9]+\/images\/[a-f0-9]+$/.test(url)
+    ? `${url}?size=${size}` : url;
+}
 const statusText = {
   pending: "未开始",
   running: "执行中",
@@ -157,8 +162,30 @@ function buildTaskGroups(tasks, batches) {
     } else group.counts = null;
   }
   const result = [...merged.values()];
+  const sol61First = group => /(?:gpt-6\.1-sol|sol-6\.1)/i.test(
+    group.model_policy?.subsequent?.model || group.model_policy?.analyze?.model || ''
+  ) ? 0 : 1;
+  result.sort((a, b) => sol61First(a) - sol61First(b));
   const ungrouped = tasks.filter(t => !t.batch?.id && !grouped.has(t.id));
   if (ungrouped.length) result.push({id:"ungrouped", name:"单独任务 / 历史任务", tasks:ungrouped, total:ungrouped.length, batchIds:[]});
+  const preferredReferences = [
+    'REF-0AB2A3EF8C5A__422.jpg', 'REF-0BA9B716778F__351.jpg',
+    'REF-0F626AC0CE91__REF_0033.jpg', 'REF-1D8AFF3662EF__173.jpg',
+    'REF-1F25865296E0__REF_LIVE_0006.jpg', 'REF-4A174E7C0BA8__REF_0014.jpg',
+    'REF-6ACA334139DC__2.jpg', 'REF-7AA2F99FC72B__REF_0022.jpg',
+    'REF-25FDB85043C6.jpg', 'REF-26D708D2C5BE.jpg', 'REF-27D3AA82C42D__5.jpg',
+    'REF-5527B9C003B4__REF_0019.jpg', 'REF-B1CD23972AE7__332.jpg',
+    'REF-E02508163EB4__404.jpg', 'REF-ECFA3F03787F__223.jpg',
+    'REF-ED58DA822DC1__REF_0017.jpg', 'REF-F6AEA45E1E50.jpg',
+    'wufeng_2.jpg', 'wufeng_3.jpg', 'wufeng_4.jpg', 'wufeng_5.jpg', 'wufeng_7.jpg',
+  ];
+  const priority = new Map(preferredReferences.map((name, i) => [name.toLowerCase(), i]));
+  const rank = task => priority.get((task.batch?.reference_name || task.name || '').split(/[\\/]/).at(-1).toLowerCase()) ?? priority.size;
+  for (const group of result) {
+    if (!group.tasks.some(task => rank(task) < priority.size)) continue;
+    group.tasks.sort((a, b) => rank(a) - rank(b));
+    group.tasks = group.tasks.map((task, i) => ({...task, index:i + 1}));
+  }
   return result;
 }
 function taskGroups() {
@@ -205,7 +232,7 @@ function taskList() {
       position === 0 || tasks.some(t => t.id && t.id === state.id));
     const progress = g.counts ? `完成 ${g.counts.completed}/${g.total} · 未完成 ${g.counts.failed}` : `已载入 ${g.tasks.length}/${g.total} 个样本`;
     const cards = tasks.map(t => `<button class="task ${t.id && t.id === state.id ? 'active' : ''}" ${t.id ? `data-task="${escapeHTML(t.id)}"` : 'disabled'} ${t.error ? `title="${escapeHTML(t.error)}"` : ''}>
-      ${t.thumbnail ? `<img src="${escapeHTML(t.thumbnail)}" alt="" loading="lazy">` : '<span class="task-placeholder">▧</span>'}
+      ${t.thumbnail ? `<img fetchpriority="low" decoding="async" src="${escapeHTML(previewURL(t.thumbnail, 160))}" alt="" loading="lazy">` : '<span class="task-placeholder">▧</span>'}
       <span><strong>${t.index ? String(t.index).padStart(2,'0')+' · ' : ''}${escapeHTML(t.name)}</strong>
       <small class="batch-task-${escapeHTML(t.status || 'saved')}">${escapeHTML(statuses[t.status] || (t.created_at ? new Date(t.created_at).toLocaleDateString('zh-CN') : ''))}${t.phase === 'import' ? ' · 准备素材' : ''}</small></span></button>`).join('');
     const description = g.model_policy ? `${modelPolicyLabel(g.model_policy)} · ${new Date(g.created_at).toLocaleString('zh-CN')}` : '';
@@ -301,7 +328,7 @@ function renderRevealExample() {
   $("#revealExampleStatus").textContent = `${d.name} · ${statusText[material?.status] || material?.status || "等待提取"}`;
   setHTML($("#revealReference"), techObjectMap(d.reference, [object], object.id));
   const image = material?.status === "complete" ? (material.images.processed || material.images.final) : null;
-  setHTML($("#revealForeground"), image ? `<img src="${escapeHTML(image)}" alt="${escapeHTML(object.label || object.id)}的已处理提取图层" loading="lazy">` : '<div class="tech-visual-empty">当前对象没有可用提取结果<br>保留缺口，等待处理</div>');
+  setHTML($("#revealForeground"), image ? `<img decoding="async" src="${escapeHTML(previewURL(image))}" alt="${escapeHTML(object.label || object.id)}的已处理提取图层" loading="lazy">` : '<div class="tech-visual-empty">当前对象没有可用提取结果<br>保留缺口，等待处理</div>');
   setHTML($("#revealComposition"), techObjectMap(version?.image || d.current_image, current ? [current] : [], object.id));
 }
 function techObjectMap(url, objects, selected, clickable = false) {
@@ -316,7 +343,7 @@ function techObjectMap(url, objects, selected, clickable = false) {
     return `<rect x="${l}" y="${t}" width="${r-l}" height="${b-t}" transform="translate(${transform.x} ${transform.y}) rotate(${(obj.rotation || 0)+transform.rotation} ${cx} ${cy}) translate(${cx} ${cy}) scale(${transform.scale}) translate(${-cx} ${-cy})" vector-effect="non-scaling-stroke" class="${active ? "selected" : ""}" ${clickable ? `data-tech-object="${escapeHTML(obj.id)}" role="button" tabindex="0" aria-label="${escapeHTML(obj.label || obj.id)}"` : ''}><title>${escapeHTML(obj.label || obj.id)}</title></rect>`;
   };
   const ordered = [...objects.filter(o => o.id !== selected), ...objects.filter(o => o.id === selected)];
-  return `<svg viewBox="0 0 ${width} ${height}" aria-label="${clickable ? '参考图与可选择对象框' : '当前成图与对象位置'}"><image href="${escapeHTML(url)}" width="${width}" height="${height}" />${ordered.map(rect).join("")}</svg>`;
+  return `<svg viewBox="0 0 ${width} ${height}" aria-label="${clickable ? '参考图与可选择对象框' : '当前成图与对象位置'}"><image href="${escapeHTML(previewURL(url, 1280))}" width="${width}" height="${height}" />${ordered.map(rect).join("")}</svg>`;
 }
 function renderTechVisual() {
   const d = state.data;
@@ -348,7 +375,7 @@ function renderTechVisual() {
   $("#techBoxCaption").textContent = `bbox = [${original.bbox.join(", ")}] · 参考图 ${d.reference_size.join(" × ")} px`;
   $("#techAssetLabel").textContent = photo ? "绑定的客户素材" : "制作后的独立图层";
   const assetImage = photo ? (customer?.image || material?.images.customer) : material?.status === "complete" ? (material?.images.processed || material?.images.final) : null;
-  setHTML($("#techAssetPreview"), assetImage ? `<img src="${escapeHTML(assetImage)}" alt="${escapeHTML(photo ? '绑定的客户素材代表图' : '制作后的独立素材图层')}" loading="lazy">` : '<div class="tech-visual-empty">尚无可用素材<br>缺失或未采用的结果不会作为成品展示</div>');
+  setHTML($("#techAssetPreview"), assetImage ? `<img decoding="async" src="${escapeHTML(previewURL(assetImage))}" alt="${escapeHTML(photo ? '绑定的客户素材代表图' : '制作后的独立素材图层')}" loading="lazy">` : '<div class="tech-visual-empty">尚无可用素材<br>缺失或未采用的结果不会作为成品展示</div>');
   $("#techAssetCaption").textContent = photo ? (binding?.asset_id || "尚无已编译的素材绑定") : `${material?.method || original.method || "本地绘制"} · ${statusText[material?.status] || material?.status || "待制作"}`;
   $("#techResultCaption").textContent = current ? `render_id: ${version.render_id} · 高亮为布局框，描边与人物可超出框外` : "当前成图中没有该对象（可能已删除或尚未构建）";
   const explanations = {
@@ -408,7 +435,7 @@ function openImage(url, title = "原图") {
   $("#imageDialog").showModal();
 }
 function thumb(url, label) {
-  return `<figure class="thumb">${url ? `<img src="${url}" data-enlarge="${url}" data-title="${escapeHTML(label)}" alt="${escapeHTML(label)}" loading="lazy">` : '<div class="placeholder">尚无可用结果</div>'}<figcaption>${escapeHTML(label)}</figcaption></figure>`;
+  return `<figure class="thumb">${url ? `<img decoding="async" src="${previewURL(url)}" data-enlarge="${url}" data-title="${escapeHTML(label)}" alt="${escapeHTML(label)}" loading="lazy">` : '<div class="placeholder">尚无可用结果</div>'}<figcaption>${escapeHTML(label)}</figcaption></figure>`;
 }
 function renderProducts(stage) {
   setHTML($('#stageProducts'), stage.artifacts.map(a => a.url
@@ -509,7 +536,7 @@ function focusObject(id) {
   $("#canvas").scrollIntoView({ behavior: "smooth", block: "center" });
 }
 function pane(url, label, aspect, role) {
-  return `<div class="image-pane"><div class="pane-label"><span>${escapeHTML(label)}</span><span>${url ? "点击「原图」查看细节" : ""}</span></div><div class="viewport">${url ? `<div class="image-world" data-role="${role}" style="aspect-ratio:${aspect}"><img src="${url}" alt="${escapeHTML(label)}" draggable="false"></div>` : '<div class="no-image">这一阶段还没有成图<br>制作完成后会自动显示</div>'}</div></div>`;
+  return `<div class="image-pane"><div class="pane-label"><span>${escapeHTML(label)}</span><span>${url ? "点击「原图」查看细节" : ""}</span></div><div class="viewport">${url ? `<div class="image-world" data-role="${role}" style="aspect-ratio:${aspect}"><img fetchpriority="high" decoding="async" src="${previewURL(url, 1280)}" alt="${escapeHTML(label)}" draggable="false"></div>` : '<div class="no-image">这一阶段还没有成图<br>制作完成后会自动显示</div>'}</div></div>`;
 }
 function renderCanvas() {
   $("#modes").querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.mode===state.mode));
@@ -583,7 +610,7 @@ function renderCanvas() {
   const aspect = (d.reference_size || [3, 4]).join("/");
   if (state.mode === "wipe" && left && right) {
     c.classList.add("wipe");
-    c.innerHTML = `<div class="pane-label"><span>${ll} / ${rl}</span><span>拖动滑块对照</span></div><div class="wipe-container viewport"><div class="image-world" data-role="${step <= 3 ? "reference" : "wipe"}" style="aspect-ratio:${aspect}"><img src="${left}" alt="${ll}"><div class="wipe-top"><img src="${right}" alt="${rl}"></div><div class="wipe-line"></div></div></div><input class="wipe-slider" type="range" min="0" max="100" value="50" aria-label="对比位置">`;
+    c.innerHTML = `<div class="pane-label"><span>${ll} / ${rl}</span><span>拖动滑块对照</span></div><div class="wipe-container viewport"><div class="image-world" data-role="${step <= 3 ? "reference" : "wipe"}" style="aspect-ratio:${aspect}"><img fetchpriority="high" decoding="async" src="${previewURL(left, 1280)}" alt="${ll}"><div class="wipe-top"><img fetchpriority="high" decoding="async" src="${previewURL(right, 1280)}" alt="${rl}"></div><div class="wipe-line"></div></div></div><input class="wipe-slider" type="range" min="0" max="100" value="50" aria-label="对比位置">`;
   } else {
     c.innerHTML =
       pane(
@@ -709,7 +736,7 @@ function render() {
       ? d.versions
           .map(
             (x, i) =>
-              `<button class="version ${v?.id === x.id ? "active" : ""}" data-version="${x.id}"><img src="${x.image}" alt="${x.label}"><strong>${String(i + 1).padStart(2, "0")} ${x.label}</strong><small>${shortTime(x.at)}</small></button>`,
+              `<button class="version ${v?.id === x.id ? "active" : ""}" data-version="${x.id}"><img loading="lazy" decoding="async" src="${previewURL(x.image)}" alt="${x.label}"><strong>${String(i + 1).padStart(2, "0")} ${x.label}</strong><small>${shortTime(x.at)}</small></button>`,
           )
           .join("")
       : '<p class="subtle">尚无完整版本快照。已有历史成图可在上方查看。</p>',
@@ -774,54 +801,59 @@ function render() {
   window.refreshChat?.();
   window.refreshMotion?.();
 }
-async function refresh() {
-  if (state.busy) return;
-  state.busy = true;
-  const id = state.id;
-  try {
+// Catalogue polling never blocks a user-selected task request.
+let catalogueRequest = null;
+let catalogueUpdatedAt = 0;
+const detailRequests = new Set();
+async function refreshCatalogue() {
+  if (catalogueRequest) return catalogueRequest;
+  catalogueRequest = (async () => {
     [state.tasks, state.batches] = await Promise.all([api("/api/tasks"), api("/api/batches").catch(error => {
-      // Static files can update while a previous server is still finishing jobs.
       if (error.message.startsWith('HTTP 404')) return [];
       throw error;
     })]);
+    catalogueUpdatedAt = Date.now();
     const available = availableTasks();
-    if (!available.some((task) => task.id === state.id)) {
-      state.id = available[0]?.id || null;
-      state.data = null;
-      state.stage = null;
-      state.version = null;
-      state.focus = null;
-      state.techObject = null;
-      state.revealObject = null;
-      state.canvasKey = "";
-      state.materialKeys.clear();
-      state.zoom = 1;
-      state.pan = [0, 0];
-      const u = new URL(location.href);
-      if (state.id) u.searchParams.set("task", state.id);
-      else u.searchParams.delete("task");
-      history.replaceState({}, "", u);
-      renderPage();
-    }
     taskList();
-    if (state.id) {
-      const requested = state.id;
-      const data = await api("/api/tasks/" + requested);
-      if (requested === state.id) {
-        state.data = data;
-        render();
+    if (!available.some(task => task.id === state.id)) {
+      if (available[0]) selectTask(available[0].id);
+      else {
+        state.id = null;
+        state.data = null;
+        renderPage();
       }
     }
-    $("#connection").textContent = "工作台已连接";
+  })();
+  try { await catalogueRequest; }
+  finally { catalogueRequest = null; }
+}
+async function refresh() {
+  if (document.hidden) return;
+  if (Date.now() - catalogueUpdatedAt >= 15000) {
+    refreshCatalogue().catch(() => {
+      // Keep the current task usable during a catalogue outage.
+      if (!state.data) $("#connection").textContent = "???????????";
+    });
+  }
+  const requested = state.id;
+  if (!requested || detailRequests.has(requested)) return;
+  detailRequests.add(requested);
+  try {
+    const data = await api("/api/tasks/" + requested);
+    if (requested !== state.id) return;
+    state.data = data;
+    render();
+    $("#connection").textContent = "??????";
     $("#connectionDot").style.background = "var(--green)";
   } catch (e) {
-    $("#connection").textContent = "连接中断，稍后重试";
+    if (requested !== state.id) return;
+    $("#connection").textContent = "?????????";
     $("#connectionDot").style.background = "var(--amber)";
   } finally {
-    state.busy = false;
-    if (id && id !== state.id) queueMicrotask(refresh);
+    detailRequests.delete(requested);
   }
 }
+
 document.addEventListener("click", (e) => {
   const revealTopic = e.target.closest("[data-reveal-topic]");
   if (revealTopic) return selectRevealTopic(revealTopic.dataset.revealTopic);
@@ -910,9 +942,7 @@ function selectRevealTopic(topic) {
 function loadRevealFigures() {
   document.querySelectorAll("img[data-reveal-asset]").forEach(img => {
     if (img.hasAttribute("src")) return;
-    const source = document.getElementById(`revealAsset-${img.dataset.revealAsset}`);
-    const bytes = Uint8Array.from(atob(source.content.textContent.trim()), char => char.charCodeAt(0));
-    img.src = URL.createObjectURL(new Blob([bytes], {type:"image/png"}));
+    img.src = `/reveal-${img.dataset.revealAsset}.png`;
   });
 }
 $("#openRevealDetail").onclick = () => {
@@ -1051,5 +1081,6 @@ new MutationObserver(() => requestAnimationFrame(fitWorlds)).observe(
 );
 renderPage();
 refresh();
-setInterval(refresh, 2000);
+setInterval(refresh, 5000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
 setInterval(renderTiming, 1000);

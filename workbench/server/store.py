@@ -17,10 +17,11 @@ COMMAND_LABEL = {'manual-edit':'手动编辑','revision-commit':'对话修改','
                  'apply': '调整排版', 'generate': '素材精修', 'recover': '局部恢复'}
 
 
-def read(path, default=None):
+def read(path, default=None, relocate=True):
     for attempt in range(9):
         try:
-            return relocated_values(json.loads(Path(relocated_path(path)).read_text(encoding='utf-8-sig')))
+            value = json.loads(Path(relocated_path(path)).read_text(encoding='utf-8-sig'))
+            return relocated_values(value) if relocate else value
         except PermissionError:
             # Windows briefly denies readers while another worker replaces a file.
             if attempt<8:
@@ -72,11 +73,14 @@ def events(run):
 
 
 class Store:
-    def __init__(self, roots, listing_filter=None):
+    def __init__(self, roots, listing_filter=None, preview_root=None):
         self.roots = [Path(p).resolve() for p in roots]
         self.listing_filter = Path(listing_filter) if listing_filter else None
         self._artifacts = {}
         self._lock = threading.RLock()
+        self._task_paths = {}
+        from .previews import PreviewCache
+        self.previews = PreviewCache(preview_root or self.roots[0]/'.workbench/previews')
 
     def tasks(self):
         tasks = {}
@@ -96,7 +100,22 @@ class Store:
                 if key in tasks and tasks[key] != run:
                     raise ValueError('Duplicate portable task identifier')
                 tasks[key] = run
+        with self._lock:
+            self._task_paths = tasks
         return tasks
+
+    def task_path(self, key):
+        with self._lock:
+            run = self._task_paths.get(key)
+        if run is None:
+            run = self.tasks().get(key)
+        if run is None or not (run/'input.json').is_file():
+            raise KeyError('Unknown task')
+        # Revalidate containment even when the directory index is reused.
+        resolved = run.resolve()
+        if resolved != run or not any(resolved.is_relative_to(root) for root in self.roots):
+            raise KeyError('Task moved outside root')
+        return run
 
     def image(self, task, run, path, crop=None):
         if not path:
@@ -112,15 +131,26 @@ class Store:
             self._artifacts[(task, token)] = (p, crop, stat.st_size, stat.st_mtime_ns)
         return f'/api/tasks/{task}/images/{token}'
 
-    def artifact(self, task, token):
+    def artifact(self, task, token, preview_size=None):
         with self._lock:
             entry = self._artifacts.get((task, token))
         if not entry:
-            raise KeyError('Unknown image')
+            # Rebuild opaque URLs after restart, including browser-cached pages.
+            self.document(task)
+            with self._lock:
+                entry = self._artifacts.get((task, token))
+            if not entry:
+                raise KeyError('Unknown image')
         p, crop, size, modified = entry
         stat = p.stat()
         if stat.st_size != size or stat.st_mtime_ns != modified:
             raise KeyError('Image changed; refresh task')
+        if preview_size is not None:
+            body = self.previews.get(token, p, crop, preview_size)
+            stat = p.stat()
+            if stat.st_size != size or stat.st_mtime_ns != modified:
+                raise KeyError('Image changed; refresh task')
+            return body, 'image/webp'
         if crop:
             with Image.open(p) as im:
                 im = im.crop(crop); im.thumbnail((900, 900))
@@ -129,8 +159,8 @@ class Store:
         return p.read_bytes(), {'.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp'}.get(p.suffix.lower(), 'image/png')
 
     def product_document(self, task, name):
-        run = self.tasks().get(task)
-        if run is None or name not in DOCUMENTS:
+        run = self.task_path(task)
+        if name not in DOCUMENTS:
             raise KeyError('Unknown document')
         path = (run/name).resolve()
         if not path.is_relative_to(run):
@@ -158,7 +188,8 @@ class Store:
             batch = read(run/'batch-run.json')
             if visible is not None and key not in visible and not batch:
                 continue
-            inp = read(run/'input.json'); outcome = read(run/'result.json')
+            # Listing needs scalar metadata, never relocated nested render resources.
+            inp = read(run/'input.json', relocate=False); outcome = read(run/'result.json', relocate=False)
             result.append({'id': key, 'name': batch.get('reference_name') or run.name, 'created_at': inp.get('created_at'),
                            'batch': batch or None,
                            'quality': outcome.get('status', 'pending'),
@@ -166,9 +197,7 @@ class Store:
         return sorted(result, key=lambda r: r.get('created_at') or '', reverse=True)
 
     def document(self, key):
-        run = self.tasks().get(key)
-        if run is None:
-            raise KeyError('Unknown task')
+        run = self.task_path(key)
         inp = read(run/'input.json'); result = read(run/'result.json')
         analysis = read(run/'analysis.json'); scene = read(run/'scene.json')
         if not analysis:
