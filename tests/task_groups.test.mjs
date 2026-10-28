@@ -15,6 +15,32 @@ const batch = (id, model, index, count = 2) => ({
   items: Array.from({ length: count }, (_, i) => ({ index: i + 1, task_id: `${id}-${i}`, name: `${id}-${i}.png`, status: i ? 'completed' : 'failed' })),
 });
 
+test('research cases form three separate model groups with Sol first and preserve legacy links', () => {
+  const full = '5def21db9044e70268387af0e2aea5bb7f25e0103a645b4f5291878db15eff3e';
+  const check = '63650c39ac72058638219568e04fa8185005a2da0824505184a14b74eb35512f';
+  const rest = 'a75cd4390b710ee7f2e3712234c1fc994cce9d2771f86fdfbf1ca08834910646';
+  const research = [
+    {...batch('qwen-case', 'qwen3.8-flash', 2, 22), dataset_sha256:full},
+    {...batch('luna-case', 'gpt-6-luna', 2, 22), dataset_sha256:full},
+    {...batch('sol-check', 'gpt-6.1-sol', 2, 1), dataset_sha256:check},
+    {...batch('sol-rest', 'gpt-6.1-sol', 3, 21), dataset_sha256:rest},
+  ];
+  const groups = group([], [...research, batch('history', 'gpt-6.1-sol', 1)]);
+  assert.equal(groups.length, 4);
+  assert.match(groups[0].name, /预研部case · Sol/);
+  for (const g of groups.slice(0, 3)) {
+    assert.equal(g.total, 22);
+    assert.equal(g.tasks.length, 22);
+    assert.equal(g.researchCase, true);
+  }
+  assert.equal(groups[3].total, 2);
+  assert.equal(new Set(groups.flatMap(g => g.tasks.map(t => t.id))).size, 68);
+  context.state.batch = 'sol-rest';
+  assert.equal(context.selectedTaskGroup(groups).id, groups[0].id);
+  const offline = group([{id:'offline-case', name:'case.jpg', batch:{...research[0], total:1, index:1}}], []);
+  assert.equal(offline[0].researchCase, true);
+});
+
 test('21 execution chunks become three models with 116 cases and continuous numbering each', () => {
   const batches = ['qwen3.8-flash', 'gpt-6-luna', 'gpt-6.1-sol'].flatMap(model =>
     [16, 17, 18, 19, 20, 11, 15].map((n, i) => batch(`${model}-${i}`, model, i + 1, n)));

@@ -5,6 +5,7 @@ from copy import deepcopy
 from jsonschema import Draft202012Validator
 from collage import contracts, prompts
 from collage.storage import read, save
+from collage.crop_quality import expand_crop
 
 
 VERSION = 'photo-binding-v9-2-background'
@@ -17,11 +18,14 @@ def execute(ctx):
     evidence = {'contract': VERSION, 'status': 'running',
                 'photo_count': sum(is_customer_photo(o) for o in structure['objects']),
                 'texts_policy': 'disabled',
-                'automatic_retry': False, 'automatic_repair': False}
+                'automatic_retry': False, 'automatic_repair': 'local_crop_expansion'}
     save(ctx.control/'binding-check.json', evidence)
     before = ctx.client.usage()['requests']
     try:
-        context = context_for(ctx.input_context(), structure, windows)
+        base = ctx.input_context()
+        base['output_width'] = read(ctx.run/'input.json').get('output_width', base['reference_size'][0])
+        base['catalog'] = read(ctx.run/'prepared/catalog.json')['assets']
+        context = context_for(base, structure, windows)
         schema = schema_for(context, windows)
         save(ctx.control/'binding-input.json', context)
         if context['photo_slots']:
@@ -38,6 +42,10 @@ def execute(ctx):
         save(ctx.control/'binding-check.json', evidence)
         raise
     save(ctx.run/'bindings.json', value)
+    original = {p['slot_id']: p['source_crop'] for p in answer['photos']}
+    evidence['crop_expansions'] = [
+        {'slot_id': p['slot_id'], 'before': original[p['slot_id']], 'after': p['source_crop']}
+        for p in value['photos'] if p['source_crop'] != original[p['slot_id']]]
     # The full renderer still uses this internal file for its progress gate.
     # Standalone binding only needs structure.json, windows and customer materials.
     if (ctx.run/'analysis.json').is_file():
@@ -101,6 +109,15 @@ def context_for(base, structure, windows=None):
               'instructions': base.get('instructions', ''), 'photo_slots': slots,
               'catalog': [{key: deepcopy(asset[key]) for key in ('id', 'size')}
                           for asset in base['catalog']]}
+    # Explicit pixel-quality fields survive normalized reference-coordinate mode.
+    seen_sources = {}
+    for asset, original in zip(result['catalog'], base['catalog']):
+        asset['source_size_px'] = deepcopy(asset['size'])
+        identity = original.get('sha256', asset['id'])
+        if identity in seen_sources:
+            asset['duplicate_of'] = seen_sources[identity]
+        else:
+            seen_sources[identity] = asset['id']
     if not slots:
         return result
     if windows is None:
@@ -122,6 +139,12 @@ def context_for(base, structure, windows=None):
         subject = spec['subject']
         slot['requires_segmentable_subject'] = (not subject['preserve_background']
                                                  or subject['stroke']['enabled'])
+        scale = base.get('output_width', base['reference_size'][0]) / base['reference_size'][0]
+        l,t,r,b = slot['bbox']
+        slot['resolution_policy'] = {
+            'output_size_px': [max(1,round(r*scale)-round(l*scale)), max(1,round(b*scale)-round(t*scale))],
+            'fit': 'cover' if subject['preserve_background'] else 'contain',
+        }
     for slot in slots:
         linked = slot.get('linked_to')
         if not linked:
@@ -130,6 +153,9 @@ def context_for(base, structure, windows=None):
             raise ValueError('linked_to must name an independent photo slot')
         base_slot = by_id[linked]
         base_slot['requires_segmentable_subject'] |= slot['requires_segmentable_subject']
+        # A linked pair is scaled from its segmented foreground; don't impose a
+        # separate cover-to-base mapping that the renderer no longer uses.
+        base_slot['resolution_policy'] = deepcopy(slot['resolution_policy'])
     return result
 
 
@@ -139,6 +165,9 @@ def schema_for(context, windows=None):
     assets = [a['id'] for a in context['catalog']]
     if slots and not assets:
         raise ValueError('Photo binding requires customer assets')
+    groups = sum(not p.get('linked_to') for p in context['photo_slots'])
+    if groups > sum(not a.get('duplicate_of') for a in context['catalog']):
+        raise ValueError('Not enough distinct customer photos for independent slots; reuse is forbidden')
     for field, values in [('slot_id', slots), ('asset_id', assets)]:
         if values:
             item['properties'][field]['enum'] = values
@@ -157,7 +186,7 @@ def schema_for(context, windows=None):
 
 
 def validate(answer, context, structure, run, windows=None):
-    """Reject rather than repair model output. Never mutate the caller's answer."""
+    """Validate selection, then expand undersized crops locally without model retries."""
     if windows is None:
         windows = read(run/'photo-windows.json')
     Draft202012Validator(schema_for(context, windows)).validate(answer)
@@ -173,7 +202,30 @@ def validate(answer, context, structure, run, windows=None):
             for field in ('asset_id', 'source_crop', 'crop_center', 'mirror_x'):
                 if row[field] != by_id[linked][field]:
                     raise ValueError(f'{oid}: {field} must match linked base {linked}')
+    catalog = {a['id']: a for a in read(run/'prepared/catalog.json')['assets']}
+    used = {}
+    for slot in context['photo_slots']:
+        if slot.get('linked_to'):
+            continue
+        row = by_id[slot['slot_id']]; asset = catalog[row['asset_id']]
+        identity = asset.get('sha256', asset['id'])
+        if identity in used:
+            raise ValueError(f"{slot['slot_id']}: duplicate customer photo already used by {used[identity]}; only linked_to pairs may share")
+        used[identity] = slot['slot_id']
     value = {'schema_version': 'collage-bindings-v1', 'photos': deepcopy(answer['photos']), 'texts': []}
+    contracts.validate_bindings(value, structure, run)
+    repaired = {p['slot_id']: p for p in value['photos']}
+    for slot in context['photo_slots']:
+        if slot.get('linked_to'):
+            continue
+        row = repaired[slot['slot_id']]
+        policy = slot.get('resolution_policy')
+        if policy:
+            row['source_crop'] = expand_crop(row['source_crop'], catalog[row['asset_id']]['size'],
+                policy['output_size_px'], contain=policy['fit']=='contain')
+    for slot in context['photo_slots']:
+        if slot.get('linked_to'):
+            repaired[slot['slot_id']]['source_crop'] = deepcopy(repaired[slot['linked_to']]['source_crop'])
     contracts.validate_bindings(value, structure, run)
     return value
 

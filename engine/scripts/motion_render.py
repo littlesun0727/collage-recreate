@@ -89,14 +89,34 @@ def fixed_photo_layer(obj, image, anchor, scene, subject_alpha=None):
     crop = binding.get('source_crop', [0, 0, 1, 1])
     left, top, right, bottom = (0,0,*size) if obj.get('photo_window_spec') else photo_layout(size, style)
     window = (right-left, bottom-top)
+    if not obj.get('shared_photo') and obj['mode'] != 'cutout':
+        from collage.crop_quality import expand_crop
+        crop = expand_crop(crop, image.size, window)
+        binding = {**binding, 'source_crop': crop}
     from window_drawing import sampling_margin
     margin = sampling_margin(window, obj.get('photo_window_spec'))
     pad = 0
+    canvas_aligned = bool(obj.get('shared_photo') and obj['mode']=='cutout' and
+                          obj.get('photo_window_spec') and not obj['photo_window_spec']['window_enabled'])
     if obj.get('shared_photo'):
         from photo_links import shared_tile
-        im=shared_tile(obj,image,window,scale,margin=margin)
-        if subject_alpha is not None:subject_alpha=shared_tile(obj,subject_alpha,window,scale,margin=margin)
-        tile,_=apply_window(im,obj['photo_window_spec'],subject_alpha,source_margin=margin)
+        if anchor and obj['shared_photo'].get('subject_anchor'):
+            # Pin both layers to the same first-frame silhouette, not the full frame.
+            shared={**obj['shared_photo'], 'subject_bounds':[
+                v/(image.width if i%2==0 else image.height) for i,v in enumerate(anchor)]}
+            obj={**obj,'shared_photo':shared}
+        placement_size = window
+        sample_obj = obj
+        if canvas_aligned:
+            window = tuple(scene['canvas_size'])
+            sample_obj = {**obj, 'bbox':[0,0,window[0]/scale,window[1]/scale], 'rotation':0}
+            margin = sampling_margin(window, obj['photo_window_spec'])
+        im=shared_tile(sample_obj,image,window,scale,margin=margin)
+        if subject_alpha is not None:subject_alpha=shared_tile(sample_obj,subject_alpha,window,scale,margin=margin)
+        tile,_=apply_window(im,obj['photo_window_spec'],subject_alpha,source_margin=margin,
+                            placement_size=placement_size if canvas_aligned else None)
+        from photo_links import clip_linked_bottom
+        tile,_=clip_linked_bottom(sample_obj,tile,scale)
     elif obj.get('photo_window_spec'):
         if obj['mode'] == 'cutout':
             x0,y0,x1,y1 = anchor; width,height = x1-x0,y1-y0
@@ -161,9 +181,10 @@ def fixed_photo_layer(obj, image, anchor, scene, subject_alpha=None):
         tile, _ = expanded_outline(tile, style.get('outline_width', 3 if obj['mode']=='cutout' else 0), style.get('outline_color', '#FFFFFF'))
     if style.get('opacity', 1) != 1:
         tile.putalpha(tile.getchannel('A').point(lambda v: round(v*style['opacity'])))
-    if obj.get('rotation'):
+    if obj.get('rotation') and not canvas_aligned:
         tile = tile.rotate(-obj['rotation'], Image.Resampling.BICUBIC, expand=True)
     layer = Image.new('RGBA', tuple(scene['canvas_size']))
+    if canvas_aligned:box=[0,0,*scene['canvas_size']]
     layer.alpha_composite(tile, (round((box[0]+box[2]-tile.width)/2), round((box[1]+box[3]-tile.height)/2)))
     if obj.get('photo_window'):
         with Image.open(verify_source(obj['photo_window'])) as raw:

@@ -187,6 +187,32 @@ class BindingTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'source changed'):
             photo_binding.validate(self.answer, self.context, self.analysis, self.run)
 
+    def test_independent_slots_cannot_reuse_photo_even_with_different_crops(self):
+        self.answer['photos'][1].update(asset_id='asset_0', source_crop=[.1, 0, .9, 1])
+        with self.assertRaisesRegex(ValueError, 'duplicate customer photo'):
+            photo_binding.validate(self.answer, self.context, self.analysis, self.run, self.windows)
+
+    def test_small_crop_expands_locally_without_mutating_answer(self):
+        self.answer['photos'][0]['source_crop'] = [.1, .1, .2, .2]
+        before = deepcopy(self.answer)
+        value = photo_binding.validate(self.answer, self.context, self.analysis, self.run, self.windows)
+        l,t,r,b = value['photos'][0]['source_crop']
+        self.assertGreaterEqual(int(r*240)-int(l*240), 120)
+        self.assertGreaterEqual(int(b*180)-int(t*180), 120)
+        self.assertEqual(self.answer, before)
+
+    def test_too_small_original_is_accepted_without_model_retry(self):
+        context = photo_binding.context_for({**self.base, 'output_width': 2000}, self.analysis, self.windows)
+        self.answer['photos'][0]['source_crop'] = [.1, .1, .2, .2]
+        value = photo_binding.validate(self.answer, context, self.analysis, self.run, self.windows)
+        self.assertEqual(value['photos'][0]['source_crop'], [0,0,1,1])
+
+    def test_resolution_metadata_survives_normalized_reference_coordinates(self):
+        context = photo_binding.context_for({**self.base, 'output_width': 1200}, self.analysis, self.windows)
+        adapted = ReferenceCoordinates(context, 'normalized_1000', input_only=True).context
+        self.assertEqual(adapted['catalog'][0]['source_size_px'], [240, 180])
+        self.assertEqual(adapted['photo_slots'][0]['resolution_policy']['output_size_px'], [480,480])
+
     def test_independent_cutout_rejects_guessed_crop(self):
         self.windows['photos'][0]['subject']['preserve_background'] = False
         self.context = photo_binding.context_for(self.base, self.analysis, self.windows)

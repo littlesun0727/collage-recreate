@@ -103,7 +103,6 @@ function selectedVersion() {
   if (!d) return null;
   if (state.version)
     return d.versions.find((v) => v.id === state.version) || null;
-  if (state.stage === 5) return d.versions[0] || null;
   return d.versions.at(-1) || null;
 }
 function buildTaskGroups(tasks, batches) {
@@ -121,6 +120,7 @@ function buildTaskGroups(tasks, batches) {
     if (!group) {
       group = {id:task.batch.id, name:task.batch.name || task.batch.id,
         created_at:task.batch.created_at, model_policy:task.batch.model_policy,
+        dataset_sha256:task.batch.dataset_sha256,
         tasks:[], total:task.batch.total || 0};
       groups.push(group);
     }
@@ -134,9 +134,17 @@ function buildTaskGroups(tasks, batches) {
     ? Array.isArray(value) ? value.map(canonical) : Object.fromEntries(Object.keys(value).sort().map(k => [k, canonical(value[k])]))
     : value;
   const merged = new Map();
+  // Verified input fingerprints for the 22 references in D:/data/预研部case.
+  // Sol ran as a one-case check plus the remaining 21; Qwen/Luna used all 22.
+  const researchDatasets = new Set([
+    '5def21db9044e70268387af0e2aea5bb7f25e0103a645b4f5291878db15eff3e',
+    'a75cd4390b710ee7f2e3712234c1fc994cce9d2771f86fdfbf1ca08834910646',
+    '63650c39ac72058638219568e04fa8185005a2da0824505184a14b74eb35512f',
+  ]);
   for (const batch of groups.sort((a,b) => (a.created_at || '').localeCompare(b.created_at || '') || a.id.localeCompare(b.id))) {
     const policy = batch.model_policy;
-    const key = policy ? JSON.stringify(canonical(policy)) : batch.id;
+    const researchCase = researchDatasets.has(batch.dataset_sha256);
+    const key = (researchCase ? 'research-case:' : '') + (policy ? JSON.stringify(canonical(policy)) : batch.id);
     let group = merged.get(key);
     if (!group) {
       const model = policy?.subsequent?.model || policy?.analyze?.model;
@@ -144,7 +152,8 @@ function buildTaskGroups(tasks, batches) {
       let hash = 2166136261;
       for (const char of key) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619);
       group = {...batch, id:policy ? `model-${(hash >>> 0).toString(16)}` : batch.id,
-        name:model ? `${label} · ${model}` : batch.name, tasks:[], total:0, batchIds:[],
+        name:model ? `${researchCase ? '预研部case · ' : ''}${label} · ${model}` : batch.name,
+        researchCase, tasks:[], total:0, batchIds:[],
         counts:batch.counts ? {completed:0, failed:0, running:0, queued:0} : null};
       // A merged model has multiple input fingerprints; don't attribute one chunk's hash to all results.
       delete group.dataset_sha256;
@@ -165,7 +174,7 @@ function buildTaskGroups(tasks, batches) {
   const sol61First = group => /(?:gpt-6\.1-sol|sol-6\.1)/i.test(
     group.model_policy?.subsequent?.model || group.model_policy?.analyze?.model || ''
   ) ? 0 : 1;
-  result.sort((a, b) => sol61First(a) - sol61First(b));
+  result.sort((a, b) => Number(b.researchCase) - Number(a.researchCase) || sol61First(a) - sol61First(b));
   const ungrouped = tasks.filter(t => !t.batch?.id && !grouped.has(t.id));
   if (ungrouped.length) result.push({id:"ungrouped", name:"单独任务 / 历史任务", tasks:ungrouped, total:ungrouped.length, batchIds:[]});
   const preferredReferences = [
@@ -556,10 +565,6 @@ function renderCanvas() {
     right = d.windows;
     rl = 'photo-windows.png · 窗口蒙版';
   }
-  if (step === 5 && !state.version && state.stage === 5) {
-    right = d.first_image || v?.image;
-    rl = '首版成图';
-  }
   if (state.mode === "before" && step === 5) {
     left = before?.image || null;
     ll = "修改前";
@@ -571,7 +576,7 @@ function renderCanvas() {
   $('[data-mode="before"]').hidden = step !== 5;
   $('.zoom-tools').hidden = step === 1 || step === 4;
   $("#canvasTitle").textContent =
-    ['参考与客户素材', '分析素材', '判断窗口蒙版', '照片绑定', '首版成图'][step-1];
+    ['参考与客户素材', '分析素材', '判断窗口蒙版', '照片绑定', state.version ? '历史成图' : '当前成图'][step-1];
   $("#versionBadge").textContent =
     v && step === 5 ? `${v.label} · ${shortTime(v.at)}` : "";
   $('#canvasHint').textContent = step === 1 || step === 4 ? '点击缩略图查看原图' :
@@ -636,7 +641,7 @@ function renderMaterials() {
   const d = state.data,
     v = selectedVersion();
   const step = state.stage || d.current_stage;
-  const historical = step === 5 && (state.version !== null || state.stage !== null);
+  const historical = step === 5 && state.version !== null;
   const available =
     historical && v
       ? v.materials
@@ -690,7 +695,7 @@ function render() {
   $("#empty").hidden = true;
   $("#workspace").hidden = state.page === "technical";
   const step = state.stage || d.current_stage,
-    s = d.stages[step - 1],
+    s = step === 5 ? {...d.stages[step - 1], label: state.version ? '历史成图' : '当前成图'} : d.stages[step - 1],
     v = selectedVersion();
   $('#workspace').dataset.stage = step;
   $('#openEditor').disabled = !d.current_image;
@@ -703,14 +708,14 @@ function render() {
   $("#execution").textContent = d.execution;
   $("#execution").className = "badge " + (d.live ? "running" : "pending");
   $("#download").hidden = !d.current_image;
-  $("#download").href = (d.current_image || "") + "?download=1";
+  $("#download").href = ((step === 5 && v ? v.image : d.current_image) || "") + "?download=1";
   $("#notice").hidden = !d.recording_incomplete && !d.historical;
   $("#notice").textContent = d.recording_incomplete
     ? "部分过程记录不完整，已保存产物仍可查看。"
     : d.historical
       ? "历史任务：仅展示已留存产物，未记录的过程和中间版本无法补全。"
       : "";
-  $("#historyBanner").hidden = state.stage === null && state.version === null;
+  $("#historyBanner").hidden = state.version === null && (state.stage === null || step === 5);
   $("#viewing").textContent =
     `正在查看：${s.label}${state.version && v ? " / " + v.label : ""}`;
   setHTML(
@@ -718,14 +723,14 @@ function render() {
     d.stages
       .map(
         (x) =>
-          `<button class="stage ${x.status} ${x.id === step ? "selected" : ""}" data-stage="${x.id}" aria-current="${x.id === step ? 'step' : 'false'}"><span class="number">${x.status === "complete" ? "✓" : String(x.id).padStart(2, "0")}</span><span><strong>${x.label}</strong><small>${escapeHTML(x.description)}</small><small>${statusText[x.status] || x.status}</small></span></button>`,
+          `<button class="stage ${x.status} ${x.id === step ? "selected" : ""}" data-stage="${x.id}" aria-current="${x.id === step ? 'step' : 'false'}"><span class="number">${x.status === "complete" ? "✓" : String(x.id).padStart(2, "0")}</span><span><strong>${x.id === 5 ? '当前成图' : x.label}</strong><small>${escapeHTML(x.description)}</small><small>${statusText[x.status] || x.status}</small></span></button>`,
       )
       .join(""),
   );
   $("#stepTitle").textContent = `${String(step).padStart(2, "0")} ${s.label}`;
   $("#stepStatus").textContent = statusText[s.status] || s.status;
   $("#stepStatus").className = "badge " + s.status;
-  $("#stepSummary").textContent = s.summary || "此步骤尚未开始。";
+  $("#stepSummary").textContent = step === 5 && v ? (state.version ? "正在查看所选历史版本。" : "展示最新成图；可在版本记录中查看首版及后续修改。") : s.summary || "此步骤尚未开始。";
   setHTML(
     $("#stepFacts"),
     `<div class="fact"><span>最近记录</span><span>${shortTime(s.at) || "—"}</span></div>${s.status === "running" && s.started_at ? `<div class="fact"><span>距开始记录</span><span>${duration(s.started_at)}</span></div>` : ""}`,
@@ -1037,7 +1042,7 @@ $("#resetZoom").onclick = () => {
 };
 $("#original").onclick = () => {
   const d = state.data, step = state.stage || d.current_stage;
-  const url = step === 2 ? ($('#boxes').checked ? d.boxes : d.reference) : step === 3 ? d.windows : step === 5 ? selectedVersion()?.image || d.first_image || d.current_image : d.reference;
+  const url = step === 2 ? ($('#boxes').checked ? d.boxes : d.reference) : step === 3 ? d.windows : step === 5 ? selectedVersion()?.image || d.current_image || d.first_image : d.reference;
   if (url) openImage(url, d.stages[step-1].label);
 };
 $("#closeImage").onclick = () => $("#imageDialog").close();
