@@ -1,5 +1,6 @@
 """Offline browser verification. Requires websocket-client and local Chrome/Edge."""
 from __future__ import annotations
+from datetime import date
 import base64
 import json
 import os
@@ -12,7 +13,7 @@ import websocket
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-OUT = ROOT.with_name(ROOT.name+'-output')/'checks/workflow-atlas-20261023'
+OUT = ROOT.with_name(ROOT.name+'-output')/('checks/workflow-atlas-'+date.today().strftime('%Y%m%d'))
 
 
 class Browser:

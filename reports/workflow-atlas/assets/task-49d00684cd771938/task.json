@@ -1,0 +1,3618 @@
+{
+  "id": "49d00684cd771938",
+  "name": "拼贴6.jpg",
+  "batch": {
+    "id": "run-ed17001be2514c8a931712a8d94ea99f",
+    "name": "20261023 三模型对比 | sol | 07",
+    "created_at": "2026-10-23T23:34:10.398199+00:00",
+    "model_policy": {
+      "analyze": {
+        "model": "gpt-6.1-sol",
+        "reasoning": {
+          "enabled": true,
+          "effort": "medium"
+        },
+        "max_tokens": 16000,
+        "coordinate_mode": "normalized_1000",
+        "provider": "codex",
+        "response_format": "json_object"
+      },
+      "subsequent": {
+        "model": "gpt-6.1-sol",
+        "reasoning": {
+          "enabled": true,
+          "effort": "medium"
+        },
+        "max_tokens": 16000,
+        "coordinate_mode": "normalized_1000",
+        "provider": "codex",
+        "response_format": "json_object"
+      }
+    },
+    "dataset_sha256": "0450f5e4e8c43596327794045f9aa7651336165860eeec9e12306664a524ed92",
+    "index": 13,
+    "total": 15,
+    "reference_name": "拼贴6.jpg",
+    "workflow_options": {
+      "bbox_refinement": false,
+      "screen": false
+    }
+  },
+  "created_at": "2026-10-23T23:38:24.374374+00:00",
+  "reference_size": [
+    1080,
+    1477
+  ],
+  "sdk_timing": {
+    "model": "gpt-6.1-sol",
+    "model_policy": {
+      "analyze": {
+        "model": "gpt-6.1-sol",
+        "reasoning": {
+          "enabled": true,
+          "effort": "medium"
+        },
+        "max_tokens": 16000,
+        "coordinate_mode": "normalized_1000",
+        "provider": "codex",
+        "response_format": "json_object"
+      },
+      "subsequent": {
+        "model": "gpt-6.1-sol",
+        "reasoning": {
+          "enabled": true,
+          "effort": "medium"
+        },
+        "max_tokens": 16000,
+        "coordinate_mode": "normalized_1000",
+        "provider": "codex",
+        "response_format": "json_object"
+      }
+    },
+    "controller": "workflow-v9",
+    "usage": {
+      "requests": 3,
+      "prompt_tokens": 58069,
+      "completion_tokens": 4037,
+      "reported_cost_usd": 0,
+      "cost_complete": false
+    },
+    "started_at": "2026-10-24T00:03:29.450093+00:00",
+    "finished_at": "2026-10-26T02:01:48.611323+00:00",
+    "elapsed_seconds": 302.672,
+    "status": "finished"
+  },
+  "reference_objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1477
+      ],
+      "description": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、孔洞及其反光阴影整体保留，作为所有照片与贴饰下方的固定结构。",
+      "label": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、",
+      "method": "extract",
+      "background_type": "reference_clean"
+    },
+    {
+      "id": "top_frame",
+      "kind": "frame",
+      "bbox": [
+        218,
+        161,
+        814,
+        591
+      ],
+      "description": "黄色照片纸框，底部宽边印有棕色“Find sweetness in plain days”，保留纸边、印字及轻微阴影；内口摄影内容独立替换。",
+      "photo_id": "top_photo",
+      "label": "黄色照片纸框，底部宽边印有棕色“Find sweetness",
+      "method": "extract"
+    },
+    {
+      "id": "top_photo",
+      "kind": "photo",
+      "bbox": [
+        261,
+        199,
+        774,
+        513
+      ],
+      "description": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面望向镜头，腿部被下边裁切。保留左侧绿色瓷砖、门板及右侧墙面等摄影环境，照片在纸框内显示，边缘清晰。",
+      "label": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "chill_title",
+      "kind": "overlay",
+      "bbox": [
+        227,
+        168,
+        804,
+        295
+      ],
+      "description": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规则笔画和整组排布，跨压黄色框上沿与照片。",
+      "label": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规",
+      "method": "extract"
+    },
+    {
+      "id": "lemon_sticker",
+      "kind": "overlay",
+      "bbox": [
+        164,
+        411,
+        302,
+        536
+      ],
+      "description": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，叠在顶部照片左下边缘。",
+      "label": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，",
+      "method": "extract"
+    },
+    {
+      "id": "coffee_sticker",
+      "kind": "overlay",
+      "bbox": [
+        757,
+        239,
+        972,
+        399
+      ],
+      "description": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖啡杯图案；底板、杯子、轮廓与阴影作为完整装饰保留。",
+      "label": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖",
+      "method": "extract"
+    },
+    {
+      "id": "road_quote",
+      "kind": "text",
+      "bbox": [
+        828,
+        439,
+        959,
+        552
+      ],
+      "description": "The best\ntime is\non the\nroad.",
+      "label": "The best\ntime is\non the\nroad.",
+      "method": "local",
+      "text": "The best\ntime is\non the\nroad.",
+      "text_status": "known",
+      "style": {
+        "fill": "#242421",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "lemon_tang",
+      "kind": "overlay",
+      "bbox": [
+        727,
+        566,
+        981,
+        811
+      ],
+      "description": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的局部装饰，保留花体长卷笔画、箭头内部白色点状装饰及整体叠合关系。",
+      "label": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的",
+      "method": "extract"
+    },
+    {
+      "id": "middle_photo",
+      "kind": "photo",
+      "bbox": [
+        238,
+        614,
+        635,
+        914
+      ],
+      "description": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤，身体正面、头朝左，显示至大腿附近。保留门窗、招牌与店面摄影环境，矩形边缘直接显示，无去背景或渐隐。",
+      "label": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "dotted_tape",
+      "kind": "overlay",
+      "bbox": [
+        194,
+        582,
+        345,
+        710
+      ],
+      "description": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端部边缘与圆点图案，跨压照片和页面。",
+      "label": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端",
+      "method": "extract"
+    },
+    {
+      "id": "world_quote",
+      "kind": "text",
+      "bbox": [
+        278,
+        942,
+        571,
+        1003
+      ],
+      "description": "The world is too big\nto stay in one place.",
+      "label": "The world is too big\nto stay i",
+      "method": "local",
+      "text": "The world is too big\nto stay in one place.",
+      "text_status": "known",
+      "style": {
+        "fill": "#262624",
+        "font": "hand",
+        "align": "left",
+        "bold": false,
+        "italic": false
+      }
+    },
+    {
+      "id": "bottom_photo",
+      "kind": "photo",
+      "bbox": [
+        251,
+        1040,
+        543,
+        1334
+      ],
+      "description": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣与牛仔裤，显示头部至大腿。保留电话、门框、植物和周围街景，矩形照片边缘清晰，摄影背景不去除。",
+      "label": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "icecream_sticker",
+      "kind": "overlay",
+      "bbox": [
+        201,
+        957,
+        315,
+        1127
+      ],
+      "description": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留黄色轮廓、冰淇淋立体明暗和底板，跨压底部照片左上角。",
+      "label": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留",
+      "method": "extract"
+    },
+    {
+      "id": "large_portrait",
+      "kind": "photo",
+      "bbox": [
+        492,
+        690,
+        1048,
+        1477
+      ],
+      "description": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑色长裙，手臂横放身前，右侧带黑色包袋。沿人物、裙摆和包袋的完整组合去除摄影背景，外围有宽白色轮廓边；裙摆延伸至画布底部并被裁切，覆盖页面及下方黑底。",
+      "label": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑",
+      "method": "local",
+      "rotation": 0
+    },
+    {
+      "id": "happy_labels",
+      "kind": "overlay",
+      "bbox": [
+        503,
+        830,
+        751,
+        990
+      ],
+      "description": "三张浅黄色手写字卡组成“I'M / SO HAPPY / TODAY”短语，搭配周围粉色放射星与小五角星，保留错落位置、纸边及阴影；整体跨压中部照片和右侧人物。",
+      "label": "三张浅黄色手写字卡组成“I'M / SO HAPPY / T",
+      "method": "extract"
+    },
+    {
+      "id": "like_flag",
+      "kind": "overlay",
+      "bbox": [
+        580,
+        1019,
+        750,
+        1121
+      ],
+      "description": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边缘及字形，叠在页面与右侧人物前方。",
+      "label": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边",
+      "method": "extract"
+    }
+  ],
+  "instructions": "",
+  "historical": false,
+  "current_stage": 5,
+  "stages": [
+    {
+      "id": 1,
+      "key": "prepare",
+      "label": "准备素材",
+      "description": "参考图与客户素材",
+      "artifacts": [
+        {
+          "name": "reference.png",
+          "kind": "image",
+          "exists": true,
+          "url": "/api/tasks/49d00684cd771938/images/bdf4cd2cc1d3ac6329d49795"
+        }
+      ],
+      "status": "complete",
+      "at": null,
+      "summary": "参考图和客户素材已准备。"
+    },
+    {
+      "id": 2,
+      "key": "analyze",
+      "label": "分析素材",
+      "description": "structure.json · analysis-boxes.png",
+      "artifacts": [
+        {
+          "name": "structure.json",
+          "kind": "json",
+          "exists": true,
+          "url": "/api/tasks/49d00684cd771938/documents/structure.json"
+        },
+        {
+          "name": "analysis-boxes.png",
+          "kind": "image",
+          "exists": true,
+          "url": "/api/tasks/49d00684cd771938/images/62143492987f334f804973da"
+        }
+      ],
+      "status": "complete",
+      "at": "2026-10-24T00:04:20.252102+00:00",
+      "summary": "本步骤已完成，已留存的产物可直接查看。",
+      "started_at": "2026-10-24T00:03:29.686191+00:00"
+    },
+    {
+      "id": 3,
+      "key": "photo_windows",
+      "label": "判断窗口蒙版",
+      "description": "photo-windows.png",
+      "artifacts": [
+        {
+          "name": "photo-windows.png",
+          "kind": "image",
+          "exists": true,
+          "url": "/api/tasks/49d00684cd771938/images/efe210e30e5992c2548efe22"
+        },
+        {
+          "name": "photo-windows.json",
+          "kind": "json",
+          "exists": true,
+          "url": "/api/tasks/49d00684cd771938/documents/photo-windows.json"
+        }
+      ],
+      "status": "complete",
+      "at": "2026-10-24T00:04:43.849214+00:00",
+      "summary": "本步骤已完成，已留存的产物可直接查看。",
+      "started_at": "2026-10-24T00:04:20.274173+00:00"
+    },
+    {
+      "id": 4,
+      "key": "materials",
+      "label": "素材绑定与提取",
+      "description": "bindings.json · 360 提取结果",
+      "artifacts": [
+        {
+          "name": "bindings.json",
+          "kind": "json",
+          "exists": true,
+          "url": "/api/tasks/49d00684cd771938/documents/bindings.json"
+        }
+      ],
+      "status": "complete",
+      "at": "2026-10-24T00:05:15.574843+00:00",
+      "summary": "照片绑定已保存；360 提取对象 10 件。",
+      "started_at": "2026-10-24T00:04:43.877621+00:00"
+    },
+    {
+      "id": 5,
+      "key": "compose",
+      "label": "首版成图",
+      "description": "first.png",
+      "artifacts": [
+        {
+          "name": "first.png",
+          "kind": "image",
+          "exists": true,
+          "url": "/api/tasks/49d00684cd771938/images/b3a9bab0e9f1815d75d45729"
+        }
+      ],
+      "status": "complete",
+      "at": "2026-10-26T02:01:46.907994+00:00",
+      "summary": "首版已生成，可与参考图对照。",
+      "started_at": "2026-10-26T01:58:57.082143+00:00"
+    }
+  ],
+  "execution": "首版已生成",
+  "live": false,
+  "heartbeat_at": "2026-10-26T02:01:48.019455+00:00",
+  "history": [
+    {
+      "stage": 2,
+      "status": "complete",
+      "at": "2026-10-24T00:04:20.252102+00:00",
+      "summary": "分析素材 · 产物已保存"
+    },
+    {
+      "stage": 3,
+      "status": "complete",
+      "at": "2026-10-24T00:04:43.849214+00:00",
+      "summary": "判断窗口蒙版 · 产物已保存"
+    },
+    {
+      "stage": 4,
+      "status": "complete",
+      "at": "2026-10-24T00:05:15.574843+00:00",
+      "summary": "素材绑定与提取 · 产物已保存"
+    },
+    {
+      "stage": 5,
+      "status": "complete",
+      "at": "2026-10-26T02:01:46.907994+00:00",
+      "summary": "首版成图 · 产物已保存"
+    }
+  ],
+  "reference": "/api/tasks/49d00684cd771938/images/bdf4cd2cc1d3ac6329d49795",
+  "boxes": "/api/tasks/49d00684cd771938/images/244c7a359c9e4b928bc8ab22",
+  "windows": "/api/tasks/49d00684cd771938/images/efe210e30e5992c2548efe22",
+  "catalog": [
+    {
+      "id": "material_00",
+      "image": "/api/tasks/49d00684cd771938/images/325e9e9ea957125bc4634050"
+    },
+    {
+      "id": "material_01",
+      "image": "/api/tasks/49d00684cd771938/images/81730d82a0b8a2c01f152a5d"
+    },
+    {
+      "id": "material_02",
+      "image": "/api/tasks/49d00684cd771938/images/8c0cdaf080314e62c7d9d067"
+    },
+    {
+      "id": "material_03",
+      "image": "/api/tasks/49d00684cd771938/images/d94aed276cd195fb5da6c2e7"
+    },
+    {
+      "id": "material_04",
+      "image": "/api/tasks/49d00684cd771938/images/b7b68924edb4ff9924e4dc96"
+    },
+    {
+      "id": "material_05",
+      "image": "/api/tasks/49d00684cd771938/images/84b2cd758e4db1da014c9011"
+    },
+    {
+      "id": "material_06",
+      "image": "/api/tasks/49d00684cd771938/images/2d164893ecb6de55c2d3c102"
+    },
+    {
+      "id": "material_07",
+      "image": "/api/tasks/49d00684cd771938/images/dca803fa1255c8b9c2e168bf"
+    },
+    {
+      "id": "material_08",
+      "image": "/api/tasks/49d00684cd771938/images/a522162ba53d5bdedaf8e56b"
+    },
+    {
+      "id": "material_09",
+      "image": "/api/tasks/49d00684cd771938/images/762772a818415a2e140ada45"
+    },
+    {
+      "id": "material_10",
+      "image": "/api/tasks/49d00684cd771938/images/7eb8cf5bcc4fd87bda5a1a81"
+    },
+    {
+      "id": "material_11",
+      "image": "/api/tasks/49d00684cd771938/images/03d80f2b45911114671af477"
+    },
+    {
+      "id": "material_12",
+      "image": "/api/tasks/49d00684cd771938/images/4cdb857724c10c159c156cc8"
+    },
+    {
+      "id": "material_13",
+      "image": "/api/tasks/49d00684cd771938/images/a8a42709e57f708f38f56151"
+    },
+    {
+      "id": "material_14",
+      "image": "/api/tasks/49d00684cd771938/images/06bfa6bcff137827a888a669"
+    },
+    {
+      "id": "material_15",
+      "image": "/api/tasks/49d00684cd771938/images/bb39d8a6533c24d09fd44fd3"
+    },
+    {
+      "id": "material_16",
+      "image": "/api/tasks/49d00684cd771938/images/5c6bbdadee5bb58ff4b5d1ca"
+    },
+    {
+      "id": "material_17",
+      "image": "/api/tasks/49d00684cd771938/images/e942f8198a5876a393f090f4"
+    }
+  ],
+  "current_image": "/api/tasks/49d00684cd771938/images/c71e36faa8ec65b4ed305d23",
+  "first_image": "/api/tasks/49d00684cd771938/images/b3a9bab0e9f1815d75d45729",
+  "versions": [
+    {
+      "id": "0001-2160ae50",
+      "parent_id": null,
+      "render_id": "dcea5999b95c0576",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1477
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/544131b29f419b5934d5234c",
+            "final": "/api/tasks/49d00684cd771938/images/320ba2d46f31f4b41b953413",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "5af304df9245ecc2b22f14f664dac12c54dbc10cc2a55b0e65d7539521d32c41"
+          },
+          "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+        },
+        {
+          "id": "top_frame",
+          "label": "黄色照片纸框，底部宽边印有棕色“Find sweetness",
+          "kind": "frame",
+          "bbox": [
+            218,
+            161,
+            814,
+            591
+          ],
+          "method": "程序相框",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/525b451c07906573e1ec4c32",
+            "final": "/api/tasks/49d00684cd771938/images/c7b2c8b640d6ad12cbb7079a",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "b74fba41f9bb00b14db7a2e6fe9a542e089f45d33c90e14ba26b1dadfaf31f83"
+          },
+          "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+        },
+        {
+          "id": "top_photo",
+          "label": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面",
+          "kind": "photo",
+          "bbox": [
+            261,
+            199,
+            774,
+            513
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/d109b7451e718c8219110933",
+            "final": "/api/tasks/49d00684cd771938/images/b47e5d080d19facf699ea5ab",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "chill_title",
+          "label": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规",
+          "kind": "overlay",
+          "bbox": [
+            227,
+            168,
+            804,
+            295
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/470a803ca5e2c98aa881efa3",
+            "final": "/api/tasks/49d00684cd771938/images/13cfe7e2743a35259fb6908a",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "319e198ddf4bf190e2a12502c259f7309c76ddc633cc4b0515fe125f312044d9"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "lemon_sticker",
+          "label": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，",
+          "kind": "overlay",
+          "bbox": [
+            164,
+            411,
+            302,
+            536
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/cea1edf6244012a9424ebf44",
+            "final": "/api/tasks/49d00684cd771938/images/090c2348b11f725311f79e71",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "f93e142d0369287e3a4cc00521a9cd692ee210ddc7c0c5de4f104024ee1d5030"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "coffee_sticker",
+          "label": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖",
+          "kind": "overlay",
+          "bbox": [
+            757,
+            239,
+            972,
+            399
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/39d46c6d2ef2895ed38f0287",
+            "final": "/api/tasks/49d00684cd771938/images/ccc2e462bb79120d35f6ae0c",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "bbb428c6e122561200cef0d899edf9886653cd9d8aa4941203100a3ddcd3f911"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "road_quote",
+          "label": "The best\ntime is\non the\nroad.",
+          "kind": "text",
+          "bbox": [
+            828,
+            439,
+            959,
+            552
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/23c09d3cde8089efb52b6631",
+            "final": "/api/tasks/49d00684cd771938/images/8c6ccc4f282f31bbb8c8f5ce",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "lemon_tang",
+          "label": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的",
+          "kind": "overlay",
+          "bbox": [
+            727,
+            566,
+            981,
+            811
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/fa599f1dd8a95ae738cf6bf1",
+            "final": "/api/tasks/49d00684cd771938/images/ddc7254d3a6bbbe098152da6",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "6e322e9ed011e9c05105163deb8d843da9743682c734680cc4706f91f3260924"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "middle_photo",
+          "label": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤",
+          "kind": "photo",
+          "bbox": [
+            238,
+            614,
+            635,
+            914
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/9d669baa691344687e8e0168",
+            "final": "/api/tasks/49d00684cd771938/images/8f012fef3f468c6483eeb525",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "dotted_tape",
+          "label": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端",
+          "kind": "overlay",
+          "bbox": [
+            194,
+            582,
+            345,
+            710
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/f3173bb8f5d1f2f66ca21108",
+            "final": "/api/tasks/49d00684cd771938/images/4fbd9a55d4657fc41a199506",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "9bdbf9043c122ccb481b50fb633d6a5661b371b94c1b196e39b15afbb0898100"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "world_quote",
+          "label": "The world is too big\nto stay i",
+          "kind": "text",
+          "bbox": [
+            278,
+            942,
+            571,
+            1003
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/75ed9638417155346c2b4ae1",
+            "final": "/api/tasks/49d00684cd771938/images/505be1e18a45504afc4bab77",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "bottom_photo",
+          "label": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣",
+          "kind": "photo",
+          "bbox": [
+            251,
+            1040,
+            543,
+            1334
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/b9d2daa44bfcdc29a10115cb",
+            "final": "/api/tasks/49d00684cd771938/images/110b06ab0b39c8671892ba51",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "icecream_sticker",
+          "label": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留",
+          "kind": "overlay",
+          "bbox": [
+            201,
+            957,
+            315,
+            1127
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/db0bbc0dbabbfbdb818c1a70",
+            "final": "/api/tasks/49d00684cd771938/images/83c3052543ab25b37fc3eaf7",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "bd88df79f122a15d791b6f28f144999a321f2ad53e3bb72740687345516da2a8"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "large_portrait",
+          "label": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑",
+          "kind": "photo",
+          "bbox": [
+            492,
+            690,
+            1048,
+            1477
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/3829063493716c1d7bcb16c4",
+            "final": "/api/tasks/49d00684cd771938/images/a4628e81675ff5dcbdecf691",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "happy_labels",
+          "label": "三张浅黄色手写字卡组成“I'M / SO HAPPY / T",
+          "kind": "overlay",
+          "bbox": [
+            503,
+            830,
+            751,
+            990
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/fa7d4965385b37a4b881bb85",
+            "final": "/api/tasks/49d00684cd771938/images/8d294d0a1e73f09d77965de0",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "aeeb4aa9f3008f8d60d83a8270a0e1db0f406313a2306ab0a35cb2fe5a6c7bfb"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "like_flag",
+          "label": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边",
+          "kind": "overlay",
+          "bbox": [
+            580,
+            1019,
+            750,
+            1121
+          ],
+          "method": "本地绘制",
+          "status": "unresolved",
+          "quality": "unresolved",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/54909632ba3884d1aa45bc56",
+            "final": "/api/tasks/49d00684cd771938/images/ed2ee602553240c624ebe645",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "73c67b943f2411c4edf7d296f2c54b8345fb62a52c3dc8e695b971ba5f9cc56c"
+          },
+          "note": "Reveal target unavailable; local fallback requires review"
+        }
+      ],
+      "label": "首版",
+      "at": "2026-10-24T00:05:38.313502+00:00",
+      "image": "/api/tasks/49d00684cd771938/images/b24a11b0251d5ed564905459",
+      "artifacts": {
+        "final.png": "/api/tasks/49d00684cd771938/images/b24a11b0251d5ed564905459",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "photo-windows.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/49d00684cd771938/images/72beaf31fac708139da41384",
+        "previews/photo-windows.png": "/api/tasks/49d00684cd771938/images/3176a8fb4fc2e7ea4edb4173",
+        "previews/comparison.png": "/api/tasks/49d00684cd771938/images/e702cd03df83feff9bbb3a47",
+        "material:background": "/api/tasks/49d00684cd771938/images/320ba2d46f31f4b41b953413",
+        "material:top_frame": "/api/tasks/49d00684cd771938/images/c7b2c8b640d6ad12cbb7079a",
+        "material:top_photo": "/api/tasks/49d00684cd771938/images/b47e5d080d19facf699ea5ab",
+        "material:chill_title": "/api/tasks/49d00684cd771938/images/13cfe7e2743a35259fb6908a",
+        "material:lemon_sticker": "/api/tasks/49d00684cd771938/images/090c2348b11f725311f79e71",
+        "material:coffee_sticker": "/api/tasks/49d00684cd771938/images/ccc2e462bb79120d35f6ae0c",
+        "material:road_quote": "/api/tasks/49d00684cd771938/images/8c6ccc4f282f31bbb8c8f5ce",
+        "material:middle_photo": "/api/tasks/49d00684cd771938/images/8f012fef3f468c6483eeb525",
+        "material:dotted_tape": "/api/tasks/49d00684cd771938/images/4fbd9a55d4657fc41a199506",
+        "material:world_quote": "/api/tasks/49d00684cd771938/images/505be1e18a45504afc4bab77",
+        "material:bottom_photo": "/api/tasks/49d00684cd771938/images/110b06ab0b39c8671892ba51",
+        "material:icecream_sticker": "/api/tasks/49d00684cd771938/images/83c3052543ab25b37fc3eaf7",
+        "material:lemon_tang": "/api/tasks/49d00684cd771938/images/ddc7254d3a6bbbe098152da6",
+        "material:large_portrait": "/api/tasks/49d00684cd771938/images/a4628e81675ff5dcbdecf691",
+        "material:happy_labels": "/api/tasks/49d00684cd771938/images/8d294d0a1e73f09d77965de0",
+        "material:like_flag": "/api/tasks/49d00684cd771938/images/ed2ee602553240c624ebe645",
+        "previews/review-detail-1.png": "/api/tasks/49d00684cd771938/images/f71467e0ebc84366edd18f18",
+        "previews/review-detail-2.png": "/api/tasks/49d00684cd771938/images/69749ec7debcc4ce283cc832",
+        "previews/review-detail-3.png": "/api/tasks/49d00684cd771938/images/2fb59e8946bfbe9ada21e86d",
+        "previews/review-detail-4.png": "/api/tasks/49d00684cd771938/images/ab4ace35542905d48395ee34"
+      },
+      "changes": [],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "dcea5999b95c0576",
+        "checked_entire_composition": false,
+        "verdict": "needs_changes",
+        "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。；程序检测到 8 个未完成对象。；流程保留 2 项告警，待优化。",
+        "items": [
+          {
+            "id": "chill_title",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          },
+          {
+            "id": "coffee_sticker",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          },
+          {
+            "id": "dotted_tape",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          },
+          {
+            "id": "happy_labels",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          },
+          {
+            "id": "icecream_sticker",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          },
+          {
+            "id": "lemon_sticker",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          },
+          {
+            "id": "lemon_tang",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          },
+          {
+            "id": "like_flag",
+            "action": "unresolved",
+            "reason": "程序检测到素材缺失、占位或照片不可见"
+          }
+        ],
+        "scene_sha256": "5ffe07c74b49a391cf6b8c229f2f8b0c4c79147ada556322f38026971c108560",
+        "final_sha256": "d78958903afe8f080155deceeff86ab3f6178fc092d78a3035ce6b50931103e5"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1477
+          ],
+          "description": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、孔洞及其反光阴影整体保留，作为所有照片与贴饰下方的固定结构。",
+          "label": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、",
+          "method": "extract",
+          "background_type": "reference_clean",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "HTTPError: HTTP Error 402: Payment Required",
+          "gate_local": true,
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "5af304df9245ecc2b22f14f664dac12c54dbc10cc2a55b0e65d7539521d32c41"
+          }
+        },
+        {
+          "id": "top_frame",
+          "kind": "frame",
+          "bbox": [
+            218,
+            161,
+            814,
+            591
+          ],
+          "description": "黄色照片纸框，底部宽边印有棕色“Find sweetness in plain days”，保留纸边、印字及轻微阴影；内口摄影内容独立替换。",
+          "photo_id": "top_photo",
+          "label": "黄色照片纸框，底部宽边印有棕色“Find sweetness",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "b74fba41f9bb00b14db7a2e6fe9a542e089f45d33c90e14ba26b1dadfaf31f83"
+          }
+        },
+        {
+          "id": "top_photo",
+          "kind": "photo",
+          "bbox": [
+            261,
+            199,
+            774,
+            513
+          ],
+          "description": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面望向镜头，腿部被下边裁切。保留左侧绿色瓷砖、门板及右侧墙面等摄影环境，照片在纸框内显示，边缘清晰。",
+          "label": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "photo_window_spec": {
+            "photo_id": "top_photo",
+            "reason": "保留人物及绿色瓷砖、门板、墙面等摄影背景，无主体描边。矩形窗口对齐top_frame内口，黄色纸框及印字属于固定框体，不重复绘制描边；边缘清晰，无渐变。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "preserve"
+            },
+            "subject_stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": true
+          },
+          "binding": {
+            "slot_id": "top_photo",
+            "asset_id": "material_00",
+            "source_crop": [
+              0,
+              0.24,
+              1,
+              0.86
+            ],
+            "crop_center": [
+              0.5,
+              0
+            ],
+            "mirror_x": false,
+            "reason": "女子正面近景且位于右侧，保留左侧湖景；裁去多余天空及下身，保留帽顶、脸和举起的手。非黑帽坐姿，无店面环境。"
+          }
+        },
+        {
+          "id": "chill_title",
+          "kind": "overlay",
+          "bbox": [
+            227,
+            168,
+            804,
+            295
+          ],
+          "description": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规则笔画和整组排布，跨压黄色框上沿与照片。",
+          "label": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "319e198ddf4bf190e2a12502c259f7309c76ddc633cc4b0515fe125f312044d9"
+          }
+        },
+        {
+          "id": "lemon_sticker",
+          "kind": "overlay",
+          "bbox": [
+            164,
+            411,
+            302,
+            536
+          ],
+          "description": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，叠在顶部照片左下边缘。",
+          "label": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "f93e142d0369287e3a4cc00521a9cd692ee210ddc7c0c5de4f104024ee1d5030"
+          }
+        },
+        {
+          "id": "coffee_sticker",
+          "kind": "overlay",
+          "bbox": [
+            757,
+            239,
+            972,
+            399
+          ],
+          "description": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖啡杯图案；底板、杯子、轮廓与阴影作为完整装饰保留。",
+          "label": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "bbb428c6e122561200cef0d899edf9886653cd9d8aa4941203100a3ddcd3f911"
+          }
+        },
+        {
+          "id": "road_quote",
+          "kind": "text",
+          "bbox": [
+            828,
+            439,
+            959,
+            552
+          ],
+          "description": "The best\ntime is\non the\nroad.",
+          "label": "The best\ntime is\non the\nroad.",
+          "method": "local",
+          "text": "The best\ntime is\non the\nroad.",
+          "text_status": "known",
+          "style": {
+            "fill": "#242421",
+            "font": "hand",
+            "align": "left",
+            "bold": false,
+            "italic": false
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "lemon_tang",
+          "kind": "overlay",
+          "bbox": [
+            727,
+            566,
+            981,
+            811
+          ],
+          "description": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的局部装饰，保留花体长卷笔画、箭头内部白色点状装饰及整体叠合关系。",
+          "label": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "6e322e9ed011e9c05105163deb8d843da9743682c734680cc4706f91f3260924"
+          }
+        },
+        {
+          "id": "middle_photo",
+          "kind": "photo",
+          "bbox": [
+            238,
+            614,
+            635,
+            914
+          ],
+          "description": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤，身体正面、头朝左，显示至大腿附近。保留门窗、招牌与店面摄影环境，矩形边缘直接显示，无去背景或渐隐。",
+          "label": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "photo_window_spec": {
+            "photo_id": "middle_photo",
+            "reason": "保留人物与蓝绿色店门、窗户及招牌等摄影环境，无主体描边。照片为清晰的固定矩形窗口，胶带和标签仅遮挡局部边缘，不构成渐变或窗口描边。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "preserve"
+            },
+            "subject_stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": true
+          },
+          "binding": {
+            "slot_id": "middle_photo",
+            "asset_id": "material_06",
+            "source_crop": [
+              0,
+              0.25,
+              1,
+              1
+            ],
+            "crop_center": [
+              0.5,
+              0
+            ],
+            "mirror_x": false,
+            "reason": "单人站姿、头朝左，与参考朝向接近；裁去上方天空，顶端对齐保留帽顶及上身。不足是红帽厚外套、沙漠背景，横槽无法兼顾大腿景别。"
+          }
+        },
+        {
+          "id": "dotted_tape",
+          "kind": "overlay",
+          "bbox": [
+            194,
+            582,
+            345,
+            710
+          ],
+          "description": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端部边缘与圆点图案，跨压照片和页面。",
+          "label": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "9bdbf9043c122ccb481b50fb633d6a5661b371b94c1b196e39b15afbb0898100"
+          }
+        },
+        {
+          "id": "world_quote",
+          "kind": "text",
+          "bbox": [
+            278,
+            942,
+            571,
+            1003
+          ],
+          "description": "The world is too big\nto stay in one place.",
+          "label": "The world is too big\nto stay i",
+          "method": "local",
+          "text": "The world is too big\nto stay in one place.",
+          "text_status": "known",
+          "style": {
+            "fill": "#262624",
+            "font": "hand",
+            "align": "left",
+            "bold": false,
+            "italic": false
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "bottom_photo",
+          "kind": "photo",
+          "bbox": [
+            251,
+            1040,
+            543,
+            1334
+          ],
+          "description": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣与牛仔裤，显示头部至大腿。保留电话、门框、植物和周围街景，矩形照片边缘清晰，摄影背景不去除。",
+          "label": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "photo_window_spec": {
+            "photo_id": "bottom_photo",
+            "reason": "保留人物、绿色电话、门框及植物等摄影背景，无主体描边。照片具有独立矩形硬边；右下部分被前景贴纸遮挡，并非照片渐隐，无窗口描边。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "preserve"
+            },
+            "subject_stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": true
+          },
+          "binding": {
+            "slot_id": "bottom_photo",
+            "asset_id": "material_13",
+            "source_crop": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "crop_center": [
+              0.5,
+              1
+            ],
+            "mirror_x": false,
+            "reason": "正面女子、手靠近脸部且带黑包，可近似人物与手部互动构图；底部对齐裁去天空，保留帽顶至大腿。实际为湖边手势照，无电话及街景。"
+          }
+        },
+        {
+          "id": "icecream_sticker",
+          "kind": "overlay",
+          "bbox": [
+            201,
+            957,
+            315,
+            1127
+          ],
+          "description": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留黄色轮廓、冰淇淋立体明暗和底板，跨压底部照片左上角。",
+          "label": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "bd88df79f122a15d791b6f28f144999a321f2ad53e3bb72740687345516da2a8"
+          }
+        },
+        {
+          "id": "large_portrait",
+          "kind": "photo",
+          "bbox": [
+            492,
+            690,
+            1048,
+            1477
+          ],
+          "description": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑色长裙，手臂横放身前，右侧带黑色包袋。沿人物、裙摆和包袋的完整组合去除摄影背景，外围有宽白色轮廓边；裙摆延伸至画布底部并被裁切，覆盖页面及下方黑底。",
+          "label": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cutout",
+          "photo_window_spec": {
+            "photo_id": "large_portrait",
+            "reason": "去除摄影背景，沿人物、帽子、手臂、长裙及右侧包袋的整体轮廓绘制宽白色外描边，线宽为视觉近似。轮廓外透出页面及黑底，无独立几何窗口或渐变；裙摆在画布底部截断。与上方照片姿态不同，不属于连续出框关联。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "cutout"
+            },
+            "subject_stroke": {
+              "enabled": true,
+              "width": 0.035,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "round",
+              "placement": "outside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": false
+          },
+          "binding": {
+            "slot_id": "large_portrait",
+            "asset_id": "material_09",
+            "source_crop": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "crop_center": [
+              0.5,
+              0.5
+            ],
+            "mirror_x": false,
+            "reason": "女子正面前倾，帽顶、手臂、双腿、靴子及黑包可见，人物轮廓较清晰，适合作为分割候选；全幅保留，居中轻裁两侧。并非黑帽坐姿长裙，无法还原裙摆组合。"
+          }
+        },
+        {
+          "id": "happy_labels",
+          "kind": "overlay",
+          "bbox": [
+            503,
+            830,
+            751,
+            990
+          ],
+          "description": "三张浅黄色手写字卡组成“I'M / SO HAPPY / TODAY”短语，搭配周围粉色放射星与小五角星，保留错落位置、纸边及阴影；整体跨压中部照片和右侧人物。",
+          "label": "三张浅黄色手写字卡组成“I'M / SO HAPPY / T",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "aeeb4aa9f3008f8d60d83a8270a0e1db0f406313a2306ab0a35cb2fe5a6c7bfb"
+          }
+        },
+        {
+          "id": "like_flag",
+          "kind": "overlay",
+          "bbox": [
+            580,
+            1019,
+            750,
+            1121
+          ],
+          "description": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边缘及字形，叠在页面与右侧人物前方。",
+          "label": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边",
+          "method": "placeholder",
+          "style": {},
+          "text_unresolved": false,
+          "reveal_warning": "Reveal target unavailable; local fallback requires review",
+          "gate": {
+            "status": "rejected",
+            "basis": "program",
+            "input_key": "73c67b943f2411c4edf7d296f2c54b8345fb62a52c3dc8e695b971ba5f9cc56c"
+          }
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "背景清底未完成，已使用本地近似绘制；原材质和复杂图案可能不同。原因：HTTPError: HTTP Error 402: Payment Required"
+        },
+        {
+          "id": "top_frame",
+          "note": "提取相框不可用，已按原外框与照片内口绘制替代相框；纹样细节为近似"
+        },
+        {
+          "id": "chill_title",
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "lemon_sticker",
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "coffee_sticker",
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "dotted_tape",
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "icecream_sticker",
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "lemon_tang",
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "happy_labels",
+          "note": "Reveal target unavailable; local fallback requires review"
+        },
+        {
+          "id": "like_flag",
+          "note": "Reveal target unavailable; local fallback requires review"
+        }
+      ],
+      "incomplete_objects": [
+        "chill_title",
+        "coffee_sticker",
+        "dotted_tape",
+        "happy_labels",
+        "icecream_sticker",
+        "lemon_sticker",
+        "lemon_tang",
+        "like_flag"
+      ]
+    },
+    {
+      "id": "0002-144fe878",
+      "parent_id": "0001-2160ae50",
+      "render_id": "227570bc101a5701",
+      "command": "build",
+      "materials": [
+        {
+          "id": "background",
+          "label": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1477
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/544131b29f419b5934d5234c",
+            "final": "/api/tasks/49d00684cd771938/images/ffb14eea8af2158b4aa5144b",
+            "raw": "/api/tasks/49d00684cd771938/images/55591ae55e20df3a7712f0f2",
+            "processed": "/api/tasks/49d00684cd771938/images/397c5f09075ea0de7e2f7dda"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "da7704b5466fe7de92411b53e81892435971522d802b3dfc35daa55bf5e0303d"
+          },
+          "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+        },
+        {
+          "id": "top_frame",
+          "label": "黄色照片纸框，底部宽边印有棕色“Find sweetness",
+          "kind": "frame",
+          "bbox": [
+            218,
+            161,
+            814,
+            591
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/525b451c07906573e1ec4c32",
+            "final": "/api/tasks/49d00684cd771938/images/25839e344bebd2e5ee4e403e",
+            "raw": "/api/tasks/49d00684cd771938/images/fb4f2c0b030f6c79f3ce8dcd",
+            "processed": "/api/tasks/49d00684cd771938/images/cff8673c19e45f1986cbd342"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ce95ec28c03a33dfc0c0d93325096531417e04a6ce31fda7b708642b9689dc87"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "top_photo",
+          "label": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面",
+          "kind": "photo",
+          "bbox": [
+            261,
+            199,
+            774,
+            513
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/d109b7451e718c8219110933",
+            "final": "/api/tasks/49d00684cd771938/images/b522bafad4fa0bc943906368",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "chill_title",
+          "label": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规",
+          "kind": "overlay",
+          "bbox": [
+            227,
+            168,
+            804,
+            295
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/470a803ca5e2c98aa881efa3",
+            "final": "/api/tasks/49d00684cd771938/images/f8b3df4d0a126142198c5291",
+            "raw": "/api/tasks/49d00684cd771938/images/2a3c9e73861300899406fa42",
+            "processed": "/api/tasks/49d00684cd771938/images/8f8e21f7207ee12639b08d0d"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "c3836eb4c48c90f5ff193d88936e149b274ae28dd3bf3f037acd1c242c41fe5f"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "lemon_sticker",
+          "label": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，",
+          "kind": "overlay",
+          "bbox": [
+            164,
+            411,
+            302,
+            536
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/cea1edf6244012a9424ebf44",
+            "final": "/api/tasks/49d00684cd771938/images/a9e2f16e42d59f5d105abe6b",
+            "raw": "/api/tasks/49d00684cd771938/images/893faa6803788abe211d3a8f",
+            "processed": "/api/tasks/49d00684cd771938/images/4aa7e246051789c264e04459"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4df7898e9b3f571ffe2f2d97f88bc75d0c9bb5968533c8a76a5a9d509443f183"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "coffee_sticker",
+          "label": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖",
+          "kind": "overlay",
+          "bbox": [
+            757,
+            239,
+            972,
+            399
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/39d46c6d2ef2895ed38f0287",
+            "final": "/api/tasks/49d00684cd771938/images/be74d4f266dd1549253f1200",
+            "raw": "/api/tasks/49d00684cd771938/images/58b930bdb1f1642d9853d02e",
+            "processed": "/api/tasks/49d00684cd771938/images/087f0a7fa1eba975ea181686"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "f3fa14f6f8b55656c7adb809f74427a1a6849a87d4514926e7e3edd59a3243c4"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "road_quote",
+          "label": "The best\ntime is\non the\nroad.",
+          "kind": "text",
+          "bbox": [
+            828,
+            439,
+            959,
+            552
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/23c09d3cde8089efb52b6631",
+            "final": "/api/tasks/49d00684cd771938/images/70e721934cceeb2d7bab2441",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "lemon_tang",
+          "label": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的",
+          "kind": "overlay",
+          "bbox": [
+            727,
+            566,
+            981,
+            811
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/fa599f1dd8a95ae738cf6bf1",
+            "final": "/api/tasks/49d00684cd771938/images/384cd5119728cfae71e38aa9",
+            "raw": "/api/tasks/49d00684cd771938/images/85b2383b8732fa5baff16d73",
+            "processed": "/api/tasks/49d00684cd771938/images/6c039a3061288a52802780e5"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9479f580742d2d24af01197a082bf01d73d5cf1290aa94eeb08a85c372e22985"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "middle_photo",
+          "label": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤",
+          "kind": "photo",
+          "bbox": [
+            238,
+            614,
+            635,
+            914
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/9d669baa691344687e8e0168",
+            "final": "/api/tasks/49d00684cd771938/images/b5e7bf03b99c3234675efe60",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "dotted_tape",
+          "label": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端",
+          "kind": "overlay",
+          "bbox": [
+            194,
+            582,
+            345,
+            710
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/f3173bb8f5d1f2f66ca21108",
+            "final": "/api/tasks/49d00684cd771938/images/0188cd8a33e0ea86bff67760",
+            "raw": "/api/tasks/49d00684cd771938/images/c5e67bf4203acb62f3a3afbb",
+            "processed": "/api/tasks/49d00684cd771938/images/ab30f1b4dbed0d39e3ebfc42"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "bd0b1756fe117ca926647761686fdb5349c0c1dea3d93d8c04144bab70f7385d"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "world_quote",
+          "label": "The world is too big\nto stay i",
+          "kind": "text",
+          "bbox": [
+            278,
+            942,
+            571,
+            1003
+          ],
+          "method": "本地绘制",
+          "status": "complete",
+          "quality": "approximate",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/75ed9638417155346c2b4ae1",
+            "final": "/api/tasks/49d00684cd771938/images/0791793f9eacea3ebbae9a08",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "bottom_photo",
+          "label": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣",
+          "kind": "photo",
+          "bbox": [
+            251,
+            1040,
+            543,
+            1334
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/b9d2daa44bfcdc29a10115cb",
+            "final": "/api/tasks/49d00684cd771938/images/a1c8b3dfd0017e80ec849668",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "icecream_sticker",
+          "label": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留",
+          "kind": "overlay",
+          "bbox": [
+            201,
+            957,
+            315,
+            1127
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/db0bbc0dbabbfbdb818c1a70",
+            "final": "/api/tasks/49d00684cd771938/images/a7c06ca551b4696986d485ef",
+            "raw": "/api/tasks/49d00684cd771938/images/097f525645c739804e390993",
+            "processed": "/api/tasks/49d00684cd771938/images/301efaf3055a83abbcc9ab9f"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "d4219102909322f2277be88941ac7b46bdf189ad344d1a32bf6d5c0f4334c2f2"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "large_portrait",
+          "label": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑",
+          "kind": "photo",
+          "bbox": [
+            492,
+            690,
+            1048,
+            1477
+          ],
+          "method": "客户照片",
+          "status": "complete",
+          "quality": "ready",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/3829063493716c1d7bcb16c4",
+            "final": "/api/tasks/49d00684cd771938/images/313089712c62b0bddfd67154",
+            "raw": null,
+            "processed": null
+          },
+          "decision": {},
+          "note": ""
+        },
+        {
+          "id": "happy_labels",
+          "label": "三张浅黄色手写字卡组成“I'M / SO HAPPY / T",
+          "kind": "overlay",
+          "bbox": [
+            503,
+            830,
+            751,
+            990
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/fa7d4965385b37a4b881bb85",
+            "final": "/api/tasks/49d00684cd771938/images/5bfb24d1a371a8705e3667e6",
+            "raw": "/api/tasks/49d00684cd771938/images/61fec0f0bcf82d569238dda4",
+            "processed": "/api/tasks/49d00684cd771938/images/55db2fb109afd39eb2821b3f"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7e2e8467895979492f32beb5a9b9119ba33223058f022e4bc5dbbd7942f483c3"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "like_flag",
+          "label": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边",
+          "kind": "overlay",
+          "bbox": [
+            580,
+            1019,
+            750,
+            1121
+          ],
+          "method": "参考提取",
+          "status": "complete",
+          "quality": "needs_review",
+          "cache_hit": false,
+          "images": {
+            "reference": "/api/tasks/49d00684cd771938/images/54909632ba3884d1aa45bc56",
+            "final": "/api/tasks/49d00684cd771938/images/afe3f8de128dc77efe25f921",
+            "raw": "/api/tasks/49d00684cd771938/images/c6dc2ed79a99a1edc57f24c6",
+            "processed": "/api/tasks/49d00684cd771938/images/8763d1706c12a335342b3203"
+          },
+          "decision": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "dbd0e02799ef6c7f772156ac9555c0a05e322d02e02057a83ab86f572f593453"
+          },
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "label": "构建首版",
+      "at": "2026-10-26T02:01:46.550286+00:00",
+      "image": "/api/tasks/49d00684cd771938/images/c71e36faa8ec65b4ed305d23",
+      "artifacts": {
+        "final.png": "/api/tasks/49d00684cd771938/images/c71e36faa8ec65b4ed305d23",
+        "scene.json": null,
+        "result.json": null,
+        "analysis.json": null,
+        "bindings.json": null,
+        "photo-windows.json": null,
+        "previews/analysis-boxes.png": "/api/tasks/49d00684cd771938/images/4f3c5530ae95c52e97fdc5ca",
+        "previews/photo-windows.png": "/api/tasks/49d00684cd771938/images/809ac6557ac5dba469a7973e",
+        "previews/comparison.png": "/api/tasks/49d00684cd771938/images/f459ae923feda39b33256656",
+        "material:background": "/api/tasks/49d00684cd771938/images/ffb14eea8af2158b4aa5144b",
+        "processed:background": "/api/tasks/49d00684cd771938/images/397c5f09075ea0de7e2f7dda",
+        "raw:background": "/api/tasks/49d00684cd771938/images/55591ae55e20df3a7712f0f2",
+        "material:top_frame": "/api/tasks/49d00684cd771938/images/25839e344bebd2e5ee4e403e",
+        "processed:top_frame": "/api/tasks/49d00684cd771938/images/cff8673c19e45f1986cbd342",
+        "raw:top_frame": "/api/tasks/49d00684cd771938/images/fb4f2c0b030f6c79f3ce8dcd",
+        "material:top_photo": "/api/tasks/49d00684cd771938/images/b522bafad4fa0bc943906368",
+        "material:chill_title": "/api/tasks/49d00684cd771938/images/f8b3df4d0a126142198c5291",
+        "processed:chill_title": "/api/tasks/49d00684cd771938/images/8f8e21f7207ee12639b08d0d",
+        "raw:chill_title": "/api/tasks/49d00684cd771938/images/2a3c9e73861300899406fa42",
+        "material:lemon_sticker": "/api/tasks/49d00684cd771938/images/a9e2f16e42d59f5d105abe6b",
+        "processed:lemon_sticker": "/api/tasks/49d00684cd771938/images/4aa7e246051789c264e04459",
+        "raw:lemon_sticker": "/api/tasks/49d00684cd771938/images/893faa6803788abe211d3a8f",
+        "material:coffee_sticker": "/api/tasks/49d00684cd771938/images/be74d4f266dd1549253f1200",
+        "processed:coffee_sticker": "/api/tasks/49d00684cd771938/images/087f0a7fa1eba975ea181686",
+        "raw:coffee_sticker": "/api/tasks/49d00684cd771938/images/58b930bdb1f1642d9853d02e",
+        "material:road_quote": "/api/tasks/49d00684cd771938/images/70e721934cceeb2d7bab2441",
+        "material:middle_photo": "/api/tasks/49d00684cd771938/images/b5e7bf03b99c3234675efe60",
+        "material:dotted_tape": "/api/tasks/49d00684cd771938/images/0188cd8a33e0ea86bff67760",
+        "processed:dotted_tape": "/api/tasks/49d00684cd771938/images/ab30f1b4dbed0d39e3ebfc42",
+        "raw:dotted_tape": "/api/tasks/49d00684cd771938/images/c5e67bf4203acb62f3a3afbb",
+        "material:world_quote": "/api/tasks/49d00684cd771938/images/0791793f9eacea3ebbae9a08",
+        "material:bottom_photo": "/api/tasks/49d00684cd771938/images/a1c8b3dfd0017e80ec849668",
+        "material:icecream_sticker": "/api/tasks/49d00684cd771938/images/a7c06ca551b4696986d485ef",
+        "processed:icecream_sticker": "/api/tasks/49d00684cd771938/images/301efaf3055a83abbcc9ab9f",
+        "raw:icecream_sticker": "/api/tasks/49d00684cd771938/images/097f525645c739804e390993",
+        "material:lemon_tang": "/api/tasks/49d00684cd771938/images/384cd5119728cfae71e38aa9",
+        "processed:lemon_tang": "/api/tasks/49d00684cd771938/images/6c039a3061288a52802780e5",
+        "raw:lemon_tang": "/api/tasks/49d00684cd771938/images/85b2383b8732fa5baff16d73",
+        "material:large_portrait": "/api/tasks/49d00684cd771938/images/313089712c62b0bddfd67154",
+        "material:happy_labels": "/api/tasks/49d00684cd771938/images/5bfb24d1a371a8705e3667e6",
+        "processed:happy_labels": "/api/tasks/49d00684cd771938/images/55db2fb109afd39eb2821b3f",
+        "raw:happy_labels": "/api/tasks/49d00684cd771938/images/61fec0f0bcf82d569238dda4",
+        "material:like_flag": "/api/tasks/49d00684cd771938/images/afe3f8de128dc77efe25f921",
+        "processed:like_flag": "/api/tasks/49d00684cd771938/images/8763d1706c12a335342b3203",
+        "raw:like_flag": "/api/tasks/49d00684cd771938/images/c6dc2ed79a99a1edc57f24c6",
+        "sheet:0": "/api/tasks/49d00684cd771938/images/ebb3c267b088323251bb545e",
+        "sheet:1": "/api/tasks/49d00684cd771938/images/13a0efbf50cb339dcbd060db",
+        "previews/review-detail-1.png": "/api/tasks/49d00684cd771938/images/9118a580e1cc18e01883fb7c",
+        "previews/review-detail-2.png": "/api/tasks/49d00684cd771938/images/bc2c6c17b9aa6ac3c0accd13",
+        "previews/review-detail-3.png": "/api/tasks/49d00684cd771938/images/e612f8777bd72784146a77fd",
+        "previews/review-detail-4.png": "/api/tasks/49d00684cd771938/images/c4dcacf5787f8e74cac72c50"
+      },
+      "changes": [
+        {
+          "id": "background",
+          "label": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1477
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "5af304df9245ecc2b22f14f664dac12c54dbc10cc2a55b0e65d7539521d32c41"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "da7704b5466fe7de92411b53e81892435971522d802b3dfc35daa55bf5e0303d"
+              }
+            }
+          }
+        },
+        {
+          "id": "top_frame",
+          "label": "黄色照片纸框，底部宽边印有棕色“Find sweetness",
+          "bbox": [
+            218,
+            161,
+            814,
+            591
+          ],
+          "fields": {
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "b74fba41f9bb00b14db7a2e6fe9a542e089f45d33c90e14ba26b1dadfaf31f83"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "ce95ec28c03a33dfc0c0d93325096531417e04a6ce31fda7b708642b9689dc87"
+              }
+            }
+          }
+        },
+        {
+          "id": "chill_title",
+          "label": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规",
+          "bbox": [
+            227,
+            168,
+            804,
+            295
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "319e198ddf4bf190e2a12502c259f7309c76ddc633cc4b0515fe125f312044d9"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "c3836eb4c48c90f5ff193d88936e149b274ae28dd3bf3f037acd1c242c41fe5f"
+              }
+            }
+          }
+        },
+        {
+          "id": "lemon_sticker",
+          "label": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，",
+          "bbox": [
+            164,
+            411,
+            302,
+            536
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "f93e142d0369287e3a4cc00521a9cd692ee210ddc7c0c5de4f104024ee1d5030"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "4df7898e9b3f571ffe2f2d97f88bc75d0c9bb5968533c8a76a5a9d509443f183"
+              }
+            }
+          }
+        },
+        {
+          "id": "coffee_sticker",
+          "label": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖",
+          "bbox": [
+            757,
+            239,
+            972,
+            399
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "bbb428c6e122561200cef0d899edf9886653cd9d8aa4941203100a3ddcd3f911"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "f3fa14f6f8b55656c7adb809f74427a1a6849a87d4514926e7e3edd59a3243c4"
+              }
+            }
+          }
+        },
+        {
+          "id": "lemon_tang",
+          "label": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的",
+          "bbox": [
+            727,
+            566,
+            981,
+            811
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "6e322e9ed011e9c05105163deb8d843da9743682c734680cc4706f91f3260924"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "9479f580742d2d24af01197a082bf01d73d5cf1290aa94eeb08a85c372e22985"
+              }
+            }
+          }
+        },
+        {
+          "id": "dotted_tape",
+          "label": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端",
+          "bbox": [
+            194,
+            582,
+            345,
+            710
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "9bdbf9043c122ccb481b50fb633d6a5661b371b94c1b196e39b15afbb0898100"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "bd0b1756fe117ca926647761686fdb5349c0c1dea3d93d8c04144bab70f7385d"
+              }
+            }
+          }
+        },
+        {
+          "id": "icecream_sticker",
+          "label": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留",
+          "bbox": [
+            201,
+            957,
+            315,
+            1127
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "bd88df79f122a15d791b6f28f144999a321f2ad53e3bb72740687345516da2a8"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "d4219102909322f2277be88941ac7b46bdf189ad344d1a32bf6d5c0f4334c2f2"
+              }
+            }
+          }
+        },
+        {
+          "id": "happy_labels",
+          "label": "三张浅黄色手写字卡组成“I'M / SO HAPPY / T",
+          "bbox": [
+            503,
+            830,
+            751,
+            990
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "aeeb4aa9f3008f8d60d83a8270a0e1db0f406313a2306ab0a35cb2fe5a6c7bfb"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "7e2e8467895979492f32beb5a9b9119ba33223058f022e4bc5dbbd7942f483c3"
+              }
+            }
+          }
+        },
+        {
+          "id": "like_flag",
+          "label": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边",
+          "bbox": [
+            580,
+            1019,
+            750,
+            1121
+          ],
+          "fields": {
+            "method": {
+              "before": "placeholder",
+              "after": "extract"
+            },
+            "gate": {
+              "before": {
+                "status": "rejected",
+                "basis": "program",
+                "input_key": "73c67b943f2411c4edf7d296f2c54b8345fb62a52c3dc8e695b971ba5f9cc56c"
+              },
+              "after": {
+                "status": "accepted",
+                "basis": "program",
+                "input_key": "dbd0e02799ef6c7f772156ac9555c0a05e322d02e02057a83ab86f572f593453"
+              }
+            }
+          }
+        }
+      ],
+      "intent": {},
+      "review": {
+        "schema_version": "collage-review-v1",
+        "render_id": "227570bc101a5701",
+        "checked_entire_composition": false,
+        "verdict": "needs_changes",
+        "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。",
+        "items": [],
+        "scene_sha256": "6d02b5a82ffa1124475ec8ec1864aee0ba33cdc71867073d9b438dfc2a7e4632",
+        "final_sha256": "8ac27704b984c1b63940f8a86568a75803b3db7f75aba055061f23c06a844433"
+      },
+      "objects": [
+        {
+          "id": "background",
+          "kind": "background",
+          "bbox": [
+            0,
+            0,
+            1080,
+            1477
+          ],
+          "description": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、孔洞及其反光阴影整体保留，作为所有照片与贴饰下方的固定结构。",
+          "label": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、",
+          "method": "extract",
+          "background_type": "reference_clean",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "da7704b5466fe7de92411b53e81892435971522d802b3dfc35daa55bf5e0303d"
+          },
+          "recovered": {
+            "sha256": "24611b7e0d09db00e1b7094b9bf92d225f08deb87c0a7c424c06215129236e3d",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "background_cleanup"
+          }
+        },
+        {
+          "id": "top_frame",
+          "kind": "frame",
+          "bbox": [
+            218,
+            161,
+            814,
+            591
+          ],
+          "description": "黄色照片纸框，底部宽边印有棕色“Find sweetness in plain days”，保留纸边、印字及轻微阴影；内口摄影内容独立替换。",
+          "photo_id": "top_photo",
+          "label": "黄色照片纸框，底部宽边印有棕色“Find sweetness",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "ce95ec28c03a33dfc0c0d93325096531417e04a6ce31fda7b708642b9689dc87"
+          },
+          "recovered": {
+            "sha256": "bc5dfea0972b406f14f19cb2629f38ff73c57852e48877188125bdc2cfdd3865",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "top_photo",
+          "kind": "photo",
+          "bbox": [
+            261,
+            199,
+            774,
+            513
+          ],
+          "description": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面望向镜头，腿部被下边裁切。保留左侧绿色瓷砖、门板及右侧墙面等摄影环境，照片在纸框内显示，边缘清晰。",
+          "label": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "photo_window_spec": {
+            "photo_id": "top_photo",
+            "reason": "保留人物及绿色瓷砖、门板、墙面等摄影背景，无主体描边。矩形窗口对齐top_frame内口，黄色纸框及印字属于固定框体，不重复绘制描边；边缘清晰，无渐变。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "preserve"
+            },
+            "subject_stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": true
+          },
+          "binding": {
+            "slot_id": "top_photo",
+            "asset_id": "material_00",
+            "source_crop": [
+              0,
+              0.24,
+              1,
+              0.86
+            ],
+            "crop_center": [
+              0.5,
+              0
+            ],
+            "mirror_x": false,
+            "reason": "女子正面近景且位于右侧，保留左侧湖景；裁去多余天空及下身，保留帽顶、脸和举起的手。非黑帽坐姿，无店面环境。"
+          },
+          "photo_window": {
+            "sha256": "76de99c3886e7d2f7d81665759de34c34cf81607728bd500f5693e9326a699bc"
+          },
+          "reveal_frame_id": "top_frame"
+        },
+        {
+          "id": "chill_title",
+          "kind": "overlay",
+          "bbox": [
+            227,
+            168,
+            804,
+            295
+          ],
+          "description": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规则笔画和整组排布，跨压黄色框上沿与照片。",
+          "label": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "c3836eb4c48c90f5ff193d88936e149b274ae28dd3bf3f037acd1c242c41fe5f"
+          },
+          "recovered": {
+            "sha256": "dcbbaecd7d9fcc9b6ea82d980757c0fcc739e6083718d72fd6e9001b5d9f741f",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "lemon_sticker",
+          "kind": "overlay",
+          "bbox": [
+            164,
+            411,
+            302,
+            536
+          ],
+          "description": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，叠在顶部照片左下边缘。",
+          "label": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "4df7898e9b3f571ffe2f2d97f88bc75d0c9bb5968533c8a76a5a9d509443f183"
+          },
+          "recovered": {
+            "sha256": "234d99e669196b271665fd507de93e00e65c04f8e2aa207a972ba370669d4841",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "coffee_sticker",
+          "kind": "overlay",
+          "bbox": [
+            757,
+            239,
+            972,
+            399
+          ],
+          "description": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖啡杯图案；底板、杯子、轮廓与阴影作为完整装饰保留。",
+          "label": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "f3fa14f6f8b55656c7adb809f74427a1a6849a87d4514926e7e3edd59a3243c4"
+          },
+          "recovered": {
+            "sha256": "040af566053a5f8a784933fe15d04a668bd18c0b15c42d923797432b883041b2",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "road_quote",
+          "kind": "text",
+          "bbox": [
+            828,
+            439,
+            959,
+            552
+          ],
+          "description": "The best\ntime is\non the\nroad.",
+          "label": "The best\ntime is\non the\nroad.",
+          "method": "local",
+          "text": "The best\ntime is\non the\nroad.",
+          "text_status": "known",
+          "style": {
+            "fill": "#242421",
+            "font": "hand",
+            "align": "left",
+            "bold": false,
+            "italic": false
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "lemon_tang",
+          "kind": "overlay",
+          "bbox": [
+            727,
+            566,
+            981,
+            811
+          ],
+          "description": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的局部装饰，保留花体长卷笔画、箭头内部白色点状装饰及整体叠合关系。",
+          "label": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "9479f580742d2d24af01197a082bf01d73d5cf1290aa94eeb08a85c372e22985"
+          },
+          "recovered": {
+            "sha256": "c2d0e5390b2b6f76df7e38d1db467fdd6206c76070dacd1bfd13ca93a39c85e6",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "middle_photo",
+          "kind": "photo",
+          "bbox": [
+            238,
+            614,
+            635,
+            914
+          ],
+          "description": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤，身体正面、头朝左，显示至大腿附近。保留门窗、招牌与店面摄影环境，矩形边缘直接显示，无去背景或渐隐。",
+          "label": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "photo_window_spec": {
+            "photo_id": "middle_photo",
+            "reason": "保留人物与蓝绿色店门、窗户及招牌等摄影环境，无主体描边。照片为清晰的固定矩形窗口，胶带和标签仅遮挡局部边缘，不构成渐变或窗口描边。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "preserve"
+            },
+            "subject_stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": true
+          },
+          "binding": {
+            "slot_id": "middle_photo",
+            "asset_id": "material_06",
+            "source_crop": [
+              0,
+              0.25,
+              1,
+              1
+            ],
+            "crop_center": [
+              0.5,
+              0
+            ],
+            "mirror_x": false,
+            "reason": "单人站姿、头朝左，与参考朝向接近；裁去上方天空，顶端对齐保留帽顶及上身。不足是红帽厚外套、沙漠背景，横槽无法兼顾大腿景别。"
+          }
+        },
+        {
+          "id": "dotted_tape",
+          "kind": "overlay",
+          "bbox": [
+            194,
+            582,
+            345,
+            710
+          ],
+          "description": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端部边缘与圆点图案，跨压照片和页面。",
+          "label": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "bd0b1756fe117ca926647761686fdb5349c0c1dea3d93d8c04144bab70f7385d"
+          },
+          "recovered": {
+            "sha256": "7045530ee16006de6a2e6900f4807c8149fdfb90ac5bf07700c9f2075e31670f",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "world_quote",
+          "kind": "text",
+          "bbox": [
+            278,
+            942,
+            571,
+            1003
+          ],
+          "description": "The world is too big\nto stay in one place.",
+          "label": "The world is too big\nto stay i",
+          "method": "local",
+          "text": "The world is too big\nto stay in one place.",
+          "text_status": "known",
+          "style": {
+            "fill": "#262624",
+            "font": "hand",
+            "align": "left",
+            "bold": false,
+            "italic": false
+          },
+          "text_unresolved": false
+        },
+        {
+          "id": "bottom_photo",
+          "kind": "photo",
+          "bbox": [
+            251,
+            1040,
+            543,
+            1334
+          ],
+          "description": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣与牛仔裤，显示头部至大腿。保留电话、门框、植物和周围街景，矩形照片边缘清晰，摄影背景不去除。",
+          "label": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cover",
+          "photo_window_spec": {
+            "photo_id": "bottom_photo",
+            "reason": "保留人物、绿色电话、门框及植物等摄影背景，无主体描边。照片具有独立矩形硬边；右下部分被前景贴纸遮挡，并非照片渐隐，无窗口描边。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "preserve"
+            },
+            "subject_stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": true
+          },
+          "binding": {
+            "slot_id": "bottom_photo",
+            "asset_id": "material_13",
+            "source_crop": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "crop_center": [
+              0.5,
+              1
+            ],
+            "mirror_x": false,
+            "reason": "正面女子、手靠近脸部且带黑包，可近似人物与手部互动构图；底部对齐裁去天空，保留帽顶至大腿。实际为湖边手势照，无电话及街景。"
+          }
+        },
+        {
+          "id": "icecream_sticker",
+          "kind": "overlay",
+          "bbox": [
+            201,
+            957,
+            315,
+            1127
+          ],
+          "description": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留黄色轮廓、冰淇淋立体明暗和底板，跨压底部照片左上角。",
+          "label": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "d4219102909322f2277be88941ac7b46bdf189ad344d1a32bf6d5c0f4334c2f2"
+          },
+          "recovered": {
+            "sha256": "b8e3b9b667c6c9ae2d739d1f03542b6165fff1158fbbf9e6e94c81a59fffb390",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "large_portrait",
+          "kind": "photo",
+          "bbox": [
+            492,
+            690,
+            1048,
+            1477
+          ],
+          "description": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑色长裙，手臂横放身前，右侧带黑色包袋。沿人物、裙摆和包袋的完整组合去除摄影背景，外围有宽白色轮廓边；裙摆延伸至画布底部并被裁切，覆盖页面及下方黑底。",
+          "label": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑",
+          "method": "local",
+          "rotation": 0,
+          "style": {},
+          "text_unresolved": false,
+          "mode": "cutout",
+          "photo_window_spec": {
+            "photo_id": "large_portrait",
+            "reason": "去除摄影背景，沿人物、帽子、手臂、长裙及右侧包袋的整体轮廓绘制宽白色外描边，线宽为视觉近似。轮廓外透出页面及黑底，无独立几何窗口或渐变；裙摆在画布底部截断。与上方照片姿态不同，不属于连续出框关联。",
+            "shape": {
+              "type": "rectangle"
+            },
+            "stroke": {
+              "enabled": false,
+              "width": 0,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "butt",
+              "placement": "inside",
+              "offset": 0
+            },
+            "subject": {
+              "mode": "cutout"
+            },
+            "subject_stroke": {
+              "enabled": true,
+              "width": 0.035,
+              "color": "#FFFFFF",
+              "pattern": "solid",
+              "line_cap": "round",
+              "placement": "outside",
+              "offset": 0
+            },
+            "fade": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "fade_direction": "inside",
+            "window_enabled": false
+          },
+          "binding": {
+            "slot_id": "large_portrait",
+            "asset_id": "material_09",
+            "source_crop": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "crop_center": [
+              0.5,
+              0.5
+            ],
+            "mirror_x": false,
+            "reason": "女子正面前倾，帽顶、手臂、双腿、靴子及黑包可见，人物轮廓较清晰，适合作为分割候选；全幅保留，居中轻裁两侧。并非黑帽坐姿长裙，无法还原裙摆组合。"
+          }
+        },
+        {
+          "id": "happy_labels",
+          "kind": "overlay",
+          "bbox": [
+            503,
+            830,
+            751,
+            990
+          ],
+          "description": "三张浅黄色手写字卡组成“I'M / SO HAPPY / TODAY”短语，搭配周围粉色放射星与小五角星，保留错落位置、纸边及阴影；整体跨压中部照片和右侧人物。",
+          "label": "三张浅黄色手写字卡组成“I'M / SO HAPPY / T",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "7e2e8467895979492f32beb5a9b9119ba33223058f022e4bc5dbbd7942f483c3"
+          },
+          "recovered": {
+            "sha256": "a706ae955d6b43e33cb566f34ae008b8e2c40682d43d1471faf8b08a18f20b62",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        },
+        {
+          "id": "like_flag",
+          "kind": "overlay",
+          "bbox": [
+            580,
+            1019,
+            750,
+            1121
+          ],
+          "description": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边缘及字形，叠在页面与右侧人物前方。",
+          "label": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边",
+          "method": "extract",
+          "style": {},
+          "text_unresolved": false,
+          "gate": {
+            "status": "accepted",
+            "basis": "program",
+            "input_key": "dbd0e02799ef6c7f772156ac9555c0a05e322d02e02057a83ab86f572f593453"
+          },
+          "recovered": {
+            "sha256": "fcb0bf56e1ec2be5e166ec8eeed33834a80a7daaa7a1eb502453c3d99a438485",
+            "reference_crop": "[本机文件]",
+            "foreground": "[本机文件]",
+            "action": "reuse_layer"
+          },
+          "gate_embedded_ids": []
+        }
+      ],
+      "issues": [
+        {
+          "id": "background",
+          "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+        },
+        {
+          "id": "top_frame",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "chill_title",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "lemon_sticker",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "coffee_sticker",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "dotted_tape",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "icecream_sticker",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "lemon_tang",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "happy_labels",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        },
+        {
+          "id": "like_flag",
+          "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+        }
+      ],
+      "incomplete_objects": []
+    }
+  ],
+  "materials": [
+    {
+      "id": "background",
+      "label": "黑色外围背景上的浅灰白活页本页面，左侧金属装订柱、四组圆环、",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        1080,
+        1477
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/544131b29f419b5934d5234c",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/8a40aea97e70610bd9979c35",
+        "processed": "/api/tasks/49d00684cd771938/images/f080094db20e39958253a82a"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "da7704b5466fe7de92411b53e81892435971522d802b3dfc35daa55bf5e0303d"
+      },
+      "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+    },
+    {
+      "id": "top_frame",
+      "label": "黄色照片纸框，底部宽边印有棕色“Find sweetness",
+      "kind": "frame",
+      "bbox": [
+        218,
+        161,
+        814,
+        591
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/525b451c07906573e1ec4c32",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/5fe6eae2561fdb6eaa5a1180",
+        "raw": "/api/tasks/49d00684cd771938/images/5a3c5519ac4cbac9b9b60b80",
+        "processed": "/api/tasks/49d00684cd771938/images/dab8060737b57b74a85fe470"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "ce95ec28c03a33dfc0c0d93325096531417e04a6ce31fda7b708642b9689dc87"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "top_photo",
+      "label": "一名长发女子戴黑帽、穿黑色上衣与白色内搭，坐在画面右侧，正面",
+      "kind": "photo",
+      "bbox": [
+        261,
+        199,
+        774,
+        513
+      ],
+      "binding": {
+        "slot_id": "top_photo",
+        "asset_id": "material_00",
+        "source_crop": [
+          0,
+          0.24,
+          1,
+          0.86
+        ],
+        "crop_center": [
+          0.5,
+          0
+        ],
+        "mirror_x": false,
+        "reason": "女子正面近景且位于右侧，保留左侧湖景；裁去多余天空及下身，保留帽顶、脸和举起的手。非黑帽坐姿，无店面环境。"
+      },
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/d109b7451e718c8219110933",
+        "customer": "/api/tasks/49d00684cd771938/images/325e9e9ea957125bc4634050",
+        "final": "/api/tasks/49d00684cd771938/images/f24c509e8504973f9df23d44"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "chill_title",
+      "label": "棕紫色粗笔手写“#Chill”艺术字及右侧弯曲符号，保留不规",
+      "kind": "overlay",
+      "bbox": [
+        227,
+        168,
+        804,
+        295
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/470a803ca5e2c98aa881efa3",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/c0e952b08445b55713f4e1f5",
+        "raw": "/api/tasks/49d00684cd771938/images/2cd05ab39794c1ae4e5edf08",
+        "processed": "/api/tasks/49d00684cd771938/images/ee119221805a2e8353d89451"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "c3836eb4c48c90f5ff193d88936e149b274ae28dd3bf3f037acd1c242c41fe5f"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "lemon_sticker",
+      "label": "三片黄色柠檬切片组成的贴纸，统一浅蓝色外轮廓及阴影整体保留，",
+      "kind": "overlay",
+      "bbox": [
+        164,
+        411,
+        302,
+        536
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/cea1edf6244012a9424ebf44",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/728ae8121f00580f6d534081",
+        "raw": "/api/tasks/49d00684cd771938/images/8ed444a07155df2b6a239ff6",
+        "processed": "/api/tasks/49d00684cd771938/images/fbf9a3c365f3ae3e318979fb"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "4df7898e9b3f571ffe2f2d97f88bc75d0c9bb5968533c8a76a5a9d509443f183"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "coffee_sticker",
+      "label": "棕色白圆点矩形贴纸，左缘有半圆缺口，右侧叠有绿色包边的拉花咖",
+      "kind": "overlay",
+      "bbox": [
+        757,
+        239,
+        972,
+        399
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/39d46c6d2ef2895ed38f0287",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/5a88ac0e08520a0c6d30ff56",
+        "raw": "/api/tasks/49d00684cd771938/images/a00d794c954a38c0213eca1d",
+        "processed": "/api/tasks/49d00684cd771938/images/8264f32b83e4f3f0b9d8788c"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "f3fa14f6f8b55656c7adb809f74427a1a6849a87d4514926e7e3edd59a3243c4"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "road_quote",
+      "label": "The best\ntime is\non the\nroad.",
+      "kind": "text",
+      "bbox": [
+        828,
+        439,
+        959,
+        552
+      ],
+      "binding": null,
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/23c09d3cde8089efb52b6631",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/6b6933ff33ee4b170b153580"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "lemon_tang",
+      "label": "青蓝色花体“Lemon Tang”与下方亮粉色折角箭头构成的",
+      "kind": "overlay",
+      "bbox": [
+        727,
+        566,
+        981,
+        811
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/fa599f1dd8a95ae738cf6bf1",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/1e10679246295fdd96b43a2e",
+        "raw": "/api/tasks/49d00684cd771938/images/b063225ee2058562d66d7e3d",
+        "processed": "/api/tasks/49d00684cd771938/images/26cbfd458fb19d861c944dbc"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "9479f580742d2d24af01197a082bf01d73d5cf1290aa94eeb08a85c372e22985"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "middle_photo",
+      "label": "一名戴浅色帽子的长发女子站在蓝绿色店门前，穿短袖上衣与牛仔裤",
+      "kind": "photo",
+      "bbox": [
+        238,
+        614,
+        635,
+        914
+      ],
+      "binding": {
+        "slot_id": "middle_photo",
+        "asset_id": "material_06",
+        "source_crop": [
+          0,
+          0.25,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0
+        ],
+        "mirror_x": false,
+        "reason": "单人站姿、头朝左，与参考朝向接近；裁去上方天空，顶端对齐保留帽顶及上身。不足是红帽厚外套、沙漠背景，横槽无法兼顾大腿景别。"
+      },
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/9d669baa691344687e8e0168",
+        "customer": "/api/tasks/49d00684cd771938/images/2d164893ecb6de55c2d3c102",
+        "final": "/api/tasks/49d00684cd771938/images/754b8b948daf25dd27e20b9a"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "dotted_tape",
+      "label": "斜贴在中部照片左上角的浅蓝色红圆点胶带，保留斜向纸条轮廓、端",
+      "kind": "overlay",
+      "bbox": [
+        194,
+        582,
+        345,
+        710
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/f3173bb8f5d1f2f66ca21108",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/664016dfae9f51b092eb61bd",
+        "raw": "/api/tasks/49d00684cd771938/images/0a1a21afcbbc72200375c9b0",
+        "processed": "/api/tasks/49d00684cd771938/images/18ed5224900715f5604cc45a"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "bd0b1756fe117ca926647761686fdb5349c0c1dea3d93d8c04144bab70f7385d"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "world_quote",
+      "label": "The world is too big\nto stay i",
+      "kind": "text",
+      "bbox": [
+        278,
+        942,
+        571,
+        1003
+      ],
+      "binding": null,
+      "method": "本地绘制",
+      "status": "complete",
+      "quality": "approximate",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/75ed9638417155346c2b4ae1",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/17c8830488a839ba186bc928"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "bottom_photo",
+      "label": "一名长发女子站在绿色公共电话旁，一手拿着听筒，穿深色无袖上衣",
+      "kind": "photo",
+      "bbox": [
+        251,
+        1040,
+        543,
+        1334
+      ],
+      "binding": {
+        "slot_id": "bottom_photo",
+        "asset_id": "material_13",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          1
+        ],
+        "mirror_x": false,
+        "reason": "正面女子、手靠近脸部且带黑包，可近似人物与手部互动构图；底部对齐裁去天空，保留帽顶至大腿。实际为湖边手势照，无电话及街景。"
+      },
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/b9d2daa44bfcdc29a10115cb",
+        "customer": "/api/tasks/49d00684cd771938/images/a8a42709e57f708f38f56151",
+        "final": "/api/tasks/49d00684cd771938/images/a77d011b8f80155a3a2b6559"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "icecream_sticker",
+      "label": "香草软冰淇淋甜筒贴纸与后方紫色白圆点小底板构成完整装饰，保留",
+      "kind": "overlay",
+      "bbox": [
+        201,
+        957,
+        315,
+        1127
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/db0bbc0dbabbfbdb818c1a70",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/6bc18add28936126b523cf09",
+        "raw": "/api/tasks/49d00684cd771938/images/4caeef59a93389f41b60b0c1",
+        "processed": "/api/tasks/49d00684cd771938/images/f78dddce31f5a612b6efa36e"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "d4219102909322f2277be88941ac7b46bdf189ad344d1a32bf6d5c0f4334c2f2"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "large_portrait",
+      "label": "右下方一名戴黑帽的长发女子坐姿抠图，穿黑色上衣、白色内搭与黑",
+      "kind": "photo",
+      "bbox": [
+        492,
+        690,
+        1048,
+        1477
+      ],
+      "binding": {
+        "slot_id": "large_portrait",
+        "asset_id": "material_09",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false,
+        "reason": "女子正面前倾，帽顶、手臂、双腿、靴子及黑包可见，人物轮廓较清晰，适合作为分割候选；全幅保留，居中轻裁两侧。并非黑帽坐姿长裙，无法还原裙摆组合。"
+      },
+      "method": "客户照片",
+      "status": "complete",
+      "quality": "ready",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/3829063493716c1d7bcb16c4",
+        "customer": "/api/tasks/49d00684cd771938/images/762772a818415a2e140ada45",
+        "final": "/api/tasks/49d00684cd771938/images/9310ef47739bdc55cb50a9b2"
+      },
+      "decision": {},
+      "note": ""
+    },
+    {
+      "id": "happy_labels",
+      "label": "三张浅黄色手写字卡组成“I'M / SO HAPPY / T",
+      "kind": "overlay",
+      "bbox": [
+        503,
+        830,
+        751,
+        990
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/fa7d4965385b37a4b881bb85",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/697bb9cdec1e4f098f017d84",
+        "raw": "/api/tasks/49d00684cd771938/images/011b03c1838d073190b359d6",
+        "processed": "/api/tasks/49d00684cd771938/images/784457d72a6ca878022d3ea7"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "7e2e8467895979492f32beb5a9b9119ba33223058f022e4bc5dbbd7942f483c3"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "like_flag",
+      "label": "蓝色向右三角旗形贴饰，内部为红色“like”字样，保留旗形边",
+      "kind": "overlay",
+      "bbox": [
+        580,
+        1019,
+        750,
+        1121
+      ],
+      "binding": null,
+      "method": "参考提取",
+      "status": "complete",
+      "quality": "needs_review",
+      "cache_hit": false,
+      "images": {
+        "reference": "/api/tasks/49d00684cd771938/images/54909632ba3884d1aa45bc56",
+        "customer": null,
+        "final": "/api/tasks/49d00684cd771938/images/35012ec1b9de20bbc974bd9a",
+        "raw": "/api/tasks/49d00684cd771938/images/0ce08098c56f2956e21ca717",
+        "processed": "/api/tasks/49d00684cd771938/images/6d0151d70ab3168bf4f06350"
+      },
+      "decision": {
+        "status": "accepted",
+        "basis": "program",
+        "input_key": "dbd0e02799ef6c7f772156ac9555c0a05e322d02e02057a83ab86f572f593453"
+      },
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "groups": [
+    {
+      "status": "complete",
+      "ids": [
+        "top_photo",
+        "chill_title",
+        "coffee_sticker",
+        "dotted_tape",
+        "happy_labels",
+        "icecream_sticker",
+        "lemon_sticker",
+        "lemon_tang",
+        "like_flag",
+        "top_frame"
+      ],
+      "at": "2026-10-26T02:00:02.565964+00:00",
+      "error": "",
+      "available_ids": [
+        "chill_title",
+        "coffee_sticker",
+        "dotted_tape",
+        "happy_labels",
+        "icecream_sticker",
+        "lemon_sticker",
+        "lemon_tang",
+        "like_flag",
+        "top_frame"
+      ],
+      "missing_ids": [],
+      "elapsed_seconds": 64.15,
+      "cache_hit": false
+    },
+    {
+      "status": "complete",
+      "ids": [
+        "road_quote",
+        "middle_photo",
+        "world_quote",
+        "bottom_photo",
+        "large_portrait"
+      ],
+      "at": "2026-10-26T02:01:38.167634+00:00",
+      "error": "",
+      "available_ids": [],
+      "missing_ids": [],
+      "elapsed_seconds": 95.596,
+      "cache_hit": false
+    }
+  ],
+  "quality": "preview",
+  "issues": [
+    {
+      "id": "background",
+      "note": "Background cleared using analysis IDs; pixel cleanliness is not semantically verified"
+    },
+    {
+      "id": "top_frame",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "chill_title",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "lemon_sticker",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "coffee_sticker",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "dotted_tape",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "icecream_sticker",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "lemon_tang",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "happy_labels",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    },
+    {
+      "id": "like_flag",
+      "note": "Recovered decoration; inspect window edges, embedded text and reference contamination"
+    }
+  ],
+  "review": {
+    "schema_version": "collage-review-v1",
+    "render_id": "227570bc101a5701",
+    "checked_entire_composition": false,
+    "verdict": "needs_changes",
+    "summary": "首版已生成，未做整图视觉复核；可在画布继续编辑。",
+    "items": [],
+    "scene_sha256": "6d02b5a82ffa1124475ec8ec1864aee0ba33cdc71867073d9b438dfc2a7e4632",
+    "final_sha256": "8ac27704b984c1b63940f8a86568a75803b3db7f75aba055061f23c06a844433"
+  },
+  "recording_incomplete": false
+}

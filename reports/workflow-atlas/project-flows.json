@@ -1,0 +1,412 @@
+{
+  "generated_at": "2026-10-27T13:50:59.537074+08:00",
+  "projects": [
+    {
+      "id": "collection",
+      "project": "template_download",
+      "title": "从平台原始素材到合格拼贴模板",
+      "subtitle": "采集、初筛、审核独立运行；SQLite 和文件队列连接阶段，支持断点恢复。",
+      "status": "配置快照：40 个启用关键词 / 42 个暂停词 / 目标 200,000 个原始封面",
+      "scope": "这是源码与配置流程图，不是实时运行看板；目标数不等于已采集量或合格模板数。旧 README 和阶段文档的关键词数量已落后，以本页配置快照为准。",
+      "nodes": [
+        {
+          "id": "search",
+          "title": "关键词搜索与详情",
+          "label": "01 / COLLECT",
+          "lines": [
+            "平滑加权轮转 · 按词完成一轮",
+            "每轮最多 20 页",
+            "无更多结果 / 连续低新增 → 换词"
+          ],
+          "detail": "collect-only.ps1 调用 pipeline.py collect；MediaCrawler 独立 worker 使用登录会话，导入搜索及笔记详情。按关键词文本保存轮次、页码、offset；只有成功批次推进游标。连续 3 页新笔记占比 ≤10% 可提前换词，冷却中的词不参与调度。权重分配整轮机会，不是图片配额或审核通过率。",
+          "output": "collections/；catalog.sqlite：notes、images、pipeline_state",
+          "sources": [
+            "collect-only.ps1",
+            "search_scheduler.py",
+            "mediacrawler_worker.py",
+            "stage_cli.py",
+            "config.1000.json"
+          ]
+        },
+        {
+          "id": "raw",
+          "title": "原始文件落盘",
+          "label": "02 / DOWNLOAD",
+          "lines": [
+            "封面下载并发 2 · Live 串行",
+            "临时文件 → 原子替换 → ready",
+            "Live 封面 + MP4 成对保留"
+          ],
+          "detail": "collect_media 只下载原始字节，不运行 Pillow、质量筛选或 VLM。封面保存 .bin，Live 保存 MP4；写完文件和 SHA-256 后才提交 raw_assets=ready。下载最多按配置尝试 3 次；访问限制保存断点并停止。collect-only 不会自动启动 screen/review/export。",
+          "output": "raw/cover/、raw/live/；raw_assets 状态与 SHA-256",
+          "sources": [
+            "stage_media.py",
+            "store.py"
+          ]
+        },
+        {
+          "id": "screen",
+          "title": "离线初筛与去重",
+          "label": "03 / SCREEN",
+          "lines": [
+            "短边 ≥720 · 像素 ≥800,000",
+            "长短边比 ≤3.0 · dHash ≤4",
+            "校验文件 / EXIF / Live 配对"
+          ],
+          "detail": "screen_local 不发网络请求。校验原始 SHA-256、图片解码和 Live MP4，Live 文件不齐继续等待。质量合格后发布 images 路径，静态图用 SHA 与 dHash 去重；Live 按封面及视频哈希配对去重。失败或重复记录保留，原始文件不删除。",
+          "output": "images/；ready 候选队列 / rejected / duplicate / near_duplicate",
+          "sources": [
+            "stage_media.py",
+            "quality.py",
+            "live_media.py"
+          ]
+        },
+        {
+          "id": "triage",
+          "title": "VLM 只做分类",
+          "label": "04 / REVIEW · TRIAGE",
+          "lines": [
+            "100 张审核批次 · 每请求 20 张",
+            "缩略输入最长边 768 · low",
+            "single / collection / other / unsure"
+          ],
+          "detail": "一张完整拼贴（内部可以有多个照片槽）才是 single；一图多套独立设计是 collection。分类阶段只输出 id、label、needs_crop，不输出框。single 且无需裁剪直接进入最终处理；single 且 needs_crop 才送定位。collection/other 拒绝，unsure 待人工处理。尾批需 --flush。",
+          "output": "review_cache；vlm-reports/*-triage-*.json",
+          "sources": [
+            "pipeline.py",
+            "vlm_batch.py",
+            "vlm_stages.py",
+            "stage_cli.py"
+          ]
+        },
+        {
+          "id": "locate",
+          "title": "按需定位完整画布",
+          "label": "05 / REVIEW · LOCATE",
+          "lines": [
+            "只处理 single + needs_crop",
+            "原分辨率 · 每请求最多 5 张",
+            "crop / keep / review · 0–1000 框"
+          ],
+          "detail": "定位整套作品的外矩形，去掉外部 UI 和无关边缘；保留作品自己的留白、标题、装饰和所有照片槽。画布被截断或 UI 遮挡时返回 review。归一化框映射回原图，edge_snap 在本地调整边界；未确认边界保留 VLM 坐标。定位缺失保持 pending，不能当作 keep。",
+          "output": "vlm-reports/*-locate-*.json；像素裁剪框与 edge_snap",
+          "sources": [
+            "pipeline.py",
+            "vlm_stages.py",
+            "edge_snap.py"
+          ]
+        },
+        {
+          "id": "export",
+          "title": "裁剪复核与导出",
+          "label": "06 / PUBLISH",
+          "lines": [
+            "原图保留 · 裁片另存 PNG",
+            "最终像素哈希 / dHash 再去重",
+            "accept → accepted.jsonl + 图库"
+          ],
+          "detail": "裁剪面积不足原图 25% 转人工；裁后仅分辨率不足记录告警，不自动否决；其他质量失败转人工。Live 裁剪需人工确认视频几何。静态图再次按像素哈希与感知哈希去重，近重复不会直接 accept。review 或 export 更新图库和清单，collect/screen 不覆盖最终审核导出。",
+          "output": "processed/crop-v2/；accepted.jsonl；gallery.html；裁剪报告",
+          "sources": [
+            "crop_review.py",
+            "dataset_preview.py",
+            "crop_report.py",
+            "stage_cli.py",
+            "store.py"
+          ]
+        }
+      ],
+      "notes": [
+        [
+          "分类分支",
+          "single 无裁剪 → 最终处理；single 需裁剪 → 定位；collection / other → reject；unsure → 人工。"
+        ],
+        [
+          "有界恢复",
+          "worker 默认超时 360 秒，普通故障最多重启 2 次。明确验证要求隔离账号并提醒；账号冷却回切预算持久化，不能靠重启刷新。人工验证后才使用 --resume-access。"
+        ],
+        [
+          "VLM 恢复",
+          "每次调用最长等待 300 秒；TimeoutError 保存成功缓存并重建 App Server，等待 15/30 秒，最多补跑两次。格式校验错误不自动重试；已完成判定先落库，缺结果项待补跑。"
+        ],
+        [
+          "存储与边界",
+          "各阶段使用同一 --data-dir；当前启动脚本默认 D:/datas/collage_templates。watch 仅轮询本地队列，不是系统自启动。图中展示的是代码能力，未新执行采集或付费模型。"
+        ]
+      ],
+      "commands": ".\\collect-only.ps1\npython pipeline.py screen --data-dir D:/datas/collage_templates --watch\npython pipeline.py review --data-dir D:/datas/collage_templates --flush --watch --model gpt-6.1-sol\npython pipeline.py export --data-dir D:/datas/collage_templates"
+    },
+    {
+      "id": "decomposition",
+      "project": "reveal-layer-lab",
+      "title": "从参考原图到可重建的图层数据",
+      "subtitle": "对象分析保留原图语义；提取素材决定最终 Alpha、位置和本地合成标注。",
+      "status": "当前状态：360 提取暂停，使用 --analyze-only。",
+      "scope": "以下前半段为分析路径，后半段为恢复提取后的代码流程。当前没有重新调用模型或 360；示意图不代表已完成拆层的实测结果。",
+      "nodes": [
+        {
+          "id": "input",
+          "title": "原图与运行目录",
+          "label": "01 / PREPARE",
+          "lines": [
+            "EXIF 转正 · 记录尺寸与哈希",
+            "单图 / 批量 / 导入已有分析",
+            "输入与配置相同才复用缓存"
+          ],
+          "detail": "data_workflow.py 是单图入口；batch_workflow.py 递归发现图片、串行处理，每图独立运行目录，单图失败继续下一张。可通过 --analysis-json 导入既有原图分析，跳过 VLM；最终 rendered-layer-analysis-v1 不能当旧原图分析重新导入。",
+          "output": "source_reference.png；input/reference.png；workflow-config.json",
+          "sources": [
+            "data_workflow.py",
+            "batch_workflow.py"
+          ]
+        },
+        {
+          "id": "route",
+          "title": "视觉分析与模型路由",
+          "label": "02 / ANALYZE",
+          "lines": [
+            "默认 Luna medium 先分析",
+            "前景 >18 → Sol medium 重分析",
+            "固定 Qwen / Codex 为替代入口"
+          ],
+          "detail": "默认 codex-auto 先用 gpt-6-luna，排除全画布背景后前景超过 18 个，升级 gpt-6.1-sol；18 个仍用 Luna。Sol 用同一原图与提示词独立分析，升级失败停止，不静默回退。固定 Qwen3.8-Flash 默认为 thinking off；不设置分析对象数上限。",
+          "output": "analysis/luna/、analysis/sol/；routing.json；structure.json",
+          "sources": [
+            "data_workflow.py",
+            "prompts/analyze-source.md"
+          ]
+        },
+        {
+          "id": "validate",
+          "title": "校验与像素坐标统一",
+          "label": "03 / CONTRACT",
+          "lines": [
+            "GPT：原图 + 尺寸 → 像素框",
+            "Qwen：原图 → 0–1000 → 像素",
+            "唯一全画布背景 → layer_0"
+          ],
+          "detail": "默认坐标策略按模型家族，不按服务商。原始模型对象写入 analysis/structure.json，转换后写 source-analysis.json。检查对象 ID、框、关系、层序和背景；背景必须唯一、全画布且在底层，不自动扩大错误背景框。显式 Codex normalized_1000 是另一条 1000×1000 副本路径；更改坐标/模型/提示词须新建 run。",
+          "output": "source-analysis.json；analysis-boxes.png；input-transform.json",
+          "sources": [
+            "data_workflow.py",
+            "prompts/analyze-source.md"
+          ]
+        },
+        {
+          "id": "extract",
+          "title": "暂停门与分批提取",
+          "label": "04 / REVEAL · PAUSED",
+          "lines": [
+            "analyze-only 在此之前结束",
+            "每批 ≤20 前景 · 从顶层向下",
+            "下一批输入 = 上批 base 背景"
+          ],
+          "detail": "EXTRACTION_PAUSED.json 存在即阻止主工作流的 360 提取；需明确恢复后才可继续。恢复后的 chain_workflow 按原 layer_order 从上往下分批，不提交背景框，不重新分析；框按当前画布缩放。每批提交、轮询、下载保留任务 ID，提交结果未知时不自动重复扣费。",
+          "output": "chain-plan.json；batches/001/…；请求 / 回执 / task_id",
+          "sources": [
+            "data_workflow.py",
+            "chain_workflow.py",
+            "reveal_lab.py",
+            "EXTRACTION_PAUSED.json"
+          ]
+        },
+        {
+          "id": "layers",
+          "title": "收集素材与最终背景",
+          "label": "05 / LAYERS",
+          "lines": [
+            "检查缺层 / 空 Alpha / 尺寸",
+            "只保留最后一批背景",
+            "base 与 aug 来自同一条链"
+          ],
+          "detail": "缺图层、缺 base/aug、空 Alpha 或画布尺寸变化立即停止。中间背景不重复叠加；只把最后一批 layer_0 作为最终背景。aug 与 base 由同一条 base 驱动链产生，不额外跑第二条提取链。原始 background_type 只作来源标注，不保证接口产生相同语义或透明背景。",
+          "output": "layers/base/、layers/aug/；assets/base/、assets/aug/",
+          "sources": [
+            "chain_workflow.py",
+            "reveal_lab.py"
+          ]
+        },
+        {
+          "id": "render",
+          "title": "本地合成与标注",
+          "label": "06 / DATASET",
+          "lines": [
+            "按原层序从下到上 Alpha 合成",
+            "最终 bbox = 素材非零 Alpha 边界",
+            "base / aug 分别配图与标注"
+          ],
+          "detail": "每个裁片按 z_index 升序，以原尺寸放在 crop_bbox 左上角做 source-over 合成；不要用 source_object.bbox 重定位或再次缩放。bbox 表示完整素材范围，不是遮挡后可见范围。新 reference 不要求与输入逐像素相同；complete 代表产物完整，visual_review 仍为 pending。",
+          "output": "reference[-base/-aug].png；analysis*.json；dataset.jsonl；manifest.json；index.html",
+          "sources": [
+            "chain_workflow.py",
+            "data_workflow.py",
+            "usage_report.py"
+          ]
+        }
+      ],
+      "notes": [
+        [
+          "模型分支",
+          "Luna 前景数 ≤18：采用 Luna；>18：Sol 独立分析并采用 Sol；升级失败：停止。--analysis-json 可跳过这一步。"
+        ],
+        [
+          "当前可用终点",
+          "--analyze-only 输出 source-analysis.json 和 analysis-boxes.png 后结束。暂停标记保持原样；本次文档整理没有恢复或调用 360。"
+        ],
+        [
+          "分批回路",
+          "批次 N 的 base 剩余背景 → 批次 N+1；没有下一批时汇总。background_type、linked_to 不作为 Reveal 远端指令；只提交图像、前景 image_boxes 等参数。"
+        ],
+        [
+          "重建与质检",
+          "base 素材只配 reference-base，aug 素材只配 reference-aug。最初文字/字体/关系保留 source_object，不作为已核实语义。检查 index.html 和 comparison/index.html，再做人工视觉验收。"
+        ],
+        [
+          "续跑与用量",
+          "运行锁阻止同目录并发；相同输入、配置与计划可复用缓存，提交未知需核查响应。usage.csv/usage-summary.json 记录请求用量，缺失用量为未知，不重复加推理 token。"
+        ]
+      ],
+      "commands": "python data_workflow.py --reference input/reference.jpg --run runs/sample --analyze-only\npython batch_workflow.py --input-dir input/cases --output-dir runs/batch --pattern reference.jpg --analyze-only\npython data_workflow.py --reference input/reference.jpg --run runs/qwen --provider yibuapi --model qwen3.8-flash --thinking off --key-file .env --analyze-only"
+    }
+  ],
+  "sources": [
+    {
+      "project": "template_download",
+      "file": "collect-only.ps1",
+      "sha256": "406dc04e1fc876c0c01ab93b0238712c6b3be4d72f0cee6d797080e6d535c7ad",
+      "bytes": 2495
+    },
+    {
+      "project": "template_download",
+      "file": "config.1000.json",
+      "sha256": "7455f2852f9a7351464bfb0a91d2ecb0e9c3fc36b243308107e845454e53bc2d",
+      "bytes": 3974
+    },
+    {
+      "project": "template_download",
+      "file": "crop_report.py",
+      "sha256": "bf960580987dc5d23f93bebbcfe72d3b7f251672b71934d15adf802b8a0c368e",
+      "bytes": 2408
+    },
+    {
+      "project": "template_download",
+      "file": "crop_review.py",
+      "sha256": "3b48b790884e21345c1fae70dbf3a709b21d95ffc61f184be278d5a96e6e16bb",
+      "bytes": 5383
+    },
+    {
+      "project": "template_download",
+      "file": "dataset_preview.py",
+      "sha256": "a347608eceab664d701f461203a04c6a9b83976e106ffbaf23725139a0d7cc68",
+      "bytes": 9584
+    },
+    {
+      "project": "template_download",
+      "file": "edge_snap.py",
+      "sha256": "64d3556d6c1f2a88e3a1b4cfca792b49c95e35e243f441dacaee01017f643b52",
+      "bytes": 8637
+    },
+    {
+      "project": "template_download",
+      "file": "live_media.py",
+      "sha256": "25472d7665a64c6aac0e13cda2df234cad102059689d157fbc77d377be92ed6d",
+      "bytes": 2735
+    },
+    {
+      "project": "template_download",
+      "file": "mediacrawler_worker.py",
+      "sha256": "fefb5efab66b3526ae4fbe96fb125bbcb85f50e0b6fd59c55db4d45fa6b3aa21",
+      "bytes": 15040
+    },
+    {
+      "project": "template_download",
+      "file": "pipeline.py",
+      "sha256": "2ab9fda3244c12ce7b79f3abf9a91efe52f59e5e33b06b7870fb707d436f7cf9",
+      "bytes": 7780
+    },
+    {
+      "project": "template_download",
+      "file": "quality.py",
+      "sha256": "8dd4ff7205a322ead51083a5f5a36095f7f278370f789a6b4e752949aa61fcfb",
+      "bytes": 1924
+    },
+    {
+      "project": "template_download",
+      "file": "search_scheduler.py",
+      "sha256": "4a62c2752c538e33c6efc04caa8c410579a7f08c1e633429a73fa68fff80cf89",
+      "bytes": 5952
+    },
+    {
+      "project": "template_download",
+      "file": "stage_cli.py",
+      "sha256": "b613f739ea7ee738271872a782b8f955e0b05f9059b6e14831e931b293210134",
+      "bytes": 29772
+    },
+    {
+      "project": "template_download",
+      "file": "stage_media.py",
+      "sha256": "50fdd73dc18120667a6967f6b7c0b6a6f8c75a011792ed63a33c4ac97e1f0e11",
+      "bytes": 9450
+    },
+    {
+      "project": "template_download",
+      "file": "store.py",
+      "sha256": "426ab175738b3359f2e5466a6bf246b83b63b3e37dce2e692ab2177ea2050df1",
+      "bytes": 10494
+    },
+    {
+      "project": "template_download",
+      "file": "vlm_batch.py",
+      "sha256": "a7e5b7d5b4e924725cddbe242fcbde3b3525e31c1237e4797dc19174b9a1ee58",
+      "bytes": 20877
+    },
+    {
+      "project": "template_download",
+      "file": "vlm_stages.py",
+      "sha256": "237dc959f22715c38659a8abd35d57a2915cccdcb493fb023fcacf7a05d85b12",
+      "bytes": 4088
+    },
+    {
+      "project": "reveal-layer-lab",
+      "file": "EXTRACTION_PAUSED.json",
+      "sha256": "ac54ffc4fd8b0e54c0e8aa34d9b7f8e6ff021e768c2dc2efa7e38819a1861f03",
+      "bytes": 99
+    },
+    {
+      "project": "reveal-layer-lab",
+      "file": "batch_workflow.py",
+      "sha256": "f60d93eff9a8abafb75ff921cb6de4dabf69aa8b8df535d62db7bf03e94aa83d",
+      "bytes": 8200
+    },
+    {
+      "project": "reveal-layer-lab",
+      "file": "chain_workflow.py",
+      "sha256": "352455a4ba7e76b4a8c4008c4fccfdc746d6b795bf3dcd5fdceb334e06bbc516",
+      "bytes": 9101
+    },
+    {
+      "project": "reveal-layer-lab",
+      "file": "data_workflow.py",
+      "sha256": "b2119eca4ddc0a8259e6dab69cec31b574f2f88382cffd5a00b156229d427dbe",
+      "bytes": 30501
+    },
+    {
+      "project": "reveal-layer-lab",
+      "file": "prompts/analyze-source.md",
+      "sha256": "114275ccdc5d8c7bd197b86daf8389958e86f0649caaedaf1fbfa00b67853c80",
+      "bytes": 16822
+    },
+    {
+      "project": "reveal-layer-lab",
+      "file": "reveal_lab.py",
+      "sha256": "ec7decd864156c86e5ab9b51b8fe07bf84008257d37d43ee6a92be861d56e9c3",
+      "bytes": 17283
+    },
+    {
+      "project": "reveal-layer-lab",
+      "file": "usage_report.py",
+      "sha256": "cb5e646f639e224e7717c3cb29d3c628808256db3a46a5b629e37b8a67ed88a6",
+      "bytes": 5987
+    }
+  ]
+}
