@@ -111,9 +111,9 @@ class Batches:
                 if not (service.root/'jobs'/(job['id']+'.json')).exists():
                     service.enqueue(deepcopy(job))
 
-    def public(self, record):
-        tasks = self.service.store.tasks()
-        task_ids = {str(run): key for key, run in tasks.items()}
+    def public(self, record, task_ids=None):
+        if task_ids is None:
+            task_ids = {str(run): key for key, run in self.service.store.tasks().items()}
         items = []
         for job, reference in zip(record['jobs'], record['references'], strict=True):
             imported = read(self.service.root/'jobs'/(job['id']+'.json'))
@@ -143,4 +143,5 @@ class Batches:
 
     def listing(self):
         records = [read(path) for path in self.root.glob('run-*.json')]
-        return [self.public(r) for r in sorted(records, key=lambda r: r['created_at'], reverse=True)]
+        task_ids = {str(run): key for key, run in self.service.store.tasks().items()}
+        return [self.public(r, task_ids) for r in sorted(records, key=lambda r: r['created_at'], reverse=True)]

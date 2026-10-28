@@ -13,6 +13,7 @@
 3. [提示词与请求](docs/prompts.md)：每次请求怎样组成，以及如何查看实际发送的内容。
 4. [首次分析全文](collage/prompts/analyze.md)：任务、类型总览、设计规则、定位层级和输出格式集中在一个文件。[组装器](collage/prompts/builder.py)负责坐标、图片及各阶段输出约束。
 5. [运行与开发](docs/development.md)：启动、配置、批跑、验证和目录职责。
+6. [工作台带宽与图片缓存](docs/workbench-performance.md)：自动预览、缓存维护、更新和验证。
 
 ## 目录
 

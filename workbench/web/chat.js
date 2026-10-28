@@ -23,7 +23,7 @@ function renderChat(){
   $('#chatObject').value=state.focus||'';
   const selected=objects.find(o=>o.id===state.focus);
   setHTML($('#chatSelection'),selected?`<span>已选：${escapeHTML(selected.label||selected.id)}</span><button type="button" class="text-button" data-chat-clear>清除</button>`:'');
-  setHTML($('#chatCatalog'),state.data.catalog.map((a,i)=>`<button type="button" data-chat-asset="${escapeHTML(a.id)}" class="${chat.asset===a.id?'selected':''}"><img src="${a.image||''}" alt="客户照片 ${i+1}" loading="lazy"><span>照片 ${i+1}</span></button>`).join(''));
+  setHTML($('#chatCatalog'),state.data.catalog.map((a,i)=>`<button type="button" data-chat-asset="${escapeHTML(a.id)}" class="${chat.asset===a.id?'selected':''}"><img decoding="async" src="${previewURL(a.image, 160)||''}" alt="客户照片 ${i+1}" loading="lazy"><span>照片 ${i+1}</span></button>`).join(''));
   const index=state.data.catalog.findIndex(a=>a.id===chat.asset);
   $('#chatPhotoLabel').textContent=index<0?'':'· 已选照片 '+(index+1);
   const box=$('#chatMessages'),atEnd=box.scrollTop+box.clientHeight>=box.scrollHeight-35;

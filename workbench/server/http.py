@@ -1,5 +1,6 @@
 """Loopback endpoints with opaque images and an optional protected revision queue."""
 import json
+import gzip
 import secrets
 import re
 import threading
@@ -8,6 +9,7 @@ from pathlib import Path
 from urllib.parse import urlsplit, parse_qs
 
 from .store import Store
+from .read_cache import ReadCache
 
 WEB = Path(__file__).resolve().parents[1]/'web'
 
@@ -15,7 +17,7 @@ WEB = Path(__file__).resolve().parents[1]/'web'
 def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=False, enable_motion=False, media_root=None, cutout_model=None, enable_create=False, creator=None):
     from collage.paths import RUNTIME_ROOT
     service_root = Path(media_root) if media_root else RUNTIME_ROOT/'service'
-    store = Store(roots, listing_filter=service_root/'visible-tasks.json')
+    store = Store(roots, listing_filter=service_root/'visible-tasks.json', preview_root=service_root/'preview-cache')
     from .chat import ChatQueue, Conflict
     queue=ChatQueue(store,chat_path,agent=agent) if chat_path else None
     from .editor import Editor,EditorError
@@ -33,15 +35,23 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
     batches = Batches(motion) if creator else None
     token=secrets.token_urlsafe(32)
     mutation_guard=threading.RLock()
+    read_cache = ReadCache()
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
             pass
 
         def send(self, body, mime, code=200, extra=None):
+            extra = dict(extra or {})
+            if code == 200 and (mime.startswith('text/') or mime.startswith('application/json')):
+                extra['Vary'] = 'Accept-Encoding'
+                encodings = [part.strip() for part in self.headers.get('Accept-Encoding', '').split(',')]
+                if len(body) >= 1024 and any(part == 'gzip' or re.fullmatch(r'gzip;\s*q=1(?:\.0*)?', part) for part in encodings):
+                    body = gzip.compress(body, compresslevel=5)
+                    extra['Content-Encoding'] = 'gzip'
             self.send_response(code)
             self.send_header('Content-Type', mime)
             self.send_header('Content-Length', str(len(body)))
-            self.send_header('Cache-Control', 'no-store')
+            self.send_header('Cache-Control', extra.pop('Cache-Control', 'no-store'))
             self.send_header('X-Content-Type-Options', 'nosniff')
             self.send_header('Content-Security-Policy', "default-src 'self'; img-src 'self' blob:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-ancestors 'none'")
             for k, v in (extra or {}).items():
@@ -89,6 +99,8 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                 return self.send(b'Invalid origin', 'text/plain', 403)
             path = urlsplit(self.path).path
             try:
+                if path in {'/reveal-architecture.png', '/reveal-data.png'}:
+                    return self.send((WEB/path[1:]).read_bytes(), 'image/png', extra={'Cache-Control': 'private, max-age=86400'})
                 if path in {'/', '/app.js', '/chat.js', '/editor.js', '/editor-crop.js', '/motion.js', '/models.js', '/style.css'}:
                     name = 'index.html' if path == '/' else path[1:]
                     mime = {'index.html': 'text/html; charset=utf-8', 'app.js': 'text/javascript; charset=utf-8', 'models.js':'text/javascript; charset=utf-8', 'motion.js':'text/javascript; charset=utf-8','editor.js':'text/javascript; charset=utf-8','editor-crop.js':'text/javascript; charset=utf-8','chat.js':'text/javascript; charset=utf-8','style.css': 'text/css; charset=utf-8'}[name]
@@ -107,7 +119,7 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                     data={'enabled':bool(queue),'editor_enabled':bool(editor),'motion_enabled':bool(motion),
                           'create_enabled':bool(creator),'batch_enabled':bool(batches),'controller':'workflow-v9','token':token if queue or editor or motion else None}
                 elif path == '/api/batches':
-                    data=batches.listing() if batches else []
+                    data=read_cache.get(path, 5, batches.listing) if batches else []
                 elif batches and len(parts)==3 and parts[:2]==['api','batches']:
                     data=batches.get(parts[2])
                 elif creator and len(parts)==4 and parts[:2]==['api','tasks'] and parts[3]=='creation':
@@ -124,9 +136,9 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                 elif motion and len(parts)==7 and parts[:2]==['api','tasks'] and parts[3:5]==['motion','versions'] and parts[6]=='content':
                     return self.video(motion.content(parts[2],'motion',parts[5]))
                 elif path == '/api/tasks':
-                    data = store.listing()
+                    data = read_cache.get(path, 5, store.listing)
                 elif len(parts) == 3 and parts[:2] == ['api', 'tasks']:
-                    data = store.document(parts[2])
+                    data = read_cache.get(path, 2, lambda: store.document(parts[2]))
                 elif len(parts) == 5 and parts[:2] == ['api', 'tasks'] and parts[3] == 'documents':
                     body = store.product_document(parts[2], parts[4])
                     extra = {'Content-Disposition': f'attachment; filename="{parts[4]}"'} if 'download=1' in self.path else {}
@@ -139,8 +151,15 @@ def create_server(roots, port=8790, chat_path=None, agent=None, enable_editor=Fa
                 elif editor and len(parts)==6 and parts[:2]==['api','tasks'] and parts[3:5]==['editor','jobs']:
                     data=editor.job(parts[2],parts[5])
                 elif len(parts) == 5 and parts[:2] == ['api', 'tasks'] and parts[3] == 'images':
-                    body, mime = store.artifact(parts[2], parts[4])
-                    extra = {'Content-Disposition': 'attachment; filename="collage.png"'} if 'download=1' in self.path else {}
+                    query = parse_qs(urlsplit(self.path).query)
+                    download = query.get('download') == ['1']
+                    preview_size = None if download else query.get('size', [None])[0]
+                    if preview_size is not None:
+                        if preview_size not in {'160', '480', '1280'}:
+                            return self.send(b'Unsupported preview size', 'text/plain', 400)
+                        preview_size = int(preview_size)
+                    body, mime = store.artifact(parts[2], parts[4], preview_size)
+                    extra = {'Content-Disposition': 'attachment; filename="collage.png"'} if download else {'Cache-Control': 'private, max-age=31536000, immutable'}
                     return self.send(body, mime, extra=extra)
                 else:
                     raise KeyError('Unknown route')
