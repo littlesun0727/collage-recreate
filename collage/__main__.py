@@ -23,6 +23,21 @@ def main():
     probe = sub.add_parser('probe', help='One real provider image/JSON probe (billable)')
     probe.add_argument('--out', required=True)
     probe.add_argument('--model-config')
+    analyze_cmd = sub.add_parser('analyze', help='Analyze a reference using the shared v9 stage; no customer materials')
+    analyze_cmd.add_argument('--reference', required=True)
+    analyze_cmd.add_argument('--run', required=True)
+    analyze_cmd.add_argument('--model-config')
+    decompose = sub.add_parser('decompose', help='Plan original-image extraction from an existing analysis')
+    decompose.add_argument('--run', required=True)
+    decompose.add_argument('--extract', action='store_true', help='Execute paid extraction when not paused')
+    decompose.add_argument('--key-file')
+    decompose.add_argument('--timeout', type=int, default=900)
+    decompose.add_argument('--batch-size', type=int, default=20)
+    decompose.add_argument('--analysis', help='Existing analysis JSON; skips VLM')
+    decompose.add_argument('--reference', help='Original image corresponding to analysis')
+    decompose.add_argument('--coordinate-mode', choices=['pixel', 'normalized_1000'])
+    decompose.add_argument('--export-only', action='store_true', help='Re-export existing layers locally without model calls')
+    decompose.add_argument('--resume-extraction', action='store_true', help='Explicitly authorize extraction for this run despite the pause marker')
     for name in ['run', 'create']:
         p = sub.add_parser(name)
         p.add_argument('--run', required=True)
@@ -56,7 +71,20 @@ def main():
             else:
                 print(text)
             return 0
+        if args.command == 'decompose':
+            from collage.decomposition.pipeline import run_decomposition
+            result = run_decomposition(args.run, args.extract, args.key_file, args.timeout, args.batch_size,
+                                       args.analysis, args.reference, args.coordinate_mode, args.export_only,
+                                       args.resume_extraction)
+            print(json.dumps(result, ensure_ascii=False))
+            return 0
         config = Config.load(args.model_config)
+        if args.command == 'analyze':
+            from collage.analysis import run_analysis
+            result = run_analysis(args.reference, args.run, config)
+            print(json.dumps({'analysis': str(Path(args.run)/'analysis.json'),
+                              'objects': len(result['objects'])}, ensure_ascii=False))
+            return 0
         if args.command == 'run' and not args.model_config:
             config = config.for_run(args.run)
         if args.command == 'check':

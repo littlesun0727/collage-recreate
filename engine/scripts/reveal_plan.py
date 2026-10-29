@@ -4,6 +4,7 @@ from functools import lru_cache
 from pathlib import Path
 from PIL import Image, ImageDraw
 from common import save, fingerprint
+from collage.frame_links import photo_ids
 
 VERSION = 'spatial-crop-v2-max3'
 FULL_VERSION = 'full-image-v2-chain'
@@ -190,7 +191,7 @@ def plan(scene, targets, padding=.1, mode='full', padding_mode='capped', max_req
         while parent[oid]!=oid:oid=parent[oid]
         return oid
     for oid,t in selected.items():
-        if t.get('kind')=='frame' and (t.get('method')!='extract' or t.get('photo_id') not in photos):
+        if t.get('kind')=='frame' and (t.get('method')!='extract' or not photo_ids(t) or any(pid not in photos for pid in photo_ids(t))):
             raise ValueError('Frame requires method=extract and a linked photo: '+oid)
         owner=t.get('parent_id') or t.get('embedded_in')
         if owner in selected:parent[root(oid)]=root(owner)
@@ -204,8 +205,8 @@ def plan(scene, targets, padding=.1, mode='full', padding_mode='capped', max_req
             o=request_object(t,size,padding,padding_mode);o['role']='asset';members.append(o)
             required=[]
             if t.get('photo_id'):
-                if t['photo_id'] not in photos:raise ValueError('Missing linked photo: '+oid)
-                required.append(t['photo_id'])
+                if any(pid not in photos for pid in photo_ids(t)):raise ValueError('Missing linked photo: '+oid)
+                required.extend(photo_ids(t))
             required += [pid for pid,p in photos.items() if p.get('parent_id')==oid]
             for pid in required:contexts[pid]='explicit'
             # Large backings/connected ornaments may carry photos in other layers.

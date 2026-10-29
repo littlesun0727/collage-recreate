@@ -1,3 +1,4 @@
+from inventory_examples import current_inventory
 """Real stage orchestration/render/resume with explicit offline model replies."""
 from copy import deepcopy
 import json
@@ -56,7 +57,7 @@ def run_offline_pipeline(folder):
     binding = {'photos': [{'slot_id': item['id'], 'asset_id': asset['id'], 'source_crop': [0, 0, 1, 1],
                            'crop_center': [.5, .5], 'mirror_x': False, 'reason': 'Keep the complete customer image.'}
                           for item, asset in zip(objects, assets)]}
-    answers = [inventory, windows, binding]
+    answers = [current_inventory(inventory), windows, binding]
     calls = []
     def transport(payload):
         assert len(calls) < len(answers), 'Unexpected extra model request'
@@ -67,7 +68,7 @@ def run_offline_pipeline(folder):
     workflow = Workflow(run, config=config, client=client, reveal=False)
     result = workflow.execute()
     assert len(calls) == 3
-    assert read(run/'structure.json')['layer_order'] == inventory['layer_order']
+    assert read(run/'structure.json')['layer_order'] == current_inventory(inventory)['layer_order']
     assert read(run/'analysis.json')['layer_order'] == inventory['layer_order']
     assert read(run/'scene.json')['layer_order'] == inventory['layer_order']
     window_input = json.loads(calls[1]['messages'][1]['content'][0]['text'].split('\n', 1)[1])

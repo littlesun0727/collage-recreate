@@ -37,7 +37,7 @@ def test_analysis_preserves_newlines_and_simple_typography(mode):
 
 def test_typography_survives_strict_provider_projection():
     value = inventory()
-    schema = analyze.schema([1200, 1600], 'normalized_1000')
+    schema = analyze.legacy_schema([1200, 1600], 'normalized_1000')
     strict = project(schema)
     wire = {'objects': [{k: o.get(k) for k in schema['properties']['objects']['items']['properties']} for o in value['objects']],
             'layer_order': value['layer_order']}
@@ -69,7 +69,7 @@ def test_analysis_and_repair_prompts_explain_text_units_and_line_breaks(mode):
         assert '\\n' in prompt and all(key in prompt for key in ('font', 'color', 'align', 'bold', 'italic'))
         assert 'font_size' not in prompt and 'line_spacing' not in prompt
         assert '{{' not in prompt
-    properties = analyze.schema([1200, 1600], mode)['properties']['objects']['items']['properties']
+    properties = analyze.legacy_schema([1200, 1600], mode)['properties']['objects']['items']['properties']
     assert 'font_size' not in properties and 'line_spacing' not in properties
 
 

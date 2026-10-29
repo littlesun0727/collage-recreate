@@ -1,5 +1,6 @@
 """Opt-in manual placement; original analysis and asset coordinates stay intact."""
 from collage.object_roles import is_customer_photo, is_photo_background
+from collage.frame_links import photo_ids
 from copy import deepcopy
 import math
 
@@ -44,10 +45,10 @@ def capabilities(scene):
     visible={root(i) for i in objects}
     links={i:{i} for i in visible}
     for o in objects.values():
-        related=[o.get('parent_id'),o.get('photo_id'),o.get('reveal_frame_id'),o.get('photo_window_spec',{}).get('linked_to')]
+        related=[o.get('parent_id'),*photo_ids(o),o.get('reveal_frame_id'),o.get('photo_window_spec',{}).get('linked_to')]
         # Only explicit photo/carrier links group layers. Ordinary overlapping
         # stickers or paper backgrounds never become an implicit giant group.
-        if not is_customer_photo(o):related=[o.get('photo_id')]
+        if not is_customer_photo(o):related=photo_ids(o)
         for other in related:
             if other in objects:
                 a,b=root(o['id']),root(other)
@@ -64,7 +65,7 @@ def capabilities(scene):
         remove_roots={root(i)}
         if is_customer_photo(o):
             remove_roots.update(root(frame['id']) for frame in objects.values()
-                                if frame['kind']=='frame' and frame.get('photo_id')==i)
+                                if frame['kind']=='frame' and i in photo_ids(frame) and len(photo_ids(frame))==1)
             remove_roots.update(root(child['id']) for child in objects.values()
                                 if child.get('photo_window_spec',{}).get('linked_to')==i)
         result[i]={'move':movable,'rotate':movable,'scale':movable,'remove':independent,
@@ -130,6 +131,9 @@ def apply_edits(scene, changes, layer_order=None):
         if r<=0 or b<=0 or l>=w or t>=h:raise ValueError('对象不能完全移出画布')
     if removed:
         from scene import remove_objects
+        for obj in objects.values():
+            if obj['kind']=='frame' and photo_ids(obj) and set(photo_ids(obj)) <= removed:
+                removed.update(caps[obj['id']]['remove_ids'])
         remove_objects(scene,removed)
     if layer_order is not None:
         ids={o['id'] for o in scene['objects']}

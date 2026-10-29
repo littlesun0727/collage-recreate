@@ -1,5 +1,6 @@
 from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
+from collage.frame_links import photo_ids
 import math
 import os
 from pathlib import Path
@@ -86,7 +87,7 @@ def checked_review(run, path):
 def move_local_photos(scene, before, carrier, explicit_geometry):
     """Move a local carrier's photo windows with one similarity transform."""
     related=[p for p in scene['objects'] if is_customer_photo(p) and
-             (p['id']==carrier.get('photo_id') or p.get('parent_id')==carrier['id'])]
+             (p['id'] in photo_ids(carrier) or p.get('parent_id')==carrier['id'])]
     if not related:return
     if any(p['id'] in explicit_geometry for p in related):
         raise ValueError('Adjust carrier geometry only; linked photos follow automatically')
@@ -115,7 +116,7 @@ def remove_objects(s, removed):
     if not removed<=by_id.keys():raise ValueError('Unknown object to remove')
     if len(removed)==len(by_id):raise ValueError('Keep at least one visible scene object')
     for obj in s['objects']:
-        if obj['kind']=='frame' and obj['id'] not in removed and obj.get('photo_id') in removed:
+        if obj['kind']=='frame' and obj['id'] not in removed and photo_ids(obj) and set(photo_ids(obj)) <= removed:
             raise ValueError('Remove the linked frame with its photo: '+obj['id'])
         if obj['id'] not in removed and obj.get('photo_window_spec',{}).get('linked_to') in removed:
             raise ValueError('Remove the pop-out foreground with its base photo: '+obj['id'])
@@ -132,7 +133,11 @@ def remove_objects(s, removed):
     s['generated_groups']=[g for g in s.get('generated_groups',[]) if not set(g['member_ids'])<=removed]
     for obj in s['objects']:
         for key in ['photo_id','parent_id','embedded_in','reveal_frame_id']:
-            if obj.get(key) in removed:obj.pop(key)
+            value = obj.get(key)
+            if isinstance(value, list):
+                obj[key] = [identifier for identifier in value if identifier not in removed]
+            elif value in removed:
+                obj.pop(key)
     s['reveal_unconfirmed_text']={k:[v for v in values if v not in removed]
         for k,values in s.get('reveal_unconfirmed_text',{}).items() if k not in removed}
 
@@ -148,7 +153,7 @@ def apply_review(run, path, dry_run=False):
     claimed=[]
     for carrier in moving_carriers:
         claimed.extend(p['id'] for p in s['objects'] if is_customer_photo(p) and
-                       (p['id']==carrier.get('photo_id') or p.get('parent_id')==carrier['id']))
+                       (p['id'] in photo_ids(carrier) or p.get('parent_id')==carrier['id']))
     if len(claimed)!=len(set(claimed)):
         raise ValueError('A photo cannot follow multiple adjusted carriers')
     removed={i['id'] for i in r['items'] if i['action']=='remove'}

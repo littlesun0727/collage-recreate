@@ -42,7 +42,7 @@ def window_answer(current):
 
 def test_popout_survives_strict_schema_engine_and_binding_context(tmp_path):
     value = inventory()
-    contract = structure.schema([1000, 1000], 'normalized_1000')
+    contract = structure.legacy_schema([1000, 1000], 'normalized_1000')
     fields = contract['properties']['objects']['items']['properties']
     strict = {'objects': [{k: row.get(k) for k in fields} for row in value['objects']],
               'layer_order': ['bg', 'base', 'frame', 'front']}

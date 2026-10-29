@@ -64,10 +64,10 @@ def test_analysis_and_window_prompts_have_independent_responsibilities():
 def test_analysis_example_has_explicit_order_independent_of_object_listing(mode):
     from jsonschema import Draft202012Validator
     example = json.loads(prompts.render('analyze', mode=mode).split('```json\n')[1].split('```')[0])
-    assert set(example) == {'objects', 'layer_order'}
+    assert set(example) == {'background', 'objects', 'layer_order'}
     Draft202012Validator(schema([1000, 1000], mode)).validate(example)
     result = compile_inventory(example, [1000, 1000], mode)['analysis']
-    assert result['layer_order'] == example['layer_order']
+    assert result['layer_order'] == [example['background']['id'], *example['layer_order']]
     assert result['layer_order'] != [o['id'] for o in result['objects']]
 
 

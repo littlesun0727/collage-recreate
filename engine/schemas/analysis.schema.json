@@ -119,9 +119,24 @@
             ]
           },
           "photo_id": {
-            "type": "string",
-            "description": "frame 必填，指向承载的 kind=photo；旧 overlay 关联仍兼容。",
-            "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+            "anyOf": [
+              {
+                "type": "string",
+                "description": "frame 必填，指向承载的 kind=photo；旧 overlay 关联仍兼容。",
+                "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+                },
+                "minItems": 1,
+                "maxItems": 160,
+                "uniqueItems": true
+              }
+            ],
+            "description": "Frame photo IDs; scalar form accepted for legacy data."
           },
           "embedded_in": {
             "type": "string",
@@ -197,7 +212,7 @@
         "additionalProperties": false
       },
       "minItems": 1,
-      "maxItems": 160
+      "maxItems": 161
     },
     "layer_order": {
       "type": "array",
@@ -221,12 +236,33 @@
         "border": {
           "type": "object",
           "properties": {
-            "top": {"type": "number", "minimum": 0, "maximum": 0.3},
-            "right": {"type": "number", "minimum": 0, "maximum": 0.3},
-            "bottom": {"type": "number", "minimum": 0, "maximum": 0.3},
-            "left": {"type": "number", "minimum": 0, "maximum": 0.3}
+            "top": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.3
+            },
+            "right": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.3
+            },
+            "bottom": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.3
+            },
+            "left": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.3
+            }
           },
-          "required": ["top", "right", "bottom", "left"],
+          "required": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ],
           "additionalProperties": false
         },
         "fill": {

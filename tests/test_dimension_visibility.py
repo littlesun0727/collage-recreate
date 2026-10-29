@@ -1,3 +1,4 @@
+from inventory_examples import current_inventory
 """Check actual wire messages while canonical coordinates remain in pixels."""
 from copy import deepcopy
 import json
@@ -60,7 +61,7 @@ def test_inventory_and_both_repair_paths_follow_dimension_policy(tmp_path, mode,
     calls = []
     def transport(payload):
         calls.append(payload)
-        return response(next(replies))
+        return response(current_inventory(next(replies)))
     config = Config(coordinate_mode=mode, response_format='json_object', max_requests=2)
     client = Client(tmp_path/'workflow/vlm', config, transport=transport)
     written = []

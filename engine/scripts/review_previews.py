@@ -1,5 +1,6 @@
 """Matched detail crops for visual review, not automatic occlusion verdicts."""
 from collage.object_roles import is_customer_photo, is_photo_background
+from collage.frame_links import photo_ids
 import math
 from itertools import combinations
 from pathlib import Path
@@ -30,7 +31,7 @@ def regions(scene,limit=4):
                and area(o['bbox'])>.85*w*h for o in [a,b]):continue
         overlap=intersection(intersection(envelope(a),envelope(b)),canvas)
         if area(overlap)<16:continue
-        linked=a.get('photo_id')==b['id'] or b.get('photo_id')==a['id'] or a.get('parent_id')==b['id'] or b.get('parent_id')==a['id']
+        linked=b['id'] in photo_ids(a) or a['id'] in photo_ids(b) or a.get('parent_id')==b['id'] or b.get('parent_id')==a['id']
         priority=5 if linked and any(o['kind']=='frame' for o in [a,b]) else 1 if linked else 3 if a['kind']==b['kind'] else 4
         # Photos wholly inside a large paper page are less useful than crossing edges.
         if not linked and any(o['kind']=='overlay' and area(envelope(o))>area(envelope(other))

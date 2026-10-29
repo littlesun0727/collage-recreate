@@ -2,6 +2,8 @@
 
 从参考图识别版式，使用客户照片重建拼贴，并提供画布编辑、对话修改和动图输出。
 
+原图拆层与数据集导出已并入本工程，直接共用分析流程：`python -m collage analyze` → `python -m collage decompose`。用法、输出目录与迁移边界见 [原图拆层](docs/decomposition.md)。
+
 [查看 2026-10-23 三模型全量批跑进度与成图对比](reports/model-comparison-20261023/README.md)：116 张参考图、348 个任务，Qwen 与 Codex 并行，Codex 按全部 Luna → 全部 Sol 串行执行，结果持续同步。
 
 [打开 VLM 工作流详解](reports/workflow-atlas/index.html)：可离线查看的交互式 HTML，重点展开 Analysis、Photo-window、Binding 的输入、完整 Prompt、JSON 格式、实测记录与本地校验。范围校准和相框审核仅在首页以灰色关闭节点表示。[高清总览图](reports/workflow-atlas/workflow-overview.png)可用于汇报。

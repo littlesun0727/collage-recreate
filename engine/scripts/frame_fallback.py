@@ -3,6 +3,7 @@ from copy import deepcopy
 import math
 from PIL import ImageChops
 from overlays import draw_overlay
+from collage.frame_links import carrier_photos
 
 
 def align_frames(scene):
@@ -24,9 +25,12 @@ def align_frames(scene):
                 else:
                     obj['rotation'] = previous['rotation']
             continue
-        photo = photos.get(obj.get('photo_id'))
-        if not photo:
+        related = carrier_photos(obj, photos.values())
+        # Multiple apertures share one rigid carrier. Never shrink that carrier
+        # around the first photo or inherit just that photo's rotation.
+        if len(related) != 1:
             continue
+        photo = related[0]
         l, t, r, b = photo.get('window_bbox', photo['bbox'])
         short = min(r-l, b-t)
         if short <= 0:
@@ -59,7 +63,8 @@ def draw_frame(obj, size, reference, photos):
     style['shape']='rounded_rectangle' if style.get('radius') else 'rectangle'
     style.pop('window',None)
     tile,_=draw_overlay({'kind':'overlay','method':'local','style':style},size,reference,photos)
-    photo=next((p for p in photos if p['id']==obj['photo_id']),{})
+    related=carrier_photos(obj, photos)
+    photo=related[0] if len(related)==1 else {}
     shape=photo.get('photo_window_spec',{}).get('shape',{})
     if shape.get('type') in {'star','heart','circle','ellipse','polygon'}:
         from photo_windows import shape_mask

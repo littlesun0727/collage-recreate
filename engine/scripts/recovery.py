@@ -1,6 +1,7 @@
 """Explicit, offline recovery of decoration fragments. Never infer pixel ownership."""
 from copy import deepcopy
 from pathlib import Path
+from collage.frame_links import photo_ids
 import math
 from PIL import Image, ImageChops, ImageDraw
 from common import read, save, sha, verify_source
@@ -60,7 +61,7 @@ def check_plan(plan, scene):
         o=objects.get(oid);p=objects.get(pid)
         if not o or o['kind'] not in ['overlay','frame'] or not p or p['kind']!='photo' or p.get('mode','cover')!='cover':
             raise ValueError('Window repair requires an overlay/frame and a cover photo')
-        if o.get('photo_id')!=pid and p.get('parent_id')!=oid:
+        if pid not in photo_ids(o) and p.get('parent_id')!=oid:
             raise ValueError('Window repair requires an explicit photo relationship')
         if (oid,pid) in windows_seen or oid in members_seen:raise ValueError('Conflicting window repairs')
         pad=item.get('padding',0)

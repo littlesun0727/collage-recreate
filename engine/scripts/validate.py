@@ -1,5 +1,6 @@
 """JSON Schema and cross-object validation; errors identify fields, not prose repairs."""
 from collage.object_roles import is_customer_photo, is_photo_background
+from collage.frame_links import photo_ids, frame_issues
 from common import ROOT, read, sha
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
@@ -83,14 +84,14 @@ def analysis_check(value, inputs=None):
     link_issues = inventory_issues(objects, value['layer_order'])
     if link_issues:
         raise ValueError('; '.join(issue['id'] + ': ' + issue['message'] for issue in link_issues))
+    relation_issues = frame_issues(objects)
+    if relation_issues:
+        raise ValueError('; '.join(i['id'] + ': ' + i['message'] for i in relation_issues))
     for o in objects:
         if 'photo_id' in o:
-            if o['kind'] not in ['overlay','frame'] or by_id.get(o['photo_id'],{}).get('kind')!='photo':
+            if o['kind'] not in ['overlay','frame'] or any(by_id.get(pid,{}).get('kind')!='photo' for pid in photo_ids(o)):
                 raise ValueError('photo_id must link an overlay/frame to a photo')
         if o['kind']=='frame':
-            photo=by_id[o['photo_id']]
-            if any(is_customer_photo(p) and p.get('parent_id')==o['id'] and p['id']!=photo['id'] for p in objects):
-                raise ValueError(o['id']+': frame has one photo_id; continuous multi-window carriers use overlay')
             if o.get('embedded_in'):
                 raise ValueError(o['id']+': frame must be an independent extraction')
         if 'window_bbox' in o:

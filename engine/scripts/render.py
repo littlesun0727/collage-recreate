@@ -1,6 +1,7 @@
 from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
 from pathlib import Path
+from collage.frame_links import photo_ids
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageChops
 from common import read, save, sha, fingerprint, verify_source, now, ROOT
@@ -161,7 +162,7 @@ def render(run, publish_result=True, capture_layers=False, editor_export=False):
             # No extracted pixels or customer crop coordinates are modified.
             from reveal_assets import make_window
             for photo in photo_objects:
-                if (photo.get('mode','cover')!='cover' and not photo.get('photo_window_spec')) or not (photo['id']==o.get('photo_id') or photo.get('parent_id')==oid):continue
+                if (photo.get('mode','cover')!='cover' and not photo.get('photo_window_spec')) or not (photo['id'] in photo_ids(o) or photo.get('parent_id')==oid):continue
                 if s['layer_order'].index(oid)<s['layer_order'].index(photo['id']):continue
                 window=make_window((w,h),[round(v*scale) for v in photo.get('window_bbox',photo['bbox'])],
                                    photo.get('rotation',0),photo['style'].get('corner_radius',0)*scale,photo.get('photo_window_spec'))

@@ -57,6 +57,11 @@ def read_structure(run, config):
     mode = structure.get('coordinate_mode', resolve_mode(stage.model, stage.coordinate_mode))
     if mode not in {'pixel', 'normalized_1000'}:
         raise ValueError('Unknown structure coordinate mode: ' + str(mode))
+    if 'background' in structure:
+        from collage.workflow.inventory import to_internal_inventory
+        structure = {**structure, **to_internal_inventory(
+            {key: structure[key] for key in ('background', 'objects', 'layer_order')},
+            read(run/'input.json')['reference_size'], mode)}
     if mode == 'normalized_1000':
         size = read(run/'input.json')['reference_size']
         for photo in structure['objects']:

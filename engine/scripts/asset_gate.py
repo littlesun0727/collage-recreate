@@ -75,12 +75,14 @@ def inspect(image, target, scene, source, repair, checks, text_candidates, repai
     if repair_errors:hard.append('repair_failed')
     if any(x['id']==target['id'] for x in repair.get('omit',[])):hard.append('explicitly_omitted')
     if target.get('kind')=='frame':
-        linked=[c for c in checks if c.get('photo_id')==target.get('photo_id')]
-        if len(linked)!=1 or linked[0].get('interior_visible_fraction') is None:
+        from collage.frame_links import photo_ids
+        ids = photo_ids(target)
+        linked=[c for c in checks if c.get('photo_id') in ids]
+        if set(c.get('photo_id') for c in linked) != set(ids) or any(c.get('interior_visible_fraction') is None for c in linked):
             warnings.append('frame_window_unverified')
-        elif linked[0]['interior_visible_fraction']>.5:
+        elif any(c['interior_visible_fraction']>.5 for c in linked):
             issues.append('opaque_frame_window_needs_semantic_check')
-        elif linked[0]['interior_visible_fraction']>.05:
+        elif any(c['interior_visible_fraction']>.05 for c in linked):
             issues.append('frame_interior_needs_visual_check')
     if any(c.get('review_required') and c['visible_fraction']>.5 for c in checks):issues.append('occupied_foreground_window')
     elif any(c.get('review_required') for c in checks):warnings.append('foreground_window_edge_content')

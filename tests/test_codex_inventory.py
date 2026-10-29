@@ -1,3 +1,4 @@
+from inventory_examples import current_inventory
 """Codex transport must preserve V8 structure, repairs and coordinate contracts."""
 from copy import deepcopy
 import json
@@ -60,7 +61,7 @@ def test_structure_repair_preserves_codex_policy_and_inventory_contract(tmp_path
         captions = [p['text'] for p in payload['messages'][1]['content'][1:] if p['type'] == 'text']
         assert ('reference_size' in context) == (mode == 'pixel')
         assert any('960×1280' in c for c in captions) == (mode == 'pixel')
-        answer = next(replies)
+        answer = current_inventory(next(replies))
         if output == 'json_schema':
             if 'objects' in answer:
                 fields = structure.schema(size, mode)['properties']['objects']['items']['properties']
@@ -82,7 +83,7 @@ def test_structure_repair_preserves_codex_policy_and_inventory_contract(tmp_path
     structure.execute(runner)
     assert len(calls) == client.usage()['requests'] == 2
     assert read(tmp_path/'workflow/structure-analysis.json')['repair_kind'] == repair
-    assert written[0] == structure.compile_inventory(valid, size, mode, tmp_path)
+    assert written[0] == structure.compile_inventory(current_inventory(valid), size, mode, tmp_path)
     assert config.for_stage('windows').provider == 'yibu'
     assert config.for_stage('analyze_repair').reasoning_effort == 'high'
 

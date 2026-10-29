@@ -1,6 +1,7 @@
 """Compile recovered full-canvas layers and shared customer-photo windows."""
 from collage.object_roles import is_customer_photo, is_photo_background
 from copy import deepcopy
+from collage.frame_links import photo_ids
 import math
 from pathlib import Path
 import numpy as np
@@ -176,7 +177,7 @@ def attach(run,scene,config):
             o['reveal_warning']='Returned layer omitted after visual review: '+omitted[oid]
         if len(enclosed)>1 or (area(o['bbox'])/(width*height)>.22 and sum(contains(o['bbox'],p['bbox'])>.35 for p in photos)>1):
             notes.append('Layer spans multiple photos; inspect actual pixels, retained without automatic rejection')
-        related=[p for p in photos if p['id']==o.get('photo_id') or p.get('parent_id')==oid]
+        related=[p for p in photos if p['id'] in photo_ids(o) or p.get('parent_id')==oid]
         if oid in omitted:related=[]
         if frame_hint(o) and not related:notes.append('Frame has no explicit photo relationship; returned pixels retained')
         for photo in related:

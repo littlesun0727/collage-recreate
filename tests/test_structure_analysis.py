@@ -1,3 +1,4 @@
+from inventory_examples import current_inventory
 from collage import prompts
 from copy import deepcopy
 from types import SimpleNamespace
@@ -77,6 +78,8 @@ def test_analysis_preserves_order_with_multiple_frames_and_foreground(explicit):
     bg, photo, frame, title = inventory()['objects']
     photo['parent_id'] = 'frame'  # A carrier association is not an ordering dependency.
     second_frame = {**deepcopy(frame), 'id': 'frame_2'}
+    second_frame['kind'] = 'overlay'
+    second_frame.pop('photo_id')
     front = {**deepcopy(photo), 'id': 'front', 'linked_to': 'photo'}
     front.pop('parent_id')
     front_frame = {**deepcopy(frame), 'id': 'front_frame', 'photo_id': 'front'}
@@ -131,7 +134,7 @@ def test_layer_id_faults_are_fixed_locally_in_one_analysis_request(tmp_path, out
     original = inventory()
     original.pop('layer_order')
     original.update(deepcopy(order_fields))
-    wire = deepcopy(original)
+    wire = current_inventory(original)
     if output == 'json_schema':
         fields = structure.schema([1000, 1000], 'normalized_1000')['properties']['objects']['items']['properties']
         wire['objects'] = [{key: row.get(key) for key in fields} for row in wire['objects']]
@@ -153,14 +156,14 @@ def test_layer_id_faults_are_fixed_locally_in_one_analysis_request(tmp_path, out
     assert calls[0]['response_format']['type'] == output
     assert written[0]['analysis']['layer_order'] == expected
     saved = read(tmp_path/'structure.json')
-    assert saved['layer_order'] == expected and saved['objects'] == original['objects']
+    assert saved['layer_order'] == expected[1:] and saved['objects'] == current_inventory(original)['objects']
     evidence = read(tmp_path/'workflow/structure-analysis.json')
     assert evidence['first_pass_valid'] and not evidence['repaired']
     assert not (tmp_path/'workflow/structure-repair-plan.json').exists()
     assert not (tmp_path/'workflow/vlm/analyze_repair').exists()
     folder = next((tmp_path/'workflow/vlm/analyze').iterdir())
-    assert read(folder/'normalization-0.json')['changed']
-    assert read(folder/'accepted.json')['answer']['layer_order'] == expected
+    assert read(folder/'normalization-0.json')['changed'] == (structure.normalize(wire) != wire)
+    assert read(folder/'accepted.json')['answer']['layer_order'] == expected[1:]
     assert json.loads(read(folder/'response-0.json')['content']) == wire
 
 
@@ -230,7 +233,7 @@ def test_photo_placement_coordinates_and_engine_windows(tmp_path):
 
 
 def test_client_normalizes_before_schema_validation_without_extra_request(tmp_path):
-    value = inventory(); value['objects'][1]['parent_id'] = None
+    value = current_inventory(inventory()); value['objects'][0]['parent_id'] = None
     config = Config(analysis_model=None, coordinate_mode='normalized_1000', max_requests=1, response_format='json_object')
     import json
     calls = []
@@ -240,7 +243,7 @@ def test_client_normalizes_before_schema_validation_without_extra_request(tmp_pa
     client = Client(tmp_path/'vlm', config, transport=transport)
     result = client.ask('analyze', prompts.render('analyze', mode='normalized_1000'), {}, [], structure.schema([1000, 1000], 'normalized_1000'),
                         single_request=True, normalize_answer=structure.normalize)
-    assert len(calls) == 1 and 'parent_id' not in result['objects'][1]
+    assert len(calls) == 1 and 'parent_id' not in result['objects'][0]
     assert json.loads(next((tmp_path/'vlm/analyze').glob('*/response-0.json')).read_text())['content'] == json.dumps(value)
 
 
@@ -257,7 +260,7 @@ def test_live_analyzer_repairs_within_two_request_budget(tmp_path, failure):
     calls = []
     def transport(payload):
         calls.append(payload)
-        return {'choices': [{'finish_reason': 'stop', 'message': {'content': json.dumps(replies[len(calls)-1])}}]}
+        return {'choices': [{'finish_reason': 'stop', 'message': {'content': json.dumps(current_inventory(replies[len(calls)-1]))}}]}
     config = Config(analysis_model=None, coordinate_mode='normalized_1000', max_requests=2, response_format='json_object')
     client = Client(tmp_path/'workflow/vlm', config, transport=transport)
     save(tmp_path/'input.json', {'reference_size': [1200, 1600]})
@@ -275,7 +278,7 @@ def test_live_analyzer_repairs_within_two_request_budget(tmp_path, failure):
         result = read(tmp_path/'workflow/structure-analysis.json')
         assert result['repaired'] and not result['first_pass_valid']
         assert result['repair_kind'] == ('field_patch' if failure in {'missing_text', 'missing_description'} else 'full_retry')
-        assert written[0] == structure.compile_inventory(inventory(), [1200, 1600], 'normalized_1000', tmp_path)
+        assert written[0] == structure.compile_inventory(current_inventory(inventory()), [1200, 1600], 'normalized_1000', tmp_path)
     assert len(calls) == client.usage()['requests'] == 2
 
 
@@ -294,12 +297,12 @@ def test_window_stage_rejects_misassigned_geometry(fault):
 
 def test_text_content_is_required_but_description_is_derived():
     value = inventory(); value['objects'][3].pop('description')
-    Draft202012Validator(structure.schema([1000, 1000], 'normalized_1000')).validate(value)
+    Draft202012Validator(structure.legacy_schema([1000, 1000], 'normalized_1000')).validate(value)
     compiled = structure.compile_inventory(value, [1000, 1000], 'normalized_1000')
     assert compiled['analysis']['objects'][3]['description'] == 'Hello'
     assert 'description' not in value['objects'][3]
     value['objects'][3].pop('text')
-    assert not Draft202012Validator(structure.schema([1000, 1000], 'normalized_1000')).is_valid(value)
+    assert not Draft202012Validator(structure.legacy_schema([1000, 1000], 'normalized_1000')).is_valid(value)
     assert 'text' not in structure.normalize(value)['objects'][3]
     with pytest.raises(ValueError): structure.compile_inventory(value, [1000, 1000], 'normalized_1000')
 
@@ -374,7 +377,7 @@ def test_photo_description_survives_compilation_without_effect_classification():
     value = inventory()
     description = 'Environment remains visible; blue outline follows the whole subject; soft bottom edge.'
     value['objects'][1]['description'] = description
-    schema = structure.schema([1000, 1000], 'normalized_1000')
+    schema = structure.legacy_schema([1000, 1000], 'normalized_1000')
     fields = schema['properties']['objects']['items']['properties']
     strict_value = {**value, 'objects': [{k: row.get(k) for k in fields} for row in value['objects']]}
     Draft202012Validator(project(schema)).validate(strict_value)
@@ -401,7 +404,7 @@ def test_description_only_analysis_is_accepted_in_one_request(tmp_path, frame_fi
         original['layer_order'] = ['bg', 'frame', 'photo', 'title']
     config = Config(coordinate_mode='normalized_1000', max_requests=1)
     client = Client(tmp_path/'workflow/vlm', config, transport=lambda payload: {
-        'choices': [{'finish_reason': 'stop', 'message': {'content': json.dumps(original)}}]})
+        'choices': [{'finish_reason': 'stop', 'message': {'content': json.dumps(current_inventory(original))}}]})
     save(tmp_path/'input.json', {'reference_size': [1000, 1000]})
     written = []
     runner = SimpleNamespace(run=tmp_path, control=tmp_path/'workflow', config=config, client=client,
@@ -414,10 +417,10 @@ def test_description_only_analysis_is_accepted_in_one_request(tmp_path, frame_fi
     assert 'mode' not in read(tmp_path/'structure.json')['objects'][1]
     assert 'mode' not in written[0]['analysis']['objects'][1]
     assert written[0]['analysis']['layer_order'] == original['layer_order']
-    assert read(tmp_path/'structure.json')['objects'] == original['objects']
+    assert read(tmp_path/'structure.json')['objects'] == current_inventory(original)['objects']
     folder = next((tmp_path/'workflow/vlm/analyze').iterdir())
     assert not read(folder/'normalization-0.json')['changed']
-    assert json.loads(read(folder/'response-0.json')['content']) == original
+    assert json.loads(read(folder/'response-0.json')['content']) == current_inventory(original)
 
 
 @pytest.mark.parametrize('preserve,stroke,fade', [

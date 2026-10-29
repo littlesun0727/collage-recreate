@@ -2,15 +2,16 @@
 
 from copy import deepcopy
 import math
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, ValidationError
 from collage import contracts, prompts
 from collage.vlm.client import ModelError, ModelTransportError
 from collage.vlm.coordinates import resolve_mode
 from collage.storage import read, save
 from collage.vlm.response_normalization import unwrap_object
+from collage.workflow.inventory import schema
 
 
-VERSION = 'structure-analysis-v9-10-solid-color'
+VERSION = 'structure-analysis-v9-12-frame-photo-list'
 ID = {'type': 'string', 'pattern': '^[a-z][a-z0-9_-]{0,63}$'}
 COLOR = {'type': 'string', 'pattern': '^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$'}
 TEXT_STYLE_FIELDS = ('font', 'align', 'bold', 'italic')
@@ -63,7 +64,7 @@ def execute(ctx):
     ctx.write_reference(bundle)
 
 
-def schema(size, mode):
+def legacy_schema(size, mode):
     number = {'type': 'number' if mode == 'normalized_1000' else 'integer',
               'minimum': 0, 'maximum': 1000 if mode == 'normalized_1000' else max(size)}
     item = contracts.obj({
@@ -72,7 +73,8 @@ def schema(size, mode):
         'bbox': {'type': 'array', 'items': number, 'minItems': 4, 'maxItems': 4},
         'description': {'type': 'string', 'minLength': 1, 'maxLength': 400},
         'linked_to': ID,
-        'photo_id': ID, 'parent_id': ID,
+        'photo_id': {'anyOf': [ID, {'type': 'array', 'items': ID, 'minItems': 1,
+                                   'maxItems': 160, 'uniqueItems': True}]}, 'parent_id': ID,
         'text': {'type': ['string', 'null'], 'description': '保留参考图逐行内容；JSON 中用 \\n 表示实际换行，不能合并成单行。'},
         'color': COLOR,
         **{key: deepcopy(contracts.STYLE['properties'][key]) for key in TEXT_STYLE_FIELDS},
@@ -96,8 +98,8 @@ def schema(size, mode):
     return contracts.obj({
         # Count/ordering are checked by problems(), including providers whose
         # strict schema subset cannot express array-wide contains constraints.
-        'objects': {'type': 'array', 'items': item, 'minItems': 1, 'maxItems': 160},
-        'layer_order': {'type': 'array', 'items': ID, 'minItems': 1, 'maxItems': 160,
+        'objects': {'type': 'array', 'items': item, 'minItems': 1, 'maxItems': 161},
+        'layer_order': {'type': 'array', 'items': ID, 'minItems': 1, 'maxItems': 161,
                         'uniqueItems': True},
     })
 
@@ -149,9 +151,18 @@ def normalize_layer_order(ids, order):
 
 
 def problems(value, size, mode):
+    if isinstance(value, dict) and 'background' in value:
+        from collage.workflow.inventory import to_internal_inventory, wire_problems
+        issues = wire_problems(value, size, mode)
+        if issues:
+            return issues
+        try:
+            return problems(to_internal_inventory(value, size, mode), size, mode)
+        except (ValueError, ValidationError) as error:
+            return [{'path': '$', 'message': str(error)[:1500]}]
     value = normalize(value)
     issues = []
-    for e in Draft202012Validator(schema(size, mode)).iter_errors(value):
+    for e in Draft202012Validator(legacy_schema(size, mode)).iter_errors(value):
         path = list(e.absolute_path)
         issue = {'path': '.'.join(map(str, path)) or '$', 'message': e.message[:400]}
         if len(path) >= 2 and path[0] == 'objects' and isinstance(path[1], int):
@@ -187,6 +198,9 @@ def problems(value, size, mode):
     from photo_links import inventory_issues
     for issue in inventory_issues(objects, order if isinstance(order, list) else []):
         issues.append({'path': 'objects.' + str(indices[issue['id']]), **issue})
+    from collage.frame_links import frame_issues
+    for issue in frame_issues(objects):
+        issues.append({'path': 'objects.' + str(indices[issue['id']]), **issue})
     for i, item in enumerate(objects):
         def fail(message, fields=()):
             issues.append({'path': f'objects.{i}', 'id': item['id'], 'message': message,
@@ -198,12 +212,8 @@ def problems(value, size, mode):
             if not (0 <= l < r <= w and 0 <= t < b <= h):
                 fail('bbox must be nonempty and inside the reference', ['bbox'])
         kind = item.get('kind')
-        if kind == 'frame':
-            linked = by_id.get(item.get('photo_id')) if isinstance(item.get('photo_id'), str) else None
-            if not linked or linked.get('kind') != 'photo':
-                fail('frame needs photo_id pointing to a photo', ['photo_id'])
-        elif 'photo_id' in item:
-            fail('photo_id belongs to frame; use parent_id for photos on a shared backing')
+        if kind != 'frame' and 'photo_id' in item:
+            fail('photo_id belongs to frame')
         if 'parent_id' in item:
             owner = item['parent_id']
             if not isinstance(owner, str) or owner not in by_id or owner == item['id']:
@@ -225,6 +235,12 @@ def problems(value, size, mode):
 
 
 def compile_inventory(value, size, mode, run=None):
+    if isinstance(value, dict) and 'background' in value:
+        from collage.workflow.inventory import to_internal_inventory
+        try:
+            value = to_internal_inventory(value, size, mode)
+        except ValidationError as error:
+            raise ValueError(error.message) from error
     value = normalize(value)
     issues = problems(value, size, mode)
     if issues:
@@ -265,6 +281,7 @@ def compile_inventory(value, size, mode, run=None):
 
 def repair_plan(original, size, mode):
     """Permit only fields identified by validation, never a whole-object rewrite."""
+    current_format = isinstance(original, dict) and 'background' in original
     original = normalize(original)
     if not isinstance(original, dict) or not isinstance(original.get('objects'), list):
         return None
@@ -283,9 +300,11 @@ def repair_plan(original, size, mode):
         fields.setdefault(oid, set()).update(names)
     if not fields:
         return None
-    definitions = schema(size, mode)['properties']['objects']['items']['properties']
+    definitions = (schema if current_format else legacy_schema)(size, mode)['properties']['objects']['items']['properties']
     updates = {}
     for oid, names in fields.items():
+        if any(name not in definitions for name in names):
+            return None
         specifications = {k: deepcopy(definitions[k]) for k in sorted(names)}
         if 'parent_id' in specifications:
             specifications['parent_id'] = {'anyOf': [specifications['parent_id'], {'type': 'null'}]}
