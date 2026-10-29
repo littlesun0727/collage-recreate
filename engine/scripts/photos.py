@@ -70,6 +70,16 @@ def cutout(im, source, model, cache):
     path=Path(cache)/(key+'.png');manifest=path.with_suffix('.json')
     if path.exists() and manifest.exists() and sha(path)==read(manifest)['sha256']:
         with Image.open(path) as raw:return raw.convert('RGBA')
+    # Validated offline mattes may be reused across tasks selecting the same photo.
+    from collage.paths import OUTPUT_ROOT
+    shared=OUTPUT_ROOT/'cache/cutouts'/(key+'.png');receipt=shared.with_suffix('.json')
+    record=read(receipt) if receipt.exists() else {}
+    if (shared.is_file() and record.get('source_sha256')==source['sha256']
+            and record.get('model_sha256')==model_sha and sha(shared)==record.get('sha256')):
+        with Image.open(shared) as raw:
+            result=raw.convert('RGBA')
+        if result.size!=im.size:raise ValueError('Shared cutout dimensions differ from source')
+        return result
     # ONNX native errors inherit Exception directly, not RuntimeError. Normalize
     # only the external engine boundary so render can fall back for this photo.
     try:
@@ -103,7 +113,14 @@ def make_photo(obj, source, binding, size, run, model):
     subject_alpha = None
     spec = obj.get('photo_window_spec')
     shared=obj.get('shared_photo')
-    if obj['mode']=='cutout':
+    if shared and shared.get('subject_anchor') and not obj.get('_skip_subject_anchor'):
+        from photo_links import anchor_subject
+        foreground=cutout(im,source,model,Path(run)/'assets/photos/.cache')
+        obj=anchor_subject(obj,foreground.getchannel('A'))
+        shared=obj['shared_photo']
+        if obj['mode']=='cutout':im=foreground
+        elif subject_stroke(spec):subject_alpha=foreground.getchannel('A')
+    elif obj['mode']=='cutout':
         im=cutout(im,source,model,Path(run)/'assets/photos/.cache')
         if not shared:
             bounds=im.getchannel('A').point(lambda x:255 if x>8 else 0).getbbox();im=im.crop(bounds)
@@ -112,6 +129,13 @@ def make_photo(obj, source, binding, size, run, model):
         subject_alpha = cutout(im,source,model,Path(run)/'assets/photos/.cache').getchannel('A')
         if subject_alpha.size != im.size:
             raise ValueError('Subject mask dimensions do not match the source photo')
+    if not shared and obj['mode'] != 'cutout':
+        from collage.crop_quality import expand_crop
+        style = obj.get('style', {})
+        bounds = (0, 0, *size) if spec else photo_layout(size, style)
+        target = (bounds[2]-bounds[0], bounds[3]-bounds[1])
+        binding = {**binding, 'source_crop': expand_crop(
+            binding.get('source_crop', [0,0,1,1]), im.size, target)}
     crop=binding.get('source_crop',[0,0,1,1]);w,h=im.size
     if not shared:
         im=im.crop((int(crop[0]*w),int(crop[1]*h),max(1,int(crop[2]*w)),max(1,int(crop[3]*h))))
@@ -135,11 +159,16 @@ def make_photo(obj, source, binding, size, run, model):
         from photo_links import shared_tile
         im=shared_tile(sample_obj,im,window,obj['_render_scale'], margin=margin)
     else:im=fit_image(im,window,binding.get('crop_center',[.5,.5]),obj['mode']=='cutout', margin=margin)
+    clipped_by_base_bottom=False
     if obj.get('photo_window_spec'):
         if subject_alpha is not None:
             subject_alpha = shared_tile(obj,subject_alpha,window,obj['_render_scale'], margin=margin) if shared else fit_subject_mask(subject_alpha, binding, window, margin=margin)
         im,content_alpha=apply_window(im,obj['photo_window_spec'],subject_alpha, source_margin=margin,
                                       placement_size=placement_size if canvas_aligned else None)
+        if shared and obj['mode']=='cutout':
+            from photo_links import clip_linked_bottom
+            im,content_alpha=clip_linked_bottom(sample_obj,im,obj['_render_scale'],content_alpha)
+            clipped_by_base_bottom=not im.getchannel('A').getbbox()
     else:
         if style.get('corner_radius',0):im=clip_round(im,style['corner_radius'])
         if obj['mode']=='feather':
@@ -151,9 +180,12 @@ def make_photo(obj, source, binding, size, run, model):
         im,pad=expanded_outline(im,style.get('outline_width',3 if obj['mode']=='cutout' else 0),style.get('outline_color','#FFFFFF'))
         if pad:
             mask=Image.new('L',im.size);mask.paste(content_alpha,(pad,pad));content_alpha=mask
-    if not im.getchannel('A').getbbox():raise ValueError('Photo output is entirely transparent')
+    if not im.getchannel('A').getbbox() and not clipped_by_base_bottom:raise ValueError('Photo output is entirely transparent')
     content_file=Path(run)/'assets/photos'/(obj['id']+'-content-mask.png');content_file.parent.mkdir(parents=True,exist_ok=True);content_alpha.save(content_file)
     metadata={'resource_type':'customer_photo','source':source,'mode':obj['mode'],'binding':binding,'pixel_operation':'bound-source-resize-crop-mask; no generated RGB','content_mask':str(content_file),'content_mask_sha256':sha(content_file)}
     if obj.get('photo_window_spec'):metadata['photo_window_spec']=obj['photo_window_spec']
     if canvas_aligned:metadata['canvas_aligned']=True
+    if clipped_by_base_bottom:
+        metadata.update(quality='needs_review', clipped_by_base_bottom=True,
+                        note='Linked foreground is entirely below the base crop bottom; kept transparent')
     return im,metadata

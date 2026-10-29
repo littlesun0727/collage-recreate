@@ -105,3 +105,9 @@ mask.enabled=false 表示没有独立固定照片窗口，此时不能提供 sha
     commands/                本地操作日志
     vlm/                     每次模型请求、提示词、响应和校验记录
 ```
+
+关联出框先按抠像主体范围拟合前景 bbox，再以底图窗口完整覆盖为硬约束：允许采样原素材中 source_crop 外的像素；优先选择离原主体位置最近的平移（包括向下），原图范围仍不足时才整体等比放大到刚好覆盖。底图窗口四角先转换到主体的旋转坐标系再计算覆盖，镜像也使用同一源图范围。前景和底图始终共享最终缩放与位移；静态和动图共用 shared_tile，不能分别 cover。必要时主体可以超出原定 bbox。
+
+Linked pop-out rendering always clips the finished foreground alpha and content mask to the base crop bottom edge, measured in the rotated base coordinates. This shared rule applies to every linked foreground in both static and live rendering. Apply it after subject strokes so the crop edge does not acquire an artificial outline; the upper pop-out remains unrestricted.
+
+照片绑定禁止独立槽重复使用同一素材；明确 linked_to 的前景与底图共享素材。清晰度由程序兜底：有效素材像素的宽、高至少达到实际贴回尺寸的 75%，不足时围绕原裁剪区域扩大同一素材的使用范围，图片边界处向内平移。普通 cover 照片按目标比例裁切后仍须满足这个比例；原图本身不足则尽可能扩大，不因此拒绝绑定或重新调用 VLM。静态与动图普通照片渲染共用同一规则；抠像出框保留主体锚定方式，扩大背景不能增加主体本身的像素。绑定阶段的裁剪调整记录在 binding-check.json 的 crop_expansions 中。

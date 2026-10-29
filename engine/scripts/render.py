@@ -61,6 +61,7 @@ def best_effort_material(o, size, reference, photos, run, scene):
             raise
         if is_customer_photo(o):
             plain = deepcopy(o)
+            plain['_skip_subject_anchor']=True
             plain.update(mode='cover', style={})
             if plain.get('photo_window_spec'):
                 plain['photo_window_spec']['subject']['mode']='preserve'
