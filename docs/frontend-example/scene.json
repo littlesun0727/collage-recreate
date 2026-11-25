@@ -1,0 +1,65 @@
+{
+  "schema_version": "harmony-collage-scene-v1",
+  "canvas_size": [
+    640,
+    480
+  ],
+  "layers": [
+    {
+      "id": "bg",
+      "kind": "background",
+      "background_type": "solid_color",
+      "bbox": [
+        0,
+        0,
+        640,
+        480
+      ],
+      "rotation": 0,
+      "label": "Background",
+      "description": "Warm cream background",
+      "method": "local",
+      "style": {
+        "fill": "#F4EBDD"
+      },
+      "source": {
+        "type": "png",
+        "file": "layers/layer_000.png",
+        "placement": "full_canvas"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        140,
+        60,
+        500,
+        420
+      ],
+      "rotation": 8,
+      "label": "Portrait",
+      "description": "Portrait in a five-point star",
+      "method": "local",
+      "mode": "window",
+      "shape": "star",
+      "star_points": 5,
+      "inner_ratio": 0.5,
+      "source": {
+        "type": "customer_asset",
+        "asset_id": "album-001",
+        "source_crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "crop_center": [
+          0.5,
+          0.5
+        ],
+        "mirror_x": false
+      }
+    }
+  ]
+}

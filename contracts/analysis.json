@@ -1,0 +1,976 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "collage-analysis-v1"
+    },
+    "reference_size": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 30000
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+          },
+          "kind": {
+            "enum": [
+              "background",
+              "photo",
+              "frame",
+              "text",
+              "overlay"
+            ],
+            "description": "需替换的摄影内容用 photo 绑定客户素材；固定模板背景可本地绘制或从参考清底，使用 background。普通可编辑文字才用 text；固定艺术字、完整文字标签及装饰用 overlay。需要独立提取的单窗装饰相框用 frame，method=extract，photo_id 必须指向承载照片；简单几何单色轮廓属于 photo。"
+          },
+          "background_type": {
+            "enum": [
+              "photo",
+              "solid_color",
+              "photographic",
+              "simple_design",
+              "complex_design",
+              "reference_clean"
+            ],
+            "description": "背景层固定 kind=background：客户照片铺底用 photo、method=local；均匀纯色底用 solid_color、method=local；需要清除独立前景的固定模板底用 reference_clean、method=extract。photographic、simple_design 和 complex_design 仅兼容旧任务。普通前景省略。"
+          },
+          "bbox": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "description": "描述完整制作单元及实际素材边界。独立贴纸不因重叠合并；合并须写明共同载体或整体设计依据、成员及内部遮挡。"
+          },
+          "rotation": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "parent_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "linked_to": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,63}$",
+            "description": "Continuous cutout foreground linked to an independent photo base; shares source and transform."
+          },
+          "mode": {
+            "description": "photo 的处理方式：window 保留背景并有固定窗口（默认），cutout 去背景，bare 保留背景且无固定窗口。窗口参数就是 photo 自己的字段，不再有单独的窗口文件。",
+            "enum": [
+              "window",
+              "cutout",
+              "bare"
+            ]
+          },
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "text_status": {
+            "enum": [
+              "known",
+              "unreadable"
+            ]
+          },
+          "method": {
+            "enum": [
+              "local",
+              "extract",
+              "placeholder"
+            ]
+          },
+          "style": {
+            "type": "object",
+            "properties": {
+              "border": {
+                "type": "object",
+                "properties": {
+                  "top": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.3
+                  },
+                  "right": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.3
+                  },
+                  "bottom": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.3
+                  },
+                  "left": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.3
+                  }
+                },
+                "required": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ],
+                "additionalProperties": false
+              },
+              "fill": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+              },
+              "stroke": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+              },
+              "stroke_width": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 200
+              },
+              "opacity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "font": {
+                "enum": [
+                  "sans",
+                  "serif",
+                  "mono",
+                  "hand",
+                  "cjk",
+                  "cjk-hand"
+                ]
+              },
+              "bold": {
+                "type": "boolean"
+              },
+              "italic": {
+                "type": "boolean"
+              },
+              "font_size": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "align": {
+                "enum": [
+                  "left",
+                  "center",
+                  "right"
+                ]
+              },
+              "line_spacing": {
+                "type": "number",
+                "minimum": 0.5,
+                "maximum": 3
+              },
+              "outline_width": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 50
+              },
+              "outline_color": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+              },
+              "shape": {
+                "enum": [
+                  "rectangle",
+                  "rounded_rectangle",
+                  "ellipse",
+                  "heart",
+                  "star",
+                  "line",
+                  "arrow",
+                  "polygon",
+                  "polyline",
+                  "paper",
+                  "tape",
+                  "frame",
+                  "paperclip",
+                  "rays",
+                  "curve"
+                ]
+              },
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "minItems": 2
+              },
+              "radius": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "sides": {
+                "type": "integer",
+                "minimum": 3,
+                "maximum": 30
+              },
+              "inner_ratio": {
+                "type": "number",
+                "minimum": 0.05,
+                "maximum": 0.95
+              },
+              "texture": {
+                "enum": [
+                  "none",
+                  "paper",
+                  "grain",
+                  "dots",
+                  "stripes",
+                  "grid"
+                ]
+              },
+              "seed": {
+                "type": "integer"
+              },
+              "feather": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.5
+              },
+              "extract_background": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+              },
+              "extract_tolerance": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "dash": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1000
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "line_cap": {
+                "enum": [
+                  "butt",
+                  "round"
+                ]
+              },
+              "extract_mode": {
+                "enum": [
+                  "auto",
+                  "foreground",
+                  "color",
+                  "crop"
+                ]
+              },
+              "window": {
+                "description": "Explicit transparent opening in a local overlay, independent of photo mode. bbox is normalized to the overlay; radius is a fraction of the opening's short side.",
+                "type": "object",
+                "required": [
+                  "bbox"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "bbox": {
+                    "type": "array",
+                    "minItems": 4,
+                    "maxItems": 4,
+                    "items": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "radius": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 0.5
+                  }
+                }
+              },
+              "corner_radius": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2000
+              },
+              "edge": {
+                "enum": [
+                  "straight",
+                  "torn"
+                ]
+              },
+              "card": {
+                "type": "object",
+                "properties": {
+                  "fill": {
+                    "type": "string",
+                    "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+                  },
+                  "padding": {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 30000
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  },
+                  "radius": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2000
+                  }
+                },
+                "additionalProperties": false
+              },
+              "shadow": {
+                "type": "object",
+                "properties": {
+                  "color": {
+                    "type": "string",
+                    "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+                  },
+                  "blur": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 200
+                  },
+                  "offset": {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "minimum": -1000,
+                      "maximum": 1000
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  }
+                },
+                "additionalProperties": false
+              },
+              "patterns": {
+                "type": "array",
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "lines",
+                        "grid",
+                        "dots",
+                        "cherry",
+                        "reference_tile"
+                      ]
+                    },
+                    "spacing": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minimum": 2,
+                        "maximum": 3000
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    "phase": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minimum": -3000,
+                        "maximum": 3000
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    "angle": {
+                      "type": "number",
+                      "minimum": -180,
+                      "maximum": 180
+                    },
+                    "color": {
+                      "type": "string",
+                      "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+                    },
+                    "width": {
+                      "type": "number",
+                      "minimum": 0.1,
+                      "maximum": 100
+                    },
+                    "dash": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minimum": 0.1,
+                        "maximum": 1000
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    "motif_size": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 1000
+                    },
+                    "sample_bbox": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "minItems": 4,
+                      "maxItems": 4,
+                      "description": "Clean repeat unit in normalized full-reference coordinates, never include a photo."
+                    },
+                    "fallback_motif": {
+                      "enum": [
+                        "grid",
+                        "dots",
+                        "cherry",
+                        "none"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "spacing",
+                    "phase",
+                    "angle",
+                    "color",
+                    "width"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "appearance": {
+            "enum": [
+              "rounded_photo",
+              "polaroid"
+            ]
+          },
+          "photo_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "description": "frame 必填，指向承载的 kind=photo；旧 overlay 关联仍兼容。",
+                "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+                },
+                "minItems": 1,
+                "maxItems": 160,
+                "uniqueItems": true
+              }
+            ],
+            "description": "Frame photo IDs; scalar form accepted for legacy data."
+          },
+          "embedded_in": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+          },
+          "window_bbox": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "shape": {
+            "enum": [
+              "rectangle",
+              "rounded_rect",
+              "ellipse",
+              "circle",
+              "heart",
+              "star",
+              "polygon"
+            ],
+            "description": "固定窗口形状，仅 mode=window；省略为 rectangle。"
+          },
+          "radius": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.5,
+            "description": "rounded_rect 的圆角，相对窗口短边。"
+          },
+          "corner_radii": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.5
+            },
+            "description": "编译后的四边形各角半径，相对照片短边；裁切交点为 0。"
+          },
+          "star_points": {
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 12
+          },
+          "inner_ratio": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 0.9
+          },
+          "points": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 32,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "description": "polygon 的顶点，制作框内局部 0～1 坐标。"
+          },
+          "stroke": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "width",
+              "color"
+            ],
+            "properties": {
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 0.1
+              },
+              "color": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$"
+              },
+              "pattern": {
+                "enum": [
+                  "solid",
+                  "dash",
+                  "dot"
+                ]
+              },
+              "placement": {
+                "enum": [
+                  "inside",
+                  "center",
+                  "outside"
+                ]
+              },
+              "offset": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.2
+              }
+            },
+            "description": "存在即启用。mode=window 沿窗口，mode=cutout 沿主体（固定 outside）。"
+          },
+          "fade": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "direction": {
+                "enum": [
+                  "inside",
+                  "outside"
+                ]
+              },
+              "top": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.5
+              },
+              "bottom": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.5
+              },
+              "left": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.5
+              },
+              "right": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.5
+              }
+            },
+            "description": "窗口边缘渐变，仅 mode=window；没写的边为 0。"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "bbox",
+          "label",
+          "description"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "corner_radii"
+              ]
+            },
+            "then": {
+              "required": [
+                "shape",
+                "points"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "photo"
+                },
+                "mode": {
+                  "const": "window"
+                },
+                "shape": {
+                  "const": "polygon"
+                },
+                "points": {
+                  "minItems": 4,
+                  "maxItems": 4
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "frame"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "photo_id",
+                "method"
+              ],
+              "properties": {
+                "method": {
+                  "const": "extract"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "background_type": {
+                  "const": "reference_clean"
+                }
+              },
+              "required": [
+                "background_type"
+              ]
+            },
+            "then": {
+              "required": [
+                "method"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "background"
+                },
+                "method": {
+                  "const": "extract"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "text"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "text",
+                "text_status"
+              ],
+              "properties": {
+                "method": {
+                  "const": "local"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "text",
+                    "overlay",
+                    "frame"
+                  ]
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "window_bbox": false,
+                "mode": false,
+                "appearance": false,
+                "shape": false,
+                "radius": false,
+                "corner_radii": false,
+                "star_points": false,
+                "inner_ratio": false,
+                "points": false,
+                "stroke": false,
+                "fade": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "background",
+                    "text",
+                    "photo"
+                  ]
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "photo_id": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "background"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "background_type",
+                "method"
+              ],
+              "properties": {
+                "background_type": {
+                  "enum": [
+                    "photo",
+                    "solid_color",
+                    "reference_clean",
+                    "simple_design",
+                    "complex_design"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "background_type": {
+                  "const": "photo"
+                }
+              },
+              "required": [
+                "background_type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "kind": {
+                  "const": "background"
+                },
+                "method": {
+                  "const": "local"
+                },
+                "mode": {
+                  "const": "bare"
+                },
+                "linked_to": false,
+                "parent_id": false
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "background_type": {
+                  "const": "photographic"
+                }
+              },
+              "required": [
+                "background_type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "kind": {
+                  "const": "photo"
+                },
+                "mode": {
+                  "enum": [
+                    "window",
+                    "bare"
+                  ]
+                },
+                "method": {
+                  "const": "local"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "background_type": {
+                  "enum": [
+                    "solid_color",
+                    "simple_design",
+                    "complex_design"
+                  ]
+                }
+              },
+              "required": [
+                "background_type"
+              ]
+            },
+            "then": {
+              "required": [
+                "style"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "background"
+                },
+                "method": {
+                  "const": "local"
+                },
+                "style": {
+                  "required": [
+                    "fill"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "background_type": {
+                  "const": "reference_clean"
+                }
+              },
+              "required": [
+                "background_type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "kind": {
+                  "const": "background"
+                },
+                "method": {
+                  "const": "extract"
+                }
+              }
+            }
+          }
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 161
+    },
+    "layer_order": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "reference_size",
+    "objects",
+    "layer_order"
+  ],
+  "additionalProperties": false
+}

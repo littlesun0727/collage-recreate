@@ -1,0 +1,49 @@
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    640,
+    480
+  ],
+  "objects": [
+    {
+      "id": "bg",
+      "kind": "background",
+      "background_type": "solid_color",
+      "bbox": [
+        0,
+        0,
+        640,
+        480
+      ],
+      "rotation": 0,
+      "label": "Background",
+      "description": "Warm cream background",
+      "method": "local",
+      "style": {
+        "fill": "#F4EBDD"
+      }
+    },
+    {
+      "id": "photo_1",
+      "kind": "photo",
+      "bbox": [
+        140,
+        60,
+        500,
+        420
+      ],
+      "rotation": 8,
+      "label": "Portrait",
+      "description": "Portrait in a five-point star",
+      "method": "local",
+      "mode": "window",
+      "shape": "star",
+      "star_points": 5,
+      "inner_ratio": 0.5
+    }
+  ],
+  "layer_order": [
+    "bg",
+    "photo_1"
+  ]
+}
