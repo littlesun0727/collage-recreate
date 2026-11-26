@@ -72,5 +72,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8811)
+    parser.add_argument("--api-config", type=Path)
     args = parser.parse_args()
+    from collage.api_config import configure
+    configure(args.api_config)
     ThreadingHTTPServer((args.host, args.port), Handler).serve_forever()

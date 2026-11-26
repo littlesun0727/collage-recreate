@@ -1,6 +1,7 @@
 """Extract fixed PNGs; customer slots provide removal context only."""
 import os
 import math
+from . import background
 from PIL import Image
 from .layout.windows import tilted_envelope
 from .lettering import finish_text_layers
@@ -51,7 +52,8 @@ def layer_image(task, index, size, alpha):
     raise ValueError(f"Missing usable Reveal layer {index}")
 
 
-def extract(run, analysis):
+def extract(run, analysis, clean_background=None):
+    from .timings import log
     size = tuple(analysis["reference_size"])
     by_id = {obj["id"]: obj for obj in analysis["objects"]}
     bg = by_id[analysis["layer_order"][0]]
@@ -59,8 +61,9 @@ def extract(run, analysis):
     layers = [by_id[i] for i in analysis["layer_order"]]
     ordered = [o for o in reversed(layers[1:]) if o["kind"] != "text"]
     fixed = {o["id"] for o in ordered if not is_customer_photo(o)}
-    # Remove original photographic content when uncovering a clean base or fixed layers beneath it.
-    targets = [o for o in ordered if not o.get("linked_to")] if clean or fixed else []
+    # Photo boxes give 360 removal context for fixed elements underneath.
+    targets = [o for o in ordered if not o.get("linked_to")] if fixed else []
+    log(f"360 提取框 {len(targets)} 个，待提取固定元素 {len(fixed)} 个")
     folder = run/"fixed"
     folder.mkdir()
     # Use numeric filenames independent of model IDs and platform-reserved names.
@@ -81,6 +84,7 @@ def extract(run, analysis):
             box = [max(0,int(l)), max(0,int(t)), min(size[0],math.ceil(r)), min(size[1],math.ceil(b))]
             boxes.append(request_object({"id": o["id"], "bbox": box}, size))
         task = root/f"batch_{start//20:02d}"
+        log(f"{task.name} 构造请求框，元素顺序 {[obj['id'] for obj in group]}")
         reserve_submission(task, root)
         fetch_batch(task, current, boxes, os.environ["360_API_KEY"])
         result = read(task/"query_response.json")["output"]
@@ -94,16 +98,22 @@ def extract(run, analysis):
             oid = group[pos]["id"]
             if oid in fixed:
                 store(oid, layer_image(task, index, size, True))
-        if clean or start + 20 < len(targets):
+                log(f"{task.name} 返回层 {index} → {oid} → {files[oid].name}")
+        if start + 20 < len(targets):
             current = task/"residual.png"
             layer_image(task, 0, size, False).save(current)
     if clean:
-        with Image.open(current) as im:
+        log("360 提取结束，读取 reference_clean 结果")
+        # Join after extraction so 360 and background generation run concurrently.
+        path = clean_background.result() if clean_background is not None else background.clean(run, bg, size)
+        with Image.open(path) as im:
             store(bg["id"], im.convert("RGBA"))
     elif not is_customer_photo(bg):
         store(bg["id"], Image.new("RGBA", size, bg["style"]["fill"]))
     visible_layers = [o for o in layers if o["id"] not in fixed or o["id"] in files]
+    if fixed - files.keys():
+        log(f"360 未返回固定层 {sorted(fixed - files.keys())}")
+    log("开始文字重叠检查、擦除与独立文字重绘")
     decisions = finish_text_layers(run, visible_layers, files, store, size)
-    if decisions:
-        save(run/"lettering.json", decisions)
+    save(run/"lettering.json", decisions, indent=2)
     return files

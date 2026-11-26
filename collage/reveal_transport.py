@@ -1,10 +1,12 @@
 import base64
+import os
 import json as jsonlib
 import threading
 import time
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+from urllib.request import Request
+from .timings import log, urlopen
 from PIL import Image
 from .storage import read, save, now, fingerprint, sha
 
@@ -50,8 +52,12 @@ def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None,
     """Retry explicit gateway failures within the run budget; retain uncertain submits."""
     post=post or http;get=get or http
     task=Path(task);task.mkdir(parents=True,exist_ok=True)
-    identity={'reference_sha256':sha(reference),'objects':objects,'model':'ecommerce_layer',
+    base = os.getenv("COLLAGE_REVEAL_URL", BASE).rstrip("/")
+    model = os.getenv("COLLAGE_REVEAL_MODEL", "ecommerce_layer")
+    identity={'reference_sha256':sha(reference),'objects':objects,'model':model,
               'version':'v1.1','seed':42,'steps':28}
+    if base != BASE:
+        identity['base_url'] = base
     digest=fingerprint(identity);mp=task/'request_meta.json'
     if mp.exists() and read(mp)['sha256']!=digest:raise ValueError('Reveal request changed in an existing task')
     save(mp,{**identity,'sha256':digest})
@@ -64,7 +70,7 @@ def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None,
         if left<=0:raise TimeoutError('Reveal task timeout; resume with the same cache')
         started=time.monotonic()
         try:
-            response=post(BASE+'/'+endpoint,json=payload,headers={'Authorization':'Bearer '+key},timeout=(min(30,left),min(120,left)))
+            response=post(base+'/'+endpoint,json=payload,headers={'Authorization':'Bearer '+key},timeout=(min(30,left),min(120,left)))
             response.raise_for_status();return response.json()
         finally:elapsed('submit_seconds' if endpoint=='submit_task' else 'query_seconds',started)
     def pause_retry(endpoint,attempt,code=None):
@@ -74,10 +80,11 @@ def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None,
         report=task/'http-retries.json'
         records=read(report) if report.exists() else []
         records.append({'endpoint':endpoint,'after_attempt':attempt,'http_status':code,'wait_seconds':delay,'at':now()})
+        log(f"{task.name} {endpoint} 第 {attempt} 次失败，HTTP {code}，{delay}s 后重试")
         save(report,records);sleep(delay)
     submitted=task/'submit_response.json'
     if not submitted.exists():
-        payload={'model':'ecommerce_layer','version':'v1.1','pipeline_type':'crop','time_out':3600,
+        payload={'model':model,'version':'v1.1','pipeline_type':'crop','time_out':3600,
                  'seed':42,'steps':28,'image_boxes':[o['bbox'] for o in objects],
                  'input':[{'type':'input_image','image_url':'data:image/png;base64,'+base64.b64encode(Path(reference).read_bytes()).decode()}]}
         marker=task/'submission_started.json'
@@ -104,6 +111,7 @@ def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None,
             history=task/'submit-history'/f'attempt-{attempt:02d}.json'
             save(history,started)
             try:
+                log(f"{task.name} 提交 360 任务，第 {attempt}/3 次")
                 response=request('submit_task',payload)
                 save(submitted,response)
                 save(history,{**started,'finished_at':now(),'task_id':response.get('task_id'),
@@ -115,14 +123,17 @@ def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None,
                 if code not in SUBMIT_RETRY_CODES or attempt>=3:raise
     result=read(submitted)
     if result.get('response_status')!=0 or not result.get('task_id'):raise ValueError('Reveal submission rejected; inspect saved response')
-    query={'model':'ecommerce_layer','version':'v1.1','task_id':result['task_id']}
+    query={'model':model,'version':'v1.1','task_id':result['task_id']}
+    log(f"{task.name} 360 任务编号 {result['task_id']}")
     qp=task/'query_response.json';result=read(qp) if qp.exists() else {}
     while result.get('status')!='done':
         if result.get('status') in ['failed','not_found','timeout'] or result.get('response_status')==-1:
             raise ValueError('Reveal task failed; saved task will not be resubmitted')
         for attempt in range(1,4):
             try:
-                result=request('query_task',query);save(qp,result);break
+                result=request('query_task',query);save(qp,result)
+                log(f"{task.name} 360 轮询状态 {result.get('status')}")
+                break
             except (OSError,ValueError) as exc:
                 code=getattr(exc,'code',None)
                 transient=(isinstance(exc,HTTPError) and code in QUERY_RETRY_CODES) or (
@@ -144,6 +155,7 @@ def fetch_batch(task, reference, objects, key, timeout=360, post=None, get=None,
                 started=time.monotonic()
                 try:
                     left=deadline-time.monotonic()
+                    log(f"{task.name} 下载 {path.name}，第 {attempt+1}/3 次")
                     if left<=0:raise TimeoutError('Reveal download timeout; resume existing task')
                     response=get(url,timeout=(min(30,left),min(120,left)));response.raise_for_status()
                     tmp=path.with_suffix('.part');tmp.write_bytes(response.content)

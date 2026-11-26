@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 from PIL import Image, ImageColor
 from .text_render import render_text
+from .timings import log
 
 
 LONG_TEXT_MIN = 5
@@ -135,9 +136,11 @@ def finish_text_layers(run, layers, files, store, size):
         relevant = [(obj, count) for j, obj, count in texts
                     if j > i and obj.get('text') and overlap_fraction(carrier['bbox'], obj['bbox']) > 0]
         if relevant:
+            log(f"检查文字承载层 {oid}，重叠文字 {[o['id'] for o, _ in relevant]}")
             with Image.open(files[oid]) as raw:
                 image = raw.convert('RGBA')
             evidence[oid] = handle_carrier(image, reference, carrier, relevant)
+            log(f"承载层 {oid} 判定 {evidence[oid]}")
             if 'inpaint' in evidence[oid].values():
                 image.save(files[oid])
         else:
@@ -149,6 +152,7 @@ def finish_text_layers(run, layers, files, store, size):
         owner = visible_owner(obj, layers[:i], files, evidence) if obj.get('text') and count < LONG_TEXT_MIN else None
         if owner:
             decisions[oid] = {'action': 'embedded', 'owner': owner}
+            log(f"文字 {oid} 保留在 {owner}")
             continue
         canvas = Image.new('RGBA', size)
         if obj.get('text'):
@@ -160,4 +164,5 @@ def finish_text_layers(run, layers, files, store, size):
         else:
             decisions[oid] = {'action': 'unreadable'}
         store(oid, canvas)
+        log(f"文字 {oid} 处理结果 {decisions[oid]}")
     return decisions

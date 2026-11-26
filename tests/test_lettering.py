@@ -80,7 +80,7 @@ class LetteringDelivery(unittest.TestCase):
             analysis = {"reference_size":[200,45],"layer_order":["bg","t"],"objects":[
                 {"id":"bg","kind":"background","background_type":"reference_clean","bbox":[0,0,200,45]},
                 {"id":"t","kind":"text","text":"one two three four five","bbox":[5,6,145,24]}]}
-            with patch.object(reveal,"fetch_batch") as remote:
+            with patch.object(reveal.background,"clean",return_value=run/"prepared/reference.png"), patch.object(reveal,"fetch_batch") as remote:
                 reveal.extract(run,analysis)
                 remote.assert_not_called()
             self.assertEqual(read(run/"lettering.json")["t"]["inpainted_carriers"], ["bg"])

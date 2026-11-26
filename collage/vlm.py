@@ -4,10 +4,10 @@ import io
 import json
 import os
 import re
-import time
-from urllib.error import HTTPError
+from .remote_retry import with_retries
 from pathlib import Path
-from urllib.request import Request, urlopen
+from urllib.request import Request
+from .timings import log, urlopen
 
 from jsonschema import Draft202012Validator
 from PIL import Image
@@ -16,15 +16,11 @@ from .layout.analysis import compile_inventory, normalize
 from .layout.inventory import schema
 
 
-YIBU_ENDPOINT = "https://yibuapi.com/v1/chat/completions"
+YIBU_ENDPOINT = "http://142.252.101.106/v1/chat/completions"
 
 
 def endpoint():
-    url = os.environ.get("COLLAGE_VLM_URL") or YIBU_ENDPOINT
-    if url.rstrip("/") in ("http://127.0.0.1:17860/v1/chat/completions",
-                           "http://localhost:17860/v1/chat/completions"):
-        return YIBU_ENDPOINT
-    return url
+    return os.environ.get("COLLAGE_VLM_URL") or YIBU_ENDPOINT
 
 
 # Match the v10 auto policy. These Qwen variants use a 1000-unit reference canvas.
@@ -65,27 +61,27 @@ def parse_content(content):
 
 
 def request_choice(req):
-    for attempt in range(3):
-        try:
-            with urlopen(req, timeout=300) as response:
-                return json.load(response)["choices"][0]
-        except HTTPError as error:
-            if error.code not in (502, 503, 504) or attempt == 2:
-                raise
-            error.close()
-            time.sleep(2 ** (attempt + 1))
+    def send():
+        with urlopen(req, timeout=300) as response:
+            return json.load(response)["choices"][0]
+
+    return with_retries(send)
 
 
 def binding_preview(path):
     """Encode a proportional preview without changing source pixels or crop coordinates."""
     with Image.open(path) as image:
-        image.thumbnail((1024, 1024), Image.Resampling.LANCZOS)
-        rgba = image.convert("RGBA")
-        preview = Image.new("RGB", rgba.size, "white")
-        preview.paste(rgba, mask=rgba.getchannel("A"))
         with io.BytesIO() as buffer:
-            preview.save(buffer, format="JPEG", quality=80)
+            save_binding_jpeg(image, buffer)
             return buffer.getvalue()
+
+
+def save_binding_jpeg(image, destination):
+    image.thumbnail((1024, 1024), Image.Resampling.LANCZOS)
+    rgba = image.convert("RGBA")
+    preview = Image.new("RGB", rgba.size, "white")
+    preview.paste(rgba, mask=rgba.getchannel("A"))
+    preview.save(destination, format="JPEG", quality=80)
 
 
 def ask(stage, context, images, output_schema):
@@ -101,8 +97,10 @@ def ask(stage, context, images, output_schema):
     parts = [{"type": "text", "text": prompt + "\n" + json.dumps(context, ensure_ascii=False)
               + "\n输出 JSON Schema\n" + json.dumps(output_schema, ensure_ascii=False)}]
     for label, path in images:
+        log(f"编码请求图片 {label}，格式 {'JPEG 缩略图' if stage == 'bind' else 'PNG'}")
         if stage == "bind":
-            mime, data = "image/jpeg", binding_preview(path)
+            mime = "image/jpeg"
+            data = path.read_bytes() if path.suffix == ".jpg" else binding_preview(path)
         else:
             mime, data = "image/png", Path(path).read_bytes()
         encoded = base64.b64encode(data).decode("ascii")
@@ -111,13 +109,18 @@ def ask(stage, context, images, output_schema):
             image_url["detail"] = "original"
         parts.extend([{"type": "text", "text": label},
                       {"type": "image_url", "image_url": image_url}])
-    payload = {"model": os.environ["COLLAGE_VLM_MODEL"], "messages": [{"role": "user", "content": parts}],
+    model = os.environ["COLLAGE_VLM_MODEL"]
+    if stage == "bind":
+        model = os.getenv("COLLAGE_BIND_MODEL") or model
+    payload = {"model": model, "messages": [{"role": "user", "content": parts}],
                "response_format": {"type": "json_object"}}
     if payload["model"].split("/")[-1] in {"gpt-6.1-sol", "gpt-6.2-sol"}:
         payload["reasoning_effort"] = "medium"
     req = Request(endpoint(), data=json.dumps(payload).encode(),
                   headers={"Content-Type": "application/json", "Authorization": "Bearer " + os.environ["COLLAGE_VLM_KEY"]})
+    log(f"模型 {model}，图片 {len(images)} 张，请求体 {len(req.data)/1048576:.2f} MiB")
     choice = request_choice(req)
+    log("已读取模型回复，开始解析 JSON")
     if choice.get("finish_reason") not in ("stop", None):
         raise ValueError(f"{stage} returned an incomplete response")
     return parse_content(choice["message"]["content"])
@@ -130,6 +133,7 @@ def analyze(run, size):
         context["reference_size"] = size
     contract = schema(size, mode)
     result = ask("analyze", context, [("reference", run/"prepared/reference.png")], contract)
+    log(f"校验分析结构并生成图层顺序，坐标模式 {mode}")
     value = normalize(result)
     Draft202012Validator(contract).validate(value)
     return compile_inventory(value, size, mode)
@@ -138,9 +142,11 @@ def analyze(run, size):
 def bind(run, analysis, catalog):
     context = binding.context_for({"reference_size": analysis["reference_size"], "catalog": catalog}, analysis)
     if not context["photo_slots"]:
+        log("照片槽为 0，跳过选片请求")
         return []
     contract = binding.schema_for(context, analysis)
     images = [("reference", run/"prepared/reference.png")]
-    images.extend((a["id"], run/"prepared"/(a["id"] + ".png")) for a in catalog)
+    images.extend((a["id"], run/"prepared"/a.get("binding_preview", a["id"] + ".png")) for a in catalog)
     answer = ask("bind", context, images, contract)
+    log("校验照片槽、素材编号和裁切参数")
     return binding.validate(answer, context, analysis, catalog)["photos"]

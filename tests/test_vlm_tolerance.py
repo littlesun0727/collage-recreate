@@ -28,7 +28,7 @@ class Tolerance(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_content('{"objects":')
 
-    @patch("collage.vlm.time.sleep")
+    @patch("collage.remote_retry.time.sleep")
     @patch("collage.vlm.urlopen")
     def test_gateway(self, post, sleep):
         def error(code):

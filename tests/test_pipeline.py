@@ -38,7 +38,7 @@ class AppContract(unittest.TestCase):
         self.wire["objects"].append({"id": "strip", "kind": "overlay", "bbox": [4,8,32,18],
                                      "description": "thin paper strip"})
         self.wire["layer_order"].append("strip")
-        gate = threading.Barrier(2)
+        gate = threading.Barrier(3)
         release = threading.Event()
         calls = []
         def model(stage, *args):
@@ -50,6 +50,11 @@ class AppContract(unittest.TestCase):
                 raise AssertionError("first HTTP response blocked by binding")
             return {"photos": [{"slot_id": "p", "asset_id": "material_000", "source_crop": [0,0,1,1],
                                 "crop_center": [.5,.5], "mirror_x": False, "reason": "portrait"}]}
+        def clean(run, bg, size):
+            gate.wait(5)
+            path = run/"clean.png"
+            Image.new("RGB", tuple(size), "yellow").save(path)
+            return path
         def remote(task, reference, boxes, key):
             gate.wait(5)
             # Return service mappings in a different order to the input boxes.
@@ -59,6 +64,7 @@ class AppContract(unittest.TestCase):
             for i in range(len(indices)+1):
                 Image.new("RGBA",(100,100),(0,i,0,255)).save(task/f"layers_aug_{i:02d}.png")
         with patch.object(server, "ROOT", self.root), patch.object(vlm,"ask", side_effect=model), \
+             patch.object(pipeline.background,"clean",side_effect=clean), \
              patch.object(reveal,"fetch_batch", side_effect=remote), patch.dict(os.environ, {"360_API_KEY":"offline"}):
             host = ThreadingHTTPServer(("127.0.0.1",0), server.Handler)
             worker = threading.Thread(target=host.serve_forever)
@@ -85,6 +91,8 @@ class AppContract(unittest.TestCase):
                     layers = json.loads(bundle.read("scene.json"))["layers"]
                     self.assertEqual([o["id"] for o in layers], ["bg","p","star"])
                     self.assertEqual(layers[1]["source"]["asset_id"], "手机/相册:12")
+                    with Image.open(io.BytesIO(bundle.read(layers[0]["source"]["file"]))) as bg:
+                        self.assertEqual(bg.getpixel((0,0)), (255,255,0,255))
                     members = {"scene.json", layers[0]["source"]["file"], layers[2]["source"]["file"]}
                     self.assertEqual(set(bundle.namelist()), members)
                     with Image.open(io.BytesIO(bundle.read(layers[2]["source"]["file"]))) as img:
@@ -139,7 +147,7 @@ class AppContract(unittest.TestCase):
         job = self.root/"fail"
         with patch.object(vlm,"ask",return_value=self.wire):
             pipeline.first(job, self.request)
-        with patch.object(vlm,"bind",return_value=[]), patch.object(reveal,"extract",side_effect=ValueError("missing layer")):
+        with patch.object(pipeline.background,"clean"), patch.object(vlm,"bind",return_value=[]), patch.object(reveal,"extract",side_effect=ValueError("missing layer")):
             pipeline.finish(job)
         self.assertTrue((job/"analysis.json").exists())
         self.assertFalse((job/"delivery.zip").exists())
