@@ -31,7 +31,7 @@ POST /jobs
 
 | 名称 | 内容 |
 | --- | --- |
-| `COLLAGE_VLM_URL` | 可选。默认直连 `https://yibuapi.com/v1/chat/completions`。旧的本机 17860 审计地址自动切换为 Yibu 官方地址。VLM 客户端禁用系统 HTTP 代理。 |
+| `COLLAGE_VLM_URL` | 可选。默认请求 `https://yibuapi.com/v1/chat/completions`，分析和选片遵循 urllib 的环境变量或系统代理设置。旧的本机 17860 审计地址自动切换为 Yibu 官方地址。 |
 | `COLLAGE_VLM_MODEL` | 该端点可用的视觉模型 ID |
 | `COLLAGE_VLM_KEY` | 该端点的服务端凭证 |
 | `360_API_KEY` | 360 Reveal 服务凭证 |

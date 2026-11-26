@@ -29,7 +29,7 @@ class Tolerance(unittest.TestCase):
             parse_content('{"objects":')
 
     @patch("collage.vlm.time.sleep")
-    @patch("collage.vlm.DIRECT_HTTP.open")
+    @patch("collage.vlm.urlopen")
     def test_gateway(self, post, sleep):
         def error(code):
             return HTTPError("https://example.invalid", code, "gateway", {}, None)
@@ -60,7 +60,10 @@ class Tolerance(unittest.TestCase):
                 with patch.dict(os.environ, config):
                     analysis = analyze(run, [900,1200])
                 self.assertEqual(analysis["objects"][1]["bbox"], expected)
-                parts = json.loads(transport.call_args.args[0].data)["messages"][0]["content"]
+                payload = json.loads(transport.call_args.args[0].data)
+                if model == "gpt-6.2-sol":
+                    self.assertEqual(payload["reasoning_effort"], "medium")
+                parts = payload["messages"][0]["content"]
                 self.assertIn(unit, parts[0]["text"])
                 if unit == "pixel":
                     self.assertIn("宽 900 像素、高 1200 像素", parts[0]["text"])

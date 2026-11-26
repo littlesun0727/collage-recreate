@@ -1,0 +1,86 @@
+import json
+import os
+import tempfile
+import unittest
+from pathlib import Path
+from unittest.mock import patch
+from zipfile import ZipFile
+
+from PIL import Image, ImageChops, ImageDraw
+
+from collage import pipeline, reveal
+from collage.lettering import word_count
+from collage.storage import read, save
+
+
+class LetteringDelivery(unittest.TestCase):
+    def test_counts(self):
+        self.assertEqual(word_count("一二三四五"), 5)
+        self.assertEqual(word_count("one two three four five"), 5)
+        self.assertEqual(word_count("Children’s Day"), 2)
+        self.assertEqual(word_count("Привет, как у тебя дела?"), 0)
+
+    def test_visible_short_and_threshold_long_text(self):
+        for content, blocked, action in [
+            ("one two three", False, "embedded"),
+            ("one two three", True, "rendered"),
+            ("été à la mer ici", False, "embedded"),
+            ("été à la mer ici", True, "rendered"),
+            ("one two three four five", False, "rendered"),
+        ]:
+            with self.subTest(content=content, blocked=blocked), tempfile.TemporaryDirectory() as tmp:
+                run = Path(tmp)
+                (run/"prepared").mkdir()
+                ref = Image.new("RGB", (200, 45), "#bead88")
+                ImageDraw.Draw(ref).text((8, 8), content, fill="black")
+                ref.save(run/"prepared/reference.png")
+                objs = [{"kind":"background","id":"bg","bbox":[0,0,200,45],
+                         "background_type":"solid_color","style":{"fill":"#ffffff"}},
+                        {"kind":"overlay","id":"paper","bbox":[0,0,200,45]}]
+                if blocked:
+                    objs.append({"kind":"overlay","id":"cover","bbox":[0,0,200,45]})
+                objs.append({"kind":"text","id":"t","bbox":[5,6,145,24],
+                             "text":content,"style":{"fill":"#000000"}})
+                order = [o["id"] for o in objs]
+                analysis = {"objects":objs,"layer_order":order,"reference_size":[200,45]}
+                def remote(task, reference, boxes, key):
+                    self.assertEqual([b["id"] for b in boxes], list(reversed(order[1:-1])))
+                    save(task/"query_response.json", {"output":{"boxes_mapping_index":list(range(len(boxes)))}})
+                    for i, box in enumerate(boxes, 1):
+                        im = ref.convert("RGBA") if box["id"] == "paper" else Image.new("RGBA", ref.size, "white")
+                        im.save(task/f"layers_aug_{i:02d}.png")
+                with patch.object(reveal, "fetch_batch", side_effect=remote), patch.dict(os.environ, {"360_API_KEY":"offline"}):
+                    files = reveal.extract(run, analysis)
+                pipeline.deliver(run, analysis, [], [], files)
+                with ZipFile(run/"delivery.zip") as archive:
+                    scene = json.loads(archive.read("scene.json"))
+                    self.assertEqual(read(run/"lettering.json")["t"]["action"], action)
+                    if action == "embedded":
+                        self.assertNotIn("t", files)
+                        self.assertEqual([layer["id"] for layer in scene["layers"]], order[:-1])
+                        self.assertEqual(len(archive.namelist()), len(order))
+                    else:
+                        layer = scene["layers"][-1]
+                        self.assertEqual(layer["id"], "t")
+                        with archive.open(layer["source"]["file"]) as f, Image.open(f) as text:
+                            self.assertEqual(list(text.size), layer["source"]["size"])
+                            self.assertIsNotNone(text.getchannel("A").getbbox())
+                with Image.open(files["paper"]) as carrier:
+                    changed = ImageChops.difference(ref, carrier.convert("RGB")).getbbox()
+                    self.assertEqual(bool(changed), word_count(content) >= 5)
+                    self.assertEqual(carrier.getchannel("A").getextrema(), (255,255))
+
+    def test_clean_background_and_text_without_remote_call(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            (run/"prepared").mkdir()
+            image = Image.new("RGB",(200,45),"white")
+            ImageDraw.Draw(image).text((8,8),"one two three four five",fill="black")
+            image.save(run/"prepared/reference.png")
+            analysis = {"reference_size":[200,45],"layer_order":["bg","t"],"objects":[
+                {"id":"bg","kind":"background","background_type":"reference_clean","bbox":[0,0,200,45]},
+                {"id":"t","kind":"text","text":"one two three four five","bbox":[5,6,145,24]}]}
+            with patch.object(reveal,"fetch_batch") as remote:
+                reveal.extract(run,analysis)
+                remote.assert_not_called()
+            self.assertEqual(read(run/"lettering.json")["t"]["inpainted_carriers"], ["bg"])

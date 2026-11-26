@@ -100,7 +100,7 @@ ImageDraw.Draw(mask).polygon([tuple(point) for point in points.tolist()], fill=2
 ```text
 按 scene.canvas_size 建立逻辑画布
 按 scene.layers 原顺序逐层合成：
-    若 source.type == "png"：将 source.file 在画布原点全幅叠放，进入下一层
+    若 source.type == "png"：在 source.offset 处按 source.size 绘制 source.file，进入下一层
     用 source.asset_id 查本地原图并校正 EXIF
     若为 linked_to 组合：先按前景 bbox 匹配分割主体，缓存底图和前景共用的缩放、位移及镜像
     普通窗口或 bare：按 source_crop 取源图子矩形，等比 cover 到制作框
@@ -126,11 +126,11 @@ ImageDraw.Draw(mask).polygon([tuple(point) for point in points.tolist()], fill=2
            layers/layer_001.png …       有额外固定层时逐层提供
 ```
 
-`scene.json` 顶层固定为 `schema_version:"harmony-collage-scene-v1"`、`canvas_size:[W,H]`、`layers:[...]`。服务端依分析的 layer_order 排好每一层，复制对应对象字段，再追加下列两种来源之一。
+`scene.json` 顶层固定为 `schema_version:"harmony-collage-scene-v2"`、`canvas_size:[W,H]`、`layers:[...]`。拆层服务漏回的装饰或相框直接跳过，其余层按分析中的相对顺序交付。前端以 `scene.layers` 为最终绘制清单。每层的 source 有以下两种形式。
 
 | source.type | source 完整示例 | 资源在哪里 |
 | --- | --- | --- |
-| `png` | `{"type":"png","file":"layers/layer_000.png","placement":"full_canvas"}` | 读取指定相对路径。PNG 和画布同宽高，位置、旋转已经体现在像素中，直接从原点叠放一次。以数组决定层序，文件名只作寻址。 |
+| `png` | `{"type":"png","file":"layers/layer_000.png","placement":"tile","offset":[393,640],"size":[352,23]}` | 读取指定相对路径。offset 是小图左上角在参考画布的像素位置，size 是实际 PNG 宽高。旋转已烘焙，只随整个画布统一缩放。以数组决定层序，文件名只作寻址。 |
 | `customer_asset` | `{"type":"customer_asset","asset_id":"album-001","source_crop":[0,0,1,1],"crop_center":[0.5,0.5],"mirror_x":false}` | 原图保留在前端。服务端交付引用与绘制参数，主体 alpha 由前端生成。 |
 
 交付粒度是可重新合成的静态图层场景。若产品要显示合成预览，由前端绘制；若要播放动画，时间轴、关键帧和编码参数需另行约定。当前 HTTP 服务只为首包分析提供独立 JSON 地址，最终场景和 PNG 在同一次下载内。
@@ -138,3 +138,6 @@ ImageDraw.Draw(mask).polygon([tuple(point) for point in points.tolist()], fill=2
 异常处理：POST 请求体长度无效或超过上限返回 413；输入解析、校验或首阶段分析失败返回 422，读取 `error`。任务或路径不存在返回 404。processing 或 failed 时请求成品返回 409，响应体是当前任务状态。后阶段失败仍可读取已成功的 analysis。
 
 实现入口：[HTTP 路由](../server.py) · [解码与两阶段交付](../collage/pipeline.py) · [窗口默认值](../collage/layout/window_contract.py) · [素材绑定](../collage/binding.py)。
+
+固定 PNG 按最终非透明像素裁边，包括半透明阴影。全透明层从最终绘制清单和包中省略。历史 v1 包的 `full_canvas` 仍按原点和整画布尺寸绘制。
+

@@ -35,6 +35,9 @@ class AppContract(unittest.TestCase):
                      "layer_order": ["p", "star"]}
 
     def test_http_handoff_parallel_and_zip(self):
+        self.wire["objects"].append({"id": "strip", "kind": "overlay", "bbox": [4,8,32,18],
+                                     "description": "thin paper strip"})
+        self.wire["layer_order"].append("strip")
         gate = threading.Barrier(2)
         release = threading.Event()
         calls = []
@@ -50,7 +53,8 @@ class AppContract(unittest.TestCase):
         def remote(task, reference, boxes, key):
             gate.wait(5)
             # Return service mappings in a different order to the input boxes.
-            indices = list(reversed(range(len(boxes))))
+            self.assertEqual([box["id"] for box in boxes], ["strip", "star", "p"])
+            indices = [2, 1]  # Out of order, and the strip was omitted.
             save(task/"query_response.json", {"output": {"boxes_mapping_index": indices}})
             for i in range(len(indices)+1):
                 Image.new("RGBA",(100,100),(0,i,0,255)).save(task/f"layers_aug_{i:02d}.png")
@@ -65,6 +69,7 @@ class AppContract(unittest.TestCase):
                 with urlopen(req, timeout=8) as res:
                     self.assertEqual(res.status, 202)
                     response = json.load(res)
+                    self.assertIn("strip", response["analysis"]["layer_order"])
                 with urlopen(base+response["analysis_url"]) as res:
                     self.assertEqual(json.load(res), response["analysis"])
                 release.set()
@@ -90,6 +95,29 @@ class AppContract(unittest.TestCase):
                 host.shutdown()
                 host.server_close()
                 worker.join()
+
+    def test_delivery_tiles_use_visible_pixels_and_skip_empty_layers(self):
+        run = self.root
+        im = Image.new("RGBA", (12, 10))
+        im.save(run/"empty.png")
+        im.putpixel((3, 2), (110, 30, 20, 1))
+        im.putpixel((8, 7), (100, 50, 20, 255))
+        im.save(run/"ink.png")
+        objs = [{"id": oid, "kind": "overlay", "bbox": [4, 4, 8, 8]} for oid in ("empty", "ink")]
+        analysis = {"reference_size": [12, 10], "objects": objs, "layer_order": ["empty", "ink"]}
+        pipeline.deliver(run, analysis, [], [], {o["id"]: run/(o["id"]+".png") for o in objs})
+        with ZipFile(run/"delivery.zip") as archive:
+            scene = json.loads(archive.read("scene.json"))
+            self.assertEqual(scene["schema_version"], "harmony-collage-scene-v2")
+            self.assertEqual(set(archive.namelist()), {"scene.json", "layers/ink.png"})
+            layer, = scene["layers"]
+            self.assertEqual(layer["bbox"], [4, 4, 8, 8])
+            source = layer["source"]
+            self.assertEqual((source["placement"], source["offset"], source["size"]), ("tile", [3, 2], [6, 6]))
+            restored = Image.new("RGBA", im.size)
+            with Image.open(io.BytesIO(archive.read(source["file"]))) as tile:
+                restored.paste(tile, tuple(source["offset"]))
+            self.assertEqual(restored.tobytes(), im.tobytes())
 
     def test_invalid_analysis_calls_once(self):
         with patch.object(vlm, "ask", return_value={}) as model:

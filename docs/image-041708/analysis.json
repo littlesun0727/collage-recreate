@@ -1,1 +1,339 @@
-{"schema_version": "collage-analysis-v1", "reference_size": [810, 1440], "objects": [{"id": "base_gradient", "kind": "background", "bbox": [0, 0, 810, 1440], "description": "从顶部暖灰褐缓慢过渡到底部灰绿的固定底图，在四边和照片间隙连续可见；保留全幅色调变化，不包含照片、文字或贴纸。", "background_type": "reference_clean", "label": "从顶部暖灰褐缓慢过渡到底部灰绿的固定底图，在四边和照片间隙连", "method": "extract", "rotation": 0}, {"id": "photo_church", "kind": "photo", "bbox": [355, 85, 743, 603], "description": "无人街景，近处是写着 Zone ENDS 的交通标志和灰色铁栏，后方是带拱窗的石墙、苔藓屋瓦和绿树，两侧局部被心形照片遮挡。", "label": "无人街景，近处是写着 Zone ENDS 的交通标志和灰色铁", "method": "local", "rotation": 0, "mode": "window", "shape": "rectangle"}, {"id": "photo_candy", "kind": "photo", "bbox": [23, 138, 392, 466], "description": "两颗印有黑字的黑白圆糖带着透明扭结包装，斜向上下摆放在金棕色粗纹表面，俯拍特写，无人。陪", "label": "两颗印有黑字的黑白圆糖带着透明扭结包装，斜向上下摆放在金棕色", "method": "local", "rotation": 0, "mode": "window", "shape": "heart"}, {"id": "photo_album", "kind": "photo", "bbox": [512, 436, 784, 674], "description": "近拍桌上斜放的照片页、胶片条和金棕色圆形物件，多格小照内是同一名长发女子的不同表情与姿势。陪", "label": "近拍桌上斜放的照片页、胶片条和金棕色圆形物件，多格小照内是同", "method": "local", "rotation": 22.8337, "mode": "window", "shape": "heart"}, {"id": "photo_notes", "kind": "photo", "bbox": [41, 513, 523, 997], "description": "俯拍一张写有英文头脑风暴笔记的浅色纸，中央有黑笔圆圈和放射线，周围用蓝、绿、红笔圈出关键词，无人。陪", "label": "俯拍一张写有英文头脑风暴笔记的浅色纸，中央有黑笔圆圈和放射线", "method": "local", "rotation": 0.0, "mode": "window", "shape": "star", "star_points": 5, "inner_ratio": 0.5}, {"id": "photo_dessert", "kind": "photo", "bbox": [42, 1008, 427, 1391], "description": "木纹桌面上的甜品近照，右侧打开的红白 KitKat 包装里有浅色冰淇淋和一把竖插的灰色勺子，无人。陪", "label": "木纹桌面上的甜品近照，右侧打开的红白 KitKat 包装里有", "method": "local", "rotation": 0, "mode": "window", "shape": "polygon", "points": [[0.018182, 0.0], [1.0, 0.013055], [0.984416, 1.0], [0.0, 0.986945]]}, {"id": "photo_snack", "kind": "photo", "bbox": [402, 770, 792, 1160], "description": "木桌斜俯拍近景，上半部是银色笔记本电脑和蓝色屏幕，左下是蓝盖酸奶，右下是装有深红带梗车厘子的透明盒，无人。陪", "label": "木桌斜俯拍近景，上半部是银色笔记本电脑和蓝色屏幕，左下是蓝盖", "method": "local", "rotation": 0, "mode": "window", "shape": "circle"}, {"id": "sticker_candy", "kind": "overlay", "bbox": [72, 473, 163, 548], "description": "一枚斜放的糖果贴纸，糖球呈粉紫与亮绿渐色，两端有白色扭结糖纸及柔和阴影。陪", "label": "一枚斜放的糖果贴纸，糖球呈粉紫与亮绿渐色，两端有白色扭结糖纸", "method": "extract"}, {"id": "sticker_cherries", "kind": "overlay", "bbox": [666, 675, 719, 732], "description": "一枚带柔和阴影的双车厘子贴纸，两颗亮红果实由细梗连到一片绿叶。陪", "label": "一枚带柔和阴影的双车厘子贴纸，两颗亮红果实由细梗连到一片绿叶", "method": "extract"}, {"id": "sticker_cat", "kind": "overlay", "bbox": [255, 913, 315, 976], "description": "一只朝左站立的橘白虎斑猫贴纸，尾巴向上弯曲，脚边带微弱阴影。陪", "label": "一只朝左站立的橘白虎斑猫贴纸，尾巴向上弯曲，脚边带微弱阴影。", "method": "extract"}, {"id": "sticker_ice_cream", "kind": "overlay", "bbox": [82, 1052, 124, 1111], "description": "一枚微斜的甜筒贴纸，白色旋纹冰淇淋立在浅金色蛋筒上，覆盖甜品照左上部的木桌。陪", "label": "一枚微斜的甜筒贴纸，白色旋纹冰淇淋立在浅金色蛋筒上，覆盖甜品", "method": "extract"}, {"id": "sticker_chocolate", "kind": "overlay", "bbox": [20, 1085, 81, 1131], "description": "一枚斜放的巧克力贴纸，棕色方格巧克力从红色包装和银色封口处露出，横跨甜品照左边缘。陪", "label": "一枚斜放的巧克力贴纸，棕色方格巧克力从红色包装和银色封口处露", "method": "extract"}, {"id": "strip_candy", "kind": "overlay", "bbox": [77, 49, 282, 81], "description": "左上角两道左齐的白色文字底条紧贴上下行，首行较短，次行向右延长。陪", "label": "左上角两道左齐的白色文字底条紧贴上下行，首行较短，次行向右延", "method": "extract"}, {"id": "caption_candy", "kind": "text", "bbox": [77, 49, 282, 81], "description": "黑色偏粗的无衬线中文印刷字配彩色表情，两行紧排左齐，衬在随行长变化的白底上。陪", "label": "黑色偏粗的无衬线中文印刷字配彩色表情，两行紧排左齐，衬在随行", "method": "local", "text": "吃完饭老板给的糖果\n好好吃！😭 后悔没问哪里买的", "text_status": "known", "style": {"fill": "#111111", "align": "left"}}, {"id": "strip_church", "kind": "overlay", "bbox": [604, 263, 790, 282], "description": "一条紧贴单行字的白色横底，从交通标志右侧横跨树丛并伸到照片外。陪", "label": "一条紧贴单行字的白色横底，从交通标志右侧横跨树丛并伸到照片外", "method": "extract"}, {"id": "caption_church", "kind": "text", "bbox": [605, 264, 789, 281], "description": "黑色偏粗的中文印刷字混排等宽感拉丁字母，单行左齐，紧贴白色横底。陪", "label": "黑色偏粗的中文印刷字混排等宽感拉丁字母，单行左齐，紧贴白色横", "method": "local", "text": "偶遇效效姐solo（bushi", "text_status": "known", "style": {"fill": "#111111", "align": "left"}}, {"id": "strip_notes", "kind": "overlay", "bbox": [31, 606, 259, 625], "description": "一条贴合单行文字的窄白底，从左侧空白延伸至星形照片上部。陪", "label": "一条贴合单行文字的窄白底，从左侧空白延伸至星形照片上部。陪", "method": "extract"}, {"id": "caption_notes", "kind": "text", "bbox": [32, 607, 258, 624], "description": "黑色偏粗的中文印刷字与等宽感英文字母混排，单行左齐置于白条上。陪", "label": "黑色偏粗的中文印刷字与等宽感英文字母混排，单行左齐置于白条上", "method": "local", "text": "一些seminar上的头脑风暴...", "text_status": "known", "style": {"fill": "#111111", "align": "left"}}, {"id": "strip_yogurt", "kind": "overlay", "bbox": [475, 956, 609, 973], "description": "一条贴合单行文字的小白底，压在蓝色酸奶盖与右侧透明果盒的交界附近。陪", "label": "一条贴合单行文字的小白底，压在蓝色酸奶盖与右侧透明果盒的交界", "method": "extract"}, {"id": "caption_yogurt", "kind": "text", "bbox": [476, 956, 608, 973], "description": "黑色偏粗的中文印刷字配黄色表情，单行左齐置于窄白底上。陪", "label": "黑色偏粗的中文印刷字配黄色表情，单行左齐置于窄白底上。陪", "method": "local", "text": "本人目前最爱酸奶🍋", "text_status": "known", "style": {"fill": "#111111", "align": "left"}}, {"id": "strip_cherries", "kind": "overlay", "bbox": [555, 1120, 776, 1138], "description": "一条贴合单行字的窄白底，横压在圆形照片下部的透明果盒上。陪", "label": "一条贴合单行字的窄白底，横压在圆形照片下部的透明果盒上。陪", "method": "extract"}, {"id": "caption_cherries", "kind": "text", "bbox": [556, 1121, 775, 1137], "description": "黑色偏粗的中文印刷字单行左齐，标点间略有留白，衬于窄白底。陪", "label": "黑色偏粗的中文印刷字单行左齐，标点间略有留白，衬于窄白底。陪", "method": "local", "text": "玛莎的车厘子便宜又好吃！！", "text_status": "known", "style": {"fill": "#111111", "align": "left"}}, {"id": "strip_dessert", "kind": "overlay", "bbox": [71, 1303, 252, 1338], "description": "两条左齐的白底逐行贴住文字，下条略长，横跨木纹桌面和红白甜品包装。陪", "label": "两条左齐的白底逐行贴住文字，下条略长，横跨木纹桌面和红白甜品", "method": "extract"}, {"id": "caption_dessert", "kind": "text", "bbox": [71, 1304, 252, 1338], "description": "黑色偏粗的无衬线中文印刷字分两行紧排左齐，衬于随行长变化的白色底条。陪", "label": "黑色偏粗的无衬线中文印刷字分两行紧排左齐，衬于随行长变化的白", "method": "local", "text": "来吃麦麦情人节限定了\n有点甜但是也还蛮好吃的^", "text_status": "known", "style": {"fill": "#111111", "align": "left"}}, {"id": "lyrics_top", "kind": "text", "bbox": [496, 1218, 715, 1260], "description": "浅灰白色粗无衬线英文，两行居中，下行明显较短，无底板。陪", "label": "浅灰白色粗无衬线英文，两行居中，下行明显较短，无底板。陪", "method": "local", "text": "I might as well just tell\nthe truth", "text_status": "known", "style": {"fill": "#D4D4CE", "align": "center"}}, {"id": "lyrics_middle", "kind": "text", "bbox": [484, 1277, 729, 1327], "description": "亮白色粗无衬线英文，比上下两组略大，两行居中，无底板。陪", "label": "亮白色粗无衬线英文，比上下两组略大，两行居中，无底板。陪", "method": "local", "text": "I wanna be wishing on\nyou-ooh, ooh-ooh,", "text_status": "known", "style": {"fill": "#FFFFFF", "align": "center"}}, {"id": "lyrics_bottom", "kind": "text", "bbox": [514, 1342, 698, 1384], "description": "浅灰白色粗无衬线英文，两行长度相近并居中，无底板。陪", "label": "浅灰白色粗无衬线英文，两行长度相近并居中，无底板。陪", "method": "local", "text": "You-ooh, ooh-ooh,\nooh-ooh, ooh-ooh", "text_status": "known", "style": {"fill": "#D4D4CE", "align": "center"}}], "layer_order": ["base_gradient", "photo_church", "photo_candy", "photo_album", "photo_dessert", "photo_snack", "photo_notes", "sticker_candy", "sticker_cherries", "sticker_cat", "sticker_ice_cream", "sticker_chocolate", "strip_candy", "caption_candy", "strip_church", "caption_church", "strip_notes", "caption_notes", "strip_yogurt", "caption_yogurt", "strip_cherries", "caption_cherries", "strip_dessert", "caption_dessert", "lyrics_top", "lyrics_middle", "lyrics_bottom"]}
+{
+  "schema_version": "collage-analysis-v1",
+  "reference_size": [
+    810,
+    1440
+  ],
+  "objects": [
+    {
+      "id": "background",
+      "kind": "background",
+      "bbox": [
+        0,
+        0,
+        810,
+        1440
+      ],
+      "description": "全画布为由上方暖灰褐过渡至下方灰绿色的平滑底色，照片与贴纸之间连续可见；保留渐变底图。",
+      "background_type": "reference_clean",
+      "label": "全画布为由上方暖灰褐过渡至下方灰绿色的平滑底色，照片与贴纸之",
+      "method": "extract",
+      "rotation": 0
+    },
+    {
+      "id": "photo_candy_heart",
+      "kind": "photo",
+      "bbox": [
+        22,
+        138,
+        390,
+        463
+      ],
+      "description": "两颗黑白包装糖果置于金棕色颗粒背景上，近景，糖果上下排列。",
+      "label": "两颗黑白包装糖果置于金棕色颗粒背景上，近景，糖果上下排列。",
+      "method": "local",
+      "rotation": 0,
+      "mode": "window",
+      "shape": "rectangle"
+    },
+    {
+      "id": "photo_church",
+      "kind": "photo",
+      "bbox": [
+        355,
+        85,
+        744,
+        604
+      ],
+      "description": "教堂石墙、拱门、围栏与街边标志的场景，无人物，远景。",
+      "label": "教堂石墙、拱门、围栏与街边标志的场景，无人物，远景。",
+      "method": "local",
+      "rotation": 0,
+      "mode": "window",
+      "shape": "rectangle"
+    },
+    {
+      "id": "photo_collage_heart",
+      "kind": "photo",
+      "bbox": [
+        536,
+        412,
+        800,
+        667
+      ],
+      "description": "心形拼贴画面，含人物小照、光盘及纸张等多个画面成员。",
+      "label": "心形拼贴画面，含人物小照、光盘及纸张等多个画面成员。",
+      "method": "local",
+      "rotation": 0,
+      "mode": "window",
+      "shape": "rectangle"
+    },
+    {
+      "id": "photo_notes_star",
+      "kind": "photo",
+      "bbox": [
+        53,
+        514,
+        513,
+        952
+      ],
+      "description": "手绘笔记纸张照片，中心有概念图与彩色手写标注，呈星形裁切。",
+      "label": "手绘笔记纸张照片，中心有概念图与彩色手写标注，呈星形裁切。",
+      "method": "local",
+      "rotation": 0,
+      "mode": "window",
+      "shape": "rectangle"
+    },
+    {
+      "id": "photo_laptop_circle",
+      "kind": "photo",
+      "bbox": [
+        400,
+        770,
+        792,
+        1160
+      ],
+      "description": "笔记本电脑、蓝色酸奶杯及透明盒内樱桃的桌面近景。",
+      "label": "笔记本电脑、蓝色酸奶杯及透明盒内樱桃的桌面近景。",
+      "method": "local",
+      "rotation": 0,
+      "mode": "window",
+      "shape": "rectangle"
+    },
+    {
+      "id": "photo_kitkat",
+      "kind": "photo",
+      "bbox": [
+        43,
+        1008,
+        423,
+        1387
+      ],
+      "description": "打开的KitKat包装与融化冰淇淋近景，桌面木纹可见。",
+      "label": "打开的KitKat包装与融化冰淇淋近景，桌面木纹可见。",
+      "method": "local",
+      "rotation": 0,
+      "mode": "window",
+      "shape": "rectangle"
+    },
+    {
+      "id": "sticker_candy",
+      "kind": "overlay",
+      "bbox": [
+        75,
+        474,
+        165,
+        547
+      ],
+      "description": "一颗紫绿渐变糖果贴纸，两端带白色糖纸结。",
+      "label": "一颗紫绿渐变糖果贴纸，两端带白色糖纸结。",
+      "method": "extract"
+    },
+    {
+      "id": "sticker_icecream",
+      "kind": "overlay",
+      "bbox": [
+        82,
+        1051,
+        122,
+        1111
+      ],
+      "description": "白色甜筒冰淇淋贴纸，带浅黄色蛋筒。",
+      "label": "白色甜筒冰淇淋贴纸，带浅黄色蛋筒。",
+      "method": "extract"
+    },
+    {
+      "id": "sticker_chocolate",
+      "kind": "overlay",
+      "bbox": [
+        20,
+        1080,
+        77,
+        1119
+      ],
+      "description": "红色包装的巧克力块贴纸，带棕色方格纹。",
+      "label": "红色包装的巧克力块贴纸，带棕色方格纹。",
+      "method": "extract"
+    },
+    {
+      "id": "sticker_cat",
+      "kind": "overlay",
+      "bbox": [
+        255,
+        915,
+        319,
+        970
+      ],
+      "description": "一只橘白相间、侧身站立的小猫贴纸。",
+      "label": "一只橘白相间、侧身站立的小猫贴纸。",
+      "method": "extract"
+    },
+    {
+      "id": "sticker_cherries",
+      "kind": "overlay",
+      "bbox": [
+        668,
+        674,
+        715,
+        727
+      ],
+      "description": "两颗红色樱桃与绿色叶片组成的贴纸。",
+      "label": "两颗红色樱桃与绿色叶片组成的贴纸。",
+      "method": "extract"
+    },
+    {
+      "id": "text_top",
+      "kind": "text",
+      "bbox": [
+        77,
+        49,
+        281,
+        83
+      ],
+      "description": "黑色粗体印刷字，两行左对齐，置于白色窄底条上。",
+      "label": "黑色粗体印刷字，两行左对齐，置于白色窄底条上。",
+      "method": "local",
+      "text": "吃完饭老板给的糖果\n好好吃！😭 后悔没问哪里买的",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_church",
+      "kind": "text",
+      "bbox": [
+        604,
+        262,
+        790,
+        282
+      ],
+      "description": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "label": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "method": "local",
+      "text": "偶遇效效姐solo（bushi",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_seminar",
+      "kind": "text",
+      "bbox": [
+        31,
+        606,
+        258,
+        627
+      ],
+      "description": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "label": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "method": "local",
+      "text": "一些seminar上的头脑风暴...",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_yogurt",
+      "kind": "text",
+      "bbox": [
+        470,
+        988,
+        643,
+        1009
+      ],
+      "description": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "label": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "method": "local",
+      "text": "本人目前最爱酸奶🍋",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_cherries_caption",
+      "kind": "text",
+      "bbox": [
+        503,
+        1120,
+        779,
+        1141
+      ],
+      "description": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "label": "黑色粗体印刷字，单行左对齐，置于白色窄底条上。",
+      "method": "local",
+      "text": "玛莎的车厘子便宜又好吃！！",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_kitkat_caption",
+      "kind": "text",
+      "bbox": [
+        71,
+        1302,
+        316,
+        1340
+      ],
+      "description": "黑色粗体印刷字，两行左对齐，置于白色窄底条上。",
+      "label": "黑色粗体印刷字，两行左对齐，置于白色窄底条上。",
+      "method": "local",
+      "text": "来吃麦麦情人节限定了\n有点甜但是也还蛮好吃的",
+      "text_status": "known",
+      "style": {
+        "fill": "#000000",
+        "align": "left"
+      }
+    },
+    {
+      "id": "text_lyrics",
+      "kind": "text",
+      "bbox": [
+        484,
+        1218,
+        762,
+        1387
+      ],
+      "description": "白色粗体无衬线字，分段居中排版，行间留白明显。",
+      "label": "白色粗体无衬线字，分段居中排版，行间留白明显。",
+      "method": "local",
+      "text": "I might as well just tell\nthe truth\n\nI wanna be wishing on\nyou-ooh, ooh-ooh,\n\nYou-ooh, ooh-ooh,\nooh-ooh, ooh-ooh",
+      "text_status": "known",
+      "style": {
+        "fill": "#FFFFFF",
+        "align": "center"
+      }
+    }
+  ],
+  "layer_order": [
+    "background",
+    "photo_church",
+    "photo_candy_heart",
+    "photo_collage_heart",
+    "photo_notes_star",
+    "photo_laptop_circle",
+    "photo_kitkat",
+    "sticker_candy",
+    "sticker_icecream",
+    "sticker_chocolate",
+    "sticker_cat",
+    "sticker_cherries",
+    "text_top",
+    "text_church",
+    "text_seminar",
+    "text_yogurt",
+    "text_cherries_caption",
+    "text_kitkat_caption",
+    "text_lyrics"
+  ]
+}

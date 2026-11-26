@@ -1,21 +1,22 @@
 """One logical VLM request with bounded gateway retries and local JSON cleanup."""
 import base64
+import io
 import json
 import os
 import re
 import time
 from urllib.error import HTTPError
 from pathlib import Path
-from urllib.request import ProxyHandler, Request, build_opener
+from urllib.request import Request, urlopen
 
 from jsonschema import Draft202012Validator
+from PIL import Image
 from . import binding, contracts
 from .layout.analysis import compile_inventory, normalize
 from .layout.inventory import schema
 
 
 YIBU_ENDPOINT = "https://yibuapi.com/v1/chat/completions"
-DIRECT_HTTP = build_opener(ProxyHandler({}))
 
 
 def endpoint():
@@ -66,13 +67,25 @@ def parse_content(content):
 def request_choice(req):
     for attempt in range(3):
         try:
-            with DIRECT_HTTP.open(req, timeout=180) as response:
+            with urlopen(req, timeout=300) as response:
                 return json.load(response)["choices"][0]
         except HTTPError as error:
             if error.code not in (502, 503, 504) or attempt == 2:
                 raise
             error.close()
             time.sleep(2 ** (attempt + 1))
+
+
+def binding_preview(path):
+    """Encode a proportional preview without changing source pixels or crop coordinates."""
+    with Image.open(path) as image:
+        image.thumbnail((1024, 1024), Image.Resampling.LANCZOS)
+        rgba = image.convert("RGBA")
+        preview = Image.new("RGB", rgba.size, "white")
+        preview.paste(rgba, mask=rgba.getchannel("A"))
+        with io.BytesIO() as buffer:
+            preview.save(buffer, format="JPEG", quality=80)
+            return buffer.getvalue()
 
 
 def ask(stage, context, images, output_schema):
@@ -88,14 +101,20 @@ def ask(stage, context, images, output_schema):
     parts = [{"type": "text", "text": prompt + "\n" + json.dumps(context, ensure_ascii=False)
               + "\n输出 JSON Schema\n" + json.dumps(output_schema, ensure_ascii=False)}]
     for label, path in images:
-        encoded = base64.b64encode(Path(path).read_bytes()).decode("ascii")
-        image_url = {"url": "data:image/png;base64," + encoded}
+        if stage == "bind":
+            mime, data = "image/jpeg", binding_preview(path)
+        else:
+            mime, data = "image/png", Path(path).read_bytes()
+        encoded = base64.b64encode(data).decode("ascii")
+        image_url = {"url": f"data:{mime};base64," + encoded}
         if pixel_analysis and os.environ["COLLAGE_VLM_MODEL"].split("/")[-1].startswith("gpt-"):
             image_url["detail"] = "original"
         parts.extend([{"type": "text", "text": label},
                       {"type": "image_url", "image_url": image_url}])
     payload = {"model": os.environ["COLLAGE_VLM_MODEL"], "messages": [{"role": "user", "content": parts}],
                "response_format": {"type": "json_object"}}
+    if payload["model"].split("/")[-1] in {"gpt-6.1-sol", "gpt-6.2-sol"}:
+        payload["reasoning_effort"] = "medium"
     req = Request(endpoint(), data=json.dumps(payload).encode(),
                   headers={"Content-Type": "application/json", "Authorization": "Bearer " + os.environ["COLLAGE_VLM_KEY"]})
     choice = request_choice(req)

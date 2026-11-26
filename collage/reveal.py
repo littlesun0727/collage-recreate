@@ -3,6 +3,7 @@ import os
 import math
 from PIL import Image
 from .layout.windows import tilted_envelope
+from .lettering import finish_text_layers
 from .object_roles import is_customer_photo
 from .reveal_transport import fetch_batch, reserve_submission
 from .storage import read, save
@@ -55,7 +56,8 @@ def extract(run, analysis):
     by_id = {obj["id"]: obj for obj in analysis["objects"]}
     bg = by_id[analysis["layer_order"][0]]
     clean = bg.get("background_type") == "reference_clean"
-    ordered = [by_id[i] for i in reversed(analysis["layer_order"][1:])]
+    layers = [by_id[i] for i in analysis["layer_order"]]
+    ordered = [o for o in reversed(layers[1:]) if o["kind"] != "text"]
     fixed = {o["id"] for o in ordered if not is_customer_photo(o)}
     # Remove original photographic content when uncovering a clean base or fixed layers beneath it.
     targets = [o for o in ordered if not o.get("linked_to")] if clean or fixed else []
@@ -83,8 +85,11 @@ def extract(run, analysis):
         fetch_batch(task, current, boxes, os.environ["360_API_KEY"])
         result = read(task/"query_response.json")["output"]
         indices = result["boxes_mapping_index"]
-        if any(type(i) is not int for i in indices) or sorted(indices) != list(range(len(group))):
-            raise ValueError("Reveal did not map every requested layer exactly once")
+        # A partial mapping is usable. Output PNG numbers follow the returned order.
+        if (not isinstance(indices, list)
+                or any(type(i) is not int or not 0 <= i < len(group) for i in indices)
+                or len(set(indices)) != len(indices)):
+            raise ValueError("Invalid Reveal layer mapping")
         for index, pos in enumerate(indices, 1):
             oid = group[pos]["id"]
             if oid in fixed:
@@ -97,4 +102,8 @@ def extract(run, analysis):
             store(bg["id"], im.convert("RGBA"))
     elif not is_customer_photo(bg):
         store(bg["id"], Image.new("RGBA", size, bg["style"]["fill"]))
+    visible_layers = [o for o in layers if o["id"] not in fixed or o["id"] in files]
+    decisions = finish_text_layers(run, visible_layers, files, store, size)
+    if decisions:
+        save(run/"lettering.json", decisions)
     return files

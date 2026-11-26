@@ -40,28 +40,52 @@ def first(run, request):
     return analysis
 
 
+def write_png_tile(archive, path, canvas_size):
+    """Trim only fully transparent margins, after all canvas-space processing."""
+    member = "layers/" + path.name
+    with Image.open(path) as image:
+        if image.format != "PNG" or list(image.size) != canvas_size:
+            raise ValueError("Fixed layers must be canvas-aligned PNGs")
+        rgba = image if image.mode == "RGBA" else image.convert("RGBA")
+        box = rgba.getchannel("A").getbbox()
+        if box is None:
+            return None
+        left, top, right, bottom = box
+        if box == (0, 0, image.width, image.height):
+            archive.write(path, member)
+        else:
+            with archive.open(member, "w") as target:
+                rgba.crop(box).save(target, format="PNG")
+    return {"type": "png", "file": member, "placement": "tile",
+            "offset": [left, top], "size": [right-left, bottom-top]}
+
+
 def deliver(run, analysis, catalog, bindings, files):
     sources = {a["id"]: a["asset_id"] for a in catalog}
     photos = {p["slot_id"]: p for p in bindings}
     objects = {o["id"]: o for o in analysis["objects"]}
+    lettering = read(run/"lettering.json") if (run/"lettering.json").is_file() else {}
     layers = []
     with ZipFile(run/"delivery.tmp", "w") as archive:
         for oid in analysis["layer_order"]:
             obj = objects[oid]
+            if obj["kind"] == "text" and lettering.get(oid, {}).get("action") == "embedded":
+                continue
             if is_customer_photo(obj):
                 binding = photos[oid]
                 source = {"type": "customer_asset", "asset_id": sources[binding["asset_id"]],
                           **{k: binding[k] for k in ("source_crop", "crop_center", "mirror_x")}}
             else:
-                path = files[oid]
-                with Image.open(path) as image:
-                    if image.format != "PNG" or list(image.size) != analysis["reference_size"]:
-                        raise ValueError("Fixed layers must be canvas-aligned PNGs")
-                member = "layers/" + path.name
-                archive.write(path, member)
-                source = {"type": "png", "file": member, "placement": "full_canvas"}
-            layers.append({**obj, "source": source})
-        scene = {"schema_version": "harmony-collage-scene-v1", "canvas_size": analysis["reference_size"],
+                if obj["kind"] in ("overlay", "frame") and oid not in files:
+                    continue  # Reveal omitted this decoration from its response.
+                source = write_png_tile(archive, files[oid], analysis["reference_size"])
+                if source is None:
+                    continue
+            layer = {**obj, "source": source}
+            if oid in lettering:
+                layer["lettering"] = lettering[oid]
+            layers.append(layer)
+        scene = {"schema_version": "harmony-collage-scene-v2", "canvas_size": analysis["reference_size"],
                  "layers": layers}
         save(run/"scene.json", scene)
         archive.write(run/"scene.json", "scene.json")
