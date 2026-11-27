@@ -10,7 +10,6 @@ from .timings import log
 from .lettering import finish_text_layers
 from .object_roles import is_customer_photo
 from .reveal_transport import fetch_batch, reserve_submission
-from .reveal_order import apply_batch_order
 from .storage import read, save
 
 
@@ -155,10 +154,6 @@ def extract(run, analysis, clean_background=None):
                     image.paste(patch, box)
                 store(oid, image)
                 log(f"{task.name} 返回层 {index} → {oid} → {files[oid].name}")
-        # The mapping is authoritative even for customer slots whose PNG is unused.
-        returned = [group[pos]["id"] for pos in indices]
-        apply_batch_order(layers, returned)
-        log(f"{task.name} 按 360 返回层从底到顶排列：{returned}")
         if start + 20 < len(targets):
             if 0 in skipped:
                 log(f"{task.name} 缺少后续拆层所需的残余图，保留已有结果并跳过剩余批次")

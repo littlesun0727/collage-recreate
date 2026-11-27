@@ -124,9 +124,12 @@ def deliver(run, analysis, catalog, bindings, files, outputs=None, masks=None):
     with ZipFile(run/"delivery.tmp", "w") as archive:
         for ident, path in (masks or {}).items():
             archive.write(path, f"masks/{ident}.png")
-        corrected = run/"reveal/scene-order.json"
-        order = read(corrected) if corrected.is_file() else analysis["layer_order"]
-        for oid in order:
+        # Older Reveal manifests may list retained objects in extraction order.
+        manifest = run/"reveal/scene-order.json"
+        retained = set(read(manifest)) if manifest.is_file() else None
+        for oid in analysis["layer_order"]:
+            if retained is not None and oid not in retained:
+                continue
             obj = objects[oid]
             if obj["kind"] == "text" and lettering.get(oid, {}).get("action") == "embedded":
                 log(f"{oid} 文字已保留在承载层，跳过独立 PNG")

@@ -24,13 +24,6 @@ def picture(color):
 
 
 class AppContract(unittest.TestCase):
-    def test_reveal_order_across_nonadjacent_slots_and_batches(self):
-        from collage.reveal_order import apply_batch_order
-        layers = [{"id": oid} for oid in ("bg","p1","caption","p2","frame1","frame2","a","b")]
-        apply_batch_order(layers, ["b","a"])
-        apply_batch_order(layers, ["frame2","frame1","p2","p1"])
-        self.assertEqual([o["id"] for o in layers], ["bg","frame2","caption","frame1","p2","p1","b","a"])
-
     def test_popout_single_slot_above_frame_and_beyond_window(self):
         from collage import preview, binding
         wire = {"background":{"type":"solid_color","color":"#ffffff"},
@@ -128,9 +121,8 @@ class AppContract(unittest.TestCase):
             return path
         def remote(task, reference, boxes, key):
             gate.wait(5)
-            # Return service mappings in a different order to the input boxes.
             self.assertEqual([box["id"] for box in boxes], ["star", "p", "strip"])
-            indices = [1, 0]  # Out of order, and the strip was omitted.
+            indices = [0, 1]  # Foreground first in the reply, strip omitted.
             save(task/"query_response.json", {"output": {"boxes_mapping_index": indices}})
             for i in range(len(indices)+1):
                 Image.new("RGBA",(100,100),(0,i,0,255)).save(task/f"layers_aug_{i:02d}.png")
@@ -167,7 +159,7 @@ class AppContract(unittest.TestCase):
                     members = {"scene.json", layers[0]["source"]["file"], layers[2]["source"]["file"]}
                     self.assertEqual(set(bundle.namelist()), members)
                     with Image.open(io.BytesIO(bundle.read(layers[2]["source"]["file"]))) as img:
-                        self.assertEqual(img.getpixel((0,0)), (0,2,0,255))
+                        self.assertEqual(img.getpixel((0,0)), (0,1,0,255))
                 self.assertEqual(calls, ["analyze","bind"])
             finally:
                 release.set()

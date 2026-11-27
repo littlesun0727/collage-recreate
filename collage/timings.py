@@ -8,10 +8,12 @@ import sys
 from threading import Event, Lock, Thread
 from traceback import extract_tb
 from time import perf_counter
-from urllib.request import urlopen as open_url
+from urllib.request import ProxyHandler, build_opener
 
 from .storage import save
 
+# Use direct connections for pipeline requests, including redirected downloads.
+open_url = build_opener(ProxyHandler({})).open
 _active = ContextVar("timing_stage", default=None)
 _console = Lock()
 
