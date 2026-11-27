@@ -103,7 +103,11 @@ python benchmark.py --case-dir "D:/codes/collage-recreate-v11/benchmark-202-case
 
 参考图按原分辨率校正后写入 artifacts/prepared/reference.png，随后启动 analysis。同时，prepare_materials 阶段生成最长边 1024 像素的 materials_*.jpg 供 binding 使用。artifacts/catalog.json 记录原文件名、校正后的原图尺寸、原文件 SHA-256 和缩略图文件名。
 
-artifacts/analysis-bbox.png 以橙色显示 bbox，青色显示按旋转角度定位的照片窗口。artifacts/final.png 按交付包内 scene.json 和裁切后的 PNG 回贴，客户照片按选中的 asset_id 从 inputs/photos 读取原图并校正方向。已有透明度的客户图复用源 alpha，其余抠像使用本地 ONNX Runtime 和 BiRefNet-base（通用版）。模型文件默认放在 `~/.u2net/birefnet-general.onnx`，可用 `COLLAGE_BIREFNET_MODEL` 指定同一导出格式的路径。权重来自 [rembg 的 BiRefNet-general epoch 244](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-epoch_244.onnx)，MD5 为 `7a35a0141cbbc80de11d9c9a28f52697`。artifacts/cutouts 保存原图预览、全尺寸蒙版和透明抠图预览；binding 后生成蒙版，可与 Reveal 并行。App 读 scene 中的 source.mask_file，将 ZIP 内的灰度蒙版作为方向校正后原图的 alpha。
+artifacts/analysis-bbox.png 以橙色显示 bbox，青色显示按旋转角度定位的照片窗口。artifacts/final.png 按交付包内 scene.json 和裁切后的 PNG 回贴，客户照片按选中的 asset_id 从 inputs/photos 读取原图并校正方向。已有透明度的客户图复用源 alpha，其余抠像默认使用项目根目录下的 `models/birefnet-general-lite.onnx`（rembg General Lite，epoch 232）。在 PowerShell 中设置 `$env:COLLAGE_BIREFNET_MODEL = "birefnet-general"`，再启动流水线、benchmark 或服务即可切换到 `models/birefnet-general.onnx`（epoch 244）。切回默认版时设为 `"birefnet-general-lite"`，也接受 `"birefnet-general-light"`。环境变量仍支持自定义兼容 ONNX 文件路径。
+
+重新部署时将两个文件放入项目的 `models/` 目录，可从 rembg 下载并按链接文字命名：[birefnet-general-lite.onnx](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-bb_swin_v1_tiny-epoch_232.onnx)、[birefnet-general.onnx](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-epoch_244.onnx)。
+
+artifacts/cutouts 保存原图预览、全尺寸蒙版和透明抠图预览；binding 后生成蒙版，可与 Reveal 并行。App 读 scene 中的 source.mask_file，将 ZIP 内的灰度蒙版作为方向校正后原图的 alpha。
 
 ### 目录版轻量选片
 
