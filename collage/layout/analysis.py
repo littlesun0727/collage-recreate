@@ -1,5 +1,7 @@
 from copy import deepcopy
 import math
+import re
+from collage.timings import log
 from jsonschema import Draft202012Validator, ValidationError
 from collage import contracts
 from collage.layout.normalization import unwrap_object
@@ -49,6 +51,7 @@ def legacy_schema(size, mode):
         'background_type': {'enum': ['photo', 'reference_clean', 'solid_color']},
         'bbox': {'type': 'array', 'items': number, 'minItems': 4, 'maxItems': 4},
         'description': {'type': 'string', 'minLength': 1, 'maxLength': 100},
+        'subject_type': {'enum': contracts.SUBJECT_TYPES},
         'linked_to': ID,
         'photo_id': {'anyOf': [ID, {'type': 'array', 'items': ID, 'minItems': 1,
                                    'maxItems': 160, 'uniqueItems': True}]}, 'parent_id': ID,
@@ -91,6 +94,13 @@ def normalize(value):
     if len(rows) == 1 and isinstance(rows[0], list) and all(isinstance(o, dict) for o in rows[0]):
         result['objects'] = rows[0]
     background = result.get('background')
+    def fix_color(obj):
+        color = obj.get('color')
+        if isinstance(color, str) and re.fullmatch(r'[0-9a-fA-F]{6}', color):
+            obj['color'] = '#' + color
+            log("补齐六位颜色的 # 前缀")
+    if isinstance(background, dict):
+        fix_color(background)
     described = list(result['objects'])
     if isinstance(background, dict) and background.get('type') in ('photographic', 'reference_clean'):
         described.append(background)
@@ -102,6 +112,13 @@ def normalize(value):
     for item in result['objects']:
         if not isinstance(item, dict):
             continue
+        fix_color(item)
+        stroke = item.get('stroke')
+        if item.get('kind') == 'photo' and type(stroke) in (float,int) and .001 <= stroke <= .1:
+            item['stroke'] = {'width': stroke, 'color': '#FFFFFF'}
+            log(f"{item.get('id')} 将数字描边展开为宽度 {stroke}，默认白色")
+        elif isinstance(stroke, dict):
+            fix_color(stroke)
         for key in ('photo_id', 'parent_id', 'linked_to', 'background_type', 'color', *TEXT_STYLE_FIELDS, *PHOTO_FIELDS):
             if key in item and item[key] is None:
                 del item[key]
@@ -255,7 +272,7 @@ def compile_inventory(value, size, mode, report=None):
             if outline is not None:
                 above.append(outline)
     for source in value['objects']:
-        item = {k: deepcopy(source[k]) for k in ('id', 'kind', 'bbox', 'description', 'photo_id', 'parent_id', 'linked_to', 'background_type') if k in source}
+        item = {k: deepcopy(source[k]) for k in ('id', 'kind', 'bbox', 'description', 'photo_id', 'parent_id', 'linked_to', 'background_type', 'subject_type') if k in source}
         if mode == 'normalized_1000':
             item['bbox'] = [round(v * size[i % 2] / 1000) for i, v in enumerate(item['bbox'])]
         item['label'] = item['description'][:30]

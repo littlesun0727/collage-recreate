@@ -38,7 +38,7 @@
 | kind | 有关字段 | 前端关注点 |
 | --- | --- | --- |
 | `background` | `background_type`、`method`；纯色底有 `style.fill` | 铺满画布。类型 `photo` 用本地照片，其余按最终 PNG。常见固定底为 `solid_color`、`reference_clean`。 |
-| `photo` | `mode`、窗口和效果字段见第 3 节；关联出框有 `linked_to` | 首包可以先画槽位轮廓，最终按绑定取照片。 |
+| `photo` | `mode`、窗口和效果字段见第 3 节；出框使用 `mode=popout` 和 `popout_bbox` | 首包可以先画槽位轮廓，最终按绑定取照片。 |
 | `frame` | `method:"extract"`、`photo_id`（一个照片 ID 或 ID 数组） | 装饰相框是独立固定层，有自己的层序。 |
 | `text` | `text`（字符串或 null）、`text_status`（known / unreadable），可带 `style` | 可用于显示文字信息，成品按该层 PNG 合成。 |
 | `overlay` | 装饰、贴纸、固定艺术字等，可带 `style` | 按最终固定层 PNG 合成。 |
@@ -47,13 +47,14 @@
 
 ## 3. photo 蒙版给什么，怎么画
 
-窗口参数直接位于照片对象顶层，场景层会保留这些字段。客户端按参数生成路径。普通 photo 的 `mode` 缺省为 `window`；照片背景按 `bare`。三种模式的区别如下。
+窗口参数直接位于照片对象顶层，场景层会保留这些字段。客户端按参数生成路径。普通 photo 的 `mode` 缺省为 `window`；照片背景按 `bare`。四种模式的区别如下。
 
 | mode | 本地绘制行为 |
 | --- | --- |
 | `window` | 保留原照片背景，按窗口路径裁切，应用可选描边和边缘渐隐。 |
 | `bare` | 保留原照片背景，按制作框摆放，无异形蒙版。 |
-| `cutout` | 本地分割客户图主体，用主体 alpha 合成，可沿主体外缘描边。独立抠图使用整幅源图；关联出框按下文复用底图变换。 |
+| `cutout` | 从 ZIP 的 source.mask_file 读取灰度 PNG 作为校正方向后原图的 alpha（0 透明，255 不透明），可沿主体外缘描边。独立抠图使用整幅源图。 |
+| `popout` | 同一张照片绘制窗口和主体。窗口使用 bbox；主体使用同一源图到画布的变换，在 popout_bbox 内绘制 source.mask_file，不受窗口裁切。 |
 
 **七种窗口的字段与路径**。下表 JSON 均为 photo 对象的局部字段。令局部框宽高为 `w,h`，短边为 `d=min(w,h)`。局部单位坐标 `[u,v]` 映射为 `[u*w,v*h]`，完成轮廓后再应用整层旋转。
 
@@ -102,7 +103,7 @@ ImageDraw.Draw(mask).polygon([tuple(point) for point in points.tolist()], fill=2
 按 scene.layers 原顺序逐层合成：
     若 source.type == "png"：在 source.offset 处按 source.size 绘制 source.file，进入下一层
     用 source.asset_id 查本地原图并校正 EXIF
-    若为 linked_to 组合：先按前景 bbox 匹配分割主体，缓存底图和前景共用的缩放、位移及镜像
+    若为 popout：缓存窗口的原图到画布变换，保留取景框外的原图像素供前景采样
     普通窗口或 bare：按 source_crop 取源图子矩形，等比 cover 到制作框
         scale = max(w / 裁后宽, h / 裁后高)
         放置偏移 = ((w - 裁后宽*scale)*crop_center.x, (h - 裁后高*scale)*crop_center.y)
@@ -113,7 +114,7 @@ ImageDraw.Draw(mask).polygon([tuple(point) for point in points.tolist()], fill=2
     将局部图层按 bbox 中心和 rotation 放入画布
 ```
 
-`source_crop=[l,t,r,b]` 是已校正方向的**原图**上的 0～1 范围。`crop_center=[x,y]` 是裁后 cover 的对齐比例，0 靠左／上，1 靠右／下。关联前景的 `linked_to` 指向底图 ID，两层共用 `asset_id/source_crop/crop_center/mirror_x`；前景 bbox 用来匹配主体范围。应先求组合变换，再按两层各自的层序合成，才能让相框等元素夹在中间。具体分割模型、渐隐插值曲线和抗锯齿策略需在客户端联调时对齐。
+`source_crop=[l,t,r,b]` 是已校正方向的**原图**上的 0～1 范围。`crop_center=[x,y]` 是裁后 cover 的对齐比例，0 靠左／上，1 靠右／下。出框使用一个照片 ID。服务端结合蒙版和目标框计算 source_crop。窗口按该取景绘制；前景从未裁断的原图及其蒙版采样，同步应用镜像和旋转，在画布像素范围 popout_bbox 内绘制。默认紧接窗口叠加；若有 popout_above，在该 ID 的层绘制完后叠加。独立 cutout 仍按 alpha > 8 的外接框收紧并等比 contain。
 
 ## 4. 最后回传什么
 
@@ -131,7 +132,7 @@ ImageDraw.Draw(mask).polygon([tuple(point) for point in points.tolist()], fill=2
 | source.type | source 完整示例 | 资源在哪里 |
 | --- | --- | --- |
 | `png` | `{"type":"png","file":"layers/layer_000.png","placement":"tile","offset":[393,640],"size":[352,23]}` | 读取指定相对路径。offset 是小图左上角在参考画布的像素位置，size 是实际 PNG 宽高。旋转已烘焙，只随整个画布统一缩放。以数组决定层序，文件名只作寻址。 |
-| `customer_asset` | `{"type":"customer_asset","asset_id":"album-001","source_crop":[0,0,1,1],"crop_center":[0.5,0.5],"mirror_x":false}` | 原图保留在前端。服务端交付引用与绘制参数，主体 alpha 由前端生成。 |
+| `customer_asset` | `{"type":"customer_asset","asset_id":"album-001","source_crop":[0,0,1,1],"crop_center":[0.5,0.5],"mirror_x":false}` | 原图保留在前端。服务端交付引用与绘制参数，cutout 层额外带 source.mask_file，指向 ZIP 内与校正方向后原图同尺寸的蒙版。同一素材只打包一次。 |
 
 交付粒度是可重新合成的静态图层场景。若产品要显示合成预览，由前端绘制；若要播放动画，时间轴、关键帧和编码参数需另行约定。当前 HTTP 服务只为首包分析提供独立 JSON 地址，最终场景和 PNG 在同一次下载内。
 

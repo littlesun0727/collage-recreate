@@ -25,7 +25,7 @@ def endpoint():
 
 # Match the v10 auto policy. These Qwen variants use a 1000-unit reference canvas.
 NORMALIZED_MODELS = {"qwen/qwen3.8-flash", "qwen/qwen3.8-max-0902", "qwen3.8-flash",
-                     "qwen3.8-max-0902", "qwen3.8-max"}
+                     "qwen3.8-max-0902", "qwen3.8-max", "qwen4-max"}
 
 
 def parse_content(content):
@@ -97,8 +97,8 @@ def ask(stage, context, images, output_schema):
     parts = [{"type": "text", "text": prompt + "\n" + json.dumps(context, ensure_ascii=False)
               + "\n输出 JSON Schema\n" + json.dumps(output_schema, ensure_ascii=False)}]
     for label, path in images:
-        log(f"编码请求图片 {label}，格式 {'JPEG 缩略图' if stage == 'bind' else 'PNG'}")
-        if stage == "bind":
+        log(f"编码请求图片 {label}，格式 {'JPEG 缩略图' if stage in ('bind', 'classify') else 'PNG'}")
+        if stage in ("bind", "classify"):
             mime = "image/jpeg"
             data = path.read_bytes() if path.suffix == ".jpg" else binding_preview(path)
         else:
@@ -109,16 +109,21 @@ def ask(stage, context, images, output_schema):
             image_url["detail"] = "original"
         parts.extend([{"type": "text", "text": label},
                       {"type": "image_url", "image_url": image_url}])
-    model = os.environ["COLLAGE_VLM_MODEL"]
-    if stage == "bind":
-        model = os.getenv("COLLAGE_BIND_MODEL") or model
+    binding_stage = stage in ("bind", "classify")
+    prefix = "COLLAGE_BIND" if binding_stage else "COLLAGE_ANALYSIS"
+    model = (os.getenv("COLLAGE_BIND_MODEL") if binding_stage else None) or os.environ["COLLAGE_VLM_MODEL"]
+    url = os.getenv(prefix + "_URL") or endpoint()
+    key = os.getenv(prefix + "_KEY") or os.environ["COLLAGE_VLM_KEY"]
+    effort = os.getenv(prefix + "_EFFORT", "auto")
+    if effort == "auto":
+        effort = "medium" if model.split("/")[-1] in {"gpt-6.1-sol", "gpt-6.2-sol"} else "default"
     payload = {"model": model, "messages": [{"role": "user", "content": parts}],
                "response_format": {"type": "json_object"}}
-    if payload["model"].split("/")[-1] in {"gpt-6.1-sol", "gpt-6.2-sol"}:
-        payload["reasoning_effort"] = "medium"
-    req = Request(endpoint(), data=json.dumps(payload).encode(),
-                  headers={"Content-Type": "application/json", "Authorization": "Bearer " + os.environ["COLLAGE_VLM_KEY"]})
-    log(f"模型 {model}，图片 {len(images)} 张，请求体 {len(req.data)/1048576:.2f} MiB")
+    if effort != "default":
+        payload["reasoning_effort"] = effort
+    req = Request(url, data=json.dumps(payload).encode(),
+                  headers={"Content-Type": "application/json", "Authorization": "Bearer " + key})
+    log(f"模型 {model}，reasoning_effort={effort}，图片 {len(images)} 张，请求体 {len(req.data)/1048576:.2f} MiB")
     choice = request_choice(req)
     log("已读取模型回复，开始解析 JSON")
     if choice.get("finish_reason") not in ("stop", None):
@@ -135,7 +140,10 @@ def analyze(run, size):
     result = ask("analyze", context, [("reference", run/"prepared/reference.png")], contract)
     log(f"校验分析结构并生成图层顺序，坐标模式 {mode}")
     value = normalize(result)
-    Draft202012Validator(contract).validate(value)
+    error = next(Draft202012Validator(contract).iter_errors(value), None)
+    if error:
+        location = ".".join(map(str, error.absolute_path))
+        raise ValueError(f"analysis 字段 {location or '$'} 校验失败：{error.message[:260]}")
     return compile_inventory(value, size, mode)
 
 

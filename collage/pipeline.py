@@ -1,11 +1,12 @@
 """Return the analysis first, then assemble the scene after parallel provider calls."""
 import base64
 import io
-from concurrent.futures import ThreadPoolExecutor
+import math
+from concurrent.futures import Future, ThreadPoolExecutor
 from zipfile import ZipFile
 from PIL import Image, ImageOps
 
-from . import background, reveal, vlm
+from . import background, cutout, reveal, vlm
 from .object_roles import is_customer_photo
 from .timings import log
 from .storage import read, save, sha
@@ -73,7 +74,46 @@ def write_png_tile(archive, path, canvas_size):
             "offset": [left, top], "size": [right-left, bottom-top]}
 
 
-def deliver(run, analysis, catalog, bindings, files, outputs=None):
+def build_masks(run, analysis, catalog, bindings, originals):
+    slots = {o["id"] for o in analysis["objects"] if o.get("mode") in ("cutout", "popout") and is_customer_photo(o)}
+    required = {b["asset_id"] for b in bindings if b["slot_id"] in slots and not b.get("skip_popout")}
+    masks = {}
+    for asset in catalog:
+        ident = asset["id"]
+        if ident in required:
+            path = originals[asset["asset_id"]] if originals is not None else run/"prepared"/(ident+".png")
+            with oriented_photo(path) as image:
+                cutout.subject(image, run/"cutouts", ident)
+            masks[ident] = run/"cutouts"/(ident+"-mask.png")
+    return masks
+
+
+def popout_crop(obj, mask_path, source):
+    """Fit the same customer-photo transform to the subject target and the window."""
+    with Image.open(mask_path) as mask:
+        w, h = mask.size
+        subject = mask.point(lambda a: 255 if a > 8 else 0).getbbox()
+    if not subject:
+        raise ValueError(f"Empty popout mask for {obj['id']}")
+    l,t,r,b = obj["bbox"]
+    pl,pt,pr,pb = obj["popout_bbox"]
+    sl,st,sr,sb = subject
+    angle = math.radians(obj.get("rotation", 0))
+    c,s = math.cos(angle),math.sin(angle)
+    sw,sh = sr-sl,sb-st
+    scale = max((r-l)/w, (b-t)/h, min((pr-pl)/(abs(c)*sw+abs(s)*sh),
+                                        (pb-pt)/(abs(s)*sw+abs(c)*sh)))
+    cw,ch = (r-l)/scale,(b-t)/scale
+    dx,dy = (pl+pr-l-r)/2,(pt+pb-t-b)/2
+    horizontal = (c*dx+s*dy)/scale
+    if source["mirror_x"]:
+        horizontal = -horizontal
+    x = max(0,min(w-cw,(sl+sr-cw)/2-horizontal))
+    y = max(0,min(h-ch,(st+sb-ch)/2-(-s*dx+c*dy)/scale))
+    return [x/w,y/h,(x+cw)/w,(y+ch)/h]
+
+
+def deliver(run, analysis, catalog, bindings, files, outputs=None, masks=None):
     if outputs is None:
         outputs = run
     sources = {a["id"]: a["asset_id"] for a in catalog}
@@ -82,15 +122,26 @@ def deliver(run, analysis, catalog, bindings, files, outputs=None):
     lettering = read(run/"lettering.json") if (run/"lettering.json").is_file() else {}
     layers = []
     with ZipFile(run/"delivery.tmp", "w") as archive:
-        for oid in analysis["layer_order"]:
+        for ident, path in (masks or {}).items():
+            archive.write(path, f"masks/{ident}.png")
+        corrected = run/"reveal/scene-order.json"
+        order = read(corrected) if corrected.is_file() else analysis["layer_order"]
+        for oid in order:
             obj = objects[oid]
             if obj["kind"] == "text" and lettering.get(oid, {}).get("action") == "embedded":
                 log(f"{oid} 文字已保留在承载层，跳过独立 PNG")
                 continue
             if is_customer_photo(obj):
                 binding = photos[oid]
+                if binding.get("skip_popout"):
+                    continue
                 source = {"type": "customer_asset", "asset_id": sources[binding["asset_id"]],
                           **{k: binding[k] for k in ("source_crop", "crop_center", "mirror_x")}}
+                if obj.get("mode") in ("cutout", "popout") and masks is not None:
+                    ident = binding["asset_id"]
+                    source["mask_file"] = "masks/" + masks[ident].stem.removesuffix("-mask") + ".png"
+                    if obj.get("mode") == "popout":
+                        source["source_crop"] = popout_crop(obj, masks[ident], source)
             else:
                 if obj["kind"] in ("overlay", "frame") and oid not in files:
                     log(f"{oid} 缺少提取结果，跳过交付")
@@ -104,6 +155,10 @@ def deliver(run, analysis, catalog, bindings, files, outputs=None):
             if oid in lettering:
                 layer["lettering"] = lettering[oid]
             layers.append(layer)
+        positions = {layer["id"]: i for i, layer in enumerate(layers)}
+        for i, layer in enumerate(layers):
+            if "popout_above" in layer and positions.get(layer["popout_above"], -1) <= i:
+                del layer["popout_above"]
         scene = {"schema_version": "harmony-collage-scene-v2", "canvas_size": analysis["reference_size"],
                  "layers": layers}
         save(run/"scene.tmp", scene, indent=2)
@@ -129,7 +184,11 @@ def run_stage(stage, func, *args):
 
 
 def bind_and_save(run, analysis, catalog):
-    bindings = vlm.bind(run, analysis, catalog)
+    if isinstance(catalog, Future):
+        from .light_binding import match
+        bindings = match(analysis, catalog.result())
+    else:
+        bindings = vlm.bind(run, analysis, catalog)
     save(run/"bindings.json", bindings, indent=2)
     for row in bindings:
         log(f"选片 {row['slot_id']} → {row['asset_id']}，裁切 {row['source_crop']}")
@@ -143,7 +202,7 @@ def extract_and_save(run, analysis, clean):
     return files
 
 
-def assemble(run, outputs, analysis, catalog, timings=None):
+def assemble(run, outputs, analysis, catalog, timings=None, originals=None):
     def measured(stage, func, *args):
         if timings is None:
             return run_stage(stage, func, *args)
@@ -160,7 +219,10 @@ def assemble(run, outputs, analysis, catalog, timings=None):
             clean = workers.submit(measured, "reference_clean", background.clean, run, bg, analysis["reference_size"])
         binding = workers.submit(measured, "binding", bind_and_save, run, analysis, catalog)
         layers = workers.submit(measured, "reveal", extract_and_save, run, analysis, clean)
-        measured("delivery", deliver, run, analysis, catalog, binding.result(), layers.result(), outputs)
+        bindings = binding.result()
+        materials = catalog.result() if isinstance(catalog, Future) else catalog
+        masks = measured("cutout_masks", build_masks, run, analysis, materials, bindings, originals)
+        measured("delivery", deliver, run, analysis, materials, bindings, layers.result(), outputs, masks)
 
 
 def finish(run):

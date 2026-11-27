@@ -80,18 +80,21 @@ python -m venv .venv
 
 | 配置段 | 地址及模型 | 凭证 |
 |---|---|---|
-| `vlm` | `url` 填完整 chat/completions 地址，`analysis_model` 和 `binding_model` 分别用于分析和选片 | 两阶段共用 `api_key` |
+| `analysis` | `url`、`model`、`reasoning_effort` 用于参考图分析 | 本段 `api_key` |
+| `binding` | `url`、`model`、`reasoning_effort` 用于客户素材分类及旧版选片 | 本段 `api_key` |
 | `reference_clean` | `url` 填完整图片编辑地址，`model` 选择兼容模型 | 本段 `api_key` |
 | `reveal` | `base_url` 填 360 接口根地址，程序追加 submit_task 或 query_task，`model` 同时用于提交和查询 | 本段 `api_key` |
 
-JSON 中的非空值优先，其次读取进程环境变量、工程 .env、上一级 .env 和程序默认值。`api_key` 留空时沿用已有密钥。本地配置文件已加入 .gitignore。
+两个阶段都可将 `reasoning_effort` 填为服务支持的强度，如 `low`、`medium`、`high`，该值原样传入聊天请求。`default` 省略此参数，交给服务决定；`auto` 沿用旧策略（对 gpt-6.1-sol 和 gpt-6.2-sol 发 medium，其余省略）。旧配置的 `vlm` 段仍可作为共享配置。
+
+JSON 中的非空值优先，其次读取相应环境变量、工程 .env、上一级 .env 和程序默认值。`api_key` 留空时可用 COLLAGE_ANALYSIS_KEY、COLLAGE_BIND_KEY 分别设置，或沿用共享密钥。本地配置文件已加入 .gitignore。
 
 运行期间终端实时显示时间、case、阶段和操作。单个 case 的相同记录在 `artifacts/pipeline.log`，批测报告提供“查看运行日志”链接。长时间没有返回的 HTTP 请求每 30 秒报告一次等待时长；同一请求的开始和结束可按 `HTTP #编号` 对照 `timings.json` 中的请求 ID。
 
 在 v11 工程目录下执行。每次启动都会先清空指定输出目录中的旧文件，再从头批测。请将该目录专用于这一批结果。
 
 ```powershell
-python benchmark.py --case-dir "D:/codes/collage-recreate-v11/benchmark-202-cases" --output-dir "D:/codes/collage-recreate-v11-output/benchmark-run-001"
+python benchmark.py --case-dir "D:/codes/collage-recreate-v11/benchmark-202-cases" --output-dir "D:/codes/collage-recreate-v11-output/benchmark-run-001" --download-workers 5
 ```
 
 默认同时跑两个 case，可传 `--workers 4`。case-dir 可以是测试集根目录，也可以是包含 inputs 的单个 case。脚本读取环境变量、工程 .env 和上一级 .env，按这个顺序优先。设置 YIBU_API_KEY（或 COLLAGE_VLM_KEY）、360_API_KEY 和 XUNXING_API_KEY。批测直连 Yibu，默认分析模型 gpt-6.2-sol，binding 模型 qwen3.8-flash，可分别用 COLLAGE_VLM_MODEL 和 COLLAGE_BIND_MODEL 覆盖。
@@ -100,4 +103,13 @@ python benchmark.py --case-dir "D:/codes/collage-recreate-v11/benchmark-202-case
 
 参考图按原分辨率校正后写入 artifacts/prepared/reference.png，随后启动 analysis。同时，prepare_materials 阶段生成最长边 1024 像素的 materials_*.jpg 供 binding 使用。artifacts/catalog.json 记录原文件名、校正后的原图尺寸、原文件 SHA-256 和缩略图文件名。
 
-artifacts/analysis-bbox.png 以橙色显示 bbox，青色显示按旋转角度定位的照片窗口。artifacts/final.png 按交付包内 scene.json 和裁切后的 PNG 回贴，客户照片按选中的 asset_id 从 inputs/photos 读取原图并校正方向。抠像层优先使用照片自带透明度，不透明照片用本地 GrabCut 估算，可能与 App 的人像分割有差异。预览失败的原因在 artifacts/preview-errors.json 及报告中。
+artifacts/analysis-bbox.png 以橙色显示 bbox，青色显示按旋转角度定位的照片窗口。artifacts/final.png 按交付包内 scene.json 和裁切后的 PNG 回贴，客户照片按选中的 asset_id 从 inputs/photos 读取原图并校正方向。已有透明度的客户图复用源 alpha，其余抠像使用本地 ONNX Runtime 和 BiRefNet-base（通用版）。模型文件默认放在 `~/.u2net/birefnet-general.onnx`，可用 `COLLAGE_BIREFNET_MODEL` 指定同一导出格式的路径。权重来自 [rembg 的 BiRefNet-general epoch 244](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-epoch_244.onnx)，MD5 为 `7a35a0141cbbc80de11d9c9a28f52697`。artifacts/cutouts 保存原图预览、全尺寸蒙版和透明抠图预览；binding 后生成蒙版，可与 Reveal 并行。App 读 scene 中的 source.mask_file，将 ZIP 内的灰度蒙版作为方向校正后原图的 alpha。
+
+### 目录版轻量选片
+
+参考图 analysis 写入照片槽的 subject_type。客户缩略图同时排入 artifacts/contact-sheets/，每页最多九张，全部页面随同一次逻辑分类请求发送，使用 binding.model。material_classification 计时包含排版、模型请求和校验。分类结果在 artifacts/material-classification.json，focus_point 相对于每张校正方向后的照片。
+
+本地先分配 cutout 和 popout。独立槽优先用未使用过的图片，在这些候选中先看能否满足抠像要求，再看主体类别和长宽比。用完所有不同图片后才允许复用。如果还有未使用的图片，但它们都未被判为可抠，会选其中一张尝试抠像；整组素材都被判为不可抠且模板需要抠像时仍报错。探出层共享底图的选片与裁切。
+
+能读出的独立文字在本地与返回层的实际像素对照，决定保留或擦除后重绘。难以辨认的文字随既有 Reveal 批次提取；缺失时保留参考图文字区域。默认手写字体为中文「悠哉体（常规）」、英文 Segoe Print、韩文 Nanum Pen Script；按 Unicode 字形逐段选字。两个随项目分发的字体及许可位于 `assets/fonts/`。
+

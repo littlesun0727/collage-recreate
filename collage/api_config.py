@@ -10,6 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 FIELDS = {
     "vlm": {"url": "COLLAGE_VLM_URL", "analysis_model": "COLLAGE_VLM_MODEL",
             "binding_model": "COLLAGE_BIND_MODEL", "api_key": "COLLAGE_VLM_KEY"},
+    "analysis": {"url": "COLLAGE_ANALYSIS_URL", "model": "COLLAGE_VLM_MODEL",
+                 "api_key": "COLLAGE_ANALYSIS_KEY", "reasoning_effort": "COLLAGE_ANALYSIS_EFFORT"},
+    "binding": {"url": "COLLAGE_BIND_URL", "model": "COLLAGE_BIND_MODEL",
+                "api_key": "COLLAGE_BIND_KEY", "reasoning_effort": "COLLAGE_BIND_EFFORT"},
     "reference_clean": {"url": "COLLAGE_CLEAN_URL", "model": "COLLAGE_CLEAN_MODEL",
                         "api_key": "XUNXING_API_KEY"},
     "reveal": {"base_url": "COLLAGE_REVEAL_URL", "model": "COLLAGE_REVEAL_MODEL",
@@ -23,8 +27,12 @@ def configure(path=None):
     if path is not None or file.exists():
         config = json.loads(file.read_text(encoding="utf-8-sig"))
         if not isinstance(config, dict) or config.keys() - FIELDS.keys():
-            raise ValueError("API 配置顶层只支持 vlm、reference_clean 和 reveal")
-        for section, values in config.items():
+            raise ValueError(f"API 配置顶层支持 {', '.join(FIELDS)}")
+        # Load the legacy shared block first, regardless of JSON field order.
+        for section in FIELDS:
+            if section not in config:
+                continue
+            values = config[section]
             fields = FIELDS[section]
             if not isinstance(values, dict) or values.keys() - fields.keys():
                 raise ValueError(f"API 配置 {section} 格式错误，支持字段 {', '.join(fields)}")

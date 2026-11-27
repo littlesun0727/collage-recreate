@@ -76,6 +76,8 @@ def shape_spec(photo):
 def spec_from_photo(photo):
     """Expand one analysis photo (or customer-photo background) into the render spec."""
     mode = photo_mode(photo)
+    if mode == 'popout':
+        mode = 'window'  # The subject pass uses the same source transform separately.
     if mode not in MODES:
         raise ValueError(photo['id'] + ': unknown photo mode ' + str(mode))
     spec = {'photo_id': photo['id'], 'shape': {'type': 'rectangle'}, 'stroke': empty_stroke(),

@@ -7,7 +7,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from uuid import uuid4
 
-from collage import pipeline, preview, vlm
+from collage import light_binding, pipeline, preview, vlm
 from collage.timings import Timings, log
 from collage.storage import save, sha
 
@@ -53,7 +53,9 @@ def prepare(case, artifacts):
 
 def prepare_materials(artifacts, reference, sources, timings):
     with timings.stage("prepare_materials"):
-        return write_thumbnails(artifacts, reference, sources)
+        catalog = pipeline.run_stage("prepare_materials", write_thumbnails, artifacts, reference, sources)
+    with timings.stage("material_classification"):
+        return pipeline.run_stage("material_classification", light_binding.classify, artifacts, catalog)
 
 
 def write_thumbnails(artifacts, reference, sources):
@@ -84,7 +86,7 @@ def archive_previous(artifacts, outputs):
             path.rename(previous/"outputs"/name)
     for name in ("status.json", "prepared", "catalog.json", "bindings.json", "reference_clean.png",
                  "reveal", "fixed", "fixed-index.json", "lettering.json", "scene.tmp", "delivery.tmp",
-                 "analysis-bbox.png", "final.png", "timings.json", "preview-errors.json", "pipeline.log"):
+                 "cutouts", "contact-sheets", "material-classification.json", "analysis-bbox.png", "final.png", "timings.json", "preview-errors.json", "pipeline.log"):
         path = artifacts/name
         if path.exists():
             previous.mkdir(parents=True, exist_ok=True)
@@ -132,11 +134,9 @@ def run_case(case_dir, output_dir=None):
                 save(outputs/"analysis.json", analysis, indent=2)
                 timings.emit(stage, f"已写入 outputs/analysis.json，对象数 {len(analysis['objects'])}")
                 draw("analysis_bbox", preview.analysis_bbox, artifacts, analysis)
-                stage = "prepare_materials"
-                catalog = materials.result()
-            stage = "assemble"
-            save(artifacts/"status.json", {"status": "processing", "stage": stage})
-            pipeline.assemble(artifacts, outputs, analysis, catalog, timings)
+                stage = "assemble"
+                save(artifacts/"status.json", {"status": "processing", "stage": stage})
+                pipeline.assemble(artifacts, outputs, analysis, materials, timings, originals)
             draw("final_preview", preview.final, artifacts, outputs, originals)
             save(artifacts/"status.json", {"status": "ready"})
             timings.emit("case", f"交付完成 {outputs}；预览问题 {len(issues)} 项")

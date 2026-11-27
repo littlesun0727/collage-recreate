@@ -160,7 +160,7 @@ def resolve(item, size, coordinate_mode, above=()):
             radius = item.get('radius', 0)
             radii = [0 if clipped else radius for clipped in cut]
             outline = rounded_quad_outline(points, radii) if radius else points
-            covering = _occluders(outline, above)
+            covering = occluding_outlines(outline, above)
             hidden = ('the window is cut off by the canvas edge' if touches else
                       'another photo covers part of the window' if covering else None)
             # Keep explicit corners. Only use the rotated-rectangle representation
@@ -256,7 +256,7 @@ def _clipped_corners(points, size):
     return edges | np.roll(edges, 1)
 
 
-def _occluders(outline, above):
+def occluding_outlines(outline, above, min_share=COVER_SHARE):
     """Use filled contours for overlap. Bounding boxes only skip disjoint pairs."""
     a = np.asarray(outline, dtype=np.float32)
     lower, upper = a.min(axis=0), a.max(axis=0)
@@ -283,7 +283,7 @@ def _occluders(outline, above):
                 cv2.fillPoly(mask, [np.rint((contour - lower) * scale * 16).astype(np.int32)], 1, shift=4)
                 masks.append(mask)
             share = np.count_nonzero(masks[0] & masks[1]) / max(np.count_nonzero(masks[0]), 1)
-        if share > COVER_SHARE:
+        if share > min_share:
             result.append(b)
     return result
 
@@ -354,12 +354,7 @@ def tilted_envelope(box, rotation):
 
 
 def add_popouts(objects, order, popouts, notes):
-    """Create the cut-out foreground for each valid popout and place it in the layer order.
-
-    The foreground goes above every photo and frame its region touches (about 3% wrong in the
-    labelled data, against about 20% when it is put just above its base photo); all other
-    layers keep their order.
-    """
+    """Store the subject extent and foreground paint order on the window itself."""
     by_id = {o['id']: o for o in objects}
     order = list(order)
     for base_id in [oid for oid in order if oid in popouts]:
@@ -369,17 +364,11 @@ def add_popouts(objects, order, popouts, notes):
         if problem:
             notes.append({'code': 'popout_ignored', 'message': problem})
             continue
-        fg_id = base_id[:50] + '_popout'
-        while fg_id in by_id:
-            fg_id = fg_id[:55] + '_x'
-        description = (base['description'][:380] + '（出框前景）')
-        foreground = {'id': fg_id, 'kind': 'photo', 'bbox': [round(v) for v in box], 'rotation': 0,
-                      'mode': 'cutout', 'linked_to': base_id, 'description': description,
-                      'label': description[:30], 'method': 'local'}
+        base['mode'] = 'popout'
+        base['popout_bbox'] = [round(v) for v in box]
         top = max((i for i, oid in enumerate(order)
                    if by_id[oid]['kind'] in {'photo', 'frame'} and _overlap(by_id[oid]['bbox'], box)),
                   default=order.index(base_id))
-        order.insert(top + 1, fg_id)
-        by_id[fg_id] = foreground
-        objects.append(foreground)
+        if top > order.index(base_id):
+            base['popout_above'] = order[top]
     return objects, order

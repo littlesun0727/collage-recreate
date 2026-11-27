@@ -1,6 +1,7 @@
-﻿"""Local visual diagnostics for directory-based cases."""
+"""Local visual diagnostics for directory-based cases."""
 import io
 import json
+import math
 from zipfile import ZipFile
 
 import cv2
@@ -11,6 +12,7 @@ from .layout.window_contract import spec_from_photo
 from .layout.window_drawing import apply, sampling_margin
 from .layout.window_shapes import window_outline
 from .timings import log
+from .cutout import subject
 
 
 def analysis_bbox(run, analysis):
@@ -21,9 +23,11 @@ def analysis_bbox(run, analysis):
     for obj in analysis["objects"]:
         box = obj["bbox"]
         draw.rectangle(box, outline="#ffad29", width=2)
-        if obj.get("mode") == "window":
+        if obj.get("mode") in ("window", "popout"):
             points = list(map(tuple, window_outline(obj).tolist()))
             draw.line(points + points[:1], fill="#00ffe4", width=4)
+        if obj.get("popout_bbox"):
+            draw.rectangle(obj["popout_bbox"], outline="#ff58aa", width=3)
         labels.append((box, obj["id"]))
     for box, name in labels:
         x, y = max(0, box[0]), max(0, box[1])
@@ -34,26 +38,7 @@ def analysis_bbox(run, analysis):
     log("已写入 artifacts/analysis-bbox.png")
 
 
-def subject(im):
-    # Preserve supplied transparency. For opaque photos estimate a local preview mask.
-    if im.getchannel("A").getextrema()[0] < 255:
-        return im
-    small = im.convert("RGB")
-    small.thumbnail((600, 600))
-    w, h = small.size
-    if min(w, h) < 4:
-        raise ValueError("Photo too small for cutout preview")
-    mask = np.zeros((h, w), np.uint8)
-    cv2.grabCut(cv2.cvtColor(np.asarray(small), cv2.COLOR_RGB2BGR), mask,
-                (1, 1, w-2, h-2), None, None, 4, cv2.GC_INIT_WITH_RECT)
-    alpha = Image.fromarray(((mask % 2)*255).astype("uint8")).resize(im.size, Image.Resampling.BILINEAR)
-    if not alpha.getbbox():
-        raise ValueError("No foreground found for cutout preview")
-    im.putalpha(alpha)
-    return im
-
-
-def photo(run, obj, layers, originals=None):
+def photo(run, obj, layers, originals=None, archive=None, *, foreground=False):
     src = obj["source"]
     if originals is not None:
         from .pipeline import oriented_photo
@@ -63,22 +48,43 @@ def photo(run, obj, layers, originals=None):
             im = source.convert("RGBA")
     cutout = obj.get("mode") == "cutout"
     base = layers[obj["linked_to"]] if obj.get("linked_to") else obj
-    if cutout:
-        im = subject(im)
-        if obj is base:
-            im = im.crop(im.getchannel("A").getbbox())
+    if cutout or foreground:
+        if src.get("mask_file"):
+            with archive.open(src["mask_file"]) as stream, Image.open(stream) as mask:
+                if mask.size != im.size:
+                    raise ValueError(f"Mask dimensions differ from source for {obj['id']}")
+                im.putalpha(mask.convert("L"))
+        else:
+            im = subject(im, run/"cutouts", src["asset_id"])
+        if cutout and obj is base:
+            im = im.crop(im.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox())
     crop = tuple(n*(im.width if i%2 == 0 else im.height) for i,n in enumerate(src["source_crop"]))
-    im = im.crop(crop)
+    # Keep the source outside the cover crop for the subject pass.
+    original_size = im.size
+    crop = tuple(round(n) for n in crop)
+    if not foreground:
+        im = im.crop(crop)
     if src["mirror_x"]:
         im = ImageOps.mirror(im)
     left, top, right, bottom = base["bbox"]
     size = (right-left, bottom-top)
     spec = spec_from_photo({**obj, "mode": obj.get("mode", "bare")})
     margin = sampling_margin(size, spec)
-    ratio = (min if cutout and base is obj else max)(size[0]/im.width, size[1]/im.height)
+    sw, sh = crop[2]-crop[0], crop[3]-crop[1]
+    ratio = (min if cutout and base is obj else max)(size[0]/sw, size[1]/sh)
     center = src["crop_center"]
-    x = (im.width-size[0]/ratio)*center[0]-margin/ratio
-    y = (im.height-size[1]/ratio)*center[1]-margin/ratio
+    x = (sw-size[0]/ratio)*center[0]-margin/ratio
+    y = (sh-size[1]/ratio)*center[1]-margin/ratio
+    if foreground:
+        # Sample the subject in canvas coordinates using the window's cover transform.
+        l, t, r, b = obj["popout_bbox"]
+        angle = math.radians(base.get("rotation", 0))
+        c, s = math.cos(angle)/ratio, math.sin(angle)/ratio
+        dx, dy = l-(left+right)/2, t-(top+bottom)/2
+        u = (original_size[0]-crop[2] if src["mirror_x"] else crop[0])+x+(size[0]/2+margin)/ratio+c*dx+s*dy
+        v = crop[1]+y+(size[1]/2+margin)/ratio-s*dx+c*dy
+        return im.transform((r-l,b-t), Image.Transform.AFFINE, (c,s,u,-s,c,v),
+                            Image.Resampling.BICUBIC), (l,t)
     tile = im.transform((size[0]+2*margin, size[1]+2*margin), Image.Transform.AFFINE,
                         (1/ratio, 0, x, 0, 1/ratio, y), Image.Resampling.BICUBIC)
     mask = None
@@ -97,6 +103,10 @@ def final(run, outputs, originals=None):
         scene = json.loads(archive.read("scene.json"))
         canvas = Image.new("RGBA", tuple(scene["canvas_size"]))
         layers = {obj["id"]: obj for obj in scene["layers"]}
+        foregrounds = {}
+        for obj in layers.values():
+            if obj.get("mode") == "popout":
+                foregrounds.setdefault(obj.get("popout_above", obj["id"]), []).append(obj)
         for obj in scene["layers"]:
             src = obj["source"]
             log(f"回贴 {obj['id']}，来源 {src.get('asset_id') or src.get('file')}")
@@ -104,7 +114,10 @@ def final(run, outputs, originals=None):
                 with Image.open(io.BytesIO(archive.read(src["file"]))) as tile:
                     canvas.alpha_composite(tile.convert("RGBA"), tuple(src["offset"]))
             else:
-                tile, offset = photo(run, obj, layers, originals)
+                tile, offset = photo(run, obj, layers, originals, archive)
+                canvas.alpha_composite(tile, offset)
+            for front in foregrounds.get(obj["id"], []):
+                tile, offset = photo(run, front, layers, originals, archive, foreground=True)
                 canvas.alpha_composite(tile, offset)
     canvas.save(run/"final.png")
     log("已写入 artifacts/final.png")

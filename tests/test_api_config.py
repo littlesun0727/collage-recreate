@@ -9,6 +9,24 @@ from collage import api_config, vlm
 
 
 class ApiConfigTest(unittest.TestCase):
+    def test_separate_analysis_and_binding_requests(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ, clear=True):
+            root = Path(tmp)
+            config = root/"api.json"
+            config.write_text(json.dumps({s: {"url":f"https://{s}.invalid/chat", "model":s,
+                "api_key":s+"-key", "reasoning_effort":e} for s,e in
+                [("binding","low"),("analysis","high")]}),encoding="utf-8")
+            with patch.object(api_config,"ROOT",root):
+                api_config.configure(config)
+            with patch.object(vlm,"request_choice",return_value={"message":{"content":"{}"}}) as send:
+                for stage, section, effort in [("analyze","analysis","high"),("classify","binding","low"),("bind","binding","low")]:
+                    vlm.ask(stage,{"coordinate_space":"normalized_1000"},[],{})
+                    req, = send.call_args.args
+                    self.assertEqual(req.full_url, f"https://{section}.invalid/chat")
+                    self.assertEqual(req.get_header("Authorization"),"Bearer "+section+"-key")
+                    payload = json.loads(req.data)
+                    self.assertEqual((payload["model"],payload["reasoning_effort"]),(section,effort))
+
     def test_custom_endpoint_models_and_key_precedence(self):
         with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ, clear=True):
             root = Path(tmp)

@@ -56,10 +56,13 @@ class BenchmarkTest(unittest.TestCase):
             (out/"obsolete.html").touch()
             argv = ["benchmark.py","--case-dir",str(path/"cases"),"--output-dir",str(out)]
             with patch.object(sys,"argv",argv), patch.dict("os.environ"), patch("pipeline.vlm.analyze",return_value={
-                    "objects":[bg,obj],"reference_size":[100,100],"layer_order":["bg","slot"]}), patch("pipeline.vlm.bind",return_value=[binding]):
+                    "objects":[bg,obj],"reference_size":[100,100],"layer_order":["bg","slot"]}), patch("pipeline.vlm.ask",return_value={"materials":[{"id":"materials_001","cutout_ok":True,"category":"other","focus_point":[.5,.5]}]}):
                 self.assertEqual(benchmark.main(),0)
             self.assertFalse((out/"obsolete-case").exists())
             self.assertFalse((out/"obsolete.html").exists())
+            batch_log = (out/"benchmark.log").read_text(encoding="utf-8")
+            for entry in ("批测启动", "[case-001] [prepare]", "case-001 交付完成", "批测结束"):
+                self.assertIn(entry, batch_log)
             self.assertTrue((photos/"p.png").exists())
             artifacts = out/"case-001/artifacts"
             with Image.open(artifacts/"final.png") as final:

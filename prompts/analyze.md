@@ -14,7 +14,7 @@ background 是独立的顶层字段，不属于 objects，也不是一种 kind�
 
 | type | 判断依据与处理方式 |
 | --- | --- |
-| photographic | 一张连续的摄影画面承载全画布，主体与环境整体由客户照片替换。填写 id、description，不填写 color。 |
+| photographic | 一张连续的摄影画面承载全画布，主体与环境整体由客户照片替换。填写 id、description、subject_type。按底图自身的摄影内容分类，忽略上层卡片和装饰。 |
 | reference_clean | 全画布固定底图的颜色变化、纹理、图案或结构需要保留原样；后续清除独立对象，保留固定底图。填写 id、description，不填写 color。 |
 | solid_color | 全画布底色的全部可见外观可由一个均匀颜色表达。只填写 type、color。 |
 | transparent | 没有独立全画布底图，画面由 objects 中的照片或固定单元组成，或原本留有透明区域。只填写 type。 |
@@ -35,16 +35,18 @@ solid_color 只执行颜色填充，不会根据描述生成图案或材质。�
 
 | kind | 表示什么 |
 | --- | --- |
-| photo | 全画布摄影底图以外的独立可替换摄影单元，包括拼接照片、局部照片窗口和抠图主体。 |
+| photo | 全画布摄影底图以外，随用户素材替换的独立影像内容，包括拼接照片、局部照片窗口，以及承担主要展示内容的抠图主体。 |
 | frame | 承载照片、形成照片窗口的固定框体，例如拍立得相纸、有照片窗口的信封底板等。 |
-| overlay | 不承担照片承托或窗口功能的独立固定单元，包括局部底板、贴纸、带字标签和艺术字。 |
+| overlay | 换图后仍应保留、无照片承托或窗口功能的独立固定单元，包括局部底板、贴纸、带字标签和艺术字。用作装饰的写实抠图也归入此类。 |
 | text | 叠加在画面上的独立文字：换掉文字内容后仍然成立的句子、标题、日期、署名、字幕条等。 |
 
 ## 设计判断规则
 
 ### 完整单元如何划分
 
-先通看全图，根据显示边界、内容连续性和遮挡关系，识别各个可独立替换的照片区域及需要保留的固定设计单元，再判断画布底层由什么承载。独立单元的数量、范围由画面证据决定；已归入 background 的内容不在 objects 重复建立。物件名称、颜色、题材、是否写实或容易分割，都不能单独决定分类。
+先通看全图，根据显示边界、内容连续性和遮挡关系，识别各个可独立替换的照片区域及需要保留的固定设计单元，再判断画布底层由什么承载。独立单元的数量、范围由画面证据决定；已归入 background 的内容不在 objects 重复建立。
+
+区分 photo 和 overlay 时，结合整体构图判断用途：占据独立照片窗口，或与其他影像共同展示主要人物、事物或场景的，优先归为 photo；依附在照片、卡片或文字周围起点缀作用，换掉主照片后仍应保留的，优先归为 overlay。题材、写实程度、描边或抠图轮廓都不能单独决定分类。
 
 独立裁切边界、内容在接缝处重新起始、拍摄视角或主体姿态发生不连续变化，是多个照片区域的证据，需结合整体构图判断。每个独立显示位置分别保留，即使内容来自同一人物或同一场景、区域彼此紧贴，也不能据此合并。同一照片内部的不同人物、物体及其环境则共同属于该照片，不按内容差异自行拆开。
 
@@ -53,6 +55,8 @@ solid_color 只执行颜色填充，不会根据描述生成图案或材质。�
 每个可见成员只能归属一个完整单元。组合内存在可替换照片时，照片单列，固定载体保留；不能为整体提取而吞掉照片。独立固定素材按完整单元提取，保留轮廓、内部设计、材质和边缘，不拆成基础图形重画，也不把复杂材质简化为填色。
 
 ### photo：替换范围
+
+每个 photo 都填写 `subject_type`，供后续选片。只看这个槽位里的摄影内容，选一个最能代表主视觉的类别：人物或合影用 `person`，动物用 `animal`，食物或饮品用 `food`，自然风景、街景或室内环境用 `scenery`，其余主体用 `other`。例如，河岸占据画面、远处坐着两个很小的人，选 `scenery`；两人的近景合影、身后可见河岸，选 `person`。心形窗口、主体抠像或出框只影响显示方式，类别仍按照片内容判断。
 
 除已归入 background 的全画布摄影底图外，每个独立显示、需要替换的位置建立一个 photo，包括共同铺满画布的各张拼接照片。摄影内容指被拍摄场景本身，其中的物体、文字和环境随照片替换。位于照片显示区域内不等于属于摄影内容；后加的设计元素按下述依附关系判断归属。抠图范围包含完整主体组合，不限于人体。多张待替换照片即使共同充当背景，也保持独立，不额外建立包含它们的整组照片。
 
@@ -148,6 +152,8 @@ frame 的分类不决定前后层级。不透明的承托框体置于照片下�
 
 ### overlay：独立固定装饰
 
+全画面的胶片颗粒、细微划痕、扫描噪点和压缩纹理属于表面效果，直接省略。保留承载纸张本身的底纹，以及有明确位置、边界和构图作用的局部手绘线条、胶带、星芒。
+
 overlay 用于不承担照片承托或窗口功能的独立固定单元，包括局部底板、贴纸、带字标签、艺术字、图标及其自身底板。承载照片的拍立得相纸、照片卡框、信封底板等属于 frame，不归为 overlay；仅作装饰、没有照片承载关系的同类物件仍可使用 overlay。
 
 框体或其他载体上具有独立轮廓、叠贴或跨边界遮挡证据的装饰单列 overlay；载体自身印刷、图案与一体造型随载体保留。装饰与照片相邻、重叠或位于照片内部，不改变其归属，也不能将照片内容并入装饰。
@@ -201,6 +207,7 @@ frame 与 photo 的先后由画面决定，不能仅凭相框分类或 photo_id 
 | id | 仅 photographic、reference_clean 必填；命名规则与对象 ID 相同，全局唯一，不与 objects 中的 ID 重复。 |
 | description | 仅 photographic、reference_clean 必填；100 字以内（含标点），说明底图内容、全画布判断依据及保留或替换范围。摄影底图还需记录主体、人数、景别、姿态、位置与遮挡，供后续选材。 |
 | color | 仅 solid_color 必填，格式为 #RRGGBB；完全透明使用 transparent。 |
+| subject_type | 仅 photographic 填写，取值见 photo 的题材分类。 |
 
 background 不填写 kind、bbox、parent_id 或制作参数，不在 objects 重复列出。photographic 的 id 用于后续客户照片绑定，当前不选择素材。
 
@@ -210,6 +217,7 @@ background 不填写 kind、bbox、parent_id 或制作参数，不在 objects �
 | --- | --- |
 | id | 每项必填；小写英文字母开头，只用小写字母、数字、下划线或连字符，最长 64 字符。 |
 | kind | 每项必填；取类型总览中的一个值。 |
+| subject_type | 每个 photo 填写一个类别，见“photo：替换范围”。frame、overlay、text 省略此字段。 |
 | bbox | 每项必填；4 个数字，遵循上述定位约定。 |
 | description | 每项必填；100 字以内（含标点）。非 text：说明可见内容、完整成员和判断依据，照片只写摄影内容、不写效果。text：只写文字的样子（字体感觉、粗细、颜色、底板、排版），不重复文字内容。 |
 | mode / shape / radius / star_points / points | 仅 photo，全部可选，省略即默认。含义见"照片的摆放与效果"。 |
@@ -229,12 +237,12 @@ background 不填写 kind、bbox、parent_id 或制作参数，不在 objects �
 
 ```json
 {
-  "background": {"type": "photographic", "id": "photo_base",
-    "description": "人物与周围环境构成同一摄影画面，边缘露出的场景连续延伸至画布四边；上层卡片和装饰遮挡局部，完整显示区域仍为全画布，保留摄影环境。"},
+  "background": {"type": "photographic", "id": "photo_base", "subject_type": "scenery",
+    "description": "河岸、树木和石墙沿画布四边连续可见，远处两人很小；上层卡片遮住局部，整张河岸风景随底图替换。"},
   "objects": [
     {"id": "overlay_1", "kind": "overlay", "bbox": [750, 100, 950, 250],
       "description": "带有 HELLO 字样的标签贴纸，文字、底板和阴影作为一个完整装饰保留。"},
-    {"id": "photo_1", "kind": "photo", "bbox": [100, 200, 700, 800],
+    {"id": "photo_1", "kind": "photo", "subject_type": "person", "bbox": [100, 200, 700, 800],
       "description": "两人海边合影，近景，面向镜头，人物完整。"},
     {"id": "frame_1", "kind": "frame", "bbox": [80, 180, 720, 840], "photo_id": ["photo_1"],
       "description": "承载单张照片的拍立得式纸框，位于照片下方，下沿明显比其他三边宽，纸面有印花，线画不出来，作为完整框体保留。"},
@@ -252,11 +260,11 @@ background 不填写 kind、bbox、parent_id 或制作参数，不在 objects �
   "background": {"type": "reference_clean", "id": "paper_base",
     "description": "连续的米色纹理纸底，四周及照片间隙可见相同纸纹；保留纸张材质，独立照片不属于固定底图。"},
   "objects": [
-    {"id": "photo_left", "kind": "photo", "bbox": [60, 140, 480, 640],
+    {"id": "photo_left", "kind": "photo", "subject_type": "person", "bbox": [60, 140, 480, 640],
       "description": "左侧人物全身照片，站姿，面向镜头。",
       "corners": {"top_left": [96, 140], "top_right": [480, 188], "bottom_right": [444, 640], "bottom_left": [60, 592]},
       "stroke": {"width": 0.012, "color": "#FFFFFF"}},
-    {"id": "photo_right", "kind": "photo", "bbox": [540, 160, 920, 700],
+    {"id": "photo_right", "kind": "photo", "subject_type": "person", "bbox": [540, 160, 920, 700],
       "description": "右侧人物近景照片，侧脸，背景为室内。",
       "radius": 0.04}
   ],
@@ -270,13 +278,13 @@ background 不填写 kind、bbox、parent_id 或制作参数，不在 objects �
 {
   "background": {"type": "transparent"},
   "objects": [
-    {"id": "photo_a", "kind": "photo", "bbox": [0, 0, 1000, 900],
+    {"id": "photo_a", "kind": "photo", "subject_type": "scenery", "bbox": [0, 0, 1000, 900],
       "description": "海边风景照片，无人物，天空和海面各占一半。"},
-    {"id": "photo_heart", "kind": "photo", "bbox": [200, 330, 640, 800],
-      "description": "情侣背影，远景，傍晚的沙滩。",
+    {"id": "photo_heart", "kind": "photo", "subject_type": "person", "bbox": [200, 330, 640, 800],
+      "description": "情侣并肩的背影占据照片中心，身后是傍晚的沙滩。",
       "shape": "heart", "axis": [[420, 360], [500, 800]],
       "fade": {"top": 0.12}},
-    {"id": "photo_cat", "kind": "photo", "bbox": [660, 420, 960, 900],
+    {"id": "photo_cat", "kind": "photo", "subject_type": "animal", "bbox": [660, 420, 960, 900],
       "description": "一只坐着的橘猫，正面，完整入画。",
       "mode": "cutout", "stroke": {"width": 0.02, "color": "#FFFFFF"}}
   ],
@@ -290,10 +298,10 @@ background 不填写 kind、bbox、parent_id 或制作参数，不在 objects �
 {
   "background": {"type": "solid_color", "color": "#F5F0E8"},
   "objects": [
-    {"id": "photo_1", "kind": "photo", "bbox": [120, 280, 560, 860],
+    {"id": "photo_1", "kind": "photo", "subject_type": "animal", "bbox": [120, 280, 560, 860],
       "description": "一只猫面向镜头，双耳伸出窗口上沿，前爪留在窗口内。",
       "popout": [230, 130, 455, 800]},
-    {"id": "photo_2", "kind": "photo", "bbox": [600, 280, 900, 860],
+    {"id": "photo_2", "kind": "photo", "subject_type": "person", "bbox": [600, 280, 900, 860],
       "description": "男生半身照，侧身，人物完全在窗口之内。"}
   ],
   "layer_order": ["photo_1", "photo_2"]

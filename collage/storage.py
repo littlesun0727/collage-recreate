@@ -1,5 +1,6 @@
 import hashlib
 import json
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
@@ -15,7 +16,14 @@ def save(path, value, *, indent=None):
     temp = path.with_name(uuid4().hex + ".tmp")
     content = json.dumps(value, ensure_ascii=False, allow_nan=False, indent=indent)
     temp.write_text(content + ("\n" if indent is not None else ""), encoding="utf-8")
-    temp.replace(path)
+    for attempt in range(4):
+        try:
+            temp.replace(path)
+            break
+        except PermissionError:
+            if attempt == 3:
+                raise
+            time.sleep(.05 * 2**attempt)
 
 
 def sha(path):

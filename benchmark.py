@@ -6,8 +6,11 @@ import shutil
 import stat
 import sys
 import time
+import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
+from threading import Lock
 from urllib.parse import quote
 from uuid import uuid4
 
@@ -20,6 +23,24 @@ from collage.api_config import configure
 
 def load(path):
     return read(path) if path.is_file() else {}
+
+
+class Tee:
+    def __init__(self, console, logfile, lock):
+        self.console = console
+        self.logfile = logfile
+        self.lock = lock
+
+    def write(self, text):
+        with self.lock:
+            self.logfile.write(text)
+            self.logfile.flush()
+            return self.console.write(text)
+
+    def flush(self):
+        with self.lock:
+            self.logfile.flush()
+            self.console.flush()
 
 
 def report(root, cases, results, elapsed):
@@ -37,7 +58,7 @@ def report(root, cases, results, elapsed):
             pictures.append(f'<figure><figcaption>{label}</figcaption>{media}</figure>')
         rows = []
         calls = timings.get("requests", [])
-        for stage in ("prepare","prepare_materials","analysis","analysis_bbox","binding","reveal","reference_clean","delivery","final_preview"):
+        for stage in ("prepare","prepare_materials","material_classification","analysis","analysis_bbox","binding","cutout_masks","reveal","reference_clean","delivery","final_preview"):
             item = timings.get("stages", {}).get(stage)
             attempts = [r for r in calls if r["stage"] == stage]
             durations = " / ".join(f'{r["method"]} {r["seconds"]:.2f}s' + ("" if r["ok"] else " 失败") for r in attempts)
@@ -52,6 +73,7 @@ def report(root, cases, results, elapsed):
     head = """<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>拼贴批测</title>
 <style>*{box-sizing:border-box}body{margin:24px auto;padding:0 16px;max-width:1250px;background:#f4f5f5;color:#1c2930;font:16px system-ui}article{background:white;padding:18px;margin:18px 0;border-radius:12px}section{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}figure{margin:0}figcaption,th{font-weight:600}img{width:100%;height:310px;object-fit:contain;background:#eee}table{border-collapse:collapse;width:100%}td,th{text-align:left;border-bottom:1px solid #ddd;padding:4px}h2{margin:0}@media(max-width:650px){section{grid-template-columns:1fr}}</style><h1>拼贴批测</h1>"""
     page = head + f"<p>已结束 {len(results)} / {len(cases)}　批次经过 {elapsed:.1f}s</p><p>橙色为 bbox，青色为照片窗口轮廓。并行阶段耗时会重叠。点击图片查看原尺寸。</p>" + "".join(cards)+"</html>"
+    page = page.replace("</h1>", '</h1><a href="benchmark.log">查看整批运行日志</a>', 1)
     temp = root/(uuid4().hex+".tmp")
     temp.write_text(page, encoding="utf-8")
     temp.replace(root/"index.html")
@@ -62,6 +84,7 @@ def main():
     parser.add_argument("--case-dir", "--case_dir", type=Path, required=True)
     parser.add_argument("--output-dir", "--output_dir", type=Path, required=True)
     parser.add_argument("--workers", type=int, default=2)
+    parser.add_argument("--download-workers", type=int, help="360 PNG 下载并发数，所有 case 共享，默认 5")
     parser.add_argument("--api-config", type=Path, help="API settings JSON (default: project api-config.json)")
     args = parser.parse_args()
     source, root = args.case_dir.resolve(), args.output_dir.resolve()
@@ -78,6 +101,12 @@ def main():
     root.mkdir(parents=True, exist_ok=True)
     try:
         configure(args.api_config)
+        count = args.download_workers
+        if count is None:
+            count = int(os.getenv("COLLAGE_REVEAL_DOWNLOAD_WORKERS", "5"))
+        if count < 1:
+            raise ValueError("download workers must be at least 1")
+        os.environ["COLLAGE_REVEAL_DOWNLOAD_WORKERS"] = str(count)
     except (ValueError, OSError) as exc:
         parser.error(str(exc))
     lock_path = root/".benchmark.lock"
@@ -97,7 +126,14 @@ def main():
                     shutil.rmtree(child)
                 else:
                     child.unlink()
-            return run_batch(root, cases, args.workers)
+            with (root/"benchmark.log").open("w", encoding="utf-8") as logfile:
+                lock = Lock()
+                with redirect_stdout(Tee(sys.stdout, logfile, lock)), redirect_stderr(Tee(sys.stderr, logfile, lock)):
+                    try:
+                        return run_batch(root, cases, args.workers)
+                    except (Exception, KeyboardInterrupt):
+                        traceback.print_exc(file=logfile)
+                        raise
     except Timeout:
         parser.error(f"已有批测正在使用输出目录：{root}")
 
@@ -123,7 +159,9 @@ def run_batch(root, cases, workers):
     save(root/"summary.json", {"batch_seconds": round(time.perf_counter()-start,3),
          "analysis_model": os.environ["COLLAGE_VLM_MODEL"], "binding_model": os.environ["COLLAGE_BIND_MODEL"],
          "cases": results}, indent=2)
-    return int(any(s.startswith("失败") for s in results.values()))
+    failures = sum(s.startswith("失败") for s in results.values())
+    print(f"批测结束：成功 {len(results)-failures}，失败 {failures}，总耗时 {time.perf_counter()-start:.1f}s", flush=True)
+    return int(bool(failures))
 
 
 if __name__ == "__main__":

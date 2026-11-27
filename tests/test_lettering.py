@@ -14,6 +14,17 @@ from collage.storage import read, save
 
 
 class LetteringDelivery(unittest.TestCase):
+    def test_skip_unavailable_glyph_and_keep_remaining_text(self):
+        from collage.text_render import render_text
+        missing = chr(0x10ffff)
+        image, info = render_text("A" + missing + "♥", (100, 40), {})
+        expected, _ = render_text("A♥", (100, 40), {})
+        self.assertEqual(info["skipped_glyphs"], [missing])
+        self.assertEqual(image.tobytes(), expected.tobytes())
+        image, info = render_text(missing, (100, 40), {})
+        self.assertFalse(info["text_rendered"])
+        self.assertIsNone(image.getbbox())
+
     def test_counts(self):
         self.assertEqual(word_count("一二三四五"), 5)
         self.assertEqual(word_count("one two three four five"), 5)
@@ -45,8 +56,9 @@ class LetteringDelivery(unittest.TestCase):
                 analysis = {"objects":objs,"layer_order":order,"reference_size":[200,45]}
                 def remote(task, reference, boxes, key):
                     self.assertEqual([b["id"] for b in boxes], list(reversed(order[1:-1])))
-                    save(task/"query_response.json", {"output":{"boxes_mapping_index":list(range(len(boxes)))}})
-                    for i, box in enumerate(boxes, 1):
+                    indices = list(reversed(range(len(boxes))))  # paper below cover in returned PNGs
+                    save(task/"query_response.json", {"output":{"boxes_mapping_index":indices}})
+                    for i, box in enumerate((boxes[pos] for pos in indices), 1):
                         im = ref.convert("RGBA") if box["id"] == "paper" else Image.new("RGBA", ref.size, "white")
                         im.save(task/f"layers_aug_{i:02d}.png")
                 with patch.object(reveal, "fetch_batch", side_effect=remote), patch.dict(os.environ, {"360_API_KEY":"offline"}):
@@ -67,7 +79,9 @@ class LetteringDelivery(unittest.TestCase):
                             self.assertIsNotNone(text.getchannel("A").getbbox())
                 with Image.open(files["paper"]) as carrier:
                     changed = ImageChops.difference(ref, carrier.convert("RGB")).getbbox()
-                    self.assertEqual(bool(changed), word_count(content) >= 5)
+                    self.assertEqual(bool(changed), action == "rendered")
+                    if blocked:
+                        self.assertIn("paper", read(run/"lettering.json")["t"]["inpainted_carriers"])
                     self.assertEqual(carrier.getchannel("A").getextrema(), (255,255))
 
     def test_clean_background_and_text_without_remote_call(self):

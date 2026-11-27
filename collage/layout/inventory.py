@@ -28,6 +28,7 @@ def schema(size, mode, legacy=False):
                        'color': {'type': 'string', 'pattern': '^#[0-9a-fA-F]{6}$'}}),
         contracts.obj({'type': {'const': 'transparent'}}),
     ]}
+    background['anyOf'][0]['properties']['subject_type'] = {'enum': contracts.SUBJECT_TYPES}
     return contracts.obj({'background': background,
                          'objects': {'type': 'array', 'items': item, 'maxItems': 160},
                          'layer_order': {'type': 'array', 'items': ID, 'maxItems': 160,
@@ -72,6 +73,8 @@ def to_internal_inventory(value, size, mode):
                   'background_type': {'photographic': 'photo', 'transparent': 'solid_color'}.get(kind, kind),
                   'bbox': [0, 0, *([1000, 1000] if mode == 'normalized_1000' else size)],
                   'description': bg.get('description', 'Transparent canvas' if kind == 'transparent' else 'Solid canvas')}
+    if kind == 'photographic' and 'subject_type' in bg:
+        background['subject_type'] = bg['subject_type']
     if kind in {'solid_color', 'transparent'}:
         background['color'] = bg.get('color', '#00000000')
     return {'objects': [background, *rows], 'layer_order': [ident, *order]}

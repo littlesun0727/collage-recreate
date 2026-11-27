@@ -48,7 +48,7 @@ def context_for(base, structure):
         # Only `cutout` photos (a removed background with an optional subject outline) need a
         # segmentable subject; a kept background never does.
         cutout = photo_mode(photo) == 'cutout'
-        slot['requires_segmentable_subject'] = cutout
+        slot['requires_segmentable_subject'] = cutout or photo_mode(photo) == 'popout'
         l,t,r,b = slot['bbox']
         slot['resolution_policy'] = {
             'output_size_px': [max(1,round(r*scale)-round(l*scale)), max(1,round(b*scale)-round(t*scale))],
@@ -68,14 +68,14 @@ def context_for(base, structure):
     return result
 
 
-def schema_for(context, structure=None):
+def schema_for(context, structure=None, *, allow_reuse=False):
     item = deepcopy(contracts.BINDING_PLAN['properties']['photos']['items'])
     slots = [p['slot_id'] for p in context['photo_slots']]
     assets = [a['id'] for a in context['catalog']]
     if slots and not assets:
         raise ValueError('Photo binding requires customer assets')
     groups = sum(not p.get('linked_to') for p in context['photo_slots'])
-    if groups > sum(not a.get('duplicate_of') for a in context['catalog']):
+    if not allow_reuse and groups > sum(not a.get('duplicate_of') for a in context['catalog']):
         raise ValueError('Not enough distinct customer photos for independent slots; reuse is forbidden')
     for field, values in [('slot_id', slots), ('asset_id', assets)]:
         if values:
@@ -94,9 +94,9 @@ def schema_for(context, structure=None):
                                      'minItems': len(slots), 'maxItems': len(slots)}})
 
 
-def validate(answer, context, structure, assets):
+def validate(answer, context, structure, assets, *, allow_reuse=False):
     """Validate selection, then expand undersized crops locally without model retries."""
-    Draft202012Validator(schema_for(context, structure)).validate(answer)
+    Draft202012Validator(schema_for(context, structure, allow_reuse=allow_reuse)).validate(answer)
     by_id = {p['slot_id']: p for p in answer['photos']}
     if len(by_id) != len(answer['photos']) or set(by_id) != {p['slot_id'] for p in context['photo_slots']}:
         raise ValueError('photos must cover every photo slot exactly once')
@@ -119,7 +119,7 @@ def validate(answer, context, structure, assets):
             continue
         row = by_id[slot['slot_id']]; asset = catalog[row['asset_id']]
         identity = asset.get('sha256', asset['id'])
-        if identity in used:
+        if not allow_reuse and identity in used:
             raise ValueError(f"{slot['slot_id']}: duplicate customer photo already used by {used[identity]}; only linked_to pairs may share")
         used[identity] = slot['slot_id']
     value = {'schema_version': 'collage-bindings-v1', 'photos': deepcopy(answer['photos']), 'texts': []}

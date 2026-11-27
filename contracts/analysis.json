@@ -33,6 +33,15 @@
             ],
             "description": "需替换的摄影内容用 photo 绑定客户素材；固定模板背景可本地绘制或从参考清底，使用 background。普通可编辑文字才用 text；固定艺术字、完整文字标签及装饰用 overlay。需要独立提取的单窗装饰相框用 frame，method=extract，photo_id 必须指向承载照片；简单几何单色轮廓属于 photo。"
           },
+          "subject_type": {
+            "enum": [
+              "person",
+              "animal",
+              "food",
+              "scenery",
+              "other"
+            ]
+          },
           "background_type": {
             "enum": [
               "photo",
@@ -86,7 +95,8 @@
             "enum": [
               "window",
               "cutout",
-              "bare"
+              "bare",
+              "popout"
             ]
           },
           "text": {
@@ -651,6 +661,19 @@
               }
             },
             "description": "窗口边缘渐变，仅 mode=window；没写的边为 0。"
+          },
+          "popout_bbox": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "popout_above": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,63}$"
           }
         },
         "required": [
@@ -677,7 +700,10 @@
                   "const": "photo"
                 },
                 "mode": {
-                  "const": "window"
+                  "enum": [
+                    "window",
+                    "popout"
+                  ]
                 },
                 "shape": {
                   "const": "polygon"
@@ -949,6 +975,34 @@
                 "method": {
                   "const": "extract"
                 }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "mode"
+              ],
+              "properties": {
+                "mode": {
+                  "const": "popout"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "popout_bbox"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "photo"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "popout_bbox": false,
+                "popout_above": false
               }
             }
           }

@@ -51,6 +51,7 @@ class Tolerance(unittest.TestCase):
             for model, box, expected, unit in [
                 ("gpt-6.2-sol", [20, 40, 600, 1090], [20, 40, 600, 1090], "pixel"),
                 ("qwen3.8-flash", [0, 0, 500, 500], [0, 0, 450, 600], "normalized_1000"),
+                ("qwen4-max", [100, 200, 800, 900], [90, 240, 720, 1080], "normalized_1000"),
             ]:
                 wire = {"background": {"type":"transparent"}, "objects":[
                     {"kind":"photo","id":"p","bbox":box,"description":"portrait"}], "layer_order":["p"]}

@@ -59,18 +59,44 @@ def match_strokes(reference, rgba, fill):
     return cv2.dilate(mask, margin) * np.uint8(255) * (pixels[:,:,3] > 224)
 
 
-def handle_carrier(image, reference, carrier, texts):
+def sparse_letter_mask(reference, tile, fill):
+    """Compare colored ink on transparent Reveal layers with ink in the reference."""
+    rgba = np.asarray(tile)
+    if np.mean(rgba[:,:,3] < 40) < .2:
+        return None
+    try:
+        ink = np.array(ImageColor.getrgb(fill)[:3], dtype=np.int16)
+    except (TypeError, ValueError):
+        return None
+    ref_distance = np.abs(np.asarray(reference).astype(np.int16)-ink).max(axis=2)
+    ref = ref_distance < 75
+    if not .015 < ref.mean() < .7:
+        return None
+    near = np.abs(rgba[:,:,:3].astype(np.int16)-ink).max(axis=2) < 95
+    actual = near & (rgba[:,:,3] > 40)
+    if actual.sum() < 10:
+        return None
+    kernel = np.ones((5,5),np.uint8)
+    vicinity = cv2.dilate(ref.astype(np.uint8),kernel).astype(bool)
+    precision = np.count_nonzero(actual & vicinity)/actual.sum()
+    recall = np.count_nonzero(ref & cv2.dilate(actual.astype(np.uint8),kernel).astype(bool))/ref.sum()
+    if precision < .78 or recall < .28:
+        return None
+    mask = cv2.dilate((actual & vicinity).astype(np.uint8),kernel)*255
+    return mask, recall >= .95
+
+
+def handle_carrier(image, reference, carrier, texts, retained=None):
     actions = {}
+    bounds = image.getchannel('A').getbbox()
+    if not bounds:
+        return actions
     for obj, count in texts:
         x, y, r, b = obj['bbox']
-        left, top, right, bottom = carrier['bbox']
-        if count >= LONG_TEXT_MIN:
-            # A long caption can straddle two backings. Repair each shared region.
-            box = max(x,left), max(y,top), min(r,right), min(b,bottom)
-        else:
-            if x < left-4 or y < top-4 or r > right+4 or b > bottom+4:
-                continue
-            box = x, y, r, b
+        if not overlap_fraction(bounds, obj['bbox']):
+            continue
+        # Compare against the whole glyph, including missing parts of a sparse carrier.
+        box = x, y, r, b
         if box[2]-box[0] < 4 or box[3]-box[1] < 4:
             continue
         tile = image.crop(box)
@@ -79,7 +105,8 @@ def handle_carrier(image, reference, carrier, texts):
             continue
         ref = reference.crop(box)
         fill = obj.get('style', {}).get('fill', '#000000')
-        mask = match_strokes(ref, tile, fill)
+        sparse = sparse_letter_mask(ref, tile, fill)
+        mask = sparse[0] if sparse is not None else match_strokes(ref, tile, fill)
         if mask is None and count < LONG_TEXT_MIN and alpha_min < 255:
             # Reveal can encode fine lettering in alpha. Compare its visible
             # strokes on a flat backing without copying texture from the reference.
@@ -89,14 +116,20 @@ def handle_carrier(image, reference, carrier, texts):
             mask = match_strokes(ref, visible, fill)
         if mask is None:
             continue
-        if count >= LONG_TEXT_MIN:
+        partial = (sparse is not None and not sparse[1]) or overlap_fraction(bounds, box) < .8
+        if count >= LONG_TEXT_MIN or partial:
             rgb = cv2.inpaint(np.asarray(tile.convert('RGB')), mask, 3, cv2.INPAINT_TELEA)
             patch = Image.fromarray(rgb)
-            patch.putalpha(tile.getchannel('A'))
+            alpha = np.asarray(tile.getchannel('A'))
+            if sparse is not None or np.median(alpha) < 32:
+                alpha = np.where(mask, 0, alpha).astype(np.uint8)
+            patch.putalpha(Image.fromarray(alpha))
             image.paste(patch, box)
             actions[obj['id']] = 'inpaint'
         else:
             actions[obj['id']] = 'embedded'
+            if retained is not None:
+                retained[(carrier['id'],obj['id'])] = (box,mask,sparse is not None)
     return actions
 
 
@@ -127,19 +160,20 @@ def finish_text_layers(run, layers, files, store, size):
     if not texts:
         return {}
     evidence = {}
+    retained = {}
     with Image.open(run/'prepared/reference.png') as raw:
         reference = raw.convert('RGB')
     for i, carrier in enumerate(layers):
         oid = carrier['id']
-        if oid not in files or (carrier['kind'] == 'background' and carrier.get('background_type') != 'reference_clean'):
+        if carrier['kind'] == 'text' or oid not in files or (carrier['kind'] == 'background' and carrier.get('background_type') != 'reference_clean'):
             continue
         relevant = [(obj, count) for j, obj, count in texts
-                    if j > i and obj.get('text') and overlap_fraction(carrier['bbox'], obj['bbox']) > 0]
+                    if j > i and obj.get('text')]
         if relevant:
             log(f"检查文字承载层 {oid}，重叠文字 {[o['id'] for o, _ in relevant]}")
             with Image.open(files[oid]) as raw:
                 image = raw.convert('RGBA')
-            evidence[oid] = handle_carrier(image, reference, carrier, relevant)
+            evidence[oid] = handle_carrier(image, reference, carrier, relevant, retained)
             log(f"承载层 {oid} 判定 {evidence[oid]}")
             if 'inpaint' in evidence[oid].values():
                 image.save(files[oid])
@@ -149,7 +183,33 @@ def finish_text_layers(run, layers, files, store, size):
     decisions = {}
     for i, obj, count in texts:
         oid = obj['id']
+        if not (obj.get('text') or '').strip():
+            if oid in files:
+                decisions[oid] = {'action': 'extracted_unreadable'}
+            else:
+                box = tuple(obj['bbox'])
+                canvas = Image.new('RGBA', size)
+                canvas.paste(reference.crop(box), box)
+                store(oid, canvas)
+                decisions[oid] = {'action':'reference_patch', 'reason':'Reveal omitted unreadable lettering'}
+            continue
         owner = visible_owner(obj, layers[:i], files, evidence) if obj.get('text') and count < LONG_TEXT_MIN else None
+        for (carrier, text_id), (box, mask, sparse) in retained.items():
+            if text_id != oid or carrier == owner:
+                continue
+            with Image.open(files[carrier]) as raw:
+                image = raw.convert('RGBA')
+            tile = image.crop(box)
+            if sparse:
+                tile.putalpha(Image.fromarray(np.where(mask,0,np.asarray(tile.getchannel('A'))).astype(np.uint8)))
+            else:
+                rgb = cv2.inpaint(np.asarray(tile.convert('RGB')),mask,3,cv2.INPAINT_TELEA)
+                alpha = tile.getchannel('A')
+                tile = Image.fromarray(rgb).convert('RGBA')
+                tile.putalpha(alpha)
+            image.paste(tile,box)
+            image.save(files[carrier])
+            evidence[carrier][oid] = 'inpaint'
         if owner:
             decisions[oid] = {'action': 'embedded', 'owner': owner}
             log(f"文字 {oid} 保留在 {owner}")
@@ -157,10 +217,14 @@ def finish_text_layers(run, layers, files, store, size):
         canvas = Image.new('RGBA', size)
         if obj.get('text'):
             l, t, r, b = obj['bbox']
-            tile, _ = render_text(obj['text'], (r-l, b-t), obj.get('style', {}))
+            tile, info = render_text(obj['text'], (r-l, b-t), obj.get('style', {}), obj.get('description'))
             canvas.paste(tile, (l, t))
             decisions[oid] = {'action': 'rendered', 'inpainted_carriers': [
                 k for k, values in evidence.items() if values.get(oid) == 'inpaint']}
+            if info['skipped_glyphs']:
+                decisions[oid]['skipped_glyphs'] = info['skipped_glyphs']
+                if not tile.getchannel('A').getbbox():
+                    decisions[oid]['action'] = 'skipped_missing_glyphs'
         else:
             decisions[oid] = {'action': 'unreadable'}
         store(oid, canvas)

@@ -1,4 +1,4 @@
-import base64
+﻿import base64
 import io
 import json
 import os
@@ -24,6 +24,77 @@ def picture(color):
 
 
 class AppContract(unittest.TestCase):
+    def test_reveal_order_across_nonadjacent_slots_and_batches(self):
+        from collage.reveal_order import apply_batch_order
+        layers = [{"id": oid} for oid in ("bg","p1","caption","p2","frame1","frame2","a","b")]
+        apply_batch_order(layers, ["b","a"])
+        apply_batch_order(layers, ["frame2","frame1","p2","p1"])
+        self.assertEqual([o["id"] for o in layers], ["bg","frame2","caption","frame1","p2","p1","b","a"])
+
+    def test_popout_single_slot_above_frame_and_beyond_window(self):
+        from collage import preview, binding
+        wire = {"background":{"type":"solid_color","color":"#ffffff"},
+                "objects":[{"id":"p","kind":"photo","description":"portrait","subject_type":"person",
+                            "bbox":[10,40,90,80],"popout":[35,25,65,75]},
+                           {"id":"rim","kind":"frame","description":"border","photo_id":["p"],
+                            "bbox":[8,38,92,82]}],"layer_order":["p","rim"]}
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            with patch.object(vlm,"ask",return_value=wire):
+                analysis = vlm.analyze(run,[100,100])
+            obj, = [o for o in analysis["objects"] if o["kind"]=="photo"]
+            self.assertEqual((obj["mode"],obj["popout_above"]),("popout","rim"))
+            catalog = [dict(id="m",asset_id="m",size=[80,80])]
+            slot, = binding.context_for(dict(reference_size=[100,100],catalog=catalog),analysis)["photo_slots"]
+            self.assertTrue(slot["requires_segmentable_subject"])
+            path = run/"m.png"
+            src = Image.new("RGB",(80,80),"green")
+            src.paste("red",(30,0,50,80))
+            src.save(path)
+            mask = Image.new("L",src.size)
+            mask.paste(255,(30,0,50,80))
+            with patch.object(pipeline.cutout,"alpha_mask",return_value=mask):
+                rows = [dict(slot_id="p",asset_id="m",source_crop=[0,0,1,1],crop_center=[.5,.5],mirror_x=False)]
+                masks = pipeline.build_masks(run,analysis,catalog,rows,{"m":path})
+            rim = Image.new("RGBA",(100,100))
+            rim.paste("blue",(8,38,92,43))
+            rim.save(run/"rim.png")
+            bg_id = analysis["layer_order"][0]
+            Image.new("RGBA",(100,100),"white").save(run/"bg.png")
+            pipeline.deliver(run,analysis,catalog,rows,{"rim":run/"rim.png",bg_id:run/"bg.png"},masks=masks)
+            preview.final(run,run,{"m":path})
+            with Image.open(run/"final.png") as final:
+                self.assertEqual(final.getpixel((50,32))[:3], (255,0,0))
+                self.assertEqual(final.getpixel((50,40))[:3], (255,0,0))
+                self.assertEqual(final.getpixel((20,40))[:3], (0,0,255))
+
+    def test_cutouts_share_packaged_mask_with_preview(self):
+        from collage import preview
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            original = Image.new("RGBA", (40, 30))
+            original.paste((100, 50, 10, 180), (6, 3, 23, 25))
+            path = run/"original.png"
+            original.save(path)
+            objects = [dict(id=name, kind="photo", mode=mode, bbox=[0, 0, 40, 30])
+                       for name, mode in (("base","window"), ("front","cutout"), ("other","cutout"))]
+            objects[1]["linked_to"] = "base"
+            analysis = dict(objects=objects, reference_size=[40,30], layer_order=[o["id"] for o in objects])
+            catalog = [dict(id="m1", asset_id="local-picture")]
+            bindings = [dict(slot_id=o["id"], asset_id="m1", source_crop=[0,0,1,1],
+                             mirror_x=False, crop_center=[.5,.5]) for o in objects]
+            originals = {"local-picture":path}
+            masks = pipeline.build_masks(run, analysis, catalog, bindings, originals)
+            pipeline.deliver(run, analysis, catalog, bindings, {}, masks=masks)
+            sources = [o["source"] for o in read(run/"scene.json")["layers"]]
+            self.assertNotIn("mask_file", sources[0])
+            self.assertEqual(sources[1]["mask_file"], sources[2]["mask_file"])
+            with ZipFile(run/"delivery.zip") as archive:
+                self.assertEqual(archive.namelist().count("masks/m1.png"), 1)
+                with Image.open(io.BytesIO(archive.read("masks/m1.png"))) as alpha:
+                    self.assertEqual(alpha.tobytes(), original.getchannel("A").tobytes())
+            with patch.object(preview, "subject", side_effect=AssertionError("unexpected inference")):
+                preview.final(run, run, originals)
     def setUp(self):
         scratch = tempfile.TemporaryDirectory()
         self.addCleanup(scratch.cleanup)
@@ -37,7 +108,7 @@ class AppContract(unittest.TestCase):
     def test_http_handoff_parallel_and_zip(self):
         self.wire["objects"].append({"id": "strip", "kind": "overlay", "bbox": [4,8,32,18],
                                      "description": "thin paper strip"})
-        self.wire["layer_order"].append("strip")
+        self.wire["layer_order"].insert(0, "strip")
         gate = threading.Barrier(3)
         release = threading.Event()
         calls = []
@@ -58,8 +129,8 @@ class AppContract(unittest.TestCase):
         def remote(task, reference, boxes, key):
             gate.wait(5)
             # Return service mappings in a different order to the input boxes.
-            self.assertEqual([box["id"] for box in boxes], ["strip", "star", "p"])
-            indices = [2, 1]  # Out of order, and the strip was omitted.
+            self.assertEqual([box["id"] for box in boxes], ["star", "p", "strip"])
+            indices = [1, 0]  # Out of order, and the strip was omitted.
             save(task/"query_response.json", {"output": {"boxes_mapping_index": indices}})
             for i in range(len(indices)+1):
                 Image.new("RGBA",(100,100),(0,i,0,255)).save(task/f"layers_aug_{i:02d}.png")
@@ -103,6 +174,21 @@ class AppContract(unittest.TestCase):
                 host.shutdown()
                 host.server_close()
                 worker.join()
+
+    def test_reveal_photo_context_depends_on_order_shape_and_frame_links(self):
+        def obj(oid, kind, bbox, **fields):
+            return dict(id=oid, kind=kind, bbox=bbox, **fields)
+        bg = obj("bg", "background", [0,0,100,100])
+        photo = obj("p", "photo", [0,0,60,60], mode="window", shape="ellipse")
+        ink = obj("ink", "overlay", [25,25,40,40])
+        def ids(*layers):
+            return [o["id"] for o in reveal.reveal_targets([bg, *layers])]
+        self.assertEqual(ids(photo, ink), ["ink"])
+        self.assertEqual(ids(ink, photo), ["p", "ink"])
+        self.assertEqual(ids({**ink, "bbox":[0,0,4,4]}, photo), ["ink"])
+        self.assertEqual(ids(photo, obj("f","frame",[70,70,90,90],photo_id=["p"])), ["f","p"])
+        self.assertEqual(ids(photo, obj("t","text",[0,0,60,60],text="Hi")), [])
+        self.assertEqual(ids(ink, {**photo,"linked_to":"base"}), ["ink"])
 
     def test_delivery_tiles_use_visible_pixels_and_skip_empty_layers(self):
         run = self.root
@@ -152,3 +238,4 @@ class AppContract(unittest.TestCase):
         self.assertTrue((job/"analysis.json").exists())
         self.assertFalse((job/"delivery.zip").exists())
         self.assertEqual(read(job/"status.json")["status"], "failed")
+
