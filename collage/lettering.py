@@ -210,7 +210,8 @@ def finish_text_layers(run, layers, files, store, size, compose=fixed_base):
     retained = {}
     with Image.open(run/'prepared/reference.png') as raw:
         reference = raw.convert('RGB')
-    long_texts = [obj for _, obj, count in texts if count >= LONG_TEXT_MIN]
+    long_texts = [obj for _, obj, count in texts
+                  if count >= LONG_TEXT_MIN and (obj.get('text') or '').strip()]
     crops = {}
     pending = {}
     for obj in long_texts:
@@ -226,6 +227,7 @@ def finish_text_layers(run, layers, files, store, size, compose=fixed_base):
         dx, dy = crops[oid][0]-obj['bbox'][0], crops[oid][1]-obj['bbox'][1]
         regions[oid] = [(l+dx, t+dy, r+dx, b+dy) for l,t,r,b in baseline[oid]]
     undo = []
+    possible_carriers = set()
     for i, carrier in enumerate(layers):
         oid = carrier['id']
         if carrier['kind'] == 'text' or oid not in files or (carrier['kind'] == 'background' and carrier.get('background_type') != 'reference_clean'):
@@ -236,6 +238,10 @@ def finish_text_layers(run, layers, files, store, size, compose=fixed_base):
             log(f"检查文字承载层 {oid}，重叠文字 {[o['id'] for o, _ in relevant]}")
             with Image.open(files[oid]) as raw:
                 image = raw.convert('RGBA')
+            alpha = image.getchannel('A')
+            for obj, _ in relevant:
+                if obj['id'] in crops and alpha.crop(obj['bbox']).getbbox():
+                    possible_carriers.add(obj['id'])
             evidence[oid] = handle_carrier(image, reference, carrier, relevant, retained, regions, undo)
             log(f"承载层 {oid} 判定 {evidence[oid]}")
             if 'inpaint' in evidence[oid].values():
@@ -289,13 +295,14 @@ def finish_text_layers(run, layers, files, store, size, compose=fixed_base):
     audits = {}
     for oid, job in pending.items():
         after = job.result()
-        remaining = [a for a in baseline[oid] if any(text_detection.matches(a,b) for b in after)]
-        ghosts = [] if remaining else text_detection.residual_strokes(
+        has_carrier = oid in possible_carriers
+        remaining = [a for a in baseline[oid] if has_carrier and any(text_detection.matches(a,b) for b in after)]
+        ghosts = [] if remaining or not has_carrier else text_detection.residual_strokes(
             reference.crop(crops[oid]), canvas.crop(crops[oid]), baseline[oid])
-        status = 'residual' if remaining or ghosts else 'passed' if baseline[oid] else 'unverified'
+        status = 'residual' if remaining or ghosts else 'passed' if baseline[oid] or not has_carrier else 'unverified'
         audits[oid] = {'status': status, 'crop': crops[oid], 'reference_boxes': baseline[oid],
                        'cleaned_boxes': after, 'matched_reference_boxes': remaining,
-                       'residual_stroke_boxes': ghosts}
+                       'residual_stroke_boxes': ghosts, 'has_candidate_carrier': has_carrier}
 
     # Restoring a failed region can invalidate another overlapping cleanup.
     failed = {oid for oid, audit in audits.items() if audit['status'] != 'passed'}
