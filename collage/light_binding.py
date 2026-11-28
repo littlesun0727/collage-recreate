@@ -54,7 +54,7 @@ def crop_center(size, aspect, focus):
             for f,span in zip(focus,fractions)]
 
 
-def match(analysis, catalog):
+def match(analysis, catalog, on_cutout=None):
     ctx = binding.context_for({"catalog":catalog,"reference_size":analysis["reference_size"]}, analysis)
     slots = ctx["photo_slots"]
     if not slots:
@@ -87,6 +87,8 @@ def match(analysis, catalog):
             reason = f"槽位={wanted} 素材={info['category']} 需要抠像={need_cutout} 可抠={info['cutout_ok']} 焦点={info['focus_point']}"
             chosen[oid] = {"slot_id":oid,"asset_id":asset["id"],"reason":reason,
                            "source_crop":[0,0,1,1],"crop_center":[.5,.5] if independent_cutout else center,"mirror_x":False}
+            if need_cutout and on_cutout is not None:
+                on_cutout(asset)
             waiting.remove(slot)
             key = asset.get("sha256",asset["id"])
             uses[key] = uses.get(key,0) + 1

@@ -103,11 +103,19 @@ python benchmark.py --case-dir "D:/codes/collage-recreate-v11/benchmark-202-case
 
 参考图按原分辨率校正后写入 artifacts/prepared/reference.png，随后启动 analysis。同时，prepare_materials 阶段生成最长边 1024 像素的 materials_*.jpg 供 binding 使用。artifacts/catalog.json 记录原文件名、校正后的原图尺寸、原文件 SHA-256 和缩略图文件名。
 
-artifacts/analysis-bbox.png 以橙色显示 bbox，青色显示按旋转角度定位的照片窗口。artifacts/final.png 按交付包内 scene.json 和裁切后的 PNG 回贴，客户照片按选中的 asset_id 从 inputs/photos 读取原图并校正方向。已有透明度的客户图复用源 alpha，其余抠像默认使用项目根目录下的 `models/birefnet-general-lite.onnx`（rembg General Lite，epoch 232）。在 PowerShell 中设置 `$env:COLLAGE_BIREFNET_MODEL = "birefnet-general"`，再启动流水线、benchmark 或服务即可切换到 `models/birefnet-general.onnx`（epoch 244）。切回默认版时设为 `"birefnet-general-lite"`，也接受 `"birefnet-general-light"`。环境变量仍支持自定义兼容 ONNX 文件路径。
+artifacts/analysis-bbox.png 以橙色显示 bbox，青色显示按旋转角度定位的照片窗口。artifacts/final.png 按交付包内 scene.json 和裁切后的 PNG 回贴，客户照片按选中的 asset_id 从 inputs/photos 读取原图并校正方向。已有透明度的客户图复用源 alpha，其余照片通过 `api-config.json` 中的 `cutout` 配置选择抠像方式。修改后重新启动服务或运行命令。
 
-重新部署时将两个文件放入项目的 `models/` 目录，可从 rembg 下载并按链接文字命名：[birefnet-general-lite.onnx](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-bb_swin_v1_tiny-epoch_232.onnx)、[birefnet-general.onnx](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-epoch_244.onnx)。
+| cutout.mode | 抠像方式 |
+|---|---|
+| `api`（默认） | 调用 `cutout.url` 指定的图像编辑服务，模型由 `cutout.model` 指定。默认使用 Xunxing Seedream 5.5。 |
+| `birefnet` | 项目内 `models/birefnet-general.onnx`（epoch 244）。 |
+| `birefnet-light` | 项目内 `models/birefnet-general-lite.onnx`（epoch 232）。 |
 
-artifacts/cutouts 保存原图预览、全尺寸蒙版和透明抠图预览；binding 后生成蒙版，可与 Reveal 并行。App 读 scene 中的 source.mask_file，将 ZIP 内的灰度蒙版作为方向校正后原图的 alpha。
+默认 Seedream 图像编辑走实测的 `/v1/images/generations`，以 JSON 的 `image` 字段提交参考照片；配置 `/v1/images/edits` 时使用 multipart 上传。两者均请求透明 PNG，固定提示词为「移除照片背景，将主要拍摄对象单一主体抠成一张透明底素材。」接口应返回与输入构图对齐的透明图；流水线将其 alpha 缩放到原图尺寸并随 ZIP 交付。可在 `cutout.api_key` 或 `COLLAGE_CUTOUT_KEY` 中单独指定密钥；默认 Xunxing 域名也支持已有的 `XUNXING_API_KEY`。
+
+轻量 binding 每确定一个需抠像的素材就提交任务，与剩余选片及 360 Reveal 重叠。整批响应的远程 binding 在选片结果返回后立即提交。单进程共享 5 个抠像工作线程；同一任务中的重复素材编号只处理一次。临时网络错误及 HTTP 408、429、500、502、503、504 最多尝试 3 次。下载失败单独重试。重新部署本地权重时可下载 [General Lite](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-bb_swin_v1_tiny-epoch_232.onnx) 和 [General](https://github.com/danielgatis/rembg/releases/download/v0.0.0/BiRefNet-general-epoch_244.onnx)。
+
+artifacts/cutouts 保存原图预览、全尺寸蒙版和透明抠图预览；App 读 scene 中的 source.mask_file，将 ZIP 内的灰度蒙版作为方向校正后原图的 alpha。
 
 ### 目录版轻量选片
 

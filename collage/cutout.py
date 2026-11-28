@@ -10,6 +10,7 @@ import numpy as np
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 
+from . import cutout_api
 from .timings import log
 
 _inference = Lock()
@@ -18,7 +19,15 @@ _inference = Lock()
 MODEL_DIR = Path(__file__).resolve().parents[1] / "models"
 
 
+def legacy_selection():
+    return not os.getenv("COLLAGE_CUTOUT_MODE") and os.getenv("COLLAGE_BIREFNET_MODEL")
+
+
 def model_path():
+    mode = os.getenv("COLLAGE_CUTOUT_MODE")
+    if mode in ("birefnet", "birefnet-light"):
+        name = "birefnet-general" if mode == "birefnet" else "birefnet-general-lite"
+        return MODEL_DIR / (name + ".onnx")
     selection = os.getenv("COLLAGE_BIREFNET_MODEL") or "birefnet-general-lite"
     if selection == "birefnet-general-light":
         selection = "birefnet-general-lite"
@@ -40,6 +49,8 @@ def session(path):
 
 
 def alpha_mask(im, path=None):
+    if path is None and os.getenv("COLLAGE_CUTOUT_MODE", "api") == "api" and not legacy_selection():
+        return cutout_api.mask(im)
     path = path or model_path()
     # One resident full-size model across concurrent benchmark workers.
     with _inference, FileLock(Path(gettempdir())/"collage-birefnet-base.lock"):
@@ -62,8 +73,12 @@ def subject(im, folder, asset_id):
     folder.mkdir(parents=True, exist_ok=True)
     path = folder/(asset_id+"-mask.png")
     keep_alpha = im.getchannel("A").getextrema()[0] < 255
-    weights = None if keep_alpha else model_path()
-    source = "source alpha" if keep_alpha else str(weights)
+    mode = os.getenv("COLLAGE_CUTOUT_MODE", "api")
+    if mode not in ("api", "birefnet", "birefnet-light"):
+        raise ValueError(f"Unknown cutout mode: {mode}")
+    weights = model_path() if mode != "api" or legacy_selection() else None
+    source = "source alpha" if keep_alpha else (str(weights) if weights else
+             " | ".join((*cutout_api.settings(), cutout_api.PROMPT)))
     alpha = None
     if path.exists():
         with Image.open(path) as cached:

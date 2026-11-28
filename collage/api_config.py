@@ -14,6 +14,8 @@ FIELDS = {
                  "api_key": "COLLAGE_ANALYSIS_KEY", "reasoning_effort": "COLLAGE_ANALYSIS_EFFORT"},
     "binding": {"url": "COLLAGE_BIND_URL", "model": "COLLAGE_BIND_MODEL",
                 "api_key": "COLLAGE_BIND_KEY", "reasoning_effort": "COLLAGE_BIND_EFFORT"},
+    "cutout": {"mode": "COLLAGE_CUTOUT_MODE", "url": "COLLAGE_CUTOUT_URL",
+               "model": "COLLAGE_CUTOUT_MODEL", "api_key": "COLLAGE_CUTOUT_KEY"},
     "reference_clean": {"url": "COLLAGE_CLEAN_URL", "model": "COLLAGE_CLEAN_MODEL",
                         "api_key": "XUNXING_API_KEY"},
     "reveal": {"base_url": "COLLAGE_REVEAL_URL", "model": "COLLAGE_REVEAL_MODEL",
@@ -42,6 +44,8 @@ def configure(path=None):
                 value = value.strip()
                 if not value:
                     continue
+                if section == "cutout" and field == "mode" and value not in {"api", "birefnet", "birefnet-light"}:
+                    raise ValueError("cutout.mode must be api, birefnet or birefnet-light")
                 if field in {"url", "base_url"}:
                     url = urlsplit(value)
                     if url.scheme not in {"http","https"} or not url.hostname or url.username or url.password:

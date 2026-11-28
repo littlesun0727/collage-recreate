@@ -55,8 +55,8 @@ class LetteringDelivery(unittest.TestCase):
                 order = [o["id"] for o in objs]
                 analysis = {"objects":objs,"layer_order":order,"reference_size":[200,45]}
                 def remote(task, reference, boxes, key):
-                    self.assertEqual([b["id"] for b in boxes], list(reversed(order[1:-1])))
-                    indices = list(reversed(range(len(boxes))))  # paper below cover in returned PNGs
+                    self.assertEqual([b["id"] for b in boxes], order[1:-1])
+                    indices = list(range(len(boxes)))  # paper below cover in returned PNGs
                     save(task/"query_response.json", {"output":{"boxes_mapping_index":indices}})
                     for i, box in enumerate((boxes[pos] for pos in indices), 1):
                         im = ref.convert("RGBA") if box["id"] == "paper" else Image.new("RGBA", ref.size, "white")

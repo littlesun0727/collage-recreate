@@ -24,6 +24,18 @@ def picture(color):
 
 
 class AppContract(unittest.TestCase):
+    def test_batch_order_preserves_unobserved_occlusions(self):
+        from collage.reveal_order import scene_order
+        ids = ["bg", "a", "text", "b", "side"]
+        layers = [{"id": oid, "bbox": [0, 0, 10, 10]} for oid in ids]
+        layers[-1]["bbox"] = [10, 0, 20, 10]  # Touches, without overlap.
+        self.assertEqual(scene_order(layers, [["side", "b", "a"]]), ids)
+        layers[2]["bbox"] = [20, 0, 30, 10]
+        self.assertEqual(scene_order(layers, [["b"], ["a"]]), ids)
+        reordered = scene_order(layers, [["side", "b", "a"]])
+        self.assertLess(reordered.index("b"), reordered.index("a"))
+        self.assertLess(reordered.index("b"), reordered.index("side"))
+
     def test_popout_single_slot_above_frame_and_beyond_window(self):
         from collage import preview, binding
         wire = {"background":{"type":"solid_color","color":"#ffffff"},
@@ -121,8 +133,8 @@ class AppContract(unittest.TestCase):
             return path
         def remote(task, reference, boxes, key):
             gate.wait(5)
-            self.assertEqual([box["id"] for box in boxes], ["star", "p", "strip"])
-            indices = [0, 1]  # Foreground first in the reply, strip omitted.
+            self.assertEqual([box["id"] for box in boxes], ["strip", "p", "star"])
+            indices = [2, 1]  # Overlapping star below p in the reply, strip omitted.
             save(task/"query_response.json", {"output": {"boxes_mapping_index": indices}})
             for i in range(len(indices)+1):
                 Image.new("RGBA",(100,100),(0,i,0,255)).save(task/f"layers_aug_{i:02d}.png")
@@ -152,13 +164,13 @@ class AppContract(unittest.TestCase):
                 self.assertEqual(status, {"status": "ready"})
                 with urlopen(base+response["bundle_url"]) as res, ZipFile(io.BytesIO(res.read())) as bundle:
                     layers = json.loads(bundle.read("scene.json"))["layers"]
-                    self.assertEqual([o["id"] for o in layers], ["bg","p","star"])
-                    self.assertEqual(layers[1]["source"]["asset_id"], "手机/相册:12")
+                    self.assertEqual([o["id"] for o in layers], ["bg","star","p"])
+                    self.assertEqual(layers[2]["source"]["asset_id"], "手机/相册:12")
                     with Image.open(io.BytesIO(bundle.read(layers[0]["source"]["file"]))) as bg:
                         self.assertEqual(bg.getpixel((0,0)), (255,255,0,255))
-                    members = {"scene.json", layers[0]["source"]["file"], layers[2]["source"]["file"]}
+                    members = {"scene.json", layers[0]["source"]["file"], layers[1]["source"]["file"]}
                     self.assertEqual(set(bundle.namelist()), members)
-                    with Image.open(io.BytesIO(bundle.read(layers[2]["source"]["file"]))) as img:
+                    with Image.open(io.BytesIO(bundle.read(layers[1]["source"]["file"]))) as img:
                         self.assertEqual(img.getpixel((0,0)), (0,1,0,255))
                 self.assertEqual(calls, ["analyze","bind"])
             finally:
@@ -176,9 +188,9 @@ class AppContract(unittest.TestCase):
         def ids(*layers):
             return [o["id"] for o in reveal.reveal_targets([bg, *layers])]
         self.assertEqual(ids(photo, ink), ["ink"])
-        self.assertEqual(ids(ink, photo), ["p", "ink"])
+        self.assertEqual(ids(ink, photo), ["ink", "p"])
         self.assertEqual(ids({**ink, "bbox":[0,0,4,4]}, photo), ["ink"])
-        self.assertEqual(ids(photo, obj("f","frame",[70,70,90,90],photo_id=["p"])), ["f","p"])
+        self.assertEqual(ids(photo, obj("f","frame",[70,70,90,90],photo_id=["p"])), ["p","f"])
         self.assertEqual(ids(photo, obj("t","text",[0,0,60,60],text="Hi")), [])
         self.assertEqual(ids(ink, {**photo,"linked_to":"base"}), ["ink"])
 

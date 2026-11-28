@@ -10,6 +10,7 @@ from .timings import log
 from .lettering import finish_text_layers
 from .object_roles import is_customer_photo
 from .reveal_transport import fetch_batch, reserve_submission
+from .reveal_order import scene_order
 from .storage import read, save
 
 
@@ -60,7 +61,7 @@ def layer_image(task, index, size, alpha):
 
 
 def reveal_targets(layers):
-    """Walk bottom to top for occlusion, then submit in removal order."""
+    """Select extraction targets in analysis order, bottom to top."""
     framed = {p["id"]: frame["id"] for frame in layers if frame["kind"] == "frame"
               for p in carrier_photos(frame, layers)}
     targets = []
@@ -88,7 +89,7 @@ def reveal_targets(layers):
             outline = window_outline({"bbox": obj["bbox"], "rotation": obj.get("rotation", 0)})
             lower_fixed.append((obj["id"], outline))
         targets.append(obj)
-    return targets[::-1]
+    return targets
 
 
 def extract(run, analysis, clean_background=None):
@@ -113,14 +114,16 @@ def extract(run, analysis, clean_background=None):
     current = run/"prepared/reference.png"
     root = run/"reveal"
     save(root/"submission-budget.json", {"limit": max(1, (len(targets)+19)//20)*3})
-    for start in range(0, len(targets), 20):
-        group = targets[start:start+20]
+    returned_batches = []
+    for batch_index, end in enumerate(range(len(targets), 0, -20)):
+        # Remove the upper group first, preserving draw order inside each request.
+        group = targets[max(0, end-20):end]
         boxes = []
         for o in group:
             l,t,r,b = tilted_envelope(o["bbox"], o.get("rotation", 0))
             box = [max(0,int(l)), max(0,int(t)), min(size[0],math.ceil(r)), min(size[1],math.ceil(b))]
             boxes.append(request_object({"id": o["id"], "bbox": box}, size))
-        task = root/f"batch_{start//20:02d}"
+        task = root/f"batch_{batch_index:02d}"
         log(f"{task.name} 构造请求框，元素顺序 {[obj['id'] for obj in group]}")
         reserve_submission(task, root)
         skipped = set(fetch_batch(task, current, boxes, os.environ["360_API_KEY"]) or ())
@@ -154,7 +157,8 @@ def extract(run, analysis, clean_background=None):
                     image.paste(patch, box)
                 store(oid, image)
                 log(f"{task.name} 返回层 {index} → {oid} → {files[oid].name}")
-        if start + 20 < len(targets):
+        returned_batches.append([group[pos]["id"] for pos in indices])
+        if end > 20:
             if 0 in skipped:
                 log(f"{task.name} 缺少后续拆层所需的残余图，保留已有结果并跳过剩余批次")
                 break
@@ -169,8 +173,9 @@ def extract(run, analysis, clean_background=None):
     elif not is_customer_photo(bg):
         store(bg["id"], Image.new("RGBA", size, bg["style"]["fill"]))
     layers = [o for o in layers if o["id"] not in dropped]
-    order = [o["id"] for o in layers]
-    save(root/"scene-order.json", order)
+    order = scene_order(layers, returned_batches)
+    layers = [by_id[oid] for oid in order]
+    save(root/"scene-order.json", {"layer_order": order})
     visible_layers = [o for o in layers if o["kind"] == "text" or o["id"] not in fixed or o["id"] in files]
     if fixed - files.keys():
         log(f"360 未返回固定层 {sorted(fixed - files.keys())}")

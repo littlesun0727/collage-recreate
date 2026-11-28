@@ -37,7 +37,7 @@ class CasePipelineTest(unittest.TestCase):
                 return [{"slot_id": "p", "asset_id": ident, "source_crop": [0, 0, 1, 1],
                          "crop_center": [.5, .5], "mirror_x": False}]
 
-            with patch.object(entry.vlm, "analyze", return_value=analysis), patch.object(entry.vlm, "ask", return_value={"materials":[{"id": ident, "category":"other", "cutout_ok":True, "focus_point":[.5,.5]}]}), patch.object(entry.light_binding, "match", lambda layout, catalog: bind(output.parent/"artifacts", layout, catalog)):
+            with patch.object(entry.vlm, "analyze", return_value=analysis), patch.object(entry.vlm, "ask", return_value={"materials":[{"id": ident, "category":"other", "cutout_ok":True, "focus_point":[.5,.5]}]}), patch.object(entry.light_binding, "match", lambda layout, catalog, on_cutout=None: bind(output.parent/"artifacts", layout, catalog)):
                 entry.run_case(case)
             self.assertEqual({p.name for p in output.iterdir()}, {"analysis.json", "scene.json", "delivery.zip"})
             with ZipFile(output/"delivery.zip") as archive:
@@ -47,7 +47,7 @@ class CasePipelineTest(unittest.TestCase):
             self.assertEqual(read(case/"artifacts/bindings.json")[0]["slot_id"], "p")
             external = Path(temp)/"round-02"/"case"
             output = external/"outputs"
-            with patch.object(entry.vlm, "analyze", return_value=analysis), patch.object(entry.vlm, "ask", return_value={"materials":[{"id": ident, "category":"other", "cutout_ok":True, "focus_point":[.5,.5]}]}), patch.object(entry.light_binding, "match", lambda layout, catalog: bind(output.parent/"artifacts", layout, catalog)):
+            with patch.object(entry.vlm, "analyze", return_value=analysis), patch.object(entry.vlm, "ask", return_value={"materials":[{"id": ident, "category":"other", "cutout_ok":True, "focus_point":[.5,.5]}]}), patch.object(entry.light_binding, "match", lambda layout, catalog, on_cutout=None: bind(output.parent/"artifacts", layout, catalog)):
                 for _ in range(2):
                     self.assertEqual(entry.run_case(case, output_dir=external), output.resolve())
             self.assertEqual(read(output/"scene.json"), scene)

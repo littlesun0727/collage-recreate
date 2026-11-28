@@ -2,7 +2,9 @@
 import base64
 import io
 import math
-from concurrent.futures import Future, ThreadPoolExecutor
+from contextvars import copy_context
+from queue import Queue
+from concurrent.futures import Future, ThreadPoolExecutor, wait
 from zipfile import ZipFile
 from PIL import Image, ImageOps
 
@@ -74,18 +76,41 @@ def write_png_tile(archive, path, canvas_size):
             "offset": [left, top], "size": [right-left, bottom-top]}
 
 
-def build_masks(run, analysis, catalog, bindings, originals):
+# Shared by concurrent benchmark cases and HTTP jobs in this process.
+_MASK_WORKERS = ThreadPoolExecutor(max_workers=5, thread_name_prefix="cutout")
+
+
+def required_assets(analysis, catalog, bindings):
     slots = {o["id"] for o in analysis["objects"] if o.get("mode") in ("cutout", "popout") and is_customer_photo(o)}
     required = {b["asset_id"] for b in bindings if b["slot_id"] in slots and not b.get("skip_popout")}
-    masks = {}
-    for asset in catalog:
-        ident = asset["id"]
-        if ident in required:
-            path = originals[asset["asset_id"]] if originals is not None else run/"prepared"/(ident+".png")
-            with oriented_photo(path) as image:
-                cutout.subject(image, run/"cutouts", ident)
-            masks[ident] = run/"cutouts"/(ident+"-mask.png")
-    return masks
+    return (asset for asset in catalog if asset["id"] in required)
+
+
+def build_mask(run, asset, originals):
+    ident = asset["id"]
+    path = originals[asset["asset_id"]] if originals is not None else run/"prepared"/(ident+".png")
+    with oriented_photo(path) as image:
+        cutout.subject(image, run/"cutouts", ident)
+    return run/"cutouts"/(ident+"-mask.png")
+
+
+def batch_masks(run, assets, originals):
+    futures = {}
+    try:
+        for asset in assets:
+            if asset["id"] not in futures:
+                futures[asset["id"]] = _MASK_WORKERS.submit(copy_context().run, build_mask, run, asset, originals)
+        return {ident: future.result() for ident, future in futures.items()}
+    finally:
+        for future in futures.values():
+            future.cancel()
+        # Finish any in-flight writes before releasing the case lock.
+        if futures:
+            wait(futures.values())
+
+
+def build_masks(run, analysis, catalog, bindings, originals):
+    return batch_masks(run, required_assets(analysis, catalog, bindings), originals)
 
 
 def popout_crop(obj, mask_path, source):
@@ -126,10 +151,15 @@ def deliver(run, analysis, catalog, bindings, files, outputs=None, masks=None):
             archive.write(path, f"masks/{ident}.png")
         # Older Reveal manifests may list retained objects in extraction order.
         manifest = run/"reveal/scene-order.json"
-        retained = set(read(manifest)) if manifest.is_file() else None
-        for oid in analysis["layer_order"]:
-            if retained is not None and oid not in retained:
-                continue
+        order = analysis["layer_order"]
+        if manifest.is_file():
+            saved = read(manifest)
+            if isinstance(saved, list):
+                retained = set(saved)
+                order = [oid for oid in order if oid in retained]
+            else:
+                order = saved["layer_order"]
+        for oid in order:
             obj = objects[oid]
             if obj["kind"] == "text" and lettering.get(oid, {}).get("action") == "embedded":
                 log(f"{oid} 文字已保留在承载层，跳过独立 PNG")
@@ -186,12 +216,15 @@ def run_stage(stage, func, *args):
         raise StageError(stage, exc) from exc
 
 
-def bind_and_save(run, analysis, catalog):
+def bind_and_save(run, analysis, catalog, on_cutout=None):
     if isinstance(catalog, Future):
         from .light_binding import match
-        bindings = match(analysis, catalog.result())
+        bindings = match(analysis, catalog.result(), on_cutout=on_cutout)
     else:
         bindings = vlm.bind(run, analysis, catalog)
+        if on_cutout is not None:
+            for asset in required_assets(analysis, catalog, bindings):
+                on_cutout(asset)
     save(run/"bindings.json", bindings, indent=2)
     for row in bindings:
         log(f"选片 {row['slot_id']} → {row['asset_id']}，裁切 {row['source_crop']}")
@@ -215,17 +248,25 @@ def assemble(run, outputs, analysis, catalog, timings=None, originals=None):
     bg = next(obj for obj in analysis["objects"] if obj["id"] == analysis["layer_order"][0])
     if timings:
         clean_plan = "并行清底" if bg.get("background_type") == "reference_clean" else "跳过清底"
-        timings.emit("assemble", f"并行启动 binding 和 reveal；背景 {bg.get('background_type')}，{clean_plan}")
-    with ThreadPoolExecutor(max_workers=3) as workers:
+        timings.emit("assemble", f"并行启动 binding、cutout_masks 和 reveal；背景 {bg.get('background_type')}，{clean_plan}")
+    assets = Queue()
+
+    def bind():
+        try:
+            return bind_and_save(run, analysis, catalog, assets.put)
+        finally:
+            assets.put(None)
+
+    with ThreadPoolExecutor(max_workers=4) as workers:
         clean = None
         if bg.get("background_type") == "reference_clean":
             clean = workers.submit(measured, "reference_clean", background.clean, run, bg, analysis["reference_size"])
-        binding = workers.submit(measured, "binding", bind_and_save, run, analysis, catalog)
+        masks = workers.submit(measured, "cutout_masks", batch_masks, run, iter(assets.get, None), originals)
+        binding = workers.submit(measured, "binding", bind)
         layers = workers.submit(measured, "reveal", extract_and_save, run, analysis, clean)
         bindings = binding.result()
         materials = catalog.result() if isinstance(catalog, Future) else catalog
-        masks = measured("cutout_masks", build_masks, run, analysis, materials, bindings, originals)
-        measured("delivery", deliver, run, analysis, materials, bindings, layers.result(), outputs, masks)
+        measured("delivery", deliver, run, analysis, materials, bindings, layers.result(), outputs, masks.result())
 
 
 def finish(run):
