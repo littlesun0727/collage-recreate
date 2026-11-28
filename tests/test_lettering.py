@@ -84,6 +84,49 @@ class LetteringDelivery(unittest.TestCase):
                         self.assertIn("paper", read(run/"lettering.json")["t"]["inpainted_carriers"])
                     self.assertEqual(carrier.getchannel("A").getextrema(), (255,255))
 
+    def test_blurred_strokes_still_fail_when_detection_loses_the_line(self):
+        from PIL import ImageFilter
+        from collage.text_detection import residual_strokes
+        original = Image.new("RGB", (160, 30), "white")
+        ImageDraw.Draw(original).text((4, 8), "letters on the paper", fill="black")
+        region = [[2, 5, 120, 25]]
+        self.assertEqual(residual_strokes(original, original.filter(ImageFilter.GaussianBlur(.65)), region), region)
+        self.assertEqual(residual_strokes(original, Image.new("RGB", original.size, "white"), region), [])
+
+    def test_failed_ocr_restores_pixels_and_omits_text_from_delivery(self):
+        from collage.lettering import finish_text_layers
+        content = "one two three four five"
+        size = (200, 45)
+        with tempfile.TemporaryDirectory() as tmp:
+            run = Path(tmp)
+            (run/"prepared").mkdir()
+            paper = Image.new("RGBA", size, "white")
+            ImageDraw.Draw(paper).text((8, 8), content, fill="black")
+            paper.convert("RGB").save(run/"prepared/reference.png")
+            files = {"bg": run/"paper.png"}
+            paper.save(files["bg"])
+            objects = [
+                {"id":"bg", "kind":"background", "background_type":"reference_clean", "bbox":[0,0,*size]},
+                {"id":"t", "kind":"text", "text":content, "bbox":[5,6,145,24]}]
+            analysis = {"reference_size":list(size), "layer_order":["bg","t"], "objects":objects}
+            def composite(layers, files, size, hidden):
+                self.assertEqual(hidden, {"t"})
+                with Image.open(files["bg"]) as clean:
+                    self.assertNotEqual(clean.tobytes(), paper.tobytes())
+                    return clean.copy()
+            with patch("collage.text_detection.detect", return_value=[[5, 6, 140, 20]]) as detect:
+                decisions = finish_text_layers(run, objects, files, self.fail, size, composite)
+            self.assertEqual(detect.call_count, 2)
+            self.assertEqual(decisions['t']['ocr']['status'], 'residual')
+            self.assertEqual(decisions['t']['restored_carriers'], ['bg'])
+            save(run/"lettering.json", decisions)
+            pipeline.deliver(run, analysis, [], [], files)
+            with ZipFile(run/"delivery.zip") as archive:
+                scene = json.loads(archive.read("scene.json"))
+                self.assertEqual([obj["id"] for obj in scene["layers"]], ["bg"])
+                with archive.open(scene["layers"][0]["source"]["file"]) as f, Image.open(f) as im:
+                    self.assertEqual(im.tobytes(), paper.tobytes())
+
     def test_clean_background_and_text_without_remote_call(self):
         with tempfile.TemporaryDirectory() as tmp:
             run = Path(tmp)

@@ -138,6 +138,19 @@ def popout_crop(obj, mask_path, source):
     return [x/w,y/h,(x+cw)/w,(y+ch)/h]
 
 
+def photo_source(obj, binding, sources, masks):
+    if binding.get("skip_popout"):
+        return None
+    source = {"type": "customer_asset", "asset_id": sources[binding["asset_id"]],
+              **{k: binding[k] for k in ("source_crop", "crop_center", "mirror_x")}}
+    if obj.get("mode") in ("cutout", "popout") and masks is not None:
+        ident = binding["asset_id"]
+        source["mask_file"] = "masks/" + masks[ident].stem.removesuffix("-mask") + ".png"
+        if obj.get("mode") == "popout":
+            source["source_crop"] = popout_crop(obj, masks[ident], source)
+    return source
+
+
 def deliver(run, analysis, catalog, bindings, files, outputs=None, masks=None):
     if outputs is None:
         outputs = run
@@ -165,16 +178,9 @@ def deliver(run, analysis, catalog, bindings, files, outputs=None, masks=None):
                 log(f"{oid} 文字已保留在承载层，跳过独立 PNG")
                 continue
             if is_customer_photo(obj):
-                binding = photos[oid]
-                if binding.get("skip_popout"):
+                source = photo_source(obj, photos[oid], sources, masks)
+                if source is None:
                     continue
-                source = {"type": "customer_asset", "asset_id": sources[binding["asset_id"]],
-                          **{k: binding[k] for k in ("source_crop", "crop_center", "mirror_x")}}
-                if obj.get("mode") in ("cutout", "popout") and masks is not None:
-                    ident = binding["asset_id"]
-                    source["mask_file"] = "masks/" + masks[ident].stem.removesuffix("-mask") + ".png"
-                    if obj.get("mode") == "popout":
-                        source["source_crop"] = popout_crop(obj, masks[ident], source)
             else:
                 if obj["kind"] in ("overlay", "frame") and oid not in files:
                     log(f"{oid} 缺少提取结果，跳过交付")
@@ -231,8 +237,8 @@ def bind_and_save(run, analysis, catalog, on_cutout=None):
     return bindings
 
 
-def extract_and_save(run, analysis, clean):
-    files = reveal.extract(run, analysis, clean)
+def extract_and_save(run, analysis, clean, compose):
+    files = reveal.extract(run, analysis, clean, compose)
     save(run/"fixed-index.json", {oid: path.relative_to(run).as_posix()
                                   for oid, path in files.items()}, indent=2)
     return files
@@ -263,7 +269,35 @@ def assemble(run, outputs, analysis, catalog, timings=None, originals=None):
             clean = workers.submit(measured, "reference_clean", background.clean, run, bg, analysis["reference_size"])
         masks = workers.submit(measured, "cutout_masks", batch_masks, run, iter(assets.get, None), originals)
         binding = workers.submit(measured, "binding", bind)
-        layers = workers.submit(measured, "reveal", extract_and_save, run, analysis, clean)
+        def compose(layers, files, size, hidden):
+            from . import preview
+            materials = catalog.result() if isinstance(catalog, Future) else catalog
+            sources = {a["id"]: a["asset_id"] for a in materials}
+            photos = {p["slot_id"]: p for p in binding.result()}
+            mask_paths = masks.result()
+            asset_masks = {sources[ident]: path for ident, path in mask_paths.items()}
+            scene = {}
+            for obj in layers:
+                oid = obj["id"]
+                if oid in hidden:
+                    continue
+                if is_customer_photo(obj):
+                    source = photo_source(obj, photos[oid], sources, mask_paths)
+                    if source:
+                        scene[oid] = {**obj, "source": source}
+                elif oid in files:
+                    scene[oid] = obj
+
+            def draw(obj, foreground=False):
+                if is_customer_photo(obj):
+                    return preview.photo(run, obj, scene, originals, foreground=foreground,
+                                         masks=asset_masks)
+                with Image.open(files[obj["id"]]) as image:
+                    return image.convert("RGBA"), (0, 0)
+
+            return preview.compose(size, scene, draw)
+
+        layers = workers.submit(measured, "reveal", extract_and_save, run, analysis, clean, compose)
         bindings = binding.result()
         materials = catalog.result() if isinstance(catalog, Future) else catalog
         measured("delivery", deliver, run, analysis, materials, bindings, layers.result(), outputs, masks.result())

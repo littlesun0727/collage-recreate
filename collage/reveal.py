@@ -7,7 +7,7 @@ from .frame_links import carrier_photos
 from .layout.window_shapes import window_outline
 from .layout.windows import occluding_outlines, tilted_envelope
 from .timings import log
-from .lettering import finish_text_layers
+from .lettering import finish_text_layers, fixed_base
 from .object_roles import is_customer_photo
 from .reveal_transport import fetch_batch, reserve_submission
 from .reveal_order import scene_order
@@ -92,7 +92,7 @@ def reveal_targets(layers):
     return targets
 
 
-def extract(run, analysis, clean_background=None):
+def extract(run, analysis, clean_background=None, compose=fixed_base):
     size = tuple(analysis["reference_size"])
     by_id = {obj["id"]: obj for obj in analysis["objects"]}
     bg = by_id[analysis["layer_order"][0]]
@@ -180,6 +180,6 @@ def extract(run, analysis, clean_background=None):
     if fixed - files.keys():
         log(f"360 未返回固定层 {sorted(fixed - files.keys())}")
     log("开始文字重叠检查、擦除与独立文字重绘")
-    decisions = finish_text_layers(run, visible_layers, files, store, size)
+    decisions = finish_text_layers(run, visible_layers, files, store, size, compose)
     save(run/"lettering.json", decisions, indent=2)
     return files

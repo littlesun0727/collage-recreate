@@ -38,7 +38,7 @@ def analysis_bbox(run, analysis):
     log("已写入 artifacts/analysis-bbox.png")
 
 
-def photo(run, obj, layers, originals=None, archive=None, *, foreground=False):
+def photo(run, obj, layers, originals=None, archive=None, *, foreground=False, masks=None):
     src = obj["source"]
     if originals is not None:
         from .pipeline import oriented_photo
@@ -50,7 +50,8 @@ def photo(run, obj, layers, originals=None, archive=None, *, foreground=False):
     base = layers[obj["linked_to"]] if obj.get("linked_to") else obj
     if cutout or foreground:
         if src.get("mask_file"):
-            with archive.open(src["mask_file"]) as stream, Image.open(stream) as mask:
+            stream = (masks[src["asset_id"]].open("rb") if masks is not None else archive.open(src["mask_file"]))
+            with stream, Image.open(stream) as mask:
                 if mask.size != im.size:
                     raise ValueError(f"Mask dimensions differ from source for {obj['id']}")
                 im.putalpha(mask.convert("L"))
@@ -98,26 +99,37 @@ def photo(run, obj, layers, originals=None, archive=None, *, foreground=False):
     return tile, (round((left+right-tile.width)/2), round((top+bottom-tile.height)/2))
 
 
+def compose(size, layers, draw):
+    canvas = Image.new("RGBA", tuple(size))
+    foregrounds = {}
+    positions = {oid: pos for pos, oid in enumerate(layers)}
+    for oid, obj in layers.items():
+        if obj.get("mode") == "popout":
+            above = obj.get("popout_above", oid)
+            anchor = above if positions.get(above, -1) > positions[oid] else oid
+            foregrounds.setdefault(anchor, []).append(obj)
+    for oid, obj in layers.items():
+        tile, offset = draw(obj)
+        canvas.alpha_composite(tile, offset)
+        for front in foregrounds.get(oid, []):
+            tile, offset = draw(front, foreground=True)
+            canvas.alpha_composite(tile, offset)
+    return canvas
+
+
 def final(run, outputs, originals=None):
     with ZipFile(outputs/"delivery.zip") as archive:
         scene = json.loads(archive.read("scene.json"))
-        canvas = Image.new("RGBA", tuple(scene["canvas_size"]))
         layers = {obj["id"]: obj for obj in scene["layers"]}
-        foregrounds = {}
-        for obj in layers.values():
-            if obj.get("mode") == "popout":
-                foregrounds.setdefault(obj.get("popout_above", obj["id"]), []).append(obj)
-        for obj in scene["layers"]:
+
+        def draw(obj, foreground=False):
             src = obj["source"]
             log(f"回贴 {obj['id']}，来源 {src.get('asset_id') or src.get('file')}")
             if src["type"] == "png":
                 with Image.open(io.BytesIO(archive.read(src["file"]))) as tile:
-                    canvas.alpha_composite(tile.convert("RGBA"), tuple(src["offset"]))
-            else:
-                tile, offset = photo(run, obj, layers, originals, archive)
-                canvas.alpha_composite(tile, offset)
-            for front in foregrounds.get(obj["id"], []):
-                tile, offset = photo(run, front, layers, originals, archive, foreground=True)
-                canvas.alpha_composite(tile, offset)
+                    return tile.convert("RGBA"), tuple(src["offset"])
+            return photo(run, obj, layers, originals, archive, foreground=foreground)
+
+        canvas = compose(scene["canvas_size"], layers, draw)
     canvas.save(run/"final.png")
     log("已写入 artifacts/final.png")
